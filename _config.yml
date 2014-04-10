@@ -4,7 +4,7 @@
 
 url: http://daya0576.github.io
 title: My Octopress Blog
-subtitle: A blogging to memorialize my life.
+subtitle: A blog to memorialize my life.
 author: Daya
 simple_search: https://www.google.com/search
 description: nothing at all
@@ -27,7 +27,7 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-permalink: /blog/:year/:month/:day/:title/
+permalink: /blog/:year:month:day/:title/
 source: source
 destination: public
 plugins: plugins
@@ -44,7 +44,9 @@ pygments: false # default python pygments have been replaced by pygments.rb
 paginate: 5          # Posts per page on the blog index
 pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
 recent_posts: 3       # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_link: "more &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+
+sidebar: collapse
 
 titlecase: true       # Converts page and post titles to titlecase
 

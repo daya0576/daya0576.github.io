@@ -1,9 +1,10 @@
 body > nav {
+
   position: relative;
   background-color: $nav-bg;
   
   padding-top: .35em;
-  padding-bottom: .35em;
+  padding-bottom: .38em;
   form {
     @include background-clip(padding-box);
     margin: 0; padding: 0;
@@ -36,14 +37,17 @@ body > nav {
             border: 1px solid #ffffff;
             background: #ffffff;}
   }
+
   ul { display: none; }
   @media only screen and (min-width: 550px) {
-    font-size: .9em;
+    font-size: .85em;
     ul {
+      
       @include horizontal-list(0);
       float: left;
       display: block;
-      padding-top: .15em;
+      padding-top: .20em;
+	
     }
     ul.subscription {
       margin-left: .8em;
@@ -54,13 +58,26 @@ body > nav {
       margin: 0;
     }
     a {
-      font-family: $sans;
-      font-weight: 400;
+	 &:hover {
+	      color: hsl(209.01, 86.94%, 50.04%);
+	      text-shadow:
+		hsl(209.01, 86.94%, 42.04%) 0px 0px 5px,
+		hsl(209.01, 86.94%, 42.04%) 0px 0px 7px,
+		hsl(209.01, 86.94%, 52.04%) 0px 0px 9px,
+		hsl(209.01, 86.94%, 52.04%) 0px 0px 11px,
+		hsl(0, 0%, 0%) 0 0 2px; 
+
+	     line-height: 1.3em;
+	}
+
+  
+      font-family: SimHei;
+      font-weight: 600;
       float: left;
       text-decoration: none;
-      font-size: 1.2em;
+      font-size: 1.3em;
       padding: .1em 0;
-      line-height: 1.5em;
+      line-height: 1.4em;
     }
     li + li {
       margin-left: .8em;
@@ -72,7 +89,7 @@ body > nav {
       float: right;
       text-align: left;
       padding-left: .8em;
-      padding-top: 5px;
+      padding-top: 3px;
       width: $sidebar-width-medium - $pad-medium*2 - $sidebar-pad-medium + 20px;
       .search {
         width: 93%;

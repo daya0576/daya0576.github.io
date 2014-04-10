@@ -1,10 +1,13 @@
 $noise-bg: image-url('noise.png') top left !default;
 $img-border: inline-image('dotted-border.png') !default;
 
-// 
-$theme-color: #F94C3F ;
-$main-title-color: $theme-color;
-
+ 
+//$theme-color: #222 ;
+//$theme-color: #002B36 ;
+//$theme-color: #0B40A3;
+$theme-color:  #225076;
+//$main-title-color: $theme-color;
+$main-title-color: #225076;
 // Main Link Colors
 $link-color: lighten($theme-color, 3) !default;
 $link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
@@ -26,7 +29,8 @@ $text-color-light: #aaa !default;
 $type-border: #ddd !default;
 
 /* Navigation */
-$nav-bg: $theme-color !default;
+//$nav-bg: $theme-color !default;
+$nav-bg: #0082D6;
 $nav-bg-front: image-url('noise.png') !default;
 $nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
 $nav-color: darken($nav-bg, 38) !default;

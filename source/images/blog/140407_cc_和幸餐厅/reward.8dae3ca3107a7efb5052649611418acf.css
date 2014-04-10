@@ -1,0 +1,58 @@
+﻿/* 砸金蛋奖励 */
+
+
+/* 覆盖全局pop-win上的样式 */
+.eggs-win{
+    padding:0;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    box-shadow: 0 0 6px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 0 6px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0 6px 2px rgba(0,0,0,0.2);
+}
+.eggs-win .close,.eggs-win .close:hover{background: none;right: 10px;top: 9px;z-index:999; cursor: pointer;}
+.eggs-win .wrap{overflow:hidden;border-radius: 5px;}
+
+.egg_layer{ width:637px; height:297px; background:url(http://si1.s1.dpfile.com/s/c/app/group/i/reward/eggs-bg.acc904dffcb870d346d59990b643097b.png) no-repeat 0 0; text-align:left; }
+.egg_tit{ position: relative; height:43px; padding:0 0 0 45px;}
+.egg_tit h3{ padding-top:14px; *padding-top:15px;font-size:12px; font-weight:bold; color:#fff;}
+.egg_tit .e_closed{ float:right; width:18px; height:14px; text-indent:-9999px; overflow:hidden; position:absolute; top:15px; right:17px;}
+
+.egg_layer .egg_cont{ width:629px;height:254px; padding:0 4px;overflow:hidden;}
+.egg_layer .egg_cont_inner {width:637px; height:99px;padding-top:155px; overflow:hidden; background-repeat: no-repeat;}
+.egg_layer .egg_cont .dian,.egg_layer .egg_cont .ping,.egg_layer .egg_cont .jie,.egg_layer .egg_cont .hun{padding-top:138px;}
+.egg_layer .egg_cont .p1{ height:30px; text-indent:-99999px; overflow:hidden;}
+.egg_layer .egg_cont .p2{text-align:center; font-size:14px; color:#6f4300;}
+.egg_layer .egg_cont .p2 a{color:#A30707;}
+.egg_layer .egg_cont .p2 a:hover{text-decoration:underline;}
+.egg_layer .egg_cont .sorry .p2 { margin-top: 10px;}
+.egg_layer .egg_layer .egg_cont .p2 a:hover{text-decoration:none;}
+.egg_layer .egg_cont .p2 strong span{color:#ffff00;}
+.egg_layer .egg_cont .p3{text-align:center; color:#ffff00;font-size:14px; font-weight:700;}
+.egg_layer .egg_cont .p3 span{color:#fff; font-weight:normal; }
+
+.egg_layer .egg_cont .egg_cont_inner{background-repeat:no-repeat;background-position:0 0;}
+
+.index_layer{width:630px; height:310px; background-repeat: no-repeat; text-align:left; border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;box-shadow: 0 0 6px 2px #BCBCBC; -webkit-box-shadow: 0 0 6px 2px #BCBCBC;-moz-box-shadow: 0 0 6px 2px #BCBCBC;}
+.index_layer .egg_tit{height: 35px;}
+.index_layer .egg_tit h3{color:#a61414;}
+.index_layer .egg_tit .e_closed { top: 11px; right: 7px;}
+.index_layer .egg_cont{ padding-left:282px; overflow:hidden;}
+.index_layer .egg_cont p,.index_layer .egg_cont p a{ color:#a30707;}
+.index_layer .egg_cont h4{ height:70px; margin-top: 16px;text-indent:-99999px; overflow:hidden;}
+.index_layer .egg_cont .p1{height: 20px; text-indent:-9999px; overflow:hidden; }
+.index_layer .egg_cont .breakeare { position: relative; margin-top: 95px; padding-left:97px;}
+.index_layer .egg_cont .codeeara { padding-left:2px; margin:8px 0 25px 0;zoom:1;}
+.index_layer .egg_cont .codeeara:after{ clear:both; display:block; height:0; content:''; visibility:hidden;}
+.index_layer .egg_cont .codeeara input,.index_layer .egg_cont .codeeara img{ vertical-align:middle;}
+.index_layer .egg_cont .codeeara img{height:25px;width:85px;}
+.index_layer .egg_cont .codeeara input{ float:left; width:134px; height:25px; margin-right:10px; font-size:14px; background:none; border:none;}
+.index_layer .egg_cont .codeeara span{float:left; width:83px; height:26px; padding:1px; margin-right:10px; overflow:hidden; }
+.index_layer .egg_cont .codeeara a{ float:left; width:48px; height:30px; margin-top:-3px; margin-top:0\9; text-decoration:underline;line-height:14px;}
+.index_layer .egg_cont .butneara button{ width:137px; height:46px; display:block;margin-right:10px; background:none; border:none; cursor:pointer;vertical-align:middle; text-indent:-9999px; overflow:hidden;}
+.index_layer .egg_cont .butneara a{vertical-align:middle;text-decoration:underline;}
+
+.index_layer .egg_cont .breakeare .more { position: absolute; top: 100px; left: 150px; color: #a30707; text-decoration: underline;}
+
+

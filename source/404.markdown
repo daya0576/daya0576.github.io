@@ -1,0 +1,16 @@
+---
+layout: page
+
+title: "404 Error"
+
+date: 2013-4-21 02:35
+
+comments: false
+
+sharing: false
+
+footer: false
+---
+
+哈哈哈哈      出错咯
+

@@ -1,0 +1,141 @@
+.reviewForm
+{
+
+}
+
+.reviewForm h3
+{
+color:#E51313;
+font-size:14.8px;
+font-weight:bold;
+margin:0;
+padding:5px 0 5px 8px;
+}
+
+.reviewForm .rating
+{
+	width:515px;
+	border:1px solid #f5f5f5;
+}
+
+.reviewForm sub
+{
+	margin-left:6px;
+	font-size:13px;
+	*font-size:medium;
+	line-height:normal;
+	vertical-align:baseline;
+	font-weight:normal;
+	color:#999;
+}
+
+.reviewForm .formBody
+{
+margin:0;
+width:680px;
+}
+
+.reviewForm .formBody table
+{
+	margin:0px;
+}
+
+.reviewForm .formBody table tbody tr th
+{
+	text-align:left;
+	font-weight:bold;
+	padding-bottom:8px;
+}
+
+.reviewForm .formBody table tbody tr td
+{
+	padding:1px 0 2px 0;
+	margin:0px;
+}
+
+.reviewForm .formBody table tbody tr.score td input
+{
+}
+
+.reviewForm .formBody table tbody tr.score td p
+{
+	text-align:right;
+}
+
+.reviewForm .formBody table tbody tr.score td p.l
+{
+	padding-left:0px;
+	text-align:left;
+}
+
+.reviewForm .formBody table tbody tr.score td
+{
+}
+
+.reviewForm .formBody table tbody tr.content td textarea
+{
+	width:530px;
+}
+
+.reviewForm .formBody table tbody tr.contentInfo td .fv-def
+{
+	color:#999;
+}
+
+.reviewForm .formBody table tbody tr.contentInfo td .fv-err span,
+.reviewForm .formBody table tbody tr.contentInfo td .fv-err em
+{
+	font-weight:bold;
+}
+
+.reviewForm .formBody table tbody tr.contentInfo td .fv-def span,
+.reviewForm .formBody table tbody tr.contentInfo td .fv-def em
+{
+	color:#093;
+	font-weight:bold;
+}
+
+.reviewForm .formBody table tbody tr.favrate td label
+{
+	margin-right:8px;
+}
+
+.reviewForm .formBody table tbody tr.dishtag td input, .reviewForm .formBody table tbody tr.shoptag td input, .reviewForm .formBody table tbody tr.transpark td input
+{
+	width:330px;
+}
+
+.reviewForm .formBody table tbody tr.category td
+{
+	font-weight:bold;
+}
+
+.reviewForm .formBody table tbody tr.btn td
+{
+	padding-top:18px;
+}
+
+.reviewForm .formBody table tbody tr.btn td input
+{
+	margin-right:15px;
+}
+
+.reviewForm{ position:relative; zoom:1;}
+.reviewForm h3{ padding:10px 15px; background:#efefef; font-size:13px; color:#999; font-weight:bold;}
+.reviewForm .con{ background:#f5f5f5; padding:10px 5px 0px 15px;}
+.reviewForm .itop{ top:12px; right:15px; position:absolute;}
+
+.reviewForm .starTip{background:#ff9934;color:#fff;padding:3px 5px;visibility:hidden;font-weight:bold;}
+
+
+#renrenCheck{margin-right:5px;}
+
+.reviewForm .shopspectag{}
+.reviewForm .shopspectag dl dt{float:left;width:60px;}
+.reviewForm .shopspectag dl dd{float:left;width:525px;*width:530px;}
+.reviewForm .shopspectag dl input{margin:0px 4px 4px 0px;*margin-right:2px;vertical-align:middle;}
+.reviewForm .spectagCheck{display:inline-block;margin:0px 8px 4px 0px;*margin-bottom:0px;}
+
+.moreSpecTagCheckBtn{display:block;background:transparent url(http://si1.s1.dpfile.com/s/c/app/main/i/review-form/shop-old.8aa1b19a134dd383548fbd39c04d083a.png) no-repeat scroll 0 0px;background-position:left -493px;color:#66c;cursor:pointer;padding-left:8px;text-decoration:underline;display:inline-block;}
+
+.reviewForm .otherSpecTag{color:#999;}
