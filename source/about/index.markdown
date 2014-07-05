@@ -7,4 +7,7 @@ sharing: true
 footer: true
 ---
 
-I'm still finding myself.
+remember the good times.    
+
+<img style="border-radius: 15px" class="image1" src="/images/blog\dairy/pingpang.jpg"   width="440" />
+

@@ -2,13 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-#url: https:/www.changchen.me/
-url: http://daya0576.github.io/
-title: My Octopress Blog
-subtitle: A blog to memorialize my life.
+url: http://www.changchen.me
+title: 你是我的小呀小苹果~
+subtitle: Things get worse before they get better.
 author: Daya
 simple_search: https://www.google.com/search
-description: nothing at all
+description: ^_^; 
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -18,13 +17,15 @@ date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
-subscribe_email:
+subscribe_email: daya0576@gmail.com
 # RSS feeds can list your email address if you like
-email:
+email: daya0576@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
+
+encoding: utf-8
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
@@ -42,10 +43,10 @@ rdiscount:
     - smart
 pygments: false # default python pygments have been replaced by pygments.rb
 
-paginate: 5          # Posts per page on the blog index
+paginate: 6          # Posts per page on the blog index
 pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
 recent_posts: 3       # Posts in the sidebar Recent Posts section
-excerpt_link: "more &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_link: "继续阅读 &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 
 sidebar: collapse
 
@@ -106,3 +107,5 @@ facebook_like: false
 # duoshuo comments
 duoshuo_comments: true
 duoshuo_short_name: daya0576
+
+weibo_user: 2478163907

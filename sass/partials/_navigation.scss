@@ -4,7 +4,7 @@ body > nav {
   background-color: $nav-bg;
   
   padding-top: .35em;
-  padding-bottom: .38em;
+  padding-bottom: .10em;
   form {
     @include background-clip(padding-box);
     margin: 0; padding: 0;
@@ -33,7 +33,7 @@ body > nav {
   fieldset.mobile-nav{ float: left; width: 48%;
     select{ width: 100%; 
             font-size: .8em;
-            font-weight: 900;
+            font-weight: 700;
             border: 1px solid #ffffff;
             background: #ffffff;}
   }
@@ -46,7 +46,6 @@ body > nav {
       @include horizontal-list(0);
       float: left;
       display: block;
-      padding-top: .20em;
 	
     }
     ul.subscription {
@@ -55,7 +54,7 @@ body > nav {
       li:last-child a { padding-right: 0; }
     }
     ul li {
-      margin: 0;
+      margin: 0.1;
     }
     a {
 	 &:hover {
@@ -89,7 +88,6 @@ body > nav {
       float: right;
       text-align: left;
       padding-left: .8em;
-      padding-top: 3px;
       width: $sidebar-width-medium - $pad-medium*2 - $sidebar-pad-medium + 20px;
       .search {
         width: 93%;

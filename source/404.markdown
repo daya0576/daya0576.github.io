@@ -12,5 +12,12 @@ sharing: false
 footer: false
 ---
 
-哈哈哈哈      出错咯
+找不到页面咯 ![](http://i1.dpfile.com/s/img/editor/Emoticon84.gif)
 
+
+<h3> 看看下面有木有你要找的东东？</h3>
+<div id="blog-archives">
+{% for post in site.posts limit: 5 %}
+ {% include archive_post.html %} 
+{% endfor %}
+</div>
