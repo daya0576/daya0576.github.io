@@ -1,0 +1,70 @@
+---
+layout: post
+title: "Diary2016_03"
+date: 2016-03-03 00:21:21 +1100
+comments: true
+categories: [diary, life]
+---
+
+试着去写写日记吧。 或许可以让你看到一个不一样的我吧 :")  
+
+<!--more-->
+   
+
+
+>### 2016/03/03 ###
+----------
+迷茫~~    
+<img  style="max-height:530px" class="lazy" data-original="/images/blog/160303_diary/lost.JPG">
+ 
+
+
+>### 2016/03/04 ###
+----------
+miss u~    
+sry, too busy to write diary..        
+<img  style="max-height:530px" class="lazy" data-original="/images/blog/160303_diary/missu.JPG">
+ 
+
+>### 2016/03/13 ###
+----------
+今天完全沉浸在代码的世界中了，都不知道该怎么哄女朋友开心了。    
+要是女朋友也能像c语言一样，用GDB设断点调bug就好了。      
+<img  style="max-height:530px" class="lazy" data-original="/images/blog/160303_diary/icecream.JPG">
+ 
+
+>### 2016/03/16 ###
+----------
+好累，疲惫了一天，从12点上到8点，    
+回家想休息一下，但一想起上课的时候还有好多没懂，还有一堆好难好难的作业，心里就。。    
+晚上下雨了，出门的时候突然就有种高中夜自修下雨天或是出温岭地铁站的感觉。    
+突然发现从高一到现在已经八年过去了。。哎       
+真的不想看书了，晚上早点睡觉，明天早点起来学习好了，加油~       
+心累，真怕自己崩溃。    
+<img  style="max-height:530px" class="lazy" data-original="/images/blog/160303_diary/busy.JPG">
+ 
+
+>### 2016/03/20 ###
+----------
+疲惫，越是敲代码越是生出一丝无奈感，找各种接口逃避。    
+明天休息一天好了，哎~~       
+<img  style="max-height:430px" class="lazy" data-original="/images/blog/160303_diary/itta.JPG">
+ 
+
+>### 2016/03/21 ###
+----------
+Sad in rainy day.    
+<img  style="max-height:430px" class="lazy" data-original="/images/blog/160303_diary/sadrabbit.JPG">
+ 
+
+>### 2016/03/30 ###
+----------
+有时候真的不知道自己在坚持什么，拼命的努力就是对的吗？我到底是谁。     
+<img  style="max-height:430px" class="lazy" data-original="/images/blog/160303_diary/panda.png">
+ 
+
+>### 2016/03/31 ###
+----------
+自己做的海鲜面还挺不错的，试着去尝试新事物，接下来的就变得没那么难了。      
+<img style="max-height:430px" class="lazy" data-original="/images/blog/160303_diary/noodle.JPG">
+ 

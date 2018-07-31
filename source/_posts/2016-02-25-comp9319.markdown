@@ -1,0 +1,135 @@
+---
+layout: post
+title: "COMP9319 - Web Data Compression and Search 16s1"
+date: 2016-02-25 17:02:05 +1100
+comments: true
+categories: [unsw, comp9319]
+---
+
+>来unsw的第一个学期，选了四门课，    
+分别用四篇日志记录每门课程的心路历程。       
+这篇日志写的是 COMP9319 - Web Data Compression and Search
+
+<!--more-->
+
+
+Write down your experience about this course in this url:     
+[http://www.unsw.co/rango/category/comp9319/](http://www.unsw.co/rango/category/comp9319/)   
+
+
+>### 2016/02/25 ###
+----------
+这门课的主页(Semester 1 2016)：   
+[http://webapps.cse.unsw.edu.au/webcms2/course/index.php?cid=2440](http://webapps.cse.unsw.edu.au/webcms2/course/index.php?cid=2440)    
+Assessment：   
+- 3 Programming assignments: 20 points, 30 points and 50 points respectively.   
+- Final exam: 100 points.   
+- Final Mark : 2 * (Assgt1 + Assgt2 + Assgt3) * FinalExam / (Assgt1 + Assgt2 + Assgt3 + FinalExam)   
+ 
+
+>### 2016/03/03 ###
+----------
+今天上了第一节课，介绍了课程讲了两个算法，感觉这个老师还是很棒的。    
+充满激情。。上课到忘我的时候都一直闭着眼睛。    
+下课后的感觉就是在知识的海洋中遨游了三个小时~~~    
+印象最深的是三个片段：   
+1.他说compression和searching都是很无聊的东西，但是searching compressed后的data就变得很有趣了。   
+2.他说我门的tutorial没有tutor。。 因为他说没办法这门课不知道找不到tutor，哈哈    
+3.讲到Huffman Tree的时候，他一直在抱怨这个想法这么简单，要是自己早出生两百年，说不定，。。。     
+很有趣 很有激情的一个香港老师，虽然说话有口音，但是还是能听懂90%，还是没有障碍的。    
+ 
+
+>### 2016/03/10 ###
+----------
+好喜欢这门课，三个小时真的很享受思考的感觉。    
+这周讲了Adaptive Huffman Tree和 BWT压缩算法。    
+可能还有一个原因是这个老师很幽默，会穿插一些段子还挺搞笑的。     
+ 
+
+>### 2016/03/17 ###
+----------
+这周讲了两个文本搜索算法，但没有听懂，唯一一门跟的上老师的课也沦陷了，哎~     
+明天早起复习一下好了，今天真的好累。   
+花了太久写assignment1了，虽然写出了一些东西，但~     
+ 
+
+>### 2016/03/23 ###
+----------
+**Week 4:**    
+Having taught some strange searching algorithms, got the idea of the procedure,    
+but totally cannot understand how it works.    
+**Assignment 1:**   
+almost done the encoding, but have no idea of the in maintaining Vitter's invariant.   
+ 
+
+>### 2016/03/23 ###
+----------
+**Week 4(holiday):**    
+**Assignment 1:**   
+Having completed the encoding and decoding!!! cheers~    
+<img style="max-height:350px" class="lazy" data-original="/images/blog/160317_comp9319/assign1_half.JPG">
+ 
+
+
+>### 2016/03/23 ###
+----------
+**Week 6:**    
+**Assignment 2:**   
+The assignment2.. Backward BWT search...    
+I did everything, made a lot of improvement, but my program is still so slow...   
+but anyway, I tried my best, proud of myself.    
+It so hard and fun to improve efficiency of a program.     
+<img style="max-height:300px" class="lazy" data-original="/images/blog/160317_comp9319/assit2.jpg">
+ 
+
+>### 2016/04/20 ###
+----------
+**Week 8:**    
+About the marking of assignment2.. So moved that Raymond forgiven my mistake.   
+He is so strict and has his own principles, but is also an extremely nice person, full of emotion.                
+<img style="max-height:300px" class="lazy" data-original="/images/blog/160317_comp9319/assit2_mark.jpg">
+ 
+
+>### 2016/05/15 ###
+----------
+**Week 10:**    
+WOW, it's week 10 now!! Too busy to update the blog.        
+Just submitting the assit2, I am struggling in assit3 UU.    
+Today, in the lecture, Raymond showed the name of the fastest guy of assit2,     
+Although fastest is not always good.. haha, I really admin this encouraging behaviour and this awsome person.     
+ 
+
+>### 2016/05/18 ###
+----------
+**Week 11:**    
+Made silly mistake again...    
+but Raymond is so kind.    
+The assit3 is almost done now, much easier than assit 1 and 2.    
+When I am writing README file and thinking that if Raymond can give each student some feedbacks, it will be great.     
+<img style="max-height:400px" class="lazy" data-original="/images/blog/160317_comp9319/assit2_email.PNG">
+ 
+
+>### 2016/05/19 ###
+**Assit3 done.**    
+I used the Boyer Moore Algorithm without index and the efficiency is not bad.    
+<img style="max-height:350px" class="lazy" data-original="/images/blog/160317_comp9319/assit3_bm.jpg">    
+Perfect mark of assignment3:    
+<img style="max-height:300px" class="lazy" data-original="/images/blog/160317_comp9319/assit3_mark.jpg">    
+
+
+>### 2016/05/25 ###
+**Last lecture**    
+Thanks Raymond!             
+<img style="max-height:320px" class="lazy" data-original="/images/blog/160317_comp9319/last_lecture.JPG">   
+
+
+>### 2016/06/18 ###
+**Fianl Exam**    
+2 hours before final exam, best wishes to myself.    
+And this is my cheating sheet, a piece of art!     
+<img style="max-height:350px" class="lazy" data-original="/images/blog/160317_comp9319/sheet.JPG">    
+Although most of the questions were on the exercises provided,     
+some of them is tricky and not easy to solve.    
+
+
+
