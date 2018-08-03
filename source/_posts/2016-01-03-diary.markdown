@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Diary2016_01"
-date: 2016-01-03 13:30:08 +1100
+date: 2016-01-03 13:30:08
 comments: true
 tags: [diary, life]
 ---

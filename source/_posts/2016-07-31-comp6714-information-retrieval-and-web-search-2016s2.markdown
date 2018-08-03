@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Henry's Feedback of UNSW COMP6714 16s2"
-date: 2016-07-31 20:02:22 +1000
+date: 2016-07-31 20:02:22
 comments: true
 tags: [unsw]
 ---

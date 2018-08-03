@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Henry's Awesome Summary of Perl"
-date: 2016-09-20 09:52:18 +1000
+date: 2016-09-20 09:52:18
 comments: true
 tags: [unsw]
 ---

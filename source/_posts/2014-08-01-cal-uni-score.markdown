@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "爬教务处成绩代码log"
-date: 2014-08-01 00:05:13 +0800
+date: 2014-08-01 00:05:13
 comments: true
 tags: [study, python]
 ---

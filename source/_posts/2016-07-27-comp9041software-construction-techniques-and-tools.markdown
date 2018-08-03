@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "COMP9041/2041 Software Construction: Techniques and Tools 2016s2"
-date: 2016-07-27 23:31:36 +1000
+date: 2016-07-27 23:31:36
 comments: true
 tags:  [unsw, comp9041]
 ---

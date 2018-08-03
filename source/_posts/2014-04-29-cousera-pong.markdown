@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "cousera_Mini-project # 4 - Pong"
-date: 2014-04-29 16:27:47 +0800
+date: 2014-04-29 16:27:47
 comments: true
 tags: [cousera, study, python]
 ---

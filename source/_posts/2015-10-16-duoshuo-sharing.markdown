@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Octopress,jekyll多说分享插件设置"
-date: 2015-10-16 19:56:06 +0800
+date: 2015-10-16 19:56:06
 comments: true
 tags: [octopress, duoshuo]
 ---

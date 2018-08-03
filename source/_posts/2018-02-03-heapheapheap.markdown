@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "<算法导论(3rd)>第六章 - Heap!Heap!Heap!"
-date: 2018-02-03 23:14:24 +0800
+date: 2018-02-03 20:14:24
 comments: true
 tags: [算法导论, algorithm]
 ---

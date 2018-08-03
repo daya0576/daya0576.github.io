@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "django social auth插件实践"
-date: 2016-02-15 17:50:22 +1100
+date: 2016-02-15 17:50:22
 comments: true
 tags: [django, oauth]
 ---

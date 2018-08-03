@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "我的乒乓球历程~~"
-date: 2016-07-11 10:05:39 +0800
+date: 2016-07-11 10:05:39
 comments: true
 tags: [life, table tennis]
 ---

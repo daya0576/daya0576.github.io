@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "电影观后感合集"
-date: 2016-11-07 23:35:38 +1100
+date: 2016-11-07 23:35:38
 comments: true
 tags: [movie]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "comp9041 Assignment2 Matelook Implementation"
-date: 2016-10-30 00:20:49 +1100
+date: 2016-10-30 00:20:49
 comments: true
 tags: [comp9041, unsw]
 ---

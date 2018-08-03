@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python - Note of Garbage Collection"
-date: 2017-02-14 15:30:18 +1100
+date: 2017-02-14 15:30:18
 comments: true
 tags: [Python, interview]
 ---

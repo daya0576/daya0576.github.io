@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SSH to UNSW CSE Server Without Password"
-date: 2016-08-19 21:56:56 +1000
+date: 2016-08-19 21:56:56
 comments: true
 tags: [cse, unsw]
 ---

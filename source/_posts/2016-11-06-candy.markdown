@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "\"Hey Jimmy Kimmel I Told My Kids I Ate All Their Halloween Candy.\""
-date: 2016-11-06 10:52:06 +1100
+date: 2016-11-06 10:52:06
 comments: true
 tags: [youtube]
 ---

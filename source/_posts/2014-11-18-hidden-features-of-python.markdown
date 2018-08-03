@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "hidden features of Python笔记"
-date: 2014-11-18 11:30:26 +0800
+date: 2014-11-18 11:30:26
 comments: true
 tags: [study, python]
 ---

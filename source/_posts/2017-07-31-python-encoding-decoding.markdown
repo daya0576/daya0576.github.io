@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python的编码问题笔记(搞清原理, 一劳永逸)"
-date: 2017-07-31 20:59:46 +0800
+date: 2017-07-31 20:59:46
 comments: true
 tags: [python3, unicode, encoding]
 ---

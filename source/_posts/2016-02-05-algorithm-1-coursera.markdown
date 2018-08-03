@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Algorithms, Part I - coursera"
-date: 2016-02-05 23:22:14 +1100
+date: 2016-02-05 23:22:14
 comments: true
 tags: [cousera, algorithm]
 ---

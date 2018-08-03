@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python Personal Note"
-date: 2016-12-04 13:08:59 +1100
+date: 2016-12-04 13:08:59
 comments: true
 tags: [python, study]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "面试算法题 - 二分查找搜索范围"
-date: 2017-03-06 12:45:09 +0800
+date: 2017-03-06 12:45:09
 comments: true
 tags: [inteview, algorithm]
 ---

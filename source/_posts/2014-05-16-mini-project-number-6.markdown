@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mini-project # 6 - Blackjack"
-date: 2014-05-16 10:11:18 +0800
+date: 2014-05-16 10:11:18
 comments: true
 tags: [cousera, study]
 ---

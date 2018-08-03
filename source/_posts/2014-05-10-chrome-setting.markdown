@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "chrome设置（转）"
-date: 2014-05-10 00:54:33 +0800
+date: 2014-05-10 00:54:33
 comments: true
 tags: [chrome]
 ---

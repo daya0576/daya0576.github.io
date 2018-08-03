@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "相依为命的app推荐(macOS)"
-date: 2018-05-07 12:04:19 +0800
+date: 2018-05-07 12:04:19
 comments: true
 tags: [macos, apple, app]
 ---

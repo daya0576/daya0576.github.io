@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Google SRE(Site Reliability Engineering) 读后感"
-date: 2018-04-03 12:04:19 +0800
+date: 2018-04-03 12:04:19
 comments: true
 tags: [sre, google]
 ---

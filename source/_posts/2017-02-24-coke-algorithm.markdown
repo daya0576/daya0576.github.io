@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "面试算法题 - $1 Coke Problem"
-date: 2017-02-24 09:30:51 +0800
+date: 2017-02-24 09:30:51
 comments: true
 tags: [algorithm]
 ---

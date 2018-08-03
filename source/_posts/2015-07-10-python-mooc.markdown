@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "python_mooc笔记-高阶函数"
-date: 2015-07-10 16:15:41 +0800
+date: 2015-07-10 16:15:41
 comments: true
 tags: [python, study]
 ---

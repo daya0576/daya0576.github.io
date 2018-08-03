@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "COMP9517 Computer Vision 16s2"
-date: 2016-08-13 18:43:28 +1000
+date: 2016-08-13 18:43:28
 comments: true
 tags: [unsw]
 ---

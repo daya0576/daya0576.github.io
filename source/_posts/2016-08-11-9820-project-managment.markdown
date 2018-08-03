@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GSOE9820 Project Management 16s2"
-date: 2016-08-11 11:30:39 +1000
+date: 2016-08-11 11:30:39
 comments: true
 tags: [unsw]
 ---

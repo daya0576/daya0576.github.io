@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "inspiron7420装ubuntu13.04后的设置"
-date: 2014-09-24 21:59:15 +0800
+date: 2014-09-25 18:59:15
 comments: true
 tags: [ubuntu, study]
 ---

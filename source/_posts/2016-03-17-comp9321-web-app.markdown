@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "comp9321 Web Application 16s1"
-date: 2016-03-17 12:20:52 +1100
+date: 2016-03-17 12:20:52
 comments: true
 tags: [comp9321, unsw]
 ---

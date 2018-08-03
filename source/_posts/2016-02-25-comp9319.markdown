@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "COMP9319 - Web Data Compression and Search 16s1"
-date: 2016-02-25 17:02:05 +1100
+date: 2016-02-25 17:02:05
 comments: true
 tags: [unsw]
 ---

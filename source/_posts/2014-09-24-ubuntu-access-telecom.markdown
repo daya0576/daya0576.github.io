@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "天津工业大学软件园 ubuntu电信网设置。"
-date: 2014-09-24 21:40:01 +0800
+date: 2014-09-24 19:40:01
 comments: true
 tags: [ubuntu, study]
 ---

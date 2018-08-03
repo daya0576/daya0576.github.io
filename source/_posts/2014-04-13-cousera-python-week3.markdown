@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "cousera作业_Guess the number"
-date: 2014-04-14 21:03:09 +0800
+date: 2014-04-14 19:03:09
 comments: true
 tags: [study, python, cousera]
 ---

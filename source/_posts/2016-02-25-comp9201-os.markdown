@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "COMP9201 Operating Systems 16s1"
-date: 2016-02-25 12:12:24 +1100
+date: 2016-02-25 12:12:24
 comments: true
 tags: [unsw]
 ---

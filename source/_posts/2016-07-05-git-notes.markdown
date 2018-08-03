@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Notes of Atlassian git tutorial"
-date: 2016-07-05 14:18:24 +0800
+date: 2016-07-05 14:18:24
 comments: true
 tags: [git, study]
 ---

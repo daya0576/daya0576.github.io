@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "熟悉的陌生人: Python format用法大全~"
-date: 2017-08-10 11:04:03 +0800
+date: 2017-08-10 11:04:03
 comments: true
 tags: [python]
 ---

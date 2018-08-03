@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "在vps上部署你的静态博客(网站)"
-date: 2017-07-29 14:10:26 +0800
+date: 2017-07-29 14:10:26
 comments: true
 tags: [octopress, vps]
 ---

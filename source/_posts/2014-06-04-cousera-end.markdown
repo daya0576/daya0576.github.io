@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "cousera_end"
-date: 2014-06-04 08:48:07 +0800
+date: 2014-06-04 08:48:07
 comments: true
 tags: [cousera, study]
 ---

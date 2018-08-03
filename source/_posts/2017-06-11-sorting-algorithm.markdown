@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "排序算法总结(Python实现附带思路)"
-date: 2017-06-11 00:04:35 +0800
+date: 2017-06-11 00:04:35
 comments: true
 tags: [python, algorithm]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python - Note of Variable Scope"
-date: 2017-02-20 09:34:57 +0800
+date: 2017-02-20 09:34:57
 comments: true
 tags: [scope, python]
 ---

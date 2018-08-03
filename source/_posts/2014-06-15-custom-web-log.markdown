@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my web log"
-date: 2014-06-15 00:50:08 +0800
+date: 2014-06-15 00:50:08
 comments: true
 tags: [octopress]
 ---

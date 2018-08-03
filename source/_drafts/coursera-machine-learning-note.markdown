@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "机器学习(Coursera - Andrew NG)个人笔记"
-date: 2018-07-07 10:17:32 +0800
+date: 2018-07-07 10:17:32
 comments: true
 tags: [study, coursera]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fibonacci number(Recursive, DP and Decorator)"
-date: 2016-09-15 10:52:49 +1000
+date: 2016-09-15 10:52:49
 comments: true
 tags: [study, dynamic programming]
 ---

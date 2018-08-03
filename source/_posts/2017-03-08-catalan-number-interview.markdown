@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "面试算法题 - 出栈次序问题 (Catalan Number)"
-date: 2017-03-08 21:38:32 +0800
+date: 2017-03-09 18:38:32
 comments: true
 tags: [interview, algorithm]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Note of 《Effective Python》(第一章 - 第三章)"
-date: 2017-01-18 21:45:51 +1100
+date: 2017-01-18 21:45:51
 comments: true
 tags: [python]
 ---

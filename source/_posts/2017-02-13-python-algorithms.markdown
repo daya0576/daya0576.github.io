@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "那些年 用python刷过的面试算法题"
-date: 2017-02-13 15:32:09 +1100
+date: 2017-02-13 15:32:09
 comments: true
 tags: [python, interview]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Octopress `rake&nbsp;generate` 命令的大提速🚀"
-date: 2017-08-12 17:11:12 +0800
+date: 2017-08-12 17:11:12
 comments: true
 tags: [Octopress]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "flask安装配置遇到的问题"
-date: 2015-10-05 13:34:24 +0800
+date: 2015-10-05 13:34:24
 comments: true
 tags: [flask, python, virtualenv]
 ---

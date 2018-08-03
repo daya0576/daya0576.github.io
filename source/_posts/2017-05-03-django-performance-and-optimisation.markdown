@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Django 性能优化官方文档笔记(主要针对ORM)"
-date: 2017-05-03 21:34:09 +0800
+date: 2017-05-04 1:34:09
 comments: true
 tags: [django, orm]
 ---

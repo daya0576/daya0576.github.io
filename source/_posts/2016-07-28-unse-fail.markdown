@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What to do after failing a course at UNSW(Especially for the IT 8543)"
-date: 2016-07-28 20:58:33 +1000
+date: 2016-07-28 20:58:33
 comments: true
 tags: [unsw, fail]
 ---

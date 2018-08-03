@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "设置百度 ueditor默认字体"
-date: 2016-06-25 18:11:17 +1000
+date: 2016-06-25 18:11:17
 comments: true
 tags: [ueditor]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python Virtual Environments Note"
-date: 2016-09-30 01:27:57 +1000
+date: 2016-09-30 01:27:57
 comments: true
 tags: [python, venv]
 ---

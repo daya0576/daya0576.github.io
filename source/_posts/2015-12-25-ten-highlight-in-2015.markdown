@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ten highlights in 2015"
-date: 2015-12-25 13:35:55 +1100
+date: 2015-12-25 13:35:55
 comments: true
 tags: [life, diary]
 ---

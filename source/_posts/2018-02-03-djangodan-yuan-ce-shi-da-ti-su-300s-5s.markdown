@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Django单元测试大提速(250s→5s)"
-date: 2018-02-03 21:59:42 +0800
+date: 2018-02-04 19:59:42
 comments: true
 tags: [django, unittest]
 ---

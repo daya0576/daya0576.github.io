@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mini-project#5-Memory"
-date: 2014-05-04 14:03:07 +0800
+date: 2014-05-04 14:03:07
 comments: true
 tags: [cousera, study, python]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Django practice"
-date: 2015-11-29 23:19:32 +1100
+date: 2015-11-29 23:19:32
 comments: true
 tags: [django, python]
 ---

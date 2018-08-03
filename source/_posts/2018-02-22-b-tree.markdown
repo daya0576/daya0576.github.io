@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "<算法导论(3rd)>第十八章 - B Tree!"
-date: 2018-02-22 18:22:28 +0800
+date: 2018-02-22 18:22:28
 comments: true
 tags: [算法导论, algorithm, btree]
 ---

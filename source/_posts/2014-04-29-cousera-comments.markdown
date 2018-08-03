@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "cousera_comments总和"
-date: 2014-04-29 17:29:28 +0800
+date: 2014-04-29 17:29:28
 comments: true
 tags: [study, python, cousera]
 ---

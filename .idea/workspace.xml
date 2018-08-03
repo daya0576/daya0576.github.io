@@ -1,27 +1,324 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbb84469-becb-49a9-b594-8739dd7e7be9" name="Default" comment="" />
+    <list default="true" id="fbb84469-becb-49a9-b594-8739dd7e7be9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_drafts/coursera-machine-learning-note.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_drafts/coursera-machine-learning-note.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-04-04-my-first-blog.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-04-04-my-first-blog.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-04-13-cousera-python-week3.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-04-13-cousera-python-week3.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-04-29-cousera-comments.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-04-29-cousera-comments.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-05-04-mini-project-number-5-memory.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-05-04-mini-project-number-5-memory.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-05-10-chrome-setting.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-05-10-chrome-setting.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-05-10-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-05-10-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-05-16-mini-project-number-6.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-05-16-mini-project-number-6.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-06-01-diary2014-06.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-06-01-diary2014-06.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-06-04-cousera-end.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-06-04-cousera-end.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-06-15-custom-web-log.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-06-15-custom-web-log.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-07-02-dairy2014-07.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-07-02-dairy2014-07.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-08-01-cal-uni-score.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-08-01-cal-uni-score.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-08-04-140804-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-08-04-140804-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-09-02-140902-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-09-02-140902-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-09-16-our-children.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-09-16-our-children.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-setting-all.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-setting-all.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-touchpad.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-touchpad.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-09-24-ubuntu-access-telecom.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-09-24-ubuntu-access-telecom.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-10-02-141001-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-10-02-141001-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-11-01-20141101-dairy.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-11-01-20141101-dairy.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-11-18-hidden-features-of-python.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-11-18-hidden-features-of-python.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2014-12-04-141204-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2014-12-04-141204-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-01-05-diary-2015-01.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-01-05-diary-2015-01.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-01-05-ten-highlights-in-2014.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-01-05-ten-highlights-in-2014.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-02-02-150202.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-02-02-150202.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-03-02-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-03-02-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-04-06-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-04-06-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-05-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-05-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-06-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-06-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-07-01-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-07-01-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-07-10-python-mooc.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-07-10-python-mooc.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-08-02-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-08-02-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-09-08-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-09-08-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-09-23-moobox-recode.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-09-23-moobox-recode.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-09-26-moobox-knowledge.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-09-26-moobox-knowledge.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-10-05-falsk-initial.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-10-05-falsk-initial.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-10-08-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-10-08-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-10-16-duoshuo-sharing.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-10-16-duoshuo-sharing.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-10-21-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-10-21-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-11-29-django-rango-detail.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-11-29-django-rango-detail.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-12-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-12-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-12-16-django-login-next.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-12-16-django-login-next.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-12-25-ten-highlight-in-2015.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-12-25-ten-highlight-in-2015.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2015-12-27-django-subquery.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2015-12-27-django-subquery.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-01-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-01-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-02-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-02-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-02-05-algorithm-1-coursera.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-02-05-algorithm-1-coursera.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-02-15-django-social-auth-own.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-02-15-django-social-auth-own.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-02-25-comp9201-os.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-02-25-comp9201-os.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-02-28-comp9315-16s1.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-02-28-comp9315-16s1.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-03-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-03-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-03-17-comp9321-web-app.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-03-17-comp9321-web-app.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-04-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-04-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-05-06-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-05-06-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-05-09-unsw-course-web.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-05-09-unsw-course-web.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-06-25-ueditor-default-font.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-06-25-ueditor-default-font.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-07-03-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-07-03-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-07-05-git-notes.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-07-05-git-notes.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-07-11-tablet-tennis.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-07-11-tablet-tennis.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-07-27-comp9041software-construction-techniques-and-tools.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-07-27-comp9041software-construction-techniques-and-tools.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-07-28-unse-fail.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-07-28-unse-fail.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-07-31-yogurt.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-07-31-yogurt.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-08-13-comp9517-computer-vision.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-08-13-comp9517-computer-vision.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-08-19-cse-ssh.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-08-19-cse-ssh.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-09-02-diary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-09-02-diary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-09-07-u-chat.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-09-07-u-chat.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-09-15-dynamic-programming.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-09-15-dynamic-programming.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-09-20-perl-summery.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-09-20-perl-summery.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-09-30-python-venv.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-09-30-python-venv.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-10-30-comp9041-assignment2-matelook.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-10-30-comp9041-assignment2-matelook.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-11-06-candy.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-11-06-candy.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-11-07-ove.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-11-07-ove.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-12-04-python-notes.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2016-12-04-python-notes.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-01-18-effective-python-notes.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-01-18-effective-python-notes.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-02-13-effective-python-chapter6.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-02-13-effective-python-chapter6.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-02-13-python-algorithms.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-02-13-python-algorithms.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-02-14-python-garbage-collection.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-02-14-python-garbage-collection.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-02-20-python-scope.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-02-20-python-scope.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-02-23-diary-2017.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-02-23-diary-2017.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-02-24-coke-algorithm.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-02-24-coke-algorithm.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-03-08-catalan-number-interview.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-03-08-catalan-number-interview.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-03-18-django-source-code-analysis.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-03-18-django-source-code-analysis.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-03-20-python-mro.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-03-20-python-mro.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-04-05-many-to-many-relation-with-extra-field-django.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-04-05-many-to-many-relation-with-extra-field-django.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-05-03-django-performance-and-optimisation.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-05-03-django-performance-and-optimisation.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-05-14-ele-interview-solution.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-05-14-ele-interview-solution.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-06-06-pycharm-shortcut.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-06-06-pycharm-shortcut.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-06-11-sorting-algorithm.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-06-11-sorting-algorithm.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-07-29-octopress-nginx-vps.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-07-29-octopress-nginx-vps.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-07-31-python-encoding-decoding.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-07-31-python-encoding-decoding.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-08-12-rake-trick-octopress.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-08-12-rake-trick-octopress.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-12-24-wireless-charging-review.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2017-12-24-wireless-charging-review.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-02-03-djangodan-yuan-ce-shi-da-ti-su-300s-5s.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-02-03-djangodan-yuan-ce-shi-da-ti-su-300s-5s.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-02-22-b-tree.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-02-22-b-tree.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-02-23-apistar-werkzeug-run-simple.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-02-23-apistar-werkzeug-run-simple.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-02-23-vim-tour.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-02-23-vim-tour.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-04-13-impressions-of-google-sre.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-04-13-impressions-of-google-sre.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/next" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="583645797">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="3" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="2" />
+          <entry key="js" value="2" />
+          <entry key="json" value="1" />
+          <entry key="markdown" value="25" />
+          <entry key="yml" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="2" />
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="2" />
+          <entry key="Markdown" value="11" />
+          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="YAML" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="markdown" value="121" />
+          <entry key="yml" value="16" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Markdown" value="21" />
+          <entry key="PLAIN_TEXT" value="100" />
+          <entry key="YAML" value="16" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="post">
+      <favorite_root url="file://$PROJECT_DIR$/source/_posts" module="zblog" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-11-07-ove.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-05-10-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-03-02-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-04-06-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-05-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-06-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-07-01-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-08-02-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-09-08-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-10-08-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-10-21-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-12-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-01-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-02-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-03-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-04-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-05-06-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-07-03-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-09-02-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-11-06-candy.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-02-02-150202.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-07-31-yogurt.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-09-07-u-chat.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-02-22-b-tree.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-08-19-cse-ssh.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-02-23-vim-tour.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-07-05-git-notes.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-07-28-unse-fail.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-02-23-diary-2017.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-03-20-python-mro.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-06-04-cousera-end.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-07-10-python-mooc.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-02-25-comp9201-os.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-09-30-python-venv.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-06-01-diary2014-06.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-07-02-dairy2014-07.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-08-04-140804-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-09-02-140902-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-09-16-our-children.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-10-02-141001-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-12-04-141204-diary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-09-20-perl-summery.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-12-04-python-notes.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-02-20-python-scope.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-04-04-my-first-blog.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-08-01-cal-uni-score.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-01-05-diary-2015-01.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-09-23-moobox-recode.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-10-05-falsk-initial.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-02-28-comp9315-16s1.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-07-11-tablet-tennis.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-05-10-chrome-setting.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-06-15-custom-web-log.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-11-01-20141101-dairy.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-02-24-coke-algorithm.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-10-16-duoshuo-sharing.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-12-27-django-subquery.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-05-09-unsw-course-web.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-04-29-cousera-comments.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-09-26-moobox-knowledge.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-03-17-comp9321-web-app.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-06-06-pycharm-shortcut.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-12-16-django-login-next.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-02-13-python-algorithms.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-06-11-sorting-algorithm.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-11-29-django-rango-detail.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-09-15-dynamic-programming.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-07-29-octopress-nginx-vps.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-04-13-cousera-python-week3.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-02-05-algorithm-1-coursera.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-06-25-ueditor-default-font.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-08-12-rake-trick-octopress.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-05-16-mini-project-number-6.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-touchpad.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-09-24-ubuntu-access-telecom.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-12-25-ten-highlight-in-2015.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2015-01-05-ten-highlights-in-2014.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-02-15-django-social-auth-own.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-01-18-effective-python-notes.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-05-14-ele-interview-solution.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-setting-all.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-08-13-comp9517-computer-vision.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-03-08-catalan-number-interview.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-07-31-python-encoding-decoding.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-12-24-wireless-charging-review.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-11-18-hidden-features-of-python.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-02-13-effective-python-chapter6.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-02-14-python-garbage-collection.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-04-13-impressions-of-google-sre.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-03-18-django-source-code-analysis.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-02-23-apistar-werkzeug-run-simple.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2014-05-04-mini-project-number-5-memory.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-10-30-comp9041-assignment2-matelook.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-05-03-django-performance-and-optimisation.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2018-02-03-djangodan-yuan-ce-shi-da-ti-su-300s-5s.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2017-04-05-many-to-many-relation-with-extra-field-django.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-07-27-comp9041software-construction-techniques-and-tools.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+    </favorites_list>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="2017-03-20-hypers-first-week-summary.markdown" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/2017-06-06-pycharm-shortcut.markdown">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="240">
-                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <first_editor relative-caret-position="210">
+                <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               </first_editor>
-              <second_editor />
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="736">
+                <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+                <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+                <caret line="128" column="1" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
             </state>
           </provider>
         </entry>
@@ -30,44 +327,47 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>heap</find>
-      <find>filter</find>
-      <find>filter]</find>
-      <find>format]</find>
-      <find>gtk</find>
-      <find>浪浪浪</find>
-      <find>Henry's Feedback of UNSW COMP6714 16s2</find>
-      <find>\d+/\d+/2016</find>
-      <find>macOS为什么那么受欢迎, 个人觉得</find>
-      <find>post-title-link</find>
-      <find>sitemap:</find>
-      <find>sitem</find>
-      <find>2017 上海(python后端)面试经历分享</find>
-      <find>^#</find>
-      <find>###</find>
-      <find>&lt;p&gt;</find>
-      <find>上海 Hypers(Python后台开发) 每周总结</find>
-      <find>comments</find>
-      <find>Local Search</find>
-      <find>search</find>
-      <find>sitemap_template.xml</find>
-      <find>font-size: 24</find>
-      <find>url</find>
       <find>post-type-normal</find>
       <find>.post-button</find>
       <find>post-button</find>
       <find>+1000</find>
       <find>hypers-first-week-summary</find>
       <find>date:</find>
+      <find>上海</find>
       <find>date:.+-(\d\d) (21|22|23):.+0800</find>
+      <find>上海 Hypers(Python后台</find>
+      <find>2018-03-14 23:55:08 +0800</find>
+      <find>hyper</find>
+      <find>(21|22|23):\d+:\d +0800</find>
+      <find>在Hypers宏路数据</find>
+      <find>2017-03-20 21:44:06 +0800</find>
+      <find>2017-03-18 23:17:07 +0800</find>
+      <find>一周, 在看Djan</find>
+      <find>(.+) (21|22|23):(.+) \+0800</find>
+      <find>(.+)(\d\d) (21|22|23):(.+) \+0800</find>
+      <find>(21|22|23):(.+) \+0800</find>
+      <find>laike9m</find>
+      <find>date: (.+) \+1100</find>
+      <find>date: (.+) \+\d{4}</find>
+      <find>2017-06-06</find>
+      <find>PyCharm 收藏多年快捷键分享</find>
+      <find>###</find>
+      <find>&lt;p&gt;&lt;/p&gt;</find>
+      <find>fancybox</find>
+      <find>data-fancybox</find>
+      <find>&lt;br&gt;</find>
+      <find>##</find>
     </findStrings>
     <replaceStrings>
       <replace>\u0020</replace>
       <replace>123</replace>
       <replace>\-\-\-\n\n</replace>
-      <replace />
       <replace>tags:</replace>
       <replace>date:.+-$1 $2:.+0800</replace>
+      <replace />
+      <replace>$1$2</replace>
+      <replace>date: (.+) \+1100</replace>
+      <replace>date: $1</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/source</dir>
@@ -75,19 +375,12 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/themes/next" />
+    <option name="ROOT_SYNC" value="SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/source/_posts/2017-03-18-django-source-code-analysis.markdown" />
-        <option value="$PROJECT_DIR$/themes/next/layout/_third-party/search/algolia-search/dom.swig" />
-        <option value="$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown" />
-        <option value="$PROJECT_DIR$/source/_posts/2015-12-16-django-login-next.markdown" />
-        <option value="$PROJECT_DIR$/themes/next/layout/_third-party/bookmark.swig" />
-        <option value="$PROJECT_DIR$/themes/next/layout/_third-party/private/lazyload.swig" />
-        <option value="$PROJECT_DIR$/themes/next/source/lib/fancybox/source/jquery.fancybox.js" />
-        <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/sidebar/sidebar-author.styl" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/index.styl" />
         <option value="$PROJECT_DIR$/source/past_post/2018-04-13-impressions-of-google-sre.markdown" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-meta.styl" />
@@ -114,21 +407,31 @@
         <option value="$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown" />
-        <option value="$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown" />
-        <option value="$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown" />
-        <option value="$PROJECT_DIR$/themes/next/_config.yml" />
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-title.styl" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_schemes/Muse/_logo.styl" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-button.styl" />
         <option value="$PROJECT_DIR$/source/about/index.markdown" />
-        <option value="$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2014-04-04-my-first-blog.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2014-04-13-cousera-python-week3.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-touchpad.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2016-07-03-diary.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-03-20-python-mro.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-03-18-django-source-code-analysis.markdown" />
+        <option value="$PROJECT_DIR$/themes/next/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-02-23-diary-2017.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2014-09-24-ubuntu-access-telecom.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-06-06-pycharm-shortcut.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown" />
       </list>
     </option>
   </component>
@@ -150,8 +453,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -159,6 +462,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,28 +479,20 @@
               <item name="zblog" type="b2602c69:ProjectViewProjectNode" />
               <item name="zblog" type="462c0819:PsiDirectoryNode" />
               <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="_drafts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zblog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zblog" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="about" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/themes/next" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="performancePlugin.isProfileIndexing" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -254,6 +550,12 @@
       <workItem from="1533233260264" duration="58000" />
       <workItem from="1533262579930" duration="68000" />
       <workItem from="1533262663787" duration="344000" />
+      <workItem from="1533263019297" duration="511000" />
+      <workItem from="1533264663503" duration="275000" />
+      <workItem from="1533265001812" duration="917000" />
+      <workItem from="1533265967191" duration="409000" />
+      <workItem from="1533266421393" duration="4872000" />
+      <workItem from="1533279782906" duration="188000" />
     </task>
     <task id="LOCAL-00001" summary="feat: update css style">
       <created>1533140560010</created>
@@ -273,32 +575,36 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45199000" />
+    <option name="totallyTimeSpent" value="52371000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2578125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2642706" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49930555" weight="0.3985849" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50069445" side_tool="true" weight="0.6698113" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49930555" weight="0.3985849" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.29245284" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50069445" side_tool="true" weight="0.6698113" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.64455444" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.markdown" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -340,89 +646,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/themes/next" />
+      <path value="$PROJECT_DIR$/themes/next/source/lib/fancybox" />
+      <path value="$PROJECT_DIR$/themes/next/source/lib/jquery_lazyload" />
+    </ignored-roots>
     <MESSAGE value="feat: update css style" />
     <MESSAGE value="feat: sync" />
     <option name="LAST_COMMIT_MESSAGE" value="feat: sync" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-reward.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="41" selection-start-line="41" selection-start-column="2" selection-end-line="55" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/lib/fancybox/source/helpers/jquery.fancybox-buttons.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/lib/3dsnow/Snow.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/lib/snow.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2015-01-05-ten-highlights-in-2014.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="391">
-            <caret line="122" column="12" selection-start-line="122" selection-start-column="12" selection-end-line="135" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2015-12-25-ten-highlight-in-2015.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="452">
-            <caret line="225" selection-start-line="225" selection-end-line="225" selection-end-column="28" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/tags/full-image.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/components.styl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-expand.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/landscape/source/fancybox/jquery.fancybox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -437,23 +670,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/js/src/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="101">
-            <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown" />
     <entry file="file://$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/_menu.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -475,123 +692,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/tags/index.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="45">
-            <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
-            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="587">
-            <caret line="145" column="18" lean-forward="true" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="37" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="135">
-            <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret column="3856915" selection-start-column="3856915" selection-end-column="3856915" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="60">
-            <caret line="4" selection-start-line="4" selection-end-line="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/tags/index.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown" />
     <entry file="file://$PROJECT_DIR$/node_modules/hexo-generator-search/templates/search.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -606,13 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -637,113 +739,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-04-my-first-blog.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2016-07-11-tablet-tennis.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/about/index.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="180">
-            <caret line="12" column="19" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="19" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_drafts/coursera-machine-learning-note.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="45">
-            <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_drafts/ios12-review.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-14-ele-interview-solution.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="180">
-            <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_drafts/python-type-annotation.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="45">
-            <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_drafts/octopress-to-hexo.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-07-11-tablet-tennis.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/about/index.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_drafts/coursera-machine-learning-note.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_drafts/ios12-review.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-14-ele-interview-solution.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_drafts/python-type-annotation.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_drafts/octopress-to-hexo.markdown" />
     <entry file="file://$PROJECT_DIR$/source/_posts/python-type-annotation.markdown" />
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-python-mro.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="45">
-            <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="6" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-05-04-mini-project-number-5-memory.markdown">
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-04-my-first-blog.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-13-cousera-python-week3.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-07-03-diary.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-python-mro.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="193" column="1" selection-start-line="193" selection-start-column="1" selection-end-line="193" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-06-11-sorting-algorithm.markdown">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-18-django-source-code-analysis.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="285">
-            <caret line="19" column="70" lean-forward="true" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
-          </first_editor>
-          <second_editor />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-02-23-diary-2017.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-09-16-our-children.markdown">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-09-24-ubuntu-access-telecom.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret column="124985" selection-start-column="124985" selection-end-column="124985" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-09-24-inspiron7420-touchpad.markdown">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/blog/20170606/pycharm-shortcut/index.html" />
+    <entry file="file://$PROJECT_DIR$/themes/next/source/js/src/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-06-06-pycharm-shortcut.markdown">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="240">
-            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <first_editor relative-caret-position="210">
+            <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           </first_editor>
-          <second_editor />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="736">
+            <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+            <caret line="128" column="1" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>
