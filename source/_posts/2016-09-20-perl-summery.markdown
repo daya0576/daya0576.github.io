@@ -3,7 +3,7 @@ layout: post
 title: "Henry's Awesome Summary of Perl"
 date: 2016-09-20 09:52:18 +1000
 comments: true
-categories: [unsw, comp9041, perl]
+tags: [unsw]
 ---
 
 My summary of Perl in semester 16s2 of (COMP2041|COMP9041) in UNSW.    

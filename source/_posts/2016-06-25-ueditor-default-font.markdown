@@ -3,7 +3,7 @@ layout: post
 title: "设置百度 ueditor默认字体"
 date: 2016-06-25 18:11:17 +1000
 comments: true
-categories: [ueditor]
+tags: [ueditor]
 ---
 
 想把编辑器的默认字体设成微软雅黑，但找了好久都没找到解决的方法。    

@@ -3,7 +3,7 @@ layout: post
 title: "Django practice"
 date: 2015-11-29 23:19:32 +1100
 comments: true
-categories: [django, python]
+tags: [django, python]
 ---
 
 最近用django搭了一个网站，用来收集unsw的课程经历。    

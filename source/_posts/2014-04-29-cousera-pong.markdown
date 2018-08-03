@@ -3,7 +3,7 @@ layout: post
 title: "cousera_Mini-project # 4 - Pong"
 date: 2014-04-29 16:27:47 +0800
 comments: true
-categories: [cousera, study, python]
+tags: [cousera, study, python]
 ---
 
 《An Introduction to Interactive Programming in Python》

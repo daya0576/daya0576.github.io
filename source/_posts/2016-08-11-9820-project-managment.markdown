@@ -3,7 +3,7 @@ layout: post
 title: "GSOE9820 Project Management 16s2"
 date: 2016-08-11 11:30:39 +1000
 comments: true
-categories: [unsw, GSOE9820]
+tags: [unsw]
 ---
 
 The second term of my master degree in UNSW         

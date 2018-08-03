@@ -3,7 +3,7 @@ layout: post
 title: "Django Subquery(Django 子查询)"
 date: 2015-12-27 22:09:03 +1100
 comments: true
-categories: [django]
+tags: [django]
 ---
 
 今天实现了一个难题，就是在Django中实现子查询。      

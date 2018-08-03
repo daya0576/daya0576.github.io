@@ -3,7 +3,7 @@ layout: post
 title: "熟悉的陌生人: Python format用法大全~"
 date: 2017-08-10 11:04:03 +0800
 comments: true
-categories: [python, str, format]
+tags: [python]
 ---
 
 今天看到[官方文档](https://docs.python.org/3/library/string.html#format-string-syntax)的时候, 突然发现format()这个方法这么强大, 有好多原先不知道的用法. 用这篇博客总结了一下.    

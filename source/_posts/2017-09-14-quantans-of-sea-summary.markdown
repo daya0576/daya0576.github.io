@@ -3,7 +3,7 @@ layout: post
 title: "皇家量子号 五天四晚游记"
 date: 2017-09-14 21:49:42 +0800
 comments: true
-categories: [travel]
+tags: [travel]
 ---
 
 请假了三天, 加上周末两天, 和女朋友坐上皇家量子号. 出海寻找One Piece, 可惜回来的时候, 只带回了两个"游泳圈", 哈哈.    
@@ -134,11 +134,11 @@ categories: [travel]
 
 
 
-# Day 4: 浪浪浪
+# Day 4: TODO
 
 
 
-# Day 5: 浪浪浪
+# Day 5: TODO
 
 
 

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Git Internal(初探git的内部实现)"
-date: 2018-03-14 23:55:08 +0800
+date: 2018-03-15 23:55:08 +0800
 comments: true
-categories: [git]
+tags: [git]
 ---
 
 最近YouTube上看到Gitlab频道的一个视频: [Git Internals - How Git Works - Fear Not The SHA!](https://www.youtube.com/watch?v=P6jD966jzlk)   

@@ -3,7 +3,7 @@ layout: post
 title: "记录moobox的点滴(回忆篇)"
 date: 2015-09-23 13:13:39 +0800
 comments: true
-categories: [moobox, work]
+tags: [moobox, work]
 ---
 
 

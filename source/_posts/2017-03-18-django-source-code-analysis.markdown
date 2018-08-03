@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Django 阅读源码笔记 - Hypers第一周"
-date: 2017-03-18 23:17:07 +0800
+date: 2017-03-19 23:17:07 +0800
 comments: true
-categories: [hypers, django]
+tags: [hypers, django]
 ---
 
 来Hypers上班的第一周, 在看Django的middleware的时候, 对process `request, view, template和response`的四个过程有些疑惑, 俊哥建议我读一下django的源码.     

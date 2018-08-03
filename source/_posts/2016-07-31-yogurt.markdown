@@ -3,7 +3,7 @@ layout: post
 title: "澳洲Dairy farmers酸奶各个口味评鉴"
 date: 2016-07-31 23:23:43 +1000
 comments: true
-categories: [yogurt, life]
+tags: [yogurt, life]
 ---
 
 Dairy farmers的酸奶真的是我这辈子吃过最好吃的酸奶，     

@@ -3,7 +3,7 @@ layout: post
 title: "my web log"
 date: 2014-06-15 00:50:08 +0800
 comments: true
-categories: [octopress]
+tags: [octopress]
 ---
 
 修改网页的log ~   

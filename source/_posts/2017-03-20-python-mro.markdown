@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Python MRO(Method Resolution Order)笔记 "
-date: 2017-03-20 21:16:15 +0800
+date: 2017-03-21 21:16:15 +0800
 comments: true
-categories: [python]
+tags: [python]
 ---
 
 来Hypers上班的第一周, 俊哥提到Python的继承很灵活, 调用class内的方法的话, 有自己的一套MRO(Method Resolution Order).    

@@ -3,7 +3,7 @@ layout: post
 title: "爬教务处成绩代码log"
 date: 2014-08-01 00:05:13 +0800
 comments: true
-categories: [study, python]
+tags: [study, python]
 ---
 
 打包好的exe：[http://pan.baidu.com/s/1nt9eTYh](http://pan.baidu.com/s/1nt9eTYh)   

@@ -3,19 +3,20 @@ layout: post
 title: "相依为命的app推荐(macOS)"
 date: 2018-05-07 12:04:19 +0800
 comments: true
-categories: [macos, apple, app]
+tags: [macos, apple, app]
 ---
 
 
-macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app生态圈, 意味你的需求几乎都能满足! 分享一些心爱的app❤️❤️❤️
+macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app生态圈, 意味你的需求几乎都能满足!    
+这篇文章分享一些心爱的app❤️❤️❤️ 
+
+<!--more-->
 
 # Bartender 3:  
 价格: macOS: $15.00   
 主页: https://www.macbartender.com   
 亮点: menu bar图标太多放不下的时候, 可以把不常用的隐藏起来, 赞!   
 <img style="max-height:30px" class="lazy" data-original="/images/blog/180507_macos_app/2018-04-18%2021_09_31.gif">
-
-<!--more-->
 
 # TotalSpaces2:   
 价格: $12.00(值!)   

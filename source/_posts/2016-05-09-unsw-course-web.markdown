@@ -3,7 +3,7 @@ layout: post
 title: "my UNSW CSE course website"
 date: 2016-05-09 11:18:58 +1000
 comments: true
-categories: [unsw, cse]
+tags: [unsw, cse]
 ---
 
 

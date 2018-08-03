@@ -3,7 +3,7 @@ layout: post
 title: "Note of 《Effective Python》(第六章)"
 date: 2017-02-13 12:18:54 +1100
 comments: true
-categories: [python]
+tags: [python]
 ---
 
 记得以前上大学的时候, 去图书馆借了一本《代码简洁之道》. 虽然大部分的内容都忘得差不多了, 但里边的一些思想至今还是收益颇深.     

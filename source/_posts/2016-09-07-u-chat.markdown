@@ -3,7 +3,7 @@ layout: post
 title: "Memory of u_chat "
 date: 2016-09-07 01:35:04 +1000
 comments: true
-categories: [gtk, c, Neusoft]
+tags: [c, internship]
 ---
 
 这几日总是回忆起大二学校组织的在东软一个月的实习,  写下这片日志来怀念那段无比美好的时光.     

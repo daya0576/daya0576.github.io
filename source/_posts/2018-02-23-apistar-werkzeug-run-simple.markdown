@@ -3,7 +3,7 @@ layout: post
 title: "APIStar - WERKZEUG(run_simple) 源码阅读笔记"
 date: 2018-02-23 11:20:49 +0800
 comments: true
-categories: [apistar, werkzeug]
+tags: [apistar, werkzeug]
 ---
 
 上个月研究APIStar源码, 发现启动`python app.py run`用的是**werkzeug的run_simple**方法, 仔细读了一下, 感触颇深, 用这篇日志分享一下整个执行流程.       

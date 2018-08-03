@@ -3,7 +3,7 @@ layout: post
 title: "COMP9041/2041 Software Construction: Techniques and Tools 2016s2"
 date: 2016-07-27 23:31:36 +1000
 comments: true
-categories:  [unsw, comp9041]
+tags:  [unsw, comp9041]
 ---
 
 >The second semester of my master in UNSW         

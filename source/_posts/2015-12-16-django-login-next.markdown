@@ -3,7 +3,7 @@ layout: post
 title: "django登录或注销后跳转到之前的页面"
 date: 2015-12-16 10:42:43 +1100
 comments: true
-categories: [django, python]
+tags: [django, python]
 ---
 
 今天终于解决了项目中的一个问题，就是登录成功后跳转到原先的页面。       

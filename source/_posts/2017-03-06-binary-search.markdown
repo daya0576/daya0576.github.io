@@ -3,7 +3,7 @@ layout: post
 title: "面试算法题 - 二分查找搜索范围"
 date: 2017-03-06 12:45:09 +0800
 comments: true
-categories: [binary search, inteview, zaihui]
+tags: [inteview, algorithm]
 ---
 
 去再惠面试的时候, 问了我一道二分查找的变种题, 我当时答的并不是特别清楚, 用这篇日志整理记录一下.      

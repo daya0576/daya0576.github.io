@@ -3,7 +3,7 @@ layout: post
 title: "Diary2015_03"
 date: 2015-03-02 08:57:00 +0800
 comments: true
-categories: [life, diary]
+tags: [life, diary]
 ---
 
 试着去写写日记吧。 或许可以让你看到一个不一样的我吧 :">   

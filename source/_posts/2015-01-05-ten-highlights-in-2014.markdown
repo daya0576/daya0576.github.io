@@ -3,7 +3,7 @@ layout: post
 title: "Ten highlights in 2014"
 date: 2015-01-05 23:59:08 +0800
 comments: true
-categories: [life, diary]
+tags: [life, diary]
 ---
 
 

@@ -3,7 +3,7 @@ layout: post
 title: "Algorithms, Part I - coursera"
 date: 2016-02-05 23:22:14 +1100
 comments: true
-categories: [cousera, algorithm]
+tags: [cousera, algorithm]
 ---
 
 新学了一门Coursera的课叫做《Algorithms, Part I》 from Princeton University    

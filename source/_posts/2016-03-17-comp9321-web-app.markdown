@@ -3,7 +3,7 @@ layout: post
 title: "comp9321 Web Application 16s1"
 date: 2016-03-17 12:20:52 +1100
 comments: true
-categories: [comp9321, unsw]
+tags: [comp9321, unsw]
 ---
 
 >来unsw的第一个学期，选了四门课，    

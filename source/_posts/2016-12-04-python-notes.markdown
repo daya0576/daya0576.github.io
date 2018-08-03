@@ -3,7 +3,7 @@ layout: post
 title: "Python Personal Note"
 date: 2016-12-04 13:08:59 +1100
 comments: true
-categories: [python, study]
+tags: [python, study]
 ---
 
 Planning to figure out problems of Python that confused me for a long phase.      

@@ -3,7 +3,7 @@ layout: post
 title: "面试算法题 - $1 Coke Problem"
 date: 2017-02-24 09:30:51 +0800
 comments: true
-categories: [algorithm]
+tags: [algorithm]
 ---
 
 今天面试问到一个算法: 一个汽水是$1, 两个汽水的**空瓶**换一瓶可乐, 请问给一些钱, 最多能喝几瓶呢?     

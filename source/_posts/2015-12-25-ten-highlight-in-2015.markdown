@@ -3,7 +3,7 @@ layout: post
 title: "Ten highlights in 2015"
 date: 2015-12-25 13:35:55 +1100
 comments: true
-categories: [life, diary]
+tags: [life, diary]
 ---
 
 像去年那样，选了十张2015的照片 来回顾一下这匆匆的一年 :)      

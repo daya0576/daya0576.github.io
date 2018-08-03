@@ -3,7 +3,7 @@ layout: post
 title: "Comp9315 DBMS Implementation 16s1"
 date: 2016-02-28 11:24:07 +1100
 comments: true
-categories: [comp9315, unsw]
+tags: [comp9315, unsw]
 ---
 
 >来unsw的第一个学期，选了四门课，    

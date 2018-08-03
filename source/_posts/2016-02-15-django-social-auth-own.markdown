@@ -3,7 +3,7 @@ layout: post
 title: "django social auth插件实践"
 date: 2016-02-15 17:50:22 +1100
 comments: true
-categories: [django, oauth]
+tags: [django, oauth]
 ---
 
 一群懒人，连注册都不愿意。    

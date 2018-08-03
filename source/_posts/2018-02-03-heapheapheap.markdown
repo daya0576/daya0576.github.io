@@ -3,7 +3,7 @@ layout: post
 title: "<算法导论(3rd)>第六章 - Heap!Heap!Heap!"
 date: 2018-02-03 23:14:24 +0800
 comments: true
-categories: [算法导论, algorithm, heap]
+tags: [算法导论, algorithm]
 ---
 
 第一次懵懵懂懂接触Heap是在学信息检索的时候, 讲到用min heap直接在disk上对posting lists做合并操作.   

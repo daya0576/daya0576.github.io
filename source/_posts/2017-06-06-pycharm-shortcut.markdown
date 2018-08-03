@@ -1,9 +1,9 @@
 ---   
 layout: post   
 title: "PyCharm 收藏多年快捷键分享~"   
-date: 2017-06-06 22:43:18 +0800   
+date: 2017-06-07 22:43:18 +0800   
 comments: true   
-categories: [pycharm, shortcut]   
+tags: [pycharm, shortcut]   
 ---   
 
 > 介绍一些Pycharm中大幅度提高生产力的快捷键, 不看后悔一辈子! (逃)      

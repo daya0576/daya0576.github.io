@@ -3,7 +3,7 @@ layout: post
 title: "our_children"
 date: 2014-09-16 23:17:41 +0800
 comments: true
-categories: [life]
+tags: [life]
 ---
 
 我们家的宝宝们 ![](http://ctc.qzonestyle.gtimg.cn/qzone/em/e121.gif?max_age=2592000)

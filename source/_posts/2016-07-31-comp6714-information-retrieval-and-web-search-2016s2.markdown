@@ -3,16 +3,16 @@ layout: post
 title: "Henry's Feedback of UNSW COMP6714 16s2"
 date: 2016-07-31 20:02:22 +1000
 comments: true
-categories: [unsw, comp6714]
+tags: [unsw]
 ---
 
->The second term of my master degree in UNSW         
+The second term of my master degree in UNSW         
 This blog is sharing my experience of COMP6714: Information Retrieval and Web Search in 2016s2     
 
 <!--more-->
 
 
-> ### Other resources: ###
+# Useful resources: ###
 **Write down your experience about this course through this url (a cse courses' experience sharing website made by myself):**      
 [http://www.unsw.co/rango/category/comp6714](http://www.unsw.co/rango/category/comp6714)     
 **My Final Revision Summary Google doc link:**     
@@ -22,8 +22,7 @@ More than 40 students were online at the same time before the day of exam LOL
 And thx to everyone contributed to it, didnt expect it at all.    
   
 
->### Summary(In the end) ###
-----------
+# Summary(In the end) ###
 **Good things**:    
 **1. Well designed labs**(Jupyter Notebook) on Github, they are clear and indeed helpful: [https://github.com/DBWangGroupUNSW/COMP6714](https://github.com/DBWangGroupUNSW/COMP6714). Looking at the real code makes me understand the concepts and algorithms immediately.      
 **2. Distribution of whole class's marks** is clearly presented.      
@@ -45,17 +44,14 @@ I admit that it's also mainly because of my problem: lacking of preparing and re
 **I wrote down all my thoughts straightforward in my mind, ignore some incorrect ideas.**     
 
 
-> **The greatest harvest from this course**      
+# The greatest harvest from this course      
 I did enjoy a lot and followed well in some lectures, the feeling of learning new brilliant ideas is awesome.      
 In spite of the knowledge, here are two critical things learned from this course:    
 1). I'm not afraid of math anyone, in the lecture about BIM, I was totally lost, however in the revision, I finally understood it and found it's not hard at all.    
 2). In my bachelor degree, I did some research with a teacher for more than one year, the thing that I regret most is lacking reading papers before writing code. But now, I can read references patiently and solve one problem by myself.    
  
 
-
->### 27/07/2016 ###
-----------
-**week1**    
+# week1 (27/07/2016)  
 I missed the first lecture because of the late flight :(    
 Unfortunately, the class was full but the lecturer is so nice and let me enrolled in.      
 The lab online is **well designed and fun**, it does help me have a deeper understand of the algorithms in lecture.           
@@ -63,41 +59,32 @@ I even submitted a pull request to lecturer :)
 <img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/L0_fork.jpg">     
  
 
->### 01/08/2016 ###
-----------
-**week2**     
+# week2(01/08/2016)
 Getting most of the ideas, but totally lost in some math parts,  having not learned math for so many years.     
 Another problem is that Wang looked a bit nervous and cannot make some of the teaching content totally clear, speaking hundreds of "**actually**" in the 3 hours lecture.      
 <img style="max-height:300px" class="lazy" data-original="/images/blog/160731_comp6714/math.JPG"> 
  
 
->### 15/08/2016 ###
-----------
-**week4**    
+# week4 (15/08/2016)   
 I forced myself to concentrate and followed the lecture quite well.      
 Maybe another reason is that the lecture is much clearer this week.      
 <img style="max-height:300px" class="lazy" data-original="/images/blog/160731_comp6714/expert.png">    
    
 
->### 03/09/2016 ###
-----------
-**week6 Compression**    
+# week6 Compression (03/09/2016) 
 Can not wait to learn knowledge from this course!     
 happiest moment in my horrible 9 hours' lecture on Monday!      
 <img style="max-height:300px" class="lazy" data-original="/images/blog/160731_comp6714/9hours.png"> 
      
 
->### 12/09/2016 ###
-----------
-**week7&8 Spelling Correction + Information Extraction**    
+# week7&8 Spelling Correction + Information Extraction (12/09/2016)
 The lecture was back into a mess. I was lost again...      
 I heard one classmate judging Wang that he alway jump from one point to another, for example, when he was talking about A,  he suddenly remembered B, he would rush to B, then again, jumped to C, finally back to A.      
 The point is that he should make one thing entirely clear before jumping to another. He is a nice person and great **researcher**, but he should put more efforts to think about how to be an excellent **lecturer**.        
 Of course, another reason is my **lacking of preparation**, I should spend more time to prepare before the lecture!!!
    
 
->### 20/09/2016 ###
-**Assignment1**    
+# Assignment1 (20/09/2016)    
 [Ass1(click me to download)](/images/blog/160731_comp6714/ass1-spec.pdf) is consisted of four questions.     
 Here is my solution: [ass1_solution.pdf](/images/blog/160731_comp6714/ass1.pdf)     
 My mark: Comment: 24 | 14 | 25 | 25 | 1     
@@ -105,9 +92,7 @@ The most awesome part is that, when the mark of ass1 released, lectuer gave the 
 <img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/ass1_mark.png">    
    
 
->### 29/09/2016 ###
-----------
-**Project**     
+# Project (29/09/2016)  
 [A copy of project spec](/images/blog/160731_comp6714/proj1-spec.pdf)     
 Quite interesting, extracting birthday and parents in sentences such as:     
 `Waite, the eldest of five children, was born in White Plains, New York on June 22, 1928, to Ralph H. Waite, a construction engineer, and Esther (nee Mitchell) Waite.`    
@@ -120,9 +105,7 @@ However, many students complained about this submitting system.. If these stus s
 The evaluation measure is also brilliant     
    
 
->### 10/10/2016 ###
-----------
-**Project summary**    
+# Project summary (10/10/2016)  
 As today is the due date of project, I will summarize my thinkings about this project:     
 I mentioned so many things above that I extremely appreciate, here are things have to be improved in my perspective:             
 1. Mistakes in testing and training data:     
@@ -141,19 +124,14 @@ Mark overview:
 <img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/proj_mark_distribution.png">    
 
 
->### 10/10/2016 ###
-----------
-**week11 Evaluation**    
+# week11 Evaluation(10/10/2016)  
 Really enjoy the first two hours, the evaluation part is full of fun and easy.    
 <img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/w11_wei.png">    
 However, in the last one hour, I was lost in math part again @_@ (Probabilistic and Language Models)         
 And the lecture ended at 15:01, 6 minutes extended, one critical thing is that this **6 minutes would not be recorded by echo system**. It was not a huge issue(However in the revision, this 6 minutes is quite critical and I can not see it..updated in 11/11) and I can see that Dr. Wang did eager to deliver a better teaching, but he also has to pay more attention to these **details** to improve "user happiness" :)        
    
 
-
->### 31/10/2016 ###
-----------
-** Assignment2 **     
+# Assignment2(31/10/2016)     
 [Ass2(click me to download)](/images/blog/160731_comp6714/ass2-spec.pdf) is consisted of four questions too.      
 Here is my solution: [ass2_solution.pdf](/images/blog/160731_comp6714/ass2.pdf)    
 **So so so interesting**, I have been playing it for the whole day.    
@@ -165,10 +143,7 @@ Should get full mark but made a small calculation mistake.
 <img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/ass2-marks.png">    
    
 
-
->### 11/11/2016 ###
-----------
-** Final Exam **      
+# Final Exam(11/11/2016)      
 The **cheat sheet** is a good idea because this course mainly examines the way of thinking and  understanding instead of remembering.      
 **The actual problem** in my perspective is that too much content was included in this final exam. I have no time for all the calculations and even do not have time for **thinking**.     
 Another thing I want to share is that actually, there is an 11s2 final exam available online and more than one-third of the content is almost same(of course small and tricky changes were made). And when I published that on my review on google doc(because I feel it's unfair that a few students do not know it), some Chinese students put comments on the top that, "zuo ren liu yi xian, rang xia yi jie zen me ban and zhuang tm zui diao de", I was quite shocked and the only reason I can think of is that they already got this previous exam paper and so scared that lecturer knows it and change the final exam questions, the panic of failing the course is so familiar. In contrast, on the day before final exam, I joined a small study group(all the top students in this major excluded me, I'm a total loser of exam) to do the revision together, these people are so brilliant and both hardworking, that's how a student should be, so admiring. And that's one of biggest troubles of this course, the unequal capabilities of students, many students just want to pass this course instead of learning knowledge...      
@@ -178,7 +153,7 @@ Another thing I want to share is that actually, there is an 11s2 final exam avai
 2. reserve the first part but reduce the number of total questions, making more questions such as how and why and designing, instead of endless calculation.        
    
 
->### END ###
+--END-- 
 
 
 

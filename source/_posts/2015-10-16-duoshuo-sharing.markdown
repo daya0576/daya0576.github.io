@@ -3,7 +3,7 @@ layout: post
 title: "Octopress,jekyll多说分享插件设置"
 date: 2015-10-16 19:56:06 +0800
 comments: true
-categories: [octopress, duoshuo]
+tags: [octopress, duoshuo]
 ---
 
 偶然看到多说也推出了自家的分享插件，原来我用的是百度的分享插件，但它自带了一个对网站中所有图片鼠标划过时显示分享的效果，感觉有些鸡肋。换用多说的分享插件试试，感觉还不错。             

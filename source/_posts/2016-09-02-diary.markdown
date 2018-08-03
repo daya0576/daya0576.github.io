@@ -3,7 +3,7 @@ layout: post
 title: "Diary2016_09_10_12 2017_01"
 date: 2016-09-03 23:55:16 +1000
 comments: true
-categories: [diary, life]
+tags: [diary, life]
 ---
 
 试着去写写日记吧。 或许可以让你看到一个不一样的我吧 :")  

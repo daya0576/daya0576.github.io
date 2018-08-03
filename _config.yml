@@ -15,7 +15,7 @@ timezone: Australia/Sydney
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://changchen.me/
 root: /
-permalink: /blog/:year:month:day/:title/
+permalink: blog/:year:month:day/:title/
 permalink_defaults:
 
 # Directory
@@ -78,7 +78,15 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: rsync
+  host: 118.184.56.159
+  user: root
+  root: /root/hexo_blog
+  port: 22
+  delete: true
+  args:
+  verbose: true
+  ignore_errors: false
 
 # feed
 # Dependencies: https://github.com/hexojs/hexo-generator-feed
@@ -92,6 +100,13 @@ feed:
 # Local Search
 search:
   path: search.xml
-  field: post
+  field: all
   format: html
   limit: 10000
+
+# hexo sitemap网站地图
+sitemap:
+  path: sitemap.xml
+
+baidusitemap:
+  path: baidusitemap.xml

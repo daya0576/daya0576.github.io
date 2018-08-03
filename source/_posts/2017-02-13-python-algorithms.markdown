@@ -3,7 +3,7 @@ layout: post
 title: "那些年 用python刷过的面试算法题"
 date: 2017-02-13 15:32:09 +1100
 comments: true
-categories: [python, interview]
+tags: [python, interview]
 ---
 
 准备面试的过程中用Python写了一些的算法题, 用这篇日志记录一下.       

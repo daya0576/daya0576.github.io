@@ -3,7 +3,7 @@ layout: post
 title: "SSH to UNSW CSE Server Without Password"
 date: 2016-08-19 21:56:56 +1000
 comments: true
-categories: [cse, unsw]
+tags: [cse, unsw]
 ---
 
 It's so painful to input password every time login to cse server, so this article will show u how to ssh cse server without password.    

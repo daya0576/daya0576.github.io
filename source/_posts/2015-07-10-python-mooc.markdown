@@ -3,7 +3,7 @@ layout: post
 title: "python_mooc笔记-高阶函数"
 date: 2015-07-10 16:15:41 +0800
 comments: true
-categories: [python, study]
+tags: [python, study]
 ---
  
 > 最近看了慕课网上的一个课程，    

@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbb84469-becb-49a9-b594-8739dd7e7be9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/themes/next/layout/_third-party/private/lazyload.swig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-button.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-button.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-meta.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-meta.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-reward.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-reward.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_common/components/sidebar/sidebar-author.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_common/components/sidebar/sidebar-author.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_custom/custom.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_custom/custom.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/index.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/index.styl" afterDir="false" />
-    </list>
+    <list default="true" id="fbb84469-becb-49a9-b594-8739dd7e7be9" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -24,11 +14,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="831">
-              <caret line="92" column="6" selection-start-line="92" selection-end-line="92" selection-end-column="6" />
+      <file leaf-file-name="2017-03-20-hypers-first-week-summary.markdown" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="240">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -37,43 +30,44 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>post-meta</find>
-      <find>Quitter</find>
-      <find>\-\-\-\n\n\&gt;</find>
-      <find>posts in total. Keep on posting.</find>
-      <find>^posts</find>
-      <find>archive_generator</find>
-      <find>rss</find>
-      <find>archive</find>
-      <find>Mophie的缺点:</find>
-      <find>10</find>
-      <find>zh-CN</find>
-      <find>left</find>
-      <find>sideba</find>
-      <find>iPhone无线充电底座选购心路历程</find>
-      <find>&lt;br&gt;</find>
-      <find>scrollpercent</find>
-      <find>.site-overview</find>
-      <find>feed</find>
-      <find>new_draft_name</find>
+      <find>heap</find>
+      <find>filter</find>
+      <find>filter]</find>
+      <find>format]</find>
+      <find>gtk</find>
+      <find>浪浪浪</find>
+      <find>Henry's Feedback of UNSW COMP6714 16s2</find>
+      <find>\d+/\d+/2016</find>
+      <find>macOS为什么那么受欢迎, 个人觉得</find>
+      <find>post-title-link</find>
+      <find>sitemap:</find>
+      <find>sitem</find>
+      <find>2017 上海(python后端)面试经历分享</find>
+      <find>^#</find>
+      <find>###</find>
+      <find>&lt;p&gt;</find>
+      <find>上海 Hypers(Python后台开发) 每周总结</find>
+      <find>comments</find>
       <find>Local Search</find>
-      <find>\u0008</find>
-      <find>local search</find>
-      <find>about</find>
-      <find>facebook</find>
-      <find>hover</find>
-      <find>.post-body p a{</find>
-      <find>/categories</find>
-      <find>use_motion</find>
-      <find>motion</find>
-      <find>remove_can</find>
+      <find>search</find>
+      <find>sitemap_template.xml</find>
+      <find>font-size: 24</find>
+      <find>url</find>
+      <find>post-type-normal</find>
+      <find>.post-button</find>
+      <find>post-button</find>
+      <find>+1000</find>
+      <find>hypers-first-week-summary</find>
+      <find>date:</find>
+      <find>date:.+-(\d\d) (21|22|23):.+0800</find>
     </findStrings>
     <replaceStrings>
       <replace>\u0020</replace>
       <replace>123</replace>
       <replace>\-\-\-\n\n</replace>
       <replace />
-      <replace />
+      <replace>tags:</replace>
+      <replace>date:.+-$1 $2:.+0800</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/source</dir>
@@ -95,12 +89,9 @@
         <option value="$PROJECT_DIR$/themes/next/source/lib/fancybox/source/jquery.fancybox.js" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/sidebar/sidebar-author.styl" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/index.styl" />
-        <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-button.styl" />
         <option value="$PROJECT_DIR$/source/past_post/2018-04-13-impressions-of-google-sre.markdown" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-meta.styl" />
         <option value="$PROJECT_DIR$/source/_posts/2018-04-13-impressions-of-google-sre.markdown" />
-        <option value="$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown" />
-        <option value="$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2018-02-22-b-tree.markdown" />
         <option value="$PROJECT_DIR$/themes/next/layout/archive.swig" />
@@ -109,12 +100,35 @@
         <option value="$PROJECT_DIR$/source/_posts/2018-02-23-vim-tour.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2018-07-07-coursera-machine-learning-note.markdown" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_custom/custom.styl" />
-        <option value="$PROJECT_DIR$/source/about/index.markdown" />
         <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-reward.styl" />
-        <option value="$PROJECT_DIR$/themes/next/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/2015-12-25-ten-highlight-in-2015.markdown" />
         <option value="$PROJECT_DIR$/source/_posts/2015-01-05-ten-highlights-in-2014.markdown" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-expand.styl" />
+        <option value="$PROJECT_DIR$/themes/next/source/js/src/utils.js" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post.styl" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-collapse.styl" />
+        <option value="$PROJECT_DIR$/source/_drafts/coursera-machine-learning-note.markdown" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/_menu.styl" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_variables/base.styl" />
+        <option value="$PROJECT_DIR$/source/tags/index.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown" />
+        <option value="$PROJECT_DIR$/themes/next/_config.yml" />
         <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-title.styl" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_schemes/Muse/_logo.styl" />
+        <option value="$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-button.styl" />
+        <option value="$PROJECT_DIR$/source/about/index.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown" />
+        <option value="$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown" />
       </list>
     </option>
   </component>
@@ -135,7 +149,7 @@
       <path value="$PROJECT_DIR$/themes/next/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -145,7 +159,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -156,34 +169,25 @@
             <path>
               <item name="zblog" type="b2602c69:ProjectViewProjectNode" />
               <item name="zblog" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zblog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zblog" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zblog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zblog" type="462c0819:PsiDirectoryNode" />
               <item name="source" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zblog" type="b2602c69:ProjectViewProjectNode" />
               <item name="zblog" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="_drafts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zblog" type="b2602c69:ProjectViewProjectNode" />
               <item name="zblog" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="next" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="about" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -192,20 +196,22 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="performancePlugin.isProfileIndexing" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/lib" />
-      <recent name="$PROJECT_DIR$/public/lib/3dsnow" />
-      <recent name="$PROJECT_DIR$/source/_posts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/images/loading" />
       <recent name="$PROJECT_DIR$/source/_drafts" />
       <recent name="$PROJECT_DIR$/source/_posts" />
       <recent name="$PROJECT_DIR$/source/past_post" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/source/post_to_add" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/images/loading" />
+      <recent name="$PROJECT_DIR$/public/lib" />
+      <recent name="$PROJECT_DIR$/public/lib/3dsnow" />
+      <recent name="$PROJECT_DIR$/source/_posts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -239,37 +245,70 @@
       <workItem from="1532791427180" duration="2990000" />
       <workItem from="1532794638610" duration="15768000" />
       <workItem from="1532930261562" duration="606000" />
-      <workItem from="1533041652766" duration="328000" />
+      <workItem from="1533041652766" duration="1198000" />
+      <workItem from="1533140502376" duration="8782000" />
+      <workItem from="1533226453475" duration="3462000" />
+      <workItem from="1533231453181" duration="110000" />
+      <workItem from="1533231583091" duration="1105000" />
+      <workItem from="1533232763695" duration="469000" />
+      <workItem from="1533233260264" duration="58000" />
+      <workItem from="1533262579930" duration="68000" />
+      <workItem from="1533262663787" duration="344000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: update css style">
+      <created>1533140560010</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533140560010</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: sync">
+      <created>1533231625813</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533231625813</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29931000" />
+    <option name="totallyTimeSpent" value="45199000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2578125" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50069445" side_tool="true" weight="0.6698113" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49930555" weight="0.3985849" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.29245284" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32900944" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49930555" weight="0.3985849" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -300,308 +339,16 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: update css style" />
+    <MESSAGE value="feat: sync" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: sync" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-06-06-pycharm-shortcut.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="90">
-            <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-25-partition-problem.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor>
-            <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/landscape/scripts/fancybox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/lib/fancybox/source/jquery.fancybox.min.css" />
-    <entry file="file://$PROJECT_DIR$/themes/next/source/lib/fancybox/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/lib/fancybox/LICENSE">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/lib/fancybox/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/lib/fancybox/source/jquery.fancybox.pack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="31" lean-forward="true" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/lib/fancybox/source/jquery.fancybox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="50" column="21" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/lib/fancybox/.bower.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/sidebar/sidebar-author.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/index.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/layout/_third-party/comments/disqus.swig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="68" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-button.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/layout/_third-party/analytics/baidu-analytics.swig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/.github/browserstack_logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/header/github-banner.styl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/languages/zh-CN.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/main.styl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-meta.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_variables/custom.styl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_variables/Pisces.styl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_variables/base.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-04-13-impressions-of-google-sre.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="103" lean-forward="true" selection-start-line="9" selection-start-column="103" selection-end-line="9" selection-end-column="103" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="840">
-            <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="101">
-            <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="15">
-            <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-02-23-apistar-werkzeug-run-simple.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="315">
-            <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-02-22-b-tree.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="360">
-            <caret line="24" column="103" selection-start-line="24" selection-start-column="103" selection-end-line="24" selection-end-column="103" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/layout/_layout.swig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/.stylintrc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/layout/archive.swig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2017-12-24-wireless-charging-review.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-29-cousera-comments.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="330">
-            <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/2018-02-23-vim-tour.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="345">
-            <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_drafts/coursera-machine-learning-note.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="120">
-            <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_custom/custom.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/node_modules/hexo-generator-feed/atom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/search.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/docs/zh-CN/ALGOLIA-SEARCH.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="449">
-            <caret line="64" column="78" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/landscape/_config.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/about/index.markdown">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-reward.styl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="41" selection-start-line="41" selection-start-column="2" selection-end-line="55" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="778" column="32" selection-start-line="778" selection-start-column="25" selection-end-line="778" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -638,10 +385,365 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/tags/full-image.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/components.styl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-expand.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/landscape/source/fancybox/jquery.fancybox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-collapse.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="95" column="22" lean-forward="true" selection-start-line="95" selection-start-column="22" selection-end-line="95" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/js/src/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-29-cousera-pong.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="101">
+            <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/_menu.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/scaffolding/helpers.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_variables/base.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/tags/index.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="45">
+            <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-06-binary-search.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-08-11-9820-project-managment.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-02-25-comp9319.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-03-django-filter-trick.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-08-10-python-format-summary.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="165">
+            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-09-14-quantans-of-sea-summary.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="587">
+            <caret line="145" column="18" lean-forward="true" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="37" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2018-02-03-heapheapheap.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-07-31-comp6714-information-retrieval-and-web-search-2016s2.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="135">
+            <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2018-05-07-best-macos-apps.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret column="3856915" selection-start-column="3856915" selection-end-column="3856915" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-02-23-python-backend-inteview-summery.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="60">
+            <caret line="4" selection-start-line="4" selection-end-line="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/hexo-generator-search/templates/search.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/node_modules/hexo-generator-search/templates/search.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-title.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_schemes/Muse/_logo.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_common/components/post/post-button.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/next/source/css/_schemes/Mist/_posts-expanded.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="831">
-          <caret line="92" column="6" selection-start-line="92" selection-end-line="92" selection-end-column="6" />
+        <state relative-caret-position="173">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2014-04-04-my-first-blog.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2016-07-11-tablet-tennis.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/about/index.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="180">
+            <caret line="12" column="19" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="19" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_drafts/coursera-machine-learning-note.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="45">
+            <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_drafts/ios12-review.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-05-14-ele-interview-solution.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="180">
+            <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_drafts/python-type-annotation.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="45">
+            <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_drafts/octopress-to-hexo.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/python-type-annotation.markdown" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-python-mro.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="45">
+            <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2018-03-14-git-internal.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="285">
+            <caret line="19" column="70" lean-forward="true" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/2017-03-20-hypers-first-week-summary.markdown">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="240">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

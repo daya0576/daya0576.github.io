@@ -3,7 +3,7 @@ layout: post
 title: "在vps上部署你的静态博客(网站)"
 date: 2017-07-29 14:10:26 +0800
 comments: true
-categories: [octopress, vps]
+tags: [octopress, vps]
 ---
 
 昨晚博客搬到香港的vps上了. 在这篇文章把简单的几个步骤, 总结分享一下( 本文主要以Octopress为例子, 但流程其实都是共通的).      

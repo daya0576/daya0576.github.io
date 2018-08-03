@@ -3,7 +3,7 @@ layout: post
 title: "diary2014_08"
 date: 2014-08-04 18:05:37 +0800
 comments: true
-categories: [life, diary]
+tags: [life, diary]
 ---
 
 

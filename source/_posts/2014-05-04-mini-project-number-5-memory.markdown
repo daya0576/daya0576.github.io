@@ -3,7 +3,7 @@ layout: post
 title: "Mini-project#5-Memory"
 date: 2014-05-04 14:03:07 +0800
 comments: true
-categories: [cousera, study, python]
+tags: [cousera, study, python]
 ---
 
  《An Introduction to Interactive Programming in Python》

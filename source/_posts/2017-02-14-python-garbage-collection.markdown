@@ -3,7 +3,7 @@ layout: post
 title: "Python - Note of Garbage Collection"
 date: 2017-02-14 15:30:18 +1100
 comments: true
-categories: [Python, interview]
+tags: [Python, interview]
 ---
 
 阅读了一篇Python垃圾回收的文章, 用这篇日志记录一下. 原文地址: [http://www.digi.com/wiki/developer/index.php/Python_Garbage_Collection](http://www.digi.com/wiki/developer/index.php/Python_Garbage_Collection)    

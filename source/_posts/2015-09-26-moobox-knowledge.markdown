@@ -3,7 +3,7 @@ layout: post
 title: "记录moobox的点滴(技术篇)"
 date: 2015-09-26 20:43:11 +0800
 comments: true
-categories: [mysql, django, moobox, work]
+tags: [mysql, django, moobox, work]
 ---
 
 

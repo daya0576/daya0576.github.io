@@ -3,7 +3,7 @@ layout: post
 title: "<算法导论(3rd)>第十八章 - B Tree!"
 date: 2018-02-22 18:22:28 +0800
 comments: true
-categories: [算法导论, algorithm, btree]
+tags: [算法导论, algorithm, btree]
 ---
 
 之前学DBMS的时候接触到B Tree, 但当时懵懵懂懂我的对B Tree的操作也是一知半解.   

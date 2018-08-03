@@ -3,7 +3,7 @@ layout: post
 title: "\"Hey Jimmy Kimmel I Told My Kids I Ate All Their Halloween Candy.\""
 date: 2016-11-06 10:52:06 +1100
 comments: true
-categories: [youtube]
+tags: [youtube]
 ---
 
 The **all 6 videos** in the past five years of "YouTube Challenge - I Told My Kids I Ate All Their Halloween Candy 2016"      

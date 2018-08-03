@@ -3,7 +3,7 @@ layout: post
 title: "hidden features of Python笔记"
 date: 2014-11-18 11:30:26 +0800
 comments: true
-categories: [study, python]
+tags: [study, python]
 ---
 
 ## 最近看了关于python的两个很不错的资料 

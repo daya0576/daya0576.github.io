@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "dell inspiron7420 ubuntu13.04触摸板设置"
-date: 2014-09-24 21:50:55 +0800
+date: 2014-09-25 21:50:55 +0800
 comments: true
-categories: [ubuntu, study]
+tags: [ubuntu, study]
 ---
 
 CSDN以前写的博客   

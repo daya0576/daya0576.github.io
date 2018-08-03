@@ -3,7 +3,7 @@ layout: post
 title: "Django ORM的多对多关系 (每个关系有附加的属性)"
 date: 2017-04-05 22:44:02 +0800
 comments: true
-categories: [django]
+tags: [django]
 ---
 
 最近写公司的业务代码, 碰到这么一个问题:      

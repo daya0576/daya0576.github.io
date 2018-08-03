@@ -3,7 +3,7 @@ layout: post
 title: "Fibonacci number(Recursive, DP and Decorator)"
 date: 2016-09-15 10:52:49 +1000
 comments: true
-categories: [study, dynamic programming]
+tags: [study, dynamic programming]
 ---
 
 I found a [fatastic video](https://www.youtube.com/watch?v=OQ5jsbhAv_M) about Dynamic Programming, it can be used to solve Fibonacci number problem efficiently. Decorater can also be used to make code elegent ^o^      

@@ -3,7 +3,7 @@ layout: post
 title: "排序算法总结(Python实现附带思路)"
 date: 2017-06-11 00:04:35 +0800
 comments: true
-categories: [python, algorithm]
+tags: [python, algorithm]
 ---
 
 最近开始看<算法导论>, 一开始就是讲的就是插入排序和merge sort,    

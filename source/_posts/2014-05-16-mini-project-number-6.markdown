@@ -3,7 +3,7 @@ layout: post
 title: "Mini-project # 6 - Blackjack"
 date: 2014-05-16 10:11:18 +0800
 comments: true
-categories: [cousera, study]
+tags: [cousera, study]
 ---
 
  《An Introduction to Interactive Programming in Python》

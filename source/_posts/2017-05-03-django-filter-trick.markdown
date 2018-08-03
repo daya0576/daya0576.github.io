@@ -3,7 +3,7 @@ layout: post
 title: "Django filter 的一个令人震惊的小细节, 不转不是中国人!(逃..)"
 date: 2017-05-03 23:40:57 +0800
 comments: true
-categories: [django, filter]
+tags: [django]
 ---
 
 最近在看django的官方文档的时候, 看到filter()需要注意的地方:   

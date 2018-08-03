@@ -3,7 +3,7 @@ layout: post
 title: "cousera_comments总和"
 date: 2014-04-29 17:29:28 +0800
 comments: true
-categories: [study, python, cousera]
+tags: [study, python, cousera]
 ---
 
 >《An Introduction to Interactive Programming in Python》

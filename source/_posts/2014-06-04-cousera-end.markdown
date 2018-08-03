@@ -3,7 +3,7 @@ layout: post
 title: "cousera_end"
 date: 2014-06-04 08:48:07 +0800
 comments: true
-categories: [cousera, study]
+tags: [cousera, study]
 ---
 
 嘿嘿   终于拿到第一门cousera的证书了   

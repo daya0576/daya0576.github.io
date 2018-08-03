@@ -3,7 +3,7 @@ layout: post
 title: "饿了吗 一道面试题分享和思考~"
 date: 2017-05-14 23:46:27 +0800
 comments: true
-categories: [ele, django, database]
+tags: [ele, django, database]
 ---
 
 之前在上海面试后端开发的时候, 面试官问了一个数据库相关的问题:   

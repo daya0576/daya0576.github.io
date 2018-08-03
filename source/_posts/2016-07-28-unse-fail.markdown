@@ -3,7 +3,7 @@ layout: post
 title: "What to do after failing a course at UNSW(Especially for the IT 8543)"
 date: 2016-07-28 20:58:33 +1000
 comments: true
-categories: [unsw, fail]
+tags: [unsw, fail]
 ---
 
 Some courses in UNSW are so hard, and failing a course doesn't mean the end of the world. However, there is limited info online(because I searched before and got nothing), so I decided to write this blog to share my experience and advises.     

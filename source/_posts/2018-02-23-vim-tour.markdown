@@ -3,7 +3,7 @@ layout: post
 title: "我和VIM的故事"
 date: 2018-02-23 15:41:28 +0800
 comments: true
-categories: [vim]
+tags: [vim]
 ---
 
 和VIM相爱的故事要从我的笔记本**上下键**坏了开始..哈哈   

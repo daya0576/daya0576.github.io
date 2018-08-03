@@ -3,7 +3,7 @@ layout: post
 title: "Python Virtual Environments Note"
 date: 2016-09-30 01:27:57 +1000
 comments: true
-categories: [python, venv]
+tags: [python, venv]
 ---
 
 

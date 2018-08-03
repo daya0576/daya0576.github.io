@@ -3,7 +3,7 @@ layout: post
 title: "数组分割(编程之美) HyperS面试题 思考与分享"
 date: 2017-05-25 00:34:57 +0800
 comments: true
-categories: [hypers, algorithm]
+tags: [hypers, algorithm]
 ---
 
 `问题描述:` **有一个无序, 元素个数为2n的正整数数组. 要求: 如何能把这个数组分割为元素个数为n的两个数组, 并使两个子数组的和最接近.**    

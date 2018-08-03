@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Diary2016_07&08"
-date: 2016-07-03 23:55:16 +0800
+date: 2016-07-04 23:55:16 +0800
 comments: true
-categories: [diary, life]
+tags: [diary, life]
 ---
 
 试着去写写日记吧。 或许可以让你看到一个不一样的我吧 :")  

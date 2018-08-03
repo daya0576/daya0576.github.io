@@ -3,7 +3,7 @@ layout: post
 title: "Octopress `rake&nbsp;generate` 命令的大提速🚀"
 date: 2017-08-12 17:11:12 +0800
 comments: true
-categories: [Octopress]
+tags: [Octopress]
 ---
 
 这个博客是三四年前用Octopress框架搭的, 老年人的博客, 哈哈.    
