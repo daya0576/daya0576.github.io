@@ -79,9 +79,9 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: rsync
-  host: 118.184.56.159
+  host: 47.75.146.178
   user: root
-  root: /root/hexo_blog
+  root: /root/zblog
   port: 22
   delete: true
   args:
