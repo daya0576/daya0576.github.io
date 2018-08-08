@@ -13,18 +13,12 @@ tags: [octopress, vps]
 
 
 
-
-
-
 # 背景   
-这个[博客](https://changchen.me)原先是部署在Github Page服务上的, 优缺点很明显:        
-
-**优点:**  
-
+这个[博客](https://changchen.me)原先是部署在Github Page服务上的, 优缺点很明显:
+## 优点:
 1. 免费!!!
 
-**缺点:** 
-
+## 缺点:
 1. 大陆和美利坚毕竟跨着一个太平洋, 延迟还是有些高的.
 2. 无法配置证书(之前用的cloudflare解决方案, 但必须要用它家的cdn, 感觉不能掌控的因素太多了).
 3. 其实最重要的一点是, 如果博客放在github的page服务上, 是**无法被百度收录**的.    
@@ -51,8 +45,8 @@ _通过邀请链接注册的新用户完成手机绑定可以获得 0.5K 贝壳(
 # 第二步 同步网站内容
 因为是静态网站, 所以只要把生成的静态内容, 放到vps上供访问就行了.   
 Octopress提供了原生的同步方法: 只需将`rake deploy`的模式从默认的push改为Rsync, 再允许`rake deploy`就会将代码同步到远程的服务器上, 具体的配置如下:   
-```yaml
-## -- Rsync Deploy config -- 
+``` yaml
+## Rsync Deploy config
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "username@vps的IP地址"
 ssh_port       = "22"
@@ -60,7 +54,8 @@ document_root  = "~/zblog/"
 rsync_delete   = false
 rsync_args     = ""  # Any extra arguments to pass to rsync
 deploy_default = "rsync"
-```    
+
+```
 
 
 
@@ -68,9 +63,10 @@ deploy_default = "rsync"
 将访问的域名代理 --> vps上同步的文件夹.    
 我的nginx配置供参考:
 
-1. 将www.changchen.me 302 --> changchen.me   
+1. 将www.changchen.me 301 --> changchen.me
 2. 将changchen.me --> ~/zblog/
-```
+
+``` nginx
 server {
     server_name www.changchen.me;
     rewrite ^/(.*)$ https://changchen.me/$1 redirect;
@@ -82,6 +78,7 @@ server {
         index index.html index.htm;
         server_name changchen.me;
 }
+
 ```
 
 
@@ -98,8 +95,8 @@ DNS生效需要一会时间, 刚好可以等待期间为你的博客加上免费
 
 
 # 总结
-你的博客就顺利搭建起来了🎉    
-`changchen.me --> DNS --> VPS IP --> 302 --> blog dir.`   
+你的博客就顺利搭建起来了🎉
+`changchen.me --> DNS --> VPS IP --> 301 --> blog dir.`
 
 相比以前跨越半个地球去访问网站, 速度刷刷刷的上去了~   
 <img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png"><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost2.png">   
