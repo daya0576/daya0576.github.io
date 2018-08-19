@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://zblog.netlify.com/* https://changchen.me/:splat 301!
