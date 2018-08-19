@@ -12,7 +12,6 @@ date: 2018-08-07 13:43:00
 调研过一些博客框架, 例如车亮亮做的基于Django的博客系统([GitHub主页](https://github.com/liangliangyy/DjangoBlog)), Jekyll, Ghost, etc. 但最后还是选择了现在最火的Hexo. 本文主要记录了使用hexo的心路历程, 至于如何部署可以参考这篇blog: [在vps上部署你的静态博客(网站)
 ](/blog/20170729/octopress-nginx-vps/)   
 
-
 <!--more-->
 
 放一张图纪念一下老博客:
