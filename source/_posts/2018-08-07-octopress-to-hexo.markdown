@@ -9,7 +9,7 @@ date: 2018-08-07 13:43:00
 
 从2014年开始, 不知不觉用[Octopress](http://octopress.org/)写博客已经四年多了. 用的主题叫做[Greyshade](https://shashankmehta.in/archive/2012/greyshade.html), 陆陆续续做了很多小改动, 同时也使整个项目一团糟, 慢慢的变得难以维护, 编写一篇新博客的成本也越来越高了, 终于下定决心给博客搬个家. 
 
-调研过一些博客框架, 例如车亮亮做的基于Django的博客系统([GitHub主页](https://github.com/liangliangyy/DjangoBlog)), Jekyll, Ghost, 但最后还是选择了现在最火的Hexo. 本文主要记录了使用hexo的心路历程, 至于如何部署可以参考这篇blog: [在vps上部署你的静态博客(网站)
+调研过一些博客框架, 例如车亮亮做的基于Django的博客系统([GitHub主页](https://github.com/liangliangyy/DjangoBlog)), Jekyll, Ghost, etc. 但最后还是选择了现在最火的Hexo. 本文主要记录了使用hexo的心路历程, 至于如何部署可以参考这篇blog: [在vps上部署你的静态博客(网站)
 ](/blog/20170729/octopress-nginx-vps/)   
 
 
