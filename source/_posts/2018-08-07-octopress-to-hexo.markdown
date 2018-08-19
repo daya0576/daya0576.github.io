@@ -41,8 +41,7 @@ toc: table of content, 虽然在老博客上可以在文章开头手动生成, �
 # 从迁移Octopress
 官方文档: [https://hexo.io/docs/migration.html#Octopress](https://hexo.io/docs/migration.html#Octopress)
 
-## 基本配置: 
-
+## 基本配置
 - [x] Template render error: (unknown path)!!!!!!   
 ![-w890](/images/blog/180807_octopress_to_hexo/15336323445390.jpg)
 官方提示: [https://hexo.io/docs/troubleshooting.html#Template-render-error](https://hexo.io/docs/troubleshooting.html#Template-render-error)
@@ -56,15 +55,20 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 - [x] 基本的config: [https://hexo.io/docs/configuration.html](https://hexo.io/docs/configuration.html)
 - [x] 打赏 (Done)
 - [x] RSS (Done)
-- [x] Search (Done): [https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/](https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/)
+- [x] Local Search (Done): [https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/](https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/)
 - [x] Instagram/wechat social icon
 
 ## 个性化配置
 目标: 让人感觉不到是在用Hexo的Next主题.
 - [ ] 首页文章显示为块状 
 - [ ] 关于我的页面
-- [ ] 主题颜色
-- [ ] font-awesome icons
+- [x] 主题颜色
+- [x] font-awesome icons: https://fontawesome.com/v4.7.0/icons/
+- [ ] algolia search
+- [ ] 背景图片
+- [ ] github CI   
+
+
 
 
 
