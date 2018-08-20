@@ -9,7 +9,7 @@ categories:
   - blog
 ---
 
-尝试在GCP的OSS上部署静态博客受挫之后([见上篇博客](/blog/20180819/deploy-hexo-blog-to-gcp-oss/)). 俺痛定思痛, 决定先做一个小小的调查, 再进行最终部署方案的选择. 这时候偶遇了一篇非常棒的文章: [静态网站托管服务平台的横向方案比较](https://blog.csdn.net/grackanil/article/details/81196931). 在这篇文章中, 我第一次了解到了[Netlify](https://www.netlify.com/)这个平台. 
+尝试在GCP的OSS上部署静态博客受挫之后([见上篇博客](/blog/20180819/deploy-hexo-blog-to-gcp-oss/)). 俺痛定思痛, 决定先做一个小小的调查, 再进行最终部署方案的选择. 这时候偶遇了一篇非常棒的文章: [静态网站托管服务平台的横向方案比较](https://blog.csdn.net/grackanil/article/details/81196931). 在这篇文章中, 我第一次了解到了[Netlify](https://www.netlify.com/). 
 
 **划重点: 在整个部署过程中, 完全是全自动化, 并且免费, 太酷了🆒!!!**    
 
@@ -47,7 +47,7 @@ categories:
 ## 自动在每个页面注入html代码, 适用于一些验证的场景.
 ![](/images/blog/180819_hexo_to_gcp_netlify/15347784904890.jpg)
 
-## 自动优化: 
+## 自动优化
 其中例如图片的无损压缩感觉还是挺有意义的.
 ![](/images/blog/180819_hexo_to_gcp_netlify/15346938018934.jpg)
 
@@ -55,7 +55,7 @@ categories:
 部署成功/失败可以通过各种形式传递到用户. 
 ![](/images/blog/180819_hexo_to_gcp_netlify/15346943108245.jpg)
 
-## 一键HTTPS:
+## 一键HTTPS
 ![](/images/blog/180819_hexo_to_gcp_netlify/15347785789379.jpg)
 
 

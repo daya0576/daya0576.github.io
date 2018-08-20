@@ -59,7 +59,7 @@ www.example.com       CNAME    c.storage.googleapis.com.
 ```
 
 
-# 测速:
+# 测速
 **GCP OSS(左)** VS **Aliyun香港 OSS(右)**   
 ![](/images/blog/180819_hexo_to_gcp_oss/15346837142907.jpg)
 
