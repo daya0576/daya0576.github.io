@@ -111,3 +111,10 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
+
+# algolia search
+algolia:
+  applicationID: 'POROKYZNST'
+  apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63'
+  indexName: 'zblog'
+  chunkSize: 5000
