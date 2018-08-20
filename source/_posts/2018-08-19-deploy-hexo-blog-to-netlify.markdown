@@ -41,17 +41,29 @@ categories:
 
 
 # 其他优势:
+## 提供webhook的形式触发部署
+![](/images/blog/180819_hexo_to_gcp_netlify/15347783952164.jpg)
+
+## 自动在每个页面注入html代码, 适用于一些验证的场景.
+![](/images/blog/180819_hexo_to_gcp_netlify/15347784904890.jpg)
+
 ## 自动优化: 
 其中例如图片的无损压缩感觉还是挺有意义的.
 ![](/images/blog/180819_hexo_to_gcp_netlify/15346938018934.jpg)
+
 ## 通知:   
 部署成功/失败可以通过各种形式传递到用户. 
 ![](/images/blog/180819_hexo_to_gcp_netlify/15346943108245.jpg)
+
+## 一键HTTPS:
+![](/images/blog/180819_hexo_to_gcp_netlify/15347785789379.jpg)
+
 
 ## (TODO: 其他优点)
 
 
 # 缺点:
 当然世界上没有什么东西是完美的, netlify也有一些相对的缺点:
-1. 速度和
+1. 速度和阿里云的ecs或oss比起来还是要一些差距的.
+2. 不能检测到git submodule的变更. 
 
