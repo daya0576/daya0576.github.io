@@ -1,5 +1,5 @@
 ---
-title: 部署Hexo静态博客(下) - Netlify优雅地持续集成你的静态网站
+title: 部署Hexo静态博客(下) - 偶遇Netlify, 优雅地持续集成你的博客
 date: 2018-08-19 22:27:15
 tags: 
     - oss
@@ -48,6 +48,10 @@ categories:
 部署成功/失败可以通过各种形式传递到用户. 
 ![](/images/blog/180819_hexo_to_gcp_netlify/15346943108245.jpg)
 
+## (TODO: 其他优点)
 
-(TODO: 未完待续)
+
+# 缺点:
+当然世界上没有什么东西是完美的, netlify也有一些相对的缺点:
+1. 速度和
 
