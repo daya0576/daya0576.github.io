@@ -9,18 +9,15 @@ categories:
   - blog
 ---
 
-尝试在GCP的OSS上部署静态博客受挫之后([见上篇博客](/blog/20180819/deploy-hexo-blog-to-gcp-oss/)). 俺痛定思痛, 决定先做一个小小的调查, 再进行最终部署方案的选择. 这时候偶遇了一篇非常棒的文章: [静态网站托管服务平台的横向方案比较](https://blog.csdn.net/grackanil/article/details/81196931). 在这篇文章中, 我第一次了解到了[Netlify](https://www.netlify.com/). 
-
-**划重点: 在整个部署过程中, 完全是全自动化, 并且免费, 太酷了🆒!!!**    
+接[上篇博客](/blog/20180819/deploy-hexo-blog-to-gcp-oss/), 尝试在GCP的OSS上部署静态博客受挫之后, 痛定思痛, 决定先做一个小小的调查, 再敲定最终的部署方案. 这时候搜到一篇非常棒的文章: [静态网站托管服务平台的横向方案比较](https://blog.csdn.net/grackanil/article/details/81196931). 正是在这篇文章中, 我第一次了解到了[Netlify](https://www.netlify.com/). 并一见钟情了, **因为在Net整个部署过程中, 你只需要提交代码, 其余的master部署预览(包括MR的预览), HTTPS证书, 静态资源的优化与CDN加速, 部署消息通知, 等等都不用再操心. 真的是太优雅了XD**    
 
 # 创建项目
-在Netlify注册后的第一次创建项目, 并选择GitHub分支时, 就把我惊艳到了: 图下方的`build command`和`publish directory`的配置是自动生成的.    
-![](/images/blog/180819_hexo_to_gcp_netlify/15346902374971.jpg)
+在Netlify注册后的第一次创建项目, 然后授权选择GitHub分支时, 就把我惊艳到了: Netlify会自动检测到该repo为hexo项目, 并自动配置`build command`和`publish directory`. **非常的人性化**.   
+
+# 点点鼠标三步上线网站
+![](/images/blog/180819_hexo_to_gcp_netlify/15346905025065.jpg)
 
 <!--more-->
-
-# 三步上线网站
-![](/images/blog/180819_hexo_to_gcp_netlify/15346905025065.jpg)
 
 ## 第一步: 自动部署
 不用做任何设置, 每次master分支有更新代码, Netlify就会帮你自动部署代码. 图中左下角为master分支的每次部署记录, 右下角为每个PR的部署, 而且和master分支一样, 会次部署会提供url供用户预览网站效果.   
