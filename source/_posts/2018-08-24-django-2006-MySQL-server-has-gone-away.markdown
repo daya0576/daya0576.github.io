@@ -1,5 +1,5 @@
 ---
-title: Django "(2006, 'MySQL server has gone away')"分析, 重现与解决的记录
+title: Django (2006, 'MySQL server has gone away') 本地重现与解决的记录
 date: 2018-08-24 15:34:44
 tags:
   - django
@@ -151,5 +151,9 @@ django.db中connection和connections的区别???
 2. ["Mysql has gone away"的几种可能](https://www.cnblogs.com/lesliexong/p/8654615.html)
 3. [mysql wait\_timeout字段官方文档](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
 4. [“MySQL server has gone away” in django ThreadPoolExecutor](http://www.rainybowe.com/blog/2017/01/06/MySQL-server-has-gone-away-in-django-ThreadPoolExecutor/index.html)
+
+
+
+
 
 
