@@ -1,7 +1,7 @@
 #!/bin/bash --login
 
 git add .
-git commit -m 'auto update blog'
+git commit -m 'auto backup blog'
 git push
 
 
