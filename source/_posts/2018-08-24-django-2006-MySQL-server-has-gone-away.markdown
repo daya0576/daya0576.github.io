@@ -53,7 +53,7 @@ mysql> show variables like '%wait_timeout%';
 ```
 
 ## 重现exception:
-```bash
+```python
 >>> XXX.objects.exists()
 True
 >>> import time
@@ -151,13 +151,5 @@ django.db中connection和connections的区别???
 2. ["Mysql has gone away"的几种可能](https://www.cnblogs.com/lesliexong/p/8654615.html)
 3. [mysql wait\_timeout字段官方文档](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
 4. [“MySQL server has gone away” in django ThreadPoolExecutor](http://www.rainybowe.com/blog/2017/01/06/MySQL-server-has-gone-away-in-django-ThreadPoolExecutor/index.html)
-
-
-
-
-
-![image-20180824224805144](/var/folders/6k/gjjbq41s2yg84dby49j9lcd80000gn/T/abnerworks.Typora/image-20180824224805144.png
-
-
 
 
