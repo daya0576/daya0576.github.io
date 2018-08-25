@@ -6,6 +6,7 @@
     "version": "3.7.1"
   },
   "dependencies": {
+    "han-css": "^3.3.0",
     "hexo": "^3.2.0",
     "hexo-admin": "^2.3.0",
     "hexo-algolia": "^1.2.5",
