@@ -152,4 +152,3 @@ django.db中connection和connections的区别???
 3. [mysql wait\_timeout字段官方文档](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
 4. [“MySQL server has gone away” in django ThreadPoolExecutor](http://www.rainybowe.com/blog/2017/01/06/MySQL-server-has-gone-away-in-django-ThreadPoolExecutor/index.html)
 
-
