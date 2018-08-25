@@ -16,12 +16,9 @@ Django在1.6引入长链接([Persistent connections](https://docs.djangoproject.
 但我们的应用对数据库的操作**太不频繁**了, 两次操作数据库的间隔大于MySQL配置的超时时间(默认为8个小时), 导致下一次操作数据库时的connection过期失效. 
 > Our databases have a 300-second (5-minute) timeout on inactive connections. That means, if you open a connection to the database, and then you don't do anything with it for 5 minutes, then the server will disconnect, and the next time you try to execute a query, it will fail.
 
-
-# 重现问题:
-
 <!--more-->
 
-
+# 重现问题:
 ## 设置mysql `wait_timeout`为10s
 在macOS上的mysql配置文件路径: `/usr/local/etc/my.cnf`
 ```
