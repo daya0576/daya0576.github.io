@@ -11,10 +11,9 @@ I found a [fatastic video](https://www.youtube.com/watch?v=OQ5jsbhAv_M) about Dy
 <!--more-->
 
 
+Fibonacci number: 1, 1, 2, 3, 5, 8, 13...
 
-# Fibonacci number: 1, 1, 2, 3, 5, 8, 13...
-
-###1. Original recursive implementation   
+## Original recursive implementation
 ``` python
 def fib(n):
     if n<=2: f = 1
@@ -25,7 +24,7 @@ def fib(n):
 
 
 
-###2. Improvement: memoization  
+## Improvement: memoization
 - Reuse solutions to **sub-problems** to solve the problem    
 - So time = #sub-problems * O(sub-problem)     
 ``` python
@@ -69,7 +68,7 @@ fib_con(n)
 `DP = recursion + memorization + guessing`   
 
 
-###3. Problem of the improvement above:
+## Problem of the improvement above:
 The disadvantage of this method is that the clarity and the beauty of the original recursive implementation is lost.     
 So we use a helper function to handle the fib() function, the idea of .    
 ``` python
@@ -108,7 +107,7 @@ print(fib(40))
 ```
 
 
-###4. Generator version   
+## Generator version
 ```python
 def fib(n):
     a, b = 0, 1

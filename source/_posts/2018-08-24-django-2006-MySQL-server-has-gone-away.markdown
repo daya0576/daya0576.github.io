@@ -9,14 +9,16 @@ categories:
 ---
 
 # Introduction
-最近我们的Django项目供Java Sofa应用进行tr调用时, 经常会出现一个异常: `django.db.utils.OperationalError: (2006, 'MySQL server has gone away')`. 本文记录了分析, 重现与解决这个bug的全过程. 
+最近我们的Django项目供Java Sofa应用进行tr调用时, 经常会出现一个异常: `django.db.utils.OperationalError: (2006, 'MySQL server has gone away')`. 本文记录了分析, 本地重现与解决这个bug的全过程. 
 
 # 原因分析: 
 Django在1.6引入长链接([Persistent connections](https://docs.djangoproject.com/en/2.1/ref/databases/#persistent-connections))的概念, 可以在一个HTTP请求中一直用同一个连接对数据库进行读写操作.    
 但我们的应用对数据库的操作**太不频繁**了, 两次操作数据库的间隔大于MySQL配置的超时时间(默认为8个小时), 导致下一次操作数据库时的connection过期失效. 
 > Our databases have a 300-second (5-minute) timeout on inactive connections. That means, if you open a connection to the database, and then you don't do anything with it for 5 minutes, then the server will disconnect, and the next time you try to execute a query, it will fail.
 
+
 <!--more-->
+
 
 # 重现问题:
 ## 设置mysql `wait_timeout`为10s
@@ -148,4 +150,6 @@ django.db中connection和connections的区别???
 2. ["Mysql has gone away"的几种可能](https://www.cnblogs.com/lesliexong/p/8654615.html)
 3. [mysql wait\_timeout字段官方文档](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
 4. [“MySQL server has gone away” in django ThreadPoolExecutor](http://www.rainybowe.com/blog/2017/01/06/MySQL-server-has-gone-away-in-django-ThreadPoolExecutor/index.html)
+
+
 
