@@ -9,7 +9,7 @@ categories:
 ---
 
 # Introduction
-最近我们的Django项目供Java Sofa应用进行tr调用时, 经常会出现一个异常: `django.db.utils.OperationalError: (2006, 'MySQL server has gone away')`. 本文记录了分析, 本地重现与解决这个bug的全过程. 
+最近我们的Django项目供Java Sofa应用进行tr调用时, 经常会出现一个异常: `django.db.utils.OperationalError: (2006, 'MySQL server has gone away')`. 本文记录了**分析, 本地重现与解决此问题**的全过程.
 
 # 原因分析: 
 Django在1.6引入长链接([Persistent connections](https://docs.djangoproject.com/en/2.1/ref/databases/#persistent-connections))的概念, 可以在一个HTTP请求中一直用同一个连接对数据库进行读写操作.    
