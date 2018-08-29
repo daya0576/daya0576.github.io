@@ -9,9 +9,11 @@ categories:
 ---
 
 
-# 背景
-忙碌工作了一天, 打开自己的电脑, 发现这封邮件, 于是毫不犹豫就选择了升级.
+忙碌工作了一天, 打开自己的电脑, 发现这封邮件, 于是毫不犹豫就选择了升级, 嘿嘿.
+![](http://opetwnn9x.bkt.clouddn.com/images/blog/180829_ios12_review/15355522163590.jpg)
 
+
+<!--more-->
 
 # 最大的改变:
 ## 流畅到爆炸
@@ -22,53 +24,57 @@ categories:
 ## 消息中心大变样
 第二个最大的变化就是消息中心, 对同个app的多条消息进行折叠. 
 但我最喜欢的还是一键关闭推送, 舒畅!
+![UNADJUSTEDNONRAW_thumb_5324](http://opetwnn9x.bkt.clouddn.com/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5324.jpg)
 
-iOS12体验： 一个字，爽！
 
 ## Memoji
 绝望, 找不到改性别的地方, 有人能教教我吗!?
+![UNADJUSTEDNONRAW_thumb_5336](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5336.jpg)
 
-iOS12体验： 一个字，爽！
 
-4. AR
+## AR
 发布会上乐高的demo真的是很惊艳, 但没有实际体验AR的游戏, 还是不敢妄下结论. 
 用了一下“Meature“这个app. 可能因为之前用过类似的app, 所以除了很精致的感觉, 也没有什么特别的地方:
+![Ikbz+4xFS4CoCby5UnWE0Q_thumb_532e](/images/blog/180829_ios12_review/Ikbz+4xFS4CoCby5UnWE0Q_thumb_532e.jpg)
 
-iOS12体验： 一个字，爽！
 
-5. 电量统计界面升级
-一个字: 炫酷! (黄色区域表示充电)
+## 电量统计界面升级
+一个字: 炫酷! (黄色区域表示节电模式, 绿色阴影表示充电.)
+![UNADJUSTEDNONRAW_thumb_5340](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5340.jpg)
 
-iOS12体验： 一个字，爽！
 
-6. 机器学习
-iOS11中很精确的识别出不同的人, iOS12现在可以对物品进行聚类了, 例如运动, 沙滩, 食物, 等等. 并可以添加过滤条件(地点, 时间)进行搜索! 至少对我还是很震撼的, 转行做机器学习吧!
+## 机器学习
+iOS11中很精确的识别出不同的人, iOS12现在可以对物品进行聚类了, 例如运动, 沙滩, 食物, 等等. 并可以添加过滤条件(地点, 时间)进行搜索! 虽然Google很早就能做到了, 但第一次在自己的相册里看到, 至少对我还是很震撼的, 转行做机器学习吧!
+![UNADJUSTEDNONRAW_thumb_533d](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_533d.jpg)
 
-iOS12体验： 一个字，爽！
+而且天天提示我该给女朋友打电话发短信了:
+![](/images/blog/180829_ios12_review/15355523081043.jpg)
 
-7. siri + workflow
+
+## siri + workflow
 这个在看发布会中很期待的一个点, 但暂时没有到. 期待可以达到一句话打车回家的效果. 
 
-8. 屏幕时间(Screen Time)
+## 屏幕时间统计(Screen Time)
 统计肥宅每天玩手机时, 都把时间花哪了. 个人觉得略鸡肋, 可能对家长会有需求吧. 
 但统计通知的频率这个功能, 感觉还是挺有意思的. 
 苹果这次是真的站在用户的角度思考问题了.
+![UNADJUSTEDNONRAW_thumb_5459](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5459.jpg)
 
-iOS12体验： 一个字，爽！
 
-9. 其他:
+## 其他:
 Face ID的解锁真的真的真的快了很多
 向上滑动关闭后台应用(虽然一直觉得没有必要去关后台app, 但把一个反人类的细节纠正了还是很棒棒的)
 FaceTime支持多人视频了, 但貌似对普通人没什么用. 可以用Memoji视频这点我还是蛮期待的
 短信验证码自动提取(虽然在Android上已经很成熟了把, 但迟到总比永远没有的好)
-...
-总结
+
+
+# 总结
 如果你还在因为升iOS11的惨剧在犹豫的话, 个人建议还是给苹果一次改正的机会, 毕竟这次apple终于学会了什么是客户第一, 逃)
 iOS12将不停地给你带来新的惊喜 <3
+![UNADJUSTEDNONRAW_thumb_533f](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_533f.jpg)
 
 你的晚安 是下意识的恻隐~
 我留至夜深 治疗失眠梦呓~
 
-iOS12体验： 一个字，爽！
 
 

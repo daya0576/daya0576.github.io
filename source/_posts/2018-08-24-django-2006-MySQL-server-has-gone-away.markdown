@@ -8,7 +8,7 @@ categories:
   - code
 ---
 
-# Introduction
+
 最近我们的Django项目供Java Sofa应用进行tr调用时, 经常会出现一个异常: `django.db.utils.OperationalError: (2006, 'MySQL server has gone away')`. 本文记录了**分析, 本地重现与解决此问题**的全过程.
 
 # 原因分析: 
