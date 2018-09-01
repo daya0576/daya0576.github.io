@@ -1,5 +1,5 @@
 ---
-title: 记一次Hexo Next主题的升级(v6.3.0 → 6.4.0)
+title: 记一次Hexo Next主题的小小小升级(v6.3.0 → 6.4.0)
 date: 2018-09-01 16:17:01
 tags:
   - hexo

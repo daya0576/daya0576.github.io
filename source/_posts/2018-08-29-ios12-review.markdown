@@ -10,7 +10,7 @@ categories:
 
 
 忙碌工作了一天, 打开自己的电脑, 发现这封邮件, 于是毫不犹豫就选择了升级, 嘿嘿.
-![](http://opetwnn9x.bkt.clouddn.com/images/blog/180829_ios12_review/15355522163590.jpg)
+![](/images/blog/180829_ios12_review/15355522163590.jpg)
 
 
 <!--more-->
@@ -24,7 +24,7 @@ categories:
 ## 消息中心大变样
 第二个最大的变化就是消息中心, 对同个app的多条消息进行折叠. 
 但我最喜欢的还是一键关闭推送, 舒畅!
-![UNADJUSTEDNONRAW_thumb_5324](http://opetwnn9x.bkt.clouddn.com/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5324.jpg)
+![UNADJUSTEDNONRAW_thumb_5324](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5324.jpg)
 
 
 ## Memoji
