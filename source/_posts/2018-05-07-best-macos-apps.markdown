@@ -54,7 +54,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 - 电脑与手机的配置通过iCloud同步.
 - 在电脑上开dashboard调试手机流量.  
 - 设置host, 指定dns服务器等等的额外功能.  
-<img style="max-height: 50px" class="lazy" data-original="/images/blog/180507_macos_app/EFBCCA4D-4C9A-4391-9D2B-18E17C842984.png">
+<img style="max-height: 50px" class="lazy" data-original="/images/blog/180507_macos_app/png">
 
 # Quitter:   
 自动关闭长时间不用的应用   
@@ -101,3 +101,5 @@ CMD-J的全局搜索实在是太好用.
 
 
 (未完待续)
+
+
