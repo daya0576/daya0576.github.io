@@ -8,7 +8,7 @@ categories:
   - blog
 ---
 
-效果图, 太cool了, 可惜只有新加的文章才能开启:   
+效果图, 太cool了, 可惜只有新加的文章才能开启:
 ![](/images/blog/180829_ios12_review/15357091006842.jpg)
 
 
