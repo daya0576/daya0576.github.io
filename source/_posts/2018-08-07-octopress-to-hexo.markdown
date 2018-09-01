@@ -59,14 +59,14 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 
 ## 个性化配置
 目标: 让人感觉不到是在用Hexo的Next主题.
-- [ ] 首页文章显示为块状 
+- [ ] ~~首页文章显示为块状~~
 - [x] read more的按钮.
 - [x] 关于我的页面
 - [x] 主题颜色
 - [x] font-awesome icons: https://fontawesome.com/v4.7.0/icons/
 - [x] algolia search(没有local search好用)
 - [x] 背景图片
-- [x] github CI   
+- [x] github CI
 
 
 

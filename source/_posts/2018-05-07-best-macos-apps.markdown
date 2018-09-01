@@ -32,7 +32,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 # Copied:   
 主页: https://copiedapp.com/   
 价格: macOS: ¥50, iOS: ¥18   
-亮点: universal clipboard其实我是买mbp的原因之一, 可惜以前经常抽风不稳定, 真的很令人沮丧🤦‍♂️. 现在倒是很稳定了, 稳定的失效了. 于是尝试过pasted, 虽然界面很炫酷, 但iCloud同步实在捉急. Copied至少在iCloud同步上做的中规中矩.
+亮点: universal clipboard其实我是买mbp的原因之一, 可惜以前经常抽风不稳定, 真的很令人沮丧🤦♂️. 现在倒是很稳定了, 稳定的失效了. 于是尝试过pasted, 虽然界面很炫酷, 但iCloud同步实在捉急. Copied至少在iCloud同步上做的中规中矩.
 
 # iPaste:   
 亮点: 软件虽小, 但很方便的粘贴剪切版的历史内容, 唯一的不足就是花钱买了app, 竟然还有内购.  
