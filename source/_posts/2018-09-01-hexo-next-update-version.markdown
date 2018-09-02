@@ -1,5 +1,5 @@
 ---
-title: 记一次Hexo Next主题的小小小升级(v6.3.0 → 6.4.0)
+title: 记一次Hexo Next主题的小小小升级(v6.3.0 → v6.4.0)
 date: 2018-09-01 16:17:01
 tags:
   - hexo
@@ -19,7 +19,7 @@ categories:
 
 以上为知乎上的一个回答. 个人觉得如果对于自己非常熟悉的第三方依赖, 并可以把握风险的话, 还是会不断的去追求最新版本. 毕竟对于新事物的好奇心是活在一个优秀程序员血液里的东西. 
 
-本文简单记录了Hexo Next主题升级版本(v6.3.0 → 6.4.0)的完整过程.  
+本文简单记录了Hexo Next主题升级版本(v6.3.0 → v6.4.0)的完整过程.  
 
 <!--more-->
 
@@ -48,7 +48,19 @@ p.s. 第二步的`git fetch`写错了, 应该是`git fetch upstream`(见下一�
 `git log`可以清楚的看到 合并Next主题代码和本地代码合并的记录:
 ![](/images/blog/1800901_hexo_next_update/15357933184002.jpg)
 
+# 其他
+升级后NexT的版本还是显示`v6.3.0`, 
+![](/images/blog/1800901_hexo_next_update/15358741539618.jpg)
+
+在telegram的群里问里一下, 竟然是..发布tag的时候忘记改version了.   
+![](/images/blog/1800901_hexo_next_update/15358762828266.jpg)
+
+那么问题来了, 这个version变量是哪里来的呢? 再了解了一下, 原来是从`package.json`里取的(`themes/next/scripts/helpers.js`):
+![](/images/blog/1800901_hexo_next_update/15358846331974.jpg)
+
+
 cheers, 笔芯❤️
 
+-eof-
 
 
