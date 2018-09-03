@@ -13,7 +13,7 @@ The blog trace the steps of my study.
   
 
 
-##Handling int()##
+## Handling int()
 Official explain about this build-in function: [https://docs.python.org/3/library/functions.html#int](https://docs.python.org/3/library/functions.html#int)     
 Just found out that there is an arguement called `base`,  e.g., int('010', 2).       
 In the past, when I was handling the value of form from user in web application, the program was quite not robust. For example, the program will easily crash if user input twelve in the register form of age.      
@@ -27,7 +27,7 @@ except ValueError:
 ```
 
 
-##Lambda, filter, reduce and map
+## Lambda, filter, reduce and map
 Summary: [http://www.python-course.eu/lambda.php](http://www.python-course.eu/lambda.php)     
 **filter a list:**
 ```python
