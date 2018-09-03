@@ -56,6 +56,7 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 - [x] RSS (Done)
 - [x] Local Search (Done): [https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/](https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/)
 - [x] Instagram/wechat social icon
+- [x] disqus手机端不加载
 
 ## 个性化配置
 目标: 让人感觉不到是在用Hexo的Next主题.
@@ -67,6 +68,9 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 - [x] algolia search(没有local search好用)
 - [x] 背景图片
 - [x] github CI
+- [ ] Email Subscriptions
+- [ ] 自定义404页面
+- [ ] 熊账号
 
 
 
