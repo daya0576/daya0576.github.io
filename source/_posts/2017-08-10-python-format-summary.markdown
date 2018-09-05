@@ -12,11 +12,7 @@ tags: [python]
 
 
 
-
-
-
 # 语法总结(1.field_name 2. conversion 3. format_spec)   
-<p></p>
 ``` python
 replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
 
@@ -37,7 +33,6 @@ format_spec       ::=  <described in the next section>
 
 
 # field_name
-<p></p>
 1. **关键字(attribute_name):**   
 <img style="max-height:80px" class="lazy" data-original="/images/blog/170810_python_format/attribute_name.png">     
 这个地方其实有个小技巧, 就是一开头语法总结中的arg_name和element_index:   

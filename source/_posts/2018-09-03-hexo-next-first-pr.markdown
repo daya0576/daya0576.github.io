@@ -2,6 +2,11 @@
 title: 记我为Hexo Next主题提交的第一个PR
 date: 2018-09-03 22:42:33
 tags:
+  - blog
+  - hexo
+  - next
+categories:
+  - blog
 ---
 
 用了Hexo的主题一个月了, 本文记录一下我为Hexo Next主题提交的第一个PR: [Safari中无法lazyload Disqus的评论框](https://github.com/theme-next/hexo-theme-next/pull/406). 
@@ -9,7 +14,7 @@ tags:
 <!--more-->
 
 ## 背景
-Next主题在Disqus评论框的配置中的有一个选项: 开启lazyload, Disqus评论框只有出现在当前窗口内的时候,才会开始加载. 
+Next主题在Disqus评论框的配置中的有一个选项: 开启lazyload. 实现Disqus评论框延迟动态加载的效果. 
 
 ```yaml
 # Disqus
@@ -20,7 +25,7 @@ disqus:
   lazyload: true
 ```
 
-但在iPhone上打开时, 突然发现不管怎么往下拉, 评论框都不会开始加载. 怀疑是浏览器的问题, 果然在电脑上的Safari重现了. 
+但在iPhone上打开时, 就算拖动窗口到最底部, 评论框都不会开始加载. 怀疑是浏览器的问题, 果然在电脑上的Safari重现了. 
 
 
 ## 分析代码

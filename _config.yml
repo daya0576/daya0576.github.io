@@ -80,9 +80,9 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: rsync
-  host: 47.75.146.178
+  host: 47.52.56.36
   user: root
-  root: /root/zblog
+  root: /var/www/zblog
   port: 22
   delete: true
   args:
@@ -96,7 +96,7 @@ feed:
   path: atom.xml
   limit: 20
   hub:
-  content:
+  content: true
 
 # Local Search
 search:
