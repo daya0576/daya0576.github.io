@@ -119,3 +119,30 @@ algolia:
   apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63'
   indexName: 'zblog'
   chunkSize: 5000
+
+
+filter_optimize:
+  enable: true
+  # remove static resource query string
+  #   - like `?v=1.0.0`
+  remove_query_string: true
+  # remove the surrounding comments in each of the bundled files
+  remove_comments: false
+  css:
+    enable: true
+    # bundle loaded css file into the one
+    bundle: true
+    # use a script block to load css elements dynamically
+    delivery: true
+    # make specific css content inline into the html page
+    #   - only support the full path
+    #   - default is ['css/main.css']
+    inlines:
+    excludes:
+  js:
+    # bundle loaded js file into the one
+    bundle: true
+    excludes:
+  # set the priority of this plugin,
+  # lower means it will be executed first, default is 10
+  priority: 12

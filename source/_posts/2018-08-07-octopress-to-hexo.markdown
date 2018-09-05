@@ -70,7 +70,11 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 - [x] github CI
 - [ ] Email Subscriptions
 - [ ] 自定义404页面
-- [ ] 熊账号
+- [ ] 百度熊账号
+
+## 优化加载速度
+- [x] [hexo-filter-optimize](https://github.com/theme-next/hexo-filter-optimize)
+- [x] HTTP/2
 
 
 
