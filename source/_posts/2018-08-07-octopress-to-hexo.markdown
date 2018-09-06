@@ -49,7 +49,10 @@ toc: table of content, 虽然在老博客上可以在文章开头手动生成, �
 ![-w364](/images/blog/180807_octopress_to_hexo/15336324014527.jpg)
 - [x] 图片(lazyload & fancybox):    
 [https://github.com/Robin-front/hexo-lazyload](https://github.com/Robin-front/hexo-lazyload)
-fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
+fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`   
+终极解决方案: Webstorm的Zero Width Characters locator插件:
+![](/images/blog/180807_octopress_to_hexo/15362478881336.jpg)
+
 - [x] 目录: toc自动生成
 - [x] 基本的config: [https://hexo.io/docs/configuration.html](https://hexo.io/docs/configuration.html)
 - [x] 打赏 (Done)
@@ -67,13 +70,17 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 - [x] font-awesome icons: https://fontawesome.com/v4.7.0/icons/
 - [x] algolia search(没有local search好用)
 - [x] 背景图片
+- [ ] github CI
+- [ ] 不翻墙也能使用的Disqus评论框.
+- [ ] 分离图片使用CDN
 - [x] github CI
 - [ ] Email Subscriptions
 - [ ] 自定义404页面
 - [ ] 百度熊账号
 
 ## 优化加载速度
-- [x] [hexo-filter-optimize](https://github.com/theme-next/hexo-filter-optimize) 效果见下图: ![](/images/blog/180807_octopress_to_hexo/15362448125105.jpg)
+- [x] [hexo-filter-optimize](https://github.com/theme-next/hexo-filter-optimize) 效果见下图: 
+![](/images/blog/180807_octopress_to_hexo/15362448125105.jpg)
 - [x] HTTP/2
 
 
