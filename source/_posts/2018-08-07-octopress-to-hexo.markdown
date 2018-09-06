@@ -79,10 +79,9 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 - [ ] 百度熊账号
 
 ## 优化加载速度
-- [x] [hexo-filter-optimize](https://github.com/theme-next/hexo-filter-optimize) 效果见下图: 
-![](/images/blog/180807_octopress_to_hexo/15362448125105.jpg)
 - [x] HTTP/2
-
+- [x] [hexo-filter-optimize](https://github.com/theme-next/hexo-filter-optimize) 效果见下图:
+![](/images/blog/180807_octopress_to_hexo/15362448125105.jpg)
 
 
 

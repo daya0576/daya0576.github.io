@@ -12,8 +12,6 @@ categories:
 
 分享一下书中比较有趣的片段与思考. 文末有彩蛋哟 :)
 
-{% douban "https://book.douban.com/subject/27004031/" %}
-
 <!--more-->
 
 # 读后感
