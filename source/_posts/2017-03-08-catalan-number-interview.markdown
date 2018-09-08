@@ -12,7 +12,7 @@ tags: [interview, algorithm]
 <!--more-->
   
 
-##问题的定义
+## 问题的定义
 一个栈(无穷大)的进栈序列为1，2，3，…，n，有多少个不同的出栈序列?    
 
 ##解题思路
@@ -25,7 +25,7 @@ tags: [interview, algorithm]
 `f(0) = f(1) = 1`   
 `f(n) = f(0)*f(n-1)+f(1)*f(n-2) + ... + f(n-1)*f(0) (n>=2)`
 
-##Reference
+## Reference
 1. [https://en.wikipedia.org/wiki/Catalan_number](https://en.wikipedia.org/wiki/Catalan_number)   
 2. [http://www.acmerblog.com/catalan-5196.html](http://www.acmerblog.com/catalan-5196.html)
 3. [http://baike.baidu.com/item/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0#4](http://baike.baidu.com/item/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0#4)   
