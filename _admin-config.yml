@@ -1,9 +1,0 @@
-options:
-  overwriteImages: true
-  imagePath: /images/blog/180807_octopress_to_hexo
-  spellcheck: true
-  imagePrefix: ''
-  askImageFilename: true
-editor:
-  inputStyle: contenteditable
-  spellcheck: true
