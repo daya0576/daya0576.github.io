@@ -124,7 +124,8 @@ algolia:
 lazyload:
   enable: true
   onlypost: false
-  loadingImg: /images/loading/loading_test_ver2.0.gif
+  loadingImg:
+#  loadingImg: /images/loading/loading_test_ver2.0.gif
 
 
 filter_optimize:
