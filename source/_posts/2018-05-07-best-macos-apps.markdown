@@ -31,6 +31,8 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 3. 切换全屏的app(workspace)的时候, 去除动画!!!!!   
 <img style="max-height:200px" class="lazy" data-original="/images/blog/180507_macos_app/3FF48154-0C3B-428C-A085-A553CE3F9F76.png">
 
+![workspace](/images/blog/180507_macos_app/workspace.gif)
+
 # Copied:   
 主页: https://copiedapp.com/   
 
@@ -63,7 +65,8 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 - 设置host, 指定dns服务器等等的额外功能.  
 - Auto-test 模式, 自动选择延迟最低的节点(要是还能综合带宽就好了). 
 - ...
-<img style="max-height: 50px" class="lazy" data-original="/images/blog/180507_macos_app/png">
+![](/images/blog/180507_macos_app/15377807280301.jpg)
+
 
 # Quitter:   
 主页: https://marco.org/2016/05/02/quitter 
