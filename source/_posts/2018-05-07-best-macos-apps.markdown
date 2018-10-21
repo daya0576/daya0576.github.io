@@ -15,7 +15,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 
 价格: macOS: $15.00   
 亮点: menu bar图标太多放不下的时候, 可以把不常用的隐藏起来(见下图), 赞!   
-<img style="max-height:30px" class="lazy" data-original="/images/blog/180507_macos_app/2018-04-18%2021_09_31.gif">
+![](/images/blog/180507_macos_app/2018-04-18%2021_09_31.gif)
 
 <!--more-->
 
@@ -42,8 +42,8 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 # iPaste:   
 主页: https://en.toolinbox.net/iPaste/
 
-亮点: 软件虽小, 但很方便的粘贴剪切版的历史内容, 唯一的不足就是花钱买了app, 竟然还有内购.  
-<img style="max-height:150px" class="lazy" data-original="/images/blog/180507_macos_app/F0203FBA-8FCA-428E-A141-1319774F227D.png">
+亮点: 软件虽小, 但很方便的粘贴剪切版的历史内容, 唯一的不足就是花钱买了app, 竟然还有内购.   
+![](/images/blog/180507_macos_app/F0203FBA-8FCA-428E-A141-1319774F227D.png)
 
 # iStat Menus 6:   
 主页: https://bjango.com/mac/istatmenus/   
@@ -51,12 +51,13 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 价格: macOS: $14.99   
 亮点:    
 - 好看!    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/A45BC650-FF78-4940-A1EC-B89A72D5EADD.png">
+![](/images/blog/180507_macos_app/A45BC650-FF78-4940-A1EC-B89A72D5EADD.png)
 - 可以高度自定义
 - 良心app, 让我免费从5升级到了6!
 
 # Surge:   
 主页: https://nssurge.com/
+
 价格: 贵贵贵!!! 黑心商家, 但实在是太好用了...    
 亮点:
 - 现代直观的dashboard, 随时监测每一个HTTP请求, 并配置规则(例如对mail app的gmail服务加proxy).
@@ -65,8 +66,6 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 - 设置host, 指定dns服务器等等的额外功能.  
 - Auto-test 模式, 自动选择延迟最低的节点(要是还能综合带宽就好了). 
 - ...
-![](/images/blog/180507_macos_app/15377807280301.jpg)
-
 
 # Quitter:   
 主页: https://marco.org/2016/05/02/quitter 
@@ -109,6 +108,8 @@ URL/base64 + encode/decode
 
 快捷键快速改变窗口布局, 类似的软件很多(也搞不清是谁抄的谁了), 至少这个看着还算顺眼, 用着也挺稳定的.  
 <img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/4BA18CD1-240B-43D2-8747-66EAEF44CAA8.png">
+![sizeup.2018-10-06 17_09_26](/images/blog/180507_macos_app/sizeup.2018-10-06%2017_09_26.gif)
+
 
 # GhostSKB:    
 主页: https://github.com/dingmingxin/GhostSKB
@@ -123,6 +124,8 @@ URL/base64 + encode/decode
 
 说实话, 我只用到了其中两个功能(但真的挺好用的):
 - 模拟Windows中拖拽app到屏幕左右边界, 窗口自动占屏幕一半.
+![bettertouch](/images/blog/180507_macos_app/bettertouch.gif)
+
 - 新建一些快捷键(例如让关闭屏幕什么的)
 
 # Paragon NTFS for Mac 15:   
@@ -143,6 +146,11 @@ URL/base64 + encode/decode
 
 最早是手机上发现的一个app, 在macos上继续支持!   
 <img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/DEE7E30E-C0F7-43A9-A75C-C906EE891791.png">
+
+# MWeb3 
+主页: https://www.mweb.im/
+写markdown的主力文本编辑器, 其实我最喜欢的是它的目录显示(即右边). 
+![Screen Shot 2018-10-06 at 5.18.57 P](/images/blog/180507_macos_app/Screen%20Shot%202018-10-06%20at%205.18.57%20PM.png)
 
 
 (未完待续)

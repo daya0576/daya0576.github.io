@@ -6,8 +6,7 @@ comments: true
 tags: [django, orm]
 ---
 
-最近看了django关于性能优化的文档:     [https://docs.djangoproject.com/en/1.11/topics/performance/](https://docs.djangoproject.com/en/1.11/topics/performance/)   
-[https://docs.djangoproject.com/en/1.8/topics/db/optimization/](https://docs.djangoproject.com/en/1.8/topics/db/optimization/)   
+最近看了django关于性能优化的文档: [链接🔗](https://docs.djangoproject.com/en/2.1/topics/db/optimization/)    
 整理了一下笔记, 并写下几点比较深的感触**和我优化django代码的总结**.  
 
 <!--more-->
@@ -15,15 +14,15 @@ tags: [django, orm]
 
 
 
-### 1. 你的时间才是最宝贵的:
+# 你的时间才是最宝贵的:
 文档里的这句话还是挺有意思的(自己的时间和性能优化的trade-off): Your own time is a valuable resource, more precious than CPU time. Some improvements might be too difficult to be worth implementing, or might affect the portability or maintainability of the code. Not all performance improvements are worth the effort.
 
 
 
-### 2. 最重要的原则: Work at the appropriate level
+# 最重要的原则: Work at the appropriate level
 意思就是说要在对应的level(M V C)做对应的事. e.g. 如果计算court, 在最低的数据库level里是最快的 (如果只需要知道此记录是否存在的话, 用`exists()`会更快).   
 但要`注意`: queryset是lazy的, 所以有时候在higher level(例如模板)里控制queryset是否真的执行, 说不定会更高效.   
-_   
+
 下面这段代码很好的解释了不同level的意思:    
 ```python
 # QuerySet operation on the database
@@ -41,18 +40,11 @@ len(my_bicycles)
 \{\{ my_bicycles|length \}\}
 ```
 
-
-
-
-### 3. 用database中传统的优化手段
-
+# 用database中传统的优化手段
 1. 加索引. 对你经常要用的字段进行加索引, 会大大的提升查找数据(filter(), exclude(), order_by(), etc.)的速度, 毕竟O(1)或O(logn)对于O(n)相差还是很大的.    
 2. 使用合适的字段类型. 例如你的数据多到几亿条了, 合适的字段也会帮你节省很多的空间.
 
-
-
-
-### 4. 理解Django中的QuerySets
+# 理解Django中的QuerySets
 **对于queryset lazy特性的说明:**   
 这段代码看上去对数据库进行了三次查找, 但其实只在最后一行的时候执行了数据库的操作.   
 ```python
@@ -81,8 +73,7 @@ Entry.objects.filter(
 6. list()
 7. bool()   
 
-以上的情况一旦发生, 就会查询数据库并生成cache(**生成的cache就存在这个queryset对象之内的**),    
-之后再对queryset做以上的操作就就不用再重新hit数据库进行查询了.)   
+以上的情况一旦发生, 就会查询数据库并生成cache(**生成的cache就存在这个queryset对象之内的**), 之后再对queryset做以上的操作就就不用再重新hit数据库进行查询了.)   
 
 **举个栗子: **  
 ```python
@@ -94,7 +85,8 @@ Entry.objects.filter(
 **注意! 不会cache的情况:**   
 Specifically, this means that limiting the queryset using an array slice or an index will not populate the cache.   
 意思就是说queryset[5]和queryset[:5]是不会生成cache的. 还有exists()和iterator()这样的也不会生成cache.    
-**举个栗子:**   
+
+举个栗子:  
 ```python
 >>> queryset = Entry.objects.all()
 >>> print queryset[5] # Queries the database
@@ -108,7 +100,6 @@ Specifically, this means that limiting the queryset using an array slice or an i
 
 最近发现`values`和`values_list`这两个方法也会重新查询数据库, 不知道是为什么.    
 TODO: 有空看一下 具体的实现原理.   
-_   
 **研究的结果:**   
 当调用values或values_list的时候, 会生成一个新的queryset with no cache.    
 也就是说, 除了上边说到的七种会产生cache的情况, 其他都会重新去数据库拿数据.    
@@ -116,43 +107,39 @@ _
 
 
 
-### 5. 数据库层级的优化的总结
+
+# 数据库层级的优化的总结
 官方的文档介绍了很多, 我写几点最有效的和最常用的:   
 
 - 利用[queryset lazy的特性](https://docs.djangoproject.com/en/1.8/topics/performance/#understanding-laziness)去优化代码, 尽可能的减少连接数据库的次数.
 - 如果查出的queryset只用一次, 可以使用iterator()去来防止占用太多的内存, e.g.`for star in star_set.iterator(): print(star.name)`.    
-感兴趣可以看看ModelIterable中重写的`__iter__`方法.   
-- 尽可能把一些数据库层级的工作放到数据库, 例如使用filter/exclude, F, annotate, aggregate, etc.   
-aggregate: https://docs.djangoproject.com/en/1.11/topics/db/aggregation/#cheat-sheet   
-F(): getting the database, rather than Python, to do work
+感兴趣可以看看`ModelIterable`中重写的`__iter__`方法.   
+- 尽可能把一些数据库层级的工作放到数据库, 例如使用filter/exclude, F, annotate, aggregate(可以理解为groupby), etc.   
+`aggregate`: https://docs.djangoproject.com/en/1.11/topics/db/aggregation/#cheat-sheet   
+`F`: getting the database, rather than Python, to do work
 - 一次性拿出所有你要的数据, 不去取那些你不需要的数据.   
-意思就是要巧用select_related(), prefetch_related() 和 values_list(), values().   
-如果不用select_related的话, 去取外键的属性就会连数据再去查找.   
-如果只需要id字段的话, 用values_list('id', flat=True)也能节约很多资源.   
-<div style='margin-left: 20px'>
-```python
-class ModelA(models.Model):
-    pass
-
-class ModelB(models.Model):
-    a = ForeignKey(ModelA)
-
-ModelB.objects.select_related('a').all() # Forward ForeignKey relationship
-ModelA.objects.prefetch_related('modelb_set').all() # Reverse ForeignKey relationship
-```</div>
-- bulk(批量)地去insert update和delete数据.     
-- 查找一条数据时, 尽量用有索引的字段去查询, O(1)或O(log n) 和 O(n)差别还是很大的.   
+意思就是要巧用select_related(), prefetch_related() 和 values_list(), values(), 例如如果只需要id字段的话, 用values_list('id', flat=True)也能节约很多资源. 或者使用`defer()`和`only()`方法: 不加载某个字段(用到这个方法就要反思表设计的问题了) / 只加载某些字段.
+- 如果不用select_related的话, 去取外键的属性就会连数据再去查找.   
+- bulk(批量)地去操作数据, 比如`bulk_create`
+- 查找一条数据时, 尽量用有索引的字段去查询, O(1)或O(log n) 和 O(n)差别还是很大的
 - 用`count()`代替`len(queryset)`, 用`exists()`代替`if queryset:`   
+- ...
 
+**一点感想:** 个人觉得ORM至少能 cover 95% 操作数据库的需求, 就像常常有人抱怨python慢一样, 绝大部分的情况是代码写的有问题罢了. 
 
-
-
-
-### 6. 解决性能问题的具体方法:
-- connection.queries:   
-可以利用这两两句代码来分析你的代码的sql执行情况和花费时间:
-<div style='margin-left: 20px'>
+# 解决性能问题的具体方法:
+## **原生的`explain`方法:** 
 ```python
+>>> print(Blog.objects.filter(title='My Blog').explain(verbose=True))
+Seq Scan on public.blog  (cost=0.00..35.50 rows=10 width=12) (actual time=0.004..0.004 rows=10 loops=1)
+  Output: id, title
+  Filter: (blog.title = 'My Blog'::bpchar)
+Planning time: 0.064 ms
+Execution time: 0.058 ms
+```
+## `connection.queries` 方法
+可以利用这两两句代码来分析你的代码的sql执行情况和花费时间:
+``` python
 from django.db import connection
 connection.queries
 >> [{'sql': 'SELECT polls_polls.id, polls_polls.question, polls_polls.pub_date FROM polls_polls',
@@ -161,9 +148,8 @@ connection.queries
 from django.db import reset_queries
 reset_queries()
 ```
-</div>
 
-- **django-debug-toolbar**:   
+## django-debug-toolbar
 一个在github上有四千多个星星的开源项目: [https://github.com/dcramer/django-devserver](https://github.com/dcramer/django-devserver)   
 很棒的一个可视化的工具, 但缺点是只能处理`text/html`类型的response, 因为是通过中间件修改返回的html代码实现的.       
 **解决办法:** 可以再使用这个库: [django-debug-panel](https://github.com/recamshak/django-debug-panel),    
@@ -171,17 +157,16 @@ reset_queries()
 如图:   
 <img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/IMG_3017.PNG">    
 **优点:**   
-
     1. 统计了总的SQL查询时间.
     2. **重复查询的sql的数量, 在每条sql详细信息中显示重复的次数**.
     3. **执行sql的具体代码位置!!!**
     4. sql 语句的高亮
     5. sql 查询到的数据结果.  
 
-<div style='margin-left: 20px'>
+
 配置参考:   
 ``` python
-#debug_toolbar settings
+# debug_toolbar settings
 if DEBUG:
     INTERNAL_IPS = ('127.0.0.1',)
     MIDDLEWARE_CLASSES = (
@@ -200,19 +185,19 @@ if settings.DEBUG:
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
 ```
-</div>
 
-- django-devserver   
+
+## django-devserver   
 项目github主页: [https://github.com/drinksober/django-devserver](https://github.com/drinksober/django-devserver)   
 这个项目好久没有维护了..已经跑不起来了. 可以试试同事的修复版:   
 [https://github.com/drinksober/django-devserver](https://github.com/drinksober/django-devserver)
 
-- **line profiler:**    
+## line profiler:
 其实最好用的还是用line profiler去找程序的瓶颈:    
 效果如图所示, 显示了一个方法内哪行代码运行的时间最久:    
 <img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/profile_liner.png">    
 使用方法(从同事黄俊那偷来的代码):   
-<div style='margin-left: 20px'>
+
 ```python
 class Line_Profiler(object):
     """put @profile on ur functions"""
@@ -235,12 +220,10 @@ class Line_Profiler(object):
 
 __builtin__.profile = Line_Profiler()
 ```
-</div>
 
 
-
-### 7.举个栗子:   
-最近重新写了一个项目里很常用的方法(之前也是我写的, 但感觉稍微有些慢), 利用上文说的一些知识, 把执行时间从100多ms降到了20ms.    
+# 举个栗子:   
+最近重新写了一个项目里很常用的方法(之前也是我写的, 但感觉稍微有些慢), 利用上文说的一些知识, 把执行时间从200多ms降到了20ms.    
 ```python
 def users(self, add_self=False, add_share=True, select_id=False, **kwargs):
     """Return 当前用户能看到的所有用户, 返回queryset, 以便做性能优化:
