@@ -6,12 +6,13 @@ tags:
   - machine learning
 ---
 
-今日在学[机器学习 第八章(Unsupervised learning)](https://www.coursera.org/learn/machine-learning/lecture/93VPG/k-means-algorithm)的时候, 开头介绍时讲到了它应用在大型计算集群的资源分配(聚类)上(见下图). 
+今日在学机器学习 第八章([Unsupervised learning](https://www.coursera.org/learn/machine-learning/lecture/93VPG/k-means-algorithm)) 的时候, 开头介绍时讲到了 K-means 应用在大型计算集群的资源分配上(见下图). 
+
+突然间一些回忆就猛的涌上心头: 本科跟着老师做的算法研究, 最后毕业论文的名字叫做《基于虚拟机放置策略的数据中心网络节能算法研究》, 其实和刚刚提到的资源分配非常类似. 当时在论文摘要中提到了K-means算法, 可惜并没有深入去了解原理. 惭愧, 趁这个机会好好学习下, 算法并不复杂, 更多的是作为一次记录与反省.     
+
+<!--more-->  
+
 ![](/images/blog/181004_kmeans_algorithm/15386453519338.jpg)
-
-突然间一些回忆就猛的涌上心头: 本科跟着老师做的一些算法研究(最后毕业论文的名字叫做《基于虚拟机放置策略的数据中心网络节能算法研究》), 感觉其实和刚刚提到的应用非常类似. 当时在论文摘要中提到了K-means算法, 可惜并没有深入去了解原理. 好惭愧, 趁这个机会好好学习下, 其实并不是很复杂, 更多的是作为一次记录与反省.       
-
-<!--more-->
 
 # supervised learning 与 Unsupervised learning的区别
 个人理解 一是知道了一堆人中男人和女人, 找个方法把他们分开, 然后新来一个人也能根据这个方法来判断他的性别. 二是把一堆人自动分为两类. 
