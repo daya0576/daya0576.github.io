@@ -153,4 +153,3 @@ filter_optimize:
   # set the priority of this plugin,
   # lower means it will be executed first, default is 10
   priority: 12
-
