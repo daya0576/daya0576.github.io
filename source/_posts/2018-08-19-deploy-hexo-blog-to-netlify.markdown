@@ -1,5 +1,5 @@
 ---
-title: 部署Hexo静态博客(下) - 偶遇Netlify, 优雅地持续集成你的博客
+title: 部署Hexo静态博客(下) - 偶遇Netlify, 优雅地持续部署你的博客
 date: 2018-08-19 22:27:15
 tags: 
     - oss
