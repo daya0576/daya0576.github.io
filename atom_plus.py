@@ -4,6 +4,8 @@ import tempfile
 
 atom_file_path = 'public/atom.xml'
 
+print('Handling RSS start...')
+
 with tempfile.NamedTemporaryFile(dir='.', delete=False) as tmp, \
         open(atom_file_path, 'r', encoding='utf-8') as f:
 
@@ -17,3 +19,5 @@ with tempfile.NamedTemporaryFile(dir='.', delete=False) as tmp, \
 
 
 os.replace(tmp.name, atom_file_path)
+
+print('Success!!')
