@@ -9,8 +9,7 @@ close_filter_optimize="enable: false # filter_optimize"
 hexo clean && hexo g && python3 atom_plus.py
 chmod 755 public/atom.xml
 
-hexo deploy
-
+#hexo deploy
 
 # 关闭filter_optimize
 #sed -i "" "s/$open_filter_optimize/$close_filter_optimize/" _config.yml
