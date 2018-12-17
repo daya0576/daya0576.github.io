@@ -10,6 +10,13 @@ tags: cd, hexo, git
 
 <!--more-->  
 
+# 背景
+简单阐述一下自己写博客的pipline:
+1. 编写一篇post, 或修改一些主题样子
+2. git commit + git push
+3. 本地运行 deploy shell 脚本:  hexo generate → 处理 atom.xml → 
+4. 漫长的等待.
+
 # Jenkins 
 第一个想到的工具是 Jenkins, 可以利用 GitHub 的 Webhooks 触发执行部署. 方案上貌似可行性挺高的, 而且也可以 docker 一件部署 Jenkins. 但总觉得哪里不太对, 总觉得依赖太重? 暂时放弃了. 
 
@@ -58,7 +65,7 @@ deploy:
 ![](/images/blog/171216_cicd/15450540893764.jpg)
 
 Buddy 的个性化流程编排的交互做的很好: 这样可以把每一步的边界可以分的很清楚, 让人身心愉悦. 
-![](/images/blog/171216_cicd/15449471715554.jpg)
+![](/images/blog/171216_cicd/15450548531301.jpg)
 
 而且因为用的 docker, 所以第一次缓存后, 之后每次执行的速度也特别的快.
 
