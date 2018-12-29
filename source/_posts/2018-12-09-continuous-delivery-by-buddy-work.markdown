@@ -16,7 +16,7 @@ tags: cd, hexo, git
 2. push 至 GitHub 仓库
 3. 本地运行 deploy shell 脚本:
     - hexo generate
-    - python 脚本处理 atom.xml(图片lazy的问题)
+    - python 脚本处理 atom.xml(图片lazyload的问题)
     - rsync 到服务器
 4. 漫长的等待 zZ
 
