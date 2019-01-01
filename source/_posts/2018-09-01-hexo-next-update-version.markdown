@@ -27,10 +27,10 @@ categories:
 博主本地的`theme/next`文件夹是fork下来到自己的仓库, 再通过submodule管理的: 
 ![](/images/blog/1800901_hexo_next_update/15357925972575.jpg)
 
-所以第一次更新主题版本时, 要添加远程仓库(upstream). 下图可以看到`origin`对应的是个人仓库, `upstream`对应的是Next项目的仓库. 
-![](/images/blog/1800901_hexo_next_update/15357924259193.jpg)
+所以第一次更新主题版本时, 要添加远程仓库(upstream): `git remote add upstream git@github.com:theme-next/hexo-theme-next.git`
 
-p.s. 第二步的`git fetch`写错了, 应该是`git fetch upstream`(见下一步)
+下图可以看到`origin`对应的是个人仓库, `upstream`对应的是Next项目的仓库. 
+![](/images/blog/1800901_hexo_next_update/15463587822040.jpg)
 
 # 拉取Next最新代码
 `git fetch upstream`拉取Next项目最新的代码:   
