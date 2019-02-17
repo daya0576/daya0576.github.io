@@ -44,7 +44,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -53,7 +53,7 @@ index_generator:
   path: ''
   per_page: 8
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -153,3 +153,4 @@ filter_optimize:
   # set the priority of this plugin,
   # lower means it will be executed first, default is 10
   priority: 12
+
