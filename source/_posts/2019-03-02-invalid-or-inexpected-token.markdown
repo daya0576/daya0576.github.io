@@ -1,10 +1,10 @@
 ---
-title: Hexo 特殊字符的解决办法
+title: Hexo 特殊字符报错的解决办法
 date: 2019-03-02 15:24:51
 tags:
 ---
 
-用了 Hexo 这个博客框架快半年了, 不管是文档还是各种体验都还是挺友好的, 除了特殊字符([不占位数并且不可见的字符](https://en.wikipedia.org/wiki/Zero-width_space), e.g. `\u2028`)报错的问题... 找到了一个一劳永逸的办法分享一下.    
+用了 Hexo 这个博客框架快半年了, 不管是文档还是各种体验都十分友好👍, 除了特殊字符([不占位数并且不可见的字符](https://en.wikipedia.org/wiki/Zero-width_space), e.g. `\u2028`)报错的问题.... 找到了一个一劳永逸的办法分享一下.    
 
 <!--more-->
 
@@ -23,10 +23,11 @@ tags:
 ![](/images/blog/190302_uwsgi_with_threading_bug/15515118874778.jpg)
 
 ## 全局扫描
-1) 第一步: 执行 inspect:
-![](/images/blog/190302_uwsgi_with_threading_bug/15515125320948.jpg)
+当然也支持全局360度无死角扫描, 找出顽固分子:    
 
-2) 第二步: 查看结果并修正:
+1. 第一步: 执行 inspect:
+![](/images/blog/190302_uwsgi_with_threading_bug/15515125320948.jpg)
+2. 第二步: 查看结果并修正:
 ![](/images/blog/190302_uwsgi_with_threading_bug/15515126741490.jpg)
 
 
