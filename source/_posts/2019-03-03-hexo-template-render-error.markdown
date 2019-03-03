@@ -1,7 +1,7 @@
 ---
 title: Hexo - Template render error(Solved!!)
-date: 2019-03-02 15:24:51
-tags: 
+date: 2019-03-03 13:09:25
+tags:
   - hexo
 ---
 
