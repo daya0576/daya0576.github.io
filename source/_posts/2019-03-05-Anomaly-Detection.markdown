@@ -9,13 +9,13 @@ Coursera 上吴恩达的[《机器学习》](https://www.coursera.org/learn/mach
 
 本文主要记录了完成**课后编程作业**的过程, 并用python实现一遍(课程为matlab), talk is cheap, show me the code. 也希望自己也包括正在读这篇文章的你, 可以对正态分布有更深的理解. 
 
+<!--more-->
+
+# 课后编程作业:
 > In this exercise, you will implement the anomaly detection algorithm and apply it to detect failing servers on a network.
 
 检测服务器是否异常, 兴奋🥰
 
-<!--more-->
-
-# 课后编程作业:
 ## 1. 加载数据:
 > You suspect that the vast majority of these examples are 'normal' (non-anomalous) examples of the servers operating normally, but there might also be some examples of servers acting anomalously within this dataset.
 
