@@ -16,28 +16,28 @@ Coursera 上吴恩达的[《机器学习》](https://www。coursera。org/learn/
 
 检测服务器是否异常，兴奋🥰
 
-## 1。加载数据:
+## 1. 加载数据:
 > You suspect that the vast majority of these examples are 'normal' (non-anomalous) examples of the servers operating normally，but there might also be some examples of servers acting anomalously within this dataset。
 
 利用正态分布检测异常，其实是有一个前提的，就是数据集中大部分的数据都是"正常"的。将指定的数据集可视化后，可以明显的看到有几个点孤零零的分布在异常的位置。   
 ![](/images/blog/190302_cousera_anomaly_detection/15516041918813.jpg)
 
-## 2。1 高斯分布模型介绍
+## 2.1 高斯分布模型介绍
 有了数据，第二步就是用这些数据建立一个高斯分布的模型: 下图中的公式 `P(x;μ，σ^2)`，代表给定一个点(x)，返回它在整个分布中的具体概率:   
 ![](/images/blog/190302_cousera_anomaly_detection/model.jpg)
 
 
-## 2。2 模型参数计算
+## 2.2 模型参数计算
 计算高斯分布模型的两个关键参数: 
 
-1。μ(mean): 平均值，读作mu
-2。σ^2(variance): 方差
+1. μ(mean): 平均值，读作mu
+2. σ^2(variance): 方差
 
 可视化之后，并可以看到大部分的点集中在最中心黄色的圆圈，并且刚刚计算的平均值和反差决定了圆圈的形状和大小。p。s。但看了半天没明白具体每个圈具体代表什么，求指点。  
 ![](/images/blog/190302_cousera_anomaly_detection/15516064266294.jpg)
 
-## 2。3 选择阈值
-完成高斯分布模型的参数之后，可以根据公式计算出每个点在数据集中的概率(越边缘的点概率越低，i。e。概率越低，越可能是个异常)。在这一小节我们就是要找到一个特定的阈值(ε)，如果某个点的概率在这个阈值以下，`p(x) < ε`，即可判断为异常!   
+## 2.3 选择阈值
+完成高斯分布模型的参数之后，可以根据公式计算出每个点在数据集中的概率(越边缘的点概率越低，i.e. 概率越低，越可能是个异常)。在这一小节我们就是要找到一个特定的阈值(ε)，如果某个点的概率在这个阈值以下，`p(x) < ε`，即可判断为异常!   
 ![](/images/blog/190302_cousera_anomaly_detection/15516075882385.jpg)
 
 很神奇，作业中是利用 f1 score 来找到最合适的阈值(之前写过[异常检测的precision，recall和f1 score的介绍](/blog/20190113/anomaly-detection/#2-回归测试)，感兴趣可以看一下)。
@@ -57,9 +57,9 @@ A: 因为正态分布的整体的**积分面积**为1，只不过宽窄高低不
 
 
 # 思考 & 收获
-1。在机器学习的课程中，大部分情况下，更多的是强调如何选取有效的特征，并同时使用多个特征去做预测。而现实中，我们常常只考虑了一维的特征，例如对于一个 spm 监控(请求量，成功量，成功率，耗时，错误数)，只对请求量做了计算，但其实可以同时对五个特征的数据集做异常检测。
-2。向量计算: 例如文中提示，在计算 f1 score 的过程中，尽可能使用向量计算，而不是 for 循化: `fp = sum((cvPredictions == 1) & (yval == 0))`。
-3。验证了异，常检测确实需要用 precision，recall & f1 score 来衡量，上  [Information Retrieval](/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/) 的时候学到的知识，并正确在工作中正确应用实践，给自己点个赞 👍 
+1. 在机器学习的课程中，大部分情况下，更多的是强调如何选取有效的特征，并同时使用多个特征去做预测。而现实中，我们常常只考虑了一维的特征，例如对于一个 spm 监控(请求量，成功量，成功率，耗时，错误数)，只对请求量做了计算，但其实可以同时对五个特征的数据集做异常检测。
+2. 向量计算: 例如文中提示，在计算 f1 score 的过程中，尽可能使用向量计算，而不是 for 循化: `fp = sum((cvPredictions == 1) & (yval == 0))`。
+3. 验证了异，常检测确实需要用 precision，recall & f1 score 来衡量，上  [Information Retrieval](/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/) 的时候学到的知识，并正确在工作中正确应用实践，给自己点个赞 👍 
 
 
 
