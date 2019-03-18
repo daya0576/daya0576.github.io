@@ -5,16 +5,16 @@ tags:
 ---
 
 
-Coursera 上吴恩达的[《机器学习》](https://www。coursera。org/learn/machine-learning/home/welcome)终于学到了第九周的课程。这周上半部分讲述了 Anomaly Detection，因为和工作比较相关([监控报警的智能降噪](/blog/20190113/anomaly-detection/))，所以比较感兴趣也很期待! 然而看完视频后，说实话略有些失望，因为只介绍了正态分布这一种算法。但视频和课后作业带我从各种不同角度深度剖析了一遍正态分布，收获颇多~         
+Coursera 上吴恩达的[《机器学习》](https://www。coursera。org/learn/machine-learning/home/welcome)终于学到了第九周的课程。这周上半部分讲述了 Anomaly Detection，因为和工作比较相关（[监控报警的智能降噪](/blog/20190113/anomaly-detection/)），所以比较感兴趣也很期待! 然而看完视频后，说实话略有些失望，因为只介绍了正态分布这一种算法。但视频和课后作业带我从各种不同角度深度剖析了一遍正态分布，收获颇多~   
 
-本文主要记录了完成**课后编程作业**的过程，并用python实现一遍(课程为matlab)，talk is cheap，show me the code。也希望自己也包括正在读这篇文章的你，可以对正态分布有更深的理解。
+本文主要记录了完成**课后编程作业**的过程，并用 [python 实现一遍](https://github.com/daya0576/Gaussian-Distribution/blob/master/normalization.ipynb)(课程为matlab)，talk is cheap，show me the code。也希望自己也包括正在读这篇文章的你，可以对正态分布有更深的理解。
 
 <!--more-->
 
 # 课后编程作业:
 > In this exercise，you will implement the anomaly detection algorithm and apply it to detect failing servers on a network。
 
-检测服务器是否异常，兴奋🥰
+检测服务器是否异常，兴奋 🥰
 
 ## 1. 加载数据:
 > You suspect that the vast majority of these examples are 'normal' (non-anomalous) examples of the servers operating normally，but there might also be some examples of servers acting anomalously within this dataset。
@@ -47,7 +47,7 @@ Coursera 上吴恩达的[《机器学习》](https://www。coursera。org/learn/
 但刚刚一直很疑惑🤔: 给定一个阈值，如何计算哪些点是tp(true positive: the number of true positives: the ground truth label says it's an anomaly and our algorithm correctly classified it as an anomaly。)，因为要依赖人工标记的 ground truth。好吧，和怀疑的一样，传入了人工标记好的 cross validation set。  
 
 # Python实现
-[要是上边有没看懂的地方，没关系，点我来直接看代码吧!](http://localhost:63343/normal_distribution_demo/normalization。html?_ijt=qjm1k3uhlise5vek8b664icc4r)   
+[要是上边有没看懂的地方，没关系，点我来直接看代码吧!](https://github.com/daya0576/Gaussian-Distribution/blob/master/normalization.ipynb)   
 但在计算出多个 feature 的"概率"之后就卡住了，因为一个点如果有两个 features，就会有两个概率，如何合并为一个呢?  
 ![](/images/blog/190302_cousera_anomaly_detection/15517965144087.jpg)
 
