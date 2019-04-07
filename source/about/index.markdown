@@ -4,9 +4,9 @@ type: about
 comments: true
 ---
 
-- ID: daya0576
-- 描述: 肥仔一只
-- 爱好: 吃吃吃，做饭，[乒乓球](/blog/20160711/tablet-tennis/) |
+- **ID:** daya0576
+- **描述:** 肥仔一只.
+- **爱好:** 吃吃吃，做饭，[乒乓球](/blog/20160711/tablet-tennis/)
 
 ---
 
