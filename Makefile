@@ -2,5 +2,4 @@ nothing:
 	echo "nothing"
 
 release:
-	cd themes/next && git push
-	pwd && git push
+	git push --recurse-submodules=on-demand
