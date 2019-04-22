@@ -120,6 +120,12 @@ Perl中$0就代表全部匹配(本身), 所以就能实现同时替换所有搜�
 查看当前文件每一行代码是谁是哪个commit贡献的(gitbub/gitlab上的blame view, 这个名字好形象)
 <img style="max-height:400px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/annotation.jpg">  
 
+## gist
+有一天同事和我炫耀它写了个 vim 插件，自动生成 github gist. 然后搜了一下，才发现在 pycharm 中，自身(不用装插件)就支持生成 gist:
+![](/images/blog/170606_pycharm_shortcut/15559360281179.jpg)
+
+
+
 (持续更新中...)   
 如果你有什么更好的华丽操作, 记得给我留言哦~~   
 
