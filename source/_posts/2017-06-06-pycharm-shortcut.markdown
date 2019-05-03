@@ -124,6 +124,9 @@ Perl中$0就代表全部匹配(本身), 所以就能实现同时替换所有搜�
 有一天同事和我炫耀它写了个 vim 插件，自动生成 github gist. 然后搜了一下，才发现在 pycharm 中，自身(不用装插件)就支持生成 gist:
 ![](/images/blog/170606_pycharm_shortcut/15559360281179.jpg)
 
+## Scratch files
+有时候可能仅仅只想打打草稿，写一些临时的代码做实验，但新起一个项目又觉得太麻烦。jupyter 是个很不错的选择，但 Pycharm 有个对应的解决方案叫做 [Scratch files](https://www.jetbrains.com/help/pycharm/scratches.html). 配合 gist 使用，简直不要更香。
+
 
 
 (持续更新中...)   
