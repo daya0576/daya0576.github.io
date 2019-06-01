@@ -10,7 +10,7 @@ tags: [pycharm]
 大部分的快捷键在同系列的IDE(JetBrains全家桶)上应该都是能通用的     
 <img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/license-min.png">     
 <!--more-->   
-     
+
 
 **友情提示:** 点击图片, 可显示大图~
 **声明:** 因为这些快捷键都是可以自定义的, 而且在不同的操作系统里也不同, 所以我每个都给出了操作的标题, 大家可以在设置里查找对应的快捷键:    
@@ -86,7 +86,7 @@ e.g. `import ipdb; ipdb.set_trace(context=20)`...
 `Ctrl(shift) + +/-`: 折叠一个方法的代码或整个文件的代码.    
 我一般喜欢, 先折叠整个文件的代码, 然后再打开一个类去看它的结构.      
 
-    
+
 ## 4. Move Line Up|Down
 `Alt + Up/Down`: 可以上下移动整行或整块(e.g. 一个if的block)代码   
 
@@ -110,7 +110,6 @@ Perl中$0就代表全部匹配(本身), 所以就能实现同时替换所有搜�
 <img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/7_1.png">   
 按**Replace all**之后:     
 <img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/7_2.png">     
-
 
 ---
 
