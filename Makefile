@@ -1,7 +1,7 @@
 nothing:
 	echo "nothing"
 
-release:
+push:
 	git push --recurse-submodules=on-demand
 
 deploy:
