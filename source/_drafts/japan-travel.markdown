@@ -1,0 +1,4 @@
+---
+title: japan-travel
+tags:
+---
