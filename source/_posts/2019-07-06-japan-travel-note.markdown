@@ -5,9 +5,9 @@ tags:
 ---
 
 
-[新婚](/blog/20190501/promise-rings/)后的第一次旅行✈️，坐标 「上海」➡️「大阪」➡️「奈良」➡️「京都」 的六日自由行。途中有语言不通的受阻与迷茫，也有铁腿行程时的绝命腰痛（苦命的程序员><），还有航班延误时的无尽等待。但更多的时候，是像冰镇啤酒一般源源不断的快乐～ XD
+[新婚](/blog/20190501/promise-rings/)后的第一次旅行✈️，从上海出发，途径「大阪」➡️「奈良」➡️「京都」的六日自由行。短暂的旅途中有语言不通的受阻与迷茫，也有铁腿行程时的绝命腰痛（苦命的程序员><），还有航班延误时的无尽等待。但更多的时候，是像冰镇啤酒一般源源不断的快乐～ XD
 
-之前看到一句话写的很好：“[写博客是为了和过去以及未来的自己对话](https://ipotato.me/article/13)”，简单用这篇文章记录一下这次的旅程，暂存一下无处安放的回忆。如果刚好能帮到你那真的是太棒啦!
+之前看到一句话写的很好：“[写博客是为了和过去以及未来的自己对话](https://ipotato.me/article/13)”，简单用这篇文章记录一路上的见闻以及个人的感想，暂存一下无处安放的回忆。如果刚好能帮到你，那真的是太棒啦!
 ![oezC0NVESpec%3ZLxHSJiQ_thumb_6498](/images/blog/190624_japan_travel/oezC0NVESpec%253ZLxHSJiQ_thumb_6498.jpg)
 
 
@@ -48,8 +48,8 @@ tags:
 
 ![UNADJUSTEDNONRAW_thumb_63da](/images/blog/190624_japan_travel/UNADJUSTEDNONRAW_thumb_63da.jpg)
 
-## Day2 环球影城
-吃完酒店精致的早餐，出发环球影城！
+## Day2 环球影城 USJ
+吃完酒店精致的早餐，出发[环球影城](https://www.usj.co.jp/e/)！
 ![UNADJUSTEDNONRAW_thumb_64df](/images/blog/190624_japan_travel/UNADJUSTEDNONRAW_thumb_64df.jpg)
 
 可怕，满满的游客，整个日本行程人最多的地方。。后悔没有买快速 pass 卡。
