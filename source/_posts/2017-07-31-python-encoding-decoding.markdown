@@ -12,32 +12,27 @@ tags: [python3, unicode, encoding]
 
 
 
-### 提示:
+# 提示:
 下文中都是以**python3**为栗子🌰.   
 因为python3慢慢变成主流, 而且用python2的话我一般会写成兼容的模式:   
 `>>> from __future__ import print_function, unicode_literals`
 
 
+# 编码在python2和3中的区别(_可跳过, 最后回过头来看_):
+摘自 *Effective Python* 那本书:   
+> **In Python3: **    
+> 1. **bytes**: sequences of 8-bit values.   
+> 2. **str**: sequences of Unicode characters.   
+> bytes and str instances can't be used with operators(like > or +)    
+> 
+> **In Python 2:**    
+> 1. **str**: contains sequences of 8-bit values.   
+> 2. **unicode**: contains sequences of Unicode characters.    
+> str and unicode can be used together with operators if the str only contains 7-bit ASCII characters.   
 
-> ### 编码在python2和3中的区别(_可跳过, 最后回过头来看_):
-摘自*Effective Python*那本书:   
-_   
-**In Python3: **    
-1. **bytes**: sequences of 8-bit values.   
-2. **str**: sequences of Unicode characters.   
-bytes and str instances can’t be used with operators(like > or +)   
-_   
-**In Python 2:**    
-1. **str**: contains sequences of 8-bit values.   
-2. **unicode**: contains sequences of Unicode characters.    
-str and unicode can be used together with operators if the str only contains 7-bit ASCII characters.   
-_   
 但说实话在今天前, 我对上边那段话的理解还是停留在python3 有两种类型(str和bytes)的地步😓.    
 
-
-
-
-### 1. Python3 str类型(unicode)
+# 1. Python3 str类型(unicode)
 python3的str字符串, 默认就代表**unicode字符组成的序列**.    
 ```python
 In [1]: s = '哈哈哈'   
@@ -56,7 +51,7 @@ Out[2]: str
 
 
 
-### 2. Python3 bytes类型(字节)
+# 2. Python3 bytes类型(字节)
 bytes和str一样都是内置的类型:  
 ```python 
 In [7]: s = b'haha'
@@ -67,7 +62,7 @@ Out[8]: bytes
 
 
 
-### 3. Encoding/decoding: 
+# 3. Encoding/decoding: 
 搞清楚python中的str和bytes类型, 这个问题就迎刃而解了.   
 
 1. **Encoding:**   
@@ -93,7 +88,7 @@ Out[11]: '哈哈'
 
 
 
-### 4. UTF-8编码(encoding)
+# 4. UTF-8编码(encoding)
 简单的说下unicode是如何通过utf-8编码转化为bytes, 以帮助更好的理解什么是编码(encoding).    
 **utf-8**其实属于 动态长度编码(variable length encoding).   
 
@@ -101,60 +96,15 @@ Out[11]: '哈哈'
 1001000**1**, 1000000**1**, 1011001**0**, 1011001**0**   
 我们就可以利用每个byte的最后一位(标志位, 1代表继续, 0代表结束), 来判断读几个bytes.   
 
-utf-8也是类似的思想, 但不同于上边, 它是用每个字节**开头的几位**, 当作标志位, 如下表所示:    
+utf-8也是类似的思想, 但不同于上边, 它是用每个字节**开头的几位**, 当作标志位, 如下表所示:
 
-<table>
-	<thead>
-		<tr>
-			<th>1st Byte</th>
-			<th>2nd Byte</th>
-			<th>3rd Byte</th>
-			<th>4th Byte</th>
-			<th>可用的Bits</th>
-			<th>最大值</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>0xxxxxxx</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>7</td>
-			<td>007F hex (127)</td>
-		</tr>
-		<tr>
-			<td>110xxxxx</td>
-			<td>10xxxxxx</td>
-			<td></td>
-			<td></td>
-			<td>(5+6)=11</td>
-			<td>07FF hex  (2047)</td>
-		</tr>
-		<tr>
-			<td>1110xxxx</td>
-			<td>10xxxxxx</td>
-			<td>10xxxxxx</td>
-			<td></td>
-			<td>(4+6+6)=16</td>
-			<td>FFFF hex (65535)</td>
-		</tr>
-		<tr>
-			<td>11110xxx</td>
-			<td>10xxxxxx</td>
-			<td>10xxxxxx</td>
-			<td>10xxxxxx</td>
-			<td>(3+6+6+6)=21</td>
-			<td>10FFFF hex (1,114,111)</td>
-		</tr>
-	</tbody>
+<table><thead><tr><th>1st Byte</th><th>2nd Byte</th><th>3rd Byte</th><th>4th Byte</th><th>可用的Bits</th><th>最大值</th></tr></thead><tbody><tr><td>0xxxxxxx</td><td></td><td></td><td></td><td>7</td><td>007F hex (127)</td></tr><tr><td>110xxxxx</td><td>10xxxxxx</td><td></td><td></td><td>(5+6)=11</td><td>07FF hex  (2047)</td></tr><tr><td>1110xxxx</td><td>10xxxxxx</td><td>10xxxxxx</td><td></td><td>(4+6+6)=16</td><td>FFFF hex (65535)</td></tr><tr><td>11110xxx</td><td>10xxxxxx</td><td>10xxxxxx</td><td>10xxxxxx</td><td>(3+6+6+6)=21</td><td>10FFFF hex (1,114,111)</td></tr></tbody>
 </table>
+
 (生动活泼形象的编码例子见下图↓)
 
 
-   
-
-### 总结
+# 总结
 为此我专门画了一张图, 总结了一下:   
 <figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tbody><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -179,7 +129,7 @@ utf-8也是类似的思想, 但不同于上边, 它是用每个字节**开头的
 
 
 
-### Reference:
+# Reference:
 -  https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/ (推荐一读, 特别逗)
 - https://docs.python.org/3/library/stdtypes.html#bytes
 

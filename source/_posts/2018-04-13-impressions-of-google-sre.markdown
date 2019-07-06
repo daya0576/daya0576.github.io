@@ -229,7 +229,7 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 
 
 ## Chapter 11 - Being On-Call
-1. On-Call对于维持系统稳定性来说, 是每个sre工程师的**重要责任(critical duty)**, 但存在**几个大坑??**, 会在下文中一一道来(如何保持reliable services and sustainable workload).
+1. On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责任(critical duty)**, 但存在**几个大坑??**, 会在下文中一一道来(如何保持reliable services and sustainable workload).
 2.
 
 
@@ -237,7 +237,7 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 # 疑惑:
 1. 四个9和五个9用户真的感知不到吗? 目标是极限的追求100%的reliability吗? 如何消除那些负面影响.
 2. 如何衡量大家时间都花在哪了, 如何做到toil的限制.
-3.
+3. ..
 
 
 
