@@ -119,8 +119,8 @@ tags: [sre, google]
     - errors: 注意对error的定义. 还有要注意的一点, 如果502了, 例如Django的Sentry就捕捉不到了. 只能通过查看返回的信息是否正确来监控.
     - saturation: 比如再来20%的流量, 系统是否能扛住. 或者预测到还有4小时, 数据库的硬盘就要满了.
 4. 讲到**监测采集数据的频率其实不用太高**. 虽然会发现一些隐藏的细节, 但分析和存储的成本都太高了.
-5. **监测不能搞的太复杂**, 不然监测系统会变得很fragile, 而且难以维护. 说了三个原则, 其实就是开始时就让incidents保持简单, 并定期去清除很少用到的巴拉巴拉.
-6. 还提到一点: 监测系统发起的**报警的问题必须是可以被解决的**. 不难理解, 因为如果报警了解决不了, 那就是完全无效的 → 每次都要忽略掉, 久而久之很可能会忽略掉一些严重的问题的报警.
+5. **监测不能搞的太复杂**, 不然监测系统会变得很fragile, 而且难以维护. 说了三个原则, 其实就是开始时就让 incidents 保持简单, 并定期去清除很少用到的巴拉巴拉.
+6. "Every page should be actionable."   还提到一点: 监测系统发起的**报警的问题必须是可以被解决的**. 不难理解, 因为如果报警了解决不了, 那就是完全无效的 → 每次都要忽略掉, 久而久之很可能会忽略掉一些严重的问题的报警.
 
 
 
@@ -227,11 +227,17 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
     3. 其他报警显示到dashboard.
 
 
-
 ## Chapter 11 - Being On-Call
 1. On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责任(critical duty)**, 但存在**几个大坑??**, 会在下文中一一道来(如何保持reliable services and sustainable workload).
-2.
-
+2. "We cap the amount of time SREs spend on purely operational work at 50%; at minimum, 50% of an SRE’s time should be allocated to engineering projects..." - 相对于纯手工的工作，每个 SRE 至少抽出超过一半的时间做平台开发。之前的章节也反复强调过这个原则了。
+3. 计算 oncall 数量和质量的两个公式："The quantity of on-call can be calculated by the percent of time spent by engineers on on-call duties. The quality of on-call can be calculated by the number of incidents that occur during an on-call shift."   每个主管都有义务去根据这两个指标，量化并平衡 oncall 的工作。
+4. "multi-site team", 好处是不用上夜班了，并且保证每个人都对生产环境保持熟悉感。但于沟通和协作会存在一定的困难。
+6. "Adequate compensation needs to be considered for out-of-hours support." - 会对应急的同学提供适当的补偿是非常有必要的，例如 Google 会提供调休和金钱上的奖励。
+7. 应急需理性.. 因为直觉往往都是错的，所以要尽量减少应急人员的压力。文中提到了"Well-defined incident-management procedures"，蚂蚁有个专门的部门叫做 GOC(Global Operation Center)，在应急的时候统一指挥，在这点做的还是挺不错的。但我认为更重要并有一定争议的一个原则叫做: "A blameless postmortem culture" / "focusing on events rather than the people".
+8. "Finally, when an incident occurs, it’s important to evaluate what went wrong, recognize what went well, and take action to prevent the same errors from recurring in the future." - 复盘很重要！
+9. "Recognizing automation opportunities is one of the best ways to prevent human errors" - 人类总是会犯错的，所以无论什么事，都可以提倡自动化。
+10. "Operational Overload" - 之前提到每个人的手动运维的工作不能超过 50%，但如果就是没控制过超过了呢？文中提到比如临时抽调一个有经验的 SRE 加入，但最理想的情况下，overload 的情况应该像业务系统一样可以被监控和第一时间发现。  但是 overload 的原因是什么呢？一个主要的原因就是 "Misconfigured monitoring"![](/images/blog/180403_google_sre/15625820798875.jpg)还有个思路是将同一时间多个报警，聚合为一个事件进行投递，减少对 on-call 人员的打扰。这个在蚂蚁已经有对应的工具了 XD
+11. "Operational Underload" - 总是说做了过多的 toil, 但如果生产环节如果太"安静"了（故障发生的频率并不是很高），导致应急人员手生了要怎么办呢？   "Google also has a company-wide annual disaster recovery event called DiRT (Disaster Recovery Training) that..." Google 每年也会有演练，模拟故障。和蚂蚁的红蓝攻防一个意思。
 
 
 # 疑惑:
