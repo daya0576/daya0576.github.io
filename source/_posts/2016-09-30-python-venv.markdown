@@ -7,10 +7,10 @@ tags: [python, venv]
 ---
 
 
-> 写程序写久了, 你会发现前人留下来的道理总是有那么几分道理的, which will make ur life much easier, 比如每次稍微花点时间建个python的虚拟环境, 会对以后的管理有很大的方便, 节约未来无数的时间~~    
+> 写程序写久了, 你会发现前人留下来的道理总是有那么几分道理的, which will make ur life much easier, 比如每次稍微花点时间建个python的虚拟环境, 会对以后的管理有很大的方便, 节约未来无数的时间~~
 
 <!--more-->
-   
+
 
 reference: [https://gist.github.com/evansneath/4582716](https://gist.github.com/evansneath/4582716)
 
@@ -40,7 +40,7 @@ $ source ~/.virtualenvs/unswco_test/bin/activate
 $ source deactivate
 ```
 
-For python3 or python2   
+For python3 or python2
 ```
 virtualenv --python=/usr/bin/python3 <project-name>
 ```

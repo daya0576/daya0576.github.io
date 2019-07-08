@@ -1,12 +1,13 @@
 ---
 title: 记一次 Matplotlib 解决多线程画图的故事
-date: 2019-02-04 19:37:24
 tags:
-- matplot
-- python
+  - matplot
+  - python
+date: 2019-02-04 19:37:24
 ---
 
-说起运维, 大家可能想到的第一个词就是“苦逼”🤔。 但近些年来, 这个职位发生了翻天覆地的变化: 人肉运维(PE) → 自动化运维(DevOps) → 智能运维(AIOps)。 身为 [SRE 大军](/blog/20180403/impressions-of-google-sre/) 中的一员, 也在智能运维的边缘试探: 希望打造监控告警「智能降噪」, 「根因定位」, 「故障自动自愈」的处理流程, 终极目标就是让每个人都睡个好觉。    
+
+说起运维, 大家可能想到的第一个词就是“苦逼”🤔。 但近些年来, 这个职位发生了翻天覆地的变化: 人肉运维(PE) → 自动化运维(DevOps) → 智能运维(AIOps)。 身为SRE 大军中的一员([什么是 SRE](/blog/20180403/impressions-of-google-sre/)), 也在智能运维的边缘试探: 希望打造监控告警「智能降噪」, 「根因定位」, 「自愈」的处理流程, 终极目标就是让每个人都睡个好觉。    
 
 而上述流程中不是核心, 却不可或缺的一部分就是投递告警时, 将隐晦的告警消息(文字)可视化，转化为生动的图片与诊断结果。 由于我们的整个平台是由 Python 搭建的, 关于绘图调研过多个第三方工具, 但不是太慢就是依赖过重, 最终选择了经典的 [Matplotlib](https://matplotlib.org/).
 
@@ -49,7 +50,7 @@ if __name__ == '__main__':
 
 python 中很有趣的一点: `sort` 是原子操作, 而`+=`不是原子操作。 详情可以阅读这篇文章, 写的很好: [《深入理解 GIL：如何写出高性能及线程安全的 Python 代码》](http://python.jobbole.com/87743/)    
 
-用 matplot 画图绝对不是个原子操作, 那要怎么解决线程的安全的问题呢? 要是觉得不安全, 就加个锁🔒呗 XD 
+用 matplot 画图绝对不是个原子操作, 那要怎么解决线程的安全的问题呢? 要是觉得不安全, 就加个锁🔒呗   
 ```python
 import logging
 import time
@@ -89,5 +90,7 @@ if __name__ == '__main__':
 # 其他:
 分享一下我用 matplotlib 画的酷酷的图💪:    
 ![](/images/blog/190204_matplot_thread_safing/15492804797787.jpg)
+
+![](/images/blog/190204_matplot_thread_safing/ibaymax.jpg)
 
 
