@@ -8,9 +8,6 @@ tags:
 好几个月前的一个月黑风高的深夜，和同事对 Python 的版本管理 & 虚拟环境进行了一些讨论。写一篇博客纪念一下，也算是作为个人的笔记。   
 
 如果你对 `pyenv`, `virtualenv`, `virtualenv-wrapper`, `venv`, `pipenv`, `pipx` 一系列名词存在困惑，可以进来看看..
-![](/images/blog/190707_python_env_management/15625174196560.jpg)
-
-
 
 <!--more-->
 
@@ -93,7 +90,8 @@ Python 3.3 之后官方自带的虚拟环境管理，与 `virtualenv` 在实现�
 2. https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments
 
 
-
+# 纪念
+![](/images/blog/190707_python_env_management/15625174196560.jpg)
 
 
 
