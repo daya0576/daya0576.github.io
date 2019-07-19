@@ -7,7 +7,7 @@ tags:
 
 好几个月前的一个月黑风高的深夜，和同事对 Python 的版本管理 & 虚拟环境进行了一些讨论。写一篇博客纪念一下，也算是作为个人的笔记。   
 
-如果你对 `pyenv`, `virtualenv`, `virtualenv-wrapper`, `venv`, `pipenv`, `pipx` 一系列名词存在困惑，可以进来看看..
+如果你对 `pyenv`, `virtualenv`, `virtualenv-wrapper`, `venv`, `pipenv` 等一系列名词存在一些困惑，可以进来看看..
 
 <!--more-->
 
