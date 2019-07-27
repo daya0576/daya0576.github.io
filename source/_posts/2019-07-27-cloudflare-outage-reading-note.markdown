@@ -11,7 +11,7 @@ Cloudflare 在七月二日发生了一次全球性的宕机，直接导致个人
 
 而作为一名 SRE，明白在故障的整个生命周期中，非常关键的一环就是故障复盘(postmortem)，以防止同样愚蠢的错误不再发生(通常大故障都是由很多小错误连锁造成的)。前天在千岛湖 outing 半夜四点睡不着的时候，起床偶遇这篇文章[《Details of the Cloudflare outage on July 2, 2019》](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/), 一口气读完了，写的很精彩（很会讲故事），当然总觉得还缺了什么。
 
-用这篇文章记录一下个人的感受，**当然更加推荐阅读原文。**
+用这篇文章记录一下个人的感受和思考，**当然更加推荐阅读原文。**
 
 <!--more-->
 
