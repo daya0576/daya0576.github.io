@@ -2,6 +2,7 @@
 title: Python 版本管理 & 虚拟环境的那些事
 date: 2019-07-08 18:52:56
 tags:
+- python
 ---
 
 

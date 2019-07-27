@@ -162,6 +162,7 @@ marked:
   tables: true
   breaks: true
   smartLists: true
-  smartypants: true
+  smartypants: false
   modifyAnchors: ''
   autolink: true
+

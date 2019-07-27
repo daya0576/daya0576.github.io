@@ -3,7 +3,7 @@ layout: post
 title: "Google《Site Reliability Engineering》读后感"
 date: 2018-04-03 12:04:19
 comments: true
-tags: [sre, book]
+tags: [sre, reading]
 ---
 
 下一份工作要开始做SRE了, 准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下. 感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟).

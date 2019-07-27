@@ -1,18 +1,22 @@
 ---
 title: Cloudflare 全球宕机复盘读后感
+date: 2019-07-27 21:45:50
 tags:
+- sre
+- reading
 ---
+
 
 Cloudflare 在七月二日发生了一次全球性的宕机，直接导致个人托管在上面的两个网站 502 超过半个小时，甚至上班的时候，还收到了一些业务告警（某些渠道通过 cloudflare 做路由）。可见这次故障的影响范围之大，互联网的一些基础服务已经成为了 21 世纪的水电煤..
 
 而作为一名 SRE，明白在故障的整个生命周期中，非常关键的一环就是故障复盘(postmortem)，以防止同样愚蠢的错误不再发生(通常大故障都是由很多小错误连锁造成的)。前天在千岛湖 outing 半夜四点睡不着的时候，起床偶遇这篇文章[《Details of the Cloudflare outage on July 2, 2019》](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/), 一口气读完了，写的很精彩（很会讲故事），当然总觉得还缺了什么。
 
-用这篇文章记录一下个人的感受，**当然更加推荐阅读原文。**    
+用这篇文章记录一下个人的感受，**当然更加推荐阅读原文。**
 
 <!--more-->
 
 # 什么是 Cloudflare ?
-今天刷 Twitter 的时候刚好看到一个[官方的回答](https://support.cloudflare.com/hc/en-us/articles/205177068-Step-1-How-does-Cloudflare-work-)还挺不错的。总结一下原理就是在用户与你的网站之间加了一层代理，以提升 security, performance and reliability. 
+今天刷 Twitter 的时候刚好看到一个[官方的回答](https://support.cloudflare.com/hc/en-us/articles/205177068-Step-1-How-does-Cloudflare-work-)还挺不错的。总结一下原理就是在用户与你的网站之间加了一层代理，以提升 security, performance and reliability.
 ![](/images/blog/190727_cloudflare_outage/15642299070568.jpg)
 
 
@@ -39,14 +43,15 @@ Cloudflare 在七月二日发生了一次全球性的宕机，直接导致个人
 2. 不管是 Netflix 的 chaosmonkey 还是蚂蚁的红蓝攻防，都是一种比较好的业内最佳实践了，只有真实频繁的去模拟故障，才能做到预案与应急能力的保鲜 & 提升。
 
 # 其他思考
-> This generated a Change Request ticket. We use Jira to manage these tickets and a screenshot is below.
-> In the last 60 days, 476 change requests have been handled for the WAF Managed Rules (averaging one every 3 hours).
+> "This generated a Change Request ticket. We use Jira to manage these tickets and a screenshot is below."
+> "In the last 60 days, 476 change requests have been handled for the WAF Managed Rules (averaging one every 3 hours)."
+
 Cloudflare 的变更管理&感知看上去做的挺不错的, 但真正发生故障的时候，也花了将近 **18 分钟**才定位到根因。公司也有很多人在做「变更感知」与「故障定位」，但个人觉得或许相对于感知，故障根因定位(关联的变更)才是最难的：比较依赖于专家经验，但真正大故障又往往是之前从来没有遇到过的场景。所以是不是换个思路，对与所有的跌零因子都做好预案，故障发生时，只需要无脑执行预案即可，第一时间止血恢复业务，之后慢慢排查原因。
 
-> I agree 100% transparency is best.
-> blame free
-国外和国内文化上比较大的两个差别，但仁者见仁智者见智，并没有所谓的对错吧。
+> "I agree 100% transparency is best. "
+> "blame free".
 
+国外和国内文化上比较大的两个差别，但仁者见仁智者见智，并没有所谓的对错吧。
 
 
 # 链接参考
