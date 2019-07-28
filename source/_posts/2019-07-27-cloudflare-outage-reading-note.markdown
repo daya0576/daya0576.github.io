@@ -21,7 +21,7 @@ Cloudflare 在七月二日发生了一次全球性的宕机，直接导致个人
 
 
 # 故障过程
-整理了一下，习惯将故障的每一步都按 timeline 列出来：
+整理了一下，习惯将故障的每一步都按 timeline 列出来(UTC)：
 ![](/images/blog/190727_cloudflare_outage/15642294239100.jpg)
 
 # 故障原因

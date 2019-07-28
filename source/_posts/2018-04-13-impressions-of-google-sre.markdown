@@ -256,7 +256,22 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 
 ## Chapter 13 - Chapter 13 - Emergency Response(20190718)
 这一章举了很多实际的例子, 来说明如何应急。
-1. "However, it should be noted that in this case, our monitoring was less than ideal: alerts fired repeatedly and constantly, overwhelming the on-calls and spamming regular and emergency communication channels." - 告警爆炸
+1. "However, it should be noted that in this case, our monitoring was less than ideal: alerts fired repeatedly and constantly, overwhelming the on-calls and spamming regular and emergency communication channels." - 故障发生时告警爆炸的情况，每个公司都会碰到，如果能比较好的解决也会带来很大的价值。 
+
+
+## Chapter 14 - Managing Incidents(20190728)
+公司有一个专门的组织叫做 GOC(Global Operation Center), 专门负责应急的调度和故障生命周期管理，不知道 Google 是怎么做的 🤔
+1. 举了一个故障应急的反例，然后列出了不足与应该遵守的一些原则：
+    - Recursive Separation of Responsibilities: 应及时分工分层需明确，又可以细分为一下几个角色：
+        - Incident Commander: 让我想到了公司的「值班长」
+        - Operational Work
+        - Communication: 这个角色有点像公司的 GOC
+        - Planning
+    - A Recognized Command Post: google 发现在处理故障的过程中，及时通讯软件很有用？？不太理解。
+    - Live Incident State Document: 多人事实统一编辑故障的最新进展
+    - Clear, Live Handoff: 我理解更多是故障处理的交接吧。。但在国内的公司估计很难有这种情况。。
+2. "In many situations, locating the incident task force members into a central designated 'War Room' is appropriate.": "War Room".. 哈哈，不就是我们的闭关室嘛
+3. 针对文章开头的反例，又根据上面的几个原则，重新改造成了一个正确的例子。这个文章结构还是挺新奇的。但好多理论的东西，感觉有点虚。 
 
 
 # 疑惑:
