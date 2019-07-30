@@ -1,10 +1,13 @@
 ---
-title: 如何将截图自动保存至 Photos
-tags: [macos, tutorial]
+title: macOS 如何将截图自动保存至相册(Photos)
+tags:
+  - macos
+  - tutorial
+date: 2019-07-30 10:58:01
 ---
 
+
 今天突然有个小需求，希望在 macOS 上截图后，自动保存至应用 Photos. 搜索了一下，发现系统原生不支持这种骚操作，但有个应用叫 Automator, 可以完美的实现这个需求✌️
-![](/images/blog/190729_save_screenshot_tutorial/15643709129945.jpg)
 
 
 <!--more-->
