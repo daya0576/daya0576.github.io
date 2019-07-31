@@ -127,14 +127,14 @@ lazyload:
 #  loadingImg:
   loadingImg: /images/loading/loading_test_ver2.0.gif
 
-
+#
 filter_optimize:
-  enable: false # filter_optimize
+  enable: true # filter_optimize
   # remove static resource query string
   #   - like `?v=1.0.0`
   remove_query_string: true
   # remove the surrounding comments in each of the bundled files
-  remove_comments: false
+  remove_comments: true
   css:
     enable: true
     # bundle loaded css file into the one
