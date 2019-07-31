@@ -127,7 +127,7 @@ lazyload:
 #  loadingImg:
   loadingImg: /images/loading/loading_test_ver2.0.gif
 
-#
+# https://github.com/theme-next/hexo-filter-optimize
 filter_optimize:
   enable: true # filter_optimize
   # remove static resource query string
