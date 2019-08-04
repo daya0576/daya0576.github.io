@@ -254,7 +254,7 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 9. "Application’s latency, showing 50th, 95th, and 99th percentiles" - 耗时的监控，99th percentiles 代表，假如整体样本如果有100个，排在第99的那个数值。还是挺有启发的，因为平均值很多时候会误导人。![](/images/blog/180403_google_sre/15630074932574.jpg)
 
 
-## Chapter 13 - Chapter 13 - Emergency Response(20190718)
+## Chapter 13 - Emergency Response(20190718)
 这一章举了很多实际的例子, 来说明如何应急。
 1. "However, it should be noted that in this case, our monitoring was less than ideal: alerts fired repeatedly and constantly, overwhelming the on-calls and spamming regular and emergency communication channels." - 故障发生时告警爆炸的情况，每个公司都会碰到，如果能比较好的解决也会带来很大的价值。 
 
