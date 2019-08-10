@@ -26,10 +26,6 @@ tags:
 
 所以引入Precision, Recall和F-Score的概念, 也就是说我们对 Recall 的要求是非常高的, 情愿发出100次警报，把其中5次异常都预测正确了, 也不要只识别正确其他95次噪音.
 
-**画个图:** 下图中正方形代表所有告警, 左半部分代表人工标记为异常的告警, 右半部分反之(噪音). 而中间的圆圈代表算法识别正确的结果, precision 和 recall 就跃然纸上了 XD: 
-![UNADJUSTEDNONRAW_thumb_5d09](/images/blog/190302_cousera_anomaly_detection/UNADJUSTEDNONRAW_thumb_5d09.jpg)
-
-
 **举个栗子:**
 标记样本: 90个为噪音, 10个为异常.     
 算法结果: 5个为异常(判断正确), 95个为噪音
@@ -112,6 +108,9 @@ Facebook 开源了一个周期性异常检测的开源库, 叫做 [prophet](http
 
 ## 第四步: 汇总结果
 投票者的模式: 只要大于或等于两个结果判断为噪音, 就认为此报警为噪音. 
+
+# 感知
+
 
 # Reference:
 感谢这些让我受启发的好文章: 
