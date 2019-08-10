@@ -1,7 +1,11 @@
 ---
-title: "《Site Reliability Engineering》读后感 - Part III"
-tags: [sre, reading]
+title: 《Site Reliability Engineering》读后感 - Part III
+tags:
+  - sre
+  - reading
+date: 2019-08-11 00:18:16
 ---
+
 
 下一份工作要开始做SRE了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感。期望更多的是个人的一些思考和感悟，也算是做个纪念吧。
 
