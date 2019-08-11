@@ -79,11 +79,13 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 
 ## Chapter 13 - Emergency Response(20190718)
 这一章举了很多实际的例子, 来说明如何应急。
+
 1. "However, it should be noted that in this case, our monitoring was less than ideal: alerts fired repeatedly and constantly, overwhelming the on-calls and spamming regular and emergency communication channels." - 故障发生时告警爆炸的情况，每个公司都会碰到，如果能比较好的解决也会带来很大的价值。 
 
 
 ## Chapter 14 - Managing Incidents(20190728)
 公司有一个专门的组织叫做 GOC(Global Operation Center), 专门负责应急的调度和故障生命周期管理，不知道 Google 是怎么做的 🤔
+
 1. 举了一个故障应急的反例，然后列出了不足与应该遵守的一些原则：
     - Recursive Separation of Responsibilities: 应及时分工分层需明确，又可以细分为一下几个角色：
         - Incident Commander: 让我想到了公司的「值班长」
@@ -99,6 +101,7 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 
 ## Chapter 15 - Postmortem Culture: Learning from Failure(20190806)
 Postmortem 这个单词很有意思，中文里叫做「验尸」，而在公司我们通常把 Postmortem 称为复盘。"The cost of failure is education." - 复盘很重要，就像文章开头说的，可以让我们在失败中不断学习，很多公司都有这样的文化，可以参考我最近写的一篇文章：[《Cloudflare 全球宕机复盘读后感》](https://changchen.me/blog/20190727/cloudflare-outage-reading-note/)
+
 1. 复盘的三个主要⚠️目的：
     - 所有故障都有可以被文字的形式归档。
     - 根因被理解并调查清楚。
@@ -118,9 +121,18 @@ Postmortem 这个单词很有意思，中文里叫做「验尸」，而在公司
 7. 总结：
     - 感谢复盘的文化，让 Google 不断减少故障，并带来更好的用户体验。
     - 但有个虚拟复盘小组发挥了很大的作用，例如统一了各个产品(YouTube, Google Fiber, Gmail, Google Cloud, AdWords, and Google Maps)的复盘文档模版，并支持应急中使用的工具，实现模版生成自动化，并可以抓取复盘的数据做趋势分析，等等。
-    - 积累这么多复盘文档后，如何挖掘这个宝库也是个很有价值的课题。目前可以做到自动的聚类文档，并且在未来会使用机器学习去根据复盘的知识库预测可能的缺陷和风险点，并实时分析事件，聚类相同的故障并防止重复处理。
+    - 积累这么多复盘文档后，如何挖掘这个宝库也是个很有价值的课题。目前可以做到自动聚类相似的文档，并且在未来会使用机器学习去根据复盘的知识库预测可能的缺陷和风险点，并实时分析事件，识别相同的故障并防止重复处理。
 
 ## Chapter 16 - Tracking Outages
-...
+如果量化都做不到，何谈改进呢？稳定性也是一个道理。记得去年面试的时候，问了面试官，如何量化稳定性呢？对方笑了一下，说你听说过四个9或者5个9嘛？
 
+"'Outalator', our outage tracker, is one of the tools we use to do just that. Outalator is a system that passively receives all alerts sent by our monitoring systems and allows us to annotate, group, and analyze this data." - 和公司的故障管理系统的区别点在于，对于数据的接受和处理🤔。
+
+1. 复盘的局限性：对于很多小范围不严重的问题，无法覆盖。
+2. 有很多有价值的信息：例如每次 oncall 期间一共收到了多少告警？其中多少是噪音(nonactionable)？哪个服务创造的最多的 toil? 过去一年在公司搞的平台貌似也涉及到这部分 0.0
+3. 有个系统叫做 Escalator, 如果有些告警长时间没人阅读或处理，将会被降级，例如告警等级从 primary 变为 secondary(**很不错的想法**). 
+4. "it is worthwhile to attempt to minimize the number of alerts triggered by a single event," - 告警的横向聚合，也是一种关键的降噪方式。
+6. "Historical data is useful" - 文中更多的指的是数据的统计，例如每个月的故障数，各个故障的告警数，或是哪个服务或基础设施贡献了最多的故障，需要持续关注和改进。我们之前也有类似的想法，把所有故障和事件沉淀为知识库，抽象出一些特征值出来，例如监控（告警），订阅人，等等。相当于一个故障“切片”，当一个新的故障来的时候就可以快速匹配并给出最可疑的根因。
+7. "the Outalator also supports a "report mode," in which the important annotations are expanded inline with the main list in order to provide a quick overview of lowlights." - 这个和业务同学也聊过。。。尝试将对应告警聚合和事件关联起来，使用 tag 管理，最终调用在线文档 api, 自动生成对应业务的**每周高可用报告**。
+8. ...
 
