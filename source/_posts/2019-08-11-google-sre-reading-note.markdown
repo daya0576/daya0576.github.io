@@ -136,3 +136,12 @@ Postmortem 这个单词很有意思，中文里叫做「验尸」，而在公司
 7. "the Outalator also supports a "report mode," in which the important annotations are expanded inline with the main list in order to provide a quick overview of lowlights." - 这个和业务同学也聊过。。。尝试将对应告警聚合和事件关联起来，使用 tag 管理，最终调用在线文档 api, 自动生成对应业务的**每周高可用报告**。
 8. ...
 
+## Chapter 17 - Testing for Reliability
+1. MTTR: Mean Time to Repair。MTTR 为零意味着上生产前，bug 就都被测出来了🤔。
+MTTD: 对应的发现时长： mean time to detect.
+2. smoking test: 冒烟测试，来源是电路测试中，如果通电后没有冒烟，表示一切正常可以继续。
+3. Stress test - 大促压测
+3. Canary test: 灰度环境测试， 来源把一只🐦放到煤矿中做测试，防止人直接吸入有毒气体。但值得注意的是灰度环境并不完美，无法检测出所有的潜在风险。
+4. ...看的头晕，先跳过了
+
+

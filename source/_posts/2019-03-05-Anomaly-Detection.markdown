@@ -59,7 +59,7 @@ A: 因为正态分布的整体的**积分面积**为1，只不过宽窄高低不
 # 思考 & 收获
 1. 在机器学习的课程中，大部分情况下，更多的是强调如何选取有效的特征，并同时使用多个特征去做预测。而现实中，我们常常只考虑了一维的特征，例如对于一个 spm 监控(请求量，成功量，成功率，耗时，错误数)，只对请求量做了计算，但其实可以同时对五个特征的数据集做异常检测。
 2. 向量计算: 例如文中提示，在计算 f1 score 的过程中，尽可能使用向量计算，而不是 for 循化: `fp = sum((cvPredictions == 1) & (yval == 0))`。
-3. 验证了异，常检测确实需要用 precision，recall & f1 score 来衡量，上  [Information Retrieval](/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/) 的时候学到的知识，并正确在工作中正确应用实践，给自己点个赞 👍
+3. 验证了异常检测确实需要用 precision，recall & f1 score 来衡量，上  [Information Retrieval](/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/) 的时候学到的知识，并正确在工作中正确应用实践，给自己点个赞 👍
 
 
 
