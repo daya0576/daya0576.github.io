@@ -124,8 +124,8 @@ algolia:
 lazyload:
   enable: true
   onlypost: false
-#  loadingImg:
-  loadingImg: /images/loading/loading_test_ver2.0.gif
+  # https://loading.io/spinner/custom/289885/#
+  loadingImg: /images/loading/loading.svg
 
 # https://github.com/theme-next/hexo-filter-optimize
 filter_optimize:
