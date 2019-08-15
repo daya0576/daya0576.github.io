@@ -11,7 +11,7 @@ with tempfile.NamedTemporaryFile(dir='.', delete=False) as tmp, \
 
     content = f.read()
     # ? means no eager
-    pattern = r'src="(/images/loading/loading_test_ver2.0.gif)" data-original="(.+?)"'
+    pattern = r'src="(/images/loading/loading.svg)" data-original="(.+?)"'
     repl = r'src="\2" data-original="\2"'
     result, n = re.subn(pattern, repl, content)
 
