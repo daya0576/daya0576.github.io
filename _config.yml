@@ -123,7 +123,7 @@ algolia:
 
 lazyload:
   enable: true
-  onlypost: false
+  onlypost: true
   # https://loading.io/spinner/custom/289885/#
   loadingImg: /images/loading/loading.svg
 
