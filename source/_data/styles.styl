@@ -4,22 +4,23 @@
 .header-inner {
   background-image: url("/images/site-meta-bg/sky.jpg");
   background-size: cover;
+
+  // 侧边栏 - 上
+  .site-meta {
+    background: none;
+  }
+
+  .site-nav .menu .menu-item a {
+    height: 30px;
+    color: #f9f9f9;
+    border-bottom: none;
+  }
+  .site-nav .menu .menu-item a:hover, .site-nav .menu .menu-item-active a {
+    background: rgba(0, 0, 0, 0.2);
+  }
 }
 
-// 侧边栏 - 上
-.header-inner .site-meta {
-  background: none;
-}
 
-.header-inner .site-nav .menu .menu-item a {
-  height: 30px;
-  color: #f9f9f9;
-  border-bottom: none;
-}
-
-.site-nav .menu .menu-item a:hover, .site-nav .menu .menu-item-active a {
-  background: rgba(0, 0, 0, 0.2);
-}
 
 // 侧边栏 - 下
 .site-overview {
@@ -52,112 +53,120 @@
 /////////////
 // 文章样式 //
 ////////////
-// 文章之间的间隔
-.post-footer {
-  //border-top: 1px solid rgba(0,0,0,.04);
-  padding: 10px 0 5px 0;
-}
-
-.post:last-child {
-  hr {
-    display: none;
-  }
-}
-
-// 每个文章上面的 padding
-.post-block {
-  padding-top: 20px;
-}
-.posts-expand .post-title-link{
-  vertical-align: baseline;
-}
-
-// article <p> margin
-p {
-  margin: 5px 0 10px 0;
-}
-
-// quote
-code {
-  padding: 4px 4px 1px 4px;
-  //background: #eee8d5;
-}
-
-// background & line-height
-body {
-  line-height: 1.6;
-}
-
-img {
-  max-height: 350px;
-}
-
-.post-header .post-meta {
-  margin: 3px 0 10px 0;
-}
-
-.post-header .post-meta .post-comments-count, .disqus-comment-count {
-  color: #999;
-}
-
-.post-header .post-title {
-  font-size: 22px;
-  margin-bottom: 0;
-}
-
-
-// 归档的标题样式
-.posts-collapse .collection-title {
-  margin: 40px 0 20px 0;
-}
-
-.posts-collapse .post {
-  margin: 0;
-}
-
-.posts-collapse .post-header {
-  border-bottom: none;
-}
-
-.posts-collapse .post-title {
-  font-size: 17px;
-  margin-bottom: 10px;
-  padding-left: 3px;
-}
-
-.posts-collapse .post-title a, .posts-collapse .post-title span.exturl {
-  color: #24292e;
-}
-
-
 .posts-expand {
   padding-top: 0;
 }
 
-// 图片
-.posts-expand .post-body .fancybox img {
-  //margin: 0 auto 20px;
-  padding: 0;
-  border: 0;
-  margin: 5px 0;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+.posts-expand .post-title-link {
+  vertical-align: baseline;
 }
 
-.posts-expand .post-body .fancybox img:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+// article <p> margin
+.post-block {
+  .post-body {
+    p {
+      margin: 5px 0 10px 0;
+    }
+
+    h1 {
+      padding-bottom: .3em;
+      border-bottom: 1px solid #eaecef;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 1em 0 0 0;
+      font-weight: 400;
+    }
+
+    code {
+      padding: 4px 4px 1px 4px;
+      //background: #eee8d5;
+    }
+
+    // background & line-height
+    body {
+      line-height: 1.6;
+    }
+
+    img {
+      max-height: 350px;
+      margin: 0 auto 10px;
+    }
+
+    .fancybox img {
+      //margin: 0 auto 20px;
+      padding: 0;
+      border: 0;
+      margin: 5px 0;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    // disable shadow for loading img.
+    // p.s. how to be more specific..
+    .fancybox img[src*="loading.svg"] {
+      box-shadow: none;
+    }
+
+    .fancybox img:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+
+
+  .post-header {
+    .post-meta {
+      margin: 3px 0 6px 0;
+      a, time {
+        border-bottom: none;
+      }
+    }
+
+    .post-title {
+      font-size: 1.5em;
+      font-weight: 400;
+    }
+
+    .post-comments-count, .disqus-comment-count {
+      color: #999;
+    }
+  }
+
+
+  .post-footer {
+    // 文章之间的间隔
+    padding: 15px;
+
+    .post-eof {
+      display: none;
+    }
+  }
 }
 
-.posts-expand .post-body img {
-  margin: 0 auto 10px;
+// 归档的标题样式
+.posts-collapse {
+  .collection-title {
+    margin: 40px 0 20px 0;
+  }
+
+  .post {
+    margin: 0;
+  }
+
+  .post-header {
+    border-bottom: none;
+  }
+
+  .post-title {
+    font-size: 17px;
+    margin-bottom: 10px;
+    padding-left: 3px;
+    a, span.exturl {
+      color: #24292e;
+    }
+  }
 }
 
-// disable shadow for loading img.
-// p.s. how to be more specific..
-.posts-expand .post-body .fancybox img[src*="loading.svg"] {
-  box-shadow: none;
-}
 
 
-.post-eof {
-  margin: 40px auto 30px;
-}
+
+
