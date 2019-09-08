@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "《Site Reliability Engineering》读后感 - Part I & Part II"
+title: "《Site Reliability Engineering》读后感"
 date: 2018-04-03 12:04:19
 comments: true
 tags: [sre, reading]
