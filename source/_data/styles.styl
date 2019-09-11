@@ -1,3 +1,12 @@
+body {
+  background: none;
+
+  .headband {
+    display: none;
+  }
+}
+
+
 ///////////
 // 侧边栏 //
 ///////////
@@ -5,7 +14,6 @@
   background-image: url("/images/site-meta-bg/sky.jpg");
   background-size: cover;
 
-  // 侧边栏 - 上
   .site-meta {
     background: none;
   }
@@ -15,39 +23,55 @@
     color: #f9f9f9;
     border-bottom: none;
   }
+
   .site-nav .menu .menu-item a:hover, .site-nav .menu .menu-item-active a {
     background: rgba(0, 0, 0, 0.2);
   }
+
+  .site-title {
+    font-size: 1.375em;
+  }
+
+  // 搜索
+
+  .local-search-pop-overlay {
+    opacity: 1;
+    background: none;
+  }
 }
 
+// 侧边栏下
+.sidebar {
+  .site-overview-wrap {
+    opacity: 0.2 !important;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
 
-// 侧边栏 - 下
-.site-overview {
-  opacity: 0.2;
-}
+  .links-of-author {
+    margin-top: 5px;
+  }
 
-// 搜索
-.local-search-pop-overlay {
-  opacity: 1;
-  background: none;
-}
+  .site-author-image {
+    transition: transform 0.75s;
 
-//  头像
-.site-overview, .header-inner {
-  -webkit-transition: all .2s ease-in;
-  -moz-transition: all .2s ease-in;
-  -o-transition: all .2s ease-in;
-  transition: all .2s ease-in;
-}
-
-.site-overview:hover, .header-inner:hover {
-  opacity: 1;
-}
-
-// disable top bar
-.headband {
-  display: none;
+    &:hover {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .site-author-name {
+    line-height:2;
+    font-weight: 400;
+  }
 }
 
 /////////////
@@ -55,17 +79,17 @@
 ////////////
 .posts-expand {
   padding-top: 0;
-}
 
-.posts-expand .post-title-link {
-  vertical-align: baseline;
-}
-
-// article <p> margin
-.post-block {
   .post-body {
     p {
-      margin: 5px 0 10px 0;
+      margin: 5px 0 15px 0;
+      line-height: 1.8;
+    }
+
+    a, span.exturl {
+      color: #2f7bbf;
+      text-decoration: none;
+      border-bottom: none;
     }
 
     h1 {
@@ -74,7 +98,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      margin: 1em 0 0 0;
+      margin: 0.6em 0 0 0;
       font-weight: 400;
     }
 
@@ -83,10 +107,6 @@
       //background: #eee8d5;
     }
 
-    // background & line-height
-    body {
-      line-height: 1.6;
-    }
 
     img {
       max-height: 350px;
@@ -103,6 +123,7 @@
 
     // disable shadow for loading img.
     // p.s. how to be more specific..
+
     .fancybox img[src*="loading.svg"] {
       box-shadow: none;
     }
@@ -115,7 +136,8 @@
 
   .post-header {
     .post-meta {
-      margin: 3px 0 6px 0;
+      margin: 0;
+
       a, time {
         border-bottom: none;
       }
@@ -124,6 +146,16 @@
     .post-title {
       font-size: 1.5em;
       font-weight: 400;
+
+      .post-title-link {
+        vertical-align: baseline;
+      }
+
+      .post-title-link:hover {
+        color: #2f7bbf;
+        text-decoration: none;
+        border-bottom: none;
+      }
     }
 
     .post-comments-count, .disqus-comment-count {
@@ -131,10 +163,9 @@
     }
   }
 
-
   .post-footer {
     // 文章之间的间隔
-    padding: 15px;
+    padding: 25px;
 
     .post-eof {
       display: none;
@@ -142,14 +173,13 @@
   }
 }
 
-// 归档的标题样式
-.posts-collapse {
-  .collection-title {
-    margin: 40px 0 20px 0;
-  }
 
-  .post {
-    margin: 0;
+//////////////////
+// 归档的标题样式 //
+/////////////////
+.posts-collapse {
+  .collection-year {
+    margin: 10px 0;
   }
 
   .post-header {
@@ -157,16 +187,34 @@
   }
 
   .post-title {
-    font-size: 17px;
-    margin-bottom: 10px;
-    padding-left: 3px;
+    margin-top: 0;
+    font-size: 1em;
+
+    span {
+      margin-left: 5px;
+    }
+
     a, span.exturl {
       color: #24292e;
     }
+
+    .post-title-link:hover {
+      color: #2f7bbf;
+    }
+  }
+
+  article {
+    margin: 8px 0;
+  }
+
+  .collection-year {
+    margin: 20px 0 0 0;
   }
 }
 
-
-
-
-
+/////////////
+//   其他  //
+////////////
+.pagination {
+  margin-top: 0;
+}
