@@ -17,6 +17,7 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: 8.x
+    - uses: docker://python:3
         
     - name: Installation
       run: |
@@ -25,7 +26,6 @@ jobs:
         
     - name: Generate
       run: hexo clean && hexo g
-
-    - uses: docker://python:3
+    
     - name: Cleanup  
-      run: python atom_plus.py && chmod 755 public/atom.xml
+      run: python3 atom_plus.py && chmod 755 public/atom.xml
