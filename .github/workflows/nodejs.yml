@@ -1,4 +1,4 @@
-name: Node CI
+name: Hexo CICD
 
 on:
   push:
@@ -6,22 +6,26 @@ on:
     - master
 
 jobs:
-  build:
-    name: build my little site 
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
+  job1:
+    name: hexo build & deploy
+    runs-on: ubuntu-18.04
+    
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@master
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+        submodules: true
+    - uses: actions/setup-node@master
+      with:
+        node-version: 8.x
+    - name: Installation
       run: |
-        npm install
-        npm run build --if-present
-        npm test
+      npm install
+      npm install -g hexo-cli
+    - name: Generate
+      run: hexo clean && hexo g
+    - name: Cleanup
+      uses: docker://python:3
+      run: python atom_plus.py && chmod 755 public/atom.xml
+    - name: Deploy
+      run: echo 123
+      
