@@ -19,8 +19,8 @@ jobs:
         node-version: 8.x
     - name: Installation
       run: |
-      npm install
-      npm install -g hexo-cli
+        npm install
+        npm install -g hexo-cli
     - name: Generate
       run: hexo clean && hexo g
     - name: Cleanup
