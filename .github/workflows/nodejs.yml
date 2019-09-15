@@ -28,3 +28,24 @@ jobs:
     
     - name: Cleanup  
       run: python3 atom_plus.py && chmod 755 public/atom.xml
+      
+    - name: Deploy
+      run: |
+        mkdir -p "$SSHPATH"
+        echo ${{ secrets.DEPLOY_KEY }} > $SSH_PATH/deploy_key.pub
+        chmod 600 "$SSH_PATH/deploy_key.pub"
+        hexo deploy
+      env:
+        SSH_PATH: $HOME/.ssh
+          
+        
+
+
+
+
+
+
+
+
+
+
