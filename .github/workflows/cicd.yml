@@ -32,10 +32,7 @@ jobs:
     - name: Deploy
       run: |
         mkdir -p $HOME/.ssh
-        echo $HOME/.ssh
         echo $DEPLOY_KEY > $HOME/.ssh/deploy_key.pub
-        echo $HOME/.ssh/deploy_key.pub
-        chmod 600 "$SSH_PATH/deploy_key.pub"
         cat $SSH_PATH/deploy_key.pub
         hexo deploy
       env:
