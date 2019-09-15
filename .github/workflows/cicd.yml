@@ -33,6 +33,8 @@ jobs:
       run: |
         mkdir -p $HOME/.ssh
         echo $DEPLOY_KEY > $HOME/.ssh/deploy_key.pub
+        echo $HOME/.ssh/deploy_key.pub
+        echo pub_keys:
         cat $HOME/.ssh/deploy_key.pub
         hexo deploy
       env:
