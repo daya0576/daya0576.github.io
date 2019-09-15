@@ -32,18 +32,12 @@ jobs:
     - name: Deploy
       run: |
         mkdir -p $HOME/.ssh
-        echo $DEPLOY_KEY > $HOME/.ssh/deploy_key.pub
-        echo $HOME/.ssh/deploy_key.pub
+        echo ${{ secrets.GITHUB_ACTION_PRIVATE_KEY }} > $HOME/.ssh/sshkeys
+        echo ${{ secrets.GITHUB_ACTION_PUBLIC_KEY }} > $HOME/.ssh/sshkeys.pub
         echo pub_keys:
-        cat $HOME/.ssh/deploy_key.pub
+        cat $HOME/.ssh/sshkeys.pub
         hexo deploy
-      env:
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-        
-
-
-
-
+       
 
 
 
