@@ -31,15 +31,14 @@ jobs:
       
     - name: Deploy
       run: |
-        mkdir -p "$SSH_PATH"
-        echo $SSH_PATH/deploy_key.pub
-        echo "$SSH_PATH/deploy_key.pub"
-        echo $DEPLOY_KEY > $SSH_PATH/deploy_key.pub
+        mkdir -p $HOME/.ssh
+        echo $HOME/.ssh
+        echo $DEPLOY_KEY > $HOME/.ssh/deploy_key.pub
+        echo $HOME/.ssh/deploy_key.pub
         chmod 600 "$SSH_PATH/deploy_key.pub"
         cat $SSH_PATH/deploy_key.pub
         hexo deploy
       env:
-        SSH_PATH: $HOME/.ssh
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         
 
