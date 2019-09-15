@@ -27,5 +27,3 @@ jobs:
       uses: docker://python:3
       run: python atom_plus.py && chmod 755 public/atom.xml
     - name: Deploy
-      run: echo 123
-      
