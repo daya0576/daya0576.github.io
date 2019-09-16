@@ -37,9 +37,8 @@ jobs:
         chmod 600 $HOME/.ssh/sshkeys
         echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/sshkeys.pub
         chmod 600 $HOME/.ssh/sshkeys.pub
-        ssh-keyscan -t rsa 47.52.56.36 > $HOME/.ssh/known_hosts
+        ssh-keyscan 47.52.56.36 > $HOME/.ssh/known_hosts
         chmod 600 $HOME/.ssh/known_hosts
-        ssh 47.52.56.36
         hexo deploy
        
 
