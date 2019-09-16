@@ -35,7 +35,6 @@ jobs:
         touch "$HOME/.ssh/known_hosts"
         
         echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/deploy_key
-        echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/deploy_key.pub
         chmod 700 $HOME/.ssh
         chmod 600 $HOME/.ssh/deploy_key
         chmod 600 $HOME/.ssh/known_hosts
