@@ -1,0 +1,46 @@
+name: Hexo CICD
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  job1:
+    name: hexo build & deploy
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - uses: actions/checkout@master
+      with:
+        submodules: true
+    - uses: actions/setup-node@master
+      with:
+        node-version: 8.x
+        
+    - name: Installation
+      run: |
+        npm install
+        npm install -g hexo-cli
+        
+    - name: Generate
+      run: hexo clean && hexo g
+    
+    - name: Cleanup  
+      run: python3 atom_plus.py && chmod 755 public/atom.xml
+      
+    - name: Deploy
+      run: |
+        mkdir -p $HOME/.ssh
+        echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/sshkeys
+        echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/sshkeys.pub
+        echo pub_keys:
+        cat $HOME/.ssh/sshkeys.pub
+        hexo deploy
+       
+
+
+
+
+
+
