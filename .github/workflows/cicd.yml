@@ -31,16 +31,19 @@ jobs:
       
     - name: Deploy
       run: |
-        echo ~
-        echo $HOME
         mkdir -p $HOME/.ssh
-        echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/id_rsa
-        ssh-add $HOME/.ssh/id_rsa
-        echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/id_rsa.pub
-        ssh-keyscan 47.52.56.36 > $HOME/.ssh/known_hosts
+        touch "$HOME/.ssh/known_hosts"
+        
+        echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/deploy_key
+        echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/deploy_key.pub
         chmod 700 $HOME/.ssh
         chmod 600 $HOME/.ssh/sshkeys
         chmod 600 $HOME/.ssh/known_hosts
+
+        eval $(ssh-agent)
+        ssh-add $HOME/.ssh/deploy_key
+        ssh-keyscan 47.52.56.36 > $HOME/.ssh/known_hosts
+        
         hexo deploy
        
 
