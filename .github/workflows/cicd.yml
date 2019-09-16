@@ -37,11 +37,12 @@ jobs:
         echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/deploy_key
         echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/deploy_key.pub
         chmod 700 $HOME/.ssh
-        chmod 600 $HOME/.ssh/sshkeys
+        chmod 600 $HOME/.ssh/deploy_key
         chmod 600 $HOME/.ssh/known_hosts
 
         eval $(ssh-agent)
         ssh-add $HOME/.ssh/deploy_key
+        
         ssh-keyscan 47.52.56.36 > $HOME/.ssh/known_hosts
         
         hexo deploy
