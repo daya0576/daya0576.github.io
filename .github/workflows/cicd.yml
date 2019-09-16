@@ -32,13 +32,14 @@ jobs:
     - name: Deploy
       run: |
         mkdir -p $HOME/.ssh
-        chmod 700 $HOME/.ssh
-        echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/sshkeys
-        chmod 600 $HOME/.ssh/sshkeys
-        echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/sshkeys.pub
-        chmod 600 $HOME/.ssh/sshkeys.pub
+        echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/id_rsa
+        echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/id_rsa.pub
         ssh-keyscan 47.52.56.36 > $HOME/.ssh/known_hosts
+        chmod 700 $HOME/.ssh
+        chmod 600 $HOME/.ssh/sshkeys
         chmod 600 $HOME/.ssh/known_hosts
+        ssh-add $HOME/.ssh/id_rsa
+        tail -n 100 /var/log/auth.log
         hexo deploy
        
 
