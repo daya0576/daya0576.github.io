@@ -34,6 +34,7 @@ jobs:
         mkdir -p $HOME/.ssh
         echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/sshkeys
         echo "${{ secrets.GITHUB_ACTION_PUBLIC_KEY }}" > $HOME/.ssh/sshkeys.pub
+        ssh-keyscan -t rsa 47.52.56.36 >> $HOME/.ssh/known_hosts
         echo pub_keys:
         cat $HOME/.ssh/sshkeys.pub
         hexo deploy
