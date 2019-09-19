@@ -3,7 +3,7 @@ title: 使用 GitHub Actions 实现 Hexo 博客的 CICD
 tags:
 ---
 
-CI/CD(continuous integration and continuous deployment) 是个被提出很久的概念了，它确实有很多的好处，例如小而快的迭代可以尽早的发现 bug 并轻松修复，并且代码合并也不会那么痛苦。但说到底还是因为程序员比较「懒」，当 push 代码成功的那一刻，只想合上笔记本，闭上眼睛，静静地等待自动部署成功后滴的一声通知，然后安然入睡 zZ
+CI/CD(continuous integration and continuous deployment) 是个被提出很久的概念了，它确实有很多的好处，例如小而快的迭代可以尽早的发现 bug 并轻易修复，并且代码合并也不会那么痛苦。但说到底还是因为程序员比较「懒」，当 push 代码成功的那一刻，只想合上笔记本，闭上眼睛，静静地等待自动部署成功后滴的一声通知，然后安然入睡 zZ
 
 之前写过一篇文章：[《使用 Buddy 实现博客持续部署》](/blog/20181209/continuous-delivery-by-buddy-work/)，Buddy 是很不错，页面操作炫酷友好，但美中不足，免费版有内存 1G 的限制，让人每次操作都有点小心翼翼，正好 GitHub Action 的 Public Beta 终于排上号了！「喜新厌旧」的程序员又开始折腾起来了。
 ![](/images/blog/190915_github_actions/15685554780026.jpg)
