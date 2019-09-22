@@ -9,13 +9,6 @@ tags: [sre, reading]
 下一份工作要开始做SRE了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。
 
 一不小心读了整整一年多了(从 18 年四月份开始读，但现在已经2019年七月份了)。。。希望可以今年读完吧：
-
-**分为三个部分：**
-
-1. [**Part I - Introduction & Part II - Practices**](/blog/20180403/impressions-of-google-sre/)
-2. [Part III - Practices](/blog/20190810/google-sre-reading-note/)
-3. Part IV - Management
-
 ![book](/images/blog/190727_cloudflare_outage/book.jpg)
 <!--more-->
 

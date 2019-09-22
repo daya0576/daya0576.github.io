@@ -1,17 +1,19 @@
 ---
 title: 使用 GitHub Actions 实现 Hexo 博客的 CICD
-tags:
+tags: 
+- blog
 ---
 
-CI/CD(continuous integration and continuous deployment) 是个被提出很久的概念了，它确实有很多的好处，例如小而快的迭代可以尽早的发现 bug 并轻易修复，并且代码合并也不会那么痛苦。但说到底还是因为程序员比较「懒」，当 push 代码成功的那一刻，只想合上笔记本，闭上眼睛，静静地等待自动部署成功后滴的一声通知，然后安然入睡 zZ
+CI/CD(continuous integration and continuous deployment) 是个被提出很久的概念了，它确实有很多的好处：例如小而快的迭代可以尽早的发现 bug 并更加轻易地修复，代码合并也不会那么痛苦。但说到底还是因为我比较「懒」，当 push 代码成功的那一刻，只想合上笔记本，闭上眼睛，静静地等待自动部署成功后滴的一声通知，然后安然入睡 zZ
 
-之前写过一篇文章：[《使用 Buddy 实现博客持续部署》](/blog/20181209/continuous-delivery-by-buddy-work/)，Buddy 是很不错，页面操作炫酷友好，但美中不足，免费版有内存 1G 的限制，让人每次操作都有点小心翼翼，正好 GitHub Action 的 Public Beta 终于排上号了！「喜新厌旧」的程序员又开始折腾起来了。
+之前写过一篇文章：[《使用 Buddy 实现博客持续部署》](/blog/20181209/continuous-delivery-by-buddy-work/)，Buddy 是很不错，页面操作炫酷友好，但美中不足，免费版有内存 1G 的限制，让人每次操作都有点小心翼翼，正好 GitHub Action 的 Public Beta 终于排上了号！「喜新厌旧」的程序员又开始折腾起来了。
 ![](/images/blog/190915_github_actions/15685554780026.jpg)
 
+<!--more-->
 
 # 部署配置
 话不多说直接看代码就明白啦：
-```
+```yaml
 name: Hexo CICD
 
 on:
@@ -71,6 +73,8 @@ jobs:
 4. ...
 
 ## 缺点：
+- 上手略难：灵活和用户友好肯定是一对 tradeoff, 和 buddy 直观友好的无脑配置比起来，灵活的 Github actions 还是牺牲了一定的易用性，但毕竟用户都是程序员，应该也不是什么大问题。突然想起来，之前最早宣传的时候，那个炫酷的图为什么没看到，是因为被放弃了吗？？![](/images/blog/190922_cloudflare_and_next_bug/15691581294746.jpg)
+
 - 调试不友好：不知道是不是我姿势不太对，只能不断的 commit/push 触发 action. 理想情况应该可以在本地直接 debug, 并且只对失败的那一步重试。
 - 慢：执行一次需要 1m44s. 因为没有缓存，每次都是重新构建，感觉还是有很大提升空间的。
 
