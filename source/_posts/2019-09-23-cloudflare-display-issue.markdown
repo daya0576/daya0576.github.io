@@ -1,5 +1,5 @@
 ---
-title: 一个博客与 Cloudflare 有关的 Bug
+title: 一个与 Cloudflare 有关的博客显示 Bug
 date: 2019-09-23 20:25:01
 tags:
 ---
@@ -34,7 +34,7 @@ p.s. DOMContentLoaded 是什么？
 怀疑在对 `DOMContentLoaded` 注册的时候，就早已触发过这个事件了：
 ![Enabling-Rocket-Loader-animation](/images/blog/190922_cloudflare_and_next_bug/Enabling-Rocket-Loader-animation.gif)
 
-实锤了。。下图中的 蓝线 代表 `DOMContentLoaded`，红线 代表 `Load`（[两者的区别](https://testdrive-archive.azurewebsites.net/HTML5/DOMContentLoaded/Default.html)）：
+实锤了。。下图中的 蓝线 代表 `DOMContentLoaded`，红线 代表 `Load`（[两者的区别](https://testdrive-archive.azurewebsites.net/HTML5/DOMContentLoaded/Default.html)）。js 文件被延迟加载，导致其中注册的 `DOMContentLoaded` 事件永远也不会触发😢：
 ![](/images/blog/190922_cloudflare_and_next_bug/Pasted%20Graphic%204.png)
 
 
