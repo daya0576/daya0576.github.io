@@ -7,7 +7,11 @@ date: 2019-09-23 20:36:32
 
 CI/CD(continuous integration and continuous deployment) 被提出很久了并逐步流行，因为它确实有很多的好处：例如小而快的迭代可以尽早发现 bug 并更加轻易地修复，代码合并也不会那么痛苦。但说到底还是因为「懒」，当 push 代码成功的那一刻，只想合上笔记本闭上眼睛，静静地等待自动部署成功后滴的一声通知，然后安然入睡 zZ
 
-身为一名 SRE, 之前对自己博客的 CICD 做过不少尝试（感兴趣可以看看）：[《使用 Buddy 实现博客持续部署》](/blog/20181209/continuous-delivery-by-buddy-work/)，[《部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅》](/blog/20180819/deploy-hexo-blog-to-gcp-oss/)，[《部署 Hexo 静态博客 (下) - 偶遇 Netlify, 优雅地持续部署你的博客》](/blog/20180819/deploy-hexo-blog-to-netlify/)
+身为一名 SRE, 之前对自己博客的 CICD 做过不少尝试（感兴趣可以看看）：
+
+1. [《使用 Buddy 实现博客持续部署》](/blog/20181209/continuous-delivery-by-buddy-work/)
+2. [《部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅》](/blog/20180819/deploy-hexo-blog-to-gcp-oss/)
+3. [《部署 Hexo 静态博客 (下) - 偶遇 Netlify, 优雅地持续部署你的博客》](/blog/20180819/deploy-hexo-blog-to-netlify/)
 
 最近几个月一直用的 [Buddy](https://buddy.works/)，页面炫酷操作友好，但美中不足的是有点"小气"：免费版的内存有 1G 的限制，让人每次操作都有点小心翼翼。。正好 GitHub Action 的 Public Beta 终于排上了号！「喜新厌旧」的程序员又开始折腾起来了。
 ![](/images/blog/190915_github_actions/15685554780026.jpg)

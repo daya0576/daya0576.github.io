@@ -19,7 +19,6 @@ body {
   }
 
   .site-nav .menu .menu-item a {
-    height: 30px;
     color: #f9f9f9;
     border-bottom: none;
   }
@@ -86,6 +85,10 @@ body {
       line-height: 1.8;
     }
 
+    p+ol,p+ul {
+      margin-top: -10px;
+    }
+
     a, span.exturl {
       color: #2f7bbf;
       text-decoration: none;
@@ -132,11 +135,9 @@ body {
     }
   }
 
-
   .post-header {
     .post-meta {
       margin: 0;
-
       a, time {
         border-bottom: none;
       }
@@ -182,11 +183,12 @@ body {
   }
 
   .post-header {
+    margin: 0;
     border-bottom: none;
   }
 
   .post-title {
-    margin-top: 0;
+    margin-top: 5px 0;
     font-size: 1em;
 
     span {
