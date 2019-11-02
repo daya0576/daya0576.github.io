@@ -12,7 +12,8 @@ tags: [python]
 <!--more-->
    
 
-###Chapter 1: Pythonic Thinking:    
+# Chapter 1: Pythonic Thinking:
+    
 1. Pythonic Thinking: `import this`   
 2. 讲到选择Python2还是Python3的时候, 作者还是推荐大家尽量选择Python3.      
 个人觉得一个初学者总是问学Python2 和 Python3的问题真的是很蠢的一种行为, 我以后还是要慢慢去学会写兼容Python 2 和 3 代码.
@@ -47,7 +48,8 @@ stackoverflow上的一个不错的回答: [http://stackoverflow.com/questions/23
 
 
 
-###Chapter 2: Functions:   
+# Chapter 2: Functions:
+   
 1. 要使用exception而不是返回`None` ("return" or "return None"), 因为None, 0, [], '' 都会被当成False.   
 ``` python
 def divide(a, b):
@@ -153,13 +155,14 @@ log('Hi there')
 最好的解决方法是用None:   
 ```python
 def log(message, when=None):
-    when = datetime.now() is when is None else when
+    when = datetime.now() if when is None else when
     ...
 ```
 
 
 
-###Chapter 3: Classes and Inheritance:   
+# Chapter 3: Classes and Inheritance:
+   
 - 1) 要避免字典里套字典, 可以用多个类来替换.    
 2) 在考虑用class前, 可以尝试`namedtuple`作为一种轻量级的不可修改的data container.    
 - Python中的方法也是和变量一样是对象, 所以可以传来传去~比如sort的key参数就是接收一个排序的方法    
@@ -194,7 +197,8 @@ is_date = Date.is_date_valid('11-09-2012')
 
 
 
-###Chapter 4: Metaclasses and Attributes:
+# Chapter 4: Metaclasses and Attributes:
+
 - Item 29:
 
 
