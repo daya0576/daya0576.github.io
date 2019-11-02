@@ -64,4 +64,3 @@ week6 now..
 After struggling for 3 days and nights, I finally solve the q3 of assign1...    
 I should spend more time in understanding the semophore of P and V.    
 <img style="max-height:400px" class="lazy" data-original="/images/blog/160225_comp9201/assign1_quiz3.jpg">
- 
