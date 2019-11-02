@@ -51,8 +51,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: The ${{ github.event }} Done!! Cheers～
-          photo: https://i.loli.net/2019/11/03/EFAmOrhfBzwgiGI.jpg
+          args: ${{ github.actor }} ${{ github.event_name }} Done!! Cheers～
 
 
 
