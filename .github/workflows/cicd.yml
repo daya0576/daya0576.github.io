@@ -51,7 +51,7 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: The ${{ github.event_name }} Done!! Cheers～ 🍻🍻🍻
+          args: ${{ github.actor }} ${{ github.event_name }} Done!! Cheers～
 
 
 
