@@ -10,6 +10,7 @@ tags: [sre, reading]
 
 一不小心读了整整一年多了(从 18 年四月份开始读，但现在已经2019年七月份了)。。。希望可以今年读完吧：
 ![book](/images/blog/190727_cloudflare_outage/book.jpg)
+
 <!--more-->
 
 # Part I - Introduction
