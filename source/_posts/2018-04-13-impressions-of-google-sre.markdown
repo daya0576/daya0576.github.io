@@ -8,25 +8,22 @@ tags: [sre, reading]
 
 下一份工作要开始做SRE了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。
 
-一不小心读了整整一年多了(从 18 年四月份开始读，但现在已经2019年七月份了)。。。希望可以今年读完吧：
+一不小心读了整整一年多了(从入职前一个月，18 年四月份开始读，但现在已经2019年七月份了)。。。希望可以今年读完吧：
 ![book](/images/blog/190727_cloudflare_outage/book.jpg)
 
 <!--more-->
 
 # Part I - Introduction
 ## Chapter 1 - Introduction
-1. **dev/ops分离的历史:** 最早时, 在公司维护复杂系统的人叫做sysadmin(systems administrator). 但后来因为sysadmin和developer需要的技术完全不一样, 所以逐渐分为了两个完全不同的岗位: developer & operations(ops), 应该就是我们所谓的开发与运维吧.
+1. **dev/ops分离的历史：** 最早时，在公司维护复杂系统的人叫做sysadmin(systems administrator)，但后来因为 sysadmin 和 developer 需要的技术完全不一样, 所以逐渐分为了两个完全不同的岗位：developer & operations(ops), 应该就是我们所谓的开发与运维吧.
 这种模型(开发与运维的完全分离)
-**1) 最大的好处就是:**
+    - **1) 最大的好处就是:**
 业内有成熟的解决方案, 不用重复的造轮子, 所以用人与开发成本也比较低.
-**2) 但最大的坏处:**
-    - **Direct costs:**
-    发布和改动需要人工干预 → 系统的规模和需要的人手成线性关系(例如总不能项目多部署一套奔驰环境, 就增加一个人手).
-    - **Indirect costs:**
-    (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务100%的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.
+    - **2) 但最大的坏处:**
+        - **Direct costs:** 发布和变更需要人工干预 → 系统的规模和需要的人手成线性关系(例如总不能项目多部署一套奔驰环境, 就增加一个人手).
+        - **Indirect costs:** (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务100%的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.
 2. **google对于sre的目标:** 以软件开发的方式打造一个系统, 将运维的工作变得全自动(automatic). (Site Reliability Engineering teams focus on hiring software engineers to run our products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.), 终极目标就是: 减少第一条中的Direct costs(人为干预), 使得系统规模与运维人员的人数不成线性增长.
-3. 有一句话挺有意思的, 说的是要去**评估SRE的消耗的时间分布**, 才能保证开发人员在ops和development上花费时间的平衡. 因为sre与传统运维最大的不同就是加入了开发, 而不是一味的做operation. 但相对的develop不能超过50%, 以防止承担了过多原本属于development team的事情, 或一直投入运维人员, 而忘了利用原有的员工去做operation的工作.
-但打动我的是 "measure how SRE time is spent", 感觉对人对团队对整个sre的measurement, 是所有事情能顺畅实现的基础.
+3. 有一句话挺有意思的, 说的是要去**评估SRE的消耗的时间分布**, 才能保证开发人员在ops和development上花费时间的平衡. 因为sre与传统运维最大的不同就是加入了开发, 而不是一味的做operation. 但相对的develop不能超过50%, 以防止承担了过多原本属于development team的事情, 或一直投入运维人员, 而忘了利用原有的员工去做operation的工作.但打动我的是 "measure how SRE time is spent", 感觉对人对团队对整个sre的measurement, 是所有事情能顺畅实现的基础.
 4. **DevOps?**
 (这个词近几年很火吧, 但惭愧的是一直没搞懂到底是什么. 书中说可以把sre当作一种devops的具体实现, 并包含一些独特的扩展?) - "One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions."
 5. Service’s SLO?: (好像**第四章**会详细解释一些含义)
@@ -36,15 +33,13 @@ tags: [sre, reading]
 
 
 ## Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE
-1. **Machine:** A piece of hardware (or perhaps a VM)
-**Server:** A piece of software that implements a service
+1. **Machine:** A piece of hardware (or perhaps a VM)，**Server:** A piece of software that implements a service
 2. **硬件故障:** 我们平时可能认为, 硬盘内存几乎是不可能坏的, 但文中说到, 对于一个超大规模的data center来说, 硬件出故障是个很常见的问题, 所以目标就是要让用户完全无法感知到硬件的故障.
 3. 因为不同的(几千个)任务动态的分布在不同的机器上, 所以不能单纯的用ip和端口去启动任务, 文中给出的一个解决方案: `/bns/<cluster>/<user>/<job name>/<task number>`, 然而并不是特明白.
 4. **对于任务的分布**(例如一个任务需要3个cpu, 2g内存), 有趣的是文中说到要尽可能优化的放置(二次装箱问题). !!!但又不能把鸡蛋都放在一个篮子(同个Rack或Pod)里(很有可能一个路由坏了, 那就全gg了).
 5. Remote Procedure Call (RPC), 了解一下?
-6. **Life of a Request**: 在过去工作的一年, 我一直在思考一个问题: 一个request的lifecycle, 于是去读了web框架(Django)的源码, 自己去实现一个uwsgi, 看http, tcp协议...
-看到书中的request lifecycle, 感觉今年的目标是更多的了解大型项目的request lifecycle, 例如高并发的负载均衡问题, 等等.
-(This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.)原来在dns server这就可以根据地区和负载情况, 分配对应的服务器ip, 但是为什么走到GFE反向代理找frontend server的时候, 又要去根据GSLB进行一次负载均衡的处理呢?
+6. **Life of a Request**: 在过去工作的一年, 我一直在思考一个问题: 一个request的lifecycle, 于是去读了web框架(Django)的源码, 自己去实现一个uwsgi, 看http, tcp协议... 看到书中的request lifecycle, 感觉今年的目标是更多的了解大型项目的request lifecycle, 例如高并发的负载均衡问题, 等等.
+(This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.) 原来在dns server这就可以根据地区和负载情况, 分配对应的服务器ip, 但是为什么走到GFE反向代理找frontend server的时候, 又要去根据GSLB进行一次负载均衡的处理呢?
 <img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/1-lbs.png">
 7. QPS: queries per second
 8. **N+2原则**: 如果说预期3,470 QPS, 而一个backend server最多能处理100QPS, 则至少需要35个server. 但是一般采用N+2的策略(37个server), 因为:
@@ -111,7 +106,7 @@ tags: [sre, reading]
 
 ## Chapter 6 - Monitoring Distributed Systems
 1. **为什么需要监控:**
-    - 了解整体的趋势: 比如数据库硬盘占用提升的速率, 日活跃用户增长的趋势. (可以提前做处理?)
+    - 了解整体的趋势: 比如数据库硬盘占用提升的速率, 日活跃用户增长的**趋势**. (可以提前做处理?)
     - 量化提升: 与历史数据做对比, 很方便直观的比较性能变化.
     - 及时报警: 在第一时间修复.
     - 打造dashboard?
@@ -297,7 +292,7 @@ Postmortem 这个单词很有意思，中文里叫做「验尸」，而在公司
     - 对于复盘的有效性，持续寻求反馈
 7. 总结：
     - 感谢复盘的文化，让 Google 不断减少故障，并带来更好的用户体验。
-    - 但有个虚拟复盘小组发挥了很大的作用，例如统一了各个产品(YouTube, Google Fiber, Gmail, Google Cloud, AdWords, and Google Maps)的复盘文档模版，并支持应急中使用的工具，实现模版生成自动化，并可以抓取复盘的数据做趋势分析，等等。
+    - 但有个虚拟复盘小组发挥了很大的作用，例如统一了各个产品(YouTube, Google Fiber, Gmail, Google Cloud, AdWords, and Google Maps)的复盘文档模版，并支持应急中使用的工具，实现模版生成自动化，并可以抓取复盘的数据做趋势分析，等等。这不就是 GOC 嘛
     - 积累这么多复盘文档后，如何挖掘这个宝库也是个很有价值的课题。目前可以做到自动聚类相似的文档，并且在未来会使用机器学习去根据复盘的知识库预测可能的缺陷和风险点，并实时分析事件，识别相同的故障并防止重复处理。
 
 ## Chapter 16 - Tracking Outages
@@ -316,18 +311,31 @@ Postmortem 这个单词很有意思，中文里叫做「验尸」，而在公司
 ## Chapter 17 - Testing for Reliability
 1. MTTR: Mean Time to Repair。MTTR 为零意味着上生产前，bug 就都被测出来了🤔。
 MTTD: 对应的发现时长： mean time to detect.
-2. smoking test: 冒烟测试，来源是电路测试中，如果通电后没有冒烟，表示一切正常可以继续。
-3. Stress test - 大促压测
-3. Canary test: 灰度环境测试， 来源把一只🐦放到煤矿中做测试，防止人直接吸入有毒气体。但值得注意的是灰度环境并不完美，无法检测出所有的潜在风险。
-4. ...看的头晕，先跳过了
+2. smoking test: 冒烟测试，来源原来是电路测试中，如果通电后没有冒烟，表示一切正常可以继续。
+3. Stress test: 大促压测
+3. Canary test: 灰度环境测试，原来来源把一只🐦放到煤矿中做测试，防止人直接吸入有毒气体。但值得注意的是灰度环境并不完美，无法检测出所有的潜在风险。
+4. （...看的头晕，不是很感兴趣，先跳过了）
 
+## Chapter 18 - Software Engineering in SRE
+1. "Overall, these SRE-developed tools are full-fledged software engineering projects, distinct from one-off solutions and quick hacks" - 自己去年也亲身经历过一个很大的矛盾点：SRE 的职责是负责整个线上的稳定性，但可笑或者无奈的是，往往对于自己开发的小工具或产品，无法保证高可用率。这时突然想起《进化》中的一句话，运维能力是整体技术架构能力的体现，运维层面爆发的问题或故障一定是整体技术架构中存在问题，割裂两者，单纯地看技术架构或运维都是毫无意义的。
+2. "the vast scale of Google production has necessitated internal software development" - 和蚂蚁一样，google 大部分面向内部的产品都是自研的，因为外部开源项目的 scalability 等方面无法满足。而 SREs 是开发这些产品的不二人选。
+3. "Google always strives to staff its SRE teams with a mix of engineers with traditional software development experience and engineers with systems engineering experience." - SRE 需要不同背景的人才，而通过软件工程实践项目，减少 sre 工作量的同时，也是吸引和保留他们的重要手段。
+4. 花了大篇章幅描述了一个关于「容量评估」的 case study, 感兴趣的可以看看。
+5. "Because Google SRE teams are currently organized around the services they run, SRE-developed projects are particularly at risk of being overly specific work that only benefits a small percentage of the organization." - 过去一年我一直在探索如何快速创造业务价值，但确实存在文中说到的陷阱：产品的 scope 过小，例如一个 sre 负责一条业务线，最后设计的方案只能是用该业务线，假设每条业务线都搞个类似的方案，不可避免的导致 duplicated efforts and wasted time。所以最近也常常思考，方案如何跨团队复用，在整个公司成为标准，甚至产品化对外输出。
+6. "Dedicated, noninterrupted, project work time is essential to any software development effort." - 挺新奇的一个论点，SRE 务必强行保留一些专注于写代码的时间，才可以开始思考如何在不停的打断和 on-call 中去寻求平衡。
+7. "Therefore, the ability to work on a software project without interrupts is often an attractive reason for engineers to begin working on a development project." - 哈哈，想起之前的玩笑：“希望每天来到公司，戴上降噪耳机，不用和一个人说一句话专心写代码，直到下班”。玩笑归玩笑，同时一定要提防 sre 不能变成一个纯开发！因为需要对生产环境的深刻理解和独特视角，才能创造出一个为 sre 自身服务的优秀产品，去解决真正的痛点："The unique hands-on production experience that SREs bring to developing tools can lead to innovative approaches to age-old problems"
+8. "Therefore, you’re working against the natural instinct of an SRE to quickly write some code to meet their immediate needs." - 哈哈，完善的研发流程可能是必不可少的，但可能会违背 sre 的天性：因为 sre 都是快枪手，需要在第一时间止血解决问题，所以很多时候写代码也是一把梭，而这种不遵从软件开发规律偷懒的行为，最后会导致人力和资源更大的浪费。
+9. "SREs often develop software to streamline inefficient processes or automate common tasks, these projects mean that the SRE team doesn’t have to scale linearly with the size of the services they support." - 回到 Software Engineering 必要性的问题，因为只有这样才能保证最核心的那个原则：业务的指数扩张与人员的增加不会成线性增长。最终每个 sre 员工，sre 团队，甚至整个公司都会因此收益。
 
+## Chapter 19 - Load Balancing at the Frontend
+how we balance user traffic between datacenters: 本章主要讲 google 如何在 idc 之间做负载均衡。
 
+1. 
 
 
 # 疑惑:
 1. 四个9和五个9用户真的感知不到吗? 目标是极限的追求100%的reliability吗? 如何消除那些负面影响.
-2. 如何衡量大家时间都花在哪了, 如何做到toil的限制.
+2. 如何衡量大家时间都花在哪了, 如何做到 toil 的限制
 3. ..
 
 
