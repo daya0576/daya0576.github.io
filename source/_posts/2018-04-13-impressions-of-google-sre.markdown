@@ -10,7 +10,6 @@ tags: [sre, reading]
 
 一不小心读了整整一年多了(从入职前一个月，18 年四月份开始读，但现在已经2019年七月份了)。。。希望可以今年读完吧：
 ![book](/images/blog/190727_cloudflare_outage/book.jpg)
-
 <!--more-->
 
 # Part I - Introduction
@@ -330,7 +329,16 @@ MTTD: 对应的发现时长： mean time to detect.
 ## Chapter 19 - Load Balancing at the Frontend
 how we balance user traffic between datacenters: 本章主要讲 google 如何在 idc 之间做负载均衡。
 
-1. 
+
+## Chapter 29 - Dealing with Interrupts
+最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，对每一个线上变更做人肉审批。虽然线上的风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
+
+1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，人设计出的系统也永远不会是完美的，所以就像保养车一样，总还是需要一些人工的介入。
+2. "flow time" - 程序员的贤者时间 XD
+2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
+3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
+4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，达到无人值守的目标。
+5. "A caveat to the preceding solutions is that you need to find a balance between respect for the customer and for yourself. " - 这里并不是说不尊重客户，就像很多开源项目的 issue 管理一样。用户首选要对自己负责，提供尽可能多的信息和最小重现的例子，开发者才能产出高质量的回答。
 
 
 # 疑惑:
