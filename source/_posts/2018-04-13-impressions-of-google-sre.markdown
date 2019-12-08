@@ -16,7 +16,7 @@ tags: [读后感]
 ## Chapter 1 - Introduction
 1. **dev/ops分离的历史：** 最早时，在公司维护复杂系统的人叫做sysadmin(systems administrator)，但后来因为 sysadmin 和 developer 需要的技术完全不一样, 所以逐渐分为了两个完全不同的岗位：developer & operations(ops), 应该就是我们所谓的开发与运维吧。
 2. 这种模型(开发与运维的完全分离)，好处和坏处
-    - **1) 最大的好处就是:** 业内有成熟的解决方案, 不用重复的造轮子, 所以用人与开发成本也比较低.
+    - **1) 最大的好处就是:**业内有成熟的解决方案, 不用重复的造轮子, 所以用人与开发成本也比较低.
     - **2) 但最大的坏处:**
         - **Direct costs:** 发布和变更需要人工干预 → 系统的规模和需要的人手成线性关系(例如总不能项目多部署一套奔驰环境, 就增加一个人手).
         - **Indirect costs:** (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务100%的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.
@@ -331,7 +331,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. "The differing needs of the two requests play a role in how we determine the optimal distribution for each request at the **global** level" - 针对一个请求很难有最优的“策略”，因为会存在各种各样的变量。例如两个用户请求，分别是搜索和上传视频，前者追求的是更低的 RTT 以达到最快的响应，而后者则需要尽可能大的带宽。
 3. 负载均衡策略的又分为以下两种：
     1. "Load Balancing Using DNS" - 但 DNS 有各种限制，想到了阿里的 GSLB
-    2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。 ![](/images/blog/191006_adsense/15757909665620.jpg)
+    2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。![](/images/blog/191006_adsense/15757909665620.jpg)
 
 
 ## Chapter 20 - Load Balancing in the Datacenter
