@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "《Site Reliability Engineering》读后感"
+title: "【读后感】《Site Reliability Engineering》by Google"
 date: 2018-04-03 12:04:19
 comments: true
-tags: [sre, reading]
+tags: [读后感]
 ---
 
 下一份工作要开始做SRE了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。
@@ -14,10 +14,9 @@ tags: [sre, reading]
 
 # Part I - Introduction
 ## Chapter 1 - Introduction
-1. **dev/ops分离的历史：** 最早时，在公司维护复杂系统的人叫做sysadmin(systems administrator)，但后来因为 sysadmin 和 developer 需要的技术完全不一样, 所以逐渐分为了两个完全不同的岗位：developer & operations(ops), 应该就是我们所谓的开发与运维吧.
-这种模型(开发与运维的完全分离)
-    - **1) 最大的好处就是:**
-业内有成熟的解决方案, 不用重复的造轮子, 所以用人与开发成本也比较低.
+1. **dev/ops分离的历史：** 最早时，在公司维护复杂系统的人叫做sysadmin(systems administrator)，但后来因为 sysadmin 和 developer 需要的技术完全不一样, 所以逐渐分为了两个完全不同的岗位：developer & operations(ops), 应该就是我们所谓的开发与运维吧。
+2. 这种模型(开发与运维的完全分离)，好处和坏处
+    - **1) 最大的好处就是:**业内有成熟的解决方案, 不用重复的造轮子, 所以用人与开发成本也比较低.
     - **2) 但最大的坏处:**
         - **Direct costs:** 发布和变更需要人工干预 → 系统的规模和需要的人手成线性关系(例如总不能项目多部署一套奔驰环境, 就增加一个人手).
         - **Indirect costs:** (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务100%的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.
@@ -25,10 +24,9 @@ tags: [sre, reading]
 3. 有一句话挺有意思的, 说的是要去**评估SRE的消耗的时间分布**, 才能保证开发人员在ops和development上花费时间的平衡. 因为sre与传统运维最大的不同就是加入了开发, 而不是一味的做operation. 但相对的develop不能超过50%, 以防止承担了过多原本属于development team的事情, 或一直投入运维人员, 而忘了利用原有的员工去做operation的工作.但打动我的是 "measure how SRE time is spent", 感觉对人对团队对整个sre的measurement, 是所有事情能顺畅实现的基础.
 4. **DevOps?**
 (这个词近几年很火吧, 但惭愧的是一直没搞懂到底是什么. 书中说可以把sre当作一种devops的具体实现, 并包含一些独特的扩展?) - "One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions."
-5. Service’s SLO?: (好像**第四章**会详细解释一些含义)
+5. Service’s SLO?: (**第四章**会详细解释一些含义)
 6. **不必过分追求100%?:** 文中强调的一个观点挺有意思的: 对于sre来说, 100%并不是一个正确的指标? 作者说因为用户其实完全感受不到99.999%与100%的区别, 而且现实中用户家中的笔记本, 路由器, ISP等等远达不到99.99%的可用性 但还是需要定目标: 如果可用性达到99.99%, 0.01%就可以作为error budget, 然后利用这个error budget去冒风险发布一些新特性, 并吸引新用户. (感觉感觉作者认为这样就很好解决了第一条中所谓的indirect cost, 使得生产事故变成一种预期之内的事情?? 解决了开发追求急切的上新功能, 而运维想要保持100%可用性的矛盾. )
 7. **blame-free postmortem culture**: 强调出了事故, 不要过分的去指责而是仔细剖解问题, 防止下一次的发生? 在国内领导负责的国情感觉不是很现实 :P
-
 
 
 ## Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE
@@ -316,40 +314,55 @@ MTTD: 对应的发现时长： mean time to detect.
 4. （...看的头晕，不是很感兴趣，先跳过了）
 
 ## Chapter 18 - Software Engineering in SRE
-1. "Overall, these SRE-developed tools are full-fledged software engineering projects, distinct from one-off solutions and quick hacks" - 自己去年也亲身经历过一个很大的矛盾点：SRE 的职责是负责整个线上的稳定性，但可笑或者无奈的是，往往对于自己开发的小工具或产品，无法保证高可用率。这时突然想起《进化》中的一句话，运维能力是整体技术架构能力的体现，运维层面爆发的问题或故障一定是整体技术架构中存在问题，割裂两者，单纯地看技术架构或运维都是毫无意义的。
-2. "the vast scale of Google production has necessitated internal software development" - 和蚂蚁一样，google 大部分面向内部的产品都是自研的，因为外部开源项目的 scalability 等方面无法满足。而 SREs 是开发这些产品的不二人选。
+1. "Overall, these SRE-developed tools are full-fledged software engineering projects, distinct from one-off solutions and quick hacks" - 自己也亲身经历过一个很大的矛盾点：SRE 的职责是负责整个公司线上的稳定性，但可笑或者无奈的是，往往对于自己开发的小工具或产品，无法保证高可用率。这时突然想起《进化》中的一句话：“运维能力是整体技术架构能力的体现，运维层面爆发的问题或故障一定是整体技术架构中存在问题，割裂两者，单纯地看技术架构或运维都是毫无意义的”。
+2. "the vast scale of Google production has necessitated internal software development" - 和蚂蚁一样，google 大部分面向内部的产品都是自研的，因为外部开源项目的 scalability 等方面无法满足。而 SREs 则是开发这些产品的不二人选。
 3. "Google always strives to staff its SRE teams with a mix of engineers with traditional software development experience and engineers with systems engineering experience." - SRE 需要不同背景的人才，而通过软件工程实践项目，减少 sre 工作量的同时，也是吸引和保留他们的重要手段。
 4. 花了大篇章幅描述了一个关于「容量评估」的 case study, 感兴趣的可以看看。
-5. "Because Google SRE teams are currently organized around the services they run, SRE-developed projects are particularly at risk of being overly specific work that only benefits a small percentage of the organization." - 过去一年我一直在探索如何快速创造业务价值，但确实存在文中说到的陷阱：产品的 scope 过小，例如一个 sre 负责一条业务线，最后设计的方案只能是用该业务线，假设每条业务线都搞个类似的方案，不可避免的导致 duplicated efforts and wasted time。所以最近也常常思考，方案如何跨团队复用，在整个公司成为标准，甚至产品化对外输出。
+5. "Because Google SRE teams are currently organized around the services they run, SRE-developed projects are particularly at risk of being overly specific work that only benefits a small percentage of the organization." - 过去一年我一直在探索如何快速创造业务价值，但确实存在文中说到的陷阱：产品的 scope 过小，例如一个 sre 负责一条业务线，最后设计的方案只适用该业务线，假设每条业务线都搞个类似的方案，不可避免的导致 duplicated efforts and wasted time。所以最近也常常思考，方案如何跨团队复用，在整个公司成为标准，甚至产品化对外输出。
 6. "Dedicated, noninterrupted, project work time is essential to any software development effort." - 挺新奇的一个论点，SRE 务必强行保留一些专注于写代码的时间，才可以开始思考如何在不停的打断和 on-call 中去寻求平衡。
 7. "Therefore, the ability to work on a software project without interrupts is often an attractive reason for engineers to begin working on a development project." - 哈哈，想起之前的玩笑：“希望每天来到公司，戴上降噪耳机，不用和一个人说一句话专心写代码，直到下班”。玩笑归玩笑，同时一定要提防 sre 不能变成一个纯开发！因为需要对生产环境的深刻理解和独特视角，才能创造出一个为 sre 自身服务的优秀产品，去解决真正的痛点："The unique hands-on production experience that SREs bring to developing tools can lead to innovative approaches to age-old problems"
-8. "Therefore, you’re working against the natural instinct of an SRE to quickly write some code to meet their immediate needs." - 哈哈，完善的研发流程可能是必不可少的，但可能会违背 sre 的天性：因为 sre 都是快枪手，需要在第一时间止血解决问题，所以很多时候写代码也是一把梭，而这种不遵从软件开发规律偷懒的行为，最后会导致人力和资源更大的浪费。
+8. "Therefore, you’re working against the natural instinct of an SRE to quickly write some code to meet their immediate needs." - 哈哈，完善的研发流程可能是必不可少的，但可能会违背 sre 的天性：因为 sre 都是快枪手，需要在第一时间止血解决问题，所以很多时候写代码也是一把梭，而这种不遵从软件开发规律偷懒的行为，最后反而会导致人力和资源更大的浪费。
 9. "SREs often develop software to streamline inefficient processes or automate common tasks, these projects mean that the SRE team doesn’t have to scale linearly with the size of the services they support." - 回到 Software Engineering 必要性的问题，因为只有这样才能保证最核心的那个原则：业务的指数扩张与人员的增加不会成线性增长。最终每个 sre 员工，sre 团队，甚至整个公司都会因此收益。
 
 ## Chapter 19 - Load Balancing at the Frontend
-how we balance user traffic between datacenters: 本章主要讲 google 如何在 idc 之间做负载均衡。
+how we balance user traffic between datacenters: 本章主要讲 google 如何在 idc 外部之间做负载均衡。而下一章会阐述如何在 idc 内部做负载均衡。
 
+1. "when you’re dealing with large-scale systems, putting all your eggs in one basket is a recipe for disaster." - 很简单的道理，不能把鸡蛋放到一个篮子里，即不可以存在单点问题（去中心化）。
+2. "The differing needs of the two requests play a role in how we determine the optimal distribution for each request at the **global** level" - 针对一个请求很难有最优的“策略”，因为会存在各种各样的变量。例如两个用户请求，分别是搜索和上传视频，前者追求的是更低的 RTT 以达到最快的响应，而后者则需要尽可能大的带宽。
+3. 负载均衡策略的又分为以下两种：
+    1. "Load Balancing Using DNS" - 但 DNS 有各种限制，想到了阿里的 GSLB
+    2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。![](/images/blog/191006_adsense/15757909665620.jpg)
+
+
+## Chapter 20 - Load Balancing in the Datacenter
+"This chapter focuses on load balancing within the datacenter." - 紧接上一章，描述 idc 内部如何实现负载均衡，达到资源最优利用的目标。
+
+1. "Before we can decide which backend task should receive a client request, we need to identify and avoid unhealthy tasks in our pool of backends." - 在做负载均衡之前，需要先找出不健康的任务并干掉。有分如下几种方法：
+    - Flow Control: 设定活跃连接数上限的阈值，但缺点也很明显，会导致机器的资源无法被完全榨干（静态阈值的局限性）。
+    - Lame Duck State: 为机器自身定义状态，分为 Healthy, Refusing connections & Lame duck(端口还可以继续接受请求，但明确告诉客户端不要再发送请求过来了)。但如何判断机器进入 `lame duck state` 呢🤔？貌似是有一定的健康检查机制。这样的好处是提升用户体验，不会直接得到一个错误的响应。
+2. "A Subset Selection Algorithm" - 这部分有点复杂没太看懂，个人理解就是不同 Subset size 情况下(客户端)，后端机器资源整体利用率与每台机器负载平衡的 tradeoff. 
+3. 负载均衡的常见策略：
+    - ..
 
 
 
 ## Chapter 29 - Dealing with Interrupts
 最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，对每一个线上变更做人肉审批。虽然风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
 
-1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，人设计出的系统也永远不会是完美的，所以就像保养车一样，人工的介入是无可避免的。
-2. "flow time" - 程序员的贤者时间 XD
+1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的，就像保养车一样，人工的介入是无可避免的。
+2. "flow time" - 程序员的贤者时间 XD 
 2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
 3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
-4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，达到无人值守的目标。
-5. "A caveat to the preceding solutions is that you need to find a balance between respect for the customer and for yourself. " - 这里并不是说不尊重客户，就像很多开源项目的 issue 管理一样。用户首选要对自己负责，提供尽可能多的信息和最小重现的例子，开发者才能产出高质量的回答。
+4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，去掉人工审批的环节，达到无人值守的目标。
+5. "A caveat to the preceding solutions is that you need to find a balance between respect for the customer and for yourself. " - 这里并不是说不尊重客户，而是像很多开源项目的 issue 管理一样，用户首选要对自己负责，尽可能提供足够多的信息甚至最小重现的 case，开发者才能产出高质量的回答并帮助解决。
 
 
 ## Chapter 30 - Embedding an SRE to Recover from Operational Overload
 之前文中提到一个词叫做 toil, 而 sre 很容易陷入不停做 toil 的自我麻痹中，看看这章是如何通过加入一个新的 sre 帮助团队从繁重的运维工作中解放出来的。
 
 1. "One way to relieve this burden is to temporarily transfer an SRE into the overloaded team." - 抽调一个新的战力，加入到被运维重压下的 sre 团队。但不仅仅只是贡献人力，而是带来新的理念和更好的实践，来把 ticket queue 清空。
-2. "SRE teams sometimes fall into ops mode because they focus on how to quickly address emergencies instead of how to reduce the number of emergencies. " - 很有道理的样子 🤔 " in a permanent way"
+2. "SRE teams sometimes fall into ops mode because they focus on how to quickly address emergencies instead of how to reduce the number of emergencies. " - 很有道理的样子，因为任何表面现象都需要去深挖根因。🤔 " in a permanent way""encourages people to think about the basic principles" - 任何表面现象都需要去深挖根因。
 3. "Releases need to be rollback-safe because our SLO is tight. Meeting that SLO requires that the mean time to recovery is small, so in-depth diagnosis before a rollback is not realistic." - 每个决策或者要求的背后都应该有强有力的逻辑支撑，这样才能让团队的每个人都心服口服的去执行。这样就算你离开这个团队了，你种下的一些理念才会根深蒂固的继续执行。
-4. "encourages people to think about the basic principles" - 任何表面现象都需要去深挖根因。
 
 
 
