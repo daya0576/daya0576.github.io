@@ -330,15 +330,27 @@ MTTD: 对应的发现时长： mean time to detect.
 how we balance user traffic between datacenters: 本章主要讲 google 如何在 idc 之间做负载均衡。
 
 
-## Chapter 29 - Dealing with Interrupts
-最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，对每一个线上变更做人肉审批。虽然线上的风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
 
-1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，人设计出的系统也永远不会是完美的，所以就像保养车一样，总还是需要一些人工的介入。
+
+## Chapter 29 - Dealing with Interrupts
+最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，对每一个线上变更做人肉审批。虽然风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
+
+1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，人设计出的系统也永远不会是完美的，所以就像保养车一样，人工的介入是无可避免的。
 2. "flow time" - 程序员的贤者时间 XD
 2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
 3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
 4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，达到无人值守的目标。
 5. "A caveat to the preceding solutions is that you need to find a balance between respect for the customer and for yourself. " - 这里并不是说不尊重客户，就像很多开源项目的 issue 管理一样。用户首选要对自己负责，提供尽可能多的信息和最小重现的例子，开发者才能产出高质量的回答。
+
+
+## Chapter 30 - Embedding an SRE to Recover from Operational Overload
+之前文中提到一个词叫做 toil, 而 sre 很容易陷入不停做 toil 的自我麻痹中，看看这章是如何通过加入一个新的 sre 帮助团队从繁重的运维工作中解放出来的。
+
+1. "One way to relieve this burden is to temporarily transfer an SRE into the overloaded team." - 抽调一个新的战力，加入到被运维重压下的 sre 团队。但不仅仅只是贡献人力，而是带来新的理念和更好的实践，来把 ticket queue 清空。
+2. "SRE teams sometimes fall into ops mode because they focus on how to quickly address emergencies instead of how to reduce the number of emergencies. " - 很有道理的样子 🤔 " in a permanent way"
+3. "Releases need to be rollback-safe because our SLO is tight. Meeting that SLO requires that the mean time to recovery is small, so in-depth diagnosis before a rollback is not realistic." - 每个决策或者要求的背后都应该有强有力的逻辑支撑，这样才能让团队的每个人都心服口服的去执行。这样就算你离开这个团队了，你种下的一些理念才会根深蒂固的继续执行。
+4. "encourages people to think about the basic principles" - 任何表面现象都需要去深挖根因。
+
 
 
 # 疑惑:
