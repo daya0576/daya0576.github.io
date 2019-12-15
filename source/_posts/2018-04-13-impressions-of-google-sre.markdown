@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "【读后感】《Site Reliability Engineering》by Google"
+title: "《Site Reliability Engineering》by Google 读后感"
 date: 2018-04-03 12:04:19
 comments: true
 tags: [读后感]
@@ -21,9 +21,8 @@ tags: [读后感]
         - **Direct costs:** 发布和变更需要人工干预 → 系统的规模和需要的人手成线性关系(例如总不能项目多部署一套奔驰环境, 就增加一个人手).
         - **Indirect costs:** (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务100%的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.
 2. **google对于sre的目标:** 以软件开发的方式打造一个系统, 将运维的工作变得全自动(automatic). (Site Reliability Engineering teams focus on hiring software engineers to run our products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.), 终极目标就是: 减少第一条中的Direct costs(人为干预), 使得系统规模与运维人员的人数不成线性增长.
-3. 有一句话挺有意思的, 说的是要去**评估SRE的消耗的时间分布**, 才能保证开发人员在ops和development上花费时间的平衡. 因为sre与传统运维最大的不同就是加入了开发, 而不是一味的做operation. 但相对的develop不能超过50%, 以防止承担了过多原本属于development team的事情, 或一直投入运维人员, 而忘了利用原有的员工去做operation的工作.但打动我的是 "measure how SRE time is spent", 感觉对人对团队对整个sre的measurement, 是所有事情能顺畅实现的基础.
-4. **DevOps?**
-(这个词近几年很火吧, 但惭愧的是一直没搞懂到底是什么. 书中说可以把sre当作一种devops的具体实现, 并包含一些独特的扩展?) - "One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions."
+3. 有一句话挺有意思的, 说的是要去**评估SRE的消耗的时间分布**, 才能保证开发人员在ops和development上花费时间的平衡. 因为sre与传统运维最大的不同就是加入了开发, 而不是一味的做operation. 但相对的develop 的时间不能超过50%, 以防止承担了过多原本属于development team的事情, 或一直投入运维人员, 而忘了利用原有的员工去做operation的工作.但打动我的是 "measure how SRE time is spent", 感觉对人对团队对整个sre的measurement, 是所有事情能顺畅实现的基础.
+4. **DevOps?** (这个词近几年很火吧, 但惭愧的是一直没搞懂到底是什么. 书中说可以把sre当作一种devops的具体实现, 并包含一些独特的扩展?) - "One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions."
 5. Service’s SLO?: (**第四章**会详细解释一些含义)
 6. **不必过分追求100%?:** 文中强调的一个观点挺有意思的: 对于sre来说, 100%并不是一个正确的指标? 作者说因为用户其实完全感受不到99.999%与100%的区别, 而且现实中用户家中的笔记本, 路由器, ISP等等远达不到99.99%的可用性 但还是需要定目标: 如果可用性达到99.99%, 0.01%就可以作为error budget, 然后利用这个error budget去冒风险发布一些新特性, 并吸引新用户. (感觉感觉作者认为这样就很好解决了第一条中所谓的indirect cost, 使得生产事故变成一种预期之内的事情?? 解决了开发追求急切的上新功能, 而运维想要保持100%可用性的矛盾. )
 7. **blame-free postmortem culture**: 强调出了事故, 不要过分的去指责而是仔细剖解问题, 防止下一次的发生? 在国内领导负责的国情感觉不是很现实 :P
@@ -52,11 +51,9 @@ tags: [读后感]
     - 二是像第一章里提到的那样, 用户其实很难感知到99.99%和99.999%的区别.
     - 三是和 rapid innovation and efficient service operations的平衡, 即保持服务的高可用 VS 用最快的速度把新功能新特性传递给用户.
 2. **如何评估服务的高可用:**
-"Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of "nines" we would like to provide: 99.9%, 99.99%, or 99.999% availability." 想起面试的时候, 问的面试官如何去评估一个系统的高可用, 他笑了笑, 说到了四个9和五个9.
-1) **Time-based availability: availability** = uptime / (uptime + downtime), 所以99.99%就意味着服务down的时间不能超过52.56分钟.
-**但是!** 文中提到google的server是分布在全球的, 就很难用这种方式去测量availability, 所以引出了一个新的概念: request success rate.
-2) **Aggregate availability:** availability = successful requests / total requests。
-**但是!!** 不同的request失败对用户的影响其实是不同的, 例如支付失败和获取好友信息request失败.
+"Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of "nines" we would like to provide: 99.9%, 99.99%, or 99.999% availability." 想起面试的时候, 问了面试官个很幼稚的问题：如何去评估一个系统的高可用能力, 他笑了笑, 说到了四个9和五个9，参考文章附录的[《Availability Table》](https://landing.google.com/sre/sre-book/chapters/availability-table/)
+    1. **Time-based availability: availability** = uptime / (uptime + downtime), 所以99.99%就意味着服务down的时间不能超过52.56分钟.**但是!** 文中提到google的server是分布在全球的, 就很难用这种方式去测量availability, 所以引出了一个新的概念: request success rate.
+    2. **Aggregate availability:** availability = successful requests / total requests。 **但是!!** 不同的request失败对用户的影响其实是不同的, 例如支付失败和获取好友信息request失败.
 3. **(个人认为)measurement的重要性:** 因为measurement是提升的基础, 没有量化, 如何比较提升还是破坏呢. 最简单的例子: 我们在优化一段代码速度的时候, 一定要先做profile, 再针对某几行代码做优化, 最后比较总的运行时间, 看运行速度提升了多少. 比如文中提到的: "By setting a target, we can **assess our current performance and track improvements or degradations** over time."
 4. **"Hope is not a strategy."** → The more data-based the decision can be, the better.
 5. **文中提到对error budget的使用**(定义: 如果可用性定的目标是99.99%, error budget就是0.01%, 然后如果这个季度测量结果为99.992%, 那么error budget就可以认为使用了20%).
@@ -330,8 +327,8 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 1. "when you’re dealing with large-scale systems, putting all your eggs in one basket is a recipe for disaster." - 很简单的道理，不能把鸡蛋放到一个篮子里，即不可以存在单点问题（去中心化）。
 2. "The differing needs of the two requests play a role in how we determine the optimal distribution for each request at the **global** level" - 针对一个请求很难有最优的“策略”，因为会存在各种各样的变量。例如两个用户请求，分别是搜索和上传视频，前者追求的是更低的 RTT 以达到最快的响应，而后者则需要尽可能大的带宽。
 3. 负载均衡策略的又分为以下两种：
-    1. "Load Balancing Using DNS" - 但 DNS 有各种限制，想到了阿里的 GSLB
-    2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。![](/images/blog/191006_adsense/15757909665620.jpg)
+    1. "Load Balancing Using DNS" - 但 DNS 有各种限制，但想到了阿里的 GSLB 智能解析，有空可以好好研究一下是如何解决这些限制的，试用期时的笔记：
+    2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。所以 1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。![](/images/blog/191006_adsense/15757909665620.jpg)
 
 
 ## Chapter 20 - Load Balancing in the Datacenter
@@ -340,15 +337,33 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 1. "Before we can decide which backend task should receive a client request, we need to identify and avoid unhealthy tasks in our pool of backends." - 在做负载均衡之前，需要先找出不健康的任务并干掉。有分如下几种方法：
     - Flow Control: 设定活跃连接数上限的阈值，但缺点也很明显，会导致机器的资源无法被完全榨干（静态阈值的局限性）。
     - Lame Duck State: 为机器自身定义状态，分为 Healthy, Refusing connections & Lame duck(端口还可以继续接受请求，但明确告诉客户端不要再发送请求过来了)。但如何判断机器进入 `lame duck state` 呢🤔？貌似是有一定的健康检查机制。这样的好处是提升用户体验，不会直接得到一个错误的响应。
-2. "A Subset Selection Algorithm" - 这部分有点复杂没太看懂，个人理解就是不同 Subset size 情况下(客户端)，后端机器资源整体利用率与每台机器负载平衡的 tradeoff. 
-3. 负载均衡的常见策略：
-    - 123
+2. "A Subset Selection Algorithm" - 这部分有点复杂没太看懂，个人理解就是不同 Subset size 情况下(客户端)，如何处理后端机器资源整体利用率与每台机器负载平衡的 tradeoff. 
+3. 常见的负载均衡策略：
+    1. Simple Round Robin: 大学里学的滚瓜烂熟，莫名的有一份亲切感。。这个算法简单且有效，但在现实复杂的场景下存在一定弊端，因为不同请求消耗的资源以及不同物理机可以提供的资源的存在巨大差异(varying query cost and machine diversity)：例如上一章说到的 Google 搜索与 YouTube 加载视频的请求的差异；以及不同物理机 A 型号的 CPU 可能比 B 型号的 CPU 快两倍。如果你的负载均衡策略无法动态的处理各种无法预测的“变量”，那最终会导致后端机器负载极不均衡。接下来介绍 Least-Loaded Round Robin 与 Weighted Round Robin 两种算法，看看是如何解决上面的缺陷的🤔
+    2. Least-Loaded Round Robin: 每个客户端各自记录，所以对应的后端任务的**活跃连接数**，每次选择连接数最小的那些后端任务进行轮询。但这个地方有几个坑，一是如果请求失败的话，例如 500 502 等是会立即返回的（在之前 99 分监控中也有一定涉及）并造成很大的干扰，其实也暴露出一个本质的问题：**活跃的连接数并不等同于负载**。还有就是客户端视角的活跃链接数并不能代表这个后端任务全部的活跃连接数。所以在实践中发现，这种负载均衡策略与 Simple Round Robin 效果一样差。
+    3. Weighted Round Robin: 这个算法在负载均衡决策的时候，不再是无状态并不感知后端，而是需要后端提供一些自身的信息：每个机器给自己的容量实时自评(capability score)，然后客户端定时的去选择最优的 backend task 处理请求。从下图可以看到，切换为这种算法以后，不同机器 load 的差异明显变小了，还是挺震撼的： ![](/images/blog/180403_google_sre/15763967669904.jpg)
+ 
+
+## Chapter 21 - Handling Overload
+不管负载均衡设计算法的多好，总不可避免会出现 overload 的情况（例如秒杀或者双十一的情况），优雅的解决这个问题是保证服务如丝般润滑的基石。
+
+1. One option for handling overload is to serve degraded responses - 一个选项就是对服务进行「降级」，例如依赖本地缓存返回结果，牺牲实时性来提升性能。但极端情况下，甚至连 degraded responses 都无法被返回，这时候的策略就是「限流」：对部分请求直接返回异常，来限制 idc 接收流量不超过它的上限。例如一个 idc 内有 100 个后端任务，而每个后端任务最高可以处理的 QPS 是500，那整个 datacenter 就需要限流 50,000 QPS，真的那么简单吗？
+2. The Pitfalls of "Queries per Second" - QPS 的陷阱🤔，我也想到了，毕竟上面提到过两遍了：Different queries can have vastly different resource requirements. 不管以什么静态的资源建模，总是不靠谱的，那怎么办呢？很类似上一章的 Weighted Round Robin，更加科学的做法是直接根据后端自身的实时可用的容量来决策：A better solution is to measure capacity directly in available resources.
+3. 限流又分为以下两种种：
+    1. Per-Customer Limits: 在用户维度进行限流，例如 Gmail 每个用户最多只能消耗 4,000 CPU seconds per second. 但怎么实时计算每个用户当前消耗的资源呢？
+    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability: ![](/images/blog/180403_google_sre/15763998341470.jpg) 正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。 但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
+4. Criticality - 每个请求可以被分为四种，很酷的想法呀 
+    - CRITICAL_PLUS: 最高优先级的请求，如果失败会严重影响用户的体验。
+    - CRITICAL: 线上请求的默认类型，同样会对用户产生严重的影响，只是没有 CRITICAL_PLUS 严重。
+    - SHEDDABLE_PLUS: 偶尔不可用是预期内的，例如批量离线任务，但后续会重试。
+    - SHEDDABLE: 可以接受偶尔完全不可用
+5. We found that four values were sufficiently robust to model almost every service. - 刚在想只有这四个属性是不是不太够用。。 
 
 ## Chapter 29 - Dealing with Interrupts
-最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，对每一个线上变更做人肉审批。虽然线上的风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
+最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，甚至对每一个线上变更做人肉审批。虽然风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
 
-1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的，就像保养车一样，总还是需要一些人工的介入。
-2. "flow time" - 程序员的贤者时间 XD 
+1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的🤔，就像保养车一样，总还是需要一些人工的介入。
+2. "flow time" - 程序员的贤者时间 XD 突然好像有一丝共鸣，比如我自己写代码一般都会挑在深夜，比较容易进入「贤者时间」，保持极高的专注力与效率。
 2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
 3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
 4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，去掉人工审批的环节，达到无人值守的目标。
@@ -361,6 +376,9 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 3. ..
 
 
+---
+
+欢迎交流或推荐好的书～ 
 
 
 
