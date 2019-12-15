@@ -53,7 +53,7 @@ tags: [读后感]
 2. **如何评估服务的高可用:**
 "Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of "nines" we would like to provide: 99.9%, 99.99%, or 99.999% availability." 想起面试的时候, 问了面试官个很幼稚的问题：如何去评估一个系统的高可用能力, 他笑了笑, 说到了四个9和五个9，参考文章附录的[《Availability Table》](https://landing.google.com/sre/sre-book/chapters/availability-table/)
     1. **Time-based availability: availability** = uptime / (uptime + downtime), 所以99.99%就意味着服务down的时间不能超过52.56分钟.**但是!** 文中提到google的server是分布在全球的, 就很难用这种方式去测量availability, 所以引出了一个新的概念: request success rate.
-    2. **Aggregate availability:** availability = successful requests / total requests。 **但是!!** 不同的request失败对用户的影响其实是不同的, 例如支付失败和获取好友信息request失败.
+    2. **Aggregate availability:** availability = successful requests / total requests.**但是!!** 不同的request失败对用户的影响其实是不同的, 例如支付失败和获取好友信息request失败.
 3. **(个人认为)measurement的重要性:** 因为measurement是提升的基础, 没有量化, 如何比较提升还是破坏呢. 最简单的例子: 我们在优化一段代码速度的时候, 一定要先做profile, 再针对某几行代码做优化, 最后比较总的运行时间, 看运行速度提升了多少. 比如文中提到的: "By setting a target, we can **assess our current performance and track improvements or degradations** over time."
 4. **"Hope is not a strategy."** → The more data-based the decision can be, the better.
 5. **文中提到对error budget的使用**(定义: 如果可用性定的目标是99.99%, error budget就是0.01%, 然后如果这个季度测量结果为99.992%, 那么error budget就可以认为使用了20%).
@@ -327,7 +327,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 1. "when you’re dealing with large-scale systems, putting all your eggs in one basket is a recipe for disaster." - 很简单的道理，不能把鸡蛋放到一个篮子里，即不可以存在单点问题（去中心化）。
 2. "The differing needs of the two requests play a role in how we determine the optimal distribution for each request at the **global** level" - 针对一个请求很难有最优的“策略”，因为会存在各种各样的变量。例如两个用户请求，分别是搜索和上传视频，前者追求的是更低的 RTT 以达到最快的响应，而后者则需要尽可能大的带宽。
 3. 负载均衡策略的又分为以下两种：
-    1. "Load Balancing Using DNS" - 但 DNS 有各种限制，但想到了阿里的 GSLB 智能解析，有空可以好好研究一下是如何解决这些限制的，试用期时的笔记：
+    1. "Load Balancing Using DNS" - 但 DNS 有各种限制，想到了阿里的 GSLB 智能解析，有空可以好好研究一下是如何解决这些限制的。
     2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。所以 1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。![](/images/blog/191006_adsense/15757909665620.jpg)
 
 
@@ -341,8 +341,8 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 3. 常见的负载均衡策略：
     1. Simple Round Robin: 大学里学的滚瓜烂熟，莫名的有一份亲切感。。这个算法简单且有效，但在现实复杂的场景下存在一定弊端，因为不同请求消耗的资源以及不同物理机可以提供的资源的存在巨大差异(varying query cost and machine diversity)：例如上一章说到的 Google 搜索与 YouTube 加载视频的请求的差异；以及不同物理机 A 型号的 CPU 可能比 B 型号的 CPU 快两倍。如果你的负载均衡策略无法动态的处理各种无法预测的“变量”，那最终会导致后端机器负载极不均衡。接下来介绍 Least-Loaded Round Robin 与 Weighted Round Robin 两种算法，看看是如何解决上面的缺陷的🤔
     2. Least-Loaded Round Robin: 每个客户端各自记录，所以对应的后端任务的**活跃连接数**，每次选择连接数最小的那些后端任务进行轮询。但这个地方有几个坑，一是如果请求失败的话，例如 500 502 等是会立即返回的（在之前 99 分监控中也有一定涉及）并造成很大的干扰，其实也暴露出一个本质的问题：**活跃的连接数并不等同于负载**。还有就是客户端视角的活跃链接数并不能代表这个后端任务全部的活跃连接数。所以在实践中发现，这种负载均衡策略与 Simple Round Robin 效果一样差。
-    3. Weighted Round Robin: 这个算法在负载均衡决策的时候，不再是无状态并不感知后端，而是需要后端提供一些自身的信息：每个机器给自己的容量实时自评(capability score)，然后客户端定时的去选择最优的 backend task 处理请求。从下图可以看到，切换为这种算法以后，不同机器 load 的差异明显变小了，还是挺震撼的： ![](/images/blog/180403_google_sre/15763967669904.jpg)
- 
+    3. Weighted Round Robin: 这个算法在负载均衡决策的时候，不再是无状态并不感知后端，而是需要后端提供一些自身的信息：每个机器给自己的容量实时自评(capability score)，然后客户端定时的去选择最优的 backend task 处理请求。从下图可以看到，切换为这种算法以后，不同机器 load 的差异明显变小了，还是挺震撼的：![](/images/blog/180403_google_sre/15763967669904.jpg)
+
 
 ## Chapter 21 - Handling Overload
 不管负载均衡设计算法的多好，总不可避免会出现 overload 的情况（例如秒杀或者双十一的情况），优雅的解决这个问题是保证服务如丝般润滑的基石。
@@ -351,23 +351,34 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. The Pitfalls of "Queries per Second" - QPS 的陷阱🤔，我也想到了，毕竟上面提到过两遍了：Different queries can have vastly different resource requirements. 不管以什么静态的资源建模，总是不靠谱的，那怎么办呢？很类似上一章的 Weighted Round Robin，更加科学的做法是直接根据后端自身的实时可用的容量来决策：A better solution is to measure capacity directly in available resources.
 3. 限流又分为以下两种种：
     1. Per-Customer Limits: 在用户维度进行限流，例如 Gmail 每个用户最多只能消耗 4,000 CPU seconds per second. 但怎么实时计算每个用户当前消耗的资源呢？
-    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability: ![](/images/blog/180403_google_sre/15763998341470.jpg) 正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。 但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
-4. Criticality - 每个请求可以被分为四种，很酷的想法呀 
+    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:![](/images/blog/180403_google_sre/15763998341470.jpg)正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
+4. Criticality - 每个请求可以被分为四种，很酷的想法呀，
     - CRITICAL_PLUS: 最高优先级的请求，如果失败会严重影响用户的体验。
     - CRITICAL: 线上请求的默认类型，同样会对用户产生严重的影响，只是没有 CRITICAL_PLUS 严重。
     - SHEDDABLE_PLUS: 偶尔不可用是预期内的，例如批量离线任务，但后续会重试。
-    - SHEDDABLE: 可以接受偶尔完全不可用
-5. We found that four values were sufficiently robust to model almost every service. - 刚在想只有这四个属性是不是不太够用。。 
+    - SHEDDABLE: 可以容忍偶尔完全不可用的情况。
+5. We found that four values were sufficiently robust to model almost every service. - 刚在想只有这四个属性是不是不太够用。。文中也提高曾多次讨论要不要在上面四种属性之间增加更细的类别，但假如增加后会带来大量的维护的成本，并使得决策的系统变得过于复杂。
+6. A well-behaved backend, supported by robust load balancing policies, should accept only the requests that it can process and reject the rest gracefully. - 总结：一个 robust 的负载均衡系统，在瞬间流量激增的时候，都应该可以高质量的处理预期内的请求，并**自动并优雅**抛弃无法处理的请求。我们有个常见的误解一样，直觉认为机器过载了 hang 住了就是先把它下线呗，但理论上后端任务不应该在流量超过一定阈值的时候就完全崩溃（当然这里阈值也不能太极端了，例如超过正常的容量的 10 倍..）。
+
 
 ## Chapter 29 - Dealing with Interrupts
 最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，甚至对每一个线上变更做人肉审批。虽然风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
 
-1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的🤔，就像保养车一样，总还是需要一些人工的介入。
+1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的🤔，人工的介入是无可避免的。就像开车一样，每半年还是需要做一次保养，
 2. "flow time" - 程序员的贤者时间 XD 突然好像有一丝共鸣，比如我自己写代码一般都会挑在深夜，比较容易进入「贤者时间」，保持极高的专注力与效率。
 2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
 3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
 4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，去掉人工审批的环节，达到无人值守的目标。
 5. "A caveat to the preceding solutions is that you need to find a balance between respect for the customer and for yourself. " - 这里并不是说不尊重客户，而是像很多开源项目的 issue 管理一样，用户首选要对自己负责，尽可能提供足够多的信息甚至最小重现的 case，开发者才能产出高质量的回答并帮助解决。
+
+
+## Chapter 30 - Embedding an SRE to Recover from Operational Overload
+之前文中提到一个词叫做 toil, 而 sre 很容易陷入不停做 toil 的自我麻痹中，看看这章是如何通过加入一个新的 sre 帮助团队从繁重的运维工作中解放出来的。
+
+1. "One way to relieve this burden is to temporarily transfer an SRE into the overloaded team." - 抽调一个新的战力，加入到被运维重压下的 sre 团队。但不仅仅只是贡献人力，而是带来新的理念和更好的实践，来把 ticket queue 清空。
+2. "SRE teams sometimes fall into ops mode because they focus on how to quickly address emergencies instead of how to reduce the number of emergencies. " - 很有道理的样子，因为任何表面现象都需要去深挖根因。🤔 " in a permanent way""encourages people to think about the basic principles" - 任何表面现象都需要去深挖根因。
+3. "Releases need to be rollback-safe because our SLO is tight. Meeting that SLO requires that the mean time to recovery is small, so in-depth diagnosis before a rollback is not realistic." - 每个决策或者要求的背后都应该有强有力的逻辑支撑，这样才能让团队的每个人都心服口服的去执行。这样就算你离开这个团队了，你种下的一些理念才会根深蒂固的继续执行。
+
 
 
 # 疑惑:
