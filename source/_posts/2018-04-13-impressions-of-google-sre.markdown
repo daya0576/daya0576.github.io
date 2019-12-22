@@ -389,6 +389,12 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 
 ---
 
+人生的意义不在于某个时间点的状态，而是随着时间流逝而留下的痕迹。
+
+
+-------
+
+
 欢迎交流或推荐好的书～ 
 
 
