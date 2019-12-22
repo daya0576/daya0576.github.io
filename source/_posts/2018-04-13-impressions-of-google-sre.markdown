@@ -351,7 +351,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. The Pitfalls of "Queries per Second" - QPS 的陷阱🤔，我也想到了，毕竟上面提到过两遍了：Different queries can have vastly different resource requirements. 不管以什么静态的资源建模，总是不靠谱的，那怎么办呢？很类似上一章的 Weighted Round Robin，更加科学的做法是直接根据后端自身的实时可用的容量来决策：A better solution is to measure capacity directly in available resources.
 3. 限流又分为以下两种种：
     1. Per-Customer Limits: 在用户维度进行限流，例如 Gmail 每个用户最多只能消耗 4,000 CPU seconds per second. 但怎么实时计算每个用户当前消耗的资源呢？
-    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:![](/images/blog/180403_google_sre/15763998341470.jpg)正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
+    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:![](/images/blog/180403_google_sre/15763998341470.jpg) 正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
 4. Criticality - 每个请求可以被分为四种，很酷的想法呀，
     - CRITICAL_PLUS: 最高优先级的请求，如果失败会严重影响用户的体验。
     - CRITICAL: 线上请求的默认类型，同样会对用户产生严重的影响，只是没有 CRITICAL_PLUS 严重。
@@ -359,6 +359,12 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
     - SHEDDABLE: 可以容忍偶尔完全不可用的情况。
 5. We found that four values were sufficiently robust to model almost every service. - 刚在想只有这四个属性是不是不太够用。。文中也提高曾多次讨论要不要在上面四种属性之间增加更细的类别，但假如增加后会带来大量的维护的成本，并使得决策的系统变得过于复杂。
 6. A well-behaved backend, supported by robust load balancing policies, should accept only the requests that it can process and reject the rest gracefully. - 总结：一个 robust 的负载均衡系统，在瞬间流量激增的时候，都应该可以高质量的处理预期内的请求，并**自动并优雅**抛弃无法处理的请求。我们有个常见的误解一样，直觉认为机器过载了 hang 住了就是先把它下线呗，但理论上后端任务不应该在流量超过一定阈值的时候就完全崩溃（当然这里阈值也不能太极端了，例如超过正常的容量的 10 倍..）。
+
+## Chapter 22 - Addressing Cascading Failures
+什么是 Cascading Failures 呢？举个例子，一个容器因为 load 过高挂掉之后，很可能会导致这个集群其他容器负载的增加，最重形成多米诺骨牌效应：这个服务的所有实例都挂了。这章就会讲如何解决这个问题。
+
+1. "Note that many of these resource exhaustion scenarios feed from one another—a service experiencing overload often has a host of secondary symptoms that can look like the root cause, making debugging difficult." - 这个观点挺有意识的，大部分资源耗尽的场景，都是表象（而不是存在根因），导致排查起来格外困难。例如频繁的 Full GC 是因为参数设置的不合理导致的；
+
 
 
 ## Chapter 29 - Dealing with Interrupts
