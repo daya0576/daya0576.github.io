@@ -351,7 +351,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. The Pitfalls of "Queries per Second" - QPS 的陷阱🤔，我也想到了，毕竟上面提到过两遍了：Different queries can have vastly different resource requirements. 不管以什么静态的资源建模，总是不靠谱的，那怎么办呢？很类似上一章的 Weighted Round Robin，更加科学的做法是直接根据后端自身的实时可用的容量来决策：A better solution is to measure capacity directly in available resources.
 3. 限流又分为以下两种种：
     1. Per-Customer Limits: 在用户维度进行限流，例如 Gmail 每个用户最多只能消耗 4,000 CPU seconds per second. 但怎么实时计算每个用户当前消耗的资源呢？
-    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:![](/images/blog/180403_google_sre/15763998341470.jpg) 正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
+    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:![](/images/blog/180403_google_sre/15763998341470.jpg)正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
 4. Criticality - 每个请求可以被分为四种，很酷的想法呀，
     - CRITICAL_PLUS: 最高优先级的请求，如果失败会严重影响用户的体验。
     - CRITICAL: 线上请求的默认类型，同样会对用户产生严重的影响，只是没有 CRITICAL_PLUS 严重。
@@ -361,9 +361,54 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 6. A well-behaved backend, supported by robust load balancing policies, should accept only the requests that it can process and reject the rest gracefully. - 总结：一个 robust 的负载均衡系统，在瞬间流量激增的时候，都应该可以高质量的处理预期内的请求，并**自动并优雅**抛弃无法处理的请求。我们有个常见的误解一样，直觉认为机器过载了 hang 住了就是先把它下线呗，但理论上后端任务不应该在流量超过一定阈值的时候就完全崩溃（当然这里阈值也不能太极端了，例如超过正常的容量的 10 倍..）。
 
 ## Chapter 22 - Addressing Cascading Failures
-什么是 Cascading Failures 呢？举个例子，一个容器因为 load 过高挂掉之后，很可能会导致这个集群其他容器负载的增加，最重形成多米诺骨牌效应：这个服务的所有实例都挂了。这章就会讲如何解决这个问题。
+什么是 Cascading Failures 呢？举个例子，一个容器因为 load 过高挂掉之后，直接导致该集群剩余容器负载增加，最终形成多米诺骨牌效应：该服务所有实例 hang 住。这章就会讲如何解决这个问题。
 
-1. "Note that many of these resource exhaustion scenarios feed from one another—a service experiencing overload often has a host of secondary symptoms that can look like the root cause, making debugging difficult." - 这个观点挺有意识的，大部分资源耗尽的场景，都是表象（而不是存在根因），导致排查起来格外困难。例如频繁的 Full GC 是因为参数设置的不合理导致的；
+1. "Note that many of these resource exhaustion scenarios feed from one another—a service experiencing overload often has a host of secondary symptoms that can look like the root cause, making debugging difficult." - 这个观点挺有意识的，大部分资源耗尽的场景，人看到都是表象（而不是根因），导致排查起来格外困难。例如下面这个 case（很难在第一时间定位到根因）: 
+    1. 前端应用参数设置的不合理导致频繁的触发 GC
+    2. 前端服务器 CPU 资源的耗尽
+    2. 每个请求处理的耗时变长，导致服务中等待的请求越来越多 → 内存占用越来越高
+    3. 缓存可以使用的内存也变得越来越少，自然缓存的命中率随之降低，越来越多的请求被发往后端机器。
+    4. 最终后端某台机器的 cpu 资源被耗尽，健康检查失败，导致滚雪球般的崩溃。
+2. Preventing Server Overload - 如何避免呢？
+    - 压测：必须是在生产环境做压测，不然很难发现一条链路上哪个节点会资源耗尽，及崩溃后的影响。
+    - 限流 & 服务降级：例如 CPU，内存等指标表示负载达到一定上限，或某一时刻请求数量达到阈值时，自动抛弃一部分流量，达到自我保护的目的。还可以与 last-in, first-out (LIFO) 结合起来，直接抛弃不值得处理的流量（好可怜）。另外引入了一个概念叫做 Graceful degradation, 拿搜索服务距离，优雅的降级指的是，仅搜索内存中的数据，而不是全量搜索硬盘中的数据，牺牲搜索结果时效性，换取性能的策略。文中提到一个点挺有意思的，日常泡跑不到的代码分支（降级的情况），通常是无法正常工作的。所以需要定时的做演练保鲜。
+    - 在负载均衡的更上层系统拒绝服务，例如在反向代理对 ip 做限制等等
+    - 容量规划：降低 overload 发生的可能性。
+3. Queue Management - 队列是个对 overload 最符合直觉并有效的解决办法，但它本质上牺牲了 memory & latency, 并且存在一个常见的问题：queue 增长的速度大于消费的速度，越来越多的时间都在耗在排队中。文中推荐的最佳实践是 it is usually better to have small queue lengths relative to the thread pool size (e.g., 50% or less)
+4. Retries - 简单说，就是重试的次数一定有上限，并且时间的间隔必须是指数级增长的。
+5. Latency and Deadlines - 记得之前公司有个故障，一个弱依赖服务的超时时间比上游长，导致整条链路都失败了。但文中说到弱依赖时间设的过短可能导致失败的概率增加，需要找到那个平衡点🤔    针对上面说的故障，文中说的一个 Deadline propagation 还挺有意思的，通常一条链路为树形结构，每个节点的超时时间，是从底向上不断的传递并自动生成的，cool～
+6. "Slow Startup and Cold Caching" - 一个应用刚刚重启时，通常处理一个请求会比平时花费更多时间，还真是，还有最近遇到的一些应用一次启动需要十分钟。。造成这个现象的原因有很多，例如第一次连接的创建，类的延迟加载(java)，还有缓存的预热，所以需要一些保护机制。
+7. "Load test components until they break. " - 太狠了，意思是需要找到那个崩溃的临界值或第一个挂掉的组件，这次压测才有意义。但如何在真实性和不影响线上用户之间做权衡，也是个不小的难题。
+8. "Test Noncritical Backends" - 即使是弱依赖也不能掉以轻心，甚至需要模拟下游一直不响应的场景，观察对主链路的影响。
+9. "Closing Remarks" - 当系统 overload 无法继续工作时，总是需要一些取舍的，但舍弃也是分优先级的，例如返回低质量的结果，而不是直接返回服务异常。
+
+## Chapter 23 - Managing Critical State: Distributed Consensus for Reliability
+
+1. CAP 理论，一个分布式系统无法同时满足下面三个属性。直白的说，如果两个节点之间无法通信(属性三)，该系统将无法处理请求（属性二之可用性）或者导致返回的数据不一致（属性一）。
+    - Consistent views of the data at each node
+    - Availability of the data at each node
+    - Tolerance to network partitions
+2. "network partitions are inevitable" - 网络的中断是不可避免的，所以构建分布式系统就是处理好可用性与一致性。
+3. " BASE (Basically Available, Soft state, and Eventual consistency)" - 在 ACID 上对分布式存储提出一套理论。
+4. "eventual consistency." - 一般根据 timestamp 选择最新的数据来实现最终一致性，当然也会存在很多问题，例如时钟偏离等。
+5. "Paxos Overview" - 大名鼎鼎的 Paxos 协议，浅显的理解一下。。 第一阶段 proposer 发起投票（每一轮都严格对应一个 sequence number），如果大部分 acceptor 都同意这个决策，则进入第二阶段尝试让它们提交执行（并保存对应的状态）。但 proposer 是怎么选出来的呢？
+6. （...略...）
+7.  "It should be noted that adding a replica in a majority quorum system can potentially decrease system availability" - 经常听到的一个词叫做三地五副本，文中也提到推荐推荐五副本的模式（**增加一个副本也就是六副本可能反而会影响系统的可用性**）。如果五副本中两个副本挂了，系统还可以正常工作（剩余的三副本形成多数派），也就是容忍 40% unavailable. 而在六副本的情况下，需要四个副本正常工作才能维持系统正常运行，也就是只能容忍 33% 的 unavailable.
+8. "Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica." - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要一边能正常响应即可达成一致性。 ![](/images/blog/180403_google_sre/15778678971943.jpg)
+9. "We deliberately avoided an in-depth discussion about specific algorithms, protocols, or implementations in this chapter." - 汗。。分布式真的是太复杂了，这章只看懂了 10%。结尾这段话，感觉自己被鄙视了："If you remember nothing else from this chapter, keep in mind the sorts of problems that distributed consensus can be used to solve, and the types of problems that can arise when ad hoc methods such as heartbeats are used instead of distributed consensus."
+
+
+## Chapter 24 - Distributed Periodic Scheduling with Cron
+linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，google 的分布式 Cron，分别有什么不同呢 🤔    
+Scheduler 有个很神奇的特性是它的 crontab 最小刻度是秒 
+
+1. linux 自带的 cron 的高可用问题：1) 单点 2）无状态，例如机器重启过程中被漏掉的任务不会重新发起。
+2. "Cron jobs are designed to perform periodic work, but beyond that, it is hard to know in advance what function they have. " - 一个问题是用户设置的任务对于定时调度系统是是完全无感知的，例如日志清理或垃圾回收任务，可以容忍偶尔忽略执行，或者重复执行多次，但其他任务可能是百分百无法容忍的。但是一般来说，漏了一次比重复执行来的好 😂，不难理解漏发了邮件通知，总比发了两次容易补救。
+3. "In its "regular" implementations, cron is limited to a single machine. Large-scale system deployments extend our cron solution to multiple machines." - 为了解决 linux 自带 cron 的单点问题，要将 cron 做成分布式到多台机器上。个人理解就是两个解耦：1）物理机器和服务的解耦，运行一个服务就像向「整个机房」发一个指令，底层自身保障高可用 2）状态和服务的解耦，由分布式文件系统(GFS)来保持状态，就算服务被迫迁移机器，也不会有影响。
+4. "Tracking the State of Cron Jobs" - 这个地方有两个选项：1) 分布式文件系统 2) 系统内部     但经过深思熟虑后，最终的决策是第二个，但刚刚不还是说放到 GFS 里吗。。原因一是 GFS 一般都是放大文件，不适合这类小型的写操作，延迟比较高。二是定时任务这类重要的服务，要存在尽可能少的依赖。
+5. "We deploy multiple replicas of the cron service and use the Paxos distributed consensus algorithm to ensure they have consistent state." - 用了 Paxos 协议来保证一致性和系统高可用（一个 leader 多个 followers 的模式，故障时多数派选举 leader 自动切换）。
+6. "Beware the large and well-known problem of distributed systems: the thundering herd." - 这个真的是学到了，例如大部分人配置每日执行的定时任务都会设置在凌晨零点执行：`0 0 * * *`。理论上没有问题，但在大型系统中如果大量的任务在那个时间点同时触发，可能会瞬间原地爆炸，有个术语叫做 [thundering herd](https://en.wikipedia.org/wiki/Thundering_herd_problem)，所以在 crontab 中引入了问号 `?`，例如针对每日任务，代表可以在一天中任意一个时间点执行，来降低某些时间点的负载。
+
 
 
 
@@ -375,7 +420,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
 3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
 4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，去掉人工审批的环节，达到无人值守的目标。
-5. "A caveat to the preceding solutions is that you need to find a balance between respect for the customer and for yourself. " - 这里并不是说不尊重客户，而是像很多开源项目的 issue 管理一样，用户首选要对自己负责，尽可能提供足够多的信息甚至最小重现的 case，开发者才能产出高质量的回答并帮助解决。
+5. "A caveat to the preceding solutions is that you need to find a balance between respect for the customer and for yourself. " - 这里并不是说不尊重客户，而是像很多开源项目的 issue 管理一样，用户首选要对自己负责，尽可能提供足够多的信息甚至最小重现的 case（提问的智慧），开发者才能产出高质量的回答并帮助解决。但现实中百分之九十的问题都是重复的，如何将它们沉淀下来也很重要的。
 
 
 ## Chapter 30 - Embedding an SRE to Recover from Operational Overload
@@ -396,9 +441,6 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 ---
 
 人生的意义不在于某个时间点的状态，而是随着时间流逝而留下的痕迹。
-
-
--------
 
 
 欢迎交流或推荐好的书～ 
