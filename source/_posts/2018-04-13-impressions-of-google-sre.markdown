@@ -400,17 +400,34 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 
 ## Chapter 24 - Distributed Periodic Scheduling with Cron
 linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，google 的分布式 Cron，分别有什么不同呢 🤔    
-Scheduler 有个很神奇的特性是它的 crontab 最小刻度是秒 
+蚂蚁的 Scheduler 有个很神奇的特性，最小刻度是秒，i.e. crontab 多了一位
 
 1. linux 自带的 cron 的高可用问题：1) 单点 2）无状态，例如机器重启过程中被漏掉的任务不会重新发起。
 2. "Cron jobs are designed to perform periodic work, but beyond that, it is hard to know in advance what function they have. " - 一个问题是用户设置的任务对于定时调度系统是是完全无感知的，例如日志清理或垃圾回收任务，可以容忍偶尔忽略执行，或者重复执行多次，但其他任务可能是百分百无法容忍的。但是一般来说，漏了一次比重复执行来的好 😂，不难理解漏发了邮件通知，总比发了两次容易补救。
 3. "In its "regular" implementations, cron is limited to a single machine. Large-scale system deployments extend our cron solution to multiple machines." - 为了解决 linux 自带 cron 的单点问题，要将 cron 做成分布式到多台机器上。个人理解就是两个解耦：1）物理机器和服务的解耦，运行一个服务就像向「整个机房」发一个指令，底层自身保障高可用 2）状态和服务的解耦，由分布式文件系统(GFS)来保持状态，就算服务被迫迁移机器，也不会有影响。
 4. "Tracking the State of Cron Jobs" - 这个地方有两个选项：1) 分布式文件系统 2) 系统内部     但经过深思熟虑后，最终的决策是第二个，但刚刚不还是说放到 GFS 里吗。。原因一是 GFS 一般都是放大文件，不适合这类小型的写操作，延迟比较高。二是定时任务这类重要的服务，要存在尽可能少的依赖。
 5. "We deploy multiple replicas of the cron service and use the Paxos distributed consensus algorithm to ensure they have consistent state." - 用了 Paxos 协议来保证一致性和系统高可用（一个 leader 多个 followers 的模式，故障时多数派选举 leader 自动切换）。
-6. "Beware the large and well-known problem of distributed systems: the thundering herd." - 这个真的是学到了，例如大部分人配置每日执行的定时任务都会设置在凌晨零点执行：`0 0 * * *`。理论上没有问题，但在大型系统中如果大量的任务在那个时间点同时触发，可能会瞬间原地爆炸，有个术语叫做 [thundering herd](https://en.wikipedia.org/wiki/Thundering_herd_problem)，所以在 crontab 中引入了问号 `?`，例如针对每日任务，代表可以在一天中任意一个时间点执行，来降低某些时间点的负载。
+6. "Beware the large and well-known problem of distributed systems: the thundering herd." - 这个真的是学到了，例如大部分人配置每日执行的定时任务都会设置在凌晨零点执行：`0 0 * * *`。理论上没有问题，但在大型系统中如果大量的任务在那个时间点同时触发，可能会瞬间原地爆炸，有个术语叫做 [thundering herd](https://en.wikipedia.org/wiki/Thundering_herd_problem)，所以在 crontab 中引入了问号 `?`，例如针对每日任务，代表可以在一天中任意一个时间点执行：`0 ? * * *`，来降低某些时间点的负载。
 
+## Chapter 25 - Data Processing Pipelines
+介绍 Google 的 Workflow 系统，数据的流处理，不是很感兴趣，跳过了。。
 
+## Chapter 26 - Data Integrity: What You Read Is What You Wrote
+尝试从数据完整性（Data Integrity）的角度，看我们的资金安全，会不会有一些启发？但貌似是完全不同的两个东西。
 
+1. "Now, suppose an artifact were corrupted or lost exactly once a year. If the loss were unrecoverable, uptime of the affected artifact is lost for that year." - 像之前章节说的，我们通常用几个 9 来衡量服务的高可用能力，但对于数据完整性来说有些不同：假设某个用户有一份数据意外丢失并无法恢复时，对于该用户可用性就直接跌零了。 
+2. "the secret to superior data integrity is proactive detection and rapid repair and recovery." - 对于保障数据完整性最好的办法就是提早**主动发现** & **恢复** 
+3. "No one really wants to make backups; what people really want are restores." - 说到恢复，有一句话说的好：没有人真的在意那些备份，而在乎出故障时是否可以将数据及时恢复。 "When does a light bulb break? When flicking the switch fails to turn on the light? Not always—often the bulb had already failed, and you simply notice the failure at the unresponsive flick of the switch." - 针对恢复的重要性在下面引申出另一个非常关键的问题，如何保证数据恢复的有效性？因为即使刚刚成功实施了数据恢复，也无法保证下一次就可以成功，所以需要对整个流程设计**自动化**的**端到端**测试，在灯泡故障时就立即告警，而不是在真正要用的时候才发现坏了。。
+5. "Combinations of Data Integrity Failure Modes" - 下面这张图还挺有意思的，从数据的生命周期看防止数据丢失的三道防线： 1）Soft Deletion：保护用户侧的误删除，可以在回收站中直接恢复。 2）Backups and Their Related Recovery Methods：热备份：保留一到两天的数据，可以联系管理员协助恢复。冷备份：3-6个月保存长期的数据，防止有些 bug 数月以后才发现并需要恢复的场景。 3）Early Detection：越早发现，数据越容易恢复也越完整。 ![](/images/blog/180403_google_sre/15788191260036.jpg)
+6. 总结：
+    1. 目标（数据恢复）比过程（数据备份）重要的多。
+    2. 线上系统任意一个部分都有可能出错，所以必须找出所有维度的可能性进行排列组合，利用测试 100% 覆盖，并不断自动化回归，才能保障我们每天睡个好觉。
+    3. 当针对各种意外，将数据恢复时间不断完善并接近于 0 的时候，可以将策略重心从恢复转向预防，最终目标是 all the data, all the time.  "Achieve this goal, and you can sleep on the beach on that well-deserved vacation." - 哈哈
+
+## Chapter 27 - Reliable Product Launches at Scale
+"Site Reliability’s role in this process is to enable a rapid pace of change without compromising stability of the site. " - SRE 一个重要的职责，保障快速迭代与稳定性的平衡。
+
+1. TODO..
 
 ## Chapter 29 - Dealing with Interrupts
 最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，甚至对每一个线上变更做人肉审批。虽然风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
