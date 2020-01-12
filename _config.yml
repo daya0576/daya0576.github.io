@@ -23,7 +23,7 @@ permalink_defaults:
 source_dir: source
 public_dir: public
 tag_dir: tags
-archive_dir: archives
+archive_dir: /
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
@@ -50,8 +50,8 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
-  per_page: 8
+  path: archive/
+  per_page: 0
   order_by: -date
 
 # Category & Tag

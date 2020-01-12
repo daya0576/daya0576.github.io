@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "皇家量子号 五天四晚游记"
+title: "【游记】皇家量子号 五天四晚"
 date: 2017-09-14 20:49:42
 comments: true
 tags: [travel]
