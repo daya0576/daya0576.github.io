@@ -1,5 +1,5 @@
 ---
-title: 正态分布(Normal Distribution)学习小记
+title: 【学习笔记】正态分布(Normal Distribution)学习小记
 date: 2019-03-05 22:36:56
 tags:
 ---
