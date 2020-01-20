@@ -15,13 +15,9 @@ tags: [work, hypers]
 完结, [跳到第一周](#first_week)   
 
 
-
-
 # 2018.03.31 - 还是要说再见
 在Hypers HFA的旅程可能就此告一段落了, nice的leader, 热情的同事, 说再见的时候, 还真的有一丝的伤感.    
 <img style="max-height:350px" class="lazy" data-original="/images/blog/170325_hypers_summary/bye.jpg">   
-<img style="max-height:350px" class="lazy" data-original="/images/blog/170325_hypers_summary/bye1.jpeg">   
-
 
 
 # March 2018
@@ -299,7 +295,7 @@ tags: [work, hypers]
 1. **重构**: 在配合前端升级新框架的过程中, 把**前端获取表头(好多报表呢..)**和**自定义报告**相关的代码重写了, 虽然写的不怎么样, 过程也是充满痛苦和绝望. 但写完之后还是长舒了一口气.    可以拍拍胸膛对孩子说, 爸爸以前可牛逼了, 遇到一团糟的代码, 说重写就重写了.    
 
 ## 给下周的自己一些建议
-1. **心灵鸡汤**: A calm and humble life will bring more happiness than the pursuit of success and the constant restlessness that comes with it.    
+1. **心灵鸡汤**: A calm and humble life will bring more happiness than the pursuit of success and the constant restlessness that comes with it.    
 2. **无奈**: 工作中也会有一些无奈的地方, 比如当初放弃更高的工资, 更稳定的工作加入Hypers, 是看到它的潜力和活力. 可惜在现实工作中, 并不是每个人都尽力想把产品做到最好. 钱对我很重要, 但更重要的是做出最优秀的产品的成就感. 所以还是那句老话: Hire slow, fire fast.    
 
 
@@ -352,7 +348,7 @@ tags: [work, hypers]
 # 第二十八周 (18 September 2017)
 
 ## 完成的工作总结:
-1. **无限的bug**: 毫不夸张的说, 修了一个星期的bug.   1) 一部分是**以前留下来的锅**, 比如说操作日志无数遗漏了, 都开给我bug让我补上了🤷‍♀️      2) 另外的是找不到负责人的bug都分给了我了. 其实我也不是很抵触, 多去接触自己不了解的领域才能快速提高(例如修了某个bug就能了解rabbitmq和supervisor).    3) 但罪魁祸首还是自己的双手, 要像上上周一样**反思一下, 如何尽可能地写出robust的代码.** 加油~   
+1. **无限的bug**: 毫不夸张的说, 修了一个星期的bug.   1) 一部分是**以前留下来的锅**, 比如说操作日志无数遗漏了, 都开给我bug让我补上了🤷♀️      2) 另外的是找不到负责人的bug都分给了我了. 其实我也不是很抵触, 多去接触自己不了解的领域才能快速提高(例如修了某个bug就能了解rabbitmq和supervisor).    3) 但罪魁祸首还是自己的双手, 要像上上周一样**反思一下, 如何尽可能地写出robust的代码.** 加油~   
 <img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week28_bug.jpg">
 
 ## 给下周的自己一些建议

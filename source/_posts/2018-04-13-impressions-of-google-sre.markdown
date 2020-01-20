@@ -376,7 +376,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
     - 容量规划：降低 overload 发生的可能性。
 3. Queue Management - 队列是个对 overload 最符合直觉并有效的解决办法，但它本质上牺牲了 memory & latency, 并且存在一个常见的问题：queue 增长的速度大于消费的速度，越来越多的时间都在耗在排队中。文中推荐的最佳实践是 it is usually better to have small queue lengths relative to the thread pool size (e.g., 50% or less)
 4. Retries - 简单说，就是重试的次数一定有上限，并且时间的间隔必须是指数级增长的。
-5. Latency and Deadlines - 记得之前公司有个故障，一个弱依赖服务的超时时间比上游长，导致整条链路都失败了。但文中说到弱依赖时间设的过短可能导致失败的概率增加，需要找到那个平衡点🤔    针对上面说的故障，文中说的一个 Deadline propagation 还挺有意思的，通常一条链路为树形结构，每个节点的超时时间，是从底向上不断的传递并自动生成的，cool～
+5. Latency and Deadlines - 记得之前公司有个故障，一个弱依赖服务的超时时间比上游长，导致整条链路都失败了。但文中说到弱依赖时间设的过短可能导致失败的概率增加，需要找到那个平衡点🤔   针对上面说的故障，文中说的一个 Deadline propagation 还挺有意思的，通常一条链路为树形结构，每个节点的超时时间，是从底向上不断的传递并自动生成的，cool～
 6. "Slow Startup and Cold Caching" - 一个应用刚刚重启时，通常处理一个请求会比平时花费更多时间，还真是，还有最近遇到的一些应用一次启动需要十分钟。。造成这个现象的原因有很多，例如第一次连接的创建，类的延迟加载(java)，还有缓存的预热，所以需要一些保护机制。
 7. "Load test components until they break. " - 太狠了，意思是需要找到那个崩溃的临界值或第一个挂掉的组件，这次压测才有意义。但如何在真实性和不影响线上用户之间做权衡，也是个不小的难题。
 8. "Test Noncritical Backends" - 即使是弱依赖也不能掉以轻心，甚至需要模拟下游一直不响应的场景，观察对主链路的影响。
@@ -391,10 +391,10 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. "network partitions are inevitable" - 网络的中断是不可避免的，所以构建分布式系统就是处理好可用性与一致性。
 3. " BASE (Basically Available, Soft state, and Eventual consistency)" - 在 ACID 上对分布式存储提出一套理论。
 4. "eventual consistency." - 一般根据 timestamp 选择最新的数据来实现最终一致性，当然也会存在很多问题，例如时钟偏离等。
-5. "Paxos Overview" - 大名鼎鼎的 Paxos 协议，浅显的理解一下。。 第一阶段 proposer 发起投票（每一轮都严格对应一个 sequence number），如果大部分 acceptor 都同意这个决策，则进入第二阶段尝试让它们提交执行（并保存对应的状态）。但 proposer 是怎么选出来的呢？
+5. "Paxos Overview" - 大名鼎鼎的 Paxos 协议，浅显的理解一下。。第一阶段 proposer 发起投票（每一轮都严格对应一个 sequence number），如果大部分 acceptor 都同意这个决策，则进入第二阶段尝试让它们提交执行（并保存对应的状态）。但 proposer 是怎么选出来的呢？
 6. （...略...）
 7.  "It should be noted that adding a replica in a majority quorum system can potentially decrease system availability" - 经常听到的一个词叫做三地五副本，文中也提到推荐推荐五副本的模式（**增加一个副本也就是六副本可能反而会影响系统的可用性**）。如果五副本中两个副本挂了，系统还可以正常工作（剩余的三副本形成多数派），也就是容忍 40% unavailable. 而在六副本的情况下，需要四个副本正常工作才能维持系统正常运行，也就是只能容忍 33% 的 unavailable.
-8. "Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica." - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要一边能正常响应即可达成一致性。 ![](/images/blog/180403_google_sre/15778678971943.jpg)
+8. "Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica." - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要一边能正常响应即可达成一致性。![](/images/blog/180403_google_sre/15778678971943.jpg)
 9. "We deliberately avoided an in-depth discussion about specific algorithms, protocols, or implementations in this chapter." - 汗。。分布式真的是太复杂了，这章只看懂了 10%。结尾这段话，感觉自己被鄙视了："If you remember nothing else from this chapter, keep in mind the sorts of problems that distributed consensus can be used to solve, and the types of problems that can arise when ad hoc methods such as heartbeats are used instead of distributed consensus."
 
 
@@ -405,7 +405,7 @@ linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，googl
 1. linux 自带的 cron 的高可用问题：1) 单点 2）无状态，例如机器重启过程中被漏掉的任务不会重新发起。
 2. "Cron jobs are designed to perform periodic work, but beyond that, it is hard to know in advance what function they have. " - 一个问题是用户设置的任务对于定时调度系统是是完全无感知的，例如日志清理或垃圾回收任务，可以容忍偶尔忽略执行，或者重复执行多次，但其他任务可能是百分百无法容忍的。但是一般来说，漏了一次比重复执行来的好 😂，不难理解漏发了邮件通知，总比发了两次容易补救。
 3. "In its "regular" implementations, cron is limited to a single machine. Large-scale system deployments extend our cron solution to multiple machines." - 为了解决 linux 自带 cron 的单点问题，要将 cron 做成分布式到多台机器上。个人理解就是两个解耦：1）物理机器和服务的解耦，运行一个服务就像向「整个机房」发一个指令，底层自身保障高可用 2）状态和服务的解耦，由分布式文件系统(GFS)来保持状态，就算服务被迫迁移机器，也不会有影响。
-4. "Tracking the State of Cron Jobs" - 这个地方有两个选项：1) 分布式文件系统 2) 系统内部     但经过深思熟虑后，最终的决策是第二个，但刚刚不还是说放到 GFS 里吗。。原因一是 GFS 一般都是放大文件，不适合这类小型的写操作，延迟比较高。二是定时任务这类重要的服务，要存在尽可能少的依赖。
+4. "Tracking the State of Cron Jobs" - 这个地方有两个选项：1) 分布式文件系统 2) 系统内部    但经过深思熟虑后，最终的决策是第二个，但刚刚不还是说放到 GFS 里吗。。原因一是 GFS 一般都是放大文件，不适合这类小型的写操作，延迟比较高。二是定时任务这类重要的服务，要存在尽可能少的依赖。
 5. "We deploy multiple replicas of the cron service and use the Paxos distributed consensus algorithm to ensure they have consistent state." - 用了 Paxos 协议来保证一致性和系统高可用（一个 leader 多个 followers 的模式，故障时多数派选举 leader 自动切换）。
 6. "Beware the large and well-known problem of distributed systems: the thundering herd." - 这个真的是学到了，例如大部分人配置每日执行的定时任务都会设置在凌晨零点执行：`0 0 * * *`。理论上没有问题，但在大型系统中如果大量的任务在那个时间点同时触发，可能会瞬间原地爆炸，有个术语叫做 [thundering herd](https://en.wikipedia.org/wiki/Thundering_herd_problem)，所以在 crontab 中引入了问号 `?`，例如针对每日任务，代表可以在一天中任意一个时间点执行：`0 ? * * *`，来降低某些时间点的负载。
 
@@ -417,12 +417,12 @@ linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，googl
 
 1. "Now, suppose an artifact were corrupted or lost exactly once a year. If the loss were unrecoverable, uptime of the affected artifact is lost for that year." - 像之前章节说的，我们通常用几个 9 来衡量服务的高可用能力，但对于数据完整性来说有些不同：假设某个用户有一份数据意外丢失并无法恢复时，对于该用户可用性就直接跌零了。 
 2. "the secret to superior data integrity is proactive detection and rapid repair and recovery." - 对于保障数据完整性最好的办法就是提早**主动发现** & **恢复** 
-3. "No one really wants to make backups; what people really want are restores." - 说到恢复，有一句话说的好：没有人真的在意那些备份，而是在乎出故障时是否可以将数据及时恢复。 "When does a light bulb break? When flicking the switch fails to turn on the light? Not always—often the bulb had already failed, and you simply notice the failure at the unresponsive flick of the switch." - 针对恢复的重要性在下面引申出另一个非常关键的问题，如何保证数据恢复的有效性？因为即使刚刚成功实施了数据恢复，也无法保证下一次就可以成功，所以需要对整个流程设计**自动化**的**端到端**测试，在灯泡故障时就立即告警，而不是在真正要用的时候才发现坏了。。
-5. "Combinations of Data Integrity Failure Modes" - 下面这张图还挺有意思的，从数据的生命周期看防止数据丢失的三道防线： 1）Soft Deletion：保护用户侧的误删除，可以在回收站中直接恢复。 2）Backups and Their Related Recovery Methods：热备份：保留一到两天的数据，可以联系管理员协助恢复。冷备份：3-6个月保存长期的数据，防止有些 bug 数月以后才发现并需要恢复的场景。 3）Early Detection：越早发现，数据越容易恢复也越完整。 ![](/images/blog/180403_google_sre/15788191260036.jpg)
+3. "No one really wants to make backups; what people really want are restores." - 说到恢复，有一句话说的好：没有人真的在意那些备份，而是在乎出故障时是否可以将数据及时恢复。"When does a light bulb break? When flicking the switch fails to turn on the light? Not always—often the bulb had already failed, and you simply notice the failure at the unresponsive flick of the switch." - 针对恢复的重要性在下面引申出另一个非常关键的问题，如何保证数据恢复的有效性？因为即使刚刚成功实施了数据恢复，也无法保证下一次就可以成功，所以需要对整个流程设计**自动化**的**端到端**测试，在灯泡故障时就立即告警，而不是在真正要用的时候才发现坏了。。
+5. "Combinations of Data Integrity Failure Modes" - 下面这张图还挺有意思的，从数据的生命周期看防止数据丢失的三道防线：1）Soft Deletion：保护用户侧的误删除，可以在回收站中直接恢复。2）Backups and Their Related Recovery Methods：热备份：保留一到两天的数据，可以联系管理员协助恢复。冷备份：3-6个月保存长期的数据，防止有些 bug 数月以后才发现并需要恢复的场景。3）Early Detection：越早发现，数据越容易恢复也越完整。![](/images/blog/180403_google_sre/15788191260036.jpg)
 6. 总结：
     1. 目标（数据快速恢复）比过程（数据备份）重要的多。
     2. 线上系统任意一个部分都有可能出错，所以必须找出所有维度的可能性进行排列组合，利用测试 100% 覆盖，并不断自动化回归，才能保障我们每天睡个好觉。
-    3. 当针对各种意外，将数据恢复时间不断完善并接近于 0 的时候，可以将策略重心从恢复转向预防，最终目标是 all the data, all the time.  "Achieve this goal, and you can sleep on the beach on that well-deserved vacation." - 哈哈
+    3. 当针对各种意外，将数据恢复时间不断完善并接近于 0 的时候，可以将策略重心从恢复转向预防，最终目标是 all the data, all the time. "Achieve this goal, and you can sleep on the beach on that well-deserved vacation." - 哈哈
 
 ## Chapter 27 - Reliable Product Launches at Scale
 "Site Reliability’s role in this process is to enable a rapid pace of change without compromising stability of the site. " - SRE 一个重要的职责，保障快速迭代与稳定性的平衡。
