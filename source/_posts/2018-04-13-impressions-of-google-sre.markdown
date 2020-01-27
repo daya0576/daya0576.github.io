@@ -8,7 +8,7 @@ tags: [读后感]
 
 下一份工作要开始做SRE了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。
 
-一不小心读了整整一年多了(从入职前一个月，18 年四月份开始读，但现在已经2019年七月份了)。。。希望可以今年读完吧：
+一不小心读了整整一年多了。。。希望可以今年读完吧：
 ![book](/images/blog/190727_cloudflare_outage/book.jpg)
 <!--more-->
 
@@ -219,7 +219,8 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 
 
 ## Chapter 11 - Being On-Call
-1. On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责任(critical duty)**, 但存在**几个大坑??**, 会在下文中一一道来(如何保持reliable services and sustainable workload).
+On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责任(critical duty)**, 但存在**几个大坑??**, 会在下文中一一道来(如何保持reliable services and sustainable workload).
+
 2. "We cap the amount of time SREs spend on purely operational work at 50%; at minimum, 50% of an SRE’s time should be allocated to engineering projects..." - 相对于纯手工的工作，每个 SRE 至少抽出超过一半的时间做平台开发。之前的章节也反复强调过这个原则了。
 3. 计算 oncall 数量和质量的两个公式："The quantity of on-call can be calculated by the percent of time spent by engineers on on-call duties. The quality of on-call can be calculated by the number of incidents that occur during an on-call shift."   每个主管都有义务去根据这两个指标，量化并平衡 oncall 的工作。
 4. "multi-site team", 好处是不用上夜班了，并且保证每个人都对生产环境保持熟悉感。但于**沟通和协作**会存在一定的困难（有业务团队在美国，确实会有这个问题，上班时间完美的错过了）。
@@ -231,8 +232,9 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 11. "Operational Underload" - 总是说做了过多的 toil, 但如果生产环节如果太"安静"了（故障发生的频率并不是很高），导致应急人员手生了要怎么办呢？   "Google also has a company-wide annual disaster recovery event called DiRT (Disaster Recovery Training) that..." Google 每年也会有演练，模拟故障。和蚂蚁的红蓝攻防一个意思。
 
 ## Chapter 12 - Effective Troubleshooting(20190713)
-1. "However, we believe that troubleshooting is both learnable and teachable." - 有个比喻好形象，传授如何排查线上问题就像如何教别人骑车一样，只可意会不可言传～ 但...
-2. 文中总结了应急效率低的一些原因，感觉是一些理论挺繁琐的，但正是因为理性的分析，才能更加科学的解决一些问题吧。
+"However, we believe that troubleshooting is both learnable and teachable." - 有个比喻好形象，传授如何排查线上问题就像如何教别人骑车一样，只可意会不可言传～ 
+
+2. 文中总结了应急效率低的一些原因，感觉是一些理论挺繁琐的，但正是因为理性的分析支撑，才能更加科学的解决日常问题吧。
 2. "The system is slow → the expected behavior, the actual behavior, and, if possible, how to reproduce the behavior." - 提问的艺术中也提到的「最小重现」。
 3. "Ideally, the reports should have a consistent form and be stored in a searchable location, such as a bug tracking system. Here, our teams often have customized forms or small web apps that ask for information that’s relevant to diagnosing the particular systems they support, which then automatically generate and route a bug." - 所有历史 case 沉淀为知识库（减少重复的工作）。
 4. "Many teams discourage reporting problems directly to a person for several reasons:" - 例如出了问题，不鼓励直接找认识的 sre, 而是找对应本周值班的同学👍
@@ -303,6 +305,7 @@ Postmortem 这个单词很有意思，中文里叫做「验尸」，而在公司
 8. ...
 
 ## Chapter 17 - Testing for Reliability
+
 1. MTTR: Mean Time to Repair。MTTR 为零意味着上生产前，bug 就都被测出来了🤔。
 MTTD: 对应的发现时长： mean time to detect.
 2. smoking test: 冒烟测试，来源原来是电路测试中，如果通电后没有冒烟，表示一切正常可以继续。
@@ -311,7 +314,8 @@ MTTD: 对应的发现时长： mean time to detect.
 4. （...看的头晕，不是很感兴趣，先跳过了）
 
 ## Chapter 18 - Software Engineering in SRE
-1. "Overall, these SRE-developed tools are full-fledged software engineering projects, distinct from one-off solutions and quick hacks" - 自己也亲身经历过一个很大的矛盾点：SRE 的职责是负责整个公司线上的稳定性，但可笑或者无奈的是，往往对于自己开发的小工具或产品，无法保证高可用率。这时突然想起《进化》中的一句话：“运维能力是整体技术架构能力的体现，运维层面爆发的问题或故障一定是整体技术架构中存在问题，割裂两者，单纯地看技术架构或运维都是毫无意义的”。
+"Overall, these SRE-developed tools are full-fledged software engineering projects, distinct from one-off solutions and quick hacks" - 自己也亲身经历过一个很大的矛盾点：SRE 的职责是负责整个公司线上的稳定性，但可笑或者无奈的是，往往对于自己开发的小工具或产品，无法保证高可用率。这时突然想起《进化》中的一句话：“运维能力是整体技术架构能力的体现，运维层面爆发的问题或故障一定是整体技术架构中存在问题，割裂两者，单纯地看技术架构或运维都是毫无意义的”。
+
 2. "the vast scale of Google production has necessitated internal software development" - 和蚂蚁一样，google 大部分面向内部的产品都是自研的，因为外部开源项目的 scalability 等方面无法满足。而 SREs 则是开发这些产品的不二人选。
 3. "Google always strives to staff its SRE teams with a mix of engineers with traditional software development experience and engineers with systems engineering experience." - SRE 需要不同背景的人才，而通过软件工程实践项目，减少 sre 工作量的同时，也是吸引和保留他们的重要手段。
 4. 花了大篇章幅描述了一个关于「容量评估」的 case study, 感兴趣的可以看看。
@@ -322,7 +326,7 @@ MTTD: 对应的发现时长： mean time to detect.
 9. "SREs often develop software to streamline inefficient processes or automate common tasks, these projects mean that the SRE team doesn’t have to scale linearly with the size of the services they support." - 回到 Software Engineering 必要性的问题，因为只有这样才能保证最核心的那个原则：业务的指数扩张与人员的增加不会成线性增长。最终每个 sre 员工，sre 团队，甚至整个公司都会因此收益。
 
 ## Chapter 19 - Load Balancing at the Frontend
-how we balance user traffic between datacenters: 本章主要讲 google 如何在 idc 外部之间做负载均衡。而下一章会阐述如何在 idc 内部做负载均衡。
+how we balance user traffic between datacenters: 本章主要讲 google 如何在 idc 外部之间做负载均衡。p.s. 下一章会阐述如何在 idc 内部做负载均衡。
 
 1. "when you’re dealing with large-scale systems, putting all your eggs in one basket is a recipe for disaster." - 很简单的道理，不能把鸡蛋放到一个篮子里，即不可以存在单点问题（去中心化）。
 2. "The differing needs of the two requests play a role in how we determine the optimal distribution for each request at the **global** level" - 针对一个请求很难有最优的“策略”，因为会存在各种各样的变量。例如两个用户请求，分别是搜索和上传视频，前者追求的是更低的 RTT 以达到最快的响应，而后者则需要尽可能大的带宽。
@@ -400,6 +404,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 
 ## Chapter 24 - Distributed Periodic Scheduling with Cron
 linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，google 的分布式 Cron，分别有什么不同呢 🤔    
+
 蚂蚁的 Scheduler 有个很神奇的特性，最小刻度是秒，i.e. crontab 多了一位
 
 1. linux 自带的 cron 的高可用问题：1) 单点 2）无状态，例如机器重启过程中被漏掉的任务不会重新发起。
@@ -425,14 +430,51 @@ linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，googl
     3. 当针对各种意外，将数据恢复时间不断完善并接近于 0 的时候，可以将策略重心从恢复转向预防，最终目标是 all the data, all the time. "Achieve this goal, and you can sleep on the beach on that well-deserved vacation." - 哈哈
 
 ## Chapter 27 - Reliable Product Launches at Scale
-"Site Reliability’s role in this process is to enable a rapid pace of change without compromising stability of the site. " - SRE 一个重要的职责，保障快速迭代与稳定性的平衡。
+"Site Reliability’s role in this process is to enable a rapid pace of change without compromising stability of the site. " - SRE 一个重要的职责，保障快速迭代与稳定性的平衡。本章主题是介绍 google 的发布协调小组和利用 checklist 来保障更快的迭代和发布新功能。
 
-1. TODO..
+1. "Launch Coordination Engineers (LCEs)" - 针对发布，google 有个专门的虚拟小组叫做发布协调工程师？ who are either hired directly into this role, or are SREs with hands-on experience running Google services. - 我理解这个小组是由 SRE 的一个子集。
+2. "this team specializes in guiding developers toward building reliable and fast products that meet Google’s standards for robustness, scalability, and reliability." - 这个 LCEs 小组的职责：
+    - 检查发布的内容是否符合公司的稳定性准则和最佳实践 
+    - 在参与发布的多个团队之间进行沟通协调
+    - 针对开发者进行培训，利用文档等一系列的资源，使他们熟悉内部的各种服务
+3. "Google has honed its launch process over a period of more than 10 years. Over time we have identified a number of criteria that characterize a good launch process" - google 针对自己的发布已经打磨了超过十年，总结出一个好的发布流程有以下几个重要特性：
+    - Lightweight: 对开发者友好，简单易用
+    - Robust
+    - Thorough: Addresses important details consistently and reproducibly(不知道怎么翻译，对所有重要的细节都能从始至终的闭环解决掉？)
+    - Scalable: 可扩展性
+    - Adaptable: 适用性，对各种各样的发布类型都能做到兼容
+4. "As you can see, some of these requirements are in obvious conflict" - 挺有意思的，针对上面的几个原则，文中提到存在**明显的矛盾**，例如无法同时做到 lightweight and thorough. 为了解决这些问题，又搞出了几个策略：Simplicity / A high touch approach / Fast common paths. 总结一下就是针对通用的部分尽可能的进行抽象复用，例如在一个新的国家上线产品的流程，同时留口子供经验丰富的工程师自己去定制发布流程。
+5. "In a large organization, engineers may not be aware of available infrastructure for common tasks (such as rate limiting)." - 在大公司中因为信息不对称，经常出现重复造轮子的情况，例如限流功能等等。而在 google 几乎所有的团队都是使用的一个的发布流程，**所以可以利用发布 checklist 这个卡点，促使大家遵循使用经过历史考验的标准组件，避免重复造轮子**。    其实这个 checklist 在蚂蚁对应了系分（系统分析），技风（技术风险系分）和发布计划等，思路都是类似的。
+6. "Developing a Launch Checklist" - **checklist 简单却有效**，起草新产品的一份 checklist 都需要包含的内容如下（但如何保证用户认真确认并遵守呢？我们公司的发布平台也有类似的机制，但说实话我都没仔细看过，每次都是直接跳过）：
+    - Architecture and Dependencies - 上下游依赖：例如分析从用户到最终的后端机器的请求流
+    - Integration - 需要集成的内部服务，例如域名 DNS 解析，负载均衡，监控等。
+    - Capacity Planning - 容量评估，会不会有活动？上线后的峰值和增产趋势？
+    - Failure Modes - 例如是否有单点的设计等等
+    - Client Behavior - 客户端侧的检查，例如某个链接对于用户的点击上限等
+    - Processes and Automation - 虽然提倡 DRY, 但自动化不是完美的，例如流程的推动等还是需要人工操作。为了防止**人的单点问题**，需要文档化。这样才能在紧急情况下继续运转。
+    - Development Process - 检查所有的代码和配置都有版本控制
+    - External Dependencies - 第三方依赖梳理
+    - Rollout Planning - 一次复杂的发布通常耗费很长的时间，而 PR 部门有一些变态的需求，例如在某页 ppt 的时候，发布某个新功能😂 针对这些发布中的风险点，需要提前好预案，例如准备 backup slide 来防止意外。
+7. "Google also uses version control for other purposes, such as storing configuration files." - 熟悉的味道 XD
+8. Selected Techniques for Reliable Launches - 保障发布稳定性的一些技术手段：
+    - Gradual and Staged Rollouts: 只要灰度做的越精细，变更带来的风险也会降到最低。比如从一台机器开始，如果发现异常立即回滚。
+    - Feature Flag Frameworks: 针对某些小的特性，可以实现对用户的投放，优雅的从 0% -> 100%
+9. "Evolution of the LCE Checklist" - 随着公司的不断发展，线上环境日益复杂，checklist 也越来越繁重，LCE 也做了一系列努力让发布变得更轻量。其中一个手段就是对**不同发布的风险进行分级**，例如低风险的发布，只要通过简单的 checklist 即可发布，大约占到 30% 左右。
+10. "Problems LCE Didn’t Solve" - 文中提到也有一些**尚未解决的问题**：
+    - Scalability changes: 例如某个产品大卖，流量剧增，在不断开发新特性的同时，原先的架构已经变得非常复杂并难以维护。这时候只能重构了，但对应的迁移成本是巨大的，也会对新功能的迭代造成负面的影响。
+    - Growing operational load: 新功能发布后，后续的维护工作会变得越来越多，甚至包括那些自动化 pipeline 结束后的邮件通知 XD，会占据 sre 日常工作的越来越多时间。
+    - Infrastructure churn: 意思是说基础设施的变更，需要上层应用 owner 花精力去配合修改依赖或配置文件等等。所以要尽可能提供自动化的工具。
+
+## Chapter 28 - Accelerating SREs to On-Call and Beyond
+本章主要讲了如何让一个 SRE 新手 newbie 快速开始进入 on-call 的队伍。曾有人说教游泳的最好办法是直接把那个孩子扔到水里，但文中并不太赞同这个观点，成为一名合格的 sre 需要体系化的学习和实践。
+
+p.s. 之前在火车上读过这章了，忘记做笔记了，就先跳过吧。
+
 
 ## Chapter 29 - Dealing with Interrupts
 最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，甚至对每一个线上变更做人肉审批。虽然风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
 
-1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的🤔，人工的介入是无可避免的。就像开车一样，每半年还是需要做一次保养，
+1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的🤔，人工的介入是无可避免的。就像开车一样，每半年还是需要做一次保养。
 2. "flow time" - 程序员的贤者时间 XD 突然好像有一丝共鸣，比如我自己写代码一般都会挑在深夜，比较容易进入「贤者时间」，保持极高的专注力与效率。
 2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
 3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
@@ -445,10 +487,31 @@ linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，googl
 
 1. "One way to relieve this burden is to temporarily transfer an SRE into the overloaded team." - 抽调一个新的战力，加入到被运维重压下的 sre 团队。但不仅仅只是贡献人力，而是带来新的理念和更好的实践，来把 ticket queue 清空。
 2. "SRE teams sometimes fall into ops mode because they focus on how to quickly address emergencies instead of how to reduce the number of emergencies. " - 很有道理的样子，因为任何表面现象都需要去深挖根因，找到本质的问题。🤔 举个简单的例子，例如很多团队日常答疑很苦恼，表面上看是人手不足，但本质是排班机制或者自动化的能力不足，比如可用通过文档，历史提问，外包等等，一层层的防线，在保证咨询质量的同时，尽可能减少重复问题的处理。
-3. "Releases need to be rollback-safe because our SLO is tight. Meeting that SLO requires that the mean time to recovery is small, so in-depth diagnosis before a rollback is not realistic." - 每个决策或者要求的背后都应该有强有力的逻辑支撑，这样才能让团队的每个人都心服口服的去执行。这样就算你离开这个团队了，你种下的一些理念才会根深蒂固的继续执行。
+3. "Releases need to be rollback-safe because our SLO is tight. Meeting that SLO requires that the mean time to recovery is small, so in-depth diagnosis before a rollback is not realistic." - 每个决策或者要求的背后都应该有强有力的逻辑支撑，才能让团队的每个人都心服口服的去执行。就算有一天你离开这个团队了，你种下的一些理念才会根深蒂固的继续执行。
 
+## Chapter 31 - Communication and Collaboration in SRE
+相对于研发工程师，SRE 的工作比较杂，人员的背景也不同，甚至遍布于全球，所以内外部有效的沟通和协作十分关键。
 
+1. "One way to think of this flow is to think of the interface that an SRE team must present to other teams, such as an API" - 不同 sre 部门之间，研发与 sre 之间，好的协作模式就像设计良好的 API，可以高效的交流协作。这一点最近深有感触，例如最近发现某个应用的风险点，需要研发做代码改造，需要站在研发的位置思考，找对应的 owner 沟通排期，给出 roadmap，并每周监督，生怕放了鸽子。。理论上研发应该提供一个接受技术风险需求的 API, sre 输入各项参数发起请求，即可返回系分，测试，上线的各个时间点。
+2. ...
 
+## Chapter 32 - The Evolving SRE Engagement Model
+Engagement Model?? SRE 这个职位其实有个很大的「困境」：没有故障风平浪静时，好像没有人会想起你，但只要出了一个大故障，又好像全都是你的锅。这章我理解就是阐述 SRE 分别面对新旧业务时，如何参与其中保障线上稳定性，提升存在感，发挥我们应有的价值。
+
+1. "In the first case, just as in software engineering—where the earlier the bug is found, the cheaper it is to fix—the earlier an SRE team consultation happens, the better the service will be and the quicker it will feel the benefit." - 不难理解 bug 越早发现就越容易修复，技术风险也是一样的道理，越早把风险扼杀在摇篮里越好。    让我想起了公司其他 bu 的一些实践：针对一些大的业务项目，SRE 甚至会从 PRD 就开始跟进，后续研发产出系分同时，SRE 产出技风(技术风险系分，有详细的模版，作用类似之前提到的 checklist)，在整个开发生命周期都深度参与。也就是书中说的将风险扼杀在摇篮，本章结尾用了一个词叫做 **"design for reliability"**，还是蛮有启发的。
+2. "Simple PRR Model" - 书中有点过于理论，举个例子，某个产品 A 随着用户规模和盈利的不断增长，对应的研发人员已经对日常的告警处理和稳定性工作应付不过来了，需要 SRE 的协助。但这时候需要通过这个所谓的 PRR(Production Readiness Review) Model，完成以下六个步骤后才可以顺利接手（将生产环节的运维职责转移至 sre）。这个模型第一次听说，感觉有时候 sre 确实需要“**强势**”一些。
+    1. Engagement 决定团队，启动制定对应的 SLO/SLA 等等
+    2. Analysis 根据历史最佳实践，分析潜在风险
+    3. Improvements and Refactoring 协作重构提升稳定性解除
+    4. Training -> **Onboarding** -> Continuous Improvement
+3. "Early Engagement" - 上面模型的进化，顾名思义，在**开发的生命周期的初期就开始让 sre 融入其中**。最终的目标都是一致的，可以更好的接管线上。好处见第一条就不重复了，但需要识别有价值的重要项目的眼光。
+4. "Toward a Structural Solution: Frameworks" - 随着业务的发展，如果持续使用上一条的模式，SRE 永远都是不够用的，需要不断的向以下几个原则靠齐：
+    - Codified best practices: 将最佳实践代码化，实现不断的沉淀和复用
+    - A common production platform with a common control surface: 拒绝非标，幸福你我他
+    - Easier automation and smarter systems: 自动化智能化，例如故障发生时，快速将所有相关的监控数据，报错日志，近期变更等等都自动汇集到一个页面，这不就是我们去年想做的智能应急工作台 😂
+5. "The original SRE engagement model presented only two options: either full SRE support, or approximately no SRE engagement." - 如果你想得到 sre 的线上支援，就必须 follow sre 设计的框架和一系列标准。这样让研发只需要专注于业务逻辑的开发，减少 SRE 工作量的同时，保障了线上稳定性。
+6. Simple PRR Model / Early Engagement / Frameworks for production services：三种模式不断演进进化而来，也是同时共存的关系。但最后一种 Frameworks 的模式，将**最佳实践代码化标准化**，才能最大化发挥 SRE 自身的价值，提高线上环境的质量。
+ 
 # 疑惑:
 1. 四个9和五个9用户真的感知不到吗? 目标是极限的追求100%的reliability吗? 如何消除那些负面影响.
 2. 如何衡量大家时间都花在哪了, 如何做到 toil 的限制
