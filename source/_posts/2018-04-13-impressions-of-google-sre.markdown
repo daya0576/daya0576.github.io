@@ -6,9 +6,12 @@ comments: true
 tags: [读后感]
 ---
 
-下一份工作要开始做SRE了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。
+下一份工作要开始做 SRE 了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。
 
-一不小心读了整整一年多了。。。希望可以今年读完吧：
+陆陆续续一不小心读了快两年多了。。曾经在时间简史看到一句话印象深刻：人生的意义不在于某个时间点的状态，而是随着时间流逝而留下的痕迹。希望这篇笔记也能成为我在这个世界留下的一丝丝痕迹。
+
+p.s. 欢迎交流或推荐好的书～ 
+
 ![book](/images/blog/190727_cloudflare_outage/book.jpg)
 <!--more-->
 
@@ -20,7 +23,7 @@ tags: [读后感]
     - **2) 但最大的坏处:**
         - **Direct costs:** 发布和变更需要人工干预 → 系统的规模和需要的人手成线性关系(例如总不能项目多部署一套奔驰环境, 就增加一个人手).
         - **Indirect costs:** (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务100%的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.
-2. **google对于sre的目标:** 以软件开发的方式打造一个系统, 将运维的工作变得全自动(automatic). (Site Reliability Engineering teams focus on hiring software engineers to run our products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.), 终极目标就是: 减少第一条中的Direct costs(人为干预), 使得系统规模与运维人员的人数不成线性增长.
+2. **google对于sre的目标:** 以软件开发的方式打造一个系统, 将运维的工作变得全自动(automatic). (Site Reliability Engineering teams focus on hiring software engineers to run our products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.), 终极目标就是: 减少第一条中的Direct costs(人为干预), 使得**系统规模与运维人员的人数不成线性增长**.
 3. 有一句话挺有意思的, 说的是要去**评估SRE的消耗的时间分布**, 才能保证开发人员在ops和development上花费时间的平衡. 因为sre与传统运维最大的不同就是加入了开发, 而不是一味的做operation. 但相对的develop 的时间不能超过50%, 以防止承担了过多原本属于development team的事情, 或一直投入运维人员, 而忘了利用原有的员工去做operation的工作.但打动我的是 "measure how SRE time is spent", 感觉对人对团队对整个sre的measurement, 是所有事情能顺畅实现的基础.
 4. **DevOps?** (这个词近几年很火吧, 但惭愧的是一直没搞懂到底是什么. 书中说可以把sre当作一种devops的具体实现, 并包含一些独特的扩展?) - "One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions."
 5. Service’s SLO?: (**第四章**会详细解释一些含义)
@@ -398,7 +401,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 5. "Paxos Overview" - 大名鼎鼎的 Paxos 协议，浅显的理解一下。。第一阶段 proposer 发起投票（每一轮都严格对应一个 sequence number），如果大部分 acceptor 都同意这个决策，则进入第二阶段尝试让它们提交执行（并保存对应的状态）。但 proposer 是怎么选出来的呢？
 6. （...略...）
 7.  "It should be noted that adding a replica in a majority quorum system can potentially decrease system availability" - 经常听到的一个词叫做三地五副本，文中也提到推荐推荐五副本的模式（**增加一个副本也就是六副本可能反而会影响系统的可用性**）。如果五副本中两个副本挂了，系统还可以正常工作（剩余的三副本形成多数派），也就是容忍 40% unavailable. 而在六副本的情况下，需要四个副本正常工作才能维持系统正常运行，也就是只能容忍 33% 的 unavailable.
-8. "Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica." - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要一边能正常响应即可达成一致性。![](/images/blog/180403_google_sre/15778678971943.jpg)
+8. "Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica." - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要左右三节点，任意一边能正常响应即可达成一致性。![](/images/blog/180403_google_sre/15778678971943.jpg)
 9. "We deliberately avoided an in-depth discussion about specific algorithms, protocols, or implementations in this chapter." - 汗。。分布式真的是太复杂了，这章只看懂了 10%。结尾这段话，感觉自己被鄙视了："If you remember nothing else from this chapter, keep in mind the sorts of problems that distributed consensus can be used to solve, and the types of problems that can arise when ad hoc methods such as heartbeats are used instead of distributed consensus."
 
 
@@ -510,20 +513,30 @@ Engagement Model?? SRE 这个职位其实有个很大的「困境」：没有故
     - A common production platform with a common control surface: 拒绝非标，幸福你我他
     - Easier automation and smarter systems: 自动化智能化，例如故障发生时，快速将所有相关的监控数据，报错日志，近期变更等等都自动汇集到一个页面，这不就是我们去年想做的智能应急工作台 😂
 5. "The original SRE engagement model presented only two options: either full SRE support, or approximately no SRE engagement." - 如果你想得到 sre 的线上支援，就必须 follow sre 设计的框架和一系列标准。这样让研发只需要专注于业务逻辑的开发，减少 SRE 工作量的同时，保障了线上稳定性。
-6. Simple PRR Model / Early Engagement / Frameworks for production services：三种模式不断演进进化而来，也是同时共存的关系。但最后一种 Frameworks 的模式，将**最佳实践代码化标准化**，才能最大化发挥 SRE 自身的价值，提高线上环境的质量。
+6. Simple PRR Model / Early Engagement / Frameworks for production services：三种模式不断演进进化而来，也是同时共存的关系。但最后一种 Frameworks 的模式，就是将**最佳实践代码化标准化**，才能最大化发挥 SRE 自身的价值，不断提高线上环境的质量。
  
-# 疑惑:
-1. 四个9和五个9用户真的感知不到吗? 目标是极限的追求100%的reliability吗? 如何消除那些负面影响.
-2. 如何衡量大家时间都花在哪了, 如何做到 toil 的限制
-3. ..
+# Part V. Conclusions
+进入最后两章，将 SRE 与其他重视稳定性的行业相比较，个人感觉确实会存在大量的相似之处。
 
+## Chapter 33 - Lessons Learned from Other Industries
+其他行业例如民航公司，是如何保障稳定性的呢？毕竟如果网页宕机了只是影响用户体验造成舆论危机，但假设波音 737 出了问题，那可是几百条人命。本章总结了一些最佳和最差实践。
 
----
+1. 员工的背景都挺有趣的，有国防部任职的，救生员，激光手术（视网膜）软件设计，核电行业的安全顾问，核潜艇工程师等等，这些行业对可靠性都有着极高的要求。
+2. 从下面四个关键点看可靠性：
+    1. "Preparedness and Disaster Testing" - 又引用了这句话，Hope is not a strategy. 就像同事经常说的，做稳定性就看我们想的多不多，准备了多少对故障进行预防，并不断的通过演练去验证。
+        - "Relentless Organizational Focus on Safety" - 从组织层面对线上安全进行重视，引用 CTO 鲁肃大大的最近的一句话：无论走到哪里，对技术团队来说，最重要的永远是稳定性，技术团队有很多坚持的原则，但是**稳定压倒一切是第一原则**。
+        - "Attention to Detail" - 例如在核电潜艇行业，对添加润滑剂这个微小细节的忽视，都会造成非常严重的后果。
+        - "Swing Capacity" - 在通信行业，流量是很难预估的，所以要做到动态可伸缩。
+        - "Simulations and Live Drills" - 各个行业都需要线上的演练来保证人员的熟练度，就像蚂蚁的红蓝攻防，甚至提到游泳馆的救生员，也会有人**故意落水来对他进行考核和训练**，类似于餐饮业的神秘顾客 ：）
+        - "Defense in Depth and Breadth" - 纵深防御，文中提到核电站的多层防御和隔离，不难理解对核故障是零容忍的，类似公司经常提到的四道防线。
+    2. "Postmortem Culture" - 任何行业在真正的灾难发生前，都会有类似的小事故多次上演，我们需要抓住这些机会不断的进行学习和优化。文中救生员半开玩笑举的例子挺形象的：只要我们有一只脚踩入了水中，就会有大量的报告需要填写 😂 这样当真正重大的事故发生时，还是能遵守**对事不对人**的原则，甚至会让对应的救生员接受心理辅导，你已经尽力了。
+    3. "Automating Away Repetitive Work and Operational Overhead" - Never repeat yourself, 不管是不是 sre 应该对所有重复性的劳动都进行抵制，不难理解只要是人总会犯错。
+    4. "Structured and Rational Decision Making"
+        - data is critical, 让数据说话做决策。
+        - if it works now, don't change it. - 其他行业的一个不同，最近我也在思考的一个问题，如果这个一段代码跑的好好的，为什么要去动它呢？但这样肯定是不对的，暴露了投入产出比无法量化的问题。
+        - 文中提到的交易行业例子挺有趣的，当系统出现异常时，独立的风险控制部门会直接把整个系统关闭，不进行交易至少就不会亏钱。。 想到之前章节提到的 error budget，是不是当用完的时候就封网禁止线上一切变更 😂 没变更就不会有故障。
+3. 总结：SRE 与不同行业的稳定性相比，确实在核心原则上基本大同小异，但有个很大不同的是 velocity，因为相对于核电站，人员安全排在第一，对故障零容忍，系统设计好就尽量不去变更；但现代互联网公司讲究的是**以快制胜**，快速变更创新的同时利用 error budget 保障线上稳定性。
 
-人生的意义不在于某个时间点的状态，而是随着时间流逝而留下的痕迹。
-
-
-欢迎交流或推荐好的书～ 
 
 
 
