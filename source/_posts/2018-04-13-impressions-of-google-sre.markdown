@@ -37,11 +37,11 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
 3. 因为不同的(几千个)任务动态的分布在不同的机器上, 所以不能单纯的用ip和端口去启动任务, 文中给出的一个解决方案: `/bns/<cluster>/<user>/<job name>/<task number>`, 然而并不是特明白.
 4. **对于任务的分布**(例如一个任务需要3个cpu, 2g内存), 有趣的是文中说到要尽可能优化的放置(二次装箱问题). !!!但又不能把鸡蛋都放在一个篮子(同个Rack或Pod)里(很有可能一个路由坏了, 那就全gg了).
 5. Remote Procedure Call (RPC), 了解一下?
-6. **Life of a Request**: 在 17 年后台研发工程师的一年, 我一直在思考一个问题: 一个 request 的 lifecycle, 于是去读了web框架(Django)的源码, 自己去实现一个uwsgi, 看http, tcp协议... 看到书中的request lifecycle, 感觉今年的目标是更多的了解大型项目的request lifecycle, 例如高并发的负载均衡问题, 等等. (This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.) 原来在dns server这就可以根据地区和负载情况, 分配对应的服务器ip, 但是为什么走到GFE反向代理找frontend server的时候, 又要去根据GSLB进行一次负载均衡的处理呢? <img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/1-lbs.png">
+6. **Life of a Request**: 在 17 年后台研发工程师的一年, 我一直在思考一个问题: 一个 request 的 lifecycle, 于是去读了web框架(Django)的源码, 自己去实现一个uwsgi, 看http, tcp协议... 看到书中的request lifecycle, 感觉今年的目标是更多的了解大型项目的request lifecycle, 例如高并发的负载均衡问题, 等等.(This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.) 原来在dns server这就可以根据地区和负载情况, 分配对应的服务器ip, 但是为什么走到GFE反向代理找frontend server的时候, 又要去根据GSLB进行一次负载均衡的处理呢?<img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/1-lbs.png">
 7. QPS: queries per second
 8. **N+2原则**: 如果说预期3,470 QPS, 而一个backend server最多能处理100QPS, 则至少需要35个server. 但是一般采用N+2的策略(37个server), 因为:
     - 1) 如果在升级中, 会有一个server不可用
-    - 2) 如果一个机器挂了, 会重新放置task到别的server. 但是有时候也可以用`N+1`的原则. 因为如果需要的server很少, 比如只需要3个server的情况, 就可以利用牺牲高延迟的风险, 去节省20%的硬件资源(`+1`相对于`+2`节省了一台虚拟机).
+    - 2) 如果一个机器挂了, 会重新放置task到别的server.但是有时候也可以用`N+1`的原则. 因为如果需要的server很少, 比如只需要3个server的情况, 就可以利用牺牲高延迟的风险, 去节省20%的硬件资源(`+1`相对于`+2`节省了一台虚拟机).
 
 
 # Part II. Principles
@@ -50,13 +50,12 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
     1. 因为cost和reliability并不是线性关系, 99%→100%会带来极大的开销, 并对服务更新升级的速度造成负面影响.
     2. 像第一章里提到的那样, 用户其实很难感知到99.99%和99.999%的区别.
     3.  rapid innovation and efficient service operations的平衡, 即保持服务的高可用 VS 用最快的速度把新功能新特性传递给用户.
-2. **如何评估服务的高可用:**
-"Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of 'nines' we would like to provide: 99.9%, 99.99%, or 99.999% availability." 想起面试的时候, 问了面试官个很幼稚的问题：如何去评估一个系统的高可用能力, 他笑了笑, 说到了四个9和五个9，参考文章附录的[《Availability Table》](https://landing.google.com/sre/sre-book/chapters/availability-table/)
+2. **如何评估服务的高可用:** "Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of 'nines' we would like to provide: 99.9%, 99.99%, or 99.999% availability." 想起面试的时候, 问了面试官个很幼稚的问题：如何去评估一个系统的高可用能力, 他笑了笑, 说到了四个9和五个9，参考文章附录的[《Availability Table》](https://landing.google.com/sre/sre-book/chapters/availability-table/)
     1. **Time-based availability: availability** = uptime / (uptime + downtime), 所以99.99%就意味着服务down的时间不能超过52.56分钟.**但是!** 文中提到google的server是分布在全球的, 就很难用这种方式去测量availability, 所以引出了一个新的概念: request success rate.
     2. **Aggregate availability:** availability = successful requests / total requests.**但是!!** 不同的request失败对用户的影响其实是不同的, 例如支付失败和获取好友信息request失败.
 3. **(个人认为)measurement的重要性:** 因为measurement是提升的基础, 没有量化, 如何比较提升还是破坏呢. 最简单的例子: 我们在优化一段代码速度的时候, 一定要先做profile, 再针对某几行代码做优化, 最后比较总的运行时间, 看运行速度提升了多少. 比如文中提到的: "By setting a target, we can **assess our current performance and track improvements or degradations** over time."
 4. **"Hope is not a strategy."** → The more data-based the decision can be, the better.
-5. **文中提到对error budget的使用**(定义: 如果可用性定的目标是99.99%, error budget就是0.01%, 然后如果这个季度测量结果为99.992%, 那么error budget就可以认为使用了20%). 所以可以用error budget很好的制约SRE团队与product development团队. 例如, 提前订好了reliability的目标, 如果在开发中, error budget消耗(使用)的太快了, 就放缓迭代发布的速率, 并增强测试.
+5. **文中提到对error budget的使用**(定义: 如果可用性定的目标是99.99%, error budget就是0.01%, 然后如果这个季度测量结果为99.992%, 那么error budget就可以认为使用了20%).所以可以用error budget很好的制约SRE团队与product development团队. 例如, 提前订好了reliability的目标, 如果在开发中, error budget消耗(使用)的太快了, 就放缓迭代发布的速率, 并增强测试.
 
 
 
@@ -88,7 +87,7 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
 3. "The work of reducing toil and scaling up services is the "Engineering" in Site Reliability Engineering." 有意思, 而且上文提到toil如果不及时处理, 就会很快的占据所有人100%的时间.
 4. **Calculating Toil:** 挺无脑暴力的一个计算, 如果说一个团队有6个人, 在一个周期(**六周**)中, 每个人on-call的时间总共是两周(一周primary on-call+一周secondary on-call), 那么他toil的占比至少为33%(1/6+1/6)
 5. 理论上每个SRE在toil上花费的时间不应该超过50%.
-6. **Is Toil Always Bad?** toil 并不是永远是不好的, 重复无脑的工作其实能让人变得无比平静(calming)?? 并且完成少量的toil还有一丝丝成就感呢. 但多了就要gg了, 因为:
+6. **Is Toil Always Bad?** toil 并不是永远是不好的, 重复无脑的工作其实能让人变得无比平静(calming)?? 并且完成少量的toil还有一丝丝成就感呢.但多了就要gg了, 因为:
     - 过多的toil会抑制你在实际项目中做贡献, 并令你职业生涯停滞不前.
     - 每个人都会有忍耐的上限, 无限的toil只会让人精疲力尽并感到厌烦.
 7. **结论:** 只要每个人都能消灭一点toil, 最终就能把精力都放在开发下一代更大规模的架构! 我们的口号是: "Let's invent more, and toil less!!!"
@@ -150,14 +149,14 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
 ## Chapter 8 - Release Engineering
 1. 在Google有个专门的职位叫做release engineer, 要对很多东西都有深刻的理解, 甚至还包括customer support.
 2. 文中说google是数据驱动的, 所以有专门的tool(平台)记录每次发布的时间, 各个配置文件都是对应哪个feature. 这些平台都是由release engineer搞出来的.
-3. release engineering的四个准则:
+3. release engineering 的四个准则:
     - Self-Service Model:   就是说release engineer要提供足够多的automated build system and our deployment tools, 使得发布变成一件全自动的事情. 只有出意外时, 才需要人为的介入.
     - High Velocity:   一些暴露给用户的服务, 比如说Google搜索, 需要快速的迭代和发布, 这样每个版本之间的差别也越小. 最终使得 testing and troubleshooting easier(为什么呢?).   甚至还会有一种 "Push on Green"的模式, 只要有改动并且通过了所有测试, 就直接部署了.
     - Hermetic Builds:
         - 一致性: 如果有两个人, 在两台发布一个版本的代码, 结果应该是完全相同的.
         - 密封的(hermetic): 就像docker的容器一样, 完全不依赖外部的库.
         - 回滚: 通过重新发布(老的版本号)来便捷的实现. 而且连发布工具的版本也是之前发布时的旧版本.
-    - Enforcement of Policies and Procedures: 发布的时候, 所有的代码改动都需要code review的流程, 并且集成到开发流程之中. 自动发布的平台会把代码变更输出一份报告, 让SREs更好的理解改动, 并在出问题的时候迅速定位. (其实这一小节并没有太看懂, 根据标题个人理解大意是说在发布时, 要严格执行一些规范流程.)
+    - Enforcement of Policies and Procedures:发布的时候, 所有的代码改动都需要code review的流程, 并且集成到开发流程之中. 自动发布的平台会把代码变更输出一份报告, 让SREs更好的理解改动, 并在出问题的时候迅速定位. (其实这一小节并没有太看懂, 根据标题个人理解大意是说在发布时, 要严格执行一些规范流程.)
 4. **cherry picking:** ...
 5. Rapid: Google的自动发布系统, 然后有一门语言叫做**blueprints**, 专门用来给Rapid写配置.
 6. Configuration Management: 配置管理应该是开发和sre合作最紧密的一块区域.. 而且**配置更改是instability的潜在根源**. 所以在google配置管理不断的进化, 发生了很大的变化:
@@ -169,7 +168,6 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
     - 开发和SRE不应该为发布头疼. 只要有正确的工具, 合适的自动化, 规范的policy, etc. 发布只不过是按个按钮的事.
     - 提早重视Release Engineering, 反而会降低成本.
     - developers, SREs, and release engineers的合作非常重要, 而且release engineer也要去深入了解代码是如何编译和部署的.
-
 
 ## Chapter 9 - Simplicity
 1. `The price of reliability is the pursuit of the utmost simplicity.`: 有种代码越短, bug越少的意味...
@@ -202,7 +200,7 @@ In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we ex
 `{var=http_requests,job=webserver,service=web,zone=us-west}[10m] 0 1 2 3 4 5 6 7 8 9 10`
 还可以做aggregate:
 `{var=task:http_requests:**rate10m**,job=webserver,instance=host1:80, ...} 0.9`
-5. 监控系统Bornmon, 报警触发规则(配置), 慢慢形成了一门语言..
+5. 监控系统Bornmon, 报警触发规则(配置), 慢慢形成了一门语言.. MaaS, Monitor as code 0.0
 6. 报警触发规则(语言)模版化的好处(提供很多现成的通用format的模版): 在一个新应用上线的时候, 会自带一些相联的基础配置, 添加新监控变得很简单. **最终使得维护难度不随系统规模线性增长.**(之前也多次提到, 感觉是一个做SRE非常重要的原则, 感触颇深)
 7. 报警触发规则是语言, 就容易出现bug, 所以甚至提供了单元测试.
 8. 对于报警的处理（过去做了一段时间告警降噪，主要 focus 在对流量的算法分析，但其实如下合理的告警策略或事件告警聚合，也是另一维度，很有效的告警降噪）:
@@ -218,24 +216,24 @@ On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责
 3. 计算 oncall 数量和质量的两个公式："The quantity of on-call can be calculated by the percent of time spent by engineers on on-call duties. The quality of on-call can be calculated by the number of incidents that occur during an on-call shift."   每个主管都有义务去根据这两个指标，量化并平衡 oncall 的工作。
 4. "multi-site team", 好处是不用上夜班了，并且保证每个人都对生产环境保持熟悉感。但于**沟通和协作**会存在一定的困难（有业务团队在美国，确实会有这个问题，上班时间完美的错过了）。
 6. "Adequate compensation needs to be considered for out-of-hours support." - 会对应急的同学提供适当的补偿是非常有必要的，例如 Google 会提供调休和金钱上的奖励。
-7. 应急需理性.. 因为直觉往往都是错的😂，所以要尽量减少应急人员的压力。文中提到了"Well-defined incident-management procedures"，蚂蚁有个专门的部门叫做 GOC(Global Operation Center)，在应急的时候统一指挥，在这点做的还是挺不错的。但我认为更重要并有一定争议的一个原则叫做: "A blameless postmortem culture" / "focusing on events rather than the people".
+7. 应急需理性.. 因为**直觉往往都是错的**😂，所以要尽量减少应急人员的压力。文中提到了"Well-defined incident-management procedures"，蚂蚁有个专门的部门叫做 GOC(Global Operation Center)，在应急的时候统一指挥，在这点做的还是挺不错的。但我认为更重要并有一定争议的一个原则叫做: "A blameless postmortem culture" / "focusing on events rather than the people".
 8. "Finally, when an incident occurs, it’s important to evaluate what went wrong, recognize what went well, and take action to prevent the same errors from recurring in the future." - 复盘很重要！
 9. "Recognizing automation opportunities is one of the best ways to prevent human errors" - 人类总是会犯错的，所以无论什么事，都可以提倡自动化。
 10. "Operational Overload" - 之前提到每个人的手动运维的工作不能超过 50%，但如果就是没控制过超过了呢？文中提到比如临时抽调一个有经验的 SRE 加入，但最理想的情况下，overload 的情况应该像业务系统一样可以被监控和第一时间发现。但是 overload 的原因是什么呢？一个主要的原因就是 "Misconfigured monitoring"![](/images/blog/180403_google_sre/15625820798875.jpg)
-11. "Operational Underload" - 总是说做了过多的 toil, 但如果生产环节如果太"安静"了（故障发生的频率并不是很高），导致应急人员手生了要怎么办呢？   "Google also has a company-wide annual disaster recovery event called DiRT (Disaster Recovery Training) that..." Google 每年也会有演练，模拟故障。和蚂蚁的红蓝攻防一个意思。
+11. "Operational Underload" - 总是说做了过多的 toil, 但如果生产环节如果太"**安静**"了（故障发生的频率并不是很高），导致应急人员手生了要怎么办呢？   "Google also has a company-wide annual disaster recovery event called DiRT (Disaster Recovery Training) that..." Google 每年也会有演练，模拟故障。和蚂蚁的红蓝攻防一个意思。
 
 ## Chapter 12 - Effective Troubleshooting(20190713)
 "However, we believe that troubleshooting is both learnable and teachable." - 有个比喻好形象，传授如何排查线上问题就像如何教别人骑车一样，只可意会不可言传～ 
 
-1. 文中总结了应急效率低的一些原因，感觉是一些理论挺繁琐的，但正是因为理性的分析支撑，才能更加科学的解决日常问题吧。
+1. 文中总结了应急效率低的一些原因，感觉是一些挺繁琐的理论，但正是因为理性的分析支撑，才能更加科学的解决日常问题吧。
 2. "The system is slow → the expected behavior, the actual behavior, and, if possible, how to reproduce the behavior." - 提问的艺术中也提到的「最小重现」。
 3. "Ideally, the reports should have a consistent form and be stored in a searchable location, such as a bug tracking system. Here, our teams often have customized forms or small web apps that ask for information that’s relevant to diagnosing the particular systems they support, which then automatically generate and route a bug." - 所有历史 case 沉淀为知识库（减少重复的工作）。
 4. "Many teams discourage reporting problems directly to a person for several reasons:" - 例如出了问题，不鼓励直接找认识的 sre, 而是找对应本周值班的同学👍
-5. "Novice pilots are taught that their first responsibility in an emergency is to fly the airplane" - 经常听人提到的，应急中业务恢复是放在第一位的，而不是查找根因。
+5. "Novice pilots are taught that their first responsibility in an emergency is to fly the airplane" - 经常听人提到的，应急中业务恢复止血永远是放在第一位的，而不是查找根因。
 6. "Ask "what," "where," and "why"" - 排查的时候，想清楚这几个问题，下次我也试试。
 7. "What touched it last" - 系统运行的好好的，为啥会出问题，肯定是引入了某些变更。现实中，绝大部分的故障是由于变更导致的。
 8. "Case Study" - 举了一个真实的故障 case, 描述的还挺引人入胜的，感兴趣的可以看一下。
-9. "Application’s latency, showing 50th, 95th, and 99th percentiles" - 耗时的监控，99th percentiles 代表，假如整体样本如果有100个，排在第99的那个数值。还是挺有启发的，因为平均值很多时候会误导人。![](/images/blog/180403_google_sre/15630074932574.jpg)
+9. "Application’s latency, showing 50th, 95th, and 99th percentiles" - 耗时的监控，**99th percentiles** 代表，假如整体样本如果有100个，排在第99的那个数值。还是挺有启发的，因为平均值很多时候会误导人。![](/images/blog/180403_google_sre/15630074932574.jpg)
 
 
 ## Chapter 13 - Emergency Response(20190718)
@@ -248,7 +246,7 @@ On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责
 公司有一个专门的组织叫做 GOC(Global Operation Center), 专门负责应急的调度和故障生命周期管理，不知道 Google 是怎么做的 🤔
 
 1. 举了一个故障应急的反例，然后列出了不足与应该遵守的一些原则：
-    - Recursive Separation of Responsibilities: 应及时分工分层需明确，又可以细分为一下几个角色：
+    - Recursive Separation of Responsibilities: 应及时**分工分层需明确**，又可以细分为一下几个角色：
         - Incident Commander: 让我想到了公司的「值班长」
         - Operational Work
         - Communication: 这个角色有点像公司的 GOC
@@ -256,7 +254,7 @@ On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责
     - A Recognized Command Post: google 发现在处理故障的过程中，及时通讯软件很有用？？不太理解。
     - Live Incident State Document: 多人事实统一编辑故障的最新进展
     - Clear, Live Handoff: 我理解更多是故障处理的交接吧。。但在国内的公司估计很难有这种情况。。
-2. "In many situations, locating the incident task force members into a central designated 'War Room' is appropriate.": "War Room".. 哈哈，不就是我们的闭关室嘛
+2. "In many situations, locating the incident task force members into a central designated 'War Room' is appropriate.": **"War Room"**.. 哈哈... 不就是我们的闭关室嘛 😂😂😂
 3. 针对文章开头的反例，又根据上面的几个原则，重新改造成了一个正确的例子。这个文章结构还是挺新奇的。但好多理论的东西，感觉有点虚。 
 
 
@@ -294,15 +292,15 @@ Postmortem 这个单词很有意思，中文里叫做「验尸」，而在公司
 1. 复盘的局限性：对于很多小范围不严重的问题，无法覆盖。
 2. 有很多有价值的信息：例如每次 oncall 期间一共收到了多少告警？其中多少是噪音(nonactionable)？哪个服务创造的最多的 toil? 过去一年在公司搞的平台貌似也涉及到这部分 0.0
 3. 有个系统叫做 Escalator, 如果有些告警长时间没人阅读或处理，将会被降级，例如告警等级从 primary 变为 secondary(**很不错的想法**). 
-4. "it is worthwhile to attempt to minimize the number of alerts triggered by a single event," - 告警的横向聚合，也是一种关键的降噪方式。
-6. "Historical data is useful" - 文中更多的指的是数据的统计，例如每个月的故障数，各个故障的告警数，或是哪个服务或基础设施贡献了最多的故障，需要持续关注和改进。我们之前也有类似的想法，把所有故障和事件沉淀为知识库，抽象出一些特征值出来，例如监控（告警），订阅人，等等。相当于一个故障“切片”，当一个新的故障来的时候就可以快速匹配并给出最可疑的根因。
+4. "it is worthwhile to attempt to minimize the number of alerts triggered by a single event," - 告警横向聚合为事件，也是一种关键的降噪方式。
+6. "Historical data is useful" - 文中更多的指的是数据的统计，例如每个月的故障数，各个故障的告警数，或是哪个服务或基础设施贡献了最多的故障，需要持续关注和改进。我们之前也有类似的想法，把所有故障和事件沉淀为知识库，抽象出一些特征值出来，例如监控（告警），订阅人，等等。相当于一个**「故障切片」**，当一个新的故障来的时候就可以快速匹配并给出最可疑的根因。
 7. "the Outalator also supports a "report mode," in which the important annotations are expanded inline with the main list in order to provide a quick overview of lowlights." - 这个和业务同学也聊过。。。尝试将对应告警聚合和事件关联起来，使用 tag 管理，最终调用在线文档 api, 自动生成对应业务的**每周高可用报告**。
 8. ...
 
 ## Chapter 17 - Testing for Reliability
 
 1. MTTR: Mean Time to Repair。MTTR 为零意味着上生产前，bug 就都被测出来了🤔。
-MTTD: 对应的发现时长： mean time to detect.
+2. MTTD: 对应的发现时长： mean time to detect.
 2. smoking test: 冒烟测试，来源原来是电路测试中，如果通电后没有冒烟，表示一切正常可以继续。
 3. Stress test: 大促压测
 3. Canary test: 灰度环境测试，原来来源把一只金丝雀🐦放到煤矿中做测试，防止人直接吸入有毒气体。但值得注意的是灰度环境并不完美，无法检测出所有的潜在风险。
@@ -469,8 +467,8 @@ p.s. 之前在火车上读过这章了，忘记做笔记了，就先跳过吧。
 ## Chapter 29 - Dealing with Interrupts
 最近小明的公司故障频发，而遏制故障最佳的手段就是严控变更，甚至对每一个线上变更做人肉审批。虽然风险确实被控制住了，但 trade off 在于 sre 值班人员会被无穷无尽的“骚扰”。这一章讲的是 sre 如何处理 interrupts，还是挺期待的。
 
-1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的🤔，人工的介入是无可避免的。就像开车一样，每半年还是需要做一次保养。
-2. "flow time" - 程序员的贤者时间 XD 突然好像有一丝共鸣，比如我自己写代码一般都会挑在深夜，比较容易进入「贤者时间」，保持极高的专注力与效率。
+1. "Any complex system is as imperfect as its creators. In managing the operational load created by these systems, remember that its creators are also imperfect machines." - 人无完人，所以由人设计出的系统也永远不会是完美的🤔，人工的介入是无可避免的。就像开车一样，每隔一段时间需要做一次保养。
+2. "flow time" - **程序员的贤者时间** XD 突然好像有一丝共鸣，比如我自己写代码一般都会挑在深夜，比较容易进入「贤者时间」，保持极高的专注力与效率。
 2. "In order to limit your distractibility, you should try to minimize context switches." - 描述的好形象，为了使程序员减少上下文切换（被打断去处理别的事情），要让 working period 尽可能的长。理想是一个星期，但一般实践是一天或半天。换句话说，就是在某个时间段，只专注于计划好的事情，例如安排下周负责 on-call, 那他只需要把这一件事情做好，不再关注别的项目："A person should never be expected to be on-call and also make progress on projects (or anything else with a high context switching cost)."
 3. "handover process" - 不管是告警处理，日常的单子等等，都需要有完善的转派机制。
 4. "At some point, if you can’t get the attention you need to fix the root cause of the problems causing interrupts" - 有时候需要找到根因并彻底解决掉 interrupts 的源头。例如变更就是应该由系统保障的强制三板斧，去掉人工审批的环节，达到无人值守的目标。
@@ -478,7 +476,7 @@ p.s. 之前在火车上读过这章了，忘记做笔记了，就先跳过吧。
 
 
 ## Chapter 30 - Embedding an SRE to Recover from Operational Overload
-之前文中提到一个词叫做 toil, 而 sre 很容易陷入不停做 toil 的自我麻痹中，看看这章是如何通过加入一个新的 sre 帮助团队从繁重的运维工作中解放出来的。
+之前文中提到一个词叫做 toil, 而 sre 很容易陷入不停做 toil 的自我麻痹的快感中，看看这章是如何通过加入一个新的 sre 帮助团队从繁重的运维工作中解放出来的。
 
 1. "One way to relieve this burden is to temporarily transfer an SRE into the overloaded team." - 抽调一个新的战力，加入到被运维重压下的 sre 团队。但不仅仅只是贡献人力，而是带来新的理念和更好的实践，来把 ticket queue 清空。
 2. "SRE teams sometimes fall into ops mode because they focus on how to quickly address emergencies instead of how to reduce the number of emergencies. " - 很有道理的样子，因为任何表面现象都需要去深挖根因，找到本质的问题。🤔 举个简单的例子，例如很多团队日常答疑很苦恼，表面上看是人手不足，但本质是排班机制或者自动化的能力不足，比如可用通过文档，历史提问，外包等等，一层层的防线，在保证咨询质量的同时，尽可能减少重复问题的处理。
@@ -487,7 +485,7 @@ p.s. 之前在火车上读过这章了，忘记做笔记了，就先跳过吧。
 ## Chapter 31 - Communication and Collaboration in SRE
 相对于研发工程师，SRE 的工作比较杂，人员的背景也不同，甚至遍布于全球，所以内外部有效的沟通和协作十分关键。
 
-1. "One way to think of this flow is to think of the interface that an SRE team must present to other teams, such as an API" - 不同 sre 部门之间，研发与 sre 之间，好的协作模式就像设计良好的 API，可以高效的交流协作。这一点最近深有感触，例如最近发现某个应用的风险点，需要研发做代码改造，需要站在研发的位置思考，找对应的 owner 沟通排期，给出 roadmap，并每周监督，生怕放了鸽子。。理论上研发应该提供一个接受技术风险需求的 API, sre 输入各项参数发起请求，即可返回系分，测试，上线的各个时间点。
+1. "One way to think of this flow is to think of the interface that an SRE team must present to other teams, such as an API" - 不同 sre 部门之间，研发与 sre 之间，**好的协作模式就像设计良好的 API**，可以高效的交流协作。这一点最近深有感触，例如最近发现某个应用的风险点，需要研发做代码改造，需要站在研发的位置思考，找对应的 owner 沟通排期，给出 roadmap，并每周监督，生怕放了鸽子。。理论上研发应该提供一个接受技术风险需求的 API, sre 输入各项参数发起请求，即可返回系分，测试，上线的各个时间点。
 2. ...
 
 ## Chapter 32 - The Evolving SRE Engagement Model
