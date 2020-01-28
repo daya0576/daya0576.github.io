@@ -447,7 +447,7 @@ linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，googl
     - Scalable: 可扩展性
     - Adaptable: 适用性，对各种各样的发布类型都能做到兼容
 4. "As you can see, some of these requirements are in obvious conflict" - 挺有意思的，针对上面的几个原则，文中提到存在**明显的矛盾**，例如无法同时做到 lightweight and thorough. 为了解决这些问题，又搞出了几个策略：Simplicity / A high touch approach / Fast common paths. 总结一下就是针对通用的部分尽可能的进行抽象复用，例如在一个新的国家上线产品的流程，同时留口子供经验丰富的工程师自己去定制发布流程。
-5. "In a large organization, engineers may not be aware of available infrastructure for common tasks (such as rate limiting)." - 在大公司中因为信息不对称，经常出现重复造轮子的情况，例如限流功能等等。而在 google 几乎所有的团队都是使用的一个的发布流程，**所以可以利用发布 checklist 这个卡点，促使大家遵循使用经过历史考验的标准组件，避免重复造轮子**。    其实这个 checklist 在蚂蚁对应了系分（系统分析），技风（技术风险系分）和发布计划等，思路都是类似的。
+5. "In a large organization, engineers may not be aware of available infrastructure for common tasks (such as rate limiting)." - 在大公司中因为信息不对称，经常出现重复造轮子的情况，例如限流功能等等。而在 google 几乎所有的团队都是使用的一个的发布流程，**所以可以利用发布 checklist 这个卡点，促使大家遵循使用经过历史考验的标准组件，避免重复造轮子**。   其实这个 checklist 在蚂蚁对应了系分（系统分析），技风（技术风险系分）和发布计划等，思路都是类似的。
 6. "Developing a Launch Checklist" - **checklist 简单却有效**，起草新产品的一份 checklist 都需要包含的内容如下（但如何保证用户认真确认并遵守呢？我们公司的发布平台也有类似的机制，但说实话我都没仔细看过，每次都是直接跳过）：
     - Architecture and Dependencies - 上下游依赖：例如分析从用户到最终的后端机器的请求流
     - Integration - 需要集成的内部服务，例如域名 DNS 解析，负载均衡，监控等。
@@ -501,7 +501,7 @@ p.s. 之前在火车上读过这章了，忘记做笔记了，就先跳过吧。
 ## Chapter 32 - The Evolving SRE Engagement Model
 Engagement Model?? SRE 这个职位其实有个很大的「困境」：没有故障风平浪静时，好像没有人会想起你，但只要出了一个大故障，又好像全都是你的锅。这章我理解就是阐述 SRE 分别面对新旧业务时，如何参与其中保障线上稳定性，提升存在感，发挥我们应有的价值。
 
-1. "In the first case, just as in software engineering—where the earlier the bug is found, the cheaper it is to fix—the earlier an SRE team consultation happens, the better the service will be and the quicker it will feel the benefit." - 不难理解 bug 越早发现就越容易修复，技术风险也是一样的道理，越早把风险扼杀在摇篮里越好。    让我想起了公司其他 bu 的一些实践：针对一些大的业务项目，SRE 甚至会从 PRD 就开始跟进，后续研发产出系分同时，SRE 产出技风(技术风险系分，有详细的模版，作用类似之前提到的 checklist)，在整个开发生命周期都深度参与。也就是书中说的将风险扼杀在摇篮，本章结尾用了一个词叫做 **"design for reliability"**，还是蛮有启发的。
+1. "In the first case, just as in software engineering—where the earlier the bug is found, the cheaper it is to fix—the earlier an SRE team consultation happens, the better the service will be and the quicker it will feel the benefit." - 不难理解 bug 越早发现就越容易修复，技术风险也是一样的道理，越早把风险扼杀在摇篮里越好。   让我想起了公司其他 bu 的一些实践：针对一些大的业务项目，SRE 甚至会从 PRD 就开始跟进，后续研发产出系分同时，SRE 产出技风(技术风险系分，有详细的模版，作用类似之前提到的 checklist)，在整个开发生命周期都深度参与。也就是书中说的将风险扼杀在摇篮，本章结尾用了一个词叫做 **"design for reliability"**，还是蛮有启发的。
 2. "Simple PRR Model" - 书中有点过于理论，举个例子，某个产品 A 随着用户规模和盈利的不断增长，对应的研发人员已经对日常的告警处理和稳定性工作应付不过来了，需要 SRE 的协助。但这时候需要通过这个所谓的 PRR(Production Readiness Review) Model，完成以下六个步骤后才可以顺利接手（将生产环节的运维职责转移至 sre）。这个模型第一次听说，感觉有时候 sre 确实需要“**强势**”一些。
     1. Engagement 决定团队，启动制定对应的 SLO/SLA 等等
     2. Analysis 根据历史最佳实践，分析潜在风险
