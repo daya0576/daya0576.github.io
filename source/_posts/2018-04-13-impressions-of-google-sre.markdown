@@ -1,16 +1,14 @@
 ---
 layout: post
-title: "《Site Reliability Engineering》by Google 读后感"
+title: "《Site Reliability Engineering》by Google 读书笔记"
 date: 2018-04-03 12:04:19
 comments: true
 tags: [读后感]
-photos: 
-  - /images/blog/190727_cloudflare_outage/book.jpg
 ---
 
 下一份工作要开始做 SRE 了，准备看下[Google 出的《Site Reliability Engineering》](http://landing.google.com/sre/book.html)稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。
 
-这本书陆陆续续一不小心读了快两年。。想起曾经在时间简史看到一句话：**人生的意义不在于某个时间点的状态，而是随着时间流逝而留下的痕迹**。希望这篇笔记也能成为，我在这个世界留下的一丝丝痕迹。
+这本书一不小心读了快两年终于要读完了。。想起曾经在时间简史看到一句话：**人生的意义不在于某个时间点的状态，而是随着时间流逝而留下的痕迹**。希望这篇笔记也能成为，我在这个世界留下的一丝丝痕迹。
 
 p.s. 划重点，**欢迎交流或推荐好的书～** 
 
