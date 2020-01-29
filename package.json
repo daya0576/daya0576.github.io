@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "4.0.0"
+    "version": "4.2.0"
   },
   "dependencies": {
-    "hexo": "^4.0.0",
+    "hexo": "^4.2.0",
     "hexo-deployer-rsync": "^1.0.0",
     "hexo-filter-auto-spacing": "^0.2.1",
     "hexo-fs": "^2.0.0",
