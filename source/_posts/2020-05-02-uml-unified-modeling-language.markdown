@@ -47,7 +47,7 @@ P.S. 其中前缀分别代表：
 ---
 
 **Q: composition & aggregation & association 的区别？？**
-A: 本职上是一个包含的关系：Association > Aggregation > Composition
+A: 本质上是一个包含的关系：Association > Aggregation > Composition
 
 associate 代表一层比较弱的关联关系，例如学生与课堂，双方都知道对方的存在，却又是相互独立。
 
