@@ -2,6 +2,7 @@
 title: 《Head First 设计模式》学习笔记
 tags:
   - 读后感
+  - java
 date: 2020-06-14 01:05:14
 ---
 
@@ -13,7 +14,7 @@ date: 2020-06-14 01:05:14
 <!--more-->
 
 # 分类
-大家应该还知道一本书，叫做 [《设计模式：可复用面向对象软件的基础》](https://book.douban.com/subject/1052241/)，其中非常精辟的将设计模式分为三类：
+大家应该还知道一本书，叫做 [《设计模式：可复用面向对象软件的基础》](https://book.douban.com/subject/1052241/)，其中非常精辟的将设计模式分为三类（持续学习更新中）：
 
 1. 创建型模式：
     - 简单工厂模式（Simple Factory） -> **第四章：工厂模式**
@@ -237,6 +238,8 @@ System.out.println(gumballMachine);
 静态 proxy：
 ![](/images/blog/200104_japan_travel/15920354270766.jpg)
 
+动态 proxy：
+- TODO
 
 ## 第十二章：模式的模式 - Compound Pattern
 

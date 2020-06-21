@@ -4,9 +4,9 @@ type: about
 comments: true
 ---
 
-- **ID:** daya0576
-- **描述:** 肥仔一只.
-- **爱好:** 吃吃吃，做饭，[乒乓球](/blog/20160711/tablet-tennis/)
+我是谁？如果给自己贴上标签，有哪些特性鲜明的选项呢？
+
+[#美食](https://www.instagram.com/daya0576/) [#SRE](https://www.linkedin.com/in/henry-zhu-181191182/) [#乒乓球](/blog/20160711/tablet-tennis/)
 
 ---
 
