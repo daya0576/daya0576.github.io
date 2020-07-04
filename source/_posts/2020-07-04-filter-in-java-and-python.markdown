@@ -50,7 +50,7 @@ List<Apple> heavyApples = filterApples(apples, new AppleColorPredict());
 
 ## 方案二：使用 lambda & Predicate
 
-利用匿名函数代替 `AppleHeavyPredict`，同时使用内置的 Predicate 方法
+同时使用内置的 `Predicate` 方法代替 `ApplePredict`，然后利用匿名函数代替 `AppleHeavyPredict`，
 
 ``` java
 import java.util.function.Predicate;
@@ -68,7 +68,7 @@ java8 支持方法的引用，分为三种：
 2. 类型 - 实例方法，e.g. String::length
 3. 实例对象 - 实例方法，e.g. expensiveTransaction::getValue  
 
-所以 lambda 又可以简化为（当然成本为在 Apple 中新增了一个`isHeavyApple`方法）：
+所以 lambda 又可以简化为方法引用（当然成本为在 Apple 中新增了一个`isHeavyApple`方法）：
 ``` java
 import java.util.function.Predicate;
 public static List<Apple> filterApples(List<Apple> apples, Predicate<Apple> predict) {...}
@@ -80,7 +80,7 @@ List<Apple> lambdaHeavyApples = filterApples(apples, Apple::isGreen);
 
 ## 方案四：使用 Stream
 
-filterApples 是否也可以被省略呢？利用 Stream 一行代码过滤出你想要的苹果：
+那么 filterApples 是否也可以被省略呢？利用 java8 中的 Stream 一行代码过滤出你想要的苹果：
 
 ``` java
 List<Apple> heavyApples = apples.stream()
@@ -92,14 +92,12 @@ List<Apple> heavyApples = apples.stream()
 
 ## 方案一：lambda + filter 
 
-虽然语法上略有不同，但大致思路与 java 的实现可以说基本一致：
+虽然语法上略有不同，但大致思路与 java 的实现可以说基本一致！
 
 ```python
 apples = [Apple("green", 150), Apple("red", 100)]
 heavy_apples = list(filter(lambda x: x.weight > 100, apples))
 ```
-
-p.s. 因为 `filter` 返回的是一个 filter 对象，所以要重新转化为 list
 
 同样支持直接将「方法引用」作为参数：
 
@@ -125,5 +123,4 @@ heavy_apples = [apple for apple in apples if apple.weight > 100]
 虽然现在双放都可以用一行代码实现需求，但个人觉得这轮比拼还是 python 的 list comprehension 更胜一筹🤔 
 
 **因为这种特有的写法更符合人类直觉，你觉得呢？**😄
-
 
