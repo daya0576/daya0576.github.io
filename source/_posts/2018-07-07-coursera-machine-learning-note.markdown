@@ -312,7 +312,7 @@ end
 ## Overfitting, 意思就是说过度的拟合(没看懂, 放弃了)
 
 ## 很有趣的一段话: 
-> “When I walk around Silicon Valley, I live here in Silicon Valley, there are a lot of engineers that are frankly making a ton of money for their company using machine learning algorithms. And I know we’ve only been, you know studying this stuff for a little while, But if u understand **linear regression, `logistic regression, `the advanced optimization algorithms, and regularizaion**, by now, frankly, you probably know quite a lot more machine learning than many, certainly now, but you probably know quite a lot more machine learning right now than frankly, many of the Silicon Valley engineers out there having very successful careers. You know, making tons of money for the companies. Or building products using machine learning algorithms.  ”
+> “When I walk around Silicon Valley, I live here in Silicon Valley, there are a lot of engineers that are frankly making a ton of money for their company using machine learning algorithms. And I know we’ve only been, you know studying this stuff for a little while, But if u understand **linear regression, `logistic regression, `the advanced optimization algorithms, and regularizaion**, by now, frankly, you probably know quite a lot more machine learning than many, certainly now, but you probably know quite a lot more machine learning right now than frankly, many of the Silicon Valley engineers out there having very successful careers. You know, making tons of money for the companies. Or building products using machine learning algorithms.  ”
 
 
 

@@ -20,7 +20,7 @@ Flask + cgi
 
 
 > **Gracefully Coding**:    
-In this assignment, the most precious thing is not completing all these incredible features, it is doing it `beautifully` and `gracefully`.      
+In this assignment, the most precious thing is not completing all these incredible features, it is doing it `beautifully` and `gracefully`.  
 I used **Scrum** to manage each task to improve my efficacy.    
 I focused on **readability** and tried my best to make my code pythonic.   
 I respect **reusability**, and there is not any repeated code in my project.    
