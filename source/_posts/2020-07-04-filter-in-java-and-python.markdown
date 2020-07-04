@@ -17,9 +17,9 @@ date: 2020-07-04 19:14:25
 
 ## 方案一：通过行为参数化传递代码
 
-了解过「策略模式」的同学，都知道将「行为」作为参数，可以增加代码的灵活性与可读性。
+了解过「策略模式」的同学，都知道可以将「行为」作为参数，增加代码的灵活性与可读性。
 
-但看上去还是有一丝累赘哦。。🤔
+但看上去有一些累赘哦。。🤔
 
 ``` java
 public interface ApplePredict {
@@ -50,6 +50,8 @@ List<Apple> heavyApples = filterApples(apples, new AppleColorPredict());
 
 ## 方案二：使用 lambda & Predicate
 
+利用匿名函数代替 `AppleHeavyPredict`，同时使用内置的 Predicate 方法
+
 ``` java
 import java.util.function.Predicate;
 public static List<Apple> filterApples(List<Apple> apples, Predicate<Apple> predict) {...}
@@ -78,7 +80,7 @@ List<Apple> lambdaHeavyApples = filterApples(apples, Apple::isGreen);
 
 ## 方案四：使用 Stream
 
-filterApples 是否也可以被省略呢？利用 Stream 一行代码过滤你想要的苹果：
+filterApples 是否也可以被省略呢？利用 Stream 一行代码过滤出你想要的苹果：
 
 ``` java
 List<Apple> heavyApples = apples.stream()
@@ -90,14 +92,16 @@ List<Apple> heavyApples = apples.stream()
 
 ## 方案一：lambda + filter 
 
-p.s. 因为 `filter` 返回的是一个 filter 对象，所以要重新转化为 list
+虽然语法上略有不同，但大致思路与 java 的实现可以说基本一致：
 
 ```python
 apples = [Apple("green", 150), Apple("red", 100)]
 heavy_apples = list(filter(lambda x: x.weight > 100, apples))
 ```
 
-同时和 java 非常类似，可以直接将「方法引用」作为参数
+p.s. 因为 `filter` 返回的是一个 filter 对象，所以要重新转化为 list
+
+同样支持直接将「方法引用」作为参数：
 
 ```python
 def is_heavy(apple: Apple):
@@ -109,7 +113,7 @@ heavy_apples = list(filter(is_heavy, apples))
 
 ## 方案二：列表解析 
 
-但很久以前也不记得在哪本书上看到，不推荐 filter 而统一使用更为直观的 list comprehension：
+但很久以前也不记得在哪本书上看到，不推荐 filter 而统一使用**更为直观**的 list comprehension：
 
 ```python
 heavy_apples = [apple for apple in apples if apple.weight > 100]
@@ -118,6 +122,8 @@ heavy_apples = [apple for apple in apples if apple.weight > 100]
 # 个人感想
 记得大学里学习 java 用的还是 1.6，还没有这么多骚操作。。
 
-虽然现在双放都可以用一行代码实现需求，但个人觉得这轮比拼还是 python 的 list comprehension 更胜一筹🤔 **因为这种特有的写法更符合人类直觉，你觉得呢？**😄
+虽然现在双放都可以用一行代码实现需求，但个人觉得这轮比拼还是 python 的 list comprehension 更胜一筹🤔 
+
+**因为这种特有的写法更符合人类直觉，你觉得呢？**😄
 
 
