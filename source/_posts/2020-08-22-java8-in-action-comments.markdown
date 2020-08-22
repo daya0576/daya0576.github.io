@@ -1,106 +1,30 @@
 ---
-title: 《Java 8 实战》读书笔记 - 函数式编程 
+title: 《Java 8 实战》读书笔记
+date: 2020-08-22 15:51:35
 tags:
 ---
+
 
 时光飞逝，还记得大二开始接触 java 时，那时主流的是 jdk1.6 与 eclipse 的天下。没想到转眼间 java8 也发布快六年了，其中 Lambda、方法引用、stream 这些新特性，每次看到都云里来雾里去。正好拜读一下《Java 8 实战》这本书一探究竟～
 
 <!--more-->
 
+p.s. 本文更多的是个人的笔记，完整代码请参考这个 repo: https://github.com/daya0576/java8_practice
+
 
 # 第一部分：基础知识
 ## 第一章：Why java8
 
-Stream API：灵感源自 linux 命令的管道流(|)  ->  好处：天然的并行(执行的时候分块)
-
-函数式编程：方法引用 -> lambda
+- Stream API：灵感源自 linux 命令的管道流(|)  ->  好处：天然的并行(执行的时候分块)
+- 函数式编程：方法引用 -> lambda
 
 
 ## 第二章：通过行为参数化传递代码
 
 了解过「策略设计模式」的同学，都知道将「行为」作为参数，可以增加代码的灵活性与可读性，但代码看上去还是有一丝累赘🤔
-``` java
-// capture2/predict/ApplePredict.java
-public interface ApplePredict {
-    boolean test(Apple apple);
-}
+...
 
-// capture2/predict/impl/AppleHeavyPredict.java
-public class AppleHeavyPredict implements ApplePredict {
-
-    @Override
-    public boolean test(Apple apple) {
-        return apple.getWeight() > 200;
-    }
-}
-
-// capture2/Main.java
-public class Main {
-    public static List<Apple> filterApples(List<Apple> apples, ApplePredict predict) {
-        List<Apple> result = new ArrayList<>();
-        for (Apple apple : apples) {
-            if (predict.test(apple)) {
-                result.add(apple);
-            }
-        }
-        return result;
-    }
-
-    public static void main(String[] args) {
-        List<Apple> apples = Arrays.asList(
-                new Apple("red", 10),
-                new Apple("green", 10)
-        );
-
-        List<Apple> heavyApples = filterApples(apples, new AppleHeavyPredict());
-        System.out.println(heavyApples);
-
-        List<Apple> greenApples = filterApples(apples, new AppleColorPredict());
-        System.out.println(greenApples);
-    }
-}
-```
-
-使用 lambda 之后，代码肉眼可见的变少：
-
-``` java
-// lambda
-List<Apple> lambdaGreenApples = filterApples(apples, (Apple apple) -> "green".equals(apple.getColor()));
-List<Apple> lambdaHeavyApples = filterApples(apples, (Apple apple) -> apple.getWeight() > 1);
-```
-
-进一步将 List 抽象，不止于 Apple，而适用于所有类型的列表：
-
-``` java
-public class Main {
-    public static <T> List<T> filter(List<T> list, Predict<T> p) {
-        List<T> result = new ArrayList<>();
-
-        for (T t : list) {
-            if (p.test(t)) {
-                result.add(t);
-            }
-        }
-
-        return result;
-    }
-
-    public static void main(String[] args) {
-        List<Apple> apples = Arrays.asList(
-                new Apple("red", 11),
-                new Apple("green", 10)
-        );
-        // lambda
-        List<Apple> lambdaGreenApples = filter(apples, (Apple apple) -> "green".equals(apple.getColor()));
-        System.out.println(lambdaGreenApples);
-        
-        // 将List􏲪􏳋􏲙􏲚化
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        List<Integer> evenNumbers = filter(numbers, i -> i % 2 == 0);
-        System.out.println(evenNumbers);
-    }
-}
-```
+参考[《在 java & python 中，如何优雅的筛选一堆苹果》](/blog/20200704/filter-in-java-and-python/)
 
 ## 第三章：lambda 表达式 
 
@@ -112,9 +36,9 @@ public class Main {
 
 主要分为三部分:
 
-- 参数列表：两个 Apple
-- 箭头：将「参数列表」与 「Lambda 主体」区分开
-- Lambda 主体：比较两个苹果的重量（注意控制流语句需用大括号包围：例如`return "Hello" + i`）
+1. **参数：**两个 Apple
+2. **箭头：**将「参数列表」与 「Lambda 主体」区分开
+3. **主体：**比较两个苹果的重量（注意控制流语句需用大括号包围：例如`return "Hello" + i`）
 
 ### 使用场景
 
@@ -140,16 +64,17 @@ public static void main(String[] args) {
 // 最终输出 Hello World
 ```
 
-### 3.4 函数式接口
+### 函数式接口
 
 `java.util.function` 中几个函数式的接口：
 
+- Runnable(`()->void`) 
 - Predict(`T->boolean`) -> 输入一个参数，返回 boolean，用于例如列表中元素的筛选
 - Compare(`(U,T)->R`) -> 输入两个参数，返回 boolean，用于排序
 - Consumer(`T->void`) -> 返回 void，用于例如打印一个列表中的所有元素
 和 Runnable的区别？？Runnable 是没有参数的 
 - Supplier(`()->T`): 用于实例化多个对象
-- Function(`T->R`) -> 返回任意泛型的结果，用于获取一堆苹果对应的重量  
+- Function(`T->R`) -> 返回任意泛型的结果，例如用于获取一堆苹果对应的重量  
 
 ### 方法引用
 
@@ -157,8 +82,7 @@ public static void main(String[] args) {
 
 ```java
 // lambda
-inventory.sort((Apple a1, Apple a2)
--> a1.getWeight().compareTo(a2.getWeight()));
+inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
 
 // 引用
 inventory.sort(comparing(Apple::getWeight));
@@ -417,7 +341,7 @@ public class Sun implements Moveable, Rotatable { ...
 }
 ```
 
-但假如 Rotatable 和 Moveable 接口，都存在一个相同名字的默认方法，造成的冲突要如何解决呢？ 
+**但假如 Rotatable 和 Moveable 接口，都存在一个相同名字的默认方法，造成的冲突要如何解决呢？**
 
 
 ## 第十章：用Optional取代null
@@ -459,10 +383,10 @@ person.flatMap(Person::getCar)
     .orElse("Unknown");
 ```
 
-这里 flatMap 与 map 的区别：   
+上面 flatMap 与 map 的区别：   
 都是在不为 null 的情况下，根据约定 flatMap 返回的是 Optional 对象，而 map 则直接返回对应的值。
 
-将 Insurance 定义为 Optional 类型的另一个好处在于，告诉未来的同事，它很明显可能是一个空值。
+**将 Insurance 定义为 Optional 类型的另一个好处在于，告诉未来的同事，它很明显可能是一个空值。**
 
 ### 实战
 
@@ -489,4 +413,87 @@ public static Optional<Integer> stringToInt(String s) {
     }
 }
 ```
+
+## 第十一章：CompletableFuture:组合式􏷅步编程
+
+使用 异步线程 + future，避免一些 IO 操作的时候阻塞当前线程：  
+p.s. 完整可运行的代码：[链接](https://github.com/daya0576/java8_practice/blob/master/src/capture11/pipeline/Main.java#L26)   
+
+``` java
+public class Main {
+    static List<Shop> shopList = Arrays.asList(
+            new Shop("shop1"),
+            new Shop("shop2"),
+            new Shop("shop3")
+    );
+
+    private static void findPrices() {
+        List<String> productList = shopList.stream()
+                .map(shop -> shop.getPrice("apple"))
+                .map(Quote::parse)
+                .map(Discount::applyDiscount)
+                .collect(toList());
+        System.out.println(productList);
+    }
+
+    private static void findPricesAsync() {
+        List<CompletableFuture<String>> productFutures = shopList.stream()
+                .map(shop -> CompletableFuture.supplyAsync(
+                        () -> shop.getPrice("apple")))
+                .map(future -> future.thenApply(Quote::parse))
+                .map(future -> future.thenCompose(quote ->
+                        CompletableFuture.supplyAsync(
+                                () -> Discount.applyDiscount(quote))))
+                .collect(toList());
+
+        List<String> productList = productFutures.stream()
+                .map(CompletableFuture::join)
+                .collect(toList());
+        System.out.println(productList);
+    }
+
+
+    public static void measure(Runnable r1) {
+        long start = System.currentTimeMillis();
+        r1.run();
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
+
+    public static void main(String[] args) {
+        // 3 x (100ms+100ms) ≈ 600ms
+        measure(Main::findPrices);
+
+        // 100ms+100ms ≈ 200ms
+        // 使用多线程的方式将多个查询任务并行执行
+        measure(Main::findPricesAsync);
+    }
+}
+```
+
+如果需要对多个商品发起查询呢？   
+可以考虑使用 parallelStream 并行运行，提高性能（因为运行不要求是有序的）
+
+
+等待所有 查询 执行完毕后，进行汇总。当然也可以使用 `anyOf` 方法，意味着任意一个查询结束即返回。
+```java
+CompletableFuture[] futures =   findPricesStream("myPhone") 
+    .map(f -> f.thenAccept(System.out::println)) 
+    .toArray(size -> new CompletableFuture[size]);
+
+CompletableFuture.allOf(futures).join();
+```
+
+p.s. 说实话有点过于复杂了，不太喜欢。。
+
+
+
+## 第十二章：􏸡新的日期与时间API
+
+(略)
+
+# 第四部分：超越 Java 8
+
+
+(略)
 
