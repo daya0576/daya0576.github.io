@@ -16,7 +16,7 @@ jobs:
           submodules: true
       - uses: actions/setup-node@master
         with:
-          node-version: 8.x
+          node-version: 10.x
 
       - name: Installation
         run: |
