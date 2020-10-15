@@ -122,7 +122,7 @@ int result2 = h2.apply(1);
 System.out.println(result2);
 ```
 
-## 第四章：引入􏳗流 & 使用流
+## 第四章：引入流 & 使用流
 
 以前以为 java 中的流只是为了让代码看起来更加**简洁优雅**，但另一个非常重要的优势在于自动的多核并行处理，提升性能，同时不用再担心如何处理线程与锁（在书的第七章中会重点介绍）。
 
@@ -249,7 +249,7 @@ Map<Dish.Type, Long> typesCount = menu.stream().collect( groupingBy(Dish::getTyp
 Map<Boolean, List<Dish>> partitionedMenu = menu.stream().collect(partitioningBy(Dish::isVegetarian));
 ```
 
-## 第七章：并行数据处理与􏾩能
+## 第七章：并行数据处理与性能
 
 好复杂，跳过
 
@@ -257,7 +257,7 @@ Map<Boolean, List<Dish>> partitionedMenu = menu.stream().collect(partitioningBy(
 
 罗列了一些设计模式，跳过。
 
-## 第八章：重构、􏽨􏰸测试和调试
+## 第八章：重构、测试和调试
 ### 如何调试
 
 #### 一、堆栈
@@ -390,7 +390,7 @@ person.flatMap(Person::getCar)
 
 ### 实战
 
-case1: 用Optional􏲟􏲠可能为null的􏴫
+case1: 用Optional可能为null的结果
 
 ```java
 // 优化前
@@ -399,7 +399,7 @@ Object value = map.get("key");
 Optional<Object> value = Optional.ofNullable(map.get("key"));
 ```
 
-case2: 􏶼巧用异常处理
+case2: 巧用异常处理
 
 ```java
 // 优化前
@@ -414,7 +414,7 @@ public static Optional<Integer> stringToInt(String s) {
 }
 ```
 
-## 第十一章：CompletableFuture:组合式􏷅步编程
+## 第十一章：CompletableFuture:组合式异步编程
 
 使用 异步线程 + future，避免一些 IO 操作的时候阻塞当前线程：  
 p.s. 完整可运行的代码：[链接](https://github.com/daya0576/java8_practice/blob/master/src/capture11/pipeline/Main.java#L26)   
@@ -488,7 +488,7 @@ p.s. 说实话有点过于复杂了，不太喜欢。。
 
 
 
-## 第十二章：􏸡新的日期与时间API
+## 第十二章：新的日期与时间API
 
 (略)
 
