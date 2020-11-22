@@ -38,3 +38,9 @@ public static <N extends Number> double add(N a, N b){
 # unknown type
 public static <T> void checkList(List<?> myList, T obj){}List<? extends Number> myList
 
+
+
+
+https://docs.oracle.com/javase/tutorial/java/generics/why.html
+
+
