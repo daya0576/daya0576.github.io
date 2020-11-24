@@ -2,6 +2,7 @@
 title: Python 不需要设计模式？
 date: 2020-11-14 21:29:24
 tags:
+- python
 ---
 
 

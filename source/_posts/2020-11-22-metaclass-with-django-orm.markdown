@@ -2,6 +2,7 @@
 title: 浅谈 Python Metaclass（下）：Django ORM 的应用
 date: 2020-11-22 14:58:16
 tags:
+- python
 ---
 
 
@@ -9,9 +10,9 @@ tags:
 
 p.s. 文本默认你对 Django 的 ORM 已有一定的概念了解与实践～
 
-[《浅谈 Python Metaclass（上）：type 与 object 原理介绍》](/blog/20201115/python-type-and-object/)
-
 <!--more-->
+
+[《浅谈 Python Metaclass（上）：type 与 object 原理介绍》](/blog/20201115/python-type-and-object/)
 
 # 继承关系
 

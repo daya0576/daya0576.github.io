@@ -2,14 +2,15 @@
 title: 浅谈 Python Metaclass（上）：type 与 object 原理介绍
 date: 2020-11-22 14:57:50
 tags:
+- python
 ---
 
 
 我们都知道 python 中有一个特性叫做「万物皆对象」，而个人一直对其中的 type 与 object 对象一知半解。刚好周末看到一篇很不错的文章：[《Python Types and Objects》](https://www.eecg.utoronto.ca/~jzhu/csc326/readings/metaclass-class-instance.pdf)，特此学习记录一下～
 
-[《浅谈 Python Metaclass（下）：Django ORM 应用与实践》](/blog/20201121/metaclass-with-django-orm/)
-
 <!--more-->
+
+[《浅谈 Python Metaclass（下）：Django ORM 应用与实践》](/blog/20201121/metaclass-with-django-orm/)
 
 # 一、名词定义
 ## 继承 & 实例：
