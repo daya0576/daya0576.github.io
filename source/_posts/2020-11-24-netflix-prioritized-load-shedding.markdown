@@ -34,7 +34,7 @@ throughput / functionality / criticality
                 ↓             
           后端或网关出现容量问题 -> Y -> 分数越高的请求越先响应(类似 priority queue)
                 ↓ N
-          正常处理所有请求   
+          无视权重，正常处理所有请求   
             
 ```
 
