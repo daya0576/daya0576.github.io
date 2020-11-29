@@ -125,7 +125,7 @@ AttributeError: 'MyClass' object has no attribute '__base__'
 
 更进一步，「实例化」与「继承」其实都是创建一个新对象的“两种手段”：
 
-1. **继承**：通过 `class` 语法（指定父类或默认 object），来创建一个 type 对象。所以 `class A: pass` 与 `A = type("A")` 是等同的。
+1. **继承**：通过 `class` 语法（指定父类或默认 object），来创建一个 type 对象。所以 `class A: pass` 与 `A = type("A", (), {})` 是等同的。
 2. **实例化**：使用 `()` 语法，基于某个 type 对象进行对象的新建。返回一个 type 对象或 非 type 对象（metaclass 与 class 的区别）。
 3. 其他：存在其他特殊的语法糖，快速创建对象：例如 `l = [1, 2, 3]`
 
