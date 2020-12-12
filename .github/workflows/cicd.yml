@@ -1,9 +1,9 @@
 name: Hexo CICD
 
-on:
-  push:
-    branches:
-      - master
+#on:
+#  push:
+#    branches:
+#      - master
 
 jobs:
   job1:
