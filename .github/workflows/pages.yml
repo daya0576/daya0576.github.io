@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v1
         with:
           submodules: true
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
+      - uses: actions/setup-node@master
+          with:
+            node-version: 10.x
+
       - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
@@ -23,13 +23,26 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
+
+      - name: Installation
+          run: |
+            npm install
+            npm install -g hexo-cli
+      - name: Generate
+        run: hexo clean && hexo g
+      - name: Handle img lazyload for RSS
+        run: python3 atom_plus.py && chmod 755 public/atom.xml
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: master  # deploying branch
+
+      - name: Notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: ${{ github.actor }} ${{ github.event_name }} Done!! Cheers～
