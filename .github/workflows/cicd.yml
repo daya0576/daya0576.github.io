@@ -3,7 +3,7 @@ name: Hexo CICD
 on:
   push:
     branches:
-      - master
+      - source
 
 jobs:
   job1:
@@ -29,22 +29,29 @@ jobs:
       - name: Handle img lazyload for RSS
         run: python3 atom_plus.py && chmod 755 public/atom.xml
 
+      #      - name: Deploy
+      #        run: |
+      #          mkdir -p $HOME/.ssh
+      #          touch "$HOME/.ssh/known_hosts"
+      #
+      #          echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/deploy_key
+      #          chmod 700 $HOME/.ssh
+      #          chmod 600 $HOME/.ssh/deploy_key
+      #          chmod 600 $HOME/.ssh/known_hosts
+      #
+      #          eval $(ssh-agent)
+      #          ssh-add $HOME/.ssh/deploy_key
+      #
+      #          ssh-keyscan 47.52.56.36 > $HOME/.ssh/known_hosts
+      #
+      #          hexo deploy
+
       - name: Deploy
-        run: |
-          mkdir -p $HOME/.ssh
-          touch "$HOME/.ssh/known_hosts"
-
-          echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/deploy_key
-          chmod 700 $HOME/.ssh
-          chmod 600 $HOME/.ssh/deploy_key
-          chmod 600 $HOME/.ssh/known_hosts
-
-          eval $(ssh-agent)
-          ssh-add $HOME/.ssh/deploy_key
-
-          ssh-keyscan 47.52.56.36 > $HOME/.ssh/known_hosts
-
-          hexo deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master  # deploying branch
 
       - name: Notification
         uses: appleboy/telegram-action@master
