@@ -15,7 +15,7 @@ tags: [interview, algorithm]
 ## 问题的定义
 一个栈(无穷大)的进栈序列为1，2，3，…，n，有多少个不同的出栈序列?    
 
-##解题思路
+### 解题思路
 1. 假设进栈序列为[1, 2, 3, 4, 5, 6]   
 2. 因为每个数字都可能是最后一个出栈的(独立的事件), 所以先单独分析**当k为最后一个出栈数字**的情况.    
 3. 1) 当`k进栈`时, [1, 2]肯定已经出栈了, 所以他们([1, 2])的出栈序列总数为`f(k-1)`   
@@ -29,3 +29,5 @@ tags: [interview, algorithm]
 1. [https://en.wikipedia.org/wiki/Catalan_number](https://en.wikipedia.org/wiki/Catalan_number)   
 2. [http://www.acmerblog.com/catalan-5196.html](http://www.acmerblog.com/catalan-5196.html)
 3. [http://baike.baidu.com/item/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0#4](http://baike.baidu.com/item/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0#4)   
+
+
