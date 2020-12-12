@@ -26,9 +26,9 @@ jobs:
             ${{ runner.OS }}-npm-cache
 
       - name: Installation
-          run: |
-            npm install
-            npm install -g hexo-cli
+        run: |
+          npm install
+          npm install -g hexo-cli
       - name: Generate
         run: hexo clean && hexo g
       - name: Handle img lazyload for RSS
