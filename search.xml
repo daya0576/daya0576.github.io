@@ -2577,6 +2577,61 @@ Versioning Classes(略).<br>Stable Import Paths(略).    </li>
       </tags>
   </entry>
   <entry>
+    <title>Django (2006, &#39;MySQL server has gone away&#39;) 本地重现与解决</title>
+    <url>/blog/20180824/django-2006-MySQL-server-has-gone-away/</url>
+    <content><![CDATA[<p>最近我们的 Django 项目供 Java Sofa 应用进行 tr 调用时, 经常会出现一个异常: <code>django.db.utils.OperationalError: (2006, &#39;MySQL server has gone away&#39;)</code>. 本文记录了 <strong> 分析, 本地重现与解决此问题 </strong> 的全过程.</p>
+<h1 id="原因分析"><a href="# 原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h1><p>Django 在 1.6 引入长链接 (<a href="https://docs.djangoproject.com/en/2.1/ref/databases/#persistent-connections">Persistent connections</a>) 的概念, 可以在一个 HTTP 请求中一直用同一个连接对数据库进行读写操作.<br>但我们的应用对数据库的操作 <strong> 太不频繁 </strong> 了, 两次操作数据库的间隔大于 MySQL 配置的超时时间(默认为 8 个小时), 导致下一次操作数据库时的 connection 过期失效. </p>
+<blockquote>
+<p>Our databases have a 300-second (5-minute) timeout on inactive connections. That means, if you open a connection to the database, and then you don&#39;t do anything with it for 5 minutes, then the server will disconnect, and the next time you try to execute a query, it will fail.</p>
+</blockquote>
+<a id="more"></a>
+
+
+<h1 id="重现问题"><a href="# 重现问题" class="headerlink" title="重现问题:"></a>重现问题:</h1><h2 id="设置 mysql-wait-timeout 为 10s"><a href="# 设置 mysql-wait-timeout 为 10s" class="headerlink" title="设置 mysql wait_timeout 为 10s"></a>设置 mysql <code>wait_timeout</code>为 10s</h2><p>在 macOS 上的 mysql 配置文件路径: <code>/usr/local/etc/my.cnf</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Default Homebrew MySQL server config</span><br><span class="line">[mysqld]</span><br><span class="line"># Only allow connections from localhost</span><br><span class="line">bind-address &#x3D; 127.0.0.1</span><br><span class="line">wait_timeout &#x3D; 10</span><br><span class="line">interactive_timeout &#x3D; 10</span><br></pre></td></tr></table></figure>
+<p>重启 mysql:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">➜  ~ brew services restart mysql</span><br><span class="line">Stopping &#96;mysql&#96;... (might take a while)</span><br><span class="line">&#x3D;&#x3D;&gt; Successfully stopped &#96;mysql&#96; (label: homebrew.mxcl.mysql)</span><br><span class="line">&#x3D;&#x3D;&gt; Successfully started &#96;mysql&#96; (label: homebrew.mxcl.mysql)</span><br></pre></td></tr></table></figure>
+<p>检查 <code>wait_timeout</code> 的值是否已被更新.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; show variables like &#39;%wait_timeout%&#39;;</span><br><span class="line">+--------------------------+----------+</span><br><span class="line">| Variable_name            | Value    |</span><br><span class="line">+--------------------------+----------+</span><br><span class="line">| innodb_lock_wait_timeout | 50       |</span><br><span class="line">| lock_wait_timeout        | 31536000 |</span><br><span class="line">| wait_timeout             | 10       |</span><br><span class="line">+--------------------------+----------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h2 id="重现 exception"><a href="# 重现 exception" class="headerlink" title="重现 exception:"></a>重现 exception:</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.sleep(<span class="number">15</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line">...</span><br><span class="line">django.db.utils.OperationalError: (<span class="number">2013</span>, <span class="string">'Lost connection to MySQL server during query'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line">...</span><br><span class="line">django.db.utils.OperationalError: (<span class="number">2006</span>, <span class="string">'MySQL server has gone away'</span>)</span><br></pre></td></tr></table></figure>
+<p>有意思的一个点是, sleep 10s 之后, 第一次操作数据库, 会出现 <code>(2013, &#39;Lost connection to MySQL server during query’)</code> 异常. 之后再操作数据库, 才会抛出 <code>(2006, &#39;MySQL server has gone away’)</code> 异常. </p>
+<h2 id="解决问题"><a href="# 解决问题" class="headerlink" title="解决问题:"></a>解决问题:</h2><p>第一个最暴力的方法就是增加 mysql 的 <code>wait_timeout</code> 让 mysql 不要太快放弃连接. 感觉不太靠谱, 因为不能杜绝这种 Exception 的发生.</p>
+<p>第二个办法就是手动把 connection 直接关闭:   </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>Alarm.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> django.db <span class="keyword">import</span> connection</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>connection.close()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.sleep(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Alarm.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>发现不会出现 <code>(2006, &#39;MySQL server has gone away’)</code> 异常了, 但总感觉还是不够优雅.<br>最终决定在客户端 (Django), 设置超时时间(<code>CONN_MAX_AGE: 5</code>) 比 mysql 服务端 (<code>wait_timeout = 10</code>) 小:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">	<span class="string">'default'</span>: &#123;</span><br><span class="line">		<span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">		<span class="string">'CONN_MAX_AGE'</span>: <span class="number">5</span>,</span><br><span class="line">		&lt;other params here&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但很奇怪没有生效??? 看了源代码, 发现只有在 <code>request_started</code>(<a href="https://docs.djangoproject.com/en/2.1/ref/signals/#request-started">HTTP request</a>) 和<code>request_finished</code>的时候, 在 <code>close_if_unusable_or_obsolete</code> 才用到 <code>CONN_MAX_AGE</code> 并去验证时间关闭 connection.</p>
+<p>具体代码见: <code>python3.6/site-packages/django/db/__init__.py#64</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Register an event to reset transaction state and close connections past</span></span><br><span class="line"><span class="comment"># their lifetime.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">close_old_connections</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">	<span class="keyword">for</span> conn <span class="keyword">in</span> connections.all():</span><br><span class="line">		conn.close_if_unusable_or_obsolete()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">signals.request_started.connect(close_old_connections)</span><br><span class="line">signals.request_finished.connect(close_old_connections)</span><br></pre></td></tr></table></figure>
+
+<p>而我的代码是处理一个任务而不是 HTTP 请求, 所以不会触发这个 signal. 于是我写了一个装饰器, 在任务的开始和结束的时候, 关闭所有数据库连接. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> connections</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ref: django.db.close_old_connections</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">close_old_connections</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> conn <span class="keyword">in</span> connections.all():</span><br><span class="line">        conn.close_if_unusable_or_obsolete()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_db_connections</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_wrapper</span><span class="params">(request)</span>:</span></span><br><span class="line">        close_old_connections()</span><br><span class="line">        result = func(request)</span><br><span class="line">        close_old_connections()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> func_wrapper</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------ 割 -------</span></span><br><span class="line"><span class="meta">@handle_db_connections</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_trsbrain_request</span><span class="params">(request)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>ps. CONN_MAX_AGE 默认其实为 0, 意味着默认在 http 请求和结束时会关闭所有数据库连接.</p>
+<h1 id="其他"><a href="# 其他" class="headerlink" title="其他:"></a>其他:</h1><p>django.db 中 connection 和 connections 的区别???</p>
+<ol>
+<li><code>connection</code>对应的是默认数据库的连接, 用代码表示就是<code>connections[DEFAULT_DB_ALIAS]</code></li>
+<li><code>connections</code>对应的是 setting.DATABASES 中所有数据库的 connection</li>
+</ol>
+<h1 id="ref"><a href="#ref" class="headerlink" title="ref:"></a>ref:</h1><ol>
+<li><a href="https://code.djangoproject.com/ticket/21597">官方对此 issue 的讨论</a></li>
+<li><a href="https://zhaojames0707.github.io/post/django_mysql_gone_away/">https://zhaojames0707.github.io/post/django_mysql_gone_away/</a></li>
+<li><a href="https://www.cnblogs.com/lesliexong/p/8654615.html">&quot;Mysql has gone away&quot; 的几种可能</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout">mysql wait_timeout 字段官方文档</a></li>
+<li><a href="http://www.rainybowe.com/blog/2017/01/06/MySQL-server-has-gone-away-in-django-ThreadPoolExecutor/index.html">“MySQL server has gone away” in django ThreadPoolExecutor</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MWeb3.0?? 记一次后悔的购买经历</title>
     <url>/blog/20180824/mweb3-review/</url>
     <content><![CDATA[<p>MWeb2.0 一直是我写博客的主力编辑器, 因为它真的很优秀, 为我写博客带来了无数的便利. 所以看完 MWeb3.0 的新特性(特别是新的 UI 设计和快速搜索的功能), 就原价在 Apple Store 拔草了. 但有一句说一句, 对此次的更新个人表示有一丝失望, 因为用了 MWeb3.0 几个小时后, 我又退回了 MWeb2.0, 233333...<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15350917531609.jpg" alt=""></p>
@@ -2708,6 +2763,43 @@ Versioning Classes(略).<br>Stable Import Paths(略).    </li>
       <tags>
         <tag>blog</tag>
         <tag>disqus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《蚂蚁金服：科技金融独角兽的崛起》 读后感</title>
+    <url>/blog/20180901/ant-jounal-entry/</url>
+    <content><![CDATA[<p>今天在整理荒废很久的印象笔记时(公司不让用云笔记), 突然发现很久前记录的《蚂蚁金服：科技金融独角兽的崛起》这本书的读后感. 虽然个人感觉只从作者编写水平的维度上来说, 和《腾讯传》有一定的差距, 但里边的描述反过头来还是非常真实的.</p>
+<p>分享一下书中比较有趣的片段与思考. 文末有彩蛋哟 :)</p>
+<a id="more"></a>
+
+<h1 id="读后感"><a href="# 读后感" class="headerlink" title="读后感"></a>读后感</h1><ol>
+<li>支付宝刚创建时其实有很大的政策风险, 马云说要去蹲监狱我去..</li>
+<li><code>新人做老业务, 老人做新业务.</code></li>
+<li><code>1999 年初，他和马云回到杭州再次创业。他是“阿里巴巴十八罗汉”之一，在淘宝网创业之初，他做出了巨大的贡献。巧合的是，他还有一个广为人知的身份——现任蚂蚁金服董事长彭蕾的丈夫。</code> 还有这么一段故事, 厉害了. </li>
+<li><code>5 个亿是印度市场的目标，如果放眼全球，蚂蚁金服希望未来 10 年能够服务 20 亿用户，其中 60% 用户来自海外。</code> 文中写到蚂蚁在泰国和印度取得了不错的成绩, 所以未来还是注重全球的市场?</li>
+<li><code>蚂蚁金服在国家开放民营银行牌照申请之后，主动参与其中，与其他股东一起发起设立了浙江网商银行，开始了在金融领域的深度实践。</code> 女朋友说为什么支付宝总是和浙江网商银行厮混在一起, 原来..</li>
+<li><code>比如，一个已婚的男性用户如果每个月都给他妻子转账，经过持续一两年的长期分析，这两个账户之间的关系就是可信的。</code> 支付宝面临的巨大挑战之一就是用户风险的控制, 记得还有一个例子说到, 每个用户输入同个密码的频率和习惯也是不同的, 也就是说风险的控制尽可能的要在用户没有感知的情况下发挥作用. 想起五六年前我的支付宝账号莫名其妙被盗了登陆和支付密码, 被盗走一千块钱, 我本来已经不抱希望的打了支付宝的客服电话, 没想到钱马上就陪回来了, 也是服气.  </li>
+<li><code>疲惫是当时项目组所有人的感受。在那段时间里，每个人都加班到夜里 12 点，甚至凌晨一两点，闭关室里随处可见行军床、枕头、毛毯，一些人索性直接睡在公司，晚上加班累了，就躺在行军床上眯一会儿，起来之后继续干活。吴明的家离公司很近，骑自行车只需 20 分钟，但是在那三个月的闭关期间，他有十几天都睡在公司里。</code> - 可怕, 文中不止一次的提到这种封闭开发, 不管是从面试官嘴里, 还是已经在蚂蚁的朋友口里, 也常听到这个模式. 但个人暂时还是对这种开发表示质疑态度, 一个模式是有效的, 但真的代表它 (labor abusing) 是对的, 是最优的吗? </li>
+<li><code>在会议快结束时，一场颇有仪式感的誓师大会开始了。在陆兆禧的带领下，所有男性高管都赤裸上身，在讲台上大喊大叫，这个场景就像两军对垒时一方挥舞着手臂对另一方叫阵一样。其中，站在陆兆禧左边的樊治铭尤为兴奋，他高声地叫喊着，满脸兴奋。高管的态度带动了在场的每一个人，大家都热血沸腾，摩拳擦掌。</code> - 闭关前的宣誓大会, 虽然可以调动大家的积极性, 但就像没有感情的高潮, 剩下的只是无尽的空虚. </li>
+<li><code>两次转让的总价约为 3.3 亿元。至此，马云将支付宝从阿里巴巴集团中剥离出来，转移成纯内资公司，由自己和谢世煌分别持股 80% 和 20%。</code> - 将支付宝从股东手中偷走? 还是做股东好, 投对了人, 就可以躺着赚钱.</li>
+<li><code>这时，程立刚从技术团队的主力架构师升至首席架构师，团队主管要求他不必写代码了，而是专注去“画大图”，为团队的未来发展指明方向。</code> - 专门一章讲了程立的故事, 画大饼, 笑死我了.  </li>
+<li><code>“客户第一”，“团队协作”和“拥抱变化”, “客户第一”，“团队协作”和“拥抱变化”</code> 拥抱变化 :p</li>
+<li><code>在餐桌旁，有人已经“倒在了地上”，彭蕾自己也喝了很多，她索性就坐在地上，继续和大家聊天。酒精宣泄着情绪，很多人谈着谈着就哭了，一些老员工更是不能自已，他们讲支付宝的过往，讲支付宝一路走来的艰辛，也讲支付宝为什么会变成这样。</code> - 不知道为什么想起小学六年级时, 班上两个同学对窗外的老奶奶恶作剧并逼得她报警, 造成了很恶劣的影响. 那天中午班主任在班里疼哭落泪, 虽然忘了她说了什么, 但悲伤的气氛笼罩了整个教室, 所有同学也跟着哭泣, 我也不知为何的有几分伤感自责. 回到家时, 母亲还问我怎么了, 我很生气的对她说班上的小锦旗都被校长亲手摘掉了. 不愿去回忆的一段经历, 浑身的不自在?   </li>
+<li><code>像京东这样与淘宝有竞争关系的电商网站，也曾选择接入支付宝，樊治铭记得，为此他还曾经到北京见了两次刘强东。</code> - 现在的 jd 貌似没有支付宝的选项了, 最近还出了开除在盒马买东西的员工的丑闻, 有的人觉得很不能理解, 觉得强东心胸狭隘, 小人一个. 其实想想淘口令什么的其实也没什么的.</li>
+</ol>
+<hr>
+<h1 id="彩蛋"><a href="# 彩蛋" class="headerlink" title="彩蛋"></a>彩蛋 </h1><p> 猜猜蚂蚁 z 空间园区里下图是什么吗? (反选见答案)</p>
+<div style="color: white">大文娱(鱼)...</div>
+
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ant_journal_entry/UNADJUSTEDNONRAW_thumb_5070.jpg" alt="UNADJUSTEDNONRAW_thumb_5070"></p>
+<p>-EOF-</p>
+]]></content>
+      <categories>
+        <category>career</category>
+      </categories>
+      <tags>
+        <tag>ant</tag>
+        <tag>alibaba</tag>
       </tags>
   </entry>
   <entry>
@@ -3971,98 +4063,6 @@ Versioning Classes(略).<br>Stable Import Paths(略).    </li>
 ]]></content>
       <tags>
         <tag>sre</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《蚂蚁金服：科技金融独角兽的崛起》 读后感</title>
-    <url>/blog/20180901/ant-jounal-entry/</url>
-    <content><![CDATA[<p>今天在整理荒废很久的印象笔记时(公司不让用云笔记), 突然发现很久前记录的《蚂蚁金服：科技金融独角兽的崛起》这本书的读后感. 虽然个人感觉只从作者编写水平的维度上来说, 和《腾讯传》有一定的差距, 但里边的描述反过头来还是非常真实的.</p>
-<p>分享一下书中比较有趣的片段与思考. 文末有彩蛋哟 :)</p>
-<a id="more"></a>
-
-<h1 id="读后感"><a href="# 读后感" class="headerlink" title="读后感"></a>读后感</h1><ol>
-<li>支付宝刚创建时其实有很大的政策风险, 马云说要去蹲监狱我去..</li>
-<li><code>新人做老业务, 老人做新业务.</code></li>
-<li><code>1999 年初，他和马云回到杭州再次创业。他是“阿里巴巴十八罗汉”之一，在淘宝网创业之初，他做出了巨大的贡献。巧合的是，他还有一个广为人知的身份——现任蚂蚁金服董事长彭蕾的丈夫。</code> 还有这么一段故事, 厉害了. </li>
-<li><code>5 个亿是印度市场的目标，如果放眼全球，蚂蚁金服希望未来 10 年能够服务 20 亿用户，其中 60% 用户来自海外。</code> 文中写到蚂蚁在泰国和印度取得了不错的成绩, 所以未来还是注重全球的市场?</li>
-<li><code>蚂蚁金服在国家开放民营银行牌照申请之后，主动参与其中，与其他股东一起发起设立了浙江网商银行，开始了在金融领域的深度实践。</code> 女朋友说为什么支付宝总是和浙江网商银行厮混在一起, 原来..</li>
-<li><code>比如，一个已婚的男性用户如果每个月都给他妻子转账，经过持续一两年的长期分析，这两个账户之间的关系就是可信的。</code> 支付宝面临的巨大挑战之一就是用户风险的控制, 记得还有一个例子说到, 每个用户输入同个密码的频率和习惯也是不同的, 也就是说风险的控制尽可能的要在用户没有感知的情况下发挥作用. 想起五六年前我的支付宝账号莫名其妙被盗了登陆和支付密码, 被盗走一千块钱, 我本来已经不抱希望的打了支付宝的客服电话, 没想到钱马上就陪回来了, 也是服气.  </li>
-<li><code>疲惫是当时项目组所有人的感受。在那段时间里，每个人都加班到夜里 12 点，甚至凌晨一两点，闭关室里随处可见行军床、枕头、毛毯，一些人索性直接睡在公司，晚上加班累了，就躺在行军床上眯一会儿，起来之后继续干活。吴明的家离公司很近，骑自行车只需 20 分钟，但是在那三个月的闭关期间，他有十几天都睡在公司里。</code> - 可怕, 文中不止一次的提到这种封闭开发, 不管是从面试官嘴里, 还是已经在蚂蚁的朋友口里, 也常听到这个模式. 但个人暂时还是对这种开发表示质疑态度, 一个模式是有效的, 但真的代表它 (labor abusing) 是对的, 是最优的吗? </li>
-<li><code>在会议快结束时，一场颇有仪式感的誓师大会开始了。在陆兆禧的带领下，所有男性高管都赤裸上身，在讲台上大喊大叫，这个场景就像两军对垒时一方挥舞着手臂对另一方叫阵一样。其中，站在陆兆禧左边的樊治铭尤为兴奋，他高声地叫喊着，满脸兴奋。高管的态度带动了在场的每一个人，大家都热血沸腾，摩拳擦掌。</code> - 闭关前的宣誓大会, 虽然可以调动大家的积极性, 但就像没有感情的高潮, 剩下的只是无尽的空虚. </li>
-<li><code>两次转让的总价约为 3.3 亿元。至此，马云将支付宝从阿里巴巴集团中剥离出来，转移成纯内资公司，由自己和谢世煌分别持股 80% 和 20%。</code> - 将支付宝从股东手中偷走? 还是做股东好, 投对了人, 就可以躺着赚钱.</li>
-<li><code>这时，程立刚从技术团队的主力架构师升至首席架构师，团队主管要求他不必写代码了，而是专注去“画大图”，为团队的未来发展指明方向。</code> - 专门一章讲了程立的故事, 画大饼, 笑死我了.  </li>
-<li><code>“客户第一”，“团队协作”和“拥抱变化”, “客户第一”，“团队协作”和“拥抱变化”</code> 拥抱变化 :p</li>
-<li><code>在餐桌旁，有人已经“倒在了地上”，彭蕾自己也喝了很多，她索性就坐在地上，继续和大家聊天。酒精宣泄着情绪，很多人谈着谈着就哭了，一些老员工更是不能自已，他们讲支付宝的过往，讲支付宝一路走来的艰辛，也讲支付宝为什么会变成这样。</code> - 不知道为什么想起小学六年级时, 班上两个同学对窗外的老奶奶恶作剧并逼得她报警, 造成了很恶劣的影响. 那天中午班主任在班里疼哭落泪, 虽然忘了她说了什么, 但悲伤的气氛笼罩了整个教室, 所有同学也跟着哭泣, 我也不知为何的有几分伤感自责. 回到家时, 母亲还问我怎么了, 我很生气的对她说班上的小锦旗都被校长亲手摘掉了. 不愿去回忆的一段经历, 浑身的不自在?   </li>
-<li><code>像京东这样与淘宝有竞争关系的电商网站，也曾选择接入支付宝，樊治铭记得，为此他还曾经到北京见了两次刘强东。</code> - 现在的 jd 貌似没有支付宝的选项了, 最近还出了开除在盒马买东西的员工的丑闻, 有的人觉得很不能理解, 觉得强东心胸狭隘, 小人一个. 其实想想淘口令什么的其实也没什么的.</li>
-</ol>
-<hr>
-<h1 id="彩蛋"><a href="# 彩蛋" class="headerlink" title="彩蛋"></a>彩蛋 </h1><p> 猜猜蚂蚁 z 空间园区里下图是什么吗? (反选见答案)</p>
-<div style="color: white">大文娱(鱼)...</div>
-
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ant_journal_entry/UNADJUSTEDNONRAW_thumb_5070.jpg" alt="UNADJUSTEDNONRAW_thumb_5070"></p>
-<p>-EOF-</p>
-]]></content>
-      <categories>
-        <category>career</category>
-      </categories>
-      <tags>
-        <tag>ant</tag>
-        <tag>alibaba</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django (2006, &#39;MySQL server has gone away&#39;) 本地重现与解决</title>
-    <url>/blog/20180824/django-2006-MySQL-server-has-gone-away/</url>
-    <content><![CDATA[<p>最近我们的 Django 项目供 Java Sofa 应用进行 tr 调用时, 经常会出现一个异常: <code>django.db.utils.OperationalError: (2006, &#39;MySQL server has gone away&#39;)</code>. 本文记录了 <strong> 分析, 本地重现与解决此问题 </strong> 的全过程.</p>
-<h1 id="原因分析"><a href="# 原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h1><p>Django 在 1.6 引入长链接 (<a href="https://docs.djangoproject.com/en/2.1/ref/databases/#persistent-connections">Persistent connections</a>) 的概念, 可以在一个 HTTP 请求中一直用同一个连接对数据库进行读写操作.<br>但我们的应用对数据库的操作 <strong> 太不频繁 </strong> 了, 两次操作数据库的间隔大于 MySQL 配置的超时时间(默认为 8 个小时), 导致下一次操作数据库时的 connection 过期失效. </p>
-<blockquote>
-<p>Our databases have a 300-second (5-minute) timeout on inactive connections. That means, if you open a connection to the database, and then you don&#39;t do anything with it for 5 minutes, then the server will disconnect, and the next time you try to execute a query, it will fail.</p>
-</blockquote>
-<a id="more"></a>
-
-
-<h1 id="重现问题"><a href="# 重现问题" class="headerlink" title="重现问题:"></a>重现问题:</h1><h2 id="设置 mysql-wait-timeout 为 10s"><a href="# 设置 mysql-wait-timeout 为 10s" class="headerlink" title="设置 mysql wait_timeout 为 10s"></a>设置 mysql <code>wait_timeout</code>为 10s</h2><p>在 macOS 上的 mysql 配置文件路径: <code>/usr/local/etc/my.cnf</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Default Homebrew MySQL server config</span><br><span class="line">[mysqld]</span><br><span class="line"># Only allow connections from localhost</span><br><span class="line">bind-address &#x3D; 127.0.0.1</span><br><span class="line">wait_timeout &#x3D; 10</span><br><span class="line">interactive_timeout &#x3D; 10</span><br></pre></td></tr></table></figure>
-<p>重启 mysql:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">➜  ~ brew services restart mysql</span><br><span class="line">Stopping &#96;mysql&#96;... (might take a while)</span><br><span class="line">&#x3D;&#x3D;&gt; Successfully stopped &#96;mysql&#96; (label: homebrew.mxcl.mysql)</span><br><span class="line">&#x3D;&#x3D;&gt; Successfully started &#96;mysql&#96; (label: homebrew.mxcl.mysql)</span><br></pre></td></tr></table></figure>
-<p>检查 <code>wait_timeout</code> 的值是否已被更新.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; show variables like &#39;%wait_timeout%&#39;;</span><br><span class="line">+--------------------------+----------+</span><br><span class="line">| Variable_name            | Value    |</span><br><span class="line">+--------------------------+----------+</span><br><span class="line">| innodb_lock_wait_timeout | 50       |</span><br><span class="line">| lock_wait_timeout        | 31536000 |</span><br><span class="line">| wait_timeout             | 10       |</span><br><span class="line">+--------------------------+----------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-
-<h2 id="重现 exception"><a href="# 重现 exception" class="headerlink" title="重现 exception:"></a>重现 exception:</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.sleep(<span class="number">15</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line">...</span><br><span class="line">django.db.utils.OperationalError: (<span class="number">2013</span>, <span class="string">'Lost connection to MySQL server during query'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>XXX.objects.exists()</span><br><span class="line">...</span><br><span class="line">django.db.utils.OperationalError: (<span class="number">2006</span>, <span class="string">'MySQL server has gone away'</span>)</span><br></pre></td></tr></table></figure>
-<p>有意思的一个点是, sleep 10s 之后, 第一次操作数据库, 会出现 <code>(2013, &#39;Lost connection to MySQL server during query’)</code> 异常. 之后再操作数据库, 才会抛出 <code>(2006, &#39;MySQL server has gone away’)</code> 异常. </p>
-<h2 id="解决问题"><a href="# 解决问题" class="headerlink" title="解决问题:"></a>解决问题:</h2><p>第一个最暴力的方法就是增加 mysql 的 <code>wait_timeout</code> 让 mysql 不要太快放弃连接. 感觉不太靠谱, 因为不能杜绝这种 Exception 的发生.</p>
-<p>第二个办法就是手动把 connection 直接关闭:   </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>Alarm.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> django.db <span class="keyword">import</span> connection</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>connection.close()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.sleep(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Alarm.objects.exists()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<p>发现不会出现 <code>(2006, &#39;MySQL server has gone away’)</code> 异常了, 但总感觉还是不够优雅.<br>最终决定在客户端 (Django), 设置超时时间(<code>CONN_MAX_AGE: 5</code>) 比 mysql 服务端 (<code>wait_timeout = 10</code>) 小:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">	<span class="string">'default'</span>: &#123;</span><br><span class="line">		<span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">		<span class="string">'CONN_MAX_AGE'</span>: <span class="number">5</span>,</span><br><span class="line">		&lt;other params here&gt;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但很奇怪没有生效??? 看了源代码, 发现只有在 <code>request_started</code>(<a href="https://docs.djangoproject.com/en/2.1/ref/signals/#request-started">HTTP request</a>) 和<code>request_finished</code>的时候, 在 <code>close_if_unusable_or_obsolete</code> 才用到 <code>CONN_MAX_AGE</code> 并去验证时间关闭 connection.</p>
-<p>具体代码见: <code>python3.6/site-packages/django/db/__init__.py#64</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Register an event to reset transaction state and close connections past</span></span><br><span class="line"><span class="comment"># their lifetime.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">close_old_connections</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">	<span class="keyword">for</span> conn <span class="keyword">in</span> connections.all():</span><br><span class="line">		conn.close_if_unusable_or_obsolete()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">signals.request_started.connect(close_old_connections)</span><br><span class="line">signals.request_finished.connect(close_old_connections)</span><br></pre></td></tr></table></figure>
-
-<p>而我的代码是处理一个任务而不是 HTTP 请求, 所以不会触发这个 signal. 于是我写了一个装饰器, 在任务的开始和结束的时候, 关闭所有数据库连接. </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> connections</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ref: django.db.close_old_connections</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">close_old_connections</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> conn <span class="keyword">in</span> connections.all():</span><br><span class="line">        conn.close_if_unusable_or_obsolete()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_db_connections</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_wrapper</span><span class="params">(request)</span>:</span></span><br><span class="line">        close_old_connections()</span><br><span class="line">        result = func(request)</span><br><span class="line">        close_old_connections()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> func_wrapper</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------ 割 -------</span></span><br><span class="line"><span class="meta">@handle_db_connections</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_trsbrain_request</span><span class="params">(request)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-
-<p>ps. CONN_MAX_AGE 默认其实为 0, 意味着默认在 http 请求和结束时会关闭所有数据库连接.</p>
-<h1 id="其他"><a href="# 其他" class="headerlink" title="其他:"></a>其他:</h1><p>django.db 中 connection 和 connections 的区别???</p>
-<ol>
-<li><code>connection</code>对应的是默认数据库的连接, 用代码表示就是<code>connections[DEFAULT_DB_ALIAS]</code></li>
-<li><code>connections</code>对应的是 setting.DATABASES 中所有数据库的 connection</li>
-</ol>
-<h1 id="ref"><a href="#ref" class="headerlink" title="ref:"></a>ref:</h1><ol>
-<li><a href="https://code.djangoproject.com/ticket/21597">官方对此 issue 的讨论</a></li>
-<li><a href="https://zhaojames0707.github.io/post/django_mysql_gone_away/">https://zhaojames0707.github.io/post/django_mysql_gone_away/</a></li>
-<li><a href="https://www.cnblogs.com/lesliexong/p/8654615.html">&quot;Mysql has gone away&quot; 的几种可能</a></li>
-<li><a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout">mysql wait_timeout 字段官方文档</a></li>
-<li><a href="http://www.rainybowe.com/blog/2017/01/06/MySQL-server-has-gone-away-in-django-ThreadPoolExecutor/index.html">“MySQL server has gone away” in django ThreadPoolExecutor</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-        <tag>django</tag>
       </tags>
   </entry>
   <entry>
