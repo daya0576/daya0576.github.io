@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="时光飞逝，还记得大二开始接触 java 时，那时主流的是 jdk1.6 与 eclipse 的天下。没想到转眼间 java8 也发布快六年了，其中 Lambda、方法引用、stream 这些新特性，每次看到都云里来雾里去。正好拜读一下《Java 8 实战》这本书一探究竟～">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Java 8 实战》读书笔记">
+<meta property="og:url" content="https://changchen.me/blog/20200822/java8-in-action-comments/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="时光飞逝，还记得大二开始接触 java 时，那时主流的是 jdk1.6 与 eclipse 的天下。没想到转眼间 java8 也发布快六年了，其中 Lambda、方法引用、stream 这些新特性，每次看到都云里来雾里去。正好拜读一下《Java 8 实战》这本书一探究竟～">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2020-08-22T07:51:35.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.466Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="daya0576">
+<meta property="article:tag" content="朱昌健">
+<meta property="article:tag" content="大牙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20200822/java8-in-action-comments/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>《Java 8 实战》读书笔记 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20200822/java8-in-action-comments/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《Java 8 实战》读书笔记
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-22 15:51:35" itemprop="dateCreated datePublished" datetime="2020-08-22T15:51:35+08:00">2020-08-22</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20200822/java8-in-action-comments/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20200822/java8-in-action-comments/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20200822/java8-in-action-comments/" class="post-meta-item leancloud_visitors" data-flag-title="《Java 8 实战》读书笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>时光飞逝，还记得大二开始接触 java 时，那时主流的是 jdk1.6 与 eclipse 的天下。没想到转眼间 java8 也发布快六年了，其中 Lambda、方法引用、stream 这些新特性，每次看到都云里来雾里去。正好拜读一下《Java 8 实战》这本书一探究竟～</p>
+<a id="more"></a>
+
+<p>p.s. 本文更多的是个人的笔记，完整代码请参考这个 repo: <a href="https://github.com/daya0576/java8_practice">https://github.com/daya0576/java8_practice</a></p>
+<h1 id="第一部分：基础知识"><a href="# 第一部分：基础知识" class="headerlink" title="第一部分：基础知识"></a>第一部分：基础知识 </h1><h2 id="第一章：Why-java8"><a href="# 第一章：Why-java8" class="headerlink" title="第一章：Why java8"></a> 第一章：Why java8</h2><ul>
+<li>Stream API：灵感源自 linux 命令的管道流(|)  -&gt;  好处：天然的并行(执行的时候分块)</li>
+<li>函数式编程：方法引用 -&gt; lambda</li>
+</ul>
+<h2 id="第二章：通过行为参数化传递代码"><a href="# 第二章：通过行为参数化传递代码" class="headerlink" title="第二章：通过行为参数化传递代码"></a>第二章：通过行为参数化传递代码 </h2><p> 了解过「策略设计模式」的同学，都知道将「行为」作为参数，可以增加代码的灵活性与可读性，但代码看上去还是有一丝累赘🤔<br>...</p>
+<p>参考<a href="/blog/20200704/filter-in-java-and-python/">《在 java &amp; python 中，如何优雅的筛选一堆苹果》</a></p>
+<h2 id="第三章：lambda- 表达式"><a href="# 第三章：lambda- 表达式" class="headerlink" title="第三章：lambda 表达式"></a>第三章：lambda 表达式 </h2><h3 id="基本语法如下："><a href="# 基本语法如下：" class="headerlink" title="基本语法如下："></a> 基本语法如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight());</span><br></pre></td></tr></table></figure>
+
+<p>主要分为三部分:</p>
+<ol>
+<li><strong>参数：</strong>两个 Apple</li>
+<li><strong>箭头：</strong>将「参数列表」与 「Lambda 主体」区分开</li>
+<li><strong>主体：</strong>比较两个苹果的重量（注意控制流语句需用大括号包围：例如<code>return &quot;Hello&quot; + i</code>）</li>
+</ol>
+<h3 id="使用场景"><a href="# 使用场景" class="headerlink" title="使用场景"></a>使用场景 </h3><p> 函数式接口？<br>原名叫做 functional interface，为只有一个抽象方法的接口。  </p>
+<p>java8 还专门给抽象方法 <code>@FunctionalInterface</code> 注解，在编译阶段做检查。</p>
+<p>举个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 官方的 Runnable 接口</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Runnable r1 = () -&gt; System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">    r1.run();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 最终输出 Hello World</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函数式接口"><a href="# 函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h3><p><code>java.util.function</code> 中几个函数式的接口：</p>
+<ul>
+<li>Runnable(<code>()-&gt;void</code>) </li>
+<li>Predict(<code>T-&gt;boolean</code>) -&gt; 输入一个参数，返回 boolean，用于例如列表中元素的筛选</li>
+<li>Compare(<code>(U,T)-&gt;R</code>) -&gt; 输入两个参数，返回 boolean，用于排序</li>
+<li>Consumer(<code>T-&gt;void</code>) -&gt; 返回 void，用于例如打印一个列表中的所有元素 <br> 和 Runnable 的区别？？Runnable 是没有参数的 </li>
+<li>Supplier(<code>()-&gt;T</code>): 用于实例化多个对象</li>
+<li>Function(<code>T-&gt;R</code>) -&gt; 返回任意泛型的结果，例如用于获取一堆苹果对应的重量  </li>
+</ul>
+<h3 id="方法引用"><a href="# 方法引用" class="headerlink" title="方法引用"></a>方法引用 </h3><p> 以下两种写法是等价的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lambda</span></span><br><span class="line">inventory.sort((Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight()));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用</span></span><br><span class="line">inventory.sort(comparing(Apple::getWeight));</span><br></pre></td></tr></table></figure>
+
+<p>引用又分为三种：</p>
+<ol>
+<li>静态方法，e.g. Integer::parseInt</li>
+<li>类型 - 实例方法，e.g. String::length</li>
+<li>实例对象 - 实例方法，e.g. expensiveTransaction::getValue  </li>
+</ol>
+<h3 id="谓词复合"><a href="# 谓词复合" class="headerlink" title="谓词复合"></a>谓词复合 </h3><p> 可以将多个 lambda 通过 <code>and</code>/<code>or</code>/<code>negative</code> 关联起来，例如筛选出又红又大的苹果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Predicate&lt;Apple&gt; greenApplePredict = (Apple apple) -&gt; <span class="string">"green"</span>.equals(apple.getColor());</span><br><span class="line">        Predicate&lt;Apple&gt; predict = greenApplePredict.and(Apple::isHeavyApple);</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数组合"><a href="# 函数组合" class="headerlink" title="函数组合"></a>函数组合 </h3><p> 利用 <code>andThen</code> 和 <code>compose</code> 两个默认方法，将函数组合成自定义的 pipeline </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// g(f(x))</span></span><br><span class="line">Function&lt;Integer, Integer&gt; f1 = x -&gt; x + <span class="number">1</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; g1 = x -&gt; x * <span class="number">2</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; h1 = f1.andThen(g1).andThen(f1);</span><br><span class="line"><span class="keyword">int</span> result1 = h1.apply(<span class="number">1</span>);</span><br><span class="line">System.out.println(result1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// f(g(x))</span></span><br><span class="line">Function&lt;Integer, Integer&gt; f2 = x -&gt; x + <span class="number">1</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; g2 = x -&gt; x * <span class="number">2</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; h2 = f2.compose(g2);</span><br><span class="line"><span class="keyword">int</span> result2 = h2.apply(<span class="number">1</span>);</span><br><span class="line">System.out.println(result2);</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四章：引入流 -amp- 使用流"><a href="# 第四章：引入流 -amp- 使用流" class="headerlink" title="第四章：引入流 &amp; 使用流"></a>第四章：引入流 &amp; 使用流 </h2><p> 以前以为 java 中的流只是为了让代码看起来更加 <strong> 简洁优雅</strong>，但另一个非常重要的优势在于自动的多核并行处理，提升性能，同时不用再担心如何处理线程与锁（在书的第七章中会重点介绍）。</p>
+<p>⚠️注意：<code>stream</code> 与 python 中的 <code>generator</code> 类似，产生后只能被消费一次。</p>
+<h3 id="Stream-API- 总共有几种呢？"><a href="#Stream-API- 总共有几种呢？" class="headerlink" title="Stream API 总共有几种呢？"></a>Stream API 总共有几种呢？</h3><h4 id="一、筛选："><a href="# 一、筛选：" class="headerlink" title="一、筛选："></a>一、筛选：</h4><ul>
+<li>filter</li>
+<li>distinct</li>
+<li>limit</li>
+<li>skip: 跳过前 n 个元素 </li>
+</ul>
+<h4 id="二、映射："><a href="# 二、映射：" class="headerlink" title="二、映射："></a>二、映射：</h4><ul>
+<li>map</li>
+<li>flatMap: 将多个 list 直接打平</li>
+</ul>
+<p>flatMap 的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; words = Arrays.asList(<span class="string">"hello"</span>, <span class="string">"world"</span>);</span><br><span class="line">        List&lt;String&gt; wordsParsed = words.stream()</span><br><span class="line">                .map(word-&gt;word.split(<span class="string">""</span>))</span><br><span class="line">                .flatMap(Arrays::stream)</span><br><span class="line">                .collect(toList());</span><br><span class="line"><span class="comment">// [h, e, l, l, o, w, o, r, l, d]</span></span><br></pre></td></tr></table></figure>
+
+<p>以及如何生成笛卡尔积(但有一句说一句，感觉不是很直观。。)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给定列表 [1, 2, 3] 和􏳴表[3, 4]，返回笛卡尔积：</span></span><br><span class="line">List&lt;Integer&gt; numbers1 = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">List&lt;Integer&gt; numbers2 = Arrays.asList(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">List&lt;<span class="keyword">int</span>[]&gt; pairs = numbers1.stream()</span><br><span class="line">        .flatMap(i -&gt; numbers2.stream().map(j -&gt; <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i, j&#125;))</span><br><span class="line">        .collect(toList());</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、查找和匹配"><a href="# 三、查找和匹配" class="headerlink" title="三、查找和匹配"></a>三、查找和匹配</h4><ul>
+<li><p>anyMatch/allMatch</p>
+</li>
+<li><p>findAny: 注意这个方法返回的是 Optional 容器类（代表一个值存在或不存在），目标为有效的避免 NPE 的情况。</p>
+</li>
+<li><p>findFirst: 故名思义，与 findAny 的区别在于是否有序的第一个</p>
+</li>
+<li><p>sorted</p>
+</li>
+<li><p>distinct</p>
+</li>
+</ul>
+<h4 id="四、归约"><a href="# 四、归约" class="headerlink" title="四、归约"></a>四、归约</h4><ul>
+<li>reduce: 举几个例子<ul>
+<li>reduce(0, (a, b) -&gt; a + b): 0 代表初始的指 </li>
+<li>reduce(0, Integer::sum) / reduce(0, Integer::min)</li>
+</ul>
+</li>
+</ul>
+<p>但如果你想找到多个交易中，金额最大的拿笔交易：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 找到最大金额的交易</span></span><br><span class="line">Optional&lt;Transaction&gt; maxTransaction = transactions.stream()</span><br><span class="line">        .reduce((t1, t2) -&gt; t1.getValue() &gt; t2.getValue()?t1:t2);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h3><p> 用文中的一张图总结一下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15948931158639.jpg" alt=""></p>
+<h2 id="第六章：用流收集数据"><a href="# 第六章：用流收集数据" class="headerlink" title="第六章：用流收集数据"></a>第六章：用流收集数据</h2><p>collector 的三大功能：</p>
+<ul>
+<li>将流元素规约和汇总为一个值</li>
+<li>元素分组</li>
+<li>元素分区</li>
+</ul>
+<h3 id="1- 汇总"><a href="#1- 汇总" class="headerlink" title="1. 汇总"></a>1. 汇总</h3><p>1) 最大值 / 最小值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;Dish&gt; dishCaloriesComparator = </span><br><span class="line">    Comparator.comparingInt(Dish::getCalories);</span><br><span class="line">    </span><br><span class="line">Optional&lt;Dish&gt; mostCalorieDish = </span><br><span class="line">    menu.stream()</span><br><span class="line">        .collect(maxBy(dishCaloriesComparator));</span><br></pre></td></tr></table></figure>
+
+<p>2) 总数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> totalCalories = menu.stream().collect(summingInt(Dish::getCalories));</span><br></pre></td></tr></table></figure>
+
+<p>3) 连接字符串</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String shortMenu = menu.stream().map(Dish::getName).collect(joining());</span><br></pre></td></tr></table></figure>
+
+<h3 id="2- 元素分组"><a href="#2- 元素分组" class="headerlink" title="2. 元素分组"></a>2. 元素分组 </h3><p> 其实就是 groupby </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Dish.Type, List&lt;Dish&gt;&gt; dishesByType = menu.stream().collect(groupingBy(Dish::getType));</span><br></pre></td></tr></table></figure>
+
+<p>也可以直接计算 count</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Dish.Type, Long&gt; typesCount = menu.stream().collect( groupingBy(Dish::getType, counting()));</span><br></pre></td></tr></table></figure>
+
+<p>还可以多级的分组。。。不太喜欢，就不列例子了</p>
+<h3 id="3- 分区"><a href="#3- 分区" class="headerlink" title="3. 分区"></a>3. 分区 </h3><p> 以下的返回结果分别为 true/false 对应的 map</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Boolean, List&lt;Dish&gt;&gt; partitionedMenu &#x3D; menu.stream().collect(partitioningBy(Dish::isVegetarian));</span><br></pre></td></tr></table></figure>
+
+<h2 id="第七章：并行数据处理与性能"><a href="# 第七章：并行数据处理与性能" class="headerlink" title="第七章：并行数据处理与性能"></a>第七章：并行数据处理与性能 </h2><p> 好复杂，跳过</p>
+<h1 id="第三部分：高效 -java8- 编程"><a href="# 第三部分：高效 -java8- 编程" class="headerlink" title="第三部分：高效 java8 编程"></a>第三部分：高效 java8 编程 </h1><p> 罗列了一些设计模式，跳过。</p>
+<h2 id="第八章：重构、测试和调试"><a href="# 第八章：重构、测试和调试" class="headerlink" title="第八章：重构、测试和调试"></a>第八章：重构、测试和调试 </h2><h3 id="如何调试"><a href="# 如何调试" class="headerlink" title="如何调试"></a> 如何调试 </h3><h4 id="一、堆栈"><a href="# 一、堆栈" class="headerlink" title="一、堆栈"></a> 一、堆栈</h4><p>Q: 这个挺有意思的，下面堆栈中的 <code>$0</code> 是什么意思呢？<br>A: 这些表示错误发生在 Lambda 表达式内部。由于 Lambda 表达式没有名字，所以编译器只能为 它们指定一个名字。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.NullPointerException</span><br><span class="line">at Debugging.lambda$main$<span class="number">0</span>(Debugging.java:<span class="number">6</span>)</span><br><span class="line">at Debugging$$Lambda$<span class="number">5</span>/<span class="number">284720968</span>.apply(Unknown Source)</span><br><span class="line">at java.util.stream.ReferencePipeline$<span class="number">3</span>$<span class="number">1</span>.accept(ReferencePipeline</span><br><span class="line">.java:<span class="number">193</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、日志"><a href="# 二、日志" class="headerlink" title="二、日志"></a>二、日志 </h4><p> 利用 <code>peek</code> 插入打印日志的动作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; result = numbers.stream()</span><br><span class="line">    numbers.stream()</span><br><span class="line">        .peek(x -&gt; System.out.println(<span class="string">"from stream:"</span> + x))</span><br><span class="line">        .map(x -&gt; x + <span class="number">17</span>)</span><br><span class="line">        .peek(x -&gt; System.out.println(<span class="string">"after map:"</span> + x))</span><br><span class="line">        .filter(x -&gt; x % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="第九章：默认方法"><a href="# 第九章：默认方法" class="headerlink" title="第九章：默认方法"></a>第九章：默认方法</h2><p>Q: 首先回答为什么需要默认方法呢？<br>A: nterface 新增一个方法的时候，不让已有的代码报错，从而有了默认方法。</p>
+<p>举个例子：java 中 extend 只能继承一个父类，但可以 implement 多个接口。<strong>好处在于默认方法的复用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Rotatable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setRotationAngle</span><span class="params">(<span class="keyword">int</span> angleInDegrees)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getRotationAngle</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">rotateBy</span><span class="params">(<span class="keyword">int</span> angleInDegrees)</span></span>&#123;</span><br><span class="line">        setRotationAngle((getRotationAngle () + angle) % <span class="number">360</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Moveable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">int</span> y)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">moveHorizontally</span><span class="params">(<span class="keyword">int</span> distance)</span> </span>&#123;</span><br><span class="line">        setX(getX() + distance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">moveVertically</span><span class="params">(<span class="keyword">int</span> distance)</span> </span>&#123;</span><br><span class="line">        setY(getY() + distance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Resizable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getWidth</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setWidth</span><span class="params">(<span class="keyword">int</span> width)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> height)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setAbsoluteSize</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">setRelativeSize</span><span class="params">(<span class="keyword">int</span> wFactor, <span class="keyword">int</span> hFactor)</span> </span>&#123;</span><br><span class="line">        setAbsoluteSize(getWidth() / wFactor, getHeight() / hFactor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以 旋转、移动、</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Monster</span> <span class="keyword">implements</span> <span class="title">Rotatable</span>, <span class="title">Moveable</span>, <span class="title">Resizable</span> </span>&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sun</span> <span class="keyword">implements</span> <span class="title">Moveable</span>, <span class="title">Rotatable</span> </span>&#123; ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>但假如 Rotatable 和 Moveable 接口，都存在一个相同名字的默认方法，造成的冲突要如何解决呢？</strong></p>
+<h2 id="第十章：用 Optional 取代 null"><a href="# 第十章：用 Optional 取代 null" class="headerlink" title="第十章：用 Optional 取代 null"></a>第十章：用 Optional 取代 null</h2><p>为避免 NPE 引入了 Optional 对象</p>
+<h3 id="创建 -Optional- 对象"><a href="# 创建 -Optional- 对象" class="headerlink" title="创建 Optional 对象"></a>创建 Optional 对象 </h3><p> 空的 Optional</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Car&gt; optCar = Optional.empty();</span><br></pre></td></tr></table></figure>
+
+<p>非空值创建 Optional, 注意如果 car 为 null，则立刻抛出一个 NPE</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Car&gt; optCar = Optional.of(car);</span><br></pre></td></tr></table></figure>
+
+<p>可接受 null 的 Optional </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Car&gt; optCar = Optional.ofNullable(car);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取 -Optional- 中的值"><a href="# 获取 -Optional- 中的值" class="headerlink" title="获取 Optional 中的值"></a>获取 Optional 中的值 </h3><p> 如何重构下面的代码呢？ </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">person.getCar().getInsurance().getName();</span><br></pre></td></tr></table></figure>
+
+<p>假设 person 是一个 Optional 的对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">person.flatMap(Person::getCar)</span><br><span class="line">    .flatMap(Car::getInsurance) </span><br><span class="line">    .map(Insurance::getName) </span><br><span class="line">    .orElse(&quot;Unknown&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>上面 flatMap 与 map 的区别：<br>都是在不为 null 的情况下，根据约定 flatMap 返回的是 Optional 对象，而 map 则直接返回对应的值。</p>
+<p><strong>将 Insurance 定义为 Optional 类型的另一个好处在于，告诉未来的同事，它很明显可能是一个空值。</strong></p>
+<h3 id="实战"><a href="# 实战" class="headerlink" title="实战"></a>实战</h3><p>case1: 用 Optional 可能为 null 的结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优化前</span></span><br><span class="line">Object value = map.get(<span class="string">"key"</span>);</span><br><span class="line"><span class="comment">// 优化后</span></span><br><span class="line">Optional&lt;Object&gt; value = Optional.ofNullable(map.get(<span class="string">"key"</span>));</span><br></pre></td></tr></table></figure>
+
+<p>case2: 巧用异常处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优化前</span></span><br><span class="line">Integer.parseInt(String)</span><br><span class="line"><span class="comment">// 重构后</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Optional&lt;Integer&gt; <span class="title">stringToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123; </span><br><span class="line">        <span class="keyword">return</span> Optional.of(Integer.parseInt(s)); </span><br><span class="line">    &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.empty(); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第十一章：CompletableFuture- 组合式异步编程"><a href="# 第十一章：CompletableFuture- 组合式异步编程" class="headerlink" title="第十一章：CompletableFuture: 组合式异步编程"></a>第十一章：CompletableFuture: 组合式异步编程 </h2><p> 使用 异步线程 + future，避免一些 IO 操作的时候阻塞当前线程：<br>p.s. 完整可运行的代码：<a href="https://github.com/daya0576/java8_practice/blob/master/src/capture11/pipeline/Main.java#L26">链接</a>   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> List&lt;Shop&gt; shopList = Arrays.asList(</span><br><span class="line">            <span class="keyword">new</span> Shop(<span class="string">"shop1"</span>),</span><br><span class="line">            <span class="keyword">new</span> Shop(<span class="string">"shop2"</span>),</span><br><span class="line">            <span class="keyword">new</span> Shop(<span class="string">"shop3"</span>)</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findPrices</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; productList = shopList.stream()</span><br><span class="line">                .map(shop -&gt; shop.getPrice(<span class="string">"apple"</span>))</span><br><span class="line">                .map(Quote::parse)</span><br><span class="line">                .map(Discount::applyDiscount)</span><br><span class="line">                .collect(toList());</span><br><span class="line">        System.out.println(productList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">findPricesAsync</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;CompletableFuture&lt;String&gt;&gt; productFutures = shopList.stream()</span><br><span class="line">                .map(shop -&gt; CompletableFuture.supplyAsync(</span><br><span class="line">                        () -&gt; shop.getPrice(<span class="string">"apple"</span>)))</span><br><span class="line">                .map(future -&gt; future.thenApply(Quote::parse))</span><br><span class="line">                .map(future -&gt; future.thenCompose(quote -&gt;</span><br><span class="line">                        CompletableFuture.supplyAsync(</span><br><span class="line">                                () -&gt; Discount.applyDiscount(quote))))</span><br><span class="line">                .collect(toList());</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; productList = productFutures.stream()</span><br><span class="line">                .map(CompletableFuture::join)</span><br><span class="line">                .collect(toList());</span><br><span class="line">        System.out.println(productList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">measure</span><span class="params">(Runnable r1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        r1.run();</span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 3 x (100ms+100ms) ≈ 600ms</span></span><br><span class="line">        measure(Main::findPrices);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 100ms+100ms ≈ 200ms</span></span><br><span class="line">        <span class="comment">// 使用多线程的方式将多个查询任务并行执行</span></span><br><span class="line">        measure(Main::findPricesAsync);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果需要对多个商品发起查询呢？<br>可以考虑使用 parallelStream 并行运行，提高性能（因为运行不要求是有序的）</p>
+<p>等待所有 查询 执行完毕后，进行汇总。当然也可以使用 <code>anyOf</code> 方法，意味着任意一个查询结束即返回。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CompletableFuture[] futures =   findPricesStream(<span class="string">"myPhone"</span>) </span><br><span class="line">    .map(f -&gt; f.thenAccept(System.out::println)) </span><br><span class="line">    .toArray(size -&gt; <span class="keyword">new</span> CompletableFuture[size]);</span><br><span class="line"></span><br><span class="line">CompletableFuture.allOf(futures).join();</span><br></pre></td></tr></table></figure>
+
+<p>p.s. 说实话有点过于复杂了，不太喜欢。。</p>
+<h2 id="第十二章：新的日期与时间 API"><a href="# 第十二章：新的日期与时间 API" class="headerlink" title="第十二章：新的日期与时间 API"></a>第十二章：新的日期与时间 API</h2><p>(略)</p>
+<h1 id="第四部分：超越 -Java-8"><a href="# 第四部分：超越 -Java-8" class="headerlink" title="第四部分：超越 Java 8"></a>第四部分：超越 Java 8</h1><p>(略)</p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20200704/filter-in-java-and-python/" rel="prev" title="在 java & python 中，如何优雅的筛选一堆苹果🤔">
+      <i class="fa fa-chevron-left"></i> 在 java & python 中，如何优雅的筛选一堆苹果🤔
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20201108/linux-find-keyword-reversely/" rel="next" title="linux 反向查找日志">
+      linux 反向查找日志 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一部分：基础知识"><span class="nav-text">第一部分：基础知识 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章：Why-java8"><span class="nav-text"> 第一章：Why java8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章：通过行为参数化传递代码"><span class="nav-text">第二章：通过行为参数化传递代码 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章：lambda- 表达式"><span class="nav-text">第三章：lambda 表达式 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法如下："><span class="nav-text"> 基本语法如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-text">使用场景 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式接口"><span class="nav-text">函数式接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法引用"><span class="nav-text">方法引用 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谓词复合"><span class="nav-text">谓词复合 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数组合"><span class="nav-text">函数组合 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章：引入流 -amp- 使用流"><span class="nav-text">第四章：引入流 &amp; 使用流 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream-API- 总共有几种呢？"><span class="nav-text">Stream API 总共有几种呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、筛选："><span class="nav-text">一、筛选：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、映射："><span class="nav-text">二、映射：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、查找和匹配"><span class="nav-text">三、查找和匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、归约"><span class="nav-text">四、归约</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六章：用流收集数据"><span class="nav-text">第六章：用流收集数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1- 汇总"><span class="nav-text">1. 汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2- 元素分组"><span class="nav-text">2. 元素分组 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3- 分区"><span class="nav-text">3. 分区 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第七章：并行数据处理与性能"><span class="nav-text">第七章：并行数据处理与性能 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三部分：高效 -java8- 编程"><span class="nav-text">第三部分：高效 java8 编程 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第八章：重构、测试和调试"><span class="nav-text">第八章：重构、测试和调试 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何调试"><span class="nav-text"> 如何调试 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、堆栈"><span class="nav-text"> 一、堆栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、日志"><span class="nav-text">二、日志 </span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第九章：默认方法"><span class="nav-text">第九章：默认方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十章：用 Optional 取代 null"><span class="nav-text">第十章：用 Optional 取代 null</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建 -Optional- 对象"><span class="nav-text">创建 Optional 对象 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取 -Optional- 中的值"><span class="nav-text">获取 Optional 中的值 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战"><span class="nav-text">实战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十一章：CompletableFuture- 组合式异步编程"><span class="nav-text">第十一章：CompletableFuture: 组合式异步编程 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十二章：新的日期与时间 API"><span class="nav-text">第十二章：新的日期与时间 API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四部分：超越 -Java-8"><span class="nav-text">第四部分：超越 Java 8</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20200822/java8-in-action-comments/",
+            identifier: "blog/20200822/java8-in-action-comments/",
+            title: "《Java 8 实战》读书笔记"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

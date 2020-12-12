@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="问题描述:有一个无序, 元素个数为2n的正整数数组. 要求: 如何能把这个数组分割为元素个数为n的两个数组, 并使两个子数组的和最接近.当时面试的时候, 看完描述想了十秒钟, 只能想到C(2n, n)把所有情况遍历一遍, 想不到特别简单的算法, 就直接放弃了.. 面试官问我应该怎么做呢, 我只能靠直觉说用动态规划吧.虽然现在早就入职了, 但终于有时间重新思考这个问题, 并用这篇日志记录下来.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组分割 (编程之美) HyperS 面试题 思考与分享">
+<meta property="og:url" content="https://changchen.me/blog/20170524/partition-problem/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="问题描述:有一个无序, 元素个数为2n的正整数数组. 要求: 如何能把这个数组分割为元素个数为n的两个数组, 并使两个子数组的和最接近.当时面试的时候, 看完描述想了十秒钟, 只能想到C(2n, n)把所有情况遍历一遍, 想不到特别简单的算法, 就直接放弃了.. 面试官问我应该怎么做呢, 我只能靠直觉说用动态规划吧.虽然现在早就入职了, 但终于有时间重新思考这个问题, 并用这篇日志记录下来.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-05-24T16:34:57.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.462Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="hypers">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://changchen.me/blog/20170524/partition-problem/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>数组分割 (编程之美) HyperS 面试题 思考与分享 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20170524/partition-problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数组分割 (编程之美) HyperS 面试题 思考与分享
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-25 00:34:57" itemprop="dateCreated datePublished" datetime="2017-05-25T00:34:57+08:00">2017-05-25</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20170524/partition-problem/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20170524/partition-problem/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20170524/partition-problem/" class="post-meta-item leancloud_visitors" data-flag-title="数组分割 (编程之美) HyperS 面试题 思考与分享" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="问题描述"><a href="# 问题描述" class="headerlink" title="问题描述:"></a>问题描述:</h1><p><strong>有一个无序, 元素个数为 2n 的正整数数组. 要求: 如何能把这个数组分割为元素个数为 n 的两个数组, 并使两个子数组的和最接近.</strong><br>当时面试的时候, 看完描述想了十秒钟, 只能想到 C(2n, n)把所有情况遍历一遍, 想不到特别简单的算法, 就直接放弃了.. 面试官问我应该怎么做呢, 我只能靠直觉说用动态规划吧.<br>虽然现在早就入职了, 但终于有时间重新思考这个问题, 并用这篇日志记录下来.    </p>
+<a id="more"></a>   
+
+
+<blockquote>
+<p>这道面试题其实来自 <code>编程之美 2.18 数组分割</code>, 讽刺的是我以前很早买过这本书, 却没有仔细阅读~~   </p>
+</blockquote>
+<h1 id="方法一 -Simple-greedy-algorithm"><a href="# 方法一 -Simple-greedy-algorithm" class="headerlink" title="方法一: Simple greedy algorithm:"></a>方法一: Simple greedy algorithm:</h1><p>Step1: 将这个数组进行排序.<br>Step2: 按奇偶划分为两个数组: l1: [a1, a3, a5, ..] 和 l2: [a2, a4, a6, ..]<br>Step3: 遍历这两个数组, 找出一对数进行交换, 使得 <code>Sum(l1)</code> 和<code>Sum(l2)</code>的差值最小.<br>Step4: 重复 Step3 操作, 直到找不到可以让差值更小的交换.    </p>
+<p>*<em>缺点: *</em> 这样找到的两个子数组并不能保证是最优解.<br>我自己简单写了一下 Python 代码, 供更好的理解.   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">11</span>, <span class="number">20</span>, <span class="number">17</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method1</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="comment"># 先将所有元素排序, 按奇偶划分为两个数组:</span></span><br><span class="line">    <span class="comment"># [a1, a3, a5, ..] 和 [a2, a4, a6, ..]</span></span><br><span class="line">    l = sorted(l)</span><br><span class="line">    l1, l2 = l[::<span class="number">2</span>], l[<span class="number">1</span>::<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'sum(l1) - sum(l2):'</span>, sum(l1) - sum(l2))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        swp = (<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">        sub = sub_tmp = sum(l1) - sum(l2)</span><br><span class="line">        <span class="keyword">for</span> i, x <span class="keyword">in</span> enumerate(l1):</span><br><span class="line">            <span class="keyword">for</span> j, y <span class="keyword">in</span> enumerate(l2):</span><br><span class="line">                <span class="comment"># x 与 y 交换之后, SUM(l1) - SUM(l2):</span></span><br><span class="line">                <span class="comment">#   new_sum1 = sum(l1) - x + y</span></span><br><span class="line">                <span class="comment">#   new_sum2 = sum(l2) - y + x</span></span><br><span class="line">                <span class="comment">#   new_sub = new_sum1 - new_sum2 = sum(l1) - sum(l2) - 2x + 2y</span></span><br><span class="line">                new_sub = <span class="number">2</span> * (x - y) - sub</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> abs(new_sub) &lt;= abs(sub_tmp):</span><br><span class="line">                    swp = (i, j)</span><br><span class="line">                    sub_tmp = new_sub</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> abs(sub) != abs(sub_tmp):</span><br><span class="line">            i, j = swp[<span class="number">0</span>], swp[<span class="number">1</span>]</span><br><span class="line">            l1[i], l2[j] = l2[j], l1[i]</span><br><span class="line">            print(<span class="string">'\nswapping l1[&#123;&#125;] and l2[&#123;&#125;]'</span>.format(i, j))</span><br><span class="line">            print(<span class="string">'sum(l1) - sum(l2):'</span>, sum(l1) - sum(l2))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    method1(list(L))</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="方法二 - 分割为两个数组 - 并使他们的和最接近 - 从 2n 个数中挑出 n 个数 - 使他们的和最接近与所有整数的之和的一半"><a href="# 方法二 - 分割为两个数组 - 并使他们的和最接近 - 从 2n 个数中挑出 n 个数 - 使他们的和最接近与所有整数的之和的一半" class="headerlink" title="方法二: 分割为两个数组, 并使他们的和最接近 == 从 2n 个数中挑出 n 个数, 使他们的和最接近与所有整数的之和的一半."></a>方法二: 分割为两个数组, 并使他们的和最接近 == 从 2n 个数中挑出 n 个数, 使他们的和最接近与所有整数的之和的一半.</h1><p>书中对这个方法二的描述也是很令人费解, 我总结了一下:   </p>
+<p><strong>定义:</strong><br>sum_set(k, i): 从 k 个整数中找出 i 个元素的和 的集合.<br>令 L 为输入的数组, 令 2N 为数组长度:    </p>
+<ol>
+<li><strong>sum_set(2N, 1):</strong> 从 2N 个元素中取一个元素, 得到的和的集合</li>
+<li><strong>sum_set(2N, 2N):</strong> 从 2N 个元素中取 2N 个元素, 得到的和的集合</li>
+<li><strong>sum_set(2N, i):</strong> S(2N-1, i) | {x+L[k-1] for x in S(2N-1, i-1)}     </li>
+</ol>
+<p><strong>大致意思就是 sum_set(2N, i)可以分解为 第 k 个元素 选或者不选 的情况</strong>   </p>
+<p><strong>举个例子!!!</strong>   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">L &#x3D; [1, 2, 3, 4]</span><br><span class="line"></span><br><span class="line">1. sum_set(4, 1) &#x3D; &#123;1, 2, 3, 4&#125;</span><br><span class="line">2. sum_set(4, 4) &#x3D; &#123;1+2+3+4&#125; &#x3D; &#123;10&#125;</span><br><span class="line">3. sum_set(4, 2)   </span><br><span class="line">&#x3D; sum_set(3, 2) | &#123;x+4 for x in sum_set(3, 1)&#125;    </span><br><span class="line">&#x3D; (sum_set(2, 2) | &#123;x+3 for x in sum_set(2, 1)&#125;) | &#123;1+4, 2+4, 3+4&#125;    </span><br><span class="line">&#x3D; (&#123;1+2&#125; | &#123;1+3, 2+3\&#125;\&#125;) | &#123;5, 6, 7&#125;       </span><br><span class="line">&#x3D; &#123;3, 4, 5, 6, 7&#125;</span><br></pre></td></tr></table></figure>
+<p>书中是用 for 循环来写的, 但我感觉这种 DP 一般用递归会更加清晰, 就写了这个版本 (当然可以加 cache 做优化, 但我主要是为了展示思路就懒得写了, 可以参考我<a href="/blog/20160915/dynamic-programming/"> 关于动态规划的这篇日志</a>)    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method2</span><span class="params">(k, i)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> set(L[:k])</span><br><span class="line">    <span class="keyword">if</span> k == i:</span><br><span class="line">        <span class="keyword">return</span> &#123;sum(L[:k])&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># S(k, i) = S(k-1, i) U &#123;A[k] + x | x 属于 S(k-1, i-1) &#125;</span></span><br><span class="line">    <span class="keyword">return</span> method2(k<span class="number">-1</span>, i) | &#123;i+L[k<span class="number">-1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> method2(k<span class="number">-1</span>, i<span class="number">-1</span>)&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    L = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">11</span>, <span class="number">20</span>, <span class="number">17</span>]</span><br><span class="line">    N = int(len(L) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    print(method2(<span class="number">2</span>*N, N))</span><br></pre></td></tr></table></figure>
+
+<p>因为每一步都拆成了两种情况 (第 k 个元素 被选中 | 没被选中) 进行递归，所以 <strong> 时间复杂度为 O(2^N)</strong>.<br>要是加 cache 了话(把计算过的结果放在字典里), 时间复杂度是 O(max(k)*max(i))=O(N^2)?   </p>
+<p>但我总觉得 <code>{i+L[k-1] for i in method2(k-1, i-1)}</code> 的时间复杂度是不是没有考虑进去???   </p>
+<p>原书中的写法, 测试过了, 和递归的结果是一模一样的:   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method2_o</span><span class="params">(N, Heap, L)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">2</span>*N+<span class="number">1</span>):</span><br><span class="line">        i_max = min(k<span class="number">-1</span>, N<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> reversed(range(<span class="number">0</span>, i_max+<span class="number">1</span>)):</span><br><span class="line">            <span class="keyword">for</span> v <span class="keyword">in</span> Heap[i]:</span><br><span class="line">                Heap[i+<span class="number">1</span>].add(v+L[k<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="方法三"><a href="# 方法三" class="headerlink" title="方法三:"></a>方法三:</h1><p>方法二的时间复杂度是指数级的, 肯定是不能接受的.<br>按照书上写了第三种方法, <strong>时间复杂度为 O(N^2*Sum)</strong>:     </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method3</span><span class="params">(isOk)</span>:</span></span><br><span class="line">    <span class="comment"># isOk[i][v]: bool(从数组中取 i 个数, 得到 sum 为 v)</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">2</span>*N):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> reversed(range(<span class="number">1</span>, min(k+<span class="number">1</span>, N)+<span class="number">1</span>)):</span><br><span class="line">            <span class="keyword">for</span> v <span class="keyword">in</span> range(<span class="number">1</span>, int(sum(L)/<span class="number">2</span>+<span class="number">1</span>)):</span><br><span class="line">                sub = v - L[k]</span><br><span class="line">                <span class="keyword">if</span> sub &gt;= <span class="number">0</span> <span class="keyword">and</span> isOk[i<span class="number">-1</span>][sub]:</span><br><span class="line">                    isOk[i][v] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    L = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">11</span>, <span class="number">20</span>, <span class="number">17</span>]</span><br><span class="line">    N = int(len(L) / <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    isOk = &#123;x: defaultdict(bool) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, N+<span class="number">1</span>)&#125;</span><br><span class="line">    isOk[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">True</span></span><br><span class="line">    method3(isOk)</span><br><span class="line"></span><br><span class="line">    [print(k, v) <span class="keyword">for</span> k, v <span class="keyword">in</span> isOk.items()]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="总结 -TODO"><a href="# 总结 -TODO" class="headerlink" title="总结 (TODO):"></a> 总结(TODO):</h1><ol>
+<li>不知道在看这篇博客的你有没有发现一个很尴尬的问题:<br>书中的解法二得到的是 取值和的集合, 解法三得到的是是否能找到答案的 boolean 值.<br>那如何利用解法二, 解法三得到具体的子数组 (最优解) 呢?  </li>
+<li>解法二的我用递归的方式写的时间复杂度?<br>如果我递归时, 把计算结果保存到字典里, 不去做重复计算, 那么它的时间复杂度又是多少呢?   </li>
+</ol>
+<p>在知乎提的问题: <a href="https://www.zhihu.com/question/60472041">https://www.zhihu.com/question/60472041</a><br>希望有好心人帮我回答, 23333</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h1><ol>
+<li>&lt; 编程之美 &gt; 2.18 数组分割</li>
+<li><a href="http://www.americanscientist.org/issues/pub/2002/3/the-easiest-hard-problem/2">http://www.americanscientist.org/issues/pub/2002/3/the-easiest-hard-problem/2</a></li>
+</ol>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/hypers/" rel="tag"># hypers</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20170515/ele-interview-solution/" rel="prev" title="饿了吗 一道面试题分享和思考~">
+      <i class="fa fa-chevron-left"></i> 饿了吗 一道面试题分享和思考~
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20170607/pycharm-shortcut/" rel="next" title="PyCharm 收藏多年快捷键分享 WOW">
+      PyCharm 收藏多年快捷键分享 WOW <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一 -Simple-greedy-algorithm"><span class="nav-text">方法一: Simple greedy algorithm:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二 - 分割为两个数组 - 并使他们的和最接近 - 从 2n 个数中挑出 n 个数 - 使他们的和最接近与所有整数的之和的一半"><span class="nav-text">方法二: 分割为两个数组, 并使他们的和最接近 &#x3D;&#x3D; 从 2n 个数中挑出 n 个数, 使他们的和最接近与所有整数的之和的一半.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法三"><span class="nav-text">方法三:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结 -TODO"><span class="nav-text"> 总结(TODO):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-text">References:</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20170524/partition-problem/",
+            identifier: "blog/20170524/partition-problem/",
+            title: "数组分割 (编程之美) HyperS 面试题 思考与分享"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

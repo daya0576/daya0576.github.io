@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="记得以前上大学的时候, 去图书馆借了一本《代码简洁之道》. 虽然大部分的内容都忘得差不多了, 但里边的一些思想至今还是收益颇深.最近开始看一本书叫做《Effective Python: 59 Specific Ways to Write Better Python》, 把里边一些印象深刻的东西记录在这篇日志里.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note of 《Effective Python》(第一章 - 第三章)">
+<meta property="og:url" content="https://changchen.me/blog/20170118/effective-python-notes/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="记得以前上大学的时候, 去图书馆借了一本《代码简洁之道》. 虽然大部分的内容都忘得差不多了, 但里边的一些思想至今还是收益颇深.最近开始看一本书叫做《Effective Python: 59 Specific Ways to Write Better Python》, 把里边一些印象深刻的东西记录在这篇日志里.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-01-18T13:45:51.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.462Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://changchen.me/blog/20170118/effective-python-notes/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Note of 《Effective Python》(第一章 - 第三章) | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20170118/effective-python-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Note of 《Effective Python》(第一章 - 第三章)
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-18 21:45:51" itemprop="dateCreated datePublished" datetime="2017-01-18T21:45:51+08:00">2017-01-18</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20170118/effective-python-notes/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20170118/effective-python-notes/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20170118/effective-python-notes/" class="post-meta-item leancloud_visitors" data-flag-title="Note of 《Effective Python》(第一章 - 第三章)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>记得以前上大学的时候, 去图书馆借了一本《代码简洁之道》. 虽然大部分的内容都忘得差不多了, 但里边的一些思想至今还是收益颇深.<br>最近开始看一本书叫做《Effective Python: 59 Specific Ways to Write Better Python》, 把里边一些印象深刻的东西记录在这篇日志里.     </p>
+<a id="more"></a>
+
+
+<h1 id="Chapter-1-Pythonic-Thinking"><a href="#Chapter-1-Pythonic-Thinking" class="headerlink" title="Chapter 1: Pythonic Thinking:"></a>Chapter 1: Pythonic Thinking:</h1><ol>
+<li>Pythonic Thinking: <code>import this</code>   </li>
+<li>讲到选择 Python2 还是 Python3 的时候, 作者还是推荐大家尽量选择 Python3.<br>个人觉得一个初学者总是问学 Python2 和 Python3 的问题真的是很蠢的一种行为, 我以后还是要慢慢去学会写兼容 Python 2 和 3 代码.</li>
+<li>PEP 8 Style: 如果用 Pycharm 的话, 风格的不合适也是会用 warning 提示你的, 所以这个不必担心.<br>但个人认为提高 Python 代码可读性, 还是要代码写的很有节奏, 配上简洁明了的注释.<br>例子: <code>if len(l) == 0: --&gt; if not l:</code></li>
+<li>standard library modules &gt; third-party modules &gt; own modules.<br>import 包的顺序, 以前写 java 的时候也是这么推荐的.     </li>
+<li>编码的问题 (two types of representing se):<br>Python3: <code>bytes</code>(raw 8-bit values) and <code>str</code>(Unicode characters)<br>Python2: <code>str</code>(raw 8-bit values) and <code>unicode</code><br> 编码的问题原理我还是不是特别清楚, 以前上课的时候提到过 Unicode 编码的思想, 有空还是要深入了解一下.<br>Things to remember in this chapter:   <ul>
+<li>In python 3, <code>bytes</code> contains sequences of 8-bit values, <code>str</code> caontains sequences of Unicode characters. <code>bytes</code> and <code>str</code> instances cann&#39;t be used with operateors(like &gt; or +)     </li>
+<li>In Python 2, <code>str</code> contains sequences of 8-bit values, <code>unicode</code> contains sequences of Unicode characters. <code>str</code> and <code>unicode</code> can be used together with operators if the <code>str</code> only contains 7-bit ASCII characters.   </li>
+<li>Use <code>helper functions</code> to ensure that the inputs you operate on are the type of character sequence you expect (8-bit values, UTF-8 encoded characters, Unicode characters, etc.).</li>
+<li>If you want to read or write binary data to/from a file, always open the file using a binary mode (like <code>&#39;rb&#39;</code> or <code>&#39;wb&#39;</code>)   </li>
+</ul>
+</li>
+<li>作者推荐这类只用一行简洁的写法: <code>red = my_values.get(‘red’, [”])[0] or 0</code><br>不由的让人想起了 Perl 的优美使用: <code>open BOOK, &quot;hp1.txt&quot; or die &quot;$0: open &#39;$file&#39; failed: $!&quot;</code>   </li>
+<li>数组的 slice: 最经典还是这个反转数组 (字符串) 操作: <code>somelist[::-1]</code>    </li>
+<li>要尽量用 List Comprehension(<code>squares = [x**2 for x in l if x % 2 == 0</code>, 而且更强大) 而不是 map 或者 filte.<br>字典和 set 也支持 Comprehension Expression: <code>rank_dict = {rank: name for name, rank in chile_ranks.items()}</code>    </li>
+<li>Consider generator expressions for large comprehensions(防止消耗过大的空间):<br>Bad: <code>value = [len(x) for x in open(‘/tmp/my_file.txt’)]</code><br>Good: <code>(len(x) for x in open(‘/tmp/my_file.txt’))</code><br>看了这一小章终于明白 generator 存在的意义了.<br>generator 唯一的缺点就是它只能用一次.<br>stackoverflow 上的一个不错的回答: <a href="http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do">http://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do</a>   </li>
+<li><code>zip</code>: 唯一要关注的问题就是在 Python2 中, zip 并不是一个 generator, 所以它可能会占用很大的内存, 所以要用 izip. 而且当 zip 的两个参数的长度不一样的时候, 一个参数长出来的部分就会消失咯.  </li>
+<li><code>for</code>循环后边要尽量不用<code>else</code>    </li>
+<li>try/except/else/finally 的逻辑(异常 Python 用的不多, 但和以前 Java 的结构好像并没有什么不同). 例如没有 exception 的话就会走 else.     </li>
+</ol>
+<h1 id="Chapter-2-Functions"><a href="#Chapter-2-Functions" class="headerlink" title="Chapter 2: Functions:"></a>Chapter 2: Functions:</h1><ol>
+<li>要使用 exception 而不是返回<code>None</code> (&quot;return&quot; or &quot;return None&quot;), 因为 None, 0, [], &#39;&#39; 都会被当成 False.   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divide</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> a / b</span><br><span class="line">    <span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">'Invalid b'</span>) <span class="keyword">from</span> e</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = divide(<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        print(<span class="string">'invalid input'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'result is %.1f'</span> % result)</span><br></pre></td></tr></table></figure></li>
+<li>用一个 helper 方法去自定义排序.    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_priority</span><span class="params">(values, group)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(x)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">in</span> group:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>, x</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>, x</span><br><span class="line"></span><br><span class="line">    values.sort(key=helper)</span><br><span class="line"></span><br><span class="line">l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">g = &#123;<span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">sort_priority(l, g)</span><br><span class="line">print(l)</span><br><span class="line">```    </span><br><span class="line">能这么做原因: <span class="number">1.</span>Python 支持闭包 (closures). <span class="number">2.</span> 方法可以直接当做变量使用. <span class="number">3.</span>Python 有自己的排序规则来自定义 key.     </span><br><span class="line">这一小节还讨论了一些 scope 的问题, 比如在 helper 里去改变 sort_priority 的变量肯定就没有效果, 要加上 `<span class="keyword">nonlocal</span>`, 不禁让人想起了 `<span class="keyword">global</span>`, 他们的作用是刚好相补的.     </span><br><span class="line">但是作者还是推荐说 `<span class="keyword">nonlocal</span>` 有风险, 要谨慎使用. 可以用一个类实现一样的功能或者使用 list.    </span><br><span class="line">为什么 list 可以无视 scope 呢, 还是不太明白?           </span><br><span class="line"><span class="string">"The trick is that the value for found is a list, which is `mutable`."</span>   </span><br><span class="line">_   </span><br><span class="line">查了一下, 意思就是比如 `x=y=<span class="number">1</span>`, 改变 immutable 变量的值的话是会重新创建一个变量.    </span><br><span class="line">如果是 `x=y=[]`, 改变 mutable 的变量的话, x 和 y 的值就一起变了. 可以理解为 C 语言中传的地址. y <span class="keyword">is</span> a copy of x<span class="string">'s reference.       </span></span><br><span class="line"><span class="string">Stackoverflow 上的详细解释: [http://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference](http://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference)   </span></span><br><span class="line"><span class="string">_   </span></span><br><span class="line"><span class="string">可以这么写不去改变传入的参数: `list(a)` or `a[:]` 来创建新对象.   </span></span><br><span class="line"><span class="string">3.Generator, 防止内存爆掉.    </span></span><br><span class="line"><span class="string">```python</span></span><br><span class="line"><span class="string">def index_word_iter(text):</span></span><br><span class="line"><span class="string">    if text:</span></span><br><span class="line"><span class="string">        yield 0</span></span><br><span class="line"><span class="string">    for index, letter in enumerate(text):</span></span><br><span class="line"><span class="string">        if letter =='</span> <span class="string">':</span></span><br><span class="line"><span class="string">            yield index + 1</span></span><br></pre></td></tr></table></figure>
+上边说到过, 一个 iterator 只能用一次, 比如这个例子:<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(list(it))</span><br><span class="line">print(list(it))  <span class="comment"># Already exhausted  &lt;-- XD</span></span><br></pre></td></tr></table></figure>
+而且你去使用一个被使用过的 iterator 并不会报错, 所以要格外的小心.<br>可以 <code>numbers = list(it)</code> 提前 copy 一份, 但我总觉得怪怪的.<br>作者最后说要用 <strong>iter</strong> 方法, 但不是很懂:<br>Iterator protocol 大意就是每次使用这个 iterator 的时候, <strong>iter</strong>都会创建一个新的 iterator.         <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalize</span><span class="params">(numbers)</span>:</span></span><br><span class="line">    total = sum(numbers)</span><br><span class="line">    result = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> numbers:</span><br><span class="line">        result.append(v/total)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadVistors</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">            <span class="keyword">yield</span> i</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">readVistors</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line"></span><br><span class="line">v = ReadVistors()</span><br><span class="line"><span class="comment"># v = readVistors() # null</span></span><br><span class="line">print(normalize(v))</span><br></pre></td></tr></table></figure>
+可以用这个方法检测 iterator 是否可以多次使用:    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> iter(numbers) <span class="keyword">is</span> iter(numbers):</span><br><span class="line">    <span class="keyword">raise</span> TypeError(<span class="string">'must suplly a container'</span>)</span><br></pre></td></tr></table></figure></li>
+<li>variable positional ariguments: 如果传入的参数是个未知长度数组的话, 可以这么写:    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(message, *values)</span>:</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">log(<span class="string">'My numbers are'</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">log(<span class="string">'Hi there'</span>)</span><br></pre></td></tr></table></figure>
+但是这个巧妙的用法也有一些问题:   <ul>
+<li>的话会在传入参数前, 把 values 变成一个 tuple. 所以要是传入的是一个 generator 的话, 内存就很有可能爆掉.    </li>
+<li>在方法中新增一个参数的话, 很可能造成一些很难发现的 bugs.   </li>
+</ul>
+</li>
+<li>在使用 Python 的默认参数是 mutable({}, [])的时候, 要格外小心, 因为这个 default argument 只有在初始化的时候被 evaluated 一次.<br>最好的解决方法是用 None:   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(message, when=None)</span>:</span></span><br><span class="line">    when = datetime.now() <span class="keyword">if</span> when <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> when</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h1 id="Chapter-3-Classes-and-Inheritance"><a href="#Chapter-3-Classes-and-Inheritance" class="headerlink" title="Chapter 3: Classes and Inheritance:"></a>Chapter 3: Classes and Inheritance:</h1><ul>
+<li>1) 要避免字典里套字典, 可以用多个类来替换.<br>2) 在考虑用 class 前, 可以尝试 <code>namedtuple</code> 作为一种轻量级的不可修改的 data container.    </li>
+<li>Python 中的方法也是和变量一样是对象, 所以可以传来传去~ 比如 sort 的 key 参数就是接收一个排序的方法    </li>
+<li>Python 允许类中定义一个 <code>__call__</code> 方法,<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counter = BetterCountMissing()</span><br><span class="line">result = defaultdict(counter, current) <span class="comment"># Relies on __call__</span></span><br></pre></td></tr></table></figure></li>
+<li>@classmethod 和 @statisticmethod:<br>书中解释了一大堆, 不是特别懂, 大意就是要把相关的方法写到类里边. 摘 Stack Overflow 上的两个例子:    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_string</span><span class="params">(cls, date_as_string)</span>:</span></span><br><span class="line">    day, month, year = map(int, date_as_string.split(<span class="string">'-'</span>))</span><br><span class="line">    date1 = cls(day, month, year)</span><br><span class="line">    <span class="keyword">return</span> date1</span><br><span class="line"></span><br><span class="line">date2 = Date.from_string(<span class="string">'11-09-2012'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_date_valid</span><span class="params">(date_as_string)</span>:</span></span><br><span class="line">    day, month, year = map(int, date_as_string.split(<span class="string">'-'</span>))</span><br><span class="line">    <span class="keyword">return</span> day &lt;= <span class="number">31</span> <span class="keyword">and</span> month &lt;= <span class="number">12</span> <span class="keyword">and</span> year &lt;= <span class="number">3999</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># usage:</span></span><br><span class="line">is_date = Date.is_date_valid(<span class="string">'11-09-2012'</span>)</span><br></pre></td></tr></table></figure></li>
+<li>Initialize Parent Classes with <code>super</code>(看了半天头都晕了)    </li>
+<li>Item26: 跳过.   </li>
+<li>Item28: collections.abc</li>
+</ul>
+<h1 id="Chapter-4-Metaclasses-and-Attributes"><a href="#Chapter-4-Metaclasses-and-Attributes" class="headerlink" title="Chapter 4: Metaclasses and Attributes:"></a>Chapter 4: Metaclasses and Attributes:</h1><ul>
+<li>Item 29:</li>
+</ul>
+<p>&lt; 未完待续 &gt;</p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20161204/python-notes/" rel="prev" title="Python Personal Note">
+      <i class="fa fa-chevron-left"></i> Python Personal Note
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20170213/effective-python-chapter6/" rel="next" title="Note of 《Effective Python》(第六章)">
+      Note of 《Effective Python》(第六章) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-1-Pythonic-Thinking"><span class="nav-text">Chapter 1: Pythonic Thinking:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-2-Functions"><span class="nav-text">Chapter 2: Functions:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-3-Classes-and-Inheritance"><span class="nav-text">Chapter 3: Classes and Inheritance:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-4-Metaclasses-and-Attributes"><span class="nav-text">Chapter 4: Metaclasses and Attributes:</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20170118/effective-python-notes/",
+            identifier: "blog/20170118/effective-python-notes/",
+            title: "Note of 《Effective Python》(第一章 - 第三章)"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

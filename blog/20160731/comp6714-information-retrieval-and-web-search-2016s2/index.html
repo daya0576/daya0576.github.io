@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="The second term of my master degree in UNSWThis blog is sharing my experience of COMP6714: Information Retrieval and Web Search in 2016s2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Henry&#39;s Feedback of UNSW COMP6714 16s2">
+<meta property="og:url" content="https://changchen.me/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="The second term of my master degree in UNSWThis blog is sharing my experience of COMP6714: Information Retrieval and Web Search in 2016s2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-07-31T12:02:22.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.458Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="unsw">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://changchen.me/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Henry's Feedback of UNSW COMP6714 16s2 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Henry's Feedback of UNSW COMP6714 16s2
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-31 20:02:22" itemprop="dateCreated datePublished" datetime="2016-07-31T20:02:22+08:00">2016-07-31</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/" class="post-meta-item leancloud_visitors" data-flag-title="Henry's Feedback of UNSW COMP6714 16s2" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>The second term of my master degree in UNSW<br>This blog is sharing my experience of COMP6714: Information Retrieval and Web Search in 2016s2     </p>
+<a id="more"></a>
+
+
+<h1 id="Useful-resources"><a href="#Useful-resources" class="headerlink" title="Useful resources:"></a>Useful resources:</h1><p><strong>Write down your experience about this course through this url (a cse courses&#39; experience sharing website made by myself):</strong><br><a href="http://www.unsw.co/rango/category/comp6714">http://www.unsw.co/rango/category/comp6714</a><br><strong>My Final Revision Summary Google doc link:</strong><br><a href="https://docs.google.com/document/d/1GmrqmyfUs-NWY6NwhVFr8ecPtMjeyUIHsfDh0XD6IOA/edit?usp=sharing">https://docs.google.com/document/d/1GmrqmyfUs-NWY6NwhVFr8ecPtMjeyUIHsfDh0XD6IOA/edit?usp=sharing</a><br>More than 40 students were online at the same time before the day of exam LOL<br><img style="max-height:250px" class="lazy" data-original="/images/blog/160731_comp6714/online.png"><br>And thx to everyone contributed to it, didnt expect it at all.    </p>
+<h1 id="Summary-In-the-end"><a href="#Summary-In-the-end" class="headerlink" title="Summary(In the end)"></a>Summary(In the end)</h1><p><strong>Good things</strong>:<br><strong>1. Well designed labs</strong>(Jupyter Notebook) on Github, they are clear and indeed helpful: <a href="https://github.com/DBWangGroupUNSW/COMP6714">https://github.com/DBWangGroupUNSW/COMP6714</a>. Looking at the real code makes me understand the concepts and algorithms immediately.<br><strong>2. Distribution of whole class&#39;s marks</strong> is clearly presented.<br><strong>3. Submitting system.</strong> Although a lot of students were complaining about the submitting system(mainly because they didn&#39;t follow the instructions), I think it&#39;s excellent, u have <strong>10!!!</strong> chances to improve your highest score. U know in comp9319, u would lose all your mark if u made any small mistake. So the submitting system is relatively kind and generous.<br><strong>4.</strong> The explanation of algorithms in lecture <strong>by hand</strong> is pretty good and clear.<br>_<br><strong>Could be improved</strong>:<br><strong>1. Short comments or feedback</strong> on each student&#39;s assignments and the project could be provided.<br><strong>2. Piazza forum</strong> provides a great way of communication, however, a quicker response or better interactive could be provided. For example, questions could be answered in one day to maintain students&#39; enthusiastic.<br><strong>3. Things were in a rush.</strong> Due to the high teaching &amp; research loads, I always feel that many things were in a rush and have small problems. For example, when the mark released, I didn&#39;t receive an email or get the announcement in the forum. when the solution released, the path is always wrong.<br><strong>4. The project is too easy</strong>, maybe we could be asked to extract all the other relations.<br><strong>5. Making the lecture clearer and better organized(students complained the most)</strong>:<br>I did learn dozens of brilliant ideas and algorithms from this course, however, if someone asks me now without revision: what did u learn from this course? I even do not know how to answer it. It&#39;s because, before and after understanding the algorithm, I always don&#39;t know why I need to learn it and what&#39;s this algorithm is exactly used for, what&#39;s the <strong>connection</strong> between each part.<br>I admit that it&#39;s also mainly because of my problem: lacking of preparing and review for each lecture.<br><strong>Here are my several pieces of advice:</strong>     </p>
+<p>1) The <strong>review slides</strong> could be released in the introduction part of the first lecture, it would be a very good guide for students to easily find out what are they exactly learning in different lectures.<br>2) The teaching in the lecture harried a little too, the lecturer could be more relaxed and also create <strong>more interaction</strong> with students. If u asked a very very simple question in lecture but no one can answer it, here is the problem.<br>3) For the reason of great gap between students, maybe  the total amount of material in lecture could be <strong>reduced</strong> to make key concepts totally clear first, then providing other sources of information, such as references of harder parts, labs, notes, to students who want to learn more.<br><strong>I wrote down all my thoughts straightforward in my mind, ignore some incorrect ideas.</strong>     </p>
+<h1 id="The-greatest-harvest-from-this-course"><a href="#The-greatest-harvest-from-this-course" class="headerlink" title="The greatest harvest from this course"></a>The greatest harvest from this course</h1><p>I did enjoy a lot and followed well in some lectures, the feeling of learning new brilliant ideas is awesome.<br>In spite of the knowledge, here are two critical things learned from this course:<br>1). I&#39;m not afraid of math anyone, in the lecture about BIM, I was totally lost, however in the revision, I finally understood it and found it&#39;s not hard at all.<br>2). In my bachelor degree, I did some research with a teacher for more than one year, the thing that I regret most is lacking reading papers before writing code. But now, I can read references patiently and solve one problem by myself.    </p>
+<h1 id="week1-27-07-2016"><a href="#week1-27-07-2016" class="headerlink" title="week1 (27/07/2016)"></a>week1 (27/07/2016)</h1><p>I missed the first lecture because of the late flight :(<br>Unfortunately, the class was full but the lecturer is so nice and let me enrolled in.<br>The lab online is <strong>well designed and fun</strong>, it does help me have a deeper understand of the algorithms in lecture.<br>I even submitted a pull request to lecturer :)<br><img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/L0_fork.jpg">     </p>
+<h1 id="week2-01-08-2016"><a href="#week2-01-08-2016" class="headerlink" title="week2(01/08/2016)"></a>week2(01/08/2016)</h1><p>Getting most of the ideas, but totally lost in some math parts,  having not learned math for so many years.<br>Another problem is that Wang looked a bit nervous and cannot make some of the teaching content totally clear, speaking hundreds of &quot;<strong>actually</strong>&quot; in the 3 hours lecture.<br><img style="max-height:300px" class="lazy" data-original="/images/blog/160731_comp6714/math.JPG"> </p>
+<h1 id="week4-15-08-2016"><a href="#week4-15-08-2016" class="headerlink" title="week4 (15/08/2016)"></a>week4 (15/08/2016)</h1><p>I forced myself to concentrate and followed the lecture quite well.<br>Maybe another reason is that the lecture is much clearer this week.<br><img style="max-height:300px" class="lazy" data-original="/images/blog/160731_comp6714/expert.png">    </p>
+<h1 id="week6-Compression-03-09-2016"><a href="#week6-Compression-03-09-2016" class="headerlink" title="week6 Compression (03/09/2016)"></a>week6 Compression (03/09/2016)</h1><p>Can not wait to learn knowledge from this course!<br>happiest moment in my horrible 9 hours&#39; lecture on Monday!<br><img style="max-height:300px" class="lazy" data-original="/images/blog/160731_comp6714/9hours.png"> </p>
+<h1 id="week7-amp-8-Spelling-Correction-Information-Extraction-12-09-2016"><a href="#week7-amp-8-Spelling-Correction-Information-Extraction-12-09-2016" class="headerlink" title="week7&amp;8 Spelling Correction + Information Extraction (12/09/2016)"></a>week7&amp;8 Spelling Correction + Information Extraction (12/09/2016)</h1><p>The lecture was back into a mess. I was lost again...<br>I heard one classmate judging Wang that he alway jump from one point to another, for example, when he was talking about A,  he suddenly remembered B, he would rush to B, then again, jumped to C, finally back to A.<br>The point is that he should make one thing entirely clear before jumping to another. He is a nice person and great <strong>researcher</strong>, but he should put more efforts to think about how to be an excellent <strong>lecturer</strong>.<br>Of course, another reason is my <strong>lacking of preparation</strong>, I should spend more time to prepare before the lecture!!!</p>
+<h1 id="Assignment1-20-09-2016"><a href="#Assignment1-20-09-2016" class="headerlink" title="Assignment1 (20/09/2016)"></a>Assignment1 (20/09/2016)</h1><p><a href="/images/blog/160731_comp6714/ass1-spec.pdf">Ass1(click me to download)</a> is consisted of four questions.<br>Here is my solution: <a href="/images/blog/160731_comp6714/ass1.pdf">ass1_solution.pdf</a><br>My mark: Comment: 24 | 14 | 25 | 25 | 1<br>The most awesome part is that, when the mark of ass1 released, lectuer gave the overview(mark distribution) of the whole class:<br><img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/ass1_mark.png">    </p>
+<h1 id="Project-29-09-2016"><a href="#Project-29-09-2016" class="headerlink" title="Project (29/09/2016)"></a>Project (29/09/2016)</h1><p><a href="/images/blog/160731_comp6714/proj1-spec.pdf">A copy of project spec</a><br>Quite interesting, extracting birthday and parents in sentences such as:<br><code>Waite, the eldest of five children, was born in White Plains, New York on June 22, 1928, to Ralph H. Waite, a construction engineer, and Esther (nee Mitchell) Waite.</code><br>It&#39;s not hard to get a not bad result, but if you pursue the perfect performance, you need a smarter way to deal with the data, such as parsing the sentence to dependency tree and analyze the syntax.<br><strong>Submitting System</strong><br>BTW, the submitting system online is awesome!!!<br>U have ten chances to submit and get your mark, it&#39;s so nice(compared with 9319...).<br>However, many students complained about this submitting system.. If these stus spent some time to read the spec carefully and simply follow the steps, nothing would go wrong.<br><img style="max-height:350px" class="lazy" data-original="/images/blog/160731_comp6714/submitting.png"><br>The evaluation measure is also brilliant     </p>
+<h1 id="Project-summary-10-10-2016"><a href="#Project-summary-10-10-2016" class="headerlink" title="Project summary (10/10/2016)"></a>Project summary (10/10/2016)</h1><p>As today is the due date of project, I will summarize my thinkings about this project:<br>I mentioned so many things above that I extremely appreciate, here are things have to be improved in my perspective:             </p>
+<ol>
+<li>Mistakes in testing and training data:<br>Lecturer&#39;s response to this issue:     <img style="max-height:344px" class="lazy" data-original="/images/blog/160731_comp6714/explain.png">    
+However, I still feel the testing and training data has to be more correct. It's because there were only 400 sentences, rather than 4000, and most of the mistakes in training data are easy for human to distinguish.      
+Another critical reason is that these mistakes would make students lose confidence on testing data(highly relevant to their marks..).       
+And I kept thinking that one solution is opening a thread in the class forum or GitHub and let students submit all the possible errors, then keep publishing the latest most correct version of training data.     
+Unfortunately, it's not feasible for testing data(can not be seen by students).     </li>
+<li>Late reply in piazza forum<br>I understand that Dr. Wang was extremely busy this semester(as he mentioned many times in lecture.) This forum should be checked at least every day although some of the questions are quite naive and wasting time to answer.     </li>
+</ol>
+<p><strong>Mark for Project</strong><br><img style="max-height:200px" class="lazy" data-original="/images/blog/160731_comp6714/proj_mark.png"><br>Not bad, but it&#39;s a pity that I only spent one day to get my final result, but then tried everything in the next 3 days without improvement:<br>Mark overview:<br><img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/proj_mark_distribution.png">    </p>
+<h1 id="week11-Evaluation-10-10-2016"><a href="#week11-Evaluation-10-10-2016" class="headerlink" title="week11 Evaluation(10/10/2016)"></a>week11 Evaluation(10/10/2016)</h1><p>Really enjoy the first two hours, the evaluation part is full of fun and easy.<br><img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/w11_wei.png"><br>However, in the last one hour, I was lost in math part again @_@ (Probabilistic and Language Models)<br>And the lecture ended at 15:01, 6 minutes extended, one critical thing is that this <strong>6 minutes would not be recorded by echo system</strong>. It was not a huge issue(However in the revision, this 6 minutes is quite critical and I can not see it..updated in 11/11) and I can see that Dr. Wang did eager to deliver a better teaching, but he also has to pay more attention to these <strong>details</strong> to improve &quot;user happiness&quot; :)        </p>
+<h1 id="Assignment2-31-10-2016"><a href="#Assignment2-31-10-2016" class="headerlink" title="Assignment2(31/10/2016)"></a>Assignment2(31/10/2016)</h1><p><a href="/images/blog/160731_comp6714/ass2-spec.pdf">Ass2(click me to download)</a> is consisted of four questions too.<br>Here is my solution: <a href="/images/blog/160731_comp6714/ass2.pdf">ass2_solution.pdf</a><br><strong>So so so interesting</strong>, I have been playing it for the whole day.<br>The difficulty of the questions was well controlled. I mean all the problems were very hard to me in the beginning, but if I spend some time on it and think harder, all the problems will be solved smoothly.<br>The <strong>pleasure</strong> of getting the solution to each question is just unblievable.<br>** Mark for Assignment2 **<br>My mark: Comment: 0 | 23 | 25 | 25 | 25<br>Should get full mark but made a small calculation mistake.<br><img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/ass2-marks.png">    </p>
+<h1 id="Final-Exam-11-11-2016"><a href="#Final-Exam-11-11-2016" class="headerlink" title="Final Exam(11/11/2016)"></a>Final Exam(11/11/2016)</h1><p>The <strong>cheat sheet</strong> is a good idea because this course mainly examines the way of thinking and  understanding instead of remembering.<br><strong>The actual problem</strong> in my perspective is that too much content was included in this final exam. I have no time for all the calculations and even do not have time for <strong>thinking</strong>.<br>Another thing I want to share is that actually, there is an 11s2 final exam available online and more than one-third of the content is almost same(of course small and tricky changes were made). And when I published that on my review on google doc(because I feel it&#39;s unfair that a few students do not know it), some Chinese students put comments on the top that, &quot;zuo ren liu yi xian, rang xia yi jie zen me ban and zhuang tm zui diao de&quot;, I was quite shocked and the only reason I can think of is that they already got this previous exam paper and so scared that lecturer knows it and change the final exam questions, the panic of failing the course is so familiar. In contrast, on the day before final exam, I joined a small study group(all the top students in this major excluded me, I&#39;m a total loser of exam) to do the revision together, these people are so brilliant and both hardworking, that&#39;s how a student should be, so admiring. And that&#39;s one of biggest troubles of this course, the unequal capabilities of students, many students just want to pass this course instead of learning knowledge...<br><img style="max-height:100px" class="lazy" data-original="/images/blog/160731_comp6714/comments.JPG"><br>** My advice about final exam: **     </p>
+<ol>
+<li>release one final exam(or exercises) in advance and make changes in the real exam to examine whether students really understand them or not. because I know the solutions to most of the questions in the final exam, but can not solve them without enough exercises before.    </li>
+<li>reserve the first part but reduce the number of total questions, making more questions such as how and why and designing, instead of endless calculation.        </li>
+</ol>
+<p>--END-- </p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/unsw/" rel="tag"># unsw</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20160728/unse-fail/" rel="prev" title="What to do after failing a course at UNSW(Especially for the IT 8543)">
+      <i class="fa fa-chevron-left"></i> What to do after failing a course at UNSW(Especially for the IT 8543)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20160731/yogurt/" rel="next" title="澳洲 Dairy farmers 酸奶各个口味评鉴">
+      澳洲 Dairy farmers 酸奶各个口味评鉴 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Useful-resources"><span class="nav-text">Useful resources:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary-In-the-end"><span class="nav-text">Summary(In the end)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-greatest-harvest-from-this-course"><span class="nav-text">The greatest harvest from this course</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week1-27-07-2016"><span class="nav-text">week1 (27&#x2F;07&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week2-01-08-2016"><span class="nav-text">week2(01&#x2F;08&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week4-15-08-2016"><span class="nav-text">week4 (15&#x2F;08&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week6-Compression-03-09-2016"><span class="nav-text">week6 Compression (03&#x2F;09&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week7-amp-8-Spelling-Correction-Information-Extraction-12-09-2016"><span class="nav-text">week7&amp;8 Spelling Correction + Information Extraction (12&#x2F;09&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment1-20-09-2016"><span class="nav-text">Assignment1 (20&#x2F;09&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-29-09-2016"><span class="nav-text">Project (29&#x2F;09&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-summary-10-10-2016"><span class="nav-text">Project summary (10&#x2F;10&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week11-Evaluation-10-10-2016"><span class="nav-text">week11 Evaluation(10&#x2F;10&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment2-31-10-2016"><span class="nav-text">Assignment2(31&#x2F;10&#x2F;2016)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Final-Exam-11-11-2016"><span class="nav-text">Final Exam(11&#x2F;11&#x2F;2016)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/",
+            identifier: "blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/",
+            title: "Henry's Feedback of UNSW COMP6714 16s2"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

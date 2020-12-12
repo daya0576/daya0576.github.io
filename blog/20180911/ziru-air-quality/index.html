@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="企业天生就是追求利益的, 可生命永远是无价的. 本文记录分享了自如甲醛检测的魔幻之旅, 虽然最后还是放弃了 \doge.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自如甲醛检测的魔幻之旅">
+<meta property="og:url" content="https://changchen.me/blog/20180911/ziru-air-quality/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="企业天生就是追求利益的, 可生命永远是无价的. 本文记录分享了自如甲醛检测的魔幻之旅, 虽然最后还是放弃了 \doge.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2018-09-11T12:28:13.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.466Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="daya0576">
+<meta property="article:tag" content="朱昌健">
+<meta property="article:tag" content="大牙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20180911/ziru-air-quality/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>自如甲醛检测的魔幻之旅 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180911/ziru-air-quality/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自如甲醛检测的魔幻之旅
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-11 20:28:13" itemprop="dateCreated datePublished" datetime="2018-09-11T20:28:13+08:00">2018-09-11</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20180911/ziru-air-quality/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20180911/ziru-air-quality/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20180911/ziru-air-quality/" class="post-meta-item leancloud_visitors" data-flag-title="自如甲醛检测的魔幻之旅" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>企业天生就是追求利益的, 可生命永远是无价的. 本文记录分享了自如甲醛检测的魔幻之旅, 虽然最后还是放弃了 \doge.</p>
+<a id="more"></a>
+
+<h1 id="背景"><a href="# 背景" class="headerlink" title="背景:"></a>背景:</h1><p>六个月前来到美丽的杭州, 和同事一起以高于市场的价格在自如整租了两室一厅. 主要看中自如便捷的平台和精致的装修图个省心. 刚入住时稍微有些味道, 但慢慢也就习惯了. 虽然后来鼻子和喉咙有些难受, 但也完全不会往装修的方向想(当然现在也不确定是否和装修有关). </p>
+<p>看到最近阿里员工的新闻, 内网帖子和自如管家的洗白朋友圈, 心里很不是滋味. 更可怜的是自己也住着新装的自如房, 赶紧检测一下甲醛是否超标.</p>
+<h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><h2 id="第一次检测 - 无 CMA 资质"><a href="# 第一次检测 - 无 CMA 资质" class="headerlink" title="第一次检测(无 CMA 资质)"></a> 第一次检测(无 CMA 资质)</h2><table>
+<thead>
+<tr>
+<th>机构</th>
+<th>费用</th>
+<th>检测方法</th>
+<th>检测结果</th>
+<th>限量标准</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>音匀环保科技</td>
+<td>100 元 / 房间 * 2</td>
+<td>GB-18883</td>
+<td>甲醛: 0.155</td>
+<td>&lt;=0.1</td>
+</tr>
+</tbody></table>
+<h2 id="第二次检测 - 有 CMA 资质"><a href="# 第二次检测 - 有 CMA 资质" class="headerlink" title="第二次检测 (有 CMA 资质)"></a> 第二次检测(有 CMA 资质)</h2><table>
+<thead>
+<tr>
+<th>机构</th>
+<th>费用</th>
+<th>检测方法</th>
+<th>检测结果</th>
+<th>限量标准</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>蓝莘环境检测技术</td>
+<td>600 元 / 房间 * 1</td>
+<td>GB-50325</td>
+<td>甲醛: 0.069</td>
+<td>&lt;=0.08</td>
+</tr>
+</tbody></table>
+<h2 id="第三次检测 - 有 CMA 资质"><a href="# 第三次检测 - 有 CMA 资质" class="headerlink" title="第三次检测 (有 CMA 资质)"></a> 第三次检测 (有 CMA 资质)</h2><p> 细心的你肯定发现 <strong> 魔幻之处:</strong> 两次的检测结果差了一倍多... 仔细一问原来是两次检测标准不一样, WTF??????? 一个是 GB-18883, 一个是 GB-50325.</p>
+<p><strong>摘自网络的解释:</strong></p>
+<blockquote>
+<p>GB/T18883-2002《室内空气质量标准》，由卫生部制定，检测要求门窗关闭时间为 12 小时，主要用于衡量房屋是否合乎人居环境健康要求；GB50325-2001《民用建筑工程室内环境污染控制规范》，由建设部制定，检测要求门窗关闭时间为 1 小时主要用于民用建筑工程和室内装修工程环保验收检测。 GB/T18883 与 GB50325 室内空气质量标准的区别: 1、针对性的区别 GB/T 18883 是国家环保总局和卫生部发布的国标推荐性标准，是一种指导性标准，是人居环境健康尺度，对建筑商、装修商、家具商 <strong> 没有约束力</strong>，GB50325 是建设部发布的强制性标准，是建筑、装修验收标准，对建筑商、装修商具有强制性，要求是在项目竣工后 1 个月以后监测。该标准规定，建筑工程、装修工程必须履行环保验收达标才能交工，严禁不达标房屋交付使用。</p>
+</blockquote>
+<p><strong>疑点:</strong><br>两次检测结果完全不同. 就算检测标准不一样, 但据我观察收集气体的仪器是一摸一样的, 甚至第二家还没按 50325 标准让我封闭 1 小时, 而是让我和第一家一样封闭了 12 个小时. 但最后结果天翻地覆.</p>
+<p>这时候, 正常人肯定会怀疑第一家音匀环保科技, 他是治理公司, 会不会故意把甲醛测高想让我治理?? 但见下图, 如果有猫腻, 为何会催我尽快做 CMA:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_5399.jpg" alt="UNADJUSTEDNONRAW_thumb_5399"></p>
+<p>在接触的第二家的过程中, 反而觉得没有 CMA 资质的靠谱, 有 CMA 资质的反而不靠谱. 因为第二家 <strong> 一上来就问我是不是自如检测, 并且号称他们检测过的自如房子 90% 都超标了</strong>. 淘宝店也感觉不太正规. 第二家说市面上 CMA 可以说没有一家可以按照 18883 标准来的(见上边的文献, 只有 GB50325 有法律效应), 但问了第三家可以做 18883 吗? 第三家果断说可以, 但开口就是 1000 块. 瞬间感觉水好深.... 绝望.</p>
+<h1 id="详细经过"><a href="# 详细经过" class="headerlink" title="详细经过"></a>详细经过 </h1><h2 id="2018-09-01- 第一次上门检测 - 无 CMA 资质"><a href="#2018-09-01- 第一次上门检测 - 无 CMA 资质" class="headerlink" title="2018/09/01: 第一次上门检测(无 CMA 资质):"></a>2018/09/01: 第一次上门检测(无 CMA 资质):</h2><p> 了解到网上的检测仪和试纸都不太靠谱，今天就请了师傅做了个稍微专业一点的检测. 大众点评上找的, 用的 GB-18883 标准, 关闭了门窗 12h+ 试剂采样 20 分钟）, 检测结果显示比国家标准超标了 50%:</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/15366694108958.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/15366695601449.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/15366695680182.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_52d5.jpg" alt="UNADJUSTEDNONRAW_thumb_52d5"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_5350.jpg" alt="UNADJUSTEDNONRAW_thumb_5350"></p>
+<h2 id="2018-09-02- 与自如管家的交流与质问"><a href="#2018-09-02- 与自如管家的交流与质问" class="headerlink" title="2018/09/02: 与自如管家的交流与质问"></a>2018/09/02: 与自如管家的交流与质问</h2><ol>
+<li>质问自如管家为何收房装修出租时, 没有做空气质量的检测. 微信群里的 <strong> 十一个管家 </strong> 集体沉默了. </li>
+<li>自如管家给出的解决方案(微笑杀): “6 月份之前入住的租客可以自己打 400 预约，6.1 之后首次入住的，公司正在统计需要检测的房源，这几天会陆续派单检测，大约 T+5 工作日出结果，大家稍安勿躁，我们已经在统计了[Smile]”     “因检测量过大，您可以自行联系具有 CMA 资质认证机构进行检测。如检测结果不超标，则检测费用由您自行承担；如检测结果超标，我们承诺为您理无责退换租，并凭票报销检测费并赠送搬家（不超过 500）。（注：发票需开具增值税专用发票，抬头填写: 北京自如生活资产管理有限公司）”</li>
+<li>询问管家我们房子装修和出租的时间: “咱们房子是 2018 年 2 月 4 号收房, 2018 年 2 月 15 号装修完的。您是 4 月 22 号入住。中间空置了 78 天。”     p.s. 11 天就装修完了?? 神速.</li>
+</ol>
+<h2 id="2018-09-04- 上门检测 -CMA 资质"><a href="#2018-09-04- 上门检测 -CMA 资质" class="headerlink" title="2018/09/04: 上门检测 (CMA 资质)"></a>2018/09/04: 上门检测 (CMA 资质)</h2><p>如上, 因为自如管家只认有 CMA 资质机构出的检测报告, 于是在淘宝上重新订了一家. 但一上来就问我是不是自如检测, 我的心里就咯噔了一下. 但问到自如房子的检测结果一般是怎么样时, 答曰: “90% 都是超标”, 我也就没多想了. </p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/g474rUGSQqiXhErdMfC5Tw_thumb_5397.jpg" alt="g474rUGSQqiXhErdMfC5Tw_thumb_5397"><br><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/lnq7gKeARqmDRNimlAMWrQ_thumb_5398.jpg" alt="lnq7gKeARqmDRNimlAMWrQ_thumb_5398"></p>
+<h2 id="2018-09-11-CMA 检测结果"><a href="#2018-09-11-CMA 检测结果" class="headerlink" title="2018/09/11: CMA 检测结果"></a>2018/09/11: CMA 检测结果 </h2><p> 苦等了六天, 终于出结果了.   </p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/15366732672358.jpg" alt=""></p>
+<p>第一家的解释:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/uWGigBhKRnOjkrP8SCXk3w_thumb_5393.jpg" alt="uWGigBhKRnOjkrP8SCXk3w_thumb_5393"></p>
+<p>第二家的解释:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/15366727415165.jpg" alt=""></p>
+<p>于是想着去找第三家再做一次... 开口就是 1000, 放弃了, 心累.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180911_ziroom_air_quality/15366724352698.jpg" alt=""></p>
+<h1 id="最后"><a href="# 最后" class="headerlink" title="最后:"></a>最后:</h1><p>心累, 其实博主也是阿里的一枚小程序员. 公司里组了一个 <code> 阿里自如客空气质量讨论群</code>, 到现在一共有 800 多人. 可慢慢的也变成了扯淡群, 不是说同事们不好, 而是维权真的太难了. 企业犯错的成本太低了, 就和滴滴一样, 明明可以做的更好, 但做的更好的成本比人命还要贵, 为什么不追逐利益呢, 哎, 只怪命太贱了, 呵呵.      </p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20180908/db-index/" rel="prev" title="数据库查询的索引原理介绍 (面试必问)">
+      <i class="fa fa-chevron-left"></i> 数据库查询的索引原理介绍 (面试必问)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20181004/kmeans-algorithm/" rel="next" title="K-means 学习记录, 没想到你是这样的聚类算法">
+      K-means 学习记录, 没想到你是这样的聚类算法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-text">背景:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一次检测 - 无 CMA 资质"><span class="nav-text"> 第一次检测(无 CMA 资质)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二次检测 - 有 CMA 资质"><span class="nav-text"> 第二次检测(有 CMA 资质)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三次检测 - 有 CMA 资质"><span class="nav-text"> 第三次检测 (有 CMA 资质)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#详细经过"><span class="nav-text">详细经过 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-09-01- 第一次上门检测 - 无 CMA 资质"><span class="nav-text">2018&#x2F;09&#x2F;01: 第一次上门检测(无 CMA 资质):</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-09-02- 与自如管家的交流与质问"><span class="nav-text">2018&#x2F;09&#x2F;02: 与自如管家的交流与质问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-09-04- 上门检测 -CMA 资质"><span class="nav-text">2018&#x2F;09&#x2F;04: 上门检测 (CMA 资质)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-09-11-CMA 检测结果"><span class="nav-text">2018&#x2F;09&#x2F;11: CMA 检测结果 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-text">最后:</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20180911/ziru-air-quality/",
+            identifier: "blog/20180911/ziru-air-quality/",
+            title: "自如甲醛检测的魔幻之旅"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

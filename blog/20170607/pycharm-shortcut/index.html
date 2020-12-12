@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="介绍一些Pycharm中大幅度提高生产力的快捷键, 不看后悔一辈子! (逃)大部分的快捷键在同系列的IDE(JetBrains全家桶)上应该都是能通用的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyCharm 收藏多年快捷键分享 WOW">
+<meta property="og:url" content="https://changchen.me/blog/20170607/pycharm-shortcut/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="介绍一些Pycharm中大幅度提高生产力的快捷键, 不看后悔一辈子! (逃)大部分的快捷键在同系列的IDE(JetBrains全家桶)上应该都是能通用的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2017-06-07T12:43:18.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.462Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="pycharm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20170607/pycharm-shortcut/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>PyCharm 收藏多年快捷键分享 WOW | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20170607/pycharm-shortcut/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PyCharm 收藏多年快捷键分享 WOW
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-06-07 20:43:18" itemprop="dateCreated datePublished" datetime="2017-06-07T20:43:18+08:00">2017-06-07</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20170607/pycharm-shortcut/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20170607/pycharm-shortcut/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20170607/pycharm-shortcut/" class="post-meta-item leancloud_visitors" data-flag-title="PyCharm 收藏多年快捷键分享 WOW" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>介绍一些 Pycharm 中大幅度提高生产力的快捷键, 不看后悔一辈子! (逃)<br>大部分的快捷键在同系列的 IDE(JetBrains 全家桶)上应该都是能通用的<br><img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/license-min.png">     </p>
+<a id="more"></a>   
+
+
+<p><strong>友情提示:</strong> 点击图片, 可显示大图~<br><strong>声明:</strong> 因为这些快捷键都是可以自定义的, 而且在不同的操作系统里也不同, 所以我每个都给出了操作的标题, 大家可以在设置里查找对应的快捷键:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/declare.png"><br><strong>最新基于</strong> Pycharm 2017.02</p>
+<h1 id="快速搜索"><a href="# 快速搜索" class="headerlink" title="快速搜索"></a>快速搜索 </h1><h2 id="1-Find-in-Path"><a href="#1-Find-in-Path" class="headerlink" title="1. Find in Path..."></a>1. Find in Path...</h2><p><code>Ctrl+Shift+F/Ctrl+Shift+R</code> | <code>⇧⌘F/⇧⌘R</code>:<br> 在整个项目中 或 指定目录里 进行 <strong> 全局搜索 / 替换</strong>:<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/0.png">       </p>
+<h2 id="2-Find-Action-by-Name"><a href="#2-Find-Action-by-Name" class="headerlink" title="2. Find Action by Name"></a>2. Find Action by Name</h2><p><code>Ctrl+Shift+A</code> | <code>⇧⌘A</code>: text --&gt; 执行一些 action(git pull/commit 等等等等), 潜力无限, 有待开发.<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/2.png">       </p>
+<h2 id="3-Search-Everywhere"><a href="#3-Search-Everywhere" class="headerlink" title="3. Search Everywhere"></a>3. Search Everywhere</h2><p><code>Shift(Double-press)</code>: 双击 shift, 我每天使用频率很高的一个快捷键, 可以按最近使用过的 <strong> 文件名, 类名, 方法名等 </strong> 去搜索定位!<br>最棒的是它会记住你的搜索历史, 并将最常用的显示在最上边.<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/4.png">     </p>
+<h2 id="4-Main-menu-Navigate-File"><a href="#4-Main-menu-Navigate-File" class="headerlink" title="4. Main menu | Navigate | File..."></a>4. Main menu | Navigate | File...</h2><p><code>Ctrl+N</code> | <code>⌘O</code>: 查找类 Class<br><code>Ctrl+Shift+Alt+N</code> | <code>⌥⌘O</code>: 查找所有 Symbol(不知道如何解释, 包括变量, 表名, 等等)<br><code>Ctrl+Shift+N</code> | <code>⇧⌘O</code>: 查找文件或目录 (比双击 shift 快很多)<br><img style="max-height:150px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/search_file.jpg"><br><img style="max-height:150px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/search_file.png"><br> 但这个搜索文件有个很尴尬的地方, 模糊搜索的时候一定要带斜杠来分割文件夹, 我发邮件给了客服, 竟然刚刚实现这个功能, 下个版本就有咯, cheers~<br><img style="max-height:200px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/email.png">     </p>
+<h1 id="代码自动化"><a href="# 代码自动化" class="headerlink" title="代码自动化"></a>代码自动化 </h1><h2 id="1-Declaration"><a href="#1-Declaration" class="headerlink" title="1. Declaration"></a>1. Declaration</h2><p><code>Alt+Enter</code>: <strong> 自动 import</strong>, 还会做自动优化, 妈妈再也不用担心依赖关系啦<br><img style="max-height:200px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/3.png">     </p>
+<h2 id="2-Code-Insert-Live-Template"><a href="#2-Code-Insert-Live-Template" class="headerlink" title="2. Code | Insert Live Template...."></a>2. Code | Insert Live Template....</h2><p><code>Ctrl+Alt+Shift+J</code> | <code>⌘J</code>: 插入一段提前配置好的 <strong> 代码模板</strong>!<br>e.g. <code>import ipdb; ipdb.set_trace(context=20)</code>...<br><img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/5.png"><br><a href="https://www.jetbrains.com/help/pycharm/creating-code-constructs-by-live-templates.html">https://www.jetbrains.com/help/pycharm/creating-code-constructs-by-live-templates.html</a></p>
+<h1 id="导航"><a href="# 导航" class="headerlink" title="导航"></a>导航</h1><h2 id="1-Other-Switcher"><a href="#1-Other-Switcher" class="headerlink" title="1. Other | Switcher"></a>1. Other | Switcher</h2><p><code>Ctrl+Tab</code>: 和 chrome 一样的切换标签      </p>
+<h2 id="2-Main-menu-Navigate-Back-Forward"><a href="#2-Main-menu-Navigate-Back-Forward" class="headerlink" title="2. Main menu | Navigate | Back/Forward"></a>2. Main menu | Navigate | Back/Forward</h2><p><code>Alt + Left|Right</code>: <strong>移动光标 </strong> 到上一次编辑或者返回移动之前的位置.<br>在错综复杂的代码中更为重要, 再也不担心迷路了咯.   </p>
+<h1 id="快速编辑"><a href="# 快速编辑" class="headerlink" title="快速编辑"></a>快速编辑 </h1><h2 id="1-Delete-Line"><a href="#1-Delete-Line" class="headerlink" title="1. Delete Line"></a>1. Delete Line</h2><p><code>Ctrl+x</code>: 不用选择, 直接<strong> 删除整行 </strong> 代码   </p>
+<h2 id="2-Duplicate-Line-or-Selection"><a href="#2-Duplicate-Line-or-Selection" class="headerlink" title="2. Duplicate Line or Selection"></a>2. Duplicate Line or Selection</h2><p><code>Ctrl+shift+d</code>: 直接 <strong> 重复一行 </strong> 或<strong>重复生成选中的内容</strong>   </p>
+<h2 id="3-Code-Folding-Expand-All-Collapse-All"><a href="#3-Code-Folding-Expand-All-Collapse-All" class="headerlink" title="3. Code/Folding/Expand (All)|Collapse(All)"></a>3. Code/Folding/Expand (All)|Collapse(All)</h2><p><code>Ctrl(shift) + +/-</code>: 折叠一个方法的代码或整个文件的代码.<br>我一般喜欢, 先折叠整个文件的代码, 然后再打开一个类去看它的结构.      </p>
+<h2 id="4-Move-Line-Up-Down"><a href="#4-Move-Line-Up-Down" class="headerlink" title="4. Move Line Up|Down"></a>4. Move Line Up|Down</h2><p><code>Alt + Up/Down</code>: 可以上下移动整行或整块 (e.g. 一个 if 的 block) 代码   </p>
+<h2 id="5-Editor-Actions-Unindent-Line-or-Selection"><a href="#5-Editor-Actions-Unindent-Line-or-Selection" class="headerlink" title="5. Editor Actions | Unindent Line or Selection:"></a>5. Editor Actions | Unindent Line or Selection:</h2><p><code>Shift + Tab</code>: 对一行或多行 (选中内容) 的<strong>逆向缩进</strong>!   </p>
+<h1 id="同时编辑多处"><a href="# 同时编辑多处" class="headerlink" title="同时编辑多处:"></a>同时编辑多处:</h1><h2 id="1-Add-or-Remove-Caret"><a href="#1-Add-or-Remove-Caret" class="headerlink" title="1. Add or Remove Caret"></a>1. Add or Remove Caret</h2><p><code>Alt + 鼠标 </code> or <code>Shift + Crtl + Alt + 鼠标</code>: 选择多处进行同时编辑, 要是能像 sublime 那样 alt+enter 直接选中所有的查找结果就好了(已解决, 见下一条).<br><img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/6.png"><br> 找到解决办法了!<br>Pycharm 中的快捷键 <strong>Select All Occurrences</strong> 就等同于 sublime 里的全选所有符合搜索的结果(<code>ctrl+ 回车</code>)!    </p>
+<h2 id="2- 正则搜索的妙用"><a href="#2- 正则搜索的妙用" class="headerlink" title="2. 正则搜索的妙用"></a>2. 正则搜索的妙用 </h2><p>Perl 中 $0 就代表全部匹配(本身), 所以就能实现同时替换所有搜索结果, 和多处同时编辑异曲同工:<br>(见下图)<br><img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/7_1.png"><br> 按<strong>Replace all</strong>之后:<br><img style="max-height:250px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/7_2.png">     </p>
+<hr>
+<h1 id="其他奇技淫巧"><a href="# 其他奇技淫巧" class="headerlink" title="其他奇技淫巧:"></a>其他奇技淫巧:</h1><h2 id="Annotate"><a href="#Annotate" class="headerlink" title="Annotate"></a>Annotate</h2><p>查看当前文件每一行代码是谁是哪个 commit 贡献的(gitbub/gitlab 上的 blame view, 这个名字好形象)<br><img style="max-height:400px" class="lazy" data-original="/images/blog/170606_pycharm_shortcut/annotation.jpg">  </p>
+<h2 id="gist"><a href="#gist" class="headerlink" title="gist"></a>gist</h2><p>有一天同事和我炫耀它写了个 vim 插件，自动生成 github gist. 然后搜了一下，才发现在 pycharm 中，自身 (不用装插件) 就支持生成 gist:<br><img src="/images/loading/loading.svg" data-original="/images/blog/170606_pycharm_shortcut/15559360281179.jpg" alt=""></p>
+<h2 id="Scratch-files"><a href="#Scratch-files" class="headerlink" title="Scratch files"></a>Scratch files</h2><p>有时候可能仅仅只想打打草稿，写一些临时的代码做实验，但新起一个项目又觉得太麻烦。jupyter 是个很不错的选择，但 Pycharm 有个对应的解决方案叫做 <a href="https://www.jetbrains.com/help/pycharm/scratches.html">Scratch files</a>. 配合 gist 使用，简直不要更香。</p>
+<p>(持续更新中...)<br>如果你有什么更好的华丽操作, 记得给我留言哦~~   </p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/pycharm/" rel="tag"># pycharm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20170524/partition-problem/" rel="prev" title="数组分割 (编程之美) HyperS 面试题 思考与分享">
+      <i class="fa fa-chevron-left"></i> 数组分割 (编程之美) HyperS 面试题 思考与分享
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20170610/sorting-algorithm/" rel="next" title="排序算法总结 (Python 实现附带思路)">
+      排序算法总结 (Python 实现附带思路) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快速搜索"><span class="nav-text">快速搜索 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Find-in-Path"><span class="nav-text">1. Find in Path...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Find-Action-by-Name"><span class="nav-text">2. Find Action by Name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Search-Everywhere"><span class="nav-text">3. Search Everywhere</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Main-menu-Navigate-File"><span class="nav-text">4. Main menu | Navigate | File...</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码自动化"><span class="nav-text">代码自动化 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Declaration"><span class="nav-text">1. Declaration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Code-Insert-Live-Template"><span class="nav-text">2. Code | Insert Live Template....</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导航"><span class="nav-text">导航</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Other-Switcher"><span class="nav-text">1. Other | Switcher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Main-menu-Navigate-Back-Forward"><span class="nav-text">2. Main menu | Navigate | Back&#x2F;Forward</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速编辑"><span class="nav-text">快速编辑 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Delete-Line"><span class="nav-text">1. Delete Line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Duplicate-Line-or-Selection"><span class="nav-text">2. Duplicate Line or Selection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Code-Folding-Expand-All-Collapse-All"><span class="nav-text">3. Code&#x2F;Folding&#x2F;Expand (All)|Collapse(All)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Move-Line-Up-Down"><span class="nav-text">4. Move Line Up|Down</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Editor-Actions-Unindent-Line-or-Selection"><span class="nav-text">5. Editor Actions | Unindent Line or Selection:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同时编辑多处"><span class="nav-text">同时编辑多处:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Add-or-Remove-Caret"><span class="nav-text">1. Add or Remove Caret</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2- 正则搜索的妙用"><span class="nav-text">2. 正则搜索的妙用 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他奇技淫巧"><span class="nav-text">其他奇技淫巧:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Annotate"><span class="nav-text">Annotate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gist"><span class="nav-text">gist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scratch-files"><span class="nav-text">Scratch files</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20170607/pycharm-shortcut/",
+            identifier: "blog/20170607/pycharm-shortcut/",
+            title: "PyCharm 收藏多年快捷键分享 WOW"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

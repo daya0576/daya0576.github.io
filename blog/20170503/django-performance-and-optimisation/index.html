@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="最近看了django关于性能优化的文档: 链接🔗整理了一下笔记, 并写下几点比较深的感触和我优化django代码的总结.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django 性能优化官方文档笔记 (主要针对 ORM)">
+<meta property="og:url" content="https://changchen.me/blog/20170503/django-performance-and-optimisation/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="最近看了django关于性能优化的文档: 链接🔗整理了一下笔记, 并写下几点比较深的感触和我优化django代码的总结.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-05-03T17:34:09.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.462Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="django">
+<meta property="article:tag" content="orm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://changchen.me/blog/20170503/django-performance-and-optimisation/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Django 性能优化官方文档笔记 (主要针对 ORM) | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20170503/django-performance-and-optimisation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Django 性能优化官方文档笔记 (主要针对 ORM)
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-04 01:34:09" itemprop="dateCreated datePublished" datetime="2017-05-04T01:34:09+08:00">2017-05-04</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20170503/django-performance-and-optimisation/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20170503/django-performance-and-optimisation/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20170503/django-performance-and-optimisation/" class="post-meta-item leancloud_visitors" data-flag-title="Django 性能优化官方文档笔记 (主要针对 ORM)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近看了 django 关于性能优化的文档: <a href="https://docs.djangoproject.com/en/2.1/topics/db/optimization/">链接🔗</a><br>整理了一下笔记, 并写下几点比较深的感触 <strong> 和我优化 django 代码的总结</strong>.  </p>
+<a id="more"></a>
+
+
+
+
+<h1 id="你的时间才是最宝贵的"><a href="# 你的时间才是最宝贵的" class="headerlink" title="你的时间才是最宝贵的:"></a>你的时间才是最宝贵的:</h1><p>文档里的这句话还是挺有意思的(自己的时间和性能优化的 trade-off): Your own time is a valuable resource, more precious than CPU time. Some improvements might be too difficult to be worth implementing, or might affect the portability or maintainability of the code. Not all performance improvements are worth the effort.</p>
+<h1 id="最重要的原则 -Work-at-the-appropriate-level"><a href="# 最重要的原则 -Work-at-the-appropriate-level" class="headerlink" title="最重要的原则: Work at the appropriate level"></a>最重要的原则: Work at the appropriate level</h1><p>意思就是说要在对应的 level(M V C)做对应的事. e.g. 如果计算 court, 在最低的数据库 level 里是最快的 (如果只需要知道此记录是否存在的话, 用 <code>exists()</code> 会更快).<br>但要 <code> 注意 </code>: queryset 是 lazy 的, 所以有时候在 higher level(例如模板) 里控制 queryset 是否真的执行, 说不定会更高效.   </p>
+<p>下面这段代码很好的解释了不同 level 的意思:    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># QuerySet operation on the database</span></span><br><span class="line"><span class="comment"># fast, because that's what databases are good at</span></span><br><span class="line">my_bicycles.count()</span><br><span class="line"></span><br><span class="line"><span class="comment"># counting Python objects</span></span><br><span class="line"><span class="comment"># slower, because it requires a database query anyway, and processing</span></span><br><span class="line"><span class="comment"># of the Python objects</span></span><br><span class="line">len(my_bicycles)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Django template filter</span></span><br><span class="line"><span class="comment"># slower still, because it will have to count them in Python anyway,</span></span><br><span class="line"><span class="comment"># and because of template language overheads</span></span><br><span class="line">\&#123;\&#123; my_bicycles|length \&#125;\&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="用 database 中传统的优化手段"><a href="# 用 database 中传统的优化手段" class="headerlink" title="用 database 中传统的优化手段"></a>用 database 中传统的优化手段</h1><ol>
+<li>加索引. 对你经常要用的字段进行加索引, 会大大的提升查找数据 (filter(), exclude(), order_by(), etc.) 的速度, 毕竟 O(1)或 O(logn)对于 O(n)相差还是很大的.    </li>
+<li>使用合适的字段类型. 例如你的数据多到几亿条了, 合适的字段也会帮你节省很多的空间.</li>
+</ol>
+<h1 id="理解 Django 中的 QuerySets"><a href="# 理解 Django 中的 QuerySets" class="headerlink" title="理解 Django 中的 QuerySets"></a>理解 Django 中的 QuerySets</h1><p><strong>对于 queryset lazy 特性的说明:</strong><br>这段代码看上去对数据库进行了三次查找, 但其实只在最后一行的时候执行了数据库的操作.   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>q = Entry.objects.filter(headline__startswith=<span class="string">"What"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>q = q.filter(pub_date__lte=datetime.date.today())</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>q = q.exclude(body_text__icontains=<span class="string">"food"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(q)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ps. 上边的这种多条件查询, 官方推荐这种写法:</span></span><br><span class="line">Entry.objects.filter(</span><br><span class="line">    headline__startswith=<span class="string">'What'</span></span><br><span class="line">).exclude(</span><br><span class="line">    pub_date__gte=datetime.date.today()</span><br><span class="line">).filter(</span><br><span class="line">    pub_date__gte=datetime(<span class="number">2005</span>, <span class="number">1</span>, <span class="number">30</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><strong>那么问题来了 </strong>, 既然 queryset 是 lazy 的, queryset<a href="https://docs.djangoproject.com/en/1.8/ref/models/querysets/#when-querysets-are-evaluated"> 什么时候会被 evaluate 呢</a>?</p>
+<ol>
+<li>Iteration, ie. 对 Queryset 进行 For 循环的操作.</li>
+<li><a href="https://docs.djangoproject.com/en/1.8/topics/db/queries/#limiting-querysets">slicing</a>, e.g. <code>Entry.objects.all()[:5]</code>, 获取 queryset 中的前五个对象, 相当于 sql 中的<code>LIMIT 5</code></li>
+<li>picling/caching</li>
+<li>repr/str</li>
+<li>len (Note: 如果你只想知道这个 queryset 结果的长度的话, 最高效的还是在数据库的层级调用 count()方法, 也就是 sql 中的 COUNT().)</li>
+<li>list()</li>
+<li>bool()   </li>
+</ol>
+<p>以上的情况一旦发生, 就会查询数据库并生成 cache(<strong>生成的 cache 就存在这个 queryset 对象之内的</strong>), 之后再对 queryset 做以上的操作就就不用再重新 hit 数据库进行查询了.)   </p>
+<p>*<em>举个栗子: *</em>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>queryset = Entry.objects.all()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print([p.headline <span class="keyword">for</span> p <span class="keyword">in</span> queryset]) <span class="comment"># Evaluate the query set.</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print([p.pub_date <span class="keyword">for</span> p <span class="keyword">in</span> queryset]) <span class="comment"># Re-use the cache from the evaluation.</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意! 不会 cache 的情况:</strong><br>Specifically, this means that limiting the queryset using an array slice or an index will not populate the cache.<br>意思就是说 queryset[5]和 queryset[:5]是不会生成 cache 的. 还有 exists()和 iterator()这样的也不会生成 cache.    </p>
+<p>举个栗子:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>queryset = Entry.objects.all()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> queryset[<span class="number">5</span>] <span class="comment"># Queries the database</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> queryset[<span class="number">5</span>] <span class="comment"># Queries the database again</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>queryset = Entry.objects.all()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[entry <span class="keyword">for</span> entry <span class="keyword">in</span> queryset] <span class="comment"># Queries the database</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> queryset[<span class="number">5</span>] <span class="comment"># Uses cache</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> queryset[<span class="number">5</span>] <span class="comment"># Uses cache</span></span><br></pre></td></tr></table></figure>
+
+<p>最近发现 <code>values</code> 和<code>values_list</code>这两个方法也会重新查询数据库, 不知道是为什么.<br>TODO: 有空看一下 具体的实现原理.<br><strong>研究的结果:</strong><br>当调用 values 或 values_list 的时候, 会生成一个新的 queryset with no cache.<br>也就是说, 除了上边说到的七种会产生 cache 的情况, 其他都会重新去数据库拿数据.<br><img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/disqus.png">    </p>
+<h1 id="数据库层级的优化的总结"><a href="# 数据库层级的优化的总结" class="headerlink" title="数据库层级的优化的总结"></a>数据库层级的优化的总结 </h1><p> 官方的文档介绍了很多, 我写几点最有效的和最常用的:   </p>
+<ul>
+<li>利用 <a href="https://docs.djangoproject.com/en/1.8/topics/performance/#understanding-laziness">queryset lazy 的特性</a> 去优化代码, 尽可能的减少连接数据库的次数.</li>
+<li>如果查出的 queryset 只用一次, 可以使用 iterator()去来防止占用太多的内存, e.g.<code>for star in star_set.iterator(): print(star.name)</code>.<br>感兴趣可以看看 <code>ModelIterable</code> 中重写的 <code>__iter__</code> 方法.   </li>
+<li>尽可能把一些数据库层级的工作放到数据库, 例如使用 filter/exclude, F, annotate, aggregate(可以理解为 groupby), etc.<br><code>aggregate</code>: <a href="https://docs.djangoproject.com/en/1.11/topics/db/aggregation/#cheat-sheet">https://docs.djangoproject.com/en/1.11/topics/db/aggregation/#cheat-sheet</a><br><code>F</code>: getting the database, rather than Python, to do work</li>
+<li>一次性拿出所有你要的数据, 不去取那些你不需要的数据.<br>意思就是要巧用 select_related(), prefetch_related() 和 values_list(), values(), 例如如果只需要 id 字段的话, 用 values_list(&#39;id&#39;, flat=True)也能节约很多资源. 或者使用 <code>defer()</code> 和<code>only()</code>方法: 不加载某个字段(用到这个方法就要反思表设计的问题了) / 只加载某些字段.</li>
+<li>如果不用 select_related 的话, 去取外键的属性就会连数据再去查找.   </li>
+<li>bulk(批量)地去操作数据, 比如<code>bulk_create</code></li>
+<li>查找一条数据时, 尽量用有索引的字段去查询, O(1)或 O(log n) 和 O(n)差别还是很大的</li>
+<li>用 <code>count()</code> 代替 <code>len(queryset)</code>, 用<code>exists()</code> 代替<code>if queryset:</code>   </li>
+<li>...</li>
+</ul>
+<p><strong>一点感想:</strong> 个人觉得 ORM 至少能 cover 95% 操作数据库的需求, 就像常常有人抱怨 python 慢一样, 绝大部分的情况是代码写的有问题罢了. </p>
+<h1 id="解决性能问题的具体方法"><a href="# 解决性能问题的具体方法" class="headerlink" title="解决性能问题的具体方法:"></a>解决性能问题的具体方法:</h1><h2 id="原生的 explain 方法"><a href="# 原生的 explain 方法" class="headerlink" title="原生的 explain 方法:"></a><strong>原生的 <code>explain</code> 方法:</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(Blog.objects.filter(title=<span class="string">'My Blog'</span>).explain(verbose=<span class="literal">True</span>))</span><br><span class="line">Seq Scan on public.blog  (cost=<span class="number">0.00</span>.<span class="number">.35</span><span class="number">.50</span> rows=<span class="number">10</span> width=<span class="number">12</span>) (actual time=<span class="number">0.004</span>.<span class="number">.0</span><span class="number">.004</span> rows=<span class="number">10</span> loops=<span class="number">1</span>)</span><br><span class="line">  Output: id, title</span><br><span class="line">  Filter: (blog.title = <span class="string">'My Blog'</span>::bpchar)</span><br><span class="line">Planning time: <span class="number">0.064</span> ms</span><br><span class="line">Execution time: <span class="number">0.058</span> ms</span><br></pre></td></tr></table></figure>
+<h2 id="connection-queries- 方法"><a href="#connection-queries- 方法" class="headerlink" title="connection.queries 方法"></a><code>connection.queries</code> 方法 </h2><p> 可以利用这两两句代码来分析你的代码的 sql 执行情况和花费时间:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> connection</span><br><span class="line">connection.queries</span><br><span class="line">&gt;&gt; [&#123;<span class="string">'sql'</span>: <span class="string">'SELECT polls_polls.id, polls_polls.question, polls_polls.pub_date FROM polls_polls'</span>,</span><br><span class="line">     <span class="string">'time'</span>: <span class="string">'0.002'</span>&#125;]</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> reset_queries</span><br><span class="line">reset_queries()</span><br></pre></td></tr></table></figure>
+
+<h2 id="django-debug-toolbar"><a href="#django-debug-toolbar" class="headerlink" title="django-debug-toolbar"></a>django-debug-toolbar</h2><p>一个在 github 上有四千多个星星的开源项目: <a href="https://github.com/dcramer/django-devserver">https://github.com/dcramer/django-devserver</a><br>很棒的一个可视化的工具, 但缺点是只能处理 <code>text/html</code> 类型的 response, 因为是通过中间件修改返回的 html 代码实现的.<br><strong>解决办法:</strong> 可以再使用这个库: <a href="https://github.com/recamshak/django-debug-panel">django-debug-panel</a>,<br>再配合链接中最后的 chrome 插件使用, 就可以查看所有异步请求的详细信息!<br>如图:<br><img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/IMG_3017.PNG"><br><strong>优点:</strong><br>    1. 统计了总的 SQL 查询时间.<br>    2. <strong>重复查询的 sql 的数量, 在每条 sql 详细信息中显示重复的次数 </strong>.<br>    3. <strong> 执行 sql 的具体代码位置!!!</strong><br>    4. sql 语句的高亮<br>    5. sql 查询到的数据结果.  </p>
+<p>配置参考:   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># debug_toolbar settings</span></span><br><span class="line"><span class="keyword">if</span> DEBUG:</span><br><span class="line">    INTERNAL_IPS = (<span class="string">'127.0.0.1'</span>,)</span><br><span class="line">    MIDDLEWARE_CLASSES = (</span><br><span class="line">        <span class="comment"># 'debug_toolbar.middleware.DebugToolbarMiddleware',</span></span><br><span class="line">        <span class="string">'debug_panel.middleware.DebugPanelMiddleware'</span>,</span><br><span class="line">    ) + MIDDLEWARE_CLASSES</span><br><span class="line"></span><br><span class="line">    INSTALLED_APPS += (</span><br><span class="line">        <span class="string">'debug_toolbar'</span>,</span><br><span class="line">        <span class="string">'debug_panel'</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> settings.DEBUG:</span><br><span class="line">    <span class="keyword">import</span> debug_toolbar</span><br><span class="line">    urlpatterns = [</span><br><span class="line">        url(<span class="string">r'^__debug__/'</span>, include(debug_toolbar.urls)),</span><br><span class="line">    ] + urlpatterns</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="django-devserver"><a href="#django-devserver" class="headerlink" title="django-devserver"></a>django-devserver</h2><p>项目 github 主页: <a href="https://github.com/drinksober/django-devserver">https://github.com/drinksober/django-devserver</a><br>这个项目好久没有维护了.. 已经跑不起来了. 可以试试同事的修复版:<br><a href="https://github.com/drinksober/django-devserver">https://github.com/drinksober/django-devserver</a></p>
+<h2 id="line-profiler"><a href="#line-profiler" class="headerlink" title="line profiler:"></a>line profiler:</h2><p>其实最好用的还是用 line profiler 去找程序的瓶颈:<br>效果如图所示, 显示了一个方法内哪行代码运行的时间最久:<br><img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/profile_liner.png"><br>使用方法(从同事黄俊那偷来的代码):   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Line_Profiler</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""put @profile on ur functions"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, follow=None)</span>:</span></span><br><span class="line">        self.follow = follow <span class="keyword">or</span> []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">profiled_func</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            line_profiler = LineProfiler()</span><br><span class="line">            line_profiler.add_function(func)</span><br><span class="line">            map(<span class="keyword">lambda</span> x: line_profiler.add_function(x), self.follow)</span><br><span class="line">            line_profiler.enable_by_count()</span><br><span class="line">            result = func(*args, **kwargs)</span><br><span class="line"></span><br><span class="line">            line_profiler.disable_by_count()</span><br><span class="line">            line_profiler.print_stats(stripzeros=<span class="literal">True</span>)</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> functools.wraps(func)(profiled_func)</span><br><span class="line"></span><br><span class="line">__builtin__.profile = Line_Profiler()</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="举个栗子"><a href="# 举个栗子" class="headerlink" title="举个栗子:"></a>举个栗子:</h1><p>最近重新写了一个项目里很常用的方法(之前也是我写的, 但感觉稍微有些慢), 利用上文说的一些知识, 把执行时间从 200 多 ms 降到了 20ms.    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">users</span><span class="params">(self, add_self=False, add_share=True, select_id=False, **kwargs)</span>:</span></span><br><span class="line">    <span class="string">"""Return 当前用户能看到的所有用户, 返回 queryset, 以便做性能优化:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">        1. add_self:  是否添加当前用户 (self).</span></span><br><span class="line"><span class="string">        2. add_share: 是否添加因为共享(account/campaign) 而可见的用户. e.g. u2 共享 a1 给 u1, u1.users(add_share=True)就能看到 u2</span></span><br><span class="line"><span class="string">        3. select_id: 是否只取 id 字段 </span></span><br><span class="line"><span class="string">    逻辑:</span></span><br><span class="line"><span class="string">        1. add_share=False 时:</span></span><br><span class="line"><span class="string">            +----------+-------------------------------------+</span></span><br><span class="line"><span class="string">            | Type     | 可见的用户集合                        |</span></span><br><span class="line"><span class="string">            +----------+-------------------------------------+</span></span><br><span class="line"><span class="string">            | Root     | 所有 [Advanced, Member] - blacklist |</span></span><br><span class="line"><span class="string">            +----------+-------------------------------------+</span></span><br><span class="line"><span class="string">            | Admin    | 同组 [Advanced, Member] - blacklist |</span></span><br><span class="line"><span class="string">            +----------+-------------------------------------+</span></span><br><span class="line"><span class="string">            | other    | []                                  |</span></span><br><span class="line"><span class="string">            +----------+-------------------------------------+</span></span><br><span class="line"><span class="string">        2. add_share=True 时:</span></span><br><span class="line"><span class="string">            利用当前用户能看到的所有 accounts, 获取创建它们的用户(permission=2)</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">    <span class="comment"># 1. users_shared</span></span><br><span class="line">    <span class="keyword">if</span> add_share:</span><br><span class="line">        <span class="comment"># 共享给该用户的 account 的主人们</span></span><br><span class="line">        aps = AccountPermission.objects.filter(</span><br><span class="line">            account__status=<span class="string">'ACTIVE'</span>, permission=<span class="string">'2'</span>, account__in=self.accounts()</span><br><span class="line">        ).select_related(<span class="string">'share_user'</span>).values_list(<span class="string">'share_user__id'</span>, flat=<span class="literal">True</span>)</span><br><span class="line">        users_shared = User.objects.filter(id__in=aps)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        users_shared = User.objects.none()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. users</span></span><br><span class="line">    <span class="keyword">if</span> self.score &lt;= <span class="number">2</span>:</span><br><span class="line">        query_dict = dict(role__in=[<span class="string">'ADVANCED'</span>, <span class="string">'MEMBER'</span>])</span><br><span class="line">        <span class="comment"># Admin</span></span><br><span class="line">        self.score == <span class="number">2</span> <span class="keyword">and</span> query_dict.update(usergroup=self.usergroup)</span><br><span class="line">        users = User.objects.filter(**query_dict).exclude(id__in=self.blacklist)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        users = User.objects.filter(id=self.id)</span><br><span class="line"></span><br><span class="line">    users = users | users_shared</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 控制是否添加本身, 主要是 user1.has_permission(user1) 的时候用到</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> add_self:</span><br><span class="line">        users = users.exclude(id=self.id)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        users |= User.objects.filter(id=self.id)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 过滤停用的用户:</span></span><br><span class="line">    users = users.filter(is_active=<span class="literal">True</span>, usergroup__status=<span class="string">'ACTIVE'</span>)</span><br><span class="line">    users = users.filter(**kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 大部分情况下只需要 id. 用户列表很多时, 可以大幅度提高性能.</span></span><br><span class="line">    <span class="keyword">if</span> select_id:</span><br><span class="line">        users = users.values_list(<span class="string">'id'</span>, flat=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> set(users)</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/django/" rel="tag"># django</a>
+              <a href="/tags/orm/" rel="tag"># orm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20170406/many-to-many-relation-with-extra-field-django/" rel="prev" title="Django ORM 的多对多关系 (每个关系有附加的属性)">
+      <i class="fa fa-chevron-left"></i> Django ORM 的多对多关系 (每个关系有附加的属性)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20170504/django-filter-trick/" rel="next" title="Django filter 的一个令人震惊的小细节, 不转不是中国人!(逃..)">
+      Django filter 的一个令人震惊的小细节, 不转不是中国人!(逃..) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#你的时间才是最宝贵的"><span class="nav-text">你的时间才是最宝贵的:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最重要的原则 -Work-at-the-appropriate-level"><span class="nav-text">最重要的原则: Work at the appropriate level</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用 database 中传统的优化手段"><span class="nav-text">用 database 中传统的优化手段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解 Django 中的 QuerySets"><span class="nav-text">理解 Django 中的 QuerySets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库层级的优化的总结"><span class="nav-text">数据库层级的优化的总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决性能问题的具体方法"><span class="nav-text">解决性能问题的具体方法:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生的 explain 方法"><span class="nav-text">原生的 explain 方法:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#connection-queries- 方法"><span class="nav-text">connection.queries 方法 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django-debug-toolbar"><span class="nav-text">django-debug-toolbar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django-devserver"><span class="nav-text">django-devserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-profiler"><span class="nav-text">line profiler:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#举个栗子"><span class="nav-text">举个栗子:</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20170503/django-performance-and-optimisation/",
+            identifier: "blog/20170503/django-performance-and-optimisation/",
+            title: "Django 性能优化官方文档笔记 (主要针对 ORM)"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

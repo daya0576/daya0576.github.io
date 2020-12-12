@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="和VIM相爱的故事要从我的笔记本上下键坏了开始..哈哈虽然大二的时候学过vim, 但一直用的IDE. 今年强迫自己用了三天vim之后, 彻底的爱上用VIM写代码的感觉.用这篇博客分享一下自己从VIM小白一路不断学习的历程.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我和 VIM 的故事">
+<meta property="og:url" content="https://changchen.me/blog/20180223/vim-tour/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="和VIM相爱的故事要从我的笔记本上下键坏了开始..哈哈虽然大二的时候学过vim, 但一直用的IDE. 今年强迫自己用了三天vim之后, 彻底的爱上用VIM写代码的感觉.用这篇博客分享一下自己从VIM小白一路不断学习的历程.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2018-02-23T07:41:28.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.462Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20180223/vim-tour/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>我和 VIM 的故事 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180223/vim-tour/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我和 VIM 的故事
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-02-23 15:41:28" itemprop="dateCreated datePublished" datetime="2018-02-23T15:41:28+08:00">2018-02-23</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20180223/vim-tour/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20180223/vim-tour/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20180223/vim-tour/" class="post-meta-item leancloud_visitors" data-flag-title="我和 VIM 的故事" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>和 VIM 相爱的故事要从我的笔记本 <strong> 上下键 </strong> 坏了开始.. 哈哈 <br><img src="/images/loading/loading.svg" data-original="/images/blog/180223_vim/apple.png" alt=""><br> 虽然大二的时候学过 vim, 但一直用的 IDE. 今年强迫自己用了三天 vim 之后, 彻底的爱上用 VIM 写代码的感觉.<br><strong>用这篇博客分享一下自己从 VIM 小白一路不断学习的历程.</strong>  </p>
+<a id="more"></a>
+
+<h2 id="vimtutor"><a href="#vimtutor" class="headerlink" title="vimtutor"></a>vimtutor</h2><p><strong>学会 VIM 的秘诀: 练习 + 练习 + 练习 </strong><br><strong>VIM 入门</strong> 最好的教程就是 VIM 的官方 tutorial: <strong>直接在命令行输入 <code>vimtutor</code></strong>.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor_pre.jpg"><br> 因为在这个教程中, 每个技巧都附带了可供实际操作的练习:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor.jpg">   </p>
+<blockquote>
+<p>It is important to remember that this tutor is set up to teach by use.  That means that you need to execute the commands to learn them properly.  If you only read the text, you will forget the commands!</p>
+</blockquote>
+<h3 id="下边是我做的一些笔记"><a href="# 下边是我做的一些笔记" class="headerlink" title="下边是我做的一些笔记:"></a>下边是我做的一些笔记:</h3><ol>
+<li><strong>删除操作:</strong>    <ul>
+<li><code>dd</code>: 删除一行   </li>
+<li><code>3dd</code>: 删除三行   </li>
+<li><code>dw</code>: 删除一个 word   </li>
+<li><code>d2w</code>: 删除两个 words   </li>
+<li><code>d$</code>(D): 删除到行末   </li>
+</ul>
+</li>
+<li><strong>undo/redo</strong><ul>
+<li><code>u(U)</code>: undo(大写的 U 会 undo 这一行里的所有历史改动)   </li>
+<li><code>ctrl-r</code>: redo   </li>
+</ul>
+</li>
+<li><strong>Change</strong>(类似于上边的删除):    <ul>
+<li><code>ce</code>: To change until the end of a word   </li>
+<li><code>c$</code>:  to change to the end of a line   </li>
+<li><code>ci&quot;</code>: Change in &quot;abcdef&quot;</li>
+</ul>
+</li>
+<li><strong>Search</strong>:   <ul>
+<li><code>/ —&gt; n(N)</code>: 跳到下一个 / 上一个匹配的地方.   </li>
+<li><code>CTRL-O</code> takes you back to older positions, <code>CTRL-I</code> to newer positions.</li>
+</ul>
+</li>
+<li><strong>快速进入 insert mode</strong>   <ul>
+<li><code>A</code>: edit at end of the line.   </li>
+<li><code>I</code>: edit at beginning of the line.   </li>
+<li>(类似的还有大写的<code>C</code>, 经常用到.)   </li>
+</ul>
+</li>
+<li><strong>replace mode</strong>:   <ul>
+<li><code>R</code>: R Enter “replace mode”, which is like insert mode except you will overwrite characters instead of insert between them. (就是.)   </li>
+</ul>
+</li>
+<li><strong>复制</strong>:   <ul>
+<li><code>yw</code>: 复制一个 word</li>
+</ul>
+</li>
+<li><strong>Navigation</strong>:   <ul>
+<li><code>ctrl-y/ctrl-e</code>: 忽略光标位置, 上下移动一行屏幕.    </li>
+<li><code>ctrl-u/ctrl-d</code>: down/up, 上下移动半页.    </li>
+<li><code>ctrl-b/ctrl-f</code>: forward/backward, 上下移动一页.    </li>
+</ul>
+</li>
+</ol>
+<h2 id="Pratical-Vim"><a href="#Pratical-Vim" class="headerlink" title="Pratical Vim"></a>Pratical Vim</h2><p><strong>学完 vimtutor 后, 继续读了一本很不错的书: Practical Vim</strong><br>但是很遗憾只看了一半, 书中有段话挺有意思的: 就是说写程序就像画画, 艺术家大部分的时间其实都是在构图, 思考, 真正用画笔接触画布的时间其实占比很小. 这就像 VIM, 大部分停留在 Normal Mode, 说的还挺有道理的.   </p>
+<ul>
+<li><strong>Part I: Modes</strong></li>
+<li><strong>Part II: Files</strong></li>
+<li><strong>Part III: Getting Around Faster</strong></li>
+<li>Part IV: Registers</li>
+<li>Part V: Patterns</li>
+<li>Part VI: Tools</li>
+</ul>
+<p><strong>分享当时记的一些笔记:</strong></p>
+<ul>
+<li><code>.</code>  --&gt;  repeat last action<br>(因为我们大部分的工作都是重复的, 所以可以巧妙利用这个<code>.</code>, 做到 never repeat yourself)</li>
+<li>在一行中查找一个字符: <ul>
+<li>f{char} </li>
+<li>F{char}: 从右边开始找. </li>
+<li>p.s. (可以使用 <code>;</code>/<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
+</ul>
+</li>
+<li><code>&lt;C-x&gt;&lt;C-a&gt;</code>: Number Formats(就是对当前行中第一个数字做 +1/-1 操作, 不知道为什么有这种操作)</li>
+<li>Operator + Motion = Action<ul>
+<li><code>daw</code>: delete a complete word(与 dw 的区别: 只要光标在这个 word 中就可以整个 word)    </li>
+<li><code>c3w</code>(not work for ideavim): change 3 words</li>
+<li><code>dap</code>: delete a complete paragraph</li>
+</ul>
+</li>
+<li>Operator + t + {char}:<ul>
+<li><code>dt{</code>: delete to {</li>
+<li><code>yt,</code>: 复制 直到 最近的逗号</li>
+</ul>
+</li>
+<li><code>tip 11</code>: Don’t Count If You Can Repeat(这个 tip 挺有意思的, 就是有时候去数一数有几个 word 还不如直接重复几次来得快)</li>
+<li>Insert Mode:<br><code>&lt;c-o&gt;</code>: 在 insert 模式, 执行一次 normal 模式的操作:<br>例子: <C-o>zz: 在 insert 模式中, 让 cursor 回到屏幕中央</li>
+<li>Visual Mode    <ul>
+<li><code>viw</code>: 在一个 word 中间选中整个词    </li>
+<li>3-submodules:<ul>
+<li>v: character-wise</li>
+<li>V: line-wise </li>
+<li><C-v>: block-wise Visual mode</li>
+</ul>
+</li>
+<li><code>o</code>: go to start/end of highlightened text(跳到选中的开始).  </li>
+<li><code>~</code>: swap case (only if &#39;tildeop&#39; is set)</li>
+<li><code>gu/gU</code>: 改为大写或小写</li>
+</ul>
+</li>
+<li>Getting Around Faster<ul>
+<li><code>禁用方向键</code>: 在 vimrc 中将方向键禁用, 改掉一个坏习惯最好的办法就是完全禁止自己去做这件事.</li>
+<li>在一行中查找一个字符: <ul>
+<li>f{char} </li>
+<li>F{char}: 从右边开始找. </li>
+<li>p.s. (可以使用 <code>;</code>/<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
+</ul>
+</li>
+<li><code>W/E/B</code>: 根据空格进行移动</li>
+<li><code>%</code>:   <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/move_faster_pair.png">   </li>
+<li><code>[count]G</code>/<code>:[count]</code>: 跳到某一行.</li>
+<li><code>H/M/L</code>: 让光标跳到屏幕的开始 / 中间 / 最后</li>
+<li><code>zz/ze/zb</code>: try it.  </li>
+</ul>
+</li>
+</ul>
+<h2 id="Learn-Vimscript-the-Hard-Way"><a href="#Learn-Vimscript-the-Hard-Way" class="headerlink" title="Learn Vimscript the Hard Way:"></a>Learn Vimscript the Hard Way:</h2><p>读的第三本秘籍叫做<a href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the Hard Way</a>    </p>
+<p>只看了三分之一, 感觉挺不错的, 对各种概念原理解释的 <strong> 很全面 </strong>, 关键是每章有课后题, 自己动手才能真正理解.<br> 剩下如果坚持看完的话应该就可以自己编写插件了.   </p>
+<p><strong>以下是我的笔记:</strong></p>
+<ul>
+<li>Echoing Messages<ol>
+<li>echo/echom: 都是打印, 但 echom 会记录每次的输出, 可以之后再 <code>:messages</code> 中查看.</li>
+<li>注释用的是冒号: <code>&quot;</code></li>
+</ol>
+</li>
+<li>Setting Options<br>  例子: :set number numberwidth=6<ol>
+<li>boolean:  <ul>
+<li>set number: on</li>
+<li>set number !: off</li>
+<li>set number ?: 检查当前设置</li>
+</ul>
+</li>
+<li>value(设置具体的值):   <ul>
+<li>relativenumber</li>
+<li>numberwidth</li>
+<li>wrap (wrap long lines)</li>
+<li>shiftround → (round indence)</li>
+<li>showmatch/matchtime ({})</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Basic Mapping/Modal Mapping/Strict Mapping<ol>
+<li>map: <code>map _ dd</code></li>
+<li>nmap/vmap/imap: 在 normal/visual/insert 模式下的 map</li>
+<li>*noremap(划重点):<br>例如 <code>:nmap dd O&lt;esc&gt;jddk</code> 这个 mapping, 加上 <code>nore</code> 后, 会避免循环调用了!</li>
+</ol>
+</li>
+<li>Leaders<br>  就是 vimrc 中的<leader>, 当然也可以自定义: <code>let mapleader=&quot;_&quot;</code></li>
+<li>Abbreviations<br>  例如<code>iabbrev adn and</code>, 输入 adn 就会自动转化为 and.   </li>
+<li>Training your finger:<ol>
+<li><code>inoremap jk &lt;esc&gt;</code>: 在插入模式中输入 jk 时, 回到正常模式. 说实话, 感觉还是挺好用的 :) </li>
+<li><code>inoremap &lt;esc&gt; &lt;nop&gt;</code>: 废掉 esc 键. 好暴力.<br> 作者说: &quot; 就像和生活中一样, 如果我们彻底改掉一个坏习惯, 那就让它难以或完全不可能被做.&quot;</li>
+</ol>
+</li>
+<li>Buffer-Local Options and Mappings<br>  例子: <code>nnoremap &lt;buffer&gt; &lt;leader&gt;d dd</code>, 多了 <buffer>, 就是只在定义这条命令的 buffer(文件?) 生效.  </li>
+<li>Autocommands<br>  例如在修改 vimrc 文件之后, 自动 source 一下:<br>  <code>:autocmd BufferWritePost .vimrc soure %</code>   </li>
+<li>Operator-Pending Mappings<br>  可以 map 一个动作, 试试第三个例子: <ol>
+<li><code>:onoremap p i(</code>: dp(d: action, p: movement)</li>
+<li><code>:onoremap b /return&lt;cr&gt;</code>: db</li>
+<li><code>:onoremap in(:&lt;c-u&gt;normal! f(vi(&lt;cr&gt;</code>: 当光标在 <code>print foo(bar)</code> 括号之外时, 输入<code>cin(</code>. </li>
+<li><code>:onoremap il(:&lt;c-u&gt;normal! F)vi(&lt;cr&gt;</code>: &quot;inside last parentheses&quot; </li>
+</ol>
+</li>
+<li>More Operator-Pending Mappings<br>  其他的一些可以 mapping 的 operations<ol>
+<li><code>:normal</code>: 进到 normal mode</li>
+<li><code>?^==\+$</code>: performs a search backwards for any line that consists of two or more equal signs and nothing else.</li>
+<li><code>:nohlsearch</code>: clears the search highlighting from the search</li>
+<li><code>kvg_</code></li>
+</ol>
+</li>
+<li>Variables<ol>
+<li>赋值:<br><code>let foo=&quot;bar&quot; / let foo=42</code></li>
+<li>options as variable:<br><code>set textwidth=80</code><br><code>let &amp;textwidth = &amp;textwidth + 10</code><br><code>set textwidth?</code></li>
+<li>local buffer / currentbuffer:<br><code>let &amp;l:number=1 / let b:hello=&quot;world&quot;</code></li>
+</ol>
+</li>
+<li>Conditionals:     <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/Conditionals.jpeg">   
+  哈哈, 这个章节的作业: Drink a beer to console yourself about Vim's coercion of strings to integers.</li>
+<li>Comparisons<br>  当设置 <code>set ignorecase</code> 的时候, <code>&quot;foo&quot; == &quot;FOO&quot;</code>为 True.<br>  所以作者说在写 plugin 的时候, 最好使用:   <ul>
+<li><code>==?</code>: 不区分大小写</li>
+<li><code>==#</code>: 比较时区分大小写</li>
+</ul>
+</li>
+<li>Functions:<br>  ....</li>
+<li>(TODO)</li>
+</ul>
+<p>(未完待续)</p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/vim/" rel="tag"># vim</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20180223/apistar-werkzeug-run-simple/" rel="prev" title="APIStar - WERKZEUG(run_simple) 源码阅读笔记">
+      <i class="fa fa-chevron-left"></i> APIStar - WERKZEUG(run_simple) 源码阅读笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20180315/git-internal/" rel="next" title="Git Internal(初探 git 的内部实现)">
+      Git Internal(初探 git 的内部实现) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vimtutor"><span class="nav-text">vimtutor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下边是我做的一些笔记"><span class="nav-text">下边是我做的一些笔记:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pratical-Vim"><span class="nav-text">Pratical Vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learn-Vimscript-the-Hard-Way"><span class="nav-text">Learn Vimscript the Hard Way:</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20180223/vim-tour/",
+            identifier: "blog/20180223/vim-tour/",
+            title: "我和 VIM 的故事"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

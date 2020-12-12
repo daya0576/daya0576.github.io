@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="OO 原则是我们的目标，而设计模式是我们的做法。  刚从 python 转 java 半年多，虽然这门语言看上去有一丝笨重和啰嗦，但和设计模式遇上，就好像咖啡与牛奶的融合，变成一杯香醇的拿铁🤔。本文做为个人的读书笔记（水一篇博客），同时如果能帮到你就更好啦！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Head First 设计模式》学习笔记">
+<meta property="og:url" content="https://changchen.me/blog/20200613/design-pattern/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="OO 原则是我们的目标，而设计模式是我们的做法。  刚从 python 转 java 半年多，虽然这门语言看上去有一丝笨重和啰嗦，但和设计模式遇上，就好像咖啡与牛奶的融合，变成一杯香醇的拿铁🤔。本文做为个人的读书笔记（水一篇博客），同时如果能帮到你就更好啦！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2020-06-13T17:05:14.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.466Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="读后感">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20200613/design-pattern/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>《Head First 设计模式》学习笔记 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20200613/design-pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《Head First 设计模式》学习笔记
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-14 01:05:14" itemprop="dateCreated datePublished" datetime="2020-06-14T01:05:14+08:00">2020-06-14</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20200613/design-pattern/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20200613/design-pattern/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20200613/design-pattern/" class="post-meta-item leancloud_visitors" data-flag-title="《Head First 设计模式》学习笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>OO 原则是我们的目标，而设计模式是我们的做法。</p>
+</blockquote>
+<p>刚从 python 转 java 半年多，虽然这门语言看上去有一丝笨重和啰嗦，但和设计模式遇上，就好像咖啡与牛奶的融合，变成一杯香醇的拿铁🤔。本文做为个人的读书笔记（<del>水一篇博客</del>），同时如果能帮到你就更好啦！</p>
+<a id="more"></a>
+
+<h1 id="分类"><a href="# 分类" class="headerlink" title="分类"></a>分类 </h1><p> 大家应该还知道一本书，叫做 <a href="https://book.douban.com/subject/1052241/">《设计模式：可复用面向对象软件的基础》</a>，其中非常精辟的将设计模式分为三类（持续学习更新中）：</p>
+<ol>
+<li>创建型模式：<ul>
+<li>简单工厂模式（Simple Factory） -&gt; <strong>第四章：工厂模式</strong></li>
+<li>工厂方法模式（Factory Method）</li>
+<li>抽象工厂模式（Abstract Factory）</li>
+<li>创建者模式（Builder）</li>
+<li>原型模式（Prototype）</li>
+<li>单例模式（Singleton） -&gt; <strong>第五章：单例</strong></li>
+</ul>
+</li>
+<li>结构型模式<ul>
+<li>外观模式 / 门面模式（Facade 门面模式）</li>
+<li>适配器模式（Adapter） -&gt; <strong>第七章：适配器模式</strong></li>
+<li>代理模式（Proxy） -&gt; <strong>第十一章：代理模式</strong></li>
+<li>装饰模式（Decorator） -&gt; <strong>第三章：装饰者模式</strong></li>
+<li>桥梁模式 / 桥接模式（Bridge）</li>
+<li>组合模式（Composite）</li>
+<li>享元模式（Flyweight）</li>
+</ul>
+</li>
+<li>行为模式<ul>
+<li>模板方法模式（Template Method） -&gt; <strong>第八章：模版方法模式</strong></li>
+<li>观察者模式（Observer） -&gt; <strong>第二章：观察者模式</strong></li>
+<li>状态模式（State） -&gt; <strong>第十章：状态模式</strong></li>
+<li>策略模式（Strategy）</li>
+<li>职责链模式（Chain of Responsibility）</li>
+<li>命令模式（Command） -&gt; <strong>第六章：命令模式</strong></li>
+<li>访问者模式（Visitor）</li>
+<li>调停者模式（Mediator）</li>
+<li>备忘录模式（Memento）</li>
+<li>迭代器模式（Iterator） -&gt; <strong>第九章：迭代与组合模式</strong></li>
+<li>解释器模式（Interpreter）</li>
+</ul>
+</li>
+</ol>
+<h1 id="章节"><a href="# 章节" class="headerlink" title="章节"></a>章节 </h1><h2 id="第一章：策略模式 - 整合鸭子的行为"><a href="# 第一章：策略模式 - 整合鸭子的行为" class="headerlink" title="第一章：策略模式 - 整合鸭子的行为"></a> 第一章：策略模式 - 整合鸭子的行为 </h2><p> 将易变的属性，做为一个对象变量去初始化进行 <strong> 组合（行为也是一种对象！）</strong></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/1.%20Duck%20Behaviors.png" alt="1. Duck Behaviors"></p>
+<h2 id="第二章：观察者模式 -The-Observer-Pattern"><a href="# 第二章：观察者模式 -The-Observer-Pattern" class="headerlink" title="第二章：观察者模式 - The Observer Pattern"></a>第二章：观察者模式 - The Observer Pattern</h2><p>稍微解释一下：不同的 Display 在实例化时，会在 WeatherData 中被注册为「观察者」统一管理，当「被观察者」（气象数据）发生变化时统一触发通知。   </p>
+<p><strong>目的：</strong>让观察者和被观察者，尽可能的解耦。  </p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/2.%20Observer%20Pattern.png" alt="2. Observer Pattern"></p>
+<p>效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">WeatherData weatherData = <span class="keyword">new</span> WeatherData();</span><br><span class="line"></span><br><span class="line">CurrentConditionsDisplay currentConditions = <span class="keyword">new</span> CurrentConditionsDisplay(weatherData);</span><br><span class="line">StatisticsDisplay statisticsDisplay = <span class="keyword">new</span> StatisticsDisplay(weatherData);</span><br><span class="line">ForecastDisplay forecastDisplay = <span class="keyword">new</span> ForecastDisplay(weatherData);</span><br><span class="line"></span><br><span class="line">weatherData.setMeasurements(<span class="number">80</span>, <span class="number">65</span>, <span class="number">30.4f</span>);</span><br><span class="line"><span class="comment">// 更新 weatherData 后，会主动通知所有观察者 </span></span><br><span class="line"><span class="comment">// Forecast: Improving weather on the way!</span></span><br><span class="line"><span class="comment">// Avg/Max/Min temperature = 80.0/80.0/80.0</span></span><br><span class="line"><span class="comment">// Current conditions: 80.0F degrees and 65.0% humidity</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章：装饰者模式 -The-Decorator-Pattern"><a href="# 第三章：装饰者模式 -The-Decorator-Pattern" class="headerlink" title="第三章：装饰者模式 - The Decorator Pattern"></a>第三章：装饰者模式 - The Decorator Pattern</h2><p>当遇到继承无法解决的问题，可以尝试使用更为优雅的装饰者模式：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/3.%20The%20Decorator%20Pattern:%20Decorating%20Objects.png" alt="3. The Decorator Pattern: Decorating Objects"></p>
+<p>最终效果如下，但初始化的方式有点简陋。文中也提到后续 “工厂” &amp; “生成器” 模式，将有更好的方式建立被装饰对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 来一杯 Espresso</span></span><br><span class="line">Beverage beverage = <span class="keyword">new</span> Espresso();</span><br><span class="line">System.out.println(beverage);</span><br><span class="line"><span class="comment">// Espresso$1.99</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 来一杯调料为豆浆，摩卡，奶泡的 HouseBlend 咖啡</span></span><br><span class="line">Beverage beverage1 = <span class="keyword">new</span> HouseBlend();</span><br><span class="line">beverage1 = <span class="keyword">new</span> Soy(<span class="keyword">new</span> Mocha(<span class="keyword">new</span> Whip(beverage1)));</span><br><span class="line">System.out.println(beverage1);</span><br><span class="line"><span class="comment">// HouseBlend, Whip, Mocha, Soy$1.39</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第四章：工厂模式 -The-Factory-Pattern"><a href="# 第四章：工厂模式 -The-Factory-Pattern" class="headerlink" title="第四章：工厂模式 - The Factory Pattern"></a>第四章：工厂模式 - The Factory Pattern</h2><p>再熟悉不过了，就不多做解释了。</p>
+<blockquote>
+<p>简单工厂其实不是一个设计模式，反而更像是一种编程习惯。</p>
+</blockquote>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/4.%20The%20Factory%20Pattern.png" alt="4. The Factory Pattern"></p>
+<p>效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SimplePizzaFactory factory = <span class="keyword">new</span> SimplePizzaFactory();</span><br><span class="line">PizzaStore store = <span class="keyword">new</span> PizzaStore(factory);</span><br><span class="line"></span><br><span class="line">Pizza pizza = store.orderPizza(<span class="string">"cheese"</span>);</span><br><span class="line">System.out.println(<span class="string">"We ordered a"</span> + pizza.getName() + <span class="string">"\n"</span>);</span><br><span class="line">System.out.println(pizza);</span><br></pre></td></tr></table></figure>
+
+<p>章节中还提到了抽象工厂模式，本质上是两层的 factory，感觉有点太花了。。感兴趣可以阅读原文。</p>
+<h2 id="第五章：单例 -Singleton"><a href="# 第五章：单例 -Singleton" class="headerlink" title="第五章：单例 - Singleton"></a>第五章：单例 - Singleton</h2><p>再熟悉不过的老朋友，就不多说了。简单回答两个问题：</p>
+<p>Q: 为什么不直接使用全局变量呢？<br>A: 因为需要在一开始就创建好对象，但实际一直没有用到，造成资源的浪费。有种类似 lazyload 的意思。</p>
+<p>Q. 什么需要单例呢？<br>A: 确保一个类只有一个实例，并提供一个全局访问点。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/5.%20Singleton.png" alt="5. Singleton"></p>
+<p>效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意有个小细节：Singleton 的构造器是私有的，意味着无法被直接 new 出来（实例只能通过工厂模式创造出来）</span></span><br><span class="line">Singleton instance = Singleton.getInstance();</span><br></pre></td></tr></table></figure>
+
+<h2 id="第六章：命令模式 -The-Command-Pattern"><a href="# 第六章：命令模式 -The-Command-Pattern" class="headerlink" title="第六章：命令模式 - The Command Pattern:"></a>第六章：命令模式 - The Command Pattern:</h2><p>RemoteLoader 可能有点困惑，其他可以简单将它理解为 <code>main</code> 函数，将 Light 和 LightOnCommand 绑定，并将 command 与 remoteControl 绑定：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15883270132958.jpg" alt=""></p>
+<p>效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">remoteControl.setCommand(<span class="number">0</span>, livingRoomLightOn, livingRoomLightOff);</span><br><span class="line">remoteControl.setCommand(<span class="number">1</span>, kitchenLightOn, kitchenLightOff);</span><br><span class="line"> </span><br><span class="line">remoteControl.onButtonWasPushed(<span class="number">0</span>);</span><br><span class="line">remoteControl.onButtonWasPushed(<span class="number">1</span>);</span><br><span class="line">remoteControl.offButtonWasPushed(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>命令模式的思考在于，允许将动作封装为命令对象，这样一来可以随心所欲的存储、传递和调用它们。</p>
+<h2 id="第七章：适配器模式 -adapter"><a href="# 第七章：适配器模式 -adapter" class="headerlink" title="第七章：适配器模式 - adapter"></a>第七章：适配器模式 - adapter</h2><p>Target 理解为鸭子，拥有 fly 与 quack 的接口。<br>Adaptee 是火鸡，只有 fly 和 gobble 接口。<br>Adaptor 继承了 Target 接口，并根据火鸡的特效实现了对应的鸭子接口。  </p>
+<p>最终达到与 client 交互时，可以直接把它当作一只鸭子。   </p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/7.%20Adaptor%20.png" alt="7. Adaptor"></p>
+<p>三个的区别：</p>
+<ul>
+<li>decorator: 将一个接口转成另外一个接口</li>
+<li>adaptor: 不改变接口，但加入责任</li>
+<li>facade: 让接口更简单（对一个复杂子系统包装，只暴露一个干净的外观）</li>
+</ul>
+<p>最终目的：当设计一个系统时，尽可能的降低客户与系统之间的耦合</p>
+<p>效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Duck duck = <span class="keyword">new</span> MallardDuck();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让不会汪汪叫的 turkey 也能「适配」实现鸭叫的接口</span></span><br><span class="line">WildTurkey turkey = <span class="keyword">new</span> WildTurkey();</span><br><span class="line">Duck turkeyAdaptor = <span class="keyword">new</span> TurkeyAdapter(turkey);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"The duck says..."</span>);</span><br><span class="line">duck.quack();</span><br><span class="line">duck.fly();</span><br><span class="line">System.out.println(<span class="string">"The TurkeyAdaptor says..."</span>);</span><br><span class="line">turkeyAdaptor.quack();</span><br><span class="line">turkeyAdaptor.fly();</span><br></pre></td></tr></table></figure>
+
+<h2 id="第八章：模版方法模式 -The-Template-Method-Pattern"><a href="# 第八章：模版方法模式 -The-Template-Method-Pattern" class="headerlink" title="第八章：模版方法模式 - The Template Method Pattern"></a>第八章：模版方法模式 - The Template Method Pattern</h2><p>想起了公司业务代码中的 ServiceTemplate，一个道理。   </p>
+<p><strong>⚠️注意抽象类中 brew 和 addCondiments 方法 是用斜体标示的，需要让子类实现对应细节。</strong>而抽象类统一管理统一的处理流程与子步骤，并暴露给客户代码（减少整个系统的依赖）。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/8.%20Template.png" alt="8. Template"></p>
+<h2 id="第九章：迭代与组合模式 -The-Iterator-and-Composite-Patterns"><a href="# 第九章：迭代与组合模式 -The-Iterator-and-Composite-Patterns" class="headerlink" title="第九章：迭代与组合模式 - The Iterator and Composite Patterns"></a>第九章：迭代与组合模式 - The Iterator and Composite Patterns</h2><p>迭代器模式，针对底层不同的 数组、列表、散列表等，统一为迭代器的对外接口。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/uml.png" alt="um"></p>
+<h2 id="第十章：状态模式 -The-State-Pattern"><a href="# 第十章：状态模式 -The-State-Pattern" class="headerlink" title="第十章：状态模式 - The State Pattern"></a>第十章：状态模式 - The State Pattern</h2><p>状态机。最近在做一个 telegram 群组管理的机器人，对于用户状态的管理，刚好也可以用到这个设计模式：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15920333438139.jpg" alt=""></p>
+<p>效果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">GumballMachine gumballMachine = <span class="keyword">new</span> GumballMachine(<span class="number">5</span>);</span><br><span class="line">System.out.println(gumballMachine);</span><br><span class="line"></span><br><span class="line">gumballMachine.insertQuarter();</span><br><span class="line">gumballMachine.ejectQuarter();</span><br><span class="line">System.out.println(gumballMachine);</span><br><span class="line"></span><br><span class="line">gumballMachine.insertQuarter();</span><br><span class="line">gumballMachine.turnCrank();</span><br><span class="line">gumballMachine.insertQuarter();</span><br><span class="line">gumballMachine.turnCrank();</span><br><span class="line">System.out.println(gumballMachine);</span><br><span class="line"></span><br><span class="line"><span class="comment">// GumballMachine&#123;state=capture10.status_machine.NoQuarterState@6bf256fa, count=5&#125;</span></span><br><span class="line"><span class="comment">// You inserted a quarter!</span></span><br><span class="line"><span class="comment">// Quarter returned</span></span><br><span class="line"><span class="comment">// GumballMachine&#123;state=capture10.status_machine.NoQuarterState@6bf256fa, count=5&#125;</span></span><br><span class="line"><span class="comment">// You inserted a quarter!</span></span><br><span class="line"><span class="comment">// You turned..</span></span><br><span class="line"><span class="comment">// A gumball comes rolling out the slot..</span></span><br><span class="line"><span class="comment">// You inserted a quarter!</span></span><br><span class="line"><span class="comment">// You turned..</span></span><br><span class="line"><span class="comment">// A gumball comes rolling out the slot..</span></span><br><span class="line"><span class="comment">// GumballMachine&#123;state=capture10.status_machine.NoQuarterState@6bf256fa, count=3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第十一章：代理模式 -The-Proxy-Pattern"><a href="# 第十一章：代理模式 -The-Proxy-Pattern" class="headerlink" title="第十一章：代理模式 - The Proxy Pattern"></a>第十一章：代理模式 - The Proxy Pattern</h2><p>没太懂，找了几个 proxy 模式的应用场景：</p>
+<ul>
+<li>银行账号：通过该账号管理我们的资金。目标为 controls and manage access to the object they are &quot;protecting&quot;.</li>
+<li>db 连接的 client，相关配置需要提前被初始化好。</li>
+<li>但命令一个程序员去写代码的时候，在完成需求 crud 的同时，还要补充文档！</li>
+</ul>
+<p>静态 proxy：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15920354270766.jpg" alt=""></p>
+<p>动态 proxy：</p>
+<ul>
+<li>TODO</li>
+</ul>
+<h2 id="第十二章：模式的模式 -Compound-Pattern"><a href="# 第十二章：模式的模式 -Compound-Pattern" class="headerlink" title="第十二章：模式的模式 - Compound Pattern"></a>第十二章：模式的模式 - Compound Pattern</h2><p>相当于将上面讲解过的设计模式复合使用，刚好跟着敲一遍代码，复习一下。   </p>
+<p>但像文中说的那样，有种牛刀杀鸡的感觉。。</p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" rel="tag"># 读后感</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20200501/uml-unified-modeling-language/" rel="prev" title="解决关于 UML 类图在心中深藏多年的若干疑惑">
+      <i class="fa fa-chevron-left"></i> 解决关于 UML 类图在心中深藏多年的若干疑惑
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20200621/annotation/" rel="next" title="Annotation(Decorator) 在 Java & Python 中的应用">
+      Annotation(Decorator) 在 Java & Python 中的应用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分类"><span class="nav-text">分类 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#章节"><span class="nav-text">章节 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章：策略模式 - 整合鸭子的行为"><span class="nav-text"> 第一章：策略模式 - 整合鸭子的行为 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章：观察者模式 -The-Observer-Pattern"><span class="nav-text">第二章：观察者模式 - The Observer Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章：装饰者模式 -The-Decorator-Pattern"><span class="nav-text">第三章：装饰者模式 - The Decorator Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章：工厂模式 -The-Factory-Pattern"><span class="nav-text">第四章：工厂模式 - The Factory Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五章：单例 -Singleton"><span class="nav-text">第五章：单例 - Singleton</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六章：命令模式 -The-Command-Pattern"><span class="nav-text">第六章：命令模式 - The Command Pattern:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第七章：适配器模式 -adapter"><span class="nav-text">第七章：适配器模式 - adapter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第八章：模版方法模式 -The-Template-Method-Pattern"><span class="nav-text">第八章：模版方法模式 - The Template Method Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第九章：迭代与组合模式 -The-Iterator-and-Composite-Patterns"><span class="nav-text">第九章：迭代与组合模式 - The Iterator and Composite Patterns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十章：状态模式 -The-State-Pattern"><span class="nav-text">第十章：状态模式 - The State Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十一章：代理模式 -The-Proxy-Pattern"><span class="nav-text">第十一章：代理模式 - The Proxy Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十二章：模式的模式 -Compound-Pattern"><span class="nav-text">第十二章：模式的模式 - Compound Pattern</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20200613/design-pattern/",
+            identifier: "blog/20200613/design-pattern/",
+            title: "《Head First 设计模式》学习笔记"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

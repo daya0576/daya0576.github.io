@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="最近YouTube上看到Gitlab频道的一个视频: Git Internals - How Git Works - Fear Not The SHA!感觉打开了新世界的大门🤩😍🤣. 用这篇博客记录一下感悟和思考, 希望你看完之后, 对下边这张图会有更深的理解.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git Internal(初探 git 的内部实现)">
+<meta property="og:url" content="https://changchen.me/blog/20180315/git-internal/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="最近YouTube上看到Gitlab频道的一个视频: Git Internals - How Git Works - Fear Not The SHA!感觉打开了新世界的大门🤩😍🤣. 用这篇博客记录一下感悟和思考, 希望你看完之后, 对下边这张图会有更深的理解.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-03-15T12:55:08.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:17:12.462Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://changchen.me/blog/20180315/git-internal/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Git Internal(初探 git 的内部实现) | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180315/git-internal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git Internal(初探 git 的内部实现)
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-03-15 20:55:08" itemprop="dateCreated datePublished" datetime="2018-03-15T20:55:08+08:00">2018-03-15</time>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/blog/20180315/git-internal/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20180315/git-internal/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+          
+            <span id="/blog/20180315/git-internal/" class="post-meta-item leancloud_visitors" data-flag-title="Git Internal(初探 git 的内部实现)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近 YouTube 上看到 Gitlab 频道的一个视频: <a href="https://www.youtube.com/watch?v=P6jD966jzlk">Git Internals - How Git Works - Fear Not The SHA!</a><br>感觉打开了新世界的大门🤩😍🤣. 用这篇博客记录一下感悟和思考, 希望你看完之后, 对下边这张图会有更深的理解.<br><img style="max-height:350px" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3.png"></p>
+<a id="more"></a>
+
+<h1 id="第一部分 - 基础概念和定义 - 重要"><a href="# 第一部分 - 基础概念和定义 - 重要" class="headerlink" title="第一部分: 基础概念和定义 (重要!)"></a> 第一部分: 基础概念和定义(重要!)</h1><h2 id="Basic-git-workflow"><a href="#Basic-git-workflow" class="headerlink" title="Basic git workflow"></a>Basic git workflow</h2><p>(p.s. git pull = git fetch + git merge)<br><img style="max-height: 400px" class="lazy" data-original="/images/blog/180315_git_internal/1FA4B411-E64F-4438-B889-E4F7DE9C27E5.png"></p>
+<h2 id="万物皆对象"><a href="# 万物皆对象" class="headerlink" title="万物皆对象"></a>万物皆对象 </h2><p>git 中各种概念(e.g. branch/commit..), 其实都是<strong> 对象(文件)</strong>. 每个对象拥有唯一标示: <code>SHA1</code>.<br>SHA1 一共有 40 位, 前两位作为文件夹, 一般使用前八位作为 shortcut (下图红色方框中).<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/AE2169D4-24D6-4E62-81C7-DD783DDDE3DC.png"><br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/15210820035986.jpg"></p>
+<h2 id="Git-Model"><a href="#Git-Model" class="headerlink" title="Git Model:"></a>Git Model:</h2><img style="max-height:300px" class="lazy" data-original="/images/blog/180315_git_internal/B7315A1E-8F50-4597-BCEC-5AAAAF5D8DE8.png">
+
+<p>不同的 branch 其实指向对应的 commit<br>然后每个 commit 都会指向它之前的 commit  </p>
+<hr>
+<p>一个具体的例子(现在可能一头雾水, 但完成本文第二部分的 Workshop 后, 肯定会豁然开朗):<br><img style="max-height:320px" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-1.png"></p>
+<h1 id="第二部分 -Workshop"><a href="# 第二部分 -Workshop" class="headerlink" title="第二部分: Workshop"></a>第二部分: Workshop</h1><p><strong>提示:</strong> 只有自己实践一遍才能真正领悟 git 的奥妙.<br><strong>小工具:</strong> 监测当前目录下的所有文件: <code>watch -n 1 -d find .</code><br>效果见下图:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/133173A3-26FB-4066-8229-D7FAFEF5B654.png"></p>
+<h2 id="第一个 commit"><a href="# 第一个 commit" class="headerlink" title="第一个 commit:"></a>第一个 commit:</h2><p>###git add<br><strong>操作:</strong> 新建文件 foo.txt, 并执行<code>git add foo.txt</code> → 自动生成了一个文件(.git/objects/9d/aeaf...)<br><img style="max-height:270px" class="lazy" data-original="/images/blog/180315_git_internal/9B1A1C47-EDCD-41EF-A759-4AC2336E2582.png"></p>
+<p><strong>上图的文件 (9daeaf) 是什么呢?</strong><br><code>git cat-file -p 9daeaf</code> → 文件 foo.txt 的内容 <br><strong>blob 怎么知道是哪个 path?</strong><br> 文件名和 blob 的对应关系保存在 <code>.git/index</code>中.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/3ADA3565-0DC7-461A-B637-770264553DE6.png"></p>
+<p>###git commit<br><strong>提交!</strong><br><strong>执行</strong> <code>git commit -m “foo commit #1”</code> →  自动新建了两个文件:<br><img style="max-height:220px" class="lazy" data-original="/images/blog/180315_git_internal/C32B30A0-304F-4C5F-BDB4-C8F1E4AF028B.png">    </p>
+<p><strong>两个文件分别对应两个对象:</strong></p>
+<ol>
+<li><p>commit(fb4495):<br>commit 文件中包含这几个内容: 指向的 tree(b54231)/author/committer/message.   </p>
+<img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/600D84D1-5EB3-4085-9C17-AF368B14E2A9.png">
+</li>
+<li><p>tree(b54231)<br>指向的 blob(9daeaf)   </p>
+<img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/3492EBD4-1970-4D1A-8399-B5CA24F10BED.png">
+
+</li>
+</ol>
+<p><strong>完整关系(point references):</strong><br>commit(红色) → tree(黄色) → blob(绿色)<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/6F27581D-D28A-4296-9C0D-7E5ECFEF12C9.png"></p>
+<p>对应这张图:<br><img class="lazy" data-original="/images/blog/180315_git_internal/B7315A1E-8F50-4597-BCEC-5AAAAF5D8DE8-1.png"></p>
+<h2 id="第二个 commit"><a href="# 第二个 commit" class="headerlink" title="第二个 commit:"></a>第二个 commit:</h2><p><strong>操作:</strong> 新建一个文件 bar.txt, 修改文件 foo.txt 的内容. add 并 commit 之后, 具体细节见第一个 commit, 就不细说了, 但注意:</p>
+<ol>
+<li>当前 commit 多了一个指向上一个 commit 的字段: parent.   </li>
+<li>当前 commit 指向的 tree 指向了两个 blobs, 分别为新建的 bar.txt, 和修改后的 foo.txt</li>
+</ol>
+<img style="max-height:250px" class="lazy" data-original="/images/blog/180315_git_internal/C57A8ECB-062D-4CDE-B54E-26F8EEA5F57C.png">
+
+
+<h2 id="第三个 commit"><a href="# 第三个 commit" class="headerlink" title="第三个 commit:"></a>第三个 commit:</h2><ol>
+<li>新建一个文件 baz.txt, 输入 &quot;AHA!!!&quot;      </li>
+<li><code>git add</code> → 新增一个 blob 对象(ce9db9).   </li>
+<li>commit 之后:<br>新建了一个 commit 对象 (8f1fd55) → tree(d905ab) → 三个 blob(两个已经存在的 blob 对象 + 刚刚 add 新增的 blob 对象(ce9db9))<br> 这个地方就是 git 的巧妙之处!!! 复用之前的文件, 所以永远不会保存重复的文件<br>“That&#39;s glorious.” 视频中的原句 XD   <img style="max-height:250px" class="lazy" data-original="/images/blog/180315_git_internal/ABEB63D2-D630-4D0F-AE0D-07A685311A03.png">   
+再举一个例子: 如果创建了一百个相同内容的文件, git add . 之后, 只会创建一个 blob 对象.    
+再对照着看下图(对 blob 的引用), 是不是有种豁然开朗的感觉呢?     
+<img class="lazy" style="max-height: 350px;" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-3.png">
+
+
+
+</li>
+</ol>
+<h2 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h2><p>git checkout -b foobranch → 创建了一个文件: ./.git/refs/heads/foobranch</p>
+<p>cat .git/refs/heads/foobranch → 8f1fd5... → git cat-file -p 8f1fd5 → 第三个 commit<br>所以 branch 就是一个指向 commit 的对象 AHA!<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/C83061B0-4743-4BDE-8938-61A73E65B5AF.png"><br><img style="max-height: 350px;" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-4.png"></p>
+<h2 id="TODO-merge-rebase"><a href="#TODO-merge-rebase" class="headerlink" title="TODO: merge/rebase"></a>TODO: merge/rebase</h2><h1 id="视频最后给出的扩展阅读资料"><a href="# 视频最后给出的扩展阅读资料" class="headerlink" title="视频最后给出的扩展阅读资料:"></a>视频最后给出的扩展阅读资料:</h1><img style="max-height:400px" class="lazy" data-original="/images/blog/180315_git_internal/DF36A37C-15FC-41DC-918E-334982A2635A.png">
+
+
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://www.youtube.com/watch?v=P6jD966jzlk">Git Internals - How Git Works - Fear Not The SHA!</a></li>
+</ul>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20180223/vim-tour/" rel="prev" title="我和 VIM 的故事">
+      <i class="fa fa-chevron-left"></i> 我和 VIM 的故事
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/20180403/impressions-of-google-sre/" rel="next" title="《Site Reliability Engineering》by Google 读书笔记">
+      《Site Reliability Engineering》by Google 读书笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一部分 - 基础概念和定义 - 重要"><span class="nav-text"> 第一部分: 基础概念和定义(重要!)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-git-workflow"><span class="nav-text">Basic git workflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#万物皆对象"><span class="nav-text">万物皆对象 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Model"><span class="nav-text">Git Model:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二部分 -Workshop"><span class="nav-text">第二部分: Workshop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一个 commit"><span class="nav-text">第一个 commit:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二个 commit"><span class="nav-text">第二个 commit:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三个 commit"><span class="nav-text">第三个 commit:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Branch"><span class="nav-text">Branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO-merge-rebase"><span class="nav-text">TODO: merge&#x2F;rebase</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视频最后给出的扩展阅读资料"><span class="nav-text">视频最后给出的扩展阅读资料:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://daya0576.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://changchen.me/blog/20180315/git-internal/",
+            identifier: "blog/20180315/git-internal/",
+            title: "Git Internal(初探 git 的内部实现)"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://daya0576.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
