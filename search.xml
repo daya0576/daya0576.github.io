@@ -11,7 +11,7 @@
 <p>reduce members’ pain by shedding requests that are not expected to affect the user’s streaming experience. </p>
 </blockquote>
 <p>通过优先对用户 <strong> 视频观看 </strong> 影响较小的请求进行限流，保护后端系统负载的同时，尽可能避免用户体验受损。</p>
-<h1 id="解法：对流量不再一视同仁"><a href="# 解法：对流量不再一视同仁" class="headerlink" title="解法：对流量不再一视同仁"></a>解法：对流量不再一视同仁 </h1><h2 id="整体部署架构："><a href="# 整体部署架构：" class="headerlink" title="整体部署架构："></a> 整体部署架构：</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16062006731318.jpg" alt="-w404"></p>
+<h1 id="解法：对流量不再一视同仁"><a href="# 解法：对流量不再一视同仁" class="headerlink" title="解法：对流量不再一视同仁"></a>解法：对流量不再一视同仁 </h1><h2 id="整体部署架构："><a href="# 整体部署架构：" class="headerlink" title="整体部署架构："></a> 整体部署架构：</h2><p>下图中 <code>Zuul</code> 即网关，将客户端的所有 http 请求转发给下游 api：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16062006731318.jpg" alt="-w404"></p>
 <h2 id="解法："><a href="# 解法：" class="headerlink" title="解法："></a>解法：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">网关 (Zuul) 收到请求后，通过三个维度：</span><br><span class="line">throughput &#x2F; functionality &#x2F; criticality </span><br><span class="line">                ↓</span><br><span class="line">          将流量分为三组：</span><br><span class="line">          1. NON_CRITICAL</span><br><span class="line">          2. DEGRADED_EXPERIENCE</span><br><span class="line">          3. CRITICAL</span><br><span class="line">          同时依次打分(1 to 100)</span><br><span class="line">                ↓             </span><br><span class="line">          后端或网关出现容量问题 -&gt; Y -&gt; 分数越高的请求越先响应(类似 priority queue)</span><br><span class="line">                ↓ N</span><br><span class="line">          无视权重，正常处理所有请求</span><br></pre></td></tr></table></figure>
 
 
@@ -6615,8 +6615,14 @@ sudo update-rc.d xl2tpd disable</p>
   <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
-    <content><![CDATA[<p>我是谁？如果给自己贴上标签，有哪些特性鲜明的选项呢？</p>
-<p><a href="https://www.instagram.com/daya0576/"># 美食</a> <a href="https://www.linkedin.com/in/henry-zhu-181191182/">#SRE</a> <a href="/blog/20160711/tablet-tennis/"># 乒乓球</a></p>
+    <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576</p>
+<h1 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h1><ul>
+<li><input checked=""disabled="" type="checkbox"> 🥑 foodie - <a href="https://www.instagram.com/daya0576/">instagram</a></li>
+<li><input checked=""disabled="" type="checkbox"> 🐍 Python Backend(<a href="https://unsw.co/">unsw.co</a> / <a href="https://www.hypers.com/">Hypers</a>)</li>
+<li><input checked=""disabled="" type="checkbox"> 🚒 SRE(Alipay- <a href="/blog/20180403/impressions-of-google-sre/">Server Reboot Engineer</a>)</li>
+<li><input checked=""disabled="" type="checkbox"> 🏓 <a href="/blog/20160711/tablet-tennis/">Table Tennis</a></li>
+<li><input disabled=""type="checkbox"> ??</li>
+</ul>
 <hr>
 <h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 怀念一下陪伴我四年多的老博客(Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>

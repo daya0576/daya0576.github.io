@@ -56,7 +56,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2020-11-24T07:23:10.000Z">
-<meta property="article:modified_time" content="2020-12-12T09:17:12.466Z">
+<meta property="article:modified_time" content="2020-12-13T14:43:01.635Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta name="twitter:card" content="summary">
@@ -294,7 +294,7 @@
 <p>reduce members’ pain by shedding requests that are not expected to affect the user’s streaming experience. </p>
 </blockquote>
 <p>通过优先对用户 <strong> 视频观看 </strong> 影响较小的请求进行限流，保护后端系统负载的同时，尽可能避免用户体验受损。</p>
-<h1 id="解法：对流量不再一视同仁"><a href="# 解法：对流量不再一视同仁" class="headerlink" title="解法：对流量不再一视同仁"></a>解法：对流量不再一视同仁 </h1><h2 id="整体部署架构："><a href="# 整体部署架构：" class="headerlink" title="整体部署架构："></a> 整体部署架构：</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16062006731318.jpg" alt="-w404"></p>
+<h1 id="解法：对流量不再一视同仁"><a href="# 解法：对流量不再一视同仁" class="headerlink" title="解法：对流量不再一视同仁"></a>解法：对流量不再一视同仁 </h1><h2 id="整体部署架构："><a href="# 整体部署架构：" class="headerlink" title="整体部署架构："></a> 整体部署架构：</h2><p>下图中 <code>Zuul</code> 即网关，将客户端的所有 http 请求转发给下游 api：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16062006731318.jpg" alt="-w404"></p>
 <h2 id="解法："><a href="# 解法：" class="headerlink" title="解法："></a>解法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">网关 (Zuul) 收到请求后，通过三个维度：</span><br><span class="line">throughput &#x2F; functionality &#x2F; criticality </span><br><span class="line">                ↓</span><br><span class="line">          将流量分为三组：</span><br><span class="line">          1. NON_CRITICAL</span><br><span class="line">          2. DEGRADED_EXPERIENCE</span><br><span class="line">          3. CRITICAL</span><br><span class="line">          同时依次打分(1 to 100)</span><br><span class="line">                ↓             </span><br><span class="line">          后端或网关出现容量问题 -&gt; Y -&gt; 分数越高的请求越先响应(类似 priority queue)</span><br><span class="line">                ↓ N</span><br><span class="line">          无视权重，正常处理所有请求</span><br></pre></td></tr></table></figure>
 
 
