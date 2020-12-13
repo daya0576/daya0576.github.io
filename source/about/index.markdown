@@ -3,10 +3,16 @@ date: 2018-07-29 20:39:44
 type: about
 comments: true
 ---
+# ID
+daya0576
 
-我是谁？如果给自己贴上标签，有哪些特性鲜明的选项呢？
+# tags
+- [x] 🥑 foodie - [instagram](https://www.instagram.com/daya0576/)
+- [x] 🐍 Python Backend([unsw.co](https://unsw.co/) / [Hypers](https://www.hypers.com/))
+- [x] 🚒 SRE(Alipay- [Server Reboot Engineer](/blog/20180403/impressions-of-google-sre/))
+- [x] 🏓 [Table Tennis](/blog/20160711/tablet-tennis/)
+- [ ] ??
 
-[#美食](https://www.instagram.com/daya0576/) [#SRE](https://www.linkedin.com/in/henry-zhu-181191182/) [#乒乓球](/blog/20160711/tablet-tennis/)
 
 ---
 
