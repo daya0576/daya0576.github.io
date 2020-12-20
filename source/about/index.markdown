@@ -12,8 +12,6 @@ daya0576 | Shanghai
 - 🚒 SRE(Currently working in Alipay as [Server Reboot Engineer](/blog/20180403/impressions-of-google-sre/))
 - 🏓 [Table Tennis](/blog/20160711/tablet-tennis/)
 
-
-
 ---
 
 RIP: 纪念一下陪伴我四年多的老博客(Octopress):
