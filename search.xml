@@ -5849,10 +5849,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
-        <tag>moobox</tag>
-        <tag>work</tag>
         <tag>mysql</tag>
         <tag>django</tag>
+        <tag>moobox</tag>
+        <tag>work</tag>
       </tags>
   </entry>
   <entry>
@@ -6615,16 +6615,15 @@ sudo update-rc.d xl2tpd disable</p>
   <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
-    <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576</p>
+    <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
 <h1 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h1><ul>
-<li><input checked=""disabled="" type="checkbox"> 🥑 foodie - <a href="https://www.instagram.com/daya0576/">instagram</a></li>
-<li><input checked=""disabled="" type="checkbox"> 🐍 Python Backend(<a href="https://unsw.co/">unsw.co</a> / <a href="https://www.hypers.com/">Hypers</a>)</li>
-<li><input checked=""disabled="" type="checkbox"> 🚒 SRE(Alipay- <a href="/blog/20180403/impressions-of-google-sre/">Server Reboot Engineer</a>)</li>
-<li><input checked=""disabled="" type="checkbox"> 🏓 <a href="/blog/20160711/tablet-tennis/">Table Tennis</a></li>
-<li><input disabled=""type="checkbox"> ??</li>
+<li>🥑 foodie - <a href="https://www.instagram.com/daya0576/">instagram</a></li>
+<li>🐍 Python Backend(built <a href="https://unsw.co/">unsw.co</a> / worked in <a href="https://www.hypers.com/">Hypers</a>)</li>
+<li>🚒 SRE(Currently working in Alipay as <a href="/blog/20180403/impressions-of-google-sre/">Server Reboot Engineer</a>)</li>
+<li>🏓 <a href="/blog/20160711/tablet-tennis/">Table Tennis</a></li>
 </ul>
 <hr>
-<h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 怀念一下陪伴我四年多的老博客(Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
+<p>RIP: 纪念一下陪伴我四年多的老博客 (Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
   </entry>
   <entry>
