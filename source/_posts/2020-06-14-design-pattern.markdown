@@ -1,5 +1,5 @@
 ---
-title: 《Head First 设计模式》学习笔记
+title: 【读后感】《Head First 设计模式》学习笔记
 tags:
   - 读后感
   - java
