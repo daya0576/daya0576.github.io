@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>限流还能这么玩 - Netflix 权重限流新思路</title>
+    <title>【读后感】限流还能这么玩 - Netflix 权重限流新思路</title>
     <url>/blog/20201124/netflix-prioritized-load-shedding/</url>
     <content><![CDATA[<p>上上周在 <a href="https://sreweekly.com/">sre weekly</a> 上读了一篇文章：<a href="https://netflixtechblog.com/keeping-netflix-reliable-using-prioritized-load-shedding-6cc827b02f94">《Keeping Netflix Reliable Using Prioritized Load Shedding》</a>（Netflix 出品，必数精品 XD），有种耳目一新的感觉，特此在清理草稿的时候记录一下读后感。</p>
 <a id="more"></a>
@@ -270,7 +270,7 @@
       </tags>
   </entry>
   <entry>
-    <title>《Java 8 实战》读书笔记</title>
+    <title>【读后感】《Java 8 实战》读书笔记</title>
     <url>/blog/20200822/java8-in-action-comments/</url>
     <content><![CDATA[<p>时光飞逝，还记得大二开始接触 java 时，那时主流的是 jdk1.6 与 eclipse 的天下。没想到转眼间 java8 也发布快六年了，其中 Lambda、方法引用、stream 这些新特性，每次看到都云里来雾里去。正好拜读一下《Java 8 实战》这本书一探究竟～</p>
 <a id="more"></a>
@@ -572,7 +572,7 @@
       </tags>
   </entry>
   <entry>
-    <title>《Head First 设计模式》学习笔记</title>
+    <title>【读后感】《Head First 设计模式》学习笔记</title>
     <url>/blog/20200613/design-pattern/</url>
     <content><![CDATA[<blockquote>
 <p>OO 原则是我们的目标，而设计模式是我们的做法。</p>
@@ -6627,13 +6627,13 @@ sudo update-rc.d xl2tpd disable</p>
 ]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
