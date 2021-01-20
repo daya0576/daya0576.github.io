@@ -2,6 +2,7 @@
 title: 浅谈 SRE 之监控
 date: 2021-01-20 23:43:39
 tags:
+  - sre
 ---
 
 
