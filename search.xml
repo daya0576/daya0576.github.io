@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>浅谈 SRE 之监控</title>
+    <title>如何对一棵树进行可视化（python anytree 简易实现）</title>
+    <url>/blog/20210124/anytree-print/</url>
+    <content><![CDATA[<p>Python 中有个很酷的第三方包叫做 <a href="https://github.com/c0fec0de/anytree">anytree</a>，全名 Any Python Tree Data，i.e. 期望用来表示任何树的数据结构。   </p>
+<p>而其中的可视化功能，每次都令人印象深刻。这篇文章简单分享，个人解决问题的思考路径 &amp; 简易实现～</p>
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt; ...</span><br><span class="line">&gt;&gt; r = RenderTree(root)</span><br><span class="line">&gt;&gt; print(r)</span><br><span class="line">Node(<span class="string">'/A'</span>)</span><br><span class="line">├── Node(<span class="string">'/A/B'</span>)</span><br><span class="line">│   ├── Node(<span class="string">'/A/B/D'</span>)</span><br><span class="line">│   │   └── Node(<span class="string">'/A/B/D/F'</span>)</span><br><span class="line">│   │       └── Node(<span class="string">'/A/B/D/F/G'</span>)</span><br><span class="line">│   └── Node(<span class="string">'/A/B/E'</span>)</span><br><span class="line">└── Node(<span class="string">'/A/C'</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="1- 问题拆解"><a href="#1- 问题拆解" class="headerlink" title="1 问题拆解"></a>1 问题拆解 </h1><p> 从开头的例子不难看出：</p>
+<p>一棵树的可视化 = 「每一行」显示的组合，同时「深度优先遍历」从上至下打印的顺序）。</p>
+<p>而「每一行」又由三个部分组成：</p>
+<ol>
+<li>填充(<code>│</code>)</li>
+<li>前缀(<code>├──</code> or <code>└──</code>)</li>
+<li>节点自身</li>
+</ol>
+<h1 id="2- 实现"><a href="#2- 实现" class="headerlink" title="2 实现"></a>2 实现 </h1><h2 id="2-1- 定义「行」的数据结构"><a href="#2-1- 定义「行」的数据结构" class="headerlink" title="2.1 定义「行」的数据结构"></a>2.1 定义「行」的数据结构</h2><p> 行(Row)与节点一一对应，其中包含两个元素：</p>
+<ol>
+<li><code>node</code> 代表树的节点 </li>
+<li><code>continues</code> 中每个元素表示：根节点至当前节点路径中的每个节点，<strong>是不是对应层级中的最后一位</strong>。 用来生成每行的前缀</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> dataclasses <span class="keyword">import</span> dataclass</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> anytree <span class="keyword">import</span> Node</span><br><span class="line"></span><br><span class="line">LAST_NODE_PRE = <span class="string">"╰──"</span></span><br><span class="line">NODE_PRE = <span class="string">"├──"</span></span><br><span class="line"></span><br><span class="line">INDENT = <span class="string">"│"</span></span><br><span class="line">BLANK = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@dataclass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Row</span>:</span></span><br><span class="line">    node: Node</span><br><span class="line">    continues: List[int]</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pre</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 根结点特殊处理</span></span><br><span class="line">        <span class="keyword">if</span> len(self.continues) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line">        indent = <span class="string">""</span>.join([INDENT <span class="keyword">if</span> x <span class="keyword">else</span> BLANK <span class="keyword">for</span> x <span class="keyword">in</span> self.continues[:<span class="number">-1</span>]])</span><br><span class="line">        branch = NODE_PRE <span class="keyword">if</span> self.continues[<span class="number">-1</span>] <span class="keyword">else</span> LAST_NODE_PRE</span><br><span class="line">        <span class="keyword">return</span> indent + branch</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.pre + self.node.name</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2- 深度遍历 -DFS"><a href="#2-2- 深度遍历 -DFS" class="headerlink" title="2.2 深度遍历 (DFS)"></a>2.2 深度遍历(DFS)</h2><p> 一般会使用 <code>stack</code> 先入后出的特性，这里简单利用生成器，即 <code>yield</code> 关键字实现一版：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> Tuple</span><br><span class="line"><span class="keyword">from</span> anytree <span class="keyword">import</span> Node</span><br><span class="line"><span class="keyword">from</span> row <span class="keyword">import</span> Row</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(root: Node, continues: Tuple[bool] = None)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> continues <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        continues = tuple()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">yield</span> Row(root, continues)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root.children:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> child <span class="keyword">in</span> root.children:</span><br><span class="line">        is_last = root.children[<span class="number">-1</span>] == child</span><br><span class="line">        <span class="keyword">for</span> grandchild <span class="keyword">in</span> dfs(child, continues + (<span class="keyword">not</span> is_last,)):</span><br><span class="line">            <span class="keyword">yield</span> grandchild</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3- 初始化树 -amp- 打印"><a href="#2-3- 初始化树 -amp- 打印" class="headerlink" title="2.3 初始化树 &amp; 打印"></a>2.3 初始化树 &amp; 打印</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> anytree <span class="keyword">import</span> Node, RenderTree</span><br><span class="line"><span class="keyword">from</span> render <span class="keyword">import</span> dfs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init_tree</span><span class="params">()</span>:</span></span><br><span class="line">    a = Node(<span class="string">"A"</span>)</span><br><span class="line">    b = Node(<span class="string">"B"</span>, parent=a)</span><br><span class="line">    c = Node(<span class="string">"C"</span>, parent=a)</span><br><span class="line"></span><br><span class="line">    d = Node(<span class="string">"D"</span>, parent=b)</span><br><span class="line">    e = Node(<span class="string">"E"</span>, parent=b)</span><br><span class="line"></span><br><span class="line">    f = Node(<span class="string">"F"</span>, parent=d)</span><br><span class="line">    g = Node(<span class="string">"G"</span>, parent=f)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    root = init_tree()</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> dfs(root):</span><br><span class="line">        print(x)</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    A</span></span><br><span class="line"><span class="string">    ├── B</span></span><br><span class="line"><span class="string">    │   ├── D</span></span><br><span class="line"><span class="string">    │   │   ╰── F</span></span><br><span class="line"><span class="string">    │   │       ╰── G</span></span><br><span class="line"><span class="string">    │   ╰── E</span></span><br><span class="line"><span class="string">    ╰── C</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 具体的实现在对 <strong> 问题拆解 </strong> 后，设计好对应的 <strong> 数据结构和算法</strong>，就能比较容易清晰的实现：</p>
+<p>当然你也可以直接查看 anytree 的源码：<code>anytree.render.RenderTree</code>，其中有更多可扩展性的设计，例如样式主题，打印的模式等。</p>
+<p>🍻cheers! have a gooood day~~</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浅谈 SRE & 业务监控</title>
     <url>/blog/20210120/sli-slo-monitoring/</url>
     <content><![CDATA[<p>还记得三年之前，面试 SRE 结束，面试官问我还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”吗..</p>
 <p>这篇文章将简单分享 DevOps 与 SRE 的关系，结合个人与监控的故事，谈谈如何使用 SLI/SLO 进行监控的最佳实践～</p>
@@ -345,7 +382,7 @@
       </tags>
   </entry>
   <entry>
-    <title>【读后感】《Java 8 实战》读书笔记</title>
+    <title>《Java 8 实战》读书笔记</title>
     <url>/blog/20200822/java8-in-action-comments/</url>
     <content><![CDATA[<p>时光飞逝，还记得大二开始接触 java 时，那时主流的是 jdk1.6 与 eclipse 的天下。没想到转眼间 java8 也发布快六年了，其中 Lambda、方法引用、stream 这些新特性，每次看到都云里来雾里去。正好拜读一下《Java 8 实战》这本书一探究竟～</p>
 <a id="more"></a>
@@ -647,7 +684,7 @@
       </tags>
   </entry>
   <entry>
-    <title>【读后感】《Head First 设计模式》学习笔记</title>
+    <title>《Head First 设计模式》学习笔记</title>
     <url>/blog/20200613/design-pattern/</url>
     <content><![CDATA[<blockquote>
 <p>OO 原则是我们的目标，而设计模式是我们的做法。</p>
@@ -6702,13 +6739,13 @@ sudo update-rc.d xl2tpd disable</p>
 ]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>

@@ -49,7 +49,7 @@
 
   <meta name="description" content="还记得三年之前，面试 SRE 结束，面试官问我还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”吗.. 这篇文章将简单分享 DevOps 与 SRE 的关系，结合个人与监控的故事，谈谈如何使用 SLI&#x2F;SLO 进行监控的最佳实践～">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈 SRE 之监控">
+<meta property="og:title" content="浅谈 SRE &amp; 业务监控">
 <meta property="og:url" content="https://changchen.me/blog/20210120/sli-slo-monitoring/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="还记得三年之前，面试 SRE 结束，面试官问我还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”吗.. 这篇文章将简单分享 DevOps 与 SRE 的关系，结合个人与监控的故事，谈谈如何使用 SLI&#x2F;SLO 进行监控的最佳实践～">
@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-01-20T15:43:39.000Z">
-<meta property="article:modified_time" content="2021-01-20T15:56:11.011Z">
+<meta property="article:modified_time" content="2021-01-24T09:00:42.067Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>浅谈 SRE 之监控 | Henry Z's blog~</title>
+  <title>浅谈 SRE & 业务监控 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -243,7 +243,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          浅谈 SRE 之监控
+          浅谈 SRE & 业务监控
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -270,7 +270,7 @@
   
 
           
-            <span id="/blog/20210120/sli-slo-monitoring/" class="post-meta-item leancloud_visitors" data-flag-title="浅谈 SRE 之监控" title="阅读次数">
+            <span id="/blog/20210120/sli-slo-monitoring/" class="post-meta-item leancloud_visitors" data-flag-title="浅谈 SRE & 业务监控" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -419,7 +419,10 @@
     <a href="/blog/20201124/netflix-prioritized-load-shedding/" rel="prev" title="限流还能这么玩 - Netflix 权重限流新思路">
       <i class="fa fa-chevron-left"></i> 限流还能这么玩 - Netflix 权重限流新思路
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/20210124/anytree-print/" rel="next" title="如何对一棵树进行可视化（python anytree 简易实现）">
+      如何对一棵树进行可视化（python anytree 简易实现） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -502,7 +505,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -740,7 +743,7 @@
         config: {page: {
             url: "https://changchen.me/blog/20210120/sli-slo-monitoring/",
             identifier: "blog/20210120/sli-slo-monitoring/",
-            title: "浅谈 SRE 之监控"
+            title: "浅谈 SRE & 业务监控"
           }
         }
       });
