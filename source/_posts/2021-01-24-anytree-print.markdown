@@ -52,7 +52,7 @@ from typing import List
 
 from anytree import Node
 
-LAST_NODE_PRE = "└── "
+LAST_NODE_PRE = "╰── "
 NODE_PRE = "├── "
 
 INDENT = "│   "
@@ -129,15 +129,15 @@ if __name__ == '__main__':
     root = init_tree()
     for x in dfs(root):
         print(x)
-    “”“
+    """
     A
     ├── B
     │   ├── D
-    │   │   └── F
-    │   │       └── G
-    │   └── E
-    └── C
-    ”“”
+    │   │   ╰── F
+    │   │       ╰── G
+    │   ╰── E
+    ╰── C
+    """
 ```
 
 # 总结
