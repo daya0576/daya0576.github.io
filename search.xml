@@ -9,13 +9,16 @@
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt; ...</span><br><span class="line">&gt;&gt; r = RenderTree(root)</span><br><span class="line">&gt;&gt; print(r)</span><br><span class="line">Node(<span class="string">'/A'</span>)</span><br><span class="line">├── Node(<span class="string">'/A/B'</span>)</span><br><span class="line">│   ├── Node(<span class="string">'/A/B/D'</span>)</span><br><span class="line">│   │   └── Node(<span class="string">'/A/B/D/F'</span>)</span><br><span class="line">│   │       └── Node(<span class="string">'/A/B/D/F/G'</span>)</span><br><span class="line">│   └── Node(<span class="string">'/A/B/E'</span>)</span><br><span class="line">└── Node(<span class="string">'/A/C'</span>)</span><br></pre></td></tr></table></figure>
 
-<h1 id="1- 问题拆解"><a href="#1- 问题拆解" class="headerlink" title="1 问题拆解"></a>1 问题拆解 </h1><p> 从开头的例子不难看出：</p>
-<p>一棵树的可视化 = 「每一行」显示的组合，同时「深度优先遍历」从上至下打印的顺序）。</p>
-<p>而「每一行」又由三个部分组成：</p>
+<h1 id="1- 问题拆解"><a href="#1- 问题拆解" class="headerlink" title="1 问题拆解"></a>1 问题拆解 </h1><p> 一开始看到这个问题，可能有些没有头绪，但有没有可能对该问题进行分解🤔<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.</p>
+<p><strong>一棵树的可视化</strong> ，分解为：</p>
 <ol>
+<li>每一行的显示，由三个部分组成<ol>
 <li>填充(<code>│</code>)</li>
 <li>前缀(<code>├──</code> or <code>└──</code>)</li>
 <li>节点自身</li>
+</ol>
+</li>
+<li>从上至下打印的顺序（深度优先遍历）</li>
 </ol>
 <h1 id="2- 实现"><a href="#2- 实现" class="headerlink" title="2 实现"></a>2 实现 </h1><h2 id="2-1- 定义「行」的数据结构"><a href="#2-1- 定义「行」的数据结构" class="headerlink" title="2.1 定义「行」的数据结构"></a>2.1 定义「行」的数据结构</h2><p> 行(Row)与节点一一对应，其中包含两个元素：</p>
 <ol>

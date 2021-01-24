@@ -55,7 +55,7 @@
 <meta property="og:description" content="Python 中有个很酷的第三方包叫做 anytree，全名 Any Python Tree Data，i.e. 期望用来表示任何树的数据结构。    而其中的可视化功能，每次都令人印象深刻。这篇文章简单分享，个人解决问题的思考路径 &amp; 简易实现～">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-24T07:10:08.000Z">
-<meta property="article:modified_time" content="2021-01-24T09:00:42.067Z">
+<meta property="article:modified_time" content="2021-01-24T09:18:25.938Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -290,13 +290,16 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; ...</span><br><span class="line">&gt;&gt; r = RenderTree(root)</span><br><span class="line">&gt;&gt; print(r)</span><br><span class="line">Node(<span class="string">'/A'</span>)</span><br><span class="line">├── Node(<span class="string">'/A/B'</span>)</span><br><span class="line">│   ├── Node(<span class="string">'/A/B/D'</span>)</span><br><span class="line">│   │   └── Node(<span class="string">'/A/B/D/F'</span>)</span><br><span class="line">│   │       └── Node(<span class="string">'/A/B/D/F/G'</span>)</span><br><span class="line">│   └── Node(<span class="string">'/A/B/E'</span>)</span><br><span class="line">└── Node(<span class="string">'/A/C'</span>)</span><br></pre></td></tr></table></figure>
 
-<h1 id="1- 问题拆解"><a href="#1- 问题拆解" class="headerlink" title="1 问题拆解"></a>1 问题拆解 </h1><p> 从开头的例子不难看出：</p>
-<p>一棵树的可视化 = 「每一行」显示的组合，同时「深度优先遍历」从上至下打印的顺序）。</p>
-<p>而「每一行」又由三个部分组成：</p>
+<h1 id="1- 问题拆解"><a href="#1- 问题拆解" class="headerlink" title="1 问题拆解"></a>1 问题拆解 </h1><p> 一开始看到这个问题，可能有些没有头绪，但有没有可能对该问题进行分解🤔<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.</p>
+<p><strong>一棵树的可视化</strong> ，分解为：</p>
 <ol>
+<li>每一行的显示，由三个部分组成<ol>
 <li>填充(<code>│</code>)</li>
 <li>前缀(<code>├──</code> or <code>└──</code>)</li>
 <li>节点自身</li>
+</ol>
+</li>
+<li>从上至下打印的顺序（深度优先遍历）</li>
 </ol>
 <h1 id="2- 实现"><a href="#2- 实现" class="headerlink" title="2 实现"></a>2 实现 </h1><h2 id="2-1- 定义「行」的数据结构"><a href="#2-1- 定义「行」的数据结构" class="headerlink" title="2.1 定义「行」的数据结构"></a>2.1 定义「行」的数据结构</h2><p> 行(Row)与节点一一对应，其中包含两个元素：</p>
 <ol>
