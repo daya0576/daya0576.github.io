@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="春节放假在家，写了一个基于 Telegram 的天气预报机器人🤖️ 本篇文章为不完全教程，主要分享该小玩具的实现路径，以及零散的思路～">
+  <meta name="description" content="春节放假在家，写了一个 Telegram 天气预报机器人🤖️ 本篇文章为该机器人实现的不完全教程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何零成本制作一个 Python Telegram 机器人">
 <meta property="og:url" content="https://changchen.me/blog/20210221/buld-telegram-bot-from-scratch/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="春节放假在家，写了一个基于 Telegram 的天气预报机器人🤖️ 本篇文章为不完全教程，主要分享该小玩具的实现路径，以及零散的思路～">
+<meta property="og:description" content="春节放假在家，写了一个 Telegram 天气预报机器人🤖️ 本篇文章为该机器人实现的不完全教程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
@@ -60,7 +60,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-02-21T07:42:05.000Z">
-<meta property="article:modified_time" content="2021-02-22T14:32:28.169Z">
+<meta property="article:modified_time" content="2021-02-27T10:41:52.300Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -293,23 +293,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>春节放假在家，写了一个基于 Telegram 的天气预报机器人🤖️ 本篇文章为不完全教程，主要分享该小玩具的实现路径，以及零散的思路～</p>
+        <p>春节放假在家，写了一个 Telegram 天气预报机器人🤖️ 本篇文章为该机器人实现的不完全教程。</p>
 <a id="more"></a>
 
-<h1 id="一、机器人介绍"><a href="# 一、机器人介绍" class="headerlink" title="一、机器人介绍"></a>一、机器人介绍 </h1><p> 基于 <a href="https://dev.qweather.com">和风 API</a> 的天气预报小棉袄 - 根据用户定位查询实时天气，并支持每日定时自动播报天气预报。<br>源码: <a href="https://github.com/daya0576/he_weather_bot">https://github.com/daya0576/he_weather_bot</a></p>
+<h1 id="一、机器人介绍"><a href="# 一、机器人介绍" class="headerlink" title="一、机器人介绍"></a>一、机器人介绍 </h1><p> 基于 <a href="https://dev.qweather.com">和风天气 API</a> 的天气预报小棉袄 - 支持用户精准定位查询实时天气，并支持每日的定时自动播报。<br>源码: <a href="https://github.com/daya0576/he-weather-bot">https://github.com/daya0576/he-weather-bot</a></p>
 <p>👉戳链接调戏我：<a href="https://t.me/he_weather_bot">https://t.me/he_weather_bot</a>  </p>
 <p><img src="/images/loading/loading.svg" data-original="https://raw.githubusercontent.com/daya0576/he_weather_bot/master/img/2021-02-21%2015-49-06.gifcask.2021-02-21%2017_20_45.gif" alt=""></p>
-<h1 id="二、技术栈汇总"><a href="# 二、技术栈汇总" class="headerlink" title="二、技术栈汇总"></a>二、技术栈汇总 </h1><p> 和风机器人使用的编程语言以及第三方依赖如下：</p>
-<ol>
-<li>开发：<code>Python3.9</code> ｜ webserver: <code>fastapi</code></li>
-<li>存储<ul>
-<li>持久型数据：<code>Heroku Postgres</code></li>
-<li>缓存数据：<code>Heroku Redis</code></li>
+<h1 id="二、技术栈汇总"><a href="# 二、技术栈汇总" class="headerlink" title="二、技术栈汇总"></a>二、技术栈汇总</h1><ol>
+<li>开发<ul>
+<li>语言：<code>Python3.9</code></li>
+<li>WEB 框架: <code>fastapi</code></li>
+<li>telegram sdk: <code>aiogram</code></li>
 </ul>
 </li>
-<li>定时任务：<code>Heroku Scheduler</code></li>
-<li>部署<ul>
+<li>线上部署<ul>
 <li>CICD: <code>heroku</code></li>
+<li>持久型数据：<code>Heroku Postgres</code></li>
+<li>缓存数据：<code>Heroku Redis</code></li>
+<li>定时任务：<code>Heroku Scheduler</code></li>
 </ul>
 </li>
 <li>监控<ul>
@@ -318,31 +319,35 @@
 </ul>
 </li>
 </ol>
-<p>尝鲜使用了异步的 fastapi web 框架，所以 telegram 的 sdk 也需要异步：<a href="https://github.com/aiogram/aiogram">aiogram</a>。但有一句说一句，同步与异步的分别对应了两个完全不同的 telergam sdk 仓库，感觉还是挺别扭的。</p>
-<p>最后不得不感叹一句，heroku 的自动部署对于我这种手残党真的很方便：推送 master 即可触发。还有环境变量的界面配置，https 域名自动生成，日志在线查看，等等... 唯一的缺点是只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。</p>
-<p>当然丰富并且开箱即用的插件。让我想起 cloudflare 的 add-on(app)，例如无感一键开启 <a href="https://www.cloudflare.com/apps/google-analytics">Google Analytics 插件</a>，不需要对代码做任何侵入，就能达到流量的统计。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138585335863.jpg" alt=""></p>
-<h1 id="三、原理 -amp- 实现"><a href="# 三、原理 -amp- 实现" class="headerlink" title="三、原理 &amp; 实现"></a>三、原理 &amp; 实现</h1><p>Bot Father -&gt; Bot Token &lt;-&gt; Your Web Server</p>
+<p>尝鲜使用了 python3.9，以及异步的 fastapi web 框架，所以 telegram 的 sdk 也需要使用异步：<a href="https://github.com/aiogram/aiogram">aiogram</a>。</p>
+<p>线上部署白嫖了 Heroku 全家桶：推送 master 即可触发部署(gitops)。同时支持数据库 / 缓存 / 定时任务的一键申请（最重要的都是免费的），以及 环境变量配置，域名 https 卸载，日志在线查看，等傻瓜操作... 唯一的缺点：Heroku 只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138585335863.jpg" alt=""></p>
+<h1 id="三、原理 -amp- 实现"><a href="# 三、原理 -amp- 实现" class="headerlink" title="三、原理 &amp; 实现"></a>三、原理 &amp; 实现 </h1><p> 分为以下四个步骤：</p>
+<ol>
+<li>申请机器人 - token</li>
+<li>搭建 server - webhook</li>
+<li>绑定 token &amp; webhook</li>
+<li>线上部署</li>
+</ol>
 <h2 id="机器人申请 -token"><a href="# 机器人申请 -token" class="headerlink" title="机器人申请 - token"></a>机器人申请 - token</h2><p>第一步先找到 <a href="https://t.me/BotFather">@BotFather</a>，创建你的机器人，并获取对应 <code>token</code> 唯一标识。</p>
 <h2 id="本地调试 -webhook"><a href="# 本地调试 -webhook" class="headerlink" title="本地调试 - webhook"></a>本地调试 - webhook</h2><p>telegram python SDK 中提供两种消费机器人动态的方式：</p>
 <ol>
 <li>server 本地主动轮训拉取最新动态 </li>
-<li>server 被动接受 http 请求的推送。类似消息队列的 pull &amp; push，本文主要基于第二种模式。</li>
+<li>server 被动接受 http 请求的推送。类似消息队列的 pull &amp; push，<strong>本文主要基于第二种模式</strong>。</li>
 </ol>
-<p>所以不管是 fastapi/flask/django，需要开启一个 <code>/hook</code> 的接口，参考项目中的这档逻辑： <code>telegram_bot.routers.webhook.webhook_handler</code></p>
+<p>所以不管是 fastapi/flask/django，都需要开启一个 <code>/hook</code> 的接口，参考项目中的这档逻辑： <code>telegram_bot.routers.webhook.webhook_handler</code></p>
 <p>p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一个对外可访问的 https 地址。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138553359280.jpg" alt=""></p>
-<h2 id="绑定 -Bot-Token-amp-Server-Webhook"><a href="# 绑定 -Bot-Token-amp-Server-Webhook" class="headerlink" title="绑定 Bot Token &amp; Server Webhook"></a>绑定 Bot Token &amp; Server Webhook</h2><p>用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 的形式，请求到机器人对应的 <code>webhook</code>，所以需要将 <code>webhook</code> 与 <code>token</code> 进行绑定。</p>
-<p>两种方式：</p>
+<h2 id="绑定 -Bot-Token-amp-Server-Webhook"><a href="# 绑定 -Bot-Token-amp-Server-Webhook" class="headerlink" title="绑定 Bot Token &amp; Server Webhook"></a>绑定 Bot Token &amp; Server Webhook</h2><p>用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 <code>webhook</code>，所以需要提前将 <code>webhook</code> 与 <code>token</code> 进行绑定。两种方式：</p>
 <ol>
-<li>手动请求 <code>https://api.telegram.org/bot/setWebhook?url=</code></li>
+<li>手动请求 <code>https://api.telegram.org/bot{token}/setWebhook?url={webhook}</code></li>
 <li>sdk 设置：<code>aiogram.bot.bot.Bot.set_webhook</code> 一个小技巧：在 fastapi app 每次启动的时候，检查如果与当前机器人绑定的 webhook 不同，则进行更新。需要注意调用的频率，参考 <code>telegram_bot.routers.webhook.set_webhook</code></li>
 </ol>
 <h2 id="线上部署"><a href="# 线上部署" class="headerlink" title="线上部署"></a>线上部署</h2><p>heroku 一键部署：参考<a href="https://devcenter.heroku.com/articles/getting-started-with-python">《Getting Started on Heroku with Python》</a></p>
-<p>heroku 原生不支持 poetry，只认识 requrements.txt，可以通过第三方 buildpack 解决：<a href="https://github.com/moneymeets/python-poetry-buildpack">https://github.com/moneymeets/python-poetry-buildpack</a></p>
-<h1 id="四、时序交互 -amp- 系统架构"><a href="# 四、时序交互 -amp- 系统架构" class="headerlink" title="四、时序交互 &amp; 系统架构"></a>四、时序交互 &amp; 系统架构 </h1><p> 用户与 telegram 机器人的交互，大致可以分为三个场景：</p>
+<p>p.s. heroku 原生不支持 poetry，只认识 requrements.txt，可以通过第三方 buildpack 解决：<a href="https://github.com/moneymeets/python-poetry-buildpack">https://github.com/moneymeets/python-poetry-buildpack</a></p>
+<h1 id="四、时序交互 -amp- 系统设计"><a href="# 四、时序交互 -amp- 系统设计" class="headerlink" title="四、时序交互 &amp; 系统设计"></a>四、时序交互 &amp; 系统设计 </h1><p> 用户与 telegram 机器人的交互，大致可以分为三个场景：</p>
 <ol>
-<li><strong>用户位置更新：</strong>和风 很贴心提供了地址相关的 API，不管用户是输入关键字还是发送定位，统一转化为坐标经纬度，在数据库中进行保存。 这部分的代码实现也挺有趣：使用了框架的状态机，当前用户「输入阶段」的状态会保存在缓存之中，e.g. 只有当前状态为等待用户输入地址时，才会对下一次输入的定位或文本进行解析，并更新用户位置。参考 <code>telegram_bot.telegram.finite_state_machine.update_location</code></li>
+<li><strong>用户位置更新：</strong> 和风 SDK 很贴心提供了地址相关的 API，不管用户是输入关键字还是发送定位，统一转化为坐标经纬度，在数据库中进行保存。 这部分的代码实现也挺有趣：使用了框架的状态机，当前用户「输入阶段」的状态会保存在缓存之中，e.g. 只有当前状态为等待用户输入地址时，才会对下一次输入的定位或文本进行解析，并更新用户位置。参考 <code>telegram_bot.telegram.finite_state_machine.update_location</code></li>
 <li><strong>实时天气获取</strong>：单个用户触发 <code>/weather</code> 命令，请求外部 API，返回实时天气</li>
-<li><strong>定时天气发送</strong>：遍历开启的用户，发送对应城市的天气预报。     定时任务通常由消息驱动实现，通过三层分发 (Splitter-&gt;Loader-&gt;Executor) 等手段避免单点热点。因为是单点部署，所以简单通过定时 curl http 请求实现，需要考虑扫描误触发 &amp; 恶意攻击，但最好是通过内部的幂等机制支持。</li>
+<li><strong>定时天气发送</strong>：遍历开启的用户，发送对应城市的天气预报。     定时任务通常由消息驱动实现，通过三层分发 (Splitter-&gt;Loader-&gt;Executor) 等手段避免单点热点。因为是单点部署... 所以简单通过定时 curl http 请求实现，需要考虑扫描误触发 &amp; 恶意攻击，但最好是通过内部的幂等机制支持。</li>
 </ol>
 <h2 id="时序交互"><a href="# 时序交互" class="headerlink" title="时序交互"></a>时序交互 </h2><p> 三个场景对应的时序交互如下：</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138563037292.jpg" alt=""></p>
@@ -354,11 +359,8 @@
 <li>DAL 则是 DB 层的包装</li>
 </ol>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138614119002.jpg" alt=""></p>
-<p>但 cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，纠结是否需要新增一层 🤔</p>
-<p><strong>###TODO</strong></p>
-<h1 id="其他问题"><a href="# 其他问题" class="headerlink" title="其他问题"></a>其他问题</h1><ol>
-<li>async/await 看到最好的一个解释：<a href="https://stackoverflow.com/questions/49005651/how-does-asyncio-actually-work">https://stackoverflow.com/questions/49005651/how-does-asyncio-actually-work</a></li>
-</ol>
+<p>问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service </p>
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>本文介绍的天气预报小玩具，仅供个人练手使用。如果你有一些好的想法，欢迎欢迎私信我 (<a href="https://t.me/daya0576">@daya0576</a>) 一起结对编程～～ 2021 希望去认识一些新朋友 XD</p>
 
     </div>
 
@@ -488,7 +490,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、机器人介绍"><span class="nav-text">一、机器人介绍 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、技术栈汇总"><span class="nav-text">二、技术栈汇总 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、原理 -amp- 实现"><span class="nav-text">三、原理 &amp; 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器人申请 -token"><span class="nav-text">机器人申请 - token</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地调试 -webhook"><span class="nav-text">本地调试 - webhook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定 -Bot-Token-amp-Server-Webhook"><span class="nav-text">绑定 Bot Token &amp; Server Webhook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线上部署"><span class="nav-text">线上部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、时序交互 -amp- 系统架构"><span class="nav-text">四、时序交互 &amp; 系统架构 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时序交互"><span class="nav-text">时序交互 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统架构"><span class="nav-text">系统架构 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他问题"><span class="nav-text">其他问题</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、机器人介绍"><span class="nav-text">一、机器人介绍 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、技术栈汇总"><span class="nav-text">二、技术栈汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、原理 -amp- 实现"><span class="nav-text">三、原理 &amp; 实现 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器人申请 -token"><span class="nav-text">机器人申请 - token</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地调试 -webhook"><span class="nav-text">本地调试 - webhook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定 -Bot-Token-amp-Server-Webhook"><span class="nav-text">绑定 Bot Token &amp; Server Webhook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线上部署"><span class="nav-text">线上部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、时序交互 -amp- 系统设计"><span class="nav-text">四、时序交互 &amp; 系统设计 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时序交互"><span class="nav-text">时序交互 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统架构"><span class="nav-text">系统架构 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#THE-END"><span class="nav-text">THE END</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

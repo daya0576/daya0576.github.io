@@ -47,17 +47,17 @@
   };
 </script>
 
-  <meta name="description" content="还记得三年之前，面试 SRE 结束，面试官问我还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”吗.. 这篇文章将简单分享 DevOps 与 SRE 的关系，结合个人与监控的故事，谈谈如何使用 SLI&#x2F;SLO 进行监控的最佳实践～">
+  <meta name="description" content="还记得两年之前青涩的我第一次面试 SRE 职位结束，面试官说还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢.. 这篇文章将简单分享我对 SRE 的理解，同时结合个人与监控的故事，谈谈如何使用 SLI&#x2F;SLO 进行业务监控的最佳实践～">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈 SRE &amp; 业务监控">
 <meta property="og:url" content="https://changchen.me/blog/20210120/sli-slo-monitoring/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="还记得三年之前，面试 SRE 结束，面试官问我还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”吗.. 这篇文章将简单分享 DevOps 与 SRE 的关系，结合个人与监控的故事，谈谈如何使用 SLI&#x2F;SLO 进行监控的最佳实践～">
+<meta property="og:description" content="还记得两年之前青涩的我第一次面试 SRE 职位结束，面试官说还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢.. 这篇文章将简单分享我对 SRE 的理解，同时结合个人与监控的故事，谈谈如何使用 SLI&#x2F;SLO 进行业务监控的最佳实践～">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-01-20T15:43:39.000Z">
-<meta property="article:modified_time" content="2021-02-22T14:32:28.169Z">
+<meta property="article:modified_time" content="2021-02-27T10:41:52.300Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta name="twitter:card" content="summary">
@@ -287,73 +287,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>还记得三年之前，面试 SRE 结束，面试官问我还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”吗..</p>
-<p>这篇文章将简单分享 DevOps 与 SRE 的关系，结合个人与监控的故事，谈谈如何使用 SLI/SLO 进行监控的最佳实践～</p>
+        <p>还记得两年之前青涩的我第一次面试 SRE 职位结束，面试官说还有什么想问的。我弱弱的问道：如何度量一个系统的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢..</p>
+<p>这篇文章将简单分享我对 SRE 的理解，同时结合个人与监控的故事，谈谈如何使用 SLI/SLO 进行业务监控的最佳实践～</p>
 <a id="more"></a>
+
 
 <h1 id="我心中的 -SRE"><a href="# 我心中的 -SRE" class="headerlink" title="我心中的 SRE"></a>我心中的 SRE</h1><p>🤔 首先什么是 SRE(Site Reliability Engineering)？   </p>
 <ul>
-<li><strong>基础概念：</strong>从字面不难理解，即通过软件工程 (Engineering) 来解决大型系统复杂的稳定性 (Site Reliability) 或运维问题。   </li>
-<li><strong>结果目标：</strong>生产系统复杂度增长与运维人数不成线性增长</li>
+<li><strong>过程目标：</strong> 从字面不难理解，即通过软件工程 (Engineering) 来解决日益复杂的线上稳定性问题(Site Reliability)。   </li>
+<li><strong>结果目标：</strong> 「线上复杂度」增长与「运维人数」的扩张不成线性增长</li>
 </ul>
 <p>感兴趣可以阅读 <a href="https://sre.google/books/">《Site Reliability Engineering》by Google</a> or 直接阅读 <a href="/blog/20180403/impressions-of-google-sre/"> 我的读书笔记</a></p>
-<h1 id="核心名词解释"><a href="# 核心名词解释" class="headerlink" title="核心名词解释"></a>核心名词解释</h1><blockquote>
+<h1 id="DevOps- 和 -SRE- 的关系"><a href="#DevOps- 和 -SRE- 的关系" class="headerlink" title="DevOps 和 SRE 的关系"></a>DevOps 和 SRE 的关系 </h1><p> 身为一名 SRE 快三年，一直对 DevOps 这个概念充满困惑。今天终于得到了解答，也趁此机会分享一下～   </p>
+<p><strong>先从传统的协作模式说起：</strong> 开发编写业务代码，运维负责生产环节的稳定运行，但问题在于：开发不知道他们的代码如何被部署；而代码中业务逻辑对运维来说也完全是一个黑盒。   而这两边的隔阂与信息不对称，很容易将双方的矛盾点不断放大：faster feature VS production reliability: </p>
+<ol>
+<li>运维人员（Dev）关注线上的稳定性：如果出现生产可用性故障，需要半夜凌晨起来处理告警（大概率研发代码的缺陷）</li>
+<li>研发同学（Ops）关心如何快速在生产环境交付代码：如果新的特性没有及时发布，他们也会有麻烦。</li>
+</ol>
+<p>在这个背景下 <code>DevOps</code> 应运而生，期望通过「研发」与「运维」更加紧密的合作，来解决以上紧张的矛盾。而 SRE 则可以简单理解 DevOps 理念或指导思想的 <strong> 最佳实践</strong>（<code>class SRE implements DevOps</code>😄）。</p>
+<h1 id="监控相关名词解释"><a href="# 监控相关名词解释" class="headerlink" title="监控相关名词解释"></a>监控相关名词解释</h1><blockquote>
 <p>SLIs drive SLOs, which inform SLAs</p>
 </blockquote>
 <ol>
-<li><strong>SLIs(Service Level Indicator)</strong>: <strong>监控指标 </strong> 明确判断当前服务的每笔流量是否可用<ul>
-<li>注意尽量从 <strong>用户视角</strong> 定义 SLIs，例如 cpu/load 虽然很好理解，但用户不关心你的服务器是几核的，有多少内存，他只在乎暴露的支付服务是否可用。</li>
+<li><strong>SLIs(Service Level Indicator)</strong>: 明确判断当前服务是否可用的监控指标。注意尽量从 <strong>用户视角</strong> 定义 SLIs，例如 cpu/load 虽然很好理解，但用户不关心你的服务器是几核的，有多少内存，他们只在乎暴露的支付或转账服务是否可用。</li>
+<li><strong>SLOs(Service Level Object)</strong>: 基于 SLAs 的可量化目标，例如 99.95% 的用户请求在未来一周，都能在 200ms 内返回预期结果。  <ul>
+<li>虽然生产安全高于一切，但注意过分追求 <strong>100% 的 SLO 是个错误的目标</strong>，因为这很难，同时用户网络设备运营商，以及机房依赖的基础设施的可用率本身存在瓶颈。</li>
 </ul>
 </li>
-<li><strong>SLOs(Service Level Object)</strong>: 基于 SLAs 的精确目标，例如 99.95% 的用户在未来一周都能在 200ms 内返回预期结果。几个注意点：<ul>
-<li>虽然生产安全高于一切，但注意追求 <strong>100% 的 SLO 是个错误的目标</strong>，因为用户网络设备运营商，以及下游依赖的基础设施的可用率存在平静瓶颈。</li>
-</ul>
-</li>
-<li><strong>SLAs(Service Level Agreement)</strong>: 对外更多的是 <strong> 商业上的书面约定</strong>，破线需要赔付约定的金额，所以通常 SLO 会 SLA 设置的更加严格，保证提前预警。</li>
+<li><strong>SLAs(Service Level Agreement)</strong>: 更多的是 <strong> 商业上的书面约定</strong>，破线需要赔付约定的金额，所以通常 SLO 会 SLA 设置的更加严格，保证提前预警。</li>
 <li><strong>error budget</strong>: 不可用时间 / 整体时间，例如一年 99.99% 的 SLO，就代表你拥有 52min 的不可用时间，用来最大化的发布新的 feature（戴着手铐跳舞）</li>
 </ol>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16110702675200.jpg" alt=""></p>
-<h1 id="DevOps- 和 -SRE- 的关系"><a href="#DevOps- 和 -SRE- 的关系" class="headerlink" title="DevOps 和 SRE 的关系"></a>DevOps 和 SRE 的关系 </h1><p> 说来惭愧，身为一名 SRE 快三年，一直对 DevOps 这个概念充满困惑。今天终于得到了解答，也趁此机会分享一下～   </p>
-<p><strong>先从传统软件公司的协作模式说起：</strong> 开发编写业务代码，运维负责生产环节的稳定运行，但问题在于：开发不知道他们的代码如何被部署；而代码中业务逻辑对运维来说也完全是一个黑盒。   而这两边的隔阂与信息不对称，很容易将双方的矛盾点不断放大：faster feature VS  production reliability</p>
-<ol>
-<li>运维人员（Dev）关注线上的稳定性：如果出现生产可用性故障，需要半夜凌晨起来处理告警，甚至可能自己都被优化</li>
-<li>研发同学（Ops）关心如何快速在生产环境交付代码：如果新的特性没有及时发布，他们也会被作为人才向社会输送。。（） </li>
-</ol>
-<p>在这个背景下 <code>DevOps</code> 应运而生，期望通过以下几个方面，解决以上紧张的矛盾。而 SRE 则可以简单理解 DevOps 理念或指导思想的 <strong> 最佳实践</strong>（<code>class SRE implements DevOps</code>😄），举两个例子：</p>
-<ol>
-<li>accept failure as normal: 由人类构建的系统注定是会出错的，所有 <strong> 对任何事情都要提前准备</strong>，例如建设容灾能力的建设，以及每个变更都必须是可回滚。</li>
-<li>gradual change: 这里有两层含义<ul>
-<li>小步快跑：变更代码数越少，出问题时更加轻松定位与回滚（相比于一百万行代码的发布..） </li>
-<li>灰度：每个变更都需要灰度引流，尽可能的提前发现问题，减少影响面。     这里分享一下灰度这个概念的有趣故事：国外又称为金丝雀(<code>Canary</code>)，因为很久以前英国的煤矿工人下矿井的时候，为了防止中毒，会待一只对瓦斯十分敏感的金丝雀，如果它有异常这说明瓦斯浓度过高，需要撤离，达到提前预警的作用。  </li>
-</ul>
-</li>
-<li>measure: 可量化！不管是每个 SRE 在 toil(纯手工操作) 上消耗的时间，以及下文即将提到的监控，都需要有一个量化的明确指标与数据驱动的决策逻辑。</li>
-<li>...</li>
-</ol>
-<h1 id="我和监控的故事"><a href="# 我和监控的故事" class="headerlink" title="我和监控的故事"></a>我和监控的故事 </h1><p> 在蚂蚁，针对所有核心业务，都制定一套非常完善的 <strong> 故障等级定义机制</strong>：例如当苹果代扣成功量当前分钟与上一分钟环比下跌超过 20%，即会触发一条 P1 告警；当持续 10 分钟都未恢复，将开启电话外呼（无情的女声，一生的噩梦😢）：“集团监控告警，故障等级...”</p>
-<p>用户的交易支付数据确实存在惊人的周期性，但同时也包含很强的业务属性：例如活动秒杀之冲高回落，外部同步依赖异常，以及小流量业务的频繁抖动等。成功量下跌的静态阈值确实有效，但同时也导致了大量误报告警。</p>
+<h1 id="我和监控的故事"><a href="# 我和监控的故事" class="headerlink" title="我和监控的故事"></a>我和监控的故事 </h1><p> 在蚂蚁，针对所有的核心线上业务，都制定一套非常完善的 <strong> 故障等级定义机制(P1-P4)</strong>：例如当「苹果代扣业务」当前分钟成功量与上一分钟环比下跌超过 20%，即会触发一条 P2 等级的告警；当持续 5 分钟都未恢复，将开启电话外呼。</p>
+<p>用户的交易支付数据确实存在惊人的周期性，但同时也包含 <strong> 很强的业务属性</strong>：例如活动秒杀之冲高回落，下游外部同步依赖异常，以及小流量业务的频繁抖动等等。成功量下跌的静态阈值确实有效，但同时也导致了大量误报告警。</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16110709033461.jpg" alt=""></p>
-<p>为了解决以上告警问题，我参与了以下三个项目的开发建设：</p>
+<h2 id="1）本质问题 -amp- 理想中的监控"><a href="#1）本质问题 -amp- 理想中的监控" class="headerlink" title="1）本质问题 &amp; 理想中的监控"></a>1）本质问题 &amp; 理想中的监控</h2><blockquote>
+<p>当前分钟与上一分钟的成功量，环比下跌超过 30%</p>
+</blockquote>
+<p>但三年过去了，回过头来看告警泛滥背后本质的问题在于：<strong>故障等级定义规则被大家误作为 SLI</strong>，因为成功量下跌 30% 与支付服务不可用不是充分条件（前置条件：因支付宝自身的技术问题导致）。而在这个不合理的 SLI 之上，我们利用人工智能算法和专家经验规则，来各种 workaround 降噪，自然无法根治监控这一顽疾。</p>
+<p>如果从头开始做监控，应该简单 follow 以下两个步骤：</p>
 <ol>
-<li><strong><a href="/blog/20190113/anomaly-detection/">业务报警智能降噪</a></strong>：通过机器学习的基线拟合与异常监测算法，代替人的经验自动判断时序数据是否异常，最终对告警进行降噪抑制。</li>
-<li><strong>单笔全风险</strong>：将多个应用的业务日志，通过 trace 进行关联后建模，通过代码编写对每一笔流量的「可用性」与「正确性」进行判断，例如：<ol>
-<li>可用性：某个业务的支付请求，在入口网关返回给用户未知结果，同时在收单出现预期外的系统异常；巧的是异常对应机器在五分钟前进行了代码 beta 发布部署，则立即预警并阻断并回滚变更</li>
-<li>正确性：商户发起一笔代扣，由于访问渠道超时，返回未知结果(U)。需要覆盖时效性规则：商户对同笔订单是否在一个小时内发起查询并成功获取终态。否则会造成单边帐：商户侧订单状态与支付宝的状态不一致(U&lt;-&gt;S/F)，影响用户体验甚至客诉。</li>
+<li><strong>重新定义清楚面向用户或商户的 SLI</strong>：明确判断每笔流量是否因为技术原因导致不可用。</li>
+<li><strong>定义 SLO 后，利用 error budget 动态控制变更频率</strong>。甚至当一个周期内，某个业务服务的 error budget 耗尽，SRE 有权中止和拒绝任何线上变更。</li>
 </ol>
+<h2 id="2）回到现实"><a href="#2）回到现实" class="headerlink" title="2）回到现实"></a>2）回到现实 </h2><p> 先回顾过去两年，我参与的几个项目：</p>
+<ol>
+<li><strong><a href="/blog/20190113/anomaly-detection/">告警智能降噪</a></strong>：通过机器学习的基线拟合与异常监测算法，代替人的经验自动判断时序数据是否异常，最终对告警进行降噪抑制。</li>
+<li><strong>单笔全风险</strong>：将多个应用的业务日志，通过 trace 关联后建模，通过代码编写对每一笔流量的「可用性」与「正确性」进行判断，例如：<ul>
+<li>可用性：某个业务的支付请求，在入口网关返回给用户未知结果，同时在收单出现预期外的系统异常；巧的是异常对应机器在五分钟前进行了代码 beta 发布部署，则立即预警并阻断并回滚变更</li>
+<li>正确性：商户发起一笔代扣，由于支付宝访问渠道超时，返回未知结果(U)。需要覆盖时效性规则：商户对同笔订单是否在一个小时内发起查询并成功获取终态。否则会造成单边帐：商户侧订单状态与支付宝的状态不一致(U&lt;-&gt;S/F)，影响用户体验甚至客诉。</li>
+</ul>
 </li>
 <li><strong>多维指标联合告警</strong>：结合多个时序监控的指标获取结论。例如入口成功量下跌超过 30%，自动检查来源数据是否下跌，或出口依赖的渠道是否异常等，断言内部服务是否正常。</li>
 </ol>
-<h1 id="如何做好监控"><a href="# 如何做好监控" class="headerlink" title="如何做好监控"></a>如何做好监控</h1><blockquote>
-<p>当前分钟与上一分钟的成功量，环比下跌超过 30%</p>
-</blockquote>
-<p>但三年过去了，回过头来看，告警泛滥背后本质的问题在于：<strong>上面规则其实并不是一个合理的 SLI</strong>。成功量下跌 30% 与支付服务不可用不是充分条件。而在这个不合理的 SLA 之上，我们利用人工智能算法和专家经验规则，来各种 workaround 降噪，自然无法根治监控这一顽疾。</p>
-<p>如果从头开始做监控，应该简单 follow 以下两个步骤：</p>
+<p>因为现实中因为各种技术或资源的限制，我们很难一步配置理想（非黑即白）的 SLI，所以从上往下，随着数据的压缩以及资源的节省，我们可以在不同阶段做不同的事（本质都在寻找业务背后的 SLI）：</p>
 <ol>
-<li>重新定义清楚面向用户或商户的 SLI：可以明确判断每笔流量是否异常（或者当前分钟自身服务是否可用）。</li>
-<li>定义具体的 SLO，利用 error budget 动态控制变更频率。甚至当一个周期内，某个业务服务的 error budget 耗尽，SRE 有权中止和拒绝任何线上变更。</li>
+<li>Logging</li>
+<li>Tracing<ul>
+<li><strong>单笔全风险</strong>：</li>
+</ul>
+</li>
+<li>Metrics<ul>
+<li>单指标</li>
+<li><strong>多指标联合告警</strong></li>
+</ul>
+</li>
+<li>Alarm <ul>
+<li><strong>告警智能降噪</strong></li>
+</ul>
+</li>
 </ol>
-<hr>
-<p>多说一句，其实想做好任何事情都一样：最最重要的是先对目标量化，再通过数据驱动的科学方法，不断控制提升。写给自己的忠告与共勉。 </p>
+<h1 id="The-End"><a href="#The-End" class="headerlink" title="The End"></a>The End</h1><p>关于监控发现的分享到此为止了，因为历史包袱或资源的限制下，我们很难去定义完美的 SLI，但我们可以像计算机缓存结构一样，分层地去解决问题。期望未来有一天可以对监控发现有一个更加体系化的解法。</p>
+<p>最后分享一下灰度这个概念的有趣故事（国外又称为金丝雀<code>Canary</code>）：很久以前英国的煤矿工人下矿井的时候，为了防止中毒，会待一只对瓦斯十分敏感的金丝雀，如果它有异常这说明瓦斯浓度过高，需要撤离，达到提前预警的作用 XD  </p>
+<h1 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://wu-sheng.github.io/me/articles/metrics-tracing-and-logging.html">https://wu-sheng.github.io/me/articles/metrics-tracing-and-logging.html</a></li>
+</ol>
 
     </div>
 
@@ -489,7 +497,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我心中的 -SRE"><span class="nav-text">我心中的 SRE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#核心名词解释"><span class="nav-text">核心名词解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DevOps- 和 -SRE- 的关系"><span class="nav-text">DevOps 和 SRE 的关系 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我和监控的故事"><span class="nav-text">我和监控的故事 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何做好监控"><span class="nav-text">如何做好监控</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我心中的 -SRE"><span class="nav-text">我心中的 SRE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DevOps- 和 -SRE- 的关系"><span class="nav-text">DevOps 和 SRE 的关系 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#监控相关名词解释"><span class="nav-text">监控相关名词解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我和监控的故事"><span class="nav-text">我和监控的故事 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1）本质问题 -amp- 理想中的监控"><span class="nav-text">1）本质问题 &amp; 理想中的监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2）回到现实"><span class="nav-text">2）回到现实 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-End"><span class="nav-text">The End</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
