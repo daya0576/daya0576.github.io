@@ -4,13 +4,14 @@ date: 2021-02-21 15:42:05
 tags:
 ---
 
-春节放假在家，写了一个 Telegram 天气预报机器人🤖️ 本篇文章为该机器人实现的不完全教程。
+春节放假在家，写了一个 [和风天气 API](https://dev.qweather.com) 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    
+
+本篇文章为该机器人实现的不完全教程～
 
 <!--more-->
 
 # 一、机器人介绍
 
-基于 [和风天气 API](https://dev.qweather.com) 的天气预报小棉袄 - 支持用户精准定位查询实时天气，并支持每日的定时自动播报。    
 源码: [https://github.com/daya0576/he-weather-bot](https://github.com/daya0576/he-weather-bot)
 
 👉戳链接调戏我：https://t.me/he_weather_bot  
@@ -99,8 +100,15 @@ p.s. heroku 原生不支持 poetry，只认识 requrements.txt，可以通过第
 
 ![](/images/blog/200104_japan_travel/16138614119002.jpg)
 
-问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service 
+问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service（同时统一做异常处理，日志打印等等）
 
+
+# 性能问题
+
+感兴趣可以阅读这两段代码，在遇到 IO 操作时，如何提升性能：
+
+1. 使用 asycio 并行执行定时任务的分发：    `telegram_bot.routers.cron.cron_handler`
+2. 利用线程池，并行请求外部 sdk http 服务：    `telegram_bot.intergration.http.HttpClient.get_responses`
 
 # THE END
 
