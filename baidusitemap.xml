@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://changchen.me/blog/20180403/impressions-of-google-sre/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
     <loc>https://changchen.me/blog/20210120/sli-slo-monitoring/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
@@ -17,6 +20,9 @@
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20190113/anomaly-detection/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20180707/coursera-machine-learning-note/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20210228/2020-summary/</loc>
@@ -49,6 +55,33 @@
     <loc>https://changchen.me/blog/20200501/uml-unified-modeling-language/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
+    <loc>https://changchen.me/blog/20200328/japan-travel-episode2/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20200119/2019-summary/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20190923/github-actions-hexo-cicd/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20180507/best-macos-apps/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20180807/octopress-to-hexo/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20190923/cloudflare-display-issue/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20180819/deploy-hexo-blog-to-netlify/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20180824/django-2006-MySQL-server-has-gone-away/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20180824/mweb3-review/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
     <loc>https://changchen.me/blog/20180829/2018-daily-self-examination/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
@@ -58,7 +91,7 @@
     <loc>https://changchen.me/blog/20180830/pycharm-flake8-integretion/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20200328/japan-travel-episode2/</loc>
+    <loc>https://changchen.me/blog/20180831/disqus-new-reaction/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20180901/ant-jounal-entry/</loc>
@@ -118,25 +151,7 @@
     <loc>https://changchen.me/blog/20190730/save-screenshots-to-photos/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20190923/cloudflare-display-issue/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20190923/github-actions-hexo-cicd/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20200119/2019-summary/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180831/disqus-new-reaction/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20170224/coke-algorithm/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20170306/binary-search/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20170309/catalan-number-interview/</loc>
+    <loc>https://changchen.me/blog/20180819/deploy-hexo-blog-to-gcp-oss/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20170320/python-mro/</loc>
@@ -175,7 +190,7 @@
     <loc>https://changchen.me/blog/20171224/wireless-charging-review/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20180204/djangodan-yuan-ce-shi-da-ti-su-300s-5s/</loc>
+    <loc>https://changchen.me/blog/20170914/quantans-of-sea-summary/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20180203/heapheapheap/</loc>
@@ -190,31 +205,13 @@
     <loc>https://changchen.me/blog/20180315/git-internal/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
+    <loc>https://changchen.me/blog/20170503/django-performance-and-optimisation/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20170223/python-backend-inteview-summery/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
     <loc>https://changchen.me/blog/20170118/effective-python-notes/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180807/octopress-to-hexo/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180819/deploy-hexo-blog-to-gcp-oss/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180819/deploy-hexo-blog-to-netlify/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180824/django-2006-MySQL-server-has-gone-away/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180824/mweb3-review/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20161107/ove/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20161029/comp9041-assignment2-matelook/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20170320/hypers-first-week-summary/</loc>
@@ -223,25 +220,10 @@
     <loc>https://changchen.me/blog/20170318/django-source-code-analysis/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20180507/best-macos-apps/</loc>
+    <loc>https://changchen.me/blog/20160711/tablet-tennis/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20180403/impressions-of-google-sre/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180707/coursera-machine-learning-note/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20180223/vim-tour/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20170914/quantans-of-sea-summary/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20170503/django-performance-and-optimisation/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20170223/python-backend-inteview-summery/</loc>
+    <loc>https://changchen.me/blog/20160727/comp9041software-construction-techniques-and-tools/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20160728/unse-fail/</loc>
@@ -274,6 +256,21 @@
     <loc>https://changchen.me/blog/20161106/candy/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
+    <loc>https://changchen.me/blog/20180204/djangodan-yuan-ce-shi-da-ti-su-300s-5s/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20180223/vim-tour/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20161029/comp9041-assignment2-matelook/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20161107/ove/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
     <loc>https://changchen.me/blog/20161204/python-notes/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
@@ -289,13 +286,22 @@
     <loc>https://changchen.me/blog/20170220/python-scope/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20151016/duoshuo-sharing/</loc>
+    <loc>https://changchen.me/blog/20170224/coke-algorithm/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20170306/binary-search/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20170309/catalan-number-interview/</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://changchen.me/blog/20151005/falsk-initial/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20140414/cousera-python-week3/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20160711/tablet-tennis/</loc>
+    <loc>https://changchen.me/blog/20140925/inspiron7420-setting-all/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20160705/git-notes/</loc>
@@ -319,12 +325,6 @@
     <loc>https://changchen.me/blog/20160225/comp9201-os/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20140925/inspiron7420-setting-all/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
-    <loc>https://changchen.me/blog/20140925/inspiron7420-touchpad/</loc>
-    <lastmod>2021-03-07</lastmod>
-  </url>  <url>
     <loc>https://changchen.me/blog/20160215/django-social-auth-own/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
@@ -340,10 +340,10 @@
     <loc>https://changchen.me/blog/20151129/django-rango-detail/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20160727/comp9041software-construction-techniques-and-tools/</loc>
+    <loc>https://changchen.me/blog/20151016/duoshuo-sharing/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
-    <loc>https://changchen.me/blog/20151005/falsk-initial/</loc>
+    <loc>https://changchen.me/blog/20140925/inspiron7420-touchpad/</loc>
     <lastmod>2021-03-07</lastmod>
   </url>  <url>
     <loc>https://changchen.me/blog/20150926/moobox-knowledge/</loc>
