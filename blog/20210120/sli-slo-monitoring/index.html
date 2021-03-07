@@ -47,19 +47,19 @@
   };
 </script>
 
-  <meta name="description" content="还记得两年之前，青涩的我第一次面试 SRE 职位快结束，面试官问还有什么问题吗？我弱弱的问道：如何去度量支付宝自身的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢..   这篇文章将分享两年后，我对 SRE 与 DevOps 的理解；同时结合个人与监控的故事，谈谈如何定义更加饱满的 SLI 来实现预期的 SLO，让 SRE 吃的更香睡的更好 XD">
+  <meta name="description" content="还记得两年之前，青涩的我第一次面试 SRE 职位快结束，面试官问还有什么问题吗？我弱弱的问道：如何去度量支付宝自身的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢..   这篇文章将分享两年后，我对 SRE 与 DevOps 的理解；同时结合个人与监控的故事，谈谈如何定义更加饱满的 SLI，达到预期的 SLO，让 SRE 吃的更香睡的更好 XD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈 SRE &amp; 业务监控">
 <meta property="og:url" content="https://changchen.me/blog/20210120/sli-slo-monitoring/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="还记得两年之前，青涩的我第一次面试 SRE 职位快结束，面试官问还有什么问题吗？我弱弱的问道：如何去度量支付宝自身的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢..   这篇文章将分享两年后，我对 SRE 与 DevOps 的理解；同时结合个人与监控的故事，谈谈如何定义更加饱满的 SLI 来实现预期的 SLO，让 SRE 吃的更香睡的更好 XD">
+<meta property="og:description" content="还记得两年之前，青涩的我第一次面试 SRE 职位快结束，面试官问还有什么问题吗？我弱弱的问道：如何去度量支付宝自身的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢..   这篇文章将分享两年后，我对 SRE 与 DevOps 的理解；同时结合个人与监控的故事，谈谈如何定义更加饱满的 SLI，达到预期的 SLO，让 SRE 吃的更香睡的更好 XD">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-01-20T15:43:39.000Z">
-<meta property="article:modified_time" content="2021-03-06T08:52:55.512Z">
+<meta property="article:modified_time" content="2021-03-07T09:01:04.131Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta name="twitter:card" content="summary">
@@ -290,7 +290,7 @@
 
       
         <p>还记得两年之前，青涩的我第一次面试 SRE 职位快结束，面试官问还有什么问题吗？我弱弱的问道：如何去度量支付宝自身的稳定性或高可用能力呢？ 面试官笑了一下，说你有没有听过“3 个 9”或“4 个 9”呢..  </p>
-<p>这篇文章将分享两年后，我对 SRE 与 DevOps 的理解；同时结合个人与监控的故事，谈谈如何定义更加饱满的 SLI 来实现预期的 SLO，让 SRE 吃的更香睡的更好 XD</p>
+<p>这篇文章将分享两年后，我对 SRE 与 DevOps 的理解；同时结合个人与监控的故事，谈谈如何定义更加饱满的 SLI，达到预期的 SLO，让 SRE 吃的更香睡的更好 XD</p>
 <a id="more"></a>
 
 
@@ -336,16 +336,14 @@
 <li><strong>定义 SLO 后，实时计算 error budget 动态控制变更频率</strong>。甚至当一个周期内，某个业务服务的 error budget 耗尽，SRE 有权中止和拒绝任何线上变更。</li>
 </ol>
 <h2 id="3- 回到现实"><a href="#3- 回到现实" class="headerlink" title="3. 回到现实"></a>3. 回到现实 </h2><p> 但现实世界中因为资源等因素的限制，我们很难一步配置理想（非黑即白）的 SLI，所以我们需要像计算机存储体系一样，对「可观测指标」进行分类，利用各自的优势定义更加饱满的 SLI 体系。</p>
-<h3 id="可观测指标"><a href="# 可观测指标" class="headerlink" title="可观测指标"></a>可观测指标</h3><p>「可观测指标」可分为三个维度（参考《<a href="https://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html">Metrics, tracing, and logging</a>》），从上往下代表对存储容量的需求，同时对异常检测规则的精度要求也更高：</p>
+<p>但在此之前我们先梳理当前可用的「可观测指标」：分为三个维度（参考《<a href="https://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html">Metrics, tracing, and logging</a>》），从上往下代表对存储容量的需求，同时对异常检测规则的精度要求也更高：</p>
 <ol>
 <li><strong>Logging:</strong> 应用单条日志（<strong>一次 DB 变更，甚至消息等</strong>），代表一条原始数据</li>
 <li><strong>Tracing:</strong> 通过 traceid <strong>或外部单号串联用户行为</strong>，例如用户一笔订单支付的上下文（咨询 / 支付 / 通知）。</li>
 <li><strong>Metrics:</strong> 累加聚合后的指标型数据，例如每分钟的总量，成功率，平均耗时等。</li>
 </ol>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16150063878188.jpg" alt=""></p>
-<h2 id="4- 更加饱满的 -SLIs"><a href="#4- 更加饱满的 -SLIs" class="headerlink" title="4. 更加饱满的 SLIs"></a>4. 更加饱满的 SLIs</h2><p>通过发挥 Metric, Tracing, Logging 各自的优势，定义出更加“饱满”的精准 SLI，减少告警误报漏，达到预设的 SLO，最终让 SRE 睡的更香～</p>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16150178088094.jpg" alt=""></p>
-<h3 id="1-Metric"><a href="#1-Metric" class="headerlink" title="1) Metric"></a>1) Metric</h3><p>记得读 Google SRE 书中提到，SLI 要尽可能保持简单，但在复杂的业务场景下，通过 <strong> 单指标（例如成功量下跌）</strong>来判断系统是否可用，是很难行得通的。所以首先针对最上层 Metrics 做了两件事情：</p>
+<h2 id="4- 更加饱满的 -SLIs"><a href="#4- 更加饱满的 -SLIs" class="headerlink" title="4. 更加饱满的 SLIs"></a>4. 更加饱满的 SLIs</h2><h3 id="1-Metric"><a href="#1-Metric" class="headerlink" title="1) Metric"></a>1) Metric</h3><p>记得读 Google SRE 书中提到，SLI 要尽可能保持简单，但在复杂的业务场景下，通过 <strong> 单指标（例如成功量下跌）</strong>来判断系统是否可用，是很难行得通的。所以首先针对最上层 Metrics 做了两件事情：</p>
 <ol>
 <li><strong><a href="/blog/20190113/anomaly-detection/">告警智能降噪</a></strong>：通过机器学习的基线拟合与异常监测算法，代替人的经验判断时序数据是否异常，最终对告警进行降噪抑制。</li>
 <li><strong>多维指标联合告警</strong>：基于多个时序监控的 Metric 指标综合判断。例如入口成功量下跌超过 30%，自动检查来源监控数据是否下跌，或出口依赖的渠道是否异常等，最终断言内部服务的可用性。</li>
@@ -361,7 +359,9 @@
 </li>
 </ol>
 <h3 id="3-Logging"><a href="#3-Logging" class="headerlink" title="3) Logging"></a>3) Logging</h3><p>针对每一笔原始的数据，同样可以布防零容忍规则，历史 NPE，证书过期等等。</p>
-<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>本文通过过去两年多的线上监控经历，总结出个人视角 SLI 的最佳实践。</p>
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>通过发挥 Metric, Tracing, Logging 各自的优势，定义出更加“饱满”的精准 SLI 减少告警误报漏，最终达到预设的 SLO，让 SRE 睡的更香～</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16150178088094.jpg" alt=""></p>
+<p>本文通过过去两年多的线上监控经历，总结出个人视角关于 SLI 的最佳实践。</p>
 <p>但终究只是在公司技术体系视角内的井底之蛙，如果你在业内或社区有更加优雅的解决方案，欢迎随时联系我进行交流～～</p>
 <h1 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://wu-sheng.github.io/me/articles/metrics-tracing-and-logging.html">https://wu-sheng.github.io/me/articles/metrics-tracing-and-logging.html</a></li>
@@ -503,7 +503,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我心中的 -SRE"><span class="nav-text">我心中的 SRE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DevOps- 和 -SRE- 的关系"><span class="nav-text">DevOps 和 SRE 的关系 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SLI-SLO- 监控理论"><span class="nav-text">SLI&#x2F;SLO 监控理论 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-text"> 名词解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联关系"><span class="nav-text">关联关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我和监控的故事"><span class="nav-text">我和监控的故事 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1- 噪音的本质"><span class="nav-text">1. 噪音的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2- 理想中的监控"><span class="nav-text">2. 理想中的监控 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3- 回到现实"><span class="nav-text">3. 回到现实 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可观测指标"><span class="nav-text">可观测指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4- 更加饱满的 -SLIs"><span class="nav-text">4. 更加饱满的 SLIs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Metric"><span class="nav-text">1) Metric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Tracing"><span class="nav-text">2) Tracing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Logging"><span class="nav-text">3) Logging</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#THE-END"><span class="nav-text">THE END</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我心中的 -SRE"><span class="nav-text">我心中的 SRE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DevOps- 和 -SRE- 的关系"><span class="nav-text">DevOps 和 SRE 的关系 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SLI-SLO- 监控理论"><span class="nav-text">SLI&#x2F;SLO 监控理论 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-text"> 名词解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联关系"><span class="nav-text">关联关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我和监控的故事"><span class="nav-text">我和监控的故事 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1- 噪音的本质"><span class="nav-text">1. 噪音的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2- 理想中的监控"><span class="nav-text">2. 理想中的监控 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3- 回到现实"><span class="nav-text">3. 回到现实 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4- 更加饱满的 -SLIs"><span class="nav-text">4. 更加饱满的 SLIs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Metric"><span class="nav-text">1) Metric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Tracing"><span class="nav-text">2) Tracing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Logging"><span class="nav-text">3) Logging</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#THE-END"><span class="nav-text">THE END</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
