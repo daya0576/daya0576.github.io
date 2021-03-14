@@ -58,11 +58,11 @@
 <li>《富爸爸，穷爸爸》</li>
 </ul>
 <p>推荐非技术相关的一本书<a href="https://book.douban.com/subject/26146992/">《我们为什么会分手？》</a>，采访了 15 对昔日恋人，多年后在双方的角度说出当时的分手理由。当两个人在一堆关系中发生争执和矛盾的时候，我们总是期望对方不断成长变得理性和“成熟”，但家是讲爱的地方，不是讲理的地方，更多的时候需要的是包容和沟通，以及“自省”。</p>
-<h2 id="人际・社群"><a href="# 人际・社群" class="headerlink" title="人际・社群"></a>人际・社群 </h2><p> 去年有个周末误入阿里云自动化运维的一个线下沙龙，作为一名 sre 却第一次听说了 terraform &amp; Infrastructure as Code (IaC)等概念，给自己带来了很多冲击。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105_c.jpeg" alt="75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105"></p>
+<h2 id="人际・社群"><a href="# 人际・社群" class="headerlink" title="人际・社群"></a>人际・社群 </h2><p> 去年有个周末误入阿里云自动化运维的一个线下沙龙，作为一名 sre 却第一次听说了 terraform &amp; Infrastructure as Code (IaC)等概念，给自己带来了很多冲击。<br><img src="/images/loading/loading.svg" data-original="/blog/20210228/2020-summary/75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105_c.jpeg" alt="75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105"></p>
 <p>身为一名程序员，代码写多了很容易“自闭”，但闭门造车是大忌。记得读大学的时候有一位助教，教过我们 <code>.Net</code> 等课程，他当时很喜欢钻研技术，但总是一副付出了很多，却郁郁寡欢不得志的样子。在去年的工作中，我也渐渐明白了一个道理，为什么大学的时候，我们要学习软件工程，项目管理等看上去和编程无关的课程：一是程序员的软技能（团队协作，沟通能力等），可能和硬技能一样重要；二是一个大型的项目更多的需要由一群人或一个团队，朝着一个目标一起完成的。</p>
 <p>所以新的一年，可以找机会多去参加一些线上线下 meetup，提升自己的软技能与视野，期望也可以找到一些新的乐趣～</p>
 <h2 id="财务・理财"><a href="# 财务・理财" class="headerlink" title="财务・理财"></a>财务・理财 </h2><p> 一如既往的弱项，但读完《富爸爸，穷爸爸》后，至少对「资产」这个词有了更深的理解，明白富人是靠钱生钱变得富裕。而像我一样不断工作，靠出卖自己的时间获取回报，是一辈子也无法积攒财富的。</p>
-<h2 id="家庭・生活"><a href="# 家庭・生活" class="headerlink" title="家庭・生活"></a>家庭・生活 </h2><p> 饮食 &amp; 体重的控制，是 2020 年唯一一项比较拿的出手的成绩了。。希望未来我的财富可以和下图的曲线成相反趋势上升 😂</p>
+<h2 id="家庭・生活"><a href="# 家庭・生活" class="headerlink" title="家庭・生活"></a>家庭・生活 </h2><p> 饮食 &amp; 体重的控制，是 2020 年唯一一项比较拿的出手的成绩了。。希望未来我的财富可以和下图的曲线成相反趋势上升 😂  </p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/01067E31-FB6F-42BC-A66D-1F59F65BB452_1_201_a.jpeg" alt="01067E31-FB6F-42BC-A66D-1F59F65BB452_1_201_a"></p>
 <p>每天早上都会花时间做早餐～<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/AE284A44-2846-4DE2-8F09-F3ED8C8C4779_1_105_c.jpeg" alt="AE284A44-2846-4DE2-8F09-F3ED8C8C4779_1_105"></p>
 <h1 id="关于 -2020- 的一些感想："><a href="# 关于 -2020- 的一些感想：" class="headerlink" title="关于 2020 的一些感想："></a>关于 2020 的一些感想：</h1><ul>
@@ -109,12 +109,12 @@
     <title>如何零成本制作一个 Python Telegram 机器人</title>
     <url>/blog/20210221/buld-telegram-bot-from-scratch/</url>
     <content><![CDATA[<p>春节放假在家，写了一个 <a href="https://dev.qweather.com">和风天气 API</a> 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    </p>
-<p>本篇文章为该机器人实现的不完全教程～</p>
+<p>本篇文章为该机器人实现的不完全教程～**</p>
 <a id="more"></a>
 
 <h1 id="一、机器人介绍"><a href="# 一、机器人介绍" class="headerlink" title="一、机器人介绍"></a>一、机器人介绍 </h1><p> 源码: <a href="https://github.com/daya0576/he-weather-bot">https://github.com/daya0576/he-weather-bot</a></p>
 <p>👉戳链接调戏我：<a href="https://t.me/he_weather_bot">https://t.me/he_weather_bot</a>  </p>
-<p><img src="/images/loading/loading.svg" data-original="https://raw.githubusercontent.com/daya0576/he_weather_bot/master/img/2021-02-21%2015-49-06.gifcask.2021-02-21%2017_20_45.gif" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="https://github.com/daya0576/he-weather-bot/blob/fdd4d924943ab6036646cc6d7b7888fc71b9d3e2/img/2021-02-21%2015-49-06.gifcask.2021-02-21%2017_20_45.gif?raw=true" alt=""></p>
 <h1 id="二、技术栈汇总"><a href="# 二、技术栈汇总" class="headerlink" title="二、技术栈汇总"></a>二、技术栈汇总</h1><ol>
 <li>开发<ul>
 <li>语言：<code>Python3.9</code></li>
@@ -136,7 +136,8 @@
 </li>
 </ol>
 <p>尝鲜使用了 python3.9，以及异步的 fastapi web 框架，所以 telegram 的 sdk 也需要使用异步：<a href="https://github.com/aiogram/aiogram">aiogram</a>。</p>
-<p>线上部署白嫖了 Heroku 全家桶：推送 master 即可触发部署(gitops)。同时支持数据库 / 缓存 / 定时任务的一键申请（最重要的都是免费的），以及 环境变量配置，域名 https 卸载，日志在线查看，等傻瓜操作... 唯一的缺点：Heroku 只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138585335863.jpg" alt=""></p>
+<p>线上部署白嫖了 Heroku 全家桶：推送 master 即可触发部署(gitops)。同时支持数据库 / 缓存 / 定时任务的一键申请（最重要的都是免费的），以及 环境变量配置，域名 https 卸载，日志在线查看，等傻瓜操作... 唯一的缺点：Heroku 只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。</p>
+<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/image-20210314172708269.png" alt="image-20210314172708269"></p>
 <h1 id="三、原理 -amp- 实现"><a href="# 三、原理 -amp- 实现" class="headerlink" title="三、原理 &amp; 实现"></a>三、原理 &amp; 实现 </h1><p> 分为以下四个步骤：</p>
 <ol>
 <li>申请机器人 - token</li>
@@ -151,7 +152,8 @@
 <li>server 被动接受 http 请求的推送。类似消息队列的 pull &amp; push，<strong>本文主要基于第二种模式</strong>。</li>
 </ol>
 <p>所以不管是 fastapi/flask/django，都需要开启一个 <code>/hook</code> 的接口，参考项目中的这档逻辑： <code>telegram_bot.routers.webhook.webhook_handler</code></p>
-<p>p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一个对外可访问的 https 地址。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138553359280.jpg" alt=""></p>
+<p>p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一个对外可访问的 https 地址。</p>
+<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/image-20210314172807664.png" alt="image-20210314172807664"></p>
 <h2 id="绑定 -Bot-Token-amp-Server-Webhook"><a href="# 绑定 -Bot-Token-amp-Server-Webhook" class="headerlink" title="绑定 Bot Token &amp; Server Webhook"></a>绑定 Bot Token &amp; Server Webhook</h2><p>用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 <code>webhook</code>，所以需要提前将 <code>webhook</code> 与 <code>token</code> 进行绑定。两种方式：</p>
 <ol>
 <li>手动请求 <code>https://api.telegram.org/bot{token}/setWebhook?url={webhook}</code></li>
@@ -166,7 +168,7 @@
 <li><strong>定时天气发送</strong>：遍历开启的用户，发送对应城市的天气预报。     定时任务通常由消息驱动实现，通过三层分发 (Splitter-&gt;Loader-&gt;Executor) 等手段避免单点热点。因为是单点部署... 所以简单通过定时 curl http 请求实现，需要考虑扫描误触发 &amp; 恶意攻击，但最好是通过内部的幂等机制支持。</li>
 </ol>
 <h2 id="时序交互"><a href="# 时序交互" class="headerlink" title="时序交互"></a>时序交互 </h2><p> 三个场景对应的时序交互如下：</p>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138563037292.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/16138563037292.jpg" alt=""></p>
 <h2 id="系统架构"><a href="# 系统架构" class="headerlink" title="系统架构"></a>系统架构 </h2><p> 虽然是个小玩具，但也需要一定的分层与抽象，减少整体代码的「复杂度」：</p>
 <ol>
 <li>Web 层代表 fastapi app 暴露给外部的两个接口</li>
@@ -174,12 +176,12 @@
 <li>Integration 层为对外的依赖封装，例如 <code>weather_client</code> 是一个天气预报获取的接口，定义标准的行为后，底层可以由任意获取外部数据逻辑构成，实现解耦与未来快速替换</li>
 <li>DAL 则是 DB 层的包装</li>
 </ol>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16138614119002.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/16138614119002.jpg" alt=""></p>
 <p>问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service（同时统一做异常处理，日志打印等等）</p>
 <h1 id="性能问题"><a href="# 性能问题" class="headerlink" title="性能问题"></a>性能问题 </h1><p> 感兴趣可以阅读这两段代码，在遇到 IO 操作时，如何提升性能：</p>
 <ol>
-<li>使用 asycio 并行执行定时任务的分发：    <code>telegram_bot.routers.cron.cron_handler</code></li>
-<li>利用线程池，并行请求外部 sdk http 服务：    <code>telegram_bot.intergration.http.HttpClient.get_responses</code></li>
+<li>使用 asycio 并行执行定时任务的分发：telegram_bot.routers.cron.cron_handler`</li>
+<li>利用线程池，并行请求外部 sdk http 服务：  <code>telegram_bot.intergration.http.HttpClient.get_responses</code></li>
 </ol>
 <h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>本文介绍的天气预报小玩具，仅供个人练手使用。如果你有一些好的想法，欢迎欢迎私信我 (<a href="https://t.me/daya0576">@daya0576</a>) 一起结对编程～～ 2021 希望去认识一些新朋友 XD</p>
 ]]></content>
