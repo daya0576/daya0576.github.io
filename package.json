@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "hexo": "^4.2.0",
+    "hexo-asset-link": "^2.1.0",
     "hexo-deployer-rsync": "^1.0.0",
     "hexo-filter-auto-spacing": "^0.2.1",
     "hexo-fs": "^2.0.0",
