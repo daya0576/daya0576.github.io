@@ -151,9 +151,9 @@ body {
   height: 100%;
 }
 body {
-  background: #353535;
+  background: #f5f7f9;
   color: #555;
-  font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif, sans-serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif, sans-serif;
   font-size: 1em;
   line-height: 1.6;
 }
@@ -169,7 +169,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif, sans-serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif, sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 20px 0 15px;
@@ -369,7 +369,7 @@ pre {
 }
 pre,
 code {
-  font-family: consolas, Menlo, monospace, PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif;
+  font-family: consolas, Menlo, monospace, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
 }
 code {
   background: #eee;
@@ -1003,7 +1003,7 @@ pre .javascript .function {
 }
 .site-title {
   display: inline-block;
-  font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif, sans-serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif, sans-serif;
   font-size: 1.25em;
   font-weight: normal;
   line-height: 1.5;
@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #55ff3c;
+  background: #6c0aff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1538,7 +1538,7 @@ pre .javascript .function {
   }
 }
 .post-body {
-  font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif, sans-serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif, sans-serif;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1824,7 +1824,7 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   color: #999;
-  font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif, sans-serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif, sans-serif;
   font-size: 0.75em;
   margin: 3px 0 60px 0;
   text-align: center;
@@ -2397,7 +2397,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .sidebar {
-  background: #353535;
+  background: #f5f7f9;
   box-shadow: none;
   float: left;
   position: static;
