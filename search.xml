@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2021-04-08</title>
+    <url>/blog/20210424/2021-04-08/</url>
+    <content><![CDATA[<h1 id=""><a href="#"class="headerlink"title=""></a></h1>]]></content>
+  </entry>
+  <entry>
     <title>大牙的 2020 年终总结 🥳</title>
     <url>/blog/20210228/2020-summary/</url>
     <content><![CDATA[<p>拖了很久的年终总结，人类就像自己的眼睛一样，大部分的时间无法看见自己的模样，所以需要多照照镜子进行自省和复盘，才不会变成一具行尸走肉。</p>
@@ -803,23 +808,22 @@
     <content><![CDATA[<blockquote>
 <p>OO 原则是我们的目标，而设计模式是我们的做法。</p>
 </blockquote>
-<p>刚从 python 转 java 半年多，虽然这门语言看上去有一丝笨重和啰嗦，但和设计模式遇上，就好像咖啡与牛奶的融合，变成一杯香醇的拿铁🤔。本文做为个人的读书笔记（<del>水一篇博客</del>），同时如果能帮到你就更好啦！</p>
+<p>最近写 java 半年多，虽然这门语言看上去有一丝笨重和啰嗦，但和设计模式遇上，就好像咖啡与牛奶的融合，变成一杯香醇的拿铁🤔。本文做为个人的读书笔记（<del>水一篇博客</del>），同时如果能帮到你就更好啦！</p>
 <a id="more"></a>
 
 <h1 id="分类"><a href="# 分类" class="headerlink" title="分类"></a>分类 </h1><p> 大家应该还知道一本书，叫做 <a href="https://book.douban.com/subject/1052241/">《设计模式：可复用面向对象软件的基础》</a>，其中非常精辟的将设计模式分为三类（持续学习更新中）：</p>
 <ol>
-<li>创建型模式：<ul>
-<li>简单工厂模式（Simple Factory） -&gt; <strong>第四章：工厂模式</strong></li>
-<li>工厂方法模式（Factory Method）</li>
+<li>创建型 - Creational<ul>
+<li>（类）工厂方法模式（Factory Method） -&gt; <strong>第四章：工厂模式</strong></li>
 <li>抽象工厂模式（Abstract Factory）</li>
 <li>创建者模式（Builder）</li>
 <li>原型模式（Prototype）</li>
 <li>单例模式（Singleton） -&gt; <strong>第五章：单例</strong></li>
 </ul>
 </li>
-<li>结构型模式<ul>
+<li>结构型模式 - Structural<ul>
+<li>（类）适配器模式（Adapter） -&gt; <strong>第七章：适配器模式</strong></li>
 <li>外观模式 / 门面模式（Facade 门面模式）</li>
-<li>适配器模式（Adapter） -&gt; <strong>第七章：适配器模式</strong></li>
 <li>代理模式（Proxy） -&gt; <strong>第十一章：代理模式</strong></li>
 <li>装饰模式（Decorator） -&gt; <strong>第三章：装饰者模式</strong></li>
 <li>桥梁模式 / 桥接模式（Bridge）</li>
@@ -827,18 +831,18 @@
 <li>享元模式（Flyweight）</li>
 </ul>
 </li>
-<li>行为模式<ul>
-<li>模板方法模式（Template Method） -&gt; <strong>第八章：模版方法模式</strong></li>
+<li>行为模式 - Behavioral<ul>
+<li>（类）模板方法模式（Template Method） -&gt; <strong>第八章：模版方法模式</strong></li>
+<li>（类）解释器模式（Interpreter）</li>
+<li>职责链模式（Chain of Responsibility）</li>
 <li>观察者模式（Observer） -&gt; <strong>第二章：观察者模式</strong></li>
 <li>状态模式（State） -&gt; <strong>第十章：状态模式</strong></li>
 <li>策略模式（Strategy）</li>
-<li>职责链模式（Chain of Responsibility）</li>
 <li>命令模式（Command） -&gt; <strong>第六章：命令模式</strong></li>
 <li>访问者模式（Visitor）</li>
 <li>调停者模式（Mediator）</li>
 <li>备忘录模式（Memento）</li>
 <li>迭代器模式（Iterator） -&gt; <strong>第九章：迭代与组合模式</strong></li>
-<li>解释器模式（Interpreter）</li>
 </ul>
 </li>
 </ol>
@@ -856,12 +860,11 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 来一杯 Espresso</span></span><br><span class="line">Beverage beverage = <span class="keyword">new</span> Espresso();</span><br><span class="line">System.out.println(beverage);</span><br><span class="line"><span class="comment">// Espresso$1.99</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 来一杯调料为豆浆，摩卡，奶泡的 HouseBlend 咖啡</span></span><br><span class="line">Beverage beverage1 = <span class="keyword">new</span> HouseBlend();</span><br><span class="line">beverage1 = <span class="keyword">new</span> Soy(<span class="keyword">new</span> Mocha(<span class="keyword">new</span> Whip(beverage1)));</span><br><span class="line">System.out.println(beverage1);</span><br><span class="line"><span class="comment">// HouseBlend, Whip, Mocha, Soy$1.39</span></span><br></pre></td></tr></table></figure>
 
 
-<h2 id="第四章：工厂模式 -The-Factory-Pattern"><a href="# 第四章：工厂模式 -The-Factory-Pattern" class="headerlink" title="第四章：工厂模式 - The Factory Pattern"></a>第四章：工厂模式 - The Factory Pattern</h2><p>再熟悉不过了，就不多做解释了。</p>
-<blockquote>
+<h2 id="第四章：工厂模式 -The-Factory-Pattern"><a href="# 第四章：工厂模式 -The-Factory-Pattern" class="headerlink" title="第四章：工厂模式 - The Factory Pattern"></a>第四章：工厂模式 - The Factory Pattern</h2><blockquote>
 <p>简单工厂其实不是一个设计模式，反而更像是一种编程习惯。</p>
 </blockquote>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/4.%20The%20Factory%20Pattern.png" alt="4. The Factory Pattern"></p>
-<p>效果：</p>
+<p>在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。例如下面代码中</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SimplePizzaFactory factory = <span class="keyword">new</span> SimplePizzaFactory();</span><br><span class="line">PizzaStore store = <span class="keyword">new</span> PizzaStore(factory);</span><br><span class="line"></span><br><span class="line">Pizza pizza = store.orderPizza(<span class="string">"cheese"</span>);</span><br><span class="line">System.out.println(<span class="string">"We ordered a"</span> + pizza.getName() + <span class="string">"\n"</span>);</span><br><span class="line">System.out.println(pizza);</span><br></pre></td></tr></table></figure>
 
 <p>章节中还提到了抽象工厂模式，本质上是两层的 factory，感觉有点太花了。。感兴趣可以阅读原文。</p>
@@ -946,14 +949,13 @@
 <li>Static (underlined)</li>
 </ul>
 <h2 id="继承关系"><a href="# 继承关系" class="headerlink" title="继承关系"></a>继承关系 </h2><p> 网上针对以下两种的叫法五花八门，但如果直接叫 <code>extend</code> 与 <code>implement</code> 就比较好理解了：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15883538437292.jpg" alt=""></p>
-<h2 id="关联关系"><a href="# 关联关系" class="headerlink" title="关联关系"></a>关联关系 </h2><p> 对这一部分一直比较困惑，直到遇到了一篇 <a href="http://www.cs.utsa.edu/~cs3443/uml/uml.html"> 教程</a>，照着画了一下（附上属性后，可以说是非常清晰便于理解了）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15883538015869.jpg" alt=""></p>
-<hr>
+<h2 id="关联关系"><a href="# 关联关系" class="headerlink" title="关联关系"></a>关联关系</h2><p><img src="/images/loading/loading.svg" data-original="/media/16178121126738.jpg" alt=""></p>
 <p><strong>Q: composition &amp; aggregation &amp; association 的区别？？</strong><br>A: 本质上是一个包含的关系：Association &gt; Aggregation &gt; Composition</p>
-<p>associate 代表一层比较弱的关联关系，例如学生与课堂，双方都知道对方的存在，却又是相互独立。</p>
-<p>关于 aggregation 和 association 的关系，网上找了个 case，以 Project 和 ProjectManager 作为例子，当 Project 中止时：</p>
 <ul>
-<li>aggregation: ProjectManager 仍然可以存在，比如转去做其他项目。</li>
-<li>association: <strong>ProjectManager 同样对应一个 project，但会随着 Project 被「销毁」</strong>。</li>
+<li><strong>dependency(依赖)</strong>: 「教授(A)」依赖于「课程资料(B)」 如果「课程资料」的属性或方法被修改，会导致「教授」代码实现崩溃（不一定是类成员变量）</li>
+<li><strong>associate(关联)</strong>: 「教授(A)」对「学生(B)」进行授课指导 A 知道 B。类 A 依赖于类 B（<strong>与上面「依赖」的区别：接口参数级别的依赖，而不仅仅是代码引用</strong>）。</li>
+<li><strong>aggregate(聚合)</strong>: 「院系(A)」包含「教授(B)」 A 知道 B、 由 B 构成。类 A 依赖于类 B。</li>
+<li><strong>component(组合)</strong>: 「大学(A)」由「院系(B)」组成 A 知道 B、由 B 构成而且管理着 B 的生命周期。类 A 依赖于类 B。 <br>p.s. 组合与其他关系的区别在于组件仅能作为容器的一部分存在。</li>
 </ul>
 <hr>
 <p>笑了，文中的一句话：</p>
@@ -6839,6 +6841,11 @@ sudo update-rc.d xl2tpd disable</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
@@ -6851,11 +6858,6 @@ sudo update-rc.d xl2tpd disable</p>
 <hr>
 <p>RIP: 纪念一下陪伴我四年多的老博客 (Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>

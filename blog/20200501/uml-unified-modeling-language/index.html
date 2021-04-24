@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2020-05-01T17:47:11.000Z">
-<meta property="article:modified_time" content="2021-04-05T06:36:44.941Z">
+<meta property="article:modified_time" content="2021-04-24T02:03:54.072Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="学习笔记">
@@ -315,14 +315,13 @@
 <li>Static (underlined)</li>
 </ul>
 <h2 id="继承关系"><a href="# 继承关系" class="headerlink" title="继承关系"></a>继承关系 </h2><p> 网上针对以下两种的叫法五花八门，但如果直接叫 <code>extend</code> 与 <code>implement</code> 就比较好理解了：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15883538437292.jpg" alt=""></p>
-<h2 id="关联关系"><a href="# 关联关系" class="headerlink" title="关联关系"></a>关联关系 </h2><p> 对这一部分一直比较困惑，直到遇到了一篇 <a href="http://www.cs.utsa.edu/~cs3443/uml/uml.html"> 教程</a>，照着画了一下（附上属性后，可以说是非常清晰便于理解了）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15883538015869.jpg" alt=""></p>
-<hr>
+<h2 id="关联关系"><a href="# 关联关系" class="headerlink" title="关联关系"></a>关联关系</h2><p><img src="/images/loading/loading.svg" data-original="/media/16178121126738.jpg" alt=""></p>
 <p><strong>Q: composition &amp; aggregation &amp; association 的区别？？</strong><br>A: 本质上是一个包含的关系：Association &gt; Aggregation &gt; Composition</p>
-<p>associate 代表一层比较弱的关联关系，例如学生与课堂，双方都知道对方的存在，却又是相互独立。</p>
-<p>关于 aggregation 和 association 的关系，网上找了个 case，以 Project 和 ProjectManager 作为例子，当 Project 中止时：</p>
 <ul>
-<li>aggregation: ProjectManager 仍然可以存在，比如转去做其他项目。</li>
-<li>association: <strong>ProjectManager 同样对应一个 project，但会随着 Project 被「销毁」</strong>。</li>
+<li><strong>dependency(依赖)</strong>: 「教授(A)」依赖于「课程资料(B)」 如果「课程资料」的属性或方法被修改，会导致「教授」代码实现崩溃（不一定是类成员变量）</li>
+<li><strong>associate(关联)</strong>: 「教授(A)」对「学生(B)」进行授课指导 A 知道 B。类 A 依赖于类 B（<strong>与上面「依赖」的区别：接口参数级别的依赖，而不仅仅是代码引用</strong>）。</li>
+<li><strong>aggregate(聚合)</strong>: 「院系(A)」包含「教授(B)」 A 知道 B、 由 B 构成。类 A 依赖于类 B。</li>
+<li><strong>component(组合)</strong>: 「大学(A)」由「院系(B)」组成 A 知道 B、由 B 构成而且管理着 B 的生命周期。类 A 依赖于类 B。 <br>p.s. 组合与其他关系的区别在于组件仅能作为容器的一部分存在。</li>
 </ul>
 <hr>
 <p>笑了，文中的一句话：</p>
@@ -346,7 +345,7 @@
     <div class="flex align-center social-list">
 
             <div class="social-item">
-              <a target="_blank" class="social-link" href="https://twitter.com/mr_daya">
+              <a target="_blank" class="social-link" href="https://twitter.com/daya0576">
                 <span class="icon">
                   <i class="fa fa-twitter"></i>
                 </span>
@@ -472,7 +471,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-text">正文 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的表示"><span class="nav-text">类的表示 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承关系"><span class="nav-text">继承关系 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联关系"><span class="nav-text">关联关系 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人的一点思考"><span class="nav-text">个人的一点思考 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-text">正文 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的表示"><span class="nav-text">类的表示 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承关系"><span class="nav-text">继承关系 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联关系"><span class="nav-text">关联关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人的一点思考"><span class="nav-text">个人的一点思考 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -488,7 +487,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">130</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
