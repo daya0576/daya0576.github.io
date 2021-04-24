@@ -21,7 +21,7 @@ tags:
 总而言之，即是减少类型的强转换，避免程序在运行时报错。
 
 1. type-checking is one of the most important, because it saves time by fending off ClassCastExceptions that might be thrown at runtime.
-2. the elimination of casts, which means less code  -
+2. the elimination of casts, which means less code
 
 # Bounded Types
 <T extends UpperBoundType>

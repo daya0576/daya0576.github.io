@@ -42,19 +42,18 @@ P.S. 其中前缀分别代表：
 ![](/images/blog/200104_japan_travel/15883538437292.jpg)
 
 ## 关联关系
-对这一部分一直比较困惑，直到遇到了一篇[教程](http://www.cs.utsa.edu/~cs3443/uml/uml.html)，照着画了一下（附上属性后，可以说是非常清晰便于理解了）：
-![](/images/blog/200104_japan_travel/15883538015869.jpg)
 
----
+![](/media/16178121126738.jpg)
+
 
 **Q: composition & aggregation & association 的区别？？**
 A: 本质上是一个包含的关系：Association > Aggregation > Composition
 
-associate 代表一层比较弱的关联关系，例如学生与课堂，双方都知道对方的存在，却又是相互独立。
-
-关于 aggregation 和 association 的关系，网上找了个 case，以 Project 和 ProjectManager 作为例子，当 Project 中止时：
-- aggregation: ProjectManager 仍然可以存在，比如转去做其他项目。
-- association: **ProjectManager 同样对应一个 project，但会随着 Project 被「销毁」**。
+- **dependency(依赖)**: 「教授(A)」依赖于「课程资料(B)」 如果「课程资料」的属性或方法被修改，会导致「教授」代码实现崩溃（不一定是类成员变量）
+- **associate(关联)**: 「教授(A)」对「学生(B)」进行授课指导 A 知道 B。类 A 依赖于类 B（**与上面「依赖」的区别：接口参数级别的依赖，而不仅仅是代码引用**）。
+- **aggregate(聚合)**: 「院系(A)」包含「教授(B)」 A 知道 B、 由 B 构成。类 A 依赖于类 B。
+- **component(组合)**: 「大学(A)」由「院系(B)」组成 A 知道 B、由 B 构成而且管理着 B 的生命周期。类 A 依赖于类 B。 
+p.s. 组合与其他关系的区别在于组件仅能作为容器的一部分存在。
 
 ---
 

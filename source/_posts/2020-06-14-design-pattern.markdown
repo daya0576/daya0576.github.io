@@ -9,40 +9,40 @@ date: 2020-06-14 01:05:14
 
 > OO 原则是我们的目标，而设计模式是我们的做法。
 
-刚从 python 转 java 半年多，虽然这门语言看上去有一丝笨重和啰嗦，但和设计模式遇上，就好像咖啡与牛奶的融合，变成一杯香醇的拿铁🤔。本文做为个人的读书笔记（~~水一篇博客~~），同时如果能帮到你就更好啦！
+最近写 java 半年多，虽然这门语言看上去有一丝笨重和啰嗦，但和设计模式遇上，就好像咖啡与牛奶的融合，变成一杯香醇的拿铁🤔。本文做为个人的读书笔记（~~水一篇博客~~），同时如果能帮到你就更好啦！
 
 <!--more-->
 
 # 分类
 大家应该还知道一本书，叫做 [《设计模式：可复用面向对象软件的基础》](https://book.douban.com/subject/1052241/)，其中非常精辟的将设计模式分为三类（持续学习更新中）：
 
-1. 创建型模式：
-    - 简单工厂模式（Simple Factory） -> **第四章：工厂模式**
-    - 工厂方法模式（Factory Method）
+1. 创建型 - Creational
+    - （类）工厂方法模式（Factory Method） -> **第四章：工厂模式**
     - 抽象工厂模式（Abstract Factory）
     - 创建者模式（Builder）
     - 原型模式（Prototype）
     - 单例模式（Singleton） -> **第五章：单例**
-2. 结构型模式
+2. 结构型模式 - Structural
+    - （类）适配器模式（Adapter） -> **第七章：适配器模式**
     - 外观模式/门面模式（Facade门面模式）
-    - 适配器模式（Adapter） -> **第七章：适配器模式**
     - 代理模式（Proxy） -> **第十一章：代理模式**
     - 装饰模式（Decorator） -> **第三章：装饰者模式**
     - 桥梁模式/桥接模式（Bridge）
     - 组合模式（Composite）
     - 享元模式（Flyweight）
-3. 行为模式
-    - 模板方法模式（Template Method） -> **第八章：模版方法模式**
+3. 行为模式 - Behavioral
+    - （类）模板方法模式（Template Method） -> **第八章：模版方法模式**
+    - （类）解释器模式（Interpreter）
+    - 职责链模式（Chain of Responsibility）
     - 观察者模式（Observer） -> **第二章：观察者模式**
     - 状态模式（State） -> **第十章：状态模式**
     - 策略模式（Strategy）
-    - 职责链模式（Chain of Responsibility）
     - 命令模式（Command） -> **第六章：命令模式**
     - 访问者模式（Visitor）
     - 调停者模式（Mediator）
     - 备忘录模式（Memento）
     - 迭代器模式（Iterator） -> **第九章：迭代与组合模式**
-    - 解释器模式（Interpreter）
+
 
 # 章节 
 ## 第一章：策略模式 - 整合鸭子的行为
@@ -96,13 +96,12 @@ System.out.println(beverage1);
 
 ## 第四章：工厂模式 - The Factory Pattern
 
-再熟悉不过了，就不多做解释了。
-
 > 简单工厂其实不是一个设计模式，反而更像是一种编程习惯。
 
 ![4. The Factory Pattern](/images/blog/200104_japan_travel/4.%20The%20Factory%20Pattern.png)
 
-效果：
+在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。例如下面代码中
+
 ``` java
 SimplePizzaFactory factory = new SimplePizzaFactory();
 PizzaStore store = new PizzaStore(factory);
@@ -113,6 +112,8 @@ System.out.println(pizza);
 ```
 
 章节中还提到了抽象工厂模式，本质上是两层的 factory，感觉有点太花了。。感兴趣可以阅读原文。
+
+
 
 ## 第五章：单例 - Singleton
 再熟悉不过的老朋友，就不多说了。简单回答两个问题：
@@ -246,6 +247,4 @@ System.out.println(gumballMachine);
 相当于将上面讲解过的设计模式复合使用，刚好跟着敲一遍代码，复习一下。   
 
 但像文中说的那样，有种牛刀杀鸡的感觉。。
-
-
 
