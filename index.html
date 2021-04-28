@@ -228,47 +228,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210424/2021-04-08/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20210424/2021-04-08/" class="post-title-link" itemprop="url">2021-04-08</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id=""><a href="#"class="headerlink"title=""></a></h1>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210228/2020-summary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -578,6 +537,51 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20201108/linux-find-keyword-reversely/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20201108/linux-find-keyword-reversely/" class="post-title-link" itemprop="url">linux 反向查找日志</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当我们在黑屏排查线上问题的时候，经常会遇到一些又臭又长的日志文件（动辄好几个 G）。如果直接用 <code>grep</code> 去搜索内容，不仅等待时间长，甚至可能占用机器资源，影响线上业务请求 😓</p>
+<p>那有什么更好的办法吗？线上日志按照规约，会按「日」进行轮转切割，但故障发生的时候，我们期望的那条日志一般在&quot;最近十分钟&quot;之内，所以如果可以“反向 grep” 日志，是否可以大大提高查询的性能？🤔</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -650,7 +654,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

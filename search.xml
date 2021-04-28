@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2021-04-08</title>
-    <url>/blog/20210424/2021-04-08/</url>
-    <content><![CDATA[<h1 id=""><a href="#"class="headerlink"title=""></a></h1>]]></content>
-  </entry>
-  <entry>
     <title>大牙的 2020 年终总结 🥳</title>
     <url>/blog/20210228/2020-summary/</url>
     <content><![CDATA[<p>拖了很久的年终总结，人类就像自己的眼睛一样，大部分的时间无法看见自己的模样，所以需要多照照镜子进行自省和复盘，才不会变成一具行尸走肉。</p>
@@ -6841,11 +6836,6 @@ sudo update-rc.d xl2tpd disable</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
@@ -6858,6 +6848,11 @@ sudo update-rc.d xl2tpd disable</p>
 <hr>
 <p>RIP: 纪念一下陪伴我四年多的老博客 (Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
