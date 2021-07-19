@@ -15,8 +15,6 @@ date: 2018-07-07 10:17:32
 <!--more-->
 
 # 第一周
-## 总结:
-![](/2018-07-07-coursera-machine-learning-note/week1_summary.png)
 
 ## 机器学习定义:
 > Well-posed Learning Problem: A computer program is said to learnfrom experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.    
