@@ -2363,8 +2363,7 @@
     <content><![CDATA[<p>一直觉得 Coursera 是个很好的学习平台, 因为课程中都会穿插着丰富的 <strong> 课后作业 </strong> 和<strong>大作业 </strong>(真正掌握知识还是需要主动思考🤔和实践).<br> 而且很巧, 四年多前刚开始写博客时, 记录的是学习《An Introduction to Interactive Programming in Python》的过程. 当时每个人的大作业都是随机五个同学批改的, <a href="/blog/20140429/cousera-comments/">这篇博客 </a> 记录了来自世界各地的人对我作业的评论😄).<br>四年后重新出发, 学习 Andrew Ng 的<a href="https://www.coursera.org/learn/machine-learning/home/welcome">《Machine Learning》</a>), 分享一下自己的笔记和小小感悟.</p>
 <a id="more"></a>
 
-<h1 id="第一周"><a href="# 第一周" class="headerlink" title="第一周"></a>第一周 </h1><h2 id="总结"><a href="# 总结" class="headerlink" title="总结:"></a> 总结:</h2><p><img src="/images/loading/loading.svg" data-original="/2018-07-07-coursera-machine-learning-note/week1_summary.png" alt=""></p>
-<h2 id="机器学习定义"><a href="# 机器学习定义" class="headerlink" title="机器学习定义:"></a>机器学习定义:</h2><blockquote>
+<h1 id="第一周"><a href="# 第一周" class="headerlink" title="第一周"></a>第一周 </h1><h2 id="机器学习定义"><a href="# 机器学习定义" class="headerlink" title="机器学习定义:"></a> 机器学习定义:</h2><blockquote>
 <p>Well-posed Learning Problem: A computer program is said to learnfrom experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.<br><code>T:</code> Classifying emails as spam or not spam.<br><code>E:</code> Watching u label emails as spam or not spam.<br><code>P:</code> The number of emails correctly classified as spam.  </p>
 </blockquote>
 <h2 id="机器学习算法分类"><a href="# 机器学习算法分类" class="headerlink" title="机器学习算法分类:"></a>机器学习算法分类:</h2><h3 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h3><ul>
