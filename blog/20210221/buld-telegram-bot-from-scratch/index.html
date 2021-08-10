@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="春节放假在家，写了一个 和风天气 API 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。     本篇文章为该机器人实现的不完全教程～**">
+  <meta name="description" content="春节放假在家，写了一个 和风天气 API 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。     本篇文章为该机器人实现的不完全教程～">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何零成本制作一个 Python Telegram 机器人">
 <meta property="og:url" content="https://changchen.me/blog/20210221/buld-telegram-bot-from-scratch/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="春节放假在家，写了一个 和风天气 API 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。     本篇文章为该机器人实现的不完全教程～**">
+<meta property="og:description" content="春节放假在家，写了一个 和风天气 API 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。     本篇文章为该机器人实现的不完全教程～">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
@@ -60,7 +60,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-02-21T07:42:05.000Z">
-<meta property="article:modified_time" content="2021-07-19T14:56:51.040Z">
+<meta property="article:modified_time" content="2021-08-10T00:17:15.165Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -293,8 +293,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>春节放假在家，写了一个 <a href="https://dev.qweather.com">和风天气 API</a> 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    </p>
-<p>本篇文章为该机器人实现的不完全教程～**</p>
+        <p>春节放假在家，写了一个 <a href="https://dev.qweather.com">和风天气 API</a> 的 <a href="https://github.com/daya0576/he-weather-bot">Telegram 天气预报机器人</a>🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    </p>
+<p>本篇文章为该机器人实现的不完全教程～</p>
 <a id="more"></a>
 
 <h1 id="一、机器人介绍"><a href="# 一、机器人介绍" class="headerlink" title="一、机器人介绍"></a>一、机器人介绍 </h1><p> 源码: <a href="https://github.com/daya0576/he-weather-bot">https://github.com/daya0576/he-weather-bot</a></p>
@@ -365,7 +365,7 @@
 <p>问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service（同时统一做异常处理，日志打印等等）</p>
 <h1 id="性能问题"><a href="# 性能问题" class="headerlink" title="性能问题"></a>性能问题 </h1><p> 感兴趣可以阅读这两段代码，在遇到 IO 操作时，如何提升性能：</p>
 <ol>
-<li>使用 asycio 并行执行定时任务的分发：telegram_bot.routers.cron.cron_handler`</li>
+<li>使用 asycio 并行执行定时任务的分发：<code>telegram_bot.routers.cron.cron_handler</code></li>
 <li>利用线程池，并行请求外部 sdk http 服务：  <code>telegram_bot.intergration.http.HttpClient.get_responses</code></li>
 </ol>
 <h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>本文介绍的天气预报小玩具，仅供个人练手使用。如果你有一些好的想法，欢迎欢迎私信我 (<a href="https://t.me/daya0576">@daya0576</a>) 一起结对编程～～ 2021 希望去认识一些新朋友 XD</p>
