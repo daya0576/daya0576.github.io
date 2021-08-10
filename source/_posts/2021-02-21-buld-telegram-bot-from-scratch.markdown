@@ -4,9 +4,9 @@ date: 2021-02-21 15:42:05
 tags:
 ---
 
-春节放假在家，写了一个 [和风天气 API](https://dev.qweather.com) 的 Telegram 天气预报机器人🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    
+春节放假在家，写了一个 [和风天气 API](https://dev.qweather.com) 的 [Telegram 天气预报机器人](https://github.com/daya0576/he-weather-bot)🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    
 
-本篇文章为该机器人实现的不完全教程～**
+本篇文章为该机器人实现的不完全教程～
 
 <!--more-->
 
@@ -111,7 +111,7 @@ p.s. heroku 原生不支持 poetry，只认识 requrements.txt，可以通过第
 
 感兴趣可以阅读这两段代码，在遇到 IO 操作时，如何提升性能：
 
-1. 使用 asycio 并行执行定时任务的分发：telegram_bot.routers.cron.cron_handler`
+1. 使用 asycio 并行执行定时任务的分发：`telegram_bot.routers.cron.cron_handler`
 2. 利用线程池，并行请求外部 sdk http 服务：  `telegram_bot.intergration.http.HttpClient.get_responses`
 
 
