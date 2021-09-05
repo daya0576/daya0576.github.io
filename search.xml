@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java 内存管理 - 学习小记</title>
+    <title>Java 内存管理 - SRE 的必修课</title>
     <url>/blog/20210904/jvm-note/</url>
     <content><![CDATA[<blockquote>
-<p>当前公司技术栈中 Java 是一等公民👍，所以从去年开始被迫营业，从头开始了解和学习这门语言。</p>
+<p>当前公司技术栈中 Java 是一等公民 :(，所以从去年开始被迫营业，从头开始了解和学习这门语言。</p>
 <p>本篇文章是阅读《深入理解 JVM 虚拟机》的读书小记，主要通过绘图与分享的方式，加深自己的理解。</p>
 </blockquote>
 <h2 id="引言"><a href="# 引言" class="headerlink" title="引言"></a>引言 </h2><p> 在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障。</p>
@@ -22,12 +22,12 @@
 <h2 id="二、自动内存管理"><a href="# 二、自动内存管理" class="headerlink" title="二、自动内存管理"></a>二、自动内存管理 </h2><p> 进入正文！</p>
 <h3 id="Java- 内存区域"><a href="#Java- 内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域 </h3><p> 网上很多文章因为 java 版本的问题，存在不同程度的过时。</p>
 <p>所以花了一点时间，尝试通过「堆」和「栈」两个视角，将 java8 的内存分布重新绘制一遍（如果有不对的地方辛苦帮忙指正）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16307787626886.jpg" alt=""></p>
-<h3 id="关键点说明"><a href="# 关键点说明" class="headerlink" title="关键点说明"></a>关键点说明 </h3><h4 id="1- 关于 -Metaspace"><a href="#1- 关于 -Metaspace" class="headerlink" title="1. 关于 Metaspace"></a>1. 关于 Metaspace</h4><p> 为了解决持久代内存溢出 &amp; 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。</p>
+<h3 id="关键点说明"><a href="# 关键点说明" class="headerlink" title="关键点说明"></a>关键点说明 </h3><h4 id="1- 关于 -Perm- 区 -amp-Metaspace"><a href="#1- 关于 -Perm- 区 -amp-Metaspace" class="headerlink" title="1. 关于 Perm 区 &amp; Metaspace"></a>1. 关于 Perm 区 &amp; Metaspace</h4><p> 为了解决持久代内存溢出 &amp; 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。</p>
 <p>我个人理解最大不同在于：1.8 之前，持久代与 Heap &amp; Stack 都归属 <strong> 虚拟机内存 </strong>，而 Metaspace 侧使用的<strong> 本地内存 </strong>（native memory），<strong> 默认不做限制</strong>。</p>
-<p>但是我们通常还是习惯设置 <code>-XX:MaxMetaspaceSize</code> 参数，类占据的空间还是有可能超过指定的空间大小，造成<code>java.lang.OutOfMemoryError: Metaspace</code> 异常  ，最终导致文章开头说的那个故障。</p>
-<h4 id="2- 关于 -Stack-Frame- 中的数据"><a href="#2- 关于 -Stack-Frame- 中的数据" class="headerlink" title="2. 关于 Stack Frame 中的数据"></a>2. 关于 Stack Frame 中的数据 </h4><p> 程序运行本质上是方法的套娃调用，也就是不断入栈与出栈的过程。</p>
+<p><strong>既然没有限制，文章开头故障为什么还会发生呢？？</strong><br>因为通常还是习惯设置 <code>-XX:MaxMetaspaceSize</code> 参数。。所以如果代码编写不当，类占据的空间还是很可能超过指定的空间大小，造成<code>java.lang.OutOfMemoryError: Metaspace</code> 异常 :(</p>
+<h4 id="2- 关于栈帧（Stack-Frame）"><a href="#2- 关于栈帧（Stack-Frame）" class="headerlink" title="2. 关于栈帧（Stack Frame）"></a>2. 关于栈帧（Stack Frame）</h4><p>程序运行本质上是方法的套娃调用，也就是不断入栈与出栈的过程。</p>
 <p>而每个栈帧（Stack Frame）中，本地变量（Local Variables）与 Heap 的关系如下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16307786911033.jpg" alt=""></p>
-<h4 id="3- 关于运行时常量池 -Run-Time-Constant-Pool"><a href="#3- 关于运行时常量池 -Run-Time-Constant-Pool" class="headerlink" title="3. 关于运行时常量池 Run-Time Constant Pool"></a>3. 关于运行时常量池 Run-Time Constant Pool</h4><h5 id="1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用"><a href="#1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用" class="headerlink" title="1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用"></a>1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用 </h5><p> 参考下面的例子，通过 <code>javac</code>  + <code>javap</code>查看编译后的 <code>.class</code> 文件：</p>
+<h4 id="3- 关于运行时常量池（Run-Time-Constant-Pool）"><a href="#3- 关于运行时常量池（Run-Time-Constant-Pool）" class="headerlink" title="3. 关于运行时常量池（Run-Time Constant Pool）"></a>3. 关于运行时常量池（Run-Time Constant Pool）</h4><h5 id="1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用"><a href="#1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用" class="headerlink" title="1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用"></a>1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用 </h5><p> 参考下面的例子，通过 <code>javac</code>  + <code>javap</code>查看编译后的 <code>.class</code> 文件：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scratch</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"methodA()...."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"methodB()...."</span>);</span><br><span class="line">        methodA();</span><br><span class="line">        num++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. javac Scratch.java </span></span><br><span class="line"><span class="comment">// 源代码转化为字节码（byte code = 1111_1111），</span></span><br><span class="line"><span class="comment">// 2. javap -v Scratch.class</span></span><br><span class="line"><span class="comment">// The `javap` tool is used to get the information of any class or interface.</span></span><br><span class="line">➜  test git:(master) ✗ javap -v Scratch      </span><br><span class="line">Warning: Binary file Scratch contains test.Scratch</span><br><span class="line">Classfile /Users/henry/IdeaProjects/Head-First-Design-Patterns/src/test/Scratch<span class="class">.<span class="keyword">class</span></span></span><br><span class="line"><span class="class">  <span class="title">Last</span> <span class="title">modified</span> <span class="title">Aug</span> 15, 2021</span>; size <span class="number">554</span> bytes</span><br><span class="line">  MD5 checksum <span class="number">1</span>dac5a22a5ccc66bfd64ee3185a1587e</span><br><span class="line">  Compiled from <span class="string">"Scratch.java"</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span>.<span class="title">Scratch</span></span></span><br><span class="line">  minor version: 0</span><br><span class="line">  major version: <span class="number">52</span></span><br><span class="line">  flags: ACC_PUBLIC, ACC_SUPER</span><br><span class="line">Constant pool:</span><br><span class="line">   #1 = Methodref          #9.#20         // java/lang/Object."&lt;init&gt;":()V</span><br><span class="line">   #2 = Fieldref           #8.#21         // test/Scratch.num:I</span><br><span class="line">   #3 = Fieldref           #22.#23        // java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">   #4 = String             #24            // methodA()....</span><br><span class="line">   #5 = Methodref          #25.#26        // java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">   #6 = String             #27            // methodB()....</span><br><span class="line">   #7 = Methodref          #8.#28         // test/Scratch.methodA:()V</span><br><span class="line">   #8 = Class              #29            // test/Scratch</span><br><span class="line">   #9 = Class              #30            // java/lang/Object</span><br><span class="line">  #10 = Utf8               num</span><br><span class="line">  #11 = Utf8               I</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
 
 <p>可以看到 class 文件包含一段 <code>Constant pool</code> 区域，用于存放编译期生成的各种字面量（ Literal ）和 符号引用（Symbolic References）。不难理解，在编译阶段，并不知道所引用类 / 方法的地址（实际地址），所以将 <strong> 符号引用 </strong> 保存至变量池（Constant pool）</p>
@@ -187,7 +187,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>如何零成本制作一个 Python Telegram 机器人</title>
+    <title>零成本打造 Telegram 机器人指北</title>
     <url>/blog/20210221/buld-telegram-bot-from-scratch/</url>
     <content><![CDATA[<p>春节放假在家，写了一个 <a href="https://dev.qweather.com">和风天气 API</a> 的 <a href="https://github.com/daya0576/he-weather-bot">Telegram 天气预报机器人</a>🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    </p>
 <p>本篇文章为该机器人实现的不完全教程～</p>
@@ -268,7 +268,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>如何对一棵树进行可视化（python anytree 简易实现）</title>
+    <title>树的可视化 - Python anytree 实现</title>
     <url>/blog/20210124/anytree-print/</url>
     <content><![CDATA[<p>Python 中有个很酷的第三方包叫做 <a href="https://github.com/c0fec0de/anytree">anytree</a>，全名 Any Python Tree Data，i.e. 期望用来表示任何树的数据结构。   </p>
 <p>而其中的可视化功能，每次都令人印象深刻。这篇文章简单分享，个人解决问题的思考路径 &amp; 简易实现～</p>
@@ -743,7 +743,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>在 java & python 中，如何优雅的筛选一堆苹果🤔</title>
+    <title>在 Java & Python 中，如何优雅的筛选一堆苹果🤔</title>
     <url>/blog/20200704/filter-in-java-and-python/</url>
     <content><![CDATA[<p>最近在看《Java 8 实战》这本书，第一部分讲了很多函数式编程与 lambda 匿名函数的应用，不禁让我想起了以前写 python 对应的实现。</p>
 <p><strong>需求：</strong> 在一堆苹果中，筛选出重量大于 100g 的苹果🍎，同时也支持过滤所有绿色的苹果 </p>

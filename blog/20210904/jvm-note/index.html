@@ -47,18 +47,18 @@
   };
 </script>
 
-  <meta name="description" content="当前公司技术栈中 Java 是一等公民👍，所以从去年开始被迫营业，从头开始了解和学习这门语言。 本篇文章是阅读《深入理解 JVM 虚拟机》的读书小记，主要通过绘图与分享的方式，加深自己的理解。  引言在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动">
+  <meta name="description" content="当前公司技术栈中 Java 是一等公民 :(，所以从去年开始被迫营业，从头开始了解和学习这门语言。 本篇文章是阅读《深入理解 JVM 虚拟机》的读书小记，主要通过绘图与分享的方式，加深自己的理解。  引言在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 内存管理 - 学习小记">
+<meta property="og:title" content="Java 内存管理 - SRE 的必修课">
 <meta property="og:url" content="https://changchen.me/blog/20210904/jvm-note/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="当前公司技术栈中 Java 是一等公民👍，所以从去年开始被迫营业，从头开始了解和学习这门语言。 本篇文章是阅读《深入理解 JVM 虚拟机》的读书小记，主要通过绘图与分享的方式，加深自己的理解。  引言在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动">
+<meta property="og:description" content="当前公司技术栈中 Java 是一等公民 :(，所以从去年开始被迫营业，从头开始了解和学习这门语言。 本篇文章是阅读《深入理解 JVM 虚拟机》的读书小记，主要通过绘图与分享的方式，加深自己的理解。  引言在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-09-04T08:31:21.000Z">
-<meta property="article:modified_time" content="2021-09-04T18:07:59.675Z">
+<meta property="article:modified_time" content="2021-09-05T13:32:09.126Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>Java 内存管理 - 学习小记 | Henry Z's blog~</title>
+  <title>Java 内存管理 - SRE 的必修课 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -244,7 +244,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java 内存管理 - 学习小记
+          Java 内存管理 - SRE 的必修课
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -271,7 +271,7 @@
   
 
           
-            <span id="/blog/20210904/jvm-note/" class="post-meta-item leancloud_visitors" data-flag-title="Java 内存管理 - 学习小记" title="阅读次数">
+            <span id="/blog/20210904/jvm-note/" class="post-meta-item leancloud_visitors" data-flag-title="Java 内存管理 - SRE 的必修课" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -289,7 +289,7 @@
 
       
         <blockquote>
-<p>当前公司技术栈中 Java 是一等公民👍，所以从去年开始被迫营业，从头开始了解和学习这门语言。</p>
+<p>当前公司技术栈中 Java 是一等公民 :(，所以从去年开始被迫营业，从头开始了解和学习这门语言。</p>
 <p>本篇文章是阅读《深入理解 JVM 虚拟机》的读书小记，主要通过绘图与分享的方式，加深自己的理解。</p>
 </blockquote>
 <h2 id="引言"><a href="# 引言" class="headerlink" title="引言"></a>引言 </h2><p> 在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障。</p>
@@ -307,12 +307,12 @@
 <h2 id="二、自动内存管理"><a href="# 二、自动内存管理" class="headerlink" title="二、自动内存管理"></a>二、自动内存管理 </h2><p> 进入正文！</p>
 <h3 id="Java- 内存区域"><a href="#Java- 内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域 </h3><p> 网上很多文章因为 java 版本的问题，存在不同程度的过时。</p>
 <p>所以花了一点时间，尝试通过「堆」和「栈」两个视角，将 java8 的内存分布重新绘制一遍（如果有不对的地方辛苦帮忙指正）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16307787626886.jpg" alt=""></p>
-<h3 id="关键点说明"><a href="# 关键点说明" class="headerlink" title="关键点说明"></a>关键点说明 </h3><h4 id="1- 关于 -Metaspace"><a href="#1- 关于 -Metaspace" class="headerlink" title="1. 关于 Metaspace"></a>1. 关于 Metaspace</h4><p> 为了解决持久代内存溢出 &amp; 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。</p>
+<h3 id="关键点说明"><a href="# 关键点说明" class="headerlink" title="关键点说明"></a>关键点说明 </h3><h4 id="1- 关于 -Perm- 区 -amp-Metaspace"><a href="#1- 关于 -Perm- 区 -amp-Metaspace" class="headerlink" title="1. 关于 Perm 区 &amp; Metaspace"></a>1. 关于 Perm 区 &amp; Metaspace</h4><p> 为了解决持久代内存溢出 &amp; 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。</p>
 <p>我个人理解最大不同在于：1.8 之前，持久代与 Heap &amp; Stack 都归属 <strong> 虚拟机内存 </strong>，而 Metaspace 侧使用的<strong> 本地内存 </strong>（native memory），<strong> 默认不做限制</strong>。</p>
-<p>但是我们通常还是习惯设置 <code>-XX:MaxMetaspaceSize</code> 参数，类占据的空间还是有可能超过指定的空间大小，造成<code>java.lang.OutOfMemoryError: Metaspace</code> 异常  ，最终导致文章开头说的那个故障。</p>
-<h4 id="2- 关于 -Stack-Frame- 中的数据"><a href="#2- 关于 -Stack-Frame- 中的数据" class="headerlink" title="2. 关于 Stack Frame 中的数据"></a>2. 关于 Stack Frame 中的数据 </h4><p> 程序运行本质上是方法的套娃调用，也就是不断入栈与出栈的过程。</p>
+<p><strong>既然没有限制，文章开头故障为什么还会发生呢？？</strong><br>因为通常还是习惯设置 <code>-XX:MaxMetaspaceSize</code> 参数。。所以如果代码编写不当，类占据的空间还是很可能超过指定的空间大小，造成<code>java.lang.OutOfMemoryError: Metaspace</code> 异常 :(</p>
+<h4 id="2- 关于栈帧（Stack-Frame）"><a href="#2- 关于栈帧（Stack-Frame）" class="headerlink" title="2. 关于栈帧（Stack Frame）"></a>2. 关于栈帧（Stack Frame）</h4><p>程序运行本质上是方法的套娃调用，也就是不断入栈与出栈的过程。</p>
 <p>而每个栈帧（Stack Frame）中，本地变量（Local Variables）与 Heap 的关系如下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16307786911033.jpg" alt=""></p>
-<h4 id="3- 关于运行时常量池 -Run-Time-Constant-Pool"><a href="#3- 关于运行时常量池 -Run-Time-Constant-Pool" class="headerlink" title="3. 关于运行时常量池 Run-Time Constant Pool"></a>3. 关于运行时常量池 Run-Time Constant Pool</h4><h5 id="1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用"><a href="#1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用" class="headerlink" title="1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用"></a>1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用 </h5><p> 参考下面的例子，通过 <code>javac</code>  + <code>javap</code>查看编译后的 <code>.class</code> 文件：</p>
+<h4 id="3- 关于运行时常量池（Run-Time-Constant-Pool）"><a href="#3- 关于运行时常量池（Run-Time-Constant-Pool）" class="headerlink" title="3. 关于运行时常量池（Run-Time Constant Pool）"></a>3. 关于运行时常量池（Run-Time Constant Pool）</h4><h5 id="1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用"><a href="#1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用" class="headerlink" title="1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用"></a>1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用 </h5><p> 参考下面的例子，通过 <code>javac</code>  + <code>javap</code>查看编译后的 <code>.class</code> 文件：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scratch</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"methodA()...."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"methodB()...."</span>);</span><br><span class="line">        methodA();</span><br><span class="line">        num++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. javac Scratch.java </span></span><br><span class="line"><span class="comment">// 源代码转化为字节码（byte code = 1111_1111），</span></span><br><span class="line"><span class="comment">// 2. javap -v Scratch.class</span></span><br><span class="line"><span class="comment">// The `javap` tool is used to get the information of any class or interface.</span></span><br><span class="line">➜  test git:(master) ✗ javap -v Scratch      </span><br><span class="line">Warning: Binary file Scratch contains test.Scratch</span><br><span class="line">Classfile /Users/henry/IdeaProjects/Head-First-Design-Patterns/src/test/Scratch<span class="class">.<span class="keyword">class</span></span></span><br><span class="line"><span class="class">  <span class="title">Last</span> <span class="title">modified</span> <span class="title">Aug</span> 15, 2021</span>; size <span class="number">554</span> bytes</span><br><span class="line">  MD5 checksum <span class="number">1</span>dac5a22a5ccc66bfd64ee3185a1587e</span><br><span class="line">  Compiled from <span class="string">"Scratch.java"</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span>.<span class="title">Scratch</span></span></span><br><span class="line">  minor version: 0</span><br><span class="line">  major version: <span class="number">52</span></span><br><span class="line">  flags: ACC_PUBLIC, ACC_SUPER</span><br><span class="line">Constant pool:</span><br><span class="line">   #1 = Methodref          #9.#20         // java/lang/Object."&lt;init&gt;":()V</span><br><span class="line">   #2 = Fieldref           #8.#21         // test/Scratch.num:I</span><br><span class="line">   #3 = Fieldref           #22.#23        // java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">   #4 = String             #24            // methodA()....</span><br><span class="line">   #5 = Methodref          #25.#26        // java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">   #6 = String             #27            // methodB()....</span><br><span class="line">   #7 = Methodref          #8.#28         // test/Scratch.methodA:()V</span><br><span class="line">   #8 = Class              #29            // test/Scratch</span><br><span class="line">   #9 = Class              #30            // java/lang/Object</span><br><span class="line">  #10 = Utf8               num</span><br><span class="line">  #11 = Utf8               I</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
 
 <p>可以看到 class 文件包含一段 <code>Constant pool</code> 区域，用于存放编译期生成的各种字面量（ Literal ）和 符号引用（Symbolic References）。不难理解，在编译阶段，并不知道所引用类 / 方法的地址（实际地址），所以将 <strong> 符号引用 </strong> 保存至变量池（Constant pool）</p>
@@ -493,7 +493,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-text">引言 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、走近 -Java"><span class="nav-text">一、走近 Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、自动内存管理"><span class="nav-text">二、自动内存管理 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java- 内存区域"><span class="nav-text">Java 内存区域 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键点说明"><span class="nav-text">关键点说明 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1- 关于 -Metaspace"><span class="nav-text">1. 关于 Metaspace</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2- 关于 -Stack-Frame- 中的数据"><span class="nav-text">2. 关于 Stack Frame 中的数据 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3- 关于运行时常量池 -Run-Time-Constant-Pool"><span class="nav-text">3. 关于运行时常量池 Run-Time Constant Pool</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用"><span class="nav-text">1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用 </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）所以 -Run-Time-Constant-Pool- 是什么？"><span class="nav-text">2）所以 Run-Time Constant Pool 是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3）总而言之"><span class="nav-text">3）总而言之 </span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、垃圾收集器与内存分配策略"><span class="nav-text">三、垃圾收集器与内存分配策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-End"><span class="nav-text">The End</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-text">引言 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、走近 -Java"><span class="nav-text">一、走近 Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、自动内存管理"><span class="nav-text">二、自动内存管理 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java- 内存区域"><span class="nav-text">Java 内存区域 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键点说明"><span class="nav-text">关键点说明 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1- 关于 -Perm- 区 -amp-Metaspace"><span class="nav-text">1. 关于 Perm 区 &amp; Metaspace</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2- 关于栈帧（Stack-Frame）"><span class="nav-text">2. 关于栈帧（Stack Frame）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3- 关于运行时常量池（Run-Time-Constant-Pool）"><span class="nav-text">3. 关于运行时常量池（Run-Time Constant Pool）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）首先理解 -class- 文件的常量池（Constant-Pool）-amp- 符号应用"><span class="nav-text">1）首先理解 class 文件的常量池（Constant Pool）&amp; 符号应用 </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）所以 -Run-Time-Constant-Pool- 是什么？"><span class="nav-text">2）所以 Run-Time Constant Pool 是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3）总而言之"><span class="nav-text">3）总而言之 </span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、垃圾收集器与内存分配策略"><span class="nav-text">三、垃圾收集器与内存分配策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-End"><span class="nav-text">The End</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -747,7 +747,7 @@
         config: {page: {
             url: "https://changchen.me/blog/20210904/jvm-note/",
             identifier: "blog/20210904/jvm-note/",
-            title: "Java 内存管理 - 学习小记"
+            title: "Java 内存管理 - SRE 的必修课"
           }
         }
       });
