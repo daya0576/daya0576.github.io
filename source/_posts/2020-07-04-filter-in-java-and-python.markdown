@@ -1,5 +1,5 @@
 ---
-title: "在 java & python 中，如何优雅的筛选一堆苹果\U0001F914"
+title: "在 Java & Python 中，如何优雅的筛选一堆苹果\U0001F914"
 tags:
   - java
   - python

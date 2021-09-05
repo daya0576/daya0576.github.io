@@ -1,11 +1,11 @@
 ---
-title: Java 内存管理 - 学习小记
+title: Java 内存管理 - SRE 的必修课
 date: 2021-09-04 16:31:21
 tags: java
 ---
 
 
-> 当前公司技术栈中 Java 是一等公民👍，所以从去年开始被迫营业，从头开始了解和学习这门语言。
+> 当前公司技术栈中 Java 是一等公民 :(，所以从去年开始被迫营业，从头开始了解和学习这门语言。
 >
 > 本篇文章是阅读《深入理解 JVM 虚拟机》的读书小记，主要通过绘图与分享的方式，加深自己的理解。
 
@@ -40,20 +40,21 @@ tags: java
 
  
 ### 关键点说明
-#### 1. 关于 Metaspace
+#### 1. 关于 Perm 区 & Metaspace
 为了解决持久代内存溢出 & 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。
 
 我个人理解最大不同在于：1.8 之前，持久代与 Heap & Stack 都归属**虚拟机内存**，而 Metaspace 侧使用的**本地内存**（native memory），**默认不做限制**。
 
-但是我们通常还是习惯设置 `-XX:MaxMetaspaceSize` 参数，类占据的空间还是有可能超过指定的空间大小，造成`java.lang.OutOfMemoryError: Metaspace` 异常  ，最终导致文章开头说的那个故障。
+**既然没有限制，文章开头故障为什么还会发生呢？？**   
+因为通常还是习惯设置 `-XX:MaxMetaspaceSize` 参数。。所以如果代码编写不当，类占据的空间还是很可能超过指定的空间大小，造成`java.lang.OutOfMemoryError: Metaspace` 异常 :(
 
-#### 2. 关于 Stack Frame 中的数据
+#### 2. 关于栈帧（Stack Frame）
 程序运行本质上是方法的套娃调用，也就是不断入栈与出栈的过程。
 
 而每个栈帧（Stack Frame）中，本地变量（Local Variables）与 Heap 的关系如下：
 ![](/images/blog/2021-09-04-jvm-note/16307786911033.jpg)
 
-#### 3. 关于运行时常量池 Run-Time Constant Pool
+#### 3. 关于运行时常量池（Run-Time Constant Pool）
 ##### 1）首先理解 class 文件的常量池（Constant Pool）& 符号应用
 参考下面的例子，通过 `javac`  + `javap`查看编译后的 `.class` 文件：
 ```java

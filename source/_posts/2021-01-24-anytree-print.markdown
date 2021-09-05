@@ -1,5 +1,5 @@
 ---
-title: 如何对一棵树进行可视化（python anytree 简易实现）
+title: 树的可视化 - Python anytree 实现
 tags:
   - python
 date: 2021-01-24 15:10:08
