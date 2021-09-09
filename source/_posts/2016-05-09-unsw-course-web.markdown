@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "my UNSW CSE course website"
+title: "UNSW CSE 课程评价网站 - 心路历程"
 date: 2016-05-09 11:18:58
 comments: true
 tags: [unsw, cse]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Django Subquery(Django 子查询)"
+title: "Django 子查询(Subquery)"
 date: 2015-12-27 22:09:03
 comments: true
 tags: [django]

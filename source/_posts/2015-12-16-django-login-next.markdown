@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "django登录或注销后跳转到之前的页面"
+title: "Django 登录或注销后跳转到之前的页面"
 date: 2015-12-16 10:42:43
 comments: true
 tags: [django, python]

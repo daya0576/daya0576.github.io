@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "cousera_comments总和"
+title: "Coursera 作业互评"
 date: 2014-04-29 17:29:28
 comments: true
 tags: [study, python, cousera]
 ---
 
 >《An Introduction to Interactive Programming in Python》
+
 **这门课程的大作业是随机五个人互评**。  
 突然想去看看之前mini_project别人给我的评价    
 不看不知道  一看吓一跳    
@@ -15,22 +16,19 @@ tags: [study, python, cousera]
 
 <!--more-->
 
-
-
-# Mini-project # 1 - Rock-paper-scissors-lizard-Spock   
-![ico_topitme](\images\blog\140430_cousera\3.png)   
-![ico_topitme](\images\blog\140430_cousera\4.png)
+![ico_topitme](/images/blog/140430_cousera/3.png)   
+![ico_topitme](/images/blog/140430_cousera/4.png)
 
 
 # Mini-project # 2 - "Guess the number" game"   
-![ico_topitme](\images\blog\140430_cousera\5.png)     
-![ico_topitme](\images\blog\140430_cousera\6.png)   
-![ico_topitme](\images\blog\140430_cousera\7.png)     
+![ico_topitme](/images/blog/140430_cousera/5.png)     
+![ico_topitme](/images/blog/140430_cousera/6.png)   
+![ico_topitme](/images/blog/140430_cousera/7.png)     
 
 
 # Mini-project # 4 - "Pong"   
-![ico_topitme](\images\blog\140430_cousera\4_1.png)     
-![ico_topitme](\images\blog\140430_cousera\4_2.png) 
+![ico_topitme](/images/blog/140430_cousera/4_1.png)     
+![ico_topitme](/images/blog/140430_cousera/4_2.png) 
 
 
 ---
