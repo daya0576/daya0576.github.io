@@ -4722,8 +4722,8 @@
 </ol>
 ]]></content>
       <tags>
-        <tag>algorithm</tag>
         <tag>interview</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -5138,43 +5138,6 @@ Versioning Classes(略).<br>Stable Import Paths(略).    </li>
       </tags>
   </entry>
   <entry>
-    <title>"Hey Jimmy Kimmel I Told My Kids I Ate All Their Halloween Candy."</title>
-    <url>/blog/20161106/candy/</url>
-    <content><![CDATA[<p>The <strong>all 6 videos</strong> in the past five years of &quot;YouTube Challenge - I Told My Kids I Ate All Their Halloween Candy 2016&quot;      </p>
-<a id="more"></a>
-
-
-
-<blockquote>
-<p><code>2016</code>   </p>
-<iframe style="max-width: 100%;" width="600" height="450" src="https://www.youtube.com/embed/NOwEwJD_p2w"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-</blockquote>
-<blockquote>
-<p><code>2015</code>   </p>
-<iframe style="max-width: 100%;" width="600" height="450" src="https://www.youtube.com/embed/N1pTZTHZF4E"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-</blockquote>
-<blockquote>
-<p><code>2014</code>    </p>
-<iframe style="max-width: 100%;" width="600" height="450" src="https://www.youtube.com/embed/1NDkVx9AzSY"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-</blockquote>
-<blockquote>
-<p><code>2013</code>    </p>
-<iframe style="max-width: 100%;" width="600" height="450" src="https://www.youtube.com/embed/RK-oQfFToVg"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-</blockquote>
-<blockquote>
-<p><code>2012</code>    </p>
-<iframe style="max-width: 100%;" width="600" height="450" src="https://www.youtube.com/embed/WOlpdd7y8MI"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-</blockquote>
-<blockquote>
-<p><code>2011</code>    </p>
-<iframe style="max-width: 100%;" width="600" height="450" src="https://www.youtube.com/embed/_YQpbzQ6gzs"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>youtube</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>comp9041 Assignment2 Matelook Implementation</title>
     <url>/blog/20161029/comp9041-assignment2-matelook/</url>
     <content><![CDATA[<blockquote>
@@ -5320,32 +5283,20 @@ Versioning Classes(略).<br>Stable Import Paths(略).    </li>
     <content><![CDATA[<p> 这几日总是回忆起大二学校组织的在东软一个月的实习,  写下这片日志来怀念那段无比美好的时光.     </p>
 <a id="more"></a>
 
-
-<blockquote>
-<p><strong> 总体介绍: **<br> 在项目实践中担任 </strong>7 人团队的组长 <strong>, 学习企业的标准开发流程, 例如在编码前先进行需求分析，制定了流程图和概要设计书, 在开发中记录日报周报, 组织每周会议等。<br>** 编码部分:</strong><br>1. 图形界面: 在 ubuntu 中利用 GTK 完成了各个界面的自行设计和实现。<br>2. 网络通信层: 利用 c 语言实现好友上下线状态显示，单聊，群聊，文件传输等功能。<br>3. 数据存储及管理: 利用 c 语言存储用户信息, 保存并管理聊天记录等功能。   </p>
-</blockquote>
-<blockquote>
+<p><strong> 总体介绍:</strong><br> 在项目实践中担任 7 人团队的组长, 学习企业的标准开发流程, 例如在编码前先进行需求分析，制定了流程图和概要设计书, 在开发中记录日报周报, 组织每周会议等。   </p>
+<p><strong> 编码部分:</strong><br>1. 图形界面: 在 ubuntu 中利用 GTK 完成了各个界面的自行设计和实现。<br>2. 网络通信层: 利用 c 语言实现好友上下线状态显示，单聊，群聊，文件传输等功能。<br>3. 数据存储及管理: 利用 c 语言存储用户信息, 保存并管理聊天记录等功能。   </p>
 <p><strong> 背景:</strong> 那是大二的暑假吧, 学校组织的为期一个月的东软实习. 第一个星期介绍了 linux, c, 企业开发流程 的一些基本知识. 然后以七八人一小组完成一个完整的项目. 当时是自荐当组长, 当最后一个名额时, 羞涩的我鼓起勇气当了组长 (其实还是很感激当时的老师, 给了我好几个鼓励的眼神), 然后每个组长一轮一轮挑选自己的组员.<br><img style="max-height:340px" class="lazy" data-original="/images/blog/160909_uchat/1.png"></p>
-</blockquote>
-<blockquote>
 <p><strong> 项目介绍:</strong> 当时的项目是做一个局域网内基于 linux 的即时聊天软件, 印象比较深的是第一次接触比较专业的开发流程. 还记得老师总是强调说编码只是整个开发流程中一部分,  现在写越久的代码, 真的是越有体会当时的一些道理.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/160909_uchat/table.png"></p>
-</blockquote>
-<blockquote>
 <p><strong> 开发回忆:</strong>  当时的住宿条件还是很不错的, 两人间还带阳台, 晚上我们还会聚在一起打 dota, 哈哈. 我总会买瓶奶边写代码边喝, 中午午休的时候还会和国臣踢踢实况.<br> 开发中印象比较深的几个回忆:     </p>
-</blockquote>
 <ol>
 <li> 用 gtk 写整个软件外观的时候, 我突发奇想直接用一个表格放到整个窗口上, 这样就能很方便的把各个控件固定到想要放的位置上, 因为这个自己还小小得意了好久, 哈哈.      </li>
 <li> 当时点对点的聊天是用 tcp 写的, 记得当时代码有一些 bug, 下午结束后, 一个人呆在实验室, 在好几台电脑上调代码, 最后终于弄好后走出大楼时, 天都已经黑了~~  重点是之后项目结束时有一次偶尔看到网上别人写的 socket 通讯的代码, 真的是被简洁的代码和清晰的注释震惊了, 原来代码可以这么写的这么漂亮...            </li>
 <li> 当时有两种架构, 一种是一个 server 多个 clients 的结构, 另一种是, 没有 server 的架构, 我当时觉得没有 server 的必要, 每个人上线的时候就会向所有好友发送信号告诉他们我上线了, 但最后实现的时候还是造成很多麻烦.      </li>
 <li> 哈哈, 当时国臣执着于实现一个窗口抖动, 最后还是让他实现了, 效果还是特别不错的 哈哈哈.<br> 当时几个女组员做的 ppt....      <img style="max-height:400px" class="lazy" data-original="/images/blog/160909_uchat/3.png">
 
-
-
 </li>
 </ol>
-<blockquote>
 <p><strong> 总结:</strong> 总的来说真的是特别怀念那段时光把, 慵懒的阳光, 稚嫩的代码, 负责任的老师, 友好的同学... 可惜永远回不去了~~           </p>
-</blockquote>
 ]]></content>
       <tags>
         <tag>c</tag>
@@ -5667,34 +5618,7 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       </tags>
   </entry>
   <entry>
-    <title>设置百度 ueditor 默认字体</title>
-    <url>/blog/20160625/ueditor-default-font/</url>
-    <content><![CDATA[<p>想把编辑器的默认字体设成微软雅黑，但找了好久都没找到解决的方法。<br>终于成功了，小激动，纪念一下。<br>感谢这位博主：<a href="http://m.blog.csdn.net/article/details?id=46697997">http://m.blog.csdn.net/article/details?id=46697997</a></p>
-<a id="more"></a>
-
-
-<p>在 <code>ueditor.config.js</code> 中，关键是要加 p 定义段落的字体就可以了，<br>这是我的设置：    </p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">initialStyle:'p&#123;line-height:1em; font-size: 14px;font-family:Microsoft YaHei;'   </span><br><span class="line">// 编辑器层级的基数, 可以用来改变字体等</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <tags>
-        <tag>ueditor</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>my UNSW CSE course website</title>
+    <title>UNSW CSE 课程评价网站 - 心路历程</title>
     <url>/blog/20160509/unsw-course-web/</url>
     <content><![CDATA[<blockquote>
 <p>想了想，还是写篇文章，记录一下我做这个网站以来心路历程.<br><a href="http://www.unsw.co">unsw.co</a> or <a href="http://u.changchen.me">u.changchen.me</a>    </p>
@@ -5934,63 +5858,7 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       </tags>
   </entry>
   <entry>
-    <title>django social auth 插件实践</title>
-    <url>/blog/20160215/django-social-auth-own/</url>
-    <content><![CDATA[<p>一群懒人，连注册都不愿意。<br>折腾了一天终于把自己的网站加上了第三方登录。<br><a href="http://u.changchen.me/accounts/login">http://u.changchen.me/accounts/login</a></p>
-<a id="more"></a>
-
-<p>Facebook github 和 Google 都搞定了，就差最后一个微博了，因为要等审核身份。。<br><img  style="max-height:300px" class="lazy" data-original="/images/blog/160215_django_social_auth/title.jpg">     </p>
-<p>最后的效果，放弃微博登陆了，因为审核完身份，<br>网站没有在中国备案还不能用。。也是 @#￥%&amp;*%……<br>用 twitter 替代了，图标是用 <code>Fortawesome</code> 的图标，真是方便快捷。<br><img  style="max-height:350px" class="lazy" data-original="/images/blog/160215_django_social_auth/final_django_social.jpg">     </p>
-<p>整个效果是用 <a href="https://github.com/omab/django-social-auth">django-social-auth</a> 这个插件实现的。<br>文档在这：<a href="http://django-social-auth.readthedocs.org/en/latest/">http://django-social-auth.readthedocs.org/en/latest/</a></p>
-<p>需要注意的几点（被各种问题折腾了一天一夜）：   </p>
-<ol>
-<li>要是遇到最后一步登录失败，一定要加 <code>http://your.domain/complete/××××××/</code> 到各个 api 的 <code>Authorized redirect URIs</code> 里。<br>所以登录后跳转最后无法登陆。    </li>
-<li>一定要在本地调试好再发布到网上，用 localhost 替代 127.0.0.1，放到 <code>Authorized redirect URIs</code> 就可以了。<br>适用于 window（stackoverflow 上的一个回答）：<a href="http://stackoverflow.com/questions/8798016/how-to-locally-debug-facebook-php-apps">How to locally debug Facebook App</a>   </li>
-<li>最后的时候我遇到一个 bug 折磨了我一个下午，就是 Facebook logining works perfectly locally, but redirecting to login error page in the remote.<br>Google 这个也没有什么好的回答，最可怕的 bug 就是没有提示的 bug 把、、<br>最后新建了一个 Facebook App，把 remote 和 local App 分开，竟然就可以了，也不知道是为什么。     </li>
-<li>还有一个问题就是如何获取邮箱，文档上说是在 setting 里加上参数<code>FACEBOOK_EXTENDED_PERMISSIONS = [&#39;email&#39;]</code>, 然而好像并没有什么 ruan 用。再研究一下。    </li>
-</ol>
-]]></content>
-      <tags>
-        <tag>django</tag>
-        <tag>oauth</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Algorithms, Part I - coursera</title>
-    <url>/blog/20160205/algorithm-1-coursera/</url>
-    <content><![CDATA[<p> 新学了一门 Coursera 的课叫做《Algorithms, Part I》 from Princeton University<br> 这门课还是挺有难度的，可能我听力不太好吧、、、<br> 写下这篇日志记录一下心路历程    </p>
-<a id="more"></a>
-
-<p> 我写了一份作业用到的 python 代码，<br> 放到 github 上了：<a href="https://github.com/daya0576/Algorithms-Part-I-Princeton-University-Python-">https://github.com/daya0576/Algorithms-Part-I-Princeton-University-Python-</a><br><a href="mailto:git@github.com">git@github.com</a>:daya0576/Algorithms-Part-I-Princeton-University-Python-.git</p>
-<blockquote>
-<p>Week 1: Union-Find (50:54)<br> 讲的其实是图的 union 和 connected，<br> 印象最深的是这个简单的代码有很多很广的应用，比如 Facebook 各个人的关系和图形处理。    </p>
-</blockquote>
-<blockquote>
-<p>Week 1: Analysis of Algorithms (65:32)<br> 讲的是时间复杂度和空间复杂度，看到这个题也是醉了，这个课后练习确实有点坑，幸好可以尝试十遍。<br> 还有一个印象深刻的地方就是课程的设计者用算法随机生成了课后练习，但每个题考的知识点是一样的，<br> 无论你尝试几次只有把这个问题真正弄明白才能把题答对。<br><img  style="max-height:430px" class="lazy" data-original="/images/blog/160205_algorithm_coursera/algorithm.jpg"></p>
-</blockquote>
-<blockquote>
-<p>Week 2: Stacks and Queues (61:00)<br>Python 的官方文档上就说明了怎么用 list 模拟 stack 和 queue     </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'''stack'''</span></span><br><span class="line">stack = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">stack.append(<span class="number">6</span>)</span><br><span class="line">stack.pop()</span><br><span class="line"></span><br><span class="line"><span class="string">'''queue'''</span></span><br><span class="line">queue = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">queue.append(<span class="number">6</span>)</span><br><span class="line">queue.poplfet()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <tags>
-        <tag>cousera</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django Subquery(Django 子查询)</title>
+    <title>Django 子查询 (Subquery)</title>
     <url>/blog/20151227/django-subquery/</url>
     <content><![CDATA[<p>今天实现了一个难题，就是在 Django 中实现子查询。      </p>
 <a id="more"></a>
@@ -6012,7 +5880,7 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       </tags>
   </entry>
   <entry>
-    <title>django 登录或注销后跳转到之前的页面</title>
+    <title>Django 登录或注销后跳转到之前的页面</title>
     <url>/blog/20151216/django-login-next/</url>
     <content><![CDATA[<p>今天终于解决了项目中的一个问题，就是登录成功后跳转到原先的页面。       </p>
 <a id="more"></a>
@@ -6028,64 +5896,6 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>python</tag>
         <tag>django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Django practice</title>
-    <url>/blog/20151129/django-rango-detail/</url>
-    <content><![CDATA[<p>最近用 django 搭了一个网站，用来收集 unsw 的课程经历。<br><a href="http://u.changchen.me" target="_blank">u.changchen.me</a></p>
-<a id="more"></a>
-
-
-<p>整个网站是从看 <a href="http://www.tangowithdjango.com/book17/">《tango with django》</a> 的教程一点点搭建起来的，<br>看完教程之后，对整个的 django 交互有了更深的理解。<br>还是挺不错的。    </p>
-<p>接下来要做的就是回答页面的设计，还有注册登录系统的完善。<br><img style="max-height:500px" class="lazy" data-original="/images/blog/151101_diary/1129-1.jpg"> </p>
-]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>django</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Octopress,jekyll 多说分享插件设置</title>
-    <url>/blog/20151016/duoshuo-sharing/</url>
-    <content><![CDATA[<p>偶然看到多说也推出了自家的分享插件，原来我用的是百度的分享插件，但它自带了一个对网站中所有图片鼠标划过时显示分享的效果，感觉有些鸡肋。换用多说的分享插件试试，感觉还不错。<br>官方链接：<a href="http://dev.duoshuo.com/threads/549a781ff07c81f20daba426">“期待已久分享插件上线”</a>    </p>
-<a id="more"></a>
-
-
-<p>代码 (注释的是原来百度的分享代码):<br> 还是直接截图好了，不然一些参数直接显示了。<br><img class="lazy" data-original="/images/blog/151014_diary/bsharing.png">    </p>
-<p><i class="fa fa-bug"></i><strong>其中碰到一个困难：</strong><br>就是在配置 data-url 的时候需要的是完整的页面 url<br>原来是想拼接一下字符串，但感觉有些麻烦，<br>后来看到了这个回答：<a href="http://stackoverflow.com/questions/10100565/how-to-get-absolute-path-of-jekyll-bootstrap-page">http://stackoverflow.com/questions/10100565/how-to-get-absolute-path-of-jekyll-bootstrap-page</a><br>于是就可以这么写：<img class="lazy" data-original="/images/blog/151014_diary/bsharing_part.png">（site 开头的是_config.yml 中自定义配置的参数）     </p>
-<p><i class="fa fa-hand-spock-o"></i>附 jekyll 中的参数说明：<a href="http://jekyllrb.com/docs/variables/">http://jekyllrb.com/docs/variables/</a>    </p>
-]]></content>
-      <tags>
-        <tag>octopress</tag>
-        <tag>duoshuo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>flask 安装配置遇到的问题</title>
-    <url>/blog/20151005/falsk-initial/</url>
-    <content><![CDATA[<blockquote>
-<p> 最近开始看一看 flask 开发，结果出师不利，一开始就碰到了问题。<br> 在运行 virtualenv venv 创建一个虚拟环境的时候报错了。<br>（我的 python 是 2.7 的。）   </p>
-</blockquote>
-<a id="more"></a>
-
-<p> 错误信息：   </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">F:\git\flask\myproject&gt;virtualenv wtf</span><br><span class="line">New python executable in wtf\Scripts\python.exe</span><br><span class="line">Installing setuptools, pip, wheel...</span><br><span class="line">  Complete output from command F:\git\flask\myproject\wtf\Scripts\python.exe -c &quot;import sys, pip; sys...d\&quot;] + sys.argv[1:]))&quot; setuptools pip wheel:</span><br><span class="line">  Ignoring indexes: https:&#x2F;&#x2F;pypi.python.org&#x2F;simple</span><br><span class="line">Collecting setuptools</span><br><span class="line">  ...</span><br><span class="line">warning and allow it anyways with &#39;--trusted-host None&#39;.</span><br><span class="line">  Could not find a version that satisfies the requirement setuptools (from versions:)</span><br><span class="line">No matching distribution found for setuptools</span><br><span class="line">----------------------------------------</span><br><span class="line">...Installing setuptools, pip, wheel...done.</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;I:\Program Files (x86)\python27\Scripts\virtualenv-script.py&quot;, line 9, in &lt;module&gt;</span><br><span class="line">    load_entry_point(&#39;virtualenv&#x3D;&#x3D;13.1.2&#39;, &#39;console_scripts&#39;, &#39;virtualenv&#39;)()</span><br><span class="line">  File &quot;I:\Program Files (x86)\python27\lib\site-packages\virtualenv-13.1.2-py2.7.egg\virtualenv.py&quot;, line 832, in main</span><br><span class="line">    symlink&#x3D;options.symlink)</span><br><span class="line">  File &quot;I:\Program Files (x86)\python27\lib\site-packages\virtualenv-13.1.2-py2.7.egg\virtualenv.py&quot;, line 1004, in create_environment</span><br><span class="line">    install_wheel(to_install, py_executable, search_dirs)</span><br><span class="line">  File &quot;I:\Program Files (x86)\python27\lib\site-packages\virtualenv-13.1.2-py2.7.egg\virtualenv.py&quot;, line 969, in install_wheel</span><br><span class="line">    &#39;PIP_NO_INDEX&#39;: &#39;1&#39;</span><br><span class="line">  File &quot;I:\Program Files (x86)\python27\lib\site-packages\virtualenv-13.1.2-py2.7.egg\virtualenv.py&quot;, line 910, in call_subprocess</span><br><span class="line">    % (cmd_desc, proc.returncode))</span><br><span class="line">OSError: Command F:\git\flask\myproject\wtf\Scripts\python.exe -c &quot;import sys, pip; sys...d\&quot;] + sys.argv[1:]))&quot; setuptools pip wheel failed with error code 1</span><br></pre></td></tr></table></figure>
-
-<p> 注意最后一行:<br><a style="color:red">&quot;OSError: Command F:\git\flask\myproject\wtf\Scripts\python.exe -c &quot;import sys, pip; sys...d&quot;] + sys.argv[1:]))&quot; setuptools pip wheel failed with error code 1&quot;</a></p>
-<p> 在网上找到了别人的一个解决方法:<br><a href="http://stackoverflow.com/questions/21826859/setting-up-a-virtualenv-no-module-named-pip">http://stackoverflow.com/questions/21826859/setting-up-a-virtualenv-no-module-named-pip</a>：<br> 和我的错误一样，但是 python3.3 的一个 bug，不知道为什么我会出现这个错误。<br> 但总算解决了，希望接下来不会有问题。   </p>
-<h2 id="解决方法"><a href="# 解决方法" class="headerlink" title="解决方法"></a> 解决方法 </h2><ul>
-<li>Run virtualenv venv --no-setuptools</li>
-<li>Activate that virtualenv (venv\Scripts\activate)</li>
-<li>Download and run <a href="/images/blog/151005_flask_init/get-pip.py">get-pip.py</a> to manually install pip &amp; setuptools into this virtualenv</li>
-<li>Continue as normal    </li>
-</ul>
-<p><strong> 总结：</strong> 遇到问题的时候要找到关键的错误信息，在最短时间搜到解决方法。<br> 不要浪费时间在漫无目的寻找答案上。   </p>
-]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>flask</tag>
-        <tag>virtualenv</tag>
       </tags>
   </entry>
   <entry>
@@ -6351,374 +6161,6 @@ Python 描述符（descriptor）解密
       </tags>
   </entry>
   <entry>
-    <title>dell inspiron7420 ubuntu13.04 触摸板设置</title>
-    <url>/blog/20140925/inspiron7420-touchpad/</url>
-    <content><![CDATA[<p>CSDN 以前写的博客 <br> 原地址： <a href="http://blog.csdn.net/dayadaya/article/details/20141673" title="http://blog.csdn.net/dayadaya/article/details/20141673">http://blog.csdn.net/dayadaya/article/details/20141673</a>   </p>
-<a id="more"></a>
-
-<div id="article_content" class="article_content">
-
-<h3><a name="t0"></a>废话不多说 &nbsp; &nbsp;
-/images/loading/loading.svg" data-original="<img src=""alt="">
-就是为了调出 touchpad 两只手指滚动的设置
-讽刺的是 google 了一个晚上还是在一个中文页面上找到了解决的方法</h3>
-<h3><a name="t1"></a>原因：</h3>
-<div>
-<h3 style="margin:0px 0px 0.3em; padding:0.5em 0px 0.17em; border-width:0px; border-bottom-style:none; line-height:19.046875px; font-family:sans-serif; font-size:17px; color:rgb(34,34,34); overflow:hidden"><a name="t2"></a>
-<span style="line-height:1.428571em"><span class="highlight" style="line-height:1.428571em; border:1px solid rgb(212,205,126); background-color:rgb(246,238,150)">Touchpad</span>&nbsp;detected as "PS/2 Generic Mouse" or "Logitech PS/2 mouse"</span></h3>
-<p style="margin-top:0.4em; margin-bottom:0.5em; padding-top:0px; padding-bottom:0px; border:0px; line-height:19.046875px; font-family:sans-serif; font-size:13px">
-This is caused by a<span style="line-height:1.428571em">&nbsp;</span><a target="_blank" href="https://bugzilla.kernel.org/show_bug.cgi?id=27442" rel="nofollow" shape="rect" style="margin:0px; padding:0px; border:0px; line-height:1.428571em; color:rgb(102,102,102); text-decoration:none; outline:none; font-weight:bold">kernel
- bug</a><span style="line-height:1.428571em">&nbsp;</span>which was fixed in kernel version 3.3. Wrongly detected touchpads cannot be configured with the Synaptic input driver. To fix this, simply install the<span style="line-height:1.428571em">&nbsp;</span><a target="_blank" title="AUR" href="https://wiki.archlinux.org/index.php/AUR" shape="rect" style="margin:0px; padding:0px; border:0px; line-height:1.428571em; color:rgb(102,102,102); text-decoration:none; outline:none; font-weight:bold">AUR</a><span style="line-height:1.428571em">&nbsp;</span>package<span style="line-height:1.428571em">&nbsp;</span><span style="line-height:1.428571em; font-family:monospace"><a target="_blank" href="https://aur.archlinux.org/packages/psmouse-alps-driver/" rel="nofollow" shape="rect" style="margin:0px; padding:0px; border:0px; line-height:1.428571em; color:rgb(102,102,102); text-decoration:none; outline:none; font-weight:bold">psmouse-alps-driver</a></span>.</p>
-<p style="margin-top:0.4em; margin-bottom:0.5em; padding-top:0px; padding-bottom:0px; border:0px; line-height:19.046875px; font-family:sans-serif; font-size:13px">
-Among the affected notebooks are the following models:</p>
-<ul style="margin:0.3em 0px 0px 1.6em; padding:0px; border:0px; line-height:19.046875px; list-style:square outside none; font-family:sans-serif; font-size:13px">
-<li style="margin:0px 0px 0.1em; padding:0px; border:0px; line-height:1.428571em">
-Acer Aspire 7750G</li><li style="margin:0px 0px 0.1em; padding:0px; border:0px; line-height:1.428571em">
-Dell Latitude E6230, E6520, E6430 and E6530 (ALPS DualPoint&nbsp;<span class="highlight" style="line-height:1.428571em; border:1px solid rgb(212,205,126); background-color:rgb(246,238,150)">TouchPad</span>),<span style="line-height:1.428571em"><span style="line-height:1.428571em; color:rgb(0,0,255)">&nbsp;Inspiron
- N5110 (ALPS GlidePoint), Inspiron 14R 5420/Turbo SE7420/SE7520 (ALPS GlidePoint)</span></span></li><li style="margin:0px 0px 0.1em; padding:0px; border:0px; line-height:1.428571em">
-Samsung NC110/NF210/QX310/QX410/QX510/SF310/SF410/SF510/RF410/RF510/RF710/RV515</li></ul>
-<p style="margin-top:0.4em; margin-bottom:0.5em; padding-top:0px; padding-bottom:0px; border:0px; line-height:19.046875px; font-family:sans-serif; font-size:13px">
-You can check whether your&nbsp;<span class="highlight" style="line-height:1.428571em; border:1px solid rgb(212,205,126); background-color:rgb(246,238,150)">touchpad</span>&nbsp;is correctly detected by running:</p>
-<pre style="margin-top:0px; margin-bottom:0px; padding:1em; border:1px solid rgb(187,204,221); line-height:1.1em; font-size:14px; color:rgb(34,34,34); background-color:rgb(235,241,245); overflow:auto">$ xinput list
-</pre>
-<p style="margin-top:0.4em; margin-bottom:0.5em; padding-top:0px; padding-bottom:0px; border:0px; line-height:19.046875px; font-family:sans-serif; font-size:13px">
-More information can be found in<span style="line-height:1.428571em">&nbsp;</span><a target="_blank" href="https://bbs.archlinux.org/viewtopic.php?id=117109" rel="nofollow" shape="rect" style="margin:0px; padding:0px; border:0px; line-height:1.428571em; color:rgb(102,102,102); text-decoration:none; outline:none; font-weight:bold">this
- thread</a>.</p>
-
-</div>
-<div>
-</div>
-<div>
-</div>
-<div>
-</div>
-<h3><a name="t3"></a>google 找到这个包 下载</h3>
-<h4><a name="t4"></a><span style="font-family:Consolas,'Bitstream Vera Sans Mono','Courier New',Courier,monospace; font-size:14px; line-height:15.390625px; background-color:rgb(250,250,250)">（psmouse-alps-1.3-alt.tbz）</span></h4>
-<p></p>
-<p>
-</p><table border="0" cellspacing="0" cellpadding="0" style="line-height:21px; font-size:14px; border-collapse:collapse; border-spacing:0px; color:rgb(69,69,69); font-family:Tahoma,Helvetica,Arial,STHeiti">
-<tbody style="line-height:1.428571em">
-</tbody>
-</table>
-<p></p>
-<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; border:0px; line-height:21px; font-size:14px; color:rgb(69,69,69); font-family:Tahoma,Helvetica,Arial,STHeiti">
-解压：</p>
-<table border="0" cellspacing="0" cellpadding="0" style="line-height:21px; font-size:14px; border-collapse:collapse; border-spacing:0px; color:rgb(69,69,69); font-family:Tahoma,Helvetica,Arial,STHeiti">
-<tbody style="line-height:1.428571em">
-<tr style="line-height:1.428571em">
-<td rowspan="1" colspan="1" style="line-height:1.428571em; padding:0px; margin:0px">
-<div style="margin:0px; padding:0px; border:0px; line-height:1.428571em; font-family:Helvetica,Arial,'Droid Sans',sans-serif; font-size:14px">
-<div style="padding:0px; border:0px; line-height:1.428571em; width:516.46875px; margin:1em 0px!important; font-size:1em!important; position:relative!important">
-<table border="0" cellspacing="0" cellpadding="0" style="">
-<tbody style="line-height:1.428571em">
-<tr style="">
-<td rowspan="1" colspan="1" style="">
-<div style="">1</div>
-</td>
-<td rowspan="1" colspan="1" style="">
-<div style="">
-<div style=""><code style="">tar</code><span style="line-height:1.428571em">&nbsp;</span><code style="">xvf psmouse-alps-1.3-alt.tbz</code></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</td>
-<td rowspan="1" colspan="1" style="line-height:1.428571em; padding:0px; margin:0px">
-&nbsp;</td>
-</tr>
-</tbody>
-</table>
-<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; border:0px; line-height:21px; font-size:14px; color:rgb(69,69,69); font-family:Tahoma,Helvetica,Arial,STHeiti">
-复制到 /usr/src 目录下：</p>
-<table border="0" cellspacing="0" cellpadding="0" style="line-height:21px; font-size:14px; border-collapse:collapse; border-spacing:0px; color:rgb(69,69,69); font-family:Tahoma,Helvetica,Arial,STHeiti">
-<tbody style="line-height:1.428571em">
-<tr style="line-height:1.428571em">
-<td rowspan="1" colspan="1" style="line-height:1.428571em; padding:0px; margin:0px">
-&nbsp;</td>
-<td rowspan="1" colspan="1" style="line-height:1.428571em; padding:0px; margin:0px">
-<div style="margin:0px; padding:0px; border:0px; line-height:1.428571em; font-family:Helvetica,Arial,'Droid Sans',sans-serif; font-size:14px">
-<div style="padding:0px; border:0px; line-height:1.428571em; width:516.46875px; margin:1em 0px!important; font-size:1em!important; position:relative!important">
-<table border="0" cellspacing="0" cellpadding="0" style="">
-<tbody style="line-height:1.428571em">
-<tr style="">
-<td rowspan="1" colspan="1" style="">
-<div style="">1</div>
-</td>
-<td rowspan="1" colspan="1" style="">
-<div style="">
-<div style=""><code style="">sudo</code><span style="line-height:1.428571em">&nbsp;</span><code style="">cp</code><span style="line-height:1.428571em">&nbsp;</span><code style="">-afr usr</code><code style="">/src/psmouse-alps-1</code><code style="">.3/<span style="line-height:1.428571em">&nbsp;</span></code><code style="">/usr/src/</code></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px; border:0px; line-height:21px; font-size:14px; color:rgb(69,69,69); font-family:Tahoma,Helvetica,Arial,STHeiti">
-安装：</p>
-<div style="margin:0px; padding:0px; border:0px; line-height:21px; font-family:Tahoma,Helvetica,Arial,STHeiti; font-size:14px; color:rgb(69,69,69)">
-<div style="padding:0px; border:0px; line-height:1.428571em; font-family:Helvetica,Arial,'Droid Sans',sans-serif; width:727.671875px; margin:1em 0px!important; font-size:1em!important; position:relative!important">
-<table border="0" cellspacing="0" cellpadding="0" style="">
-<tbody style="line-height:1.428571em">
-<tr style="">
-<td rowspan="1" colspan="1" style="">
-<div style="">1</div>
-<div style="">2</div>
-<div style="">3</div>
-</td>
-<td rowspan="1" colspan="1" style="">
-<div style="">
-<div style=""><code style="">sudo</code><span style="line-height:1.428571em">&nbsp;</span><code style="">cd</code><span style="line-height:1.428571em">&nbsp;</span><code style="">/usr/src/ppsmouse-alps-1</code><code style="">.3</code></div>
-<div style=""><code style="">sudo</code><span style="line-height:1.428571em">&nbsp;</span><code style="">dkms add .</code></div>
-<div style=""><code style="">.</code><code style="">/alps</code><code style="">.sh dkms_build_alps</code></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h4><a name="t5"></a>安装完驱动之后，synclient 就能识别出触摸板了。</h4>
-<div>但是发现触摸板变得非常不灵敏，有种想删驱动的感觉。。。</div>
-<div>
-</div>
-<div>但是 man synclient 一下，发现 syclient 的功能真的是强大的可怕，</div>
-<div>
-</div>
-<p>之后把</p>
-<p>FingerLow &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 12
-FingerHigh &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 15
-</p>
-<p>都调低后 &nbsp; 终于可以正常使用了</p>
-<p>
-</p>
-<p>哈哈哈哈哈哈！</p>
-<p>
-</p>
-<p>
-</p>
-
-</div>]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>inspiron7420 装 ubuntu13.04 后的设置</title>
-    <url>/blog/20140925/inspiron7420-setting-all/</url>
-    <content><![CDATA[<p>CSDN 以前写的博客 <br> 原地址： <a href="http://blog.csdn.net/dayadaya/article/details/20140765" title="http://blog.csdn.net/dayadaya/article/details/20140765">http://blog.csdn.net/dayadaya/article/details/20140765</a>   </p>
-<a id="more"></a>
-
-<div id="article_content" class="article_content">
-
-<div>
-<p>（部分代码摘自互联网）</p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif"><strong>1. 修复引导项</strong></span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">如果只是纯粹的装了 win7/win8 后没有了引导项 可以在 win7/win8 中用 easybcd 把 /boot 添加回来就行了。</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">要是。。完全把引导弄坏了。可以看一下下面这篇文章。</span></p>
-<div><span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif">Reinstall / Recover GRUB from Ubuntu live CD / USB</span></div>
-<div><span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif">http://www.howopensource.com/2012/05/reinstall-recover-grub-from-ubuntu-12-04-live-cd-usb/</span></div>
-<div><span style="font-size:12pt; font-family:times new roman,times,serif">用 ubuntu live 装一个叫做 boot-repair 的东西 &nbsp;&nbsp; 点修复 &nbsp; 等运行完点 ok 就行了</span><br clear="none">
-</div>
-<div>
-<pre style="margin-top:0px; margin-bottom:10px; padding:0px; border:0px; outline:0px; font-size:16px; vertical-align:baseline; background-color:rgb(199,199,184); font-family:'Courier New',monospace; color:rgb(51,51,51); line-height:16px"><span style="font-size:12pt; font-family:times new roman,times,serif">sudo add-apt-repository ppa:yannubuntu/boot-repair</span></pre>
-<pre style="margin-top:0px; margin-bottom:10px; padding:0px; border:0px; outline:0px; font-size:16px; vertical-align:baseline; background-color:rgb(199,199,184); font-family:'Courier New',monospace; color:rgb(51,51,51); line-height:16px"><span style="font-size:12pt; font-family:times new roman,times,serif">sudo apt-get update</span></pre>
-<pre style="margin-top:0px; margin-bottom:10px; padding:0px; border:0px; outline:0px; font-size:16px; vertical-align:baseline; background-color:rgb(199,199,184); font-family:'Courier New',monospace; color:rgb(51,51,51); line-height:16px"><span style="font-size:12pt; font-family:times new roman,times,serif">sudo apt-get install -y boot-repair</span></pre>
-<pre style="margin-top:0px; margin-bottom:10px; padding:0px; border:0px; outline:0px; font-size:16px; vertical-align:baseline; background-color:rgb(199,199,184); font-family:'Courier New',monospace; color:rgb(51,51,51); line-height:16px"><span style="font-size:12pt; font-family:times new roman,times,serif">boot-repair</span></pre>
-</div>
-<div><br clear="none">
-</div>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif"><strong>2.ctrl + alt + cursor 切换工作区间</strong></span><br clear="none">
-</p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">装了 ubuntu13.04 后第一个最大的感受就是。。我切换工作区间的快捷键怎么没有用了！！</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">当然先在设置中把 workspace 打开，还是不行</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">但在快捷键的列表中看到还是有这几个快捷键。。。最后在 ubuntuask 上看到了这么一个回答</span><br clear="none">
-</p>
-<p><span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif">“I had this same issue. I enabled workspace from
-<em>Appearance-&gt;Behavior</em>, and also tried using Ubuntu Tweak, but no go on the keyboard shortcuts, even though all the defaults were there.</span></p>
-<p><span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif">I then opened CCSM to make sure that the Desktop Wall was enabled. In my case it wasn't, and as soon as I enabled it, my keyboard shortcuts started working again.”</span></p>
-<p><span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif"><span style="color:rgb(51,51,51)">然后我就装了一下 CCSM，把</span><span style="color:rgb(51,51,51)">Desktop Wall 这个选项勾上。。结果真的完全恢复正常了。</span>
-</span></p>
-<p><br clear="none">
-</p>
-<span style="font-size:12pt; font-family:times new roman,times,serif"><strong>3. 更新软件源 &nbsp;</strong></span></div>
-<div><span style="font-size:12pt; font-family:times new roman,times,serif">不知道是不是 163 的源里没有 13.04，我直接从 12.10 升级的时候悲剧了。</span></div>
-<div><span style="font-size:12pt; font-family:times new roman,times,serif">然后现在让它自动检测最快的源，现在就用 china 的第一个源，貌似也挺好用。</span></div>
-<div><br clear="none">
-<p><span style="font-size:12pt; font-family:times new roman,times,serif"><strong>4. 双显卡</strong></span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">一开机笔记本就轰轰轰的掉点 &nbsp;&nbsp;&nbsp;&nbsp; 就按以前的方法把独显关了算了 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; intel 的独显绝对够用了。</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">cat&nbsp; /sys/kernel/debug/vgaswitcheroo/switch</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">echo "OFF" &gt; /sys/kernel/debug/vgaswitcheroo/switch</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">可以前好像出现过在 ubuntu 中把 nvidia 禁用了 &nbsp;&nbsp; 结果 win7 中也开不起来了。&nbsp;</span></p>
-<p><br clear="none">
-</p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif"><strong>5. 输入法</strong></span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">以前还装了搜狗的输入法。感觉一般吧</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">这次在 ubuntu 中用了谷歌的输入法 真的给了我很大的惊喜</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">输入时光标终于能跟着拼音动 &nbsp;&nbsp;&nbsp;&nbsp; 感觉和 windows 的体验也没什么区别了。</span></p>
-<p><br clear="none">
-</p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif"><strong>6. 开机的亮度</strong></span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">这肯定都知道吧 <br clear="none">
-</span></p>
-<table>
-<tbody>
-<tr style="margin:0px; padding:0px; border:0px; font-size:12px; vertical-align:baseline; background-color:transparent">
-<td colspan="1" rowspan="1" style="margin:0px; padding:0px; border:0px; vertical-align:top; background-color:transparent">
-<div style="margin:0px 5px 5px 0px; padding:0px; border:0px; font-size:14px; vertical-align:baseline; background-color:transparent; width:660px; word-wrap:break-word; line-height:1.3">
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif">The file /etc/rc.local should look like this:</span></p>
-<pre style="margin-top:0px; margin-bottom:10px; padding:5px; border:0px; vertical-align:baseline; background-color:rgb(238,238,238); overflow:auto; width:auto; max-height:600px; font-family:'Ubuntu Mono','Ubuntu Beta Mono A',Consolas,'Bitstream Vera Sans Mono','Courier New',Courier,monospace; word-wrap:normal"><span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif"><code style="margin:0px; padding:0px; border:0px; font-size:14px; vertical-align:baseline; font-family:'Ubuntu Mono','Ubuntu Beta Mono A',Consolas,'Bitstream Vera Sans Mono','Courier New',Courier,monospace; color:rgb(34,34,34)">#!/bin/sh -e
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
-echo 0 &gt; /sys/class/backlight/acpi_video0/brightness
-exit 0
-</code></span></pre>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif">Per @zerdo: In my dell studio 1558 the brightness setting is stored in<code style="margin:0px; padding:1px 5px; border:0px; font-size:14px; vertical-align:baseline; background-color:#eeeeee; font-family:'Ubuntu Mono','Ubuntu Beta Mono A',Consolas,'Bitstream Vera Sans Mono','Courier New',Courier,monospace; color:#222222">/sys/class/backlight/intel_backlight/brightness</code>.
- Just change the path if your computer doesn't use the acpi_video0 folder.</span></p>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="color:rgb(128,128,128); font-size:12pt; font-family:times new roman,times,serif">Also, per @Nick : If this is the only answer you read, note that the 0 in&nbsp;<code style="margin:0px; padding:1px 5px; border:0px; font-size:14px; vertical-align:baseline; background-color:#eeeeee; font-family:'Ubuntu Mono','Ubuntu Beta Mono A',Consolas,'Bitstream Vera Sans Mono','Courier New',Courier,monospace; color:#222222">echo
- 0</code>&nbsp;is going to be your default brightness setting. I had set this up and it was driving me crazy for a long time : every time I booted up, it would set it to the lowest brightness setting. I prefer mine to start at max brightness, so I used&nbsp;<code style="margin:0px; padding:1px 5px; border:0px; font-size:14px; vertical-align:baseline; background-color:#eeeeee; font-family:'Ubuntu Mono','Ubuntu Beta Mono A',Consolas,'Bitstream Vera Sans Mono','Courier New',Courier,monospace; color:#222222">echo
- 10</code>instead. Your hardware might vary in brightness scale.</span></p>
-<pre><span style="font-size:12pt; font-family:'times new roman',times,serif"><code>sudo gedit <span style="color:rgb(128,128,128)">/etc/rc.local<br clear="none">在 exit 0 前加上</span><br clear="none">echo 2 &gt; /sys/class/backlight/acpi_video0/brightness</code></span></pre>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="font-size:12pt; font-family:times new roman,times,serif">0～10 代表不同的亮度。</span><br clear="none">
-</p>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="font-size:12pt; font-family:times new roman,times,serif"><span style="font-family:'times new roman',times,serif; font-size:14px">作者：daya0576 &nbsp;（天津工大）qq 746058508 &nbsp; &nbsp; 欢迎有志同道合的朋友一起学习一起进步</span><br clear="none">
-</span></p>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="font-size:12pt; font-family:times new roman,times,serif">7. 截图小工具 &nbsp; <br clear="none">
-</span></p>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="font-size:12pt; font-family:times new roman,times,serif">&nbsp;&nbsp;&nbsp; <span style="color:rgb(51,51,51); font-family:tahoma, 宋体; font-size:14px; line-height:22px; background-color:rgb(239,239,239)">
-sudo apt-get install ksnapshot</span></span></p>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="font-size:12pt; font-family:times new roman,times,serif"><span style="color:rgb(51,51,51); font-family:tahoma, 宋体; font-size:14px; line-height:22px; background-color:rgb(239,239,239)">结果后来发现 ubuntu 有截图的快捷键 &nbsp;</span><br clear="none">
-</span></p>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="font-size:12pt; font-family:times new roman,times,serif"><span style="color:rgb(51,51,51); font-family:tahoma, 宋体; font-size:14px; line-height:22px; background-color:rgb(239,239,239)">/images/loading/loading.svg" data-original="<img src=""alt="">
-</span></span></p>
-<p style="margin-top:0px; margin-bottom:1em; padding-top:0px; padding-bottom:0px; border:0px; vertical-align:baseline; background-color:transparent; clear:both">
-<span style="font-size:12pt; font-family:times new roman,times,serif"><span style="color:rgb(51,51,51); font-family:tahoma, 宋体; font-size:14px; line-height:22px; background-color:rgb(239,239,239)">
-</span></span></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p><br clear="none">
-</p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">总之 ubuntu 还是很棒的 &nbsp;&nbsp; 和 windows 比起来 &nbsp;&nbsp; 我更愿意留在 ubuntu～</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">
-</span></p>
-<p><span style="font-size:12pt; font-family:times new roman,times,serif">（小菜一个 &nbsp; 学习中 &nbsp; &nbsp; 欢迎大家指出错误 &nbsp;&nbsp;<span style="color:rgb(51,51,51); font-family:Tahoma,Verdana,STHeiTi,simsun,sans-serif; font-size:14px; line-height:19px">&gt;_&lt;|||</span> &nbsp;）</span></p>
-</div>
-
-</div>]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>天津工业大学软件园 ubuntu 电信网设置。</title>
-    <url>/blog/20140924/ubuntu-access-telecom/</url>
-    <content><![CDATA[<p>CSDN 以前写的博客 <br> 原地址： <a href="http://blog.csdn.net/dayadaya/article/details/20144941" title="http://blog.csdn.net/dayadaya/article/details/20144941">http://blog.csdn.net/dayadaya/article/details/20144941</a></p>
-<a id="more"></a>
-
-<h1>
-        <span class="link_title"><a href="http://blog.csdn.net/dayadaya/article/details/20144941">
-        天津工业大学软件园 ubuntu 电信网设置。
-        </a></span>
-</h1>    
-<div id="article_content" class="article_content">
-
-<p>作者：daya0576 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
-<p>首先学校提供了一个 drlinuxclient.bin 的东西。</p>
-<p>可以上网，但是连上之后用的 serverip 是 10.0.2.5</p>
-<p>但电信网只有 10.1.5 才能连上。so。。</p>
-<p>
-</p>
-<p>下午去办网那问了一下，让他把我的帐号改为网页登陆。</p>
-<p>本以为要卖个萌求他一下才能给我改，没想到左边那个戴眼镜的叔叔爽快的答应了</p>
-<p>（顺便鄙视一下那些 &nbsp; &nbsp; 偷用网页帐号上电信的人 ==）</p>
-<p>用网页登陆之后～～～开始正题</p>
-<p></p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-1. 添加 PPA</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-sudo apt-add-repository ppa:seriy-pr/network-manager-l2tp</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-2. 刷新软件包缓存</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-sudo apt-get update</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-3. 安装 network-manager-l2tp</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-sudo apt-get install network-manager-l2tp-gnome</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-安装完之后不要忘记运行以下命令</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-sudo service xl2tpd stop&nbsp;</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-sudo update-rc.d xl2tpd disable</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-重启机器</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-
-</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-这时候新建 VPN 就能够选 l2tp 选项了。 &nbsp;&nbsp;</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-填上 221.239.126.9</p>
-<p style="margin-top:0px; margin-bottom:0.714285em; padding-top:0px; padding-bottom:0px; border:0px; line-height:22px; font-size:14px; color:rgb(51,51,51); font-family:tahoma, 宋体; background-color:rgb(239,239,239)">
-你的帐号和密码</p>
-<p>pppsetting 那不用改 &nbsp; &nbsp; &nbsp; &nbsp; 那是使用什么协议。</p>
-<p>貌似用的是 MSCHAPv2 &nbsp; &nbsp; &nbsp; &nbsp; 管他呢 &nbsp; &nbsp; &nbsp; 全勾上就是了</p>
-<p>然后就开始欢乐的上网了 &nbsp; &nbsp; 哈哈哈～～～～～～～～～</p>
-<p>
-</p>
-<p>
-</p>
-<p>
-</p>
-<p>
-</p>
-<p>
-</p>
-<p>
-</p>
-
-</div>
-
-
-
-]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>our_children</title>
     <url>/blog/20140917/our-children/</url>
     <content><![CDATA[<p> 我们家的宝宝们 <img src="/images/loading/loading.svg" data-original="http://ctc.qzonestyle.gtimg.cn/qzone/em/e121.gif?max_age=2592000" alt=""></p>
@@ -6752,144 +6194,20 @@ sudo update-rc.d xl2tpd disable</p>
       </tags>
   </entry>
   <entry>
-    <title>my web log</title>
-    <url>/blog/20140614/custom-web-log/</url>
-    <content><![CDATA[<p>修改网页的 log ~   </p>
-</br>
-<p>为了避免各种不可用的说明，先说明一下，<mark style="color: #9d261d;"> 本博客只支持 Google Chrome, Mozilla Firefox, Apple Safari,Opera 等现代浏览器</mark>。</p>
-
-
-<a id="more"></a>
-<blockquote>
-<p><strong>long long ago</strong><br>* 在<a href="http://blog.alex-oberhauser.com/">http://blog.alex-oberhauser.com/</a>  中学到了网页中间的那一条 bar  很好看 *<br>——<br>*full-article （read on）那个按钮的修改 也挺简单就是用了渐变和圆边框两个属性。   *</p>
-</blockquote>
-<blockquote>
-<p><em><em>14/06/14 *</em><br>* 增加前一篇后一篇的样式 </em><br>——<br><em> 增加分享功能（虽然也没有人会分享）</em>     </p>
-</blockquote>
-<blockquote>
-<p><strong>14/06/16</strong><br><em>优化打开速度 </em><br>——<br> 都是在自己电脑上打开网页 <br> 已经有了缓存 所以特别快就打开了。<br>有一天在机房打开网站 半天才打开 <br> 一看原来是 jquery 和 google font 的文件没有响应 <br> 都是 request google 网址中的文件   404 了（应该是万恶的 qiang 吧）<br>——<br>写了个搜索小程序查看哪里调用这两个文件 <br>——<br> 在 head 中 删掉了 google font 但是删掉 jquery 的话头像就出不来了 <br> 就调用了本地的 jquery1.91<br>ok 了 <br> 搜索目录下所有文件内容的小代码   </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">path = <span class="string">"F:\git\octopress\source"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_files</span><span class="params">(path)</span>:</span></span><br><span class="line">    all_files = []</span><br><span class="line">    <span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            all_files.append(root + <span class="string">"/"</span> + file)</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> all_files        </span><br><span class="line"></span><br><span class="line">all_files = search_files(path)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_lines_from_file</span><span class="params">(filename)</span>:</span></span><br><span class="line">    file_object = open(filename)</span><br><span class="line">    lines = <span class="number">0</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        lines = file_object.readlines()</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        file_object.close()</span><br><span class="line">    <span class="keyword">return</span> lines</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> all_files:</span><br><span class="line">    lines = read_lines_from_file(file)</span><br><span class="line">    <span class="keyword">if</span> len(lines) &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">"min.map"</span> <span class="keyword">in</span> line:</span><br><span class="line">                <span class="keyword">print</span> file</span><br><span class="line">                <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>14/07/20</strong><br><em>用 html5 加入音乐 </em><br>——<br>bugs<br> 游览器兼容 <br> 页面跳转</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>octopress</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cousera_end</title>
-    <url>/blog/20140604/cousera-end/</url>
-    <content><![CDATA[<p>嘿嘿   终于拿到第一门 cousera 的证书了 <br> 昨天做梦竟然梦到学了 C++ 不知道去干嘛 <br> 继续加油吧~     </p>
-<a id="more"></a>
-<img src="/images/loading/loading.svg" data-original="/images/blog/140604_cousera_end/end1.jpg"  />
-]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>cousera</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mini-project # 6 - Blackjack</title>
-    <url>/blog/20140516/mini-project-number-6/</url>
-    <content><![CDATA[<p> 《An Introduction to Interactive Programming in Python》</p>
-<p> 眼泪都要调出来了~~<br> 图片没加载出来。。<br>T ^ T   </p>
-<a id="more"></a>
-<p><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140516_cousera%5C2014-05-16_212319.jpg" alt="ico_topitme"><br> 刚看到的时候还是很郁闷的，毕竟付出了好多的心血，结果因为一个不是自身的原因毁掉了。。<br> 现在还是看开了吧 :) 过去就过去了  无所谓了。</p>
-<p> 我做的~<br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140516_cousera%5C2014-05-16_211654.jpg" alt="ico_topitme"></p>
-<p>code:   </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mini-project #6 - Blackjack</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> simplegui</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># load card sprite - 949x392 - source: jfitz.com</span></span><br><span class="line">CARD_SIZE = (<span class="number">73</span>, <span class="number">98</span>)</span><br><span class="line">CARD_CENTER = (<span class="number">36.5</span>, <span class="number">49</span>)</span><br><span class="line">card_images = simplegui.load_image(<span class="string">"http://g.hiphotos.baidu.com/album/pic/item/8b82b9014a90f6039500b4ce3b12b31bb151ed83.jpg?psign=9500b4ce3b12b31bb051f8198618367adbb44aed2f73c9bb"</span>)</span><br><span class="line">CARD_BACK_SIZE = (<span class="number">71</span>, <span class="number">96</span>)</span><br><span class="line">CARD_BACK_CENTER = (<span class="number">35.5</span>, <span class="number">48</span>)</span><br><span class="line">card_back = simplegui.load_image(<span class="string">"http://f.hiphotos.baidu.com/album/pic/item/d833c895d143ad4b1c4e6e4980025aafa50f06d2.jpg?psign=1c4e6e4980025aafa40f4bfbfbedab64024f78f0f63622ea"</span>)</span><br><span class="line"><span class="comment"># initialize some useful global variables</span></span><br><span class="line">in_play = <span class="literal">False</span></span><br><span class="line">outcome = <span class="string">""</span></span><br><span class="line">score = <span class="number">0</span></span><br><span class="line">deck_cards = <span class="literal">None</span></span><br><span class="line">player_hands = <span class="literal">None</span></span><br><span class="line">deck_hands = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># define globals for cards</span></span><br><span class="line">SUITS = (<span class="string">'C'</span>, <span class="string">'S'</span>, <span class="string">'H'</span>, <span class="string">'D'</span>)</span><br><span class="line">RANKS = (<span class="string">'A'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>, <span class="string">'T'</span>, <span class="string">'J'</span>, <span class="string">'Q'</span>, <span class="string">'K'</span>)</span><br><span class="line">VALUES = &#123;<span class="string">'A'</span>:<span class="number">1</span>, <span class="string">'2'</span>:<span class="number">2</span>, <span class="string">'3'</span>:<span class="number">3</span>, <span class="string">'4'</span>:<span class="number">4</span>, <span class="string">'5'</span>:<span class="number">5</span>, <span class="string">'6'</span>:<span class="number">6</span>, <span class="string">'7'</span>:<span class="number">7</span>, <span class="string">'8'</span>:<span class="number">8</span>, <span class="string">'9'</span>:<span class="number">9</span>, <span class="string">'T'</span>:<span class="number">10</span>, <span class="string">'J'</span>:<span class="number">10</span>, <span class="string">'Q'</span>:<span class="number">10</span>, <span class="string">'K'</span>:<span class="number">10</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># define card class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Card</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, suit, rank)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> (suit <span class="keyword">in</span> SUITS) <span class="keyword">and</span> (rank <span class="keyword">in</span> RANKS):</span><br><span class="line">            self.suit = suit</span><br><span class="line">            self.rank = rank</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.suit = <span class="literal">None</span></span><br><span class="line">            self.rank = <span class="literal">None</span></span><br><span class="line">            <span class="keyword">print</span> <span class="string">"Invalid card: "</span>, suit, rank</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.suit + self.rank</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_suit</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.suit</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_rank</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.rank</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(self, canvas, pos)</span>:</span></span><br><span class="line">        card_loc = (CARD_CENTER[<span class="number">0</span>] + CARD_SIZE[<span class="number">0</span>] * RANKS.index(self.rank), </span><br><span class="line">                    CARD_CENTER[<span class="number">1</span>] + CARD_SIZE[<span class="number">1</span>] * SUITS.index(self.suit))</span><br><span class="line">        canvas.draw_image(card_images, card_loc, CARD_SIZE, [pos[<span class="number">0</span>] + CARD_CENTER[<span class="number">0</span>], pos[<span class="number">1</span>] + CARD_CENTER[<span class="number">1</span>]], CARD_SIZE)</span><br><span class="line">        </span><br><span class="line"><span class="comment"># define hand class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hand</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.hand_cards = []</span><br><span class="line">        self.value_card = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        hand_str = <span class="string">"Hand contains "</span></span><br><span class="line">        <span class="keyword">for</span> card <span class="keyword">in</span> self.hand_cards:</span><br><span class="line">            hand_str = hand_str + str(card) + <span class="string">" "</span></span><br><span class="line">        <span class="keyword">return</span> hand_str</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_card</span><span class="params">(self, card)</span>:</span></span><br><span class="line">        self.hand_cards.append(card)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_value</span><span class="params">(self)</span>:</span></span><br><span class="line">        value_sum = <span class="number">0</span></span><br><span class="line">        Ace_in = <span class="literal">False</span></span><br><span class="line">        <span class="comment"># count aces as 1, if the hand has an ace, then add 10 to hand value if it doesn't bust</span></span><br><span class="line">        <span class="keyword">for</span> card <span class="keyword">in</span> self.hand_cards:</span><br><span class="line">            self.value_card = VALUES[card.get_rank()] </span><br><span class="line">            value_sum += self.value_card</span><br><span class="line">            <span class="keyword">if</span> self.value_card == <span class="number">1</span>:</span><br><span class="line">                Ace_in = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> Ace_in == <span class="literal">False</span>:</span><br><span class="line">            <span class="keyword">return</span> value_sum</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> value_sum + <span class="number">10</span> &lt; <span class="number">21</span>:</span><br><span class="line">                <span class="keyword">return</span> value_sum + <span class="number">10</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> value_sum</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(self, canvas, pos)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> card <span class="keyword">in</span> self.hand_cards:  </span><br><span class="line">            index = self.hand_cards.index(card)</span><br><span class="line">            card.draw(canvas, pos)</span><br><span class="line">            pos[<span class="number">0</span>] += CARD_SIZE[<span class="number">0</span>] + <span class="number">10</span></span><br><span class="line">     </span><br><span class="line"><span class="comment"># define deck class </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Deck</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.deck_cards = []</span><br><span class="line">        <span class="keyword">for</span> suit <span class="keyword">in</span> SUITS:</span><br><span class="line">            <span class="keyword">for</span> rank <span class="keyword">in</span> RANKS:</span><br><span class="line">                self.deck_cards.append(Card(suit, rank))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(self)</span>:</span></span><br><span class="line">        random.shuffle(self.deck_cards)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deal_card</span><span class="params">(self)</span>:</span></span><br><span class="line">        card = self.deck_cards[<span class="number">-1</span>]</span><br><span class="line">        self.deck_cards.remove(card)</span><br><span class="line">        <span class="keyword">return</span> card</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        deck_str = <span class="string">"Deck contains"</span></span><br><span class="line">        <span class="keyword">for</span> card <span class="keyword">in</span> self.deck_cards:</span><br><span class="line">            deck_str += str(card) + <span class="string">""</span>       </span><br><span class="line">        <span class="keyword">return</span> deck_str</span><br><span class="line"></span><br><span class="line"><span class="comment">#define event handlers for buttons</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deal</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> outcome, in_play, deck_cards, player_hands, deck_hands, score</span><br><span class="line">    <span class="keyword">if</span> in_play == <span class="literal">True</span>:</span><br><span class="line">        score -= <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    deck_cards = Deck()</span><br><span class="line">    deck_cards.shuffle()</span><br><span class="line">    </span><br><span class="line">    player_hands = Hand()</span><br><span class="line">    player_hands.add_card(deck_cards.deal_card())</span><br><span class="line">    player_hands.add_card(deck_cards.deal_card())</span><br><span class="line">    <span class="keyword">print</span> str(player_hands)</span><br><span class="line">    </span><br><span class="line">    deck_hands = Hand()</span><br><span class="line">    deck_hands.add_card(deck_cards.deal_card())</span><br><span class="line">    deck_hands.add_card(deck_cards.deal_card())</span><br><span class="line">    <span class="keyword">print</span> str(deck_hands)</span><br><span class="line">    in_play = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hit</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> outcome, in_play, score, player_hands</span><br><span class="line">    <span class="comment"># if the hand is in play, hit the player</span></span><br><span class="line">    <span class="keyword">if</span> in_play == <span class="literal">True</span>:</span><br><span class="line">        player_hands.add_card(deck_cards.deal_card())</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"deck_hands.get_value()"</span>, deck_hands.get_value()</span><br><span class="line">        <span class="keyword">if</span>(player_hands.get_value() &gt; <span class="number">21</span>):</span><br><span class="line">            <span class="keyword">print</span>  <span class="string">"You have busted"</span></span><br><span class="line">            outcome = <span class="string">"Busted, you lose~~"</span></span><br><span class="line">            in_play = <span class="literal">False</span></span><br><span class="line">            score -= <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">print</span>  str(player_hands)</span><br><span class="line">       </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stand</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> outcome, in_play, score, deck_hands</span><br><span class="line">    <span class="comment"># if hand is in play, repeatedly hit dealer until his hand has value 17 or more</span></span><br><span class="line">    <span class="keyword">if</span> in_play == <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">while</span> deck_hands.get_value() &lt; <span class="number">17</span>:</span><br><span class="line">            deck_hands.add_card(deck_cards.deal_card())</span><br><span class="line">            <span class="keyword">if</span>(deck_hands.get_value() &gt; <span class="number">21</span>):</span><br><span class="line">                outcome = <span class="string">"Dealer busted, you wine~~"</span></span><br><span class="line">                in_play = <span class="literal">False</span></span><br><span class="line">                score += <span class="number">1</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"deck_hands.get_value()"</span>, deck_hands.get_value()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> in_play == <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">if</span> player_hands.get_value() &gt; deck_hands.get_value():</span><br><span class="line">                outcome = <span class="string">"bigger You win!!!"</span></span><br><span class="line">                score += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                outcome = <span class="string">"smaller lose~~"</span></span><br><span class="line">                score -= <span class="number">1</span></span><br><span class="line">            in_play = <span class="literal">False</span></span><br><span class="line">    <span class="comment"># assign a message to outcome, update in_play and score</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># draw handler    </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(canvas)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> outcome</span><br><span class="line">    canvas.draw_text(<span class="string">'Blackjack'</span>, (<span class="number">40</span>, <span class="number">80</span>), <span class="number">50</span>, <span class="string">'Gray'</span>, <span class="string">'serif'</span>)</span><br><span class="line">    </span><br><span class="line">    canvas.draw_text(<span class="string">"Dealer"</span>, (<span class="number">50</span>, <span class="number">140</span>), <span class="number">30</span>, <span class="string">'black'</span>, <span class="string">'serif'</span>)</span><br><span class="line">    canvas.draw_text(<span class="string">"Player"</span>, (<span class="number">50</span>, <span class="number">290</span>), <span class="number">30</span>, <span class="string">'black'</span>, <span class="string">'serif'</span>)</span><br><span class="line">    </span><br><span class="line">    canvas.draw_text(<span class="string">"score: "</span> + str(score), (<span class="number">450</span>, <span class="number">90</span>), <span class="number">30</span>, <span class="string">'Gray'</span>, <span class="string">'serif'</span>)</span><br><span class="line">    </span><br><span class="line">    player_hands.draw(canvas, [<span class="number">50</span>, <span class="number">300</span>])</span><br><span class="line">    deck_hands.draw(canvas, [<span class="number">50</span>, <span class="number">150</span>])</span><br><span class="line">    <span class="keyword">if</span> in_play == <span class="literal">True</span>:</span><br><span class="line">        canvas.draw_text(<span class="string">"Hit or stand?"</span>, (<span class="number">200</span>, <span class="number">290</span>), <span class="number">30</span>, <span class="string">'Gray'</span>, <span class="string">'serif'</span>)</span><br><span class="line">        canvas.draw_image(card_back, CARD_BACK_CENTER, CARD_BACK_SIZE, (<span class="number">50</span>+CARD_BACK_CENTER[<span class="number">0</span>], <span class="number">150</span>+CARD_BACK_CENTER[<span class="number">1</span>]), CARD_BACK_SIZE)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        canvas.draw_text(outcome, (<span class="number">200</span>, <span class="number">140</span>), <span class="number">30</span>, <span class="string">'Gray'</span>, <span class="string">'serif'</span>)</span><br><span class="line">        canvas.draw_text(<span class="string">"New deal?"</span>, (<span class="number">200</span>, <span class="number">290</span>), <span class="number">30</span>, <span class="string">'Gray'</span>, <span class="string">'serif'</span>)</span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line"><span class="comment"># initialization frame</span></span><br><span class="line">frame = simplegui.create_frame(<span class="string">"Blackjack~"</span>, <span class="number">600</span>, <span class="number">600</span>)</span><br><span class="line">frame.set_canvas_background(<span class="string">"Green"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#create buttons and canvas callback</span></span><br><span class="line">frame.add_button(<span class="string">"Deal"</span>, deal, <span class="number">200</span>)</span><br><span class="line">frame.add_button(<span class="string">"Hit"</span>,  hit, <span class="number">200</span>)</span><br><span class="line">frame.add_button(<span class="string">"Stand"</span>, stand, <span class="number">200</span>)</span><br><span class="line">frame.set_draw_handler(draw)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># get things rolling</span></span><br><span class="line">deal()</span><br><span class="line">frame.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># remember to review the gradic rubric</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>cousera</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>chrome 设置（转）</title>
-    <url>/blog/20140509/chrome-setting/</url>
-    <content><![CDATA[<ul>
-<li><strong> 搜索引擎 </strong>: 第一空，填你搜索引擎的名字，第二个关键字任意填，第三个空是重点，填这个 <a href="http://203.208.46.148/search?q=%s&amp;hl=zh-CN&amp;btnG=Google+Search">http://203.208.46.148/search?q=%s&amp;hl=zh-CN&amp;btnG=Google+Search</a> 为什么填这个呢，因为这个是直接使用谷歌的 ip 进行搜索，不会被跳转，而且不用代理也可以快速访问，所以强烈推荐，当然这个也是中文的结果，包括繁体和简体。</li>
-</ul>
-<ul>
-<li><strong>LastPass</strong>: 浏览器的密码管理器，只需要你设定一个主密码，其它服务的密码就靠软件帮你输入了，也可以生成随机密码，支持跨浏览器，跨平台。点此安装 </li>
-</ul>
-<ul>
-<li><strong> 一键管理所有扩展 </strong>: 顾名思义，就是管理扩展的插件，有时候，有些插件一时也用不着的时候怎么办，这个插件就派上用场了，而且插件装的过多，也非常占用内存，打开网页就非常卡，这个就是关闭暂时不用的插件，达到快速上网的目的. 点此安装 </li>
-</ul>
-]]></content>
-      <tags>
-        <tag>chrome</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mini-project#5-Memory</title>
-    <url>/blog/20140504/mini-project-number-5-memory/</url>
-    <content><![CDATA[<p> 《An Introduction to Interactive Programming in Python》</p>
-<p>差点来不及了   心都碎了 <br>deadline 是一点钟。。 还没写完就交了个半成品 心都碎了<br> 但是偷偷把本地的时间改早了 40 分钟，竟然成功地把 deadlin 延迟了 <br> 好开心  哈哈哈哈哈哈<img src="/images/loading/loading.svg" data-original="http://i3.dpfile.com/s/img/editor/Emoticon68.gif" alt="哈哈"></p>
-<p>一个翻牌的游戏 考记忆力 直戳我的软肋呀 哈哈 <br> 我做的：<br>（一看以为是女生做的一定会多给分吧 直戳程序员的软肋<img src="/images/loading/loading.svg" data-original="http://ctc.qzonestyle.gtimg.cn/qzone/em/e151.gif?max_age=2592000" alt="阴笑">）<br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140504_cousera%5C1.png" alt="ico_topitme"></p>
-<p>TT 吃饭去了   饿的手指都颤抖了<img src="/images/loading/loading.svg" data-original="http://i3.dpfile.com/s/img/editor/Emoticon89.gif" alt="饿"></p>
-<a id="more"></a>
-
-<p>code：<a href="http://www.codeskulptor.org/#user31_5R1CHSudUHFWeJg.py">http://www.codeskulptor.org/#user31_5R1CHSudUHFWeJg.py</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># implementation of card game - Memory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> simplegui</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">state = <span class="number">0</span></span><br><span class="line">tures = <span class="number">0</span></span><br><span class="line">before1 = <span class="number">-1</span></span><br><span class="line">before2 = <span class="number">-1</span></span><br><span class="line">list_word = range(<span class="number">8</span>)</span><br><span class="line">list_word = list_word + list_word</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">list_word_exposed = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">16</span>):</span><br><span class="line">    list_word_exposed.append(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clear_exposion</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> list_word_exposed</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">16</span>):</span><br><span class="line">        list_word_exposed[i] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">win</span><span class="params">()</span>:</span></span><br><span class="line">    win = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">16</span>):</span><br><span class="line">        <span class="keyword">if</span> list_word_exposed[i] == <span class="literal">True</span>:</span><br><span class="line">            win += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> win &gt;= <span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">        </span><br><span class="line"><span class="comment"># helper function to initialize globals</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_game</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> state, list_word</span><br><span class="line">    random.shuffle(list_word)</span><br><span class="line">    clear_exposion()</span><br><span class="line">    state = <span class="number">0</span></span><br><span class="line">    before = <span class="literal">None</span></span><br><span class="line">    tures = <span class="number">0</span></span><br><span class="line">     </span><br><span class="line"><span class="comment"># define event handlers</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouseclick</span><span class="params">(pos)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> state, tures, list_word_exposed, before</span><br><span class="line">    click = pos[<span class="number">0</span>] // <span class="number">50</span></span><br><span class="line">    <span class="keyword">global</span> state</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> list_word_exposed[click] == <span class="literal">False</span>:</span><br><span class="line">        <span class="keyword">global</span> before1, before2</span><br><span class="line">        <span class="keyword">if</span> state == <span class="number">0</span>:</span><br><span class="line">            before1 = click</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"before1"</span>, before1</span><br><span class="line">            state = <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> state == <span class="number">1</span>:</span><br><span class="line">            before2 = click</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"before2"</span>, before2</span><br><span class="line">            state = <span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tures += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> list_word[before1] == list_word[before2]:</span><br><span class="line">                list_word_exposed[before2] = <span class="literal">False</span></span><br><span class="line">                list_word_exposed[before1] = <span class="literal">False</span></span><br><span class="line">                </span><br><span class="line">            before1 = click</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"before1"</span>, before1</span><br><span class="line">            label.set_text(<span class="string">"Tures ="</span> + str(tures))</span><br><span class="line">            state = <span class="number">1</span></span><br><span class="line">        list_word_exposed[click] = <span class="literal">True</span></span><br><span class="line">                                </span><br><span class="line"><span class="comment"># cards are logically 50x100 pixels in size    </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(canvas)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> win() <span class="keyword">and</span> <span class="keyword">not</span> state == <span class="number">0</span>:</span><br><span class="line">        canvas.draw_text(<span class="string">"YOU WIN!!!! haha :)"</span>, (<span class="number">5</span>, <span class="number">80</span>), <span class="number">80</span>, <span class="string">'white'</span>, <span class="string">'serif'</span>)</span><br><span class="line">    <span class="keyword">else</span>:  </span><br><span class="line">        <span class="keyword">for</span> index, word <span class="keyword">in</span> enumerate(list_word):</span><br><span class="line">            canvas.draw_text(str(word), (index * <span class="number">50</span> + <span class="number">5</span>, <span class="number">80</span>), <span class="number">80</span>, <span class="string">'white'</span>, <span class="string">'serif'</span>)</span><br><span class="line">        <span class="keyword">for</span> index, exposed <span class="keyword">in</span> enumerate(list_word_exposed):</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">not</span> exposed <span class="keyword">and</span> index % <span class="number">2</span> == <span class="number">0</span>):</span><br><span class="line">                canvas.draw_polygon([[index * <span class="number">50</span> + <span class="number">30</span>, <span class="number">3</span>], [index * <span class="number">50</span> + <span class="number">20</span>, <span class="number">95</span>]], <span class="number">50</span>, <span class="string">'pink'</span>)</span><br><span class="line">            <span class="keyword">elif</span>(<span class="keyword">not</span> exposed <span class="keyword">and</span> index % <span class="number">2</span> == <span class="number">1</span>):</span><br><span class="line">                canvas.draw_polygon([[index * <span class="number">50</span> + <span class="number">30</span>, <span class="number">3</span>], [index * <span class="number">50</span> + <span class="number">20</span>, <span class="number">95</span>]], <span class="number">50</span>, <span class="string">'white'</span>)</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">button_handler</span><span class="params">()</span>:</span></span><br><span class="line">    new_game()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment"># create frame and add a button and labels</span></span><br><span class="line">frame = simplegui.create_frame(<span class="string">"Memory"</span>, <span class="number">800</span>, <span class="number">100</span>)</span><br><span class="line">frame.add_button(<span class="string">"Reset"</span>, new_game)</span><br><span class="line">label = frame.add_label(<span class="string">"Turns = 0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># register event handlers</span></span><br><span class="line">frame.set_mouseclick_handler(mouseclick)</span><br><span class="line">frame.set_draw_handler(draw)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get things rolling</span></span><br><span class="line">new_game()</span><br><span class="line">frame.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Always remember to review the grading rubric</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>python</tag>
-        <tag>cousera</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cousera_comments 总和</title>
+    <title>Coursera 作业互评</title>
     <url>/blog/20140429/cousera-comments/</url>
     <content><![CDATA[<blockquote>
-<p>《An Introduction to Interactive Programming in Python》<br><strong>这门课程的大作业是随机五个人互评 </strong>。<br> 突然想去看看之前 mini_project 别人给我的评价 <br> 不看不知道  一看吓一跳 <br> 感动的都要哭了 T ^ T<br>敢不敢再负责一点</p>
+<p>《An Introduction to Interactive Programming in Python》</p>
 </blockquote>
+<p><strong>这门课程的大作业是随机五个人互评 </strong>。<br> 突然想去看看之前 mini_project 别人给我的评价 <br> 不看不知道  一看吓一跳 <br> 感动的都要哭了 T ^ T<br>敢不敢再负责一点</p>
 <a id="more"></a>
 
-
-
-<h1 id="Mini-project-1-Rock-paper-scissors-lizard-Spock"><a href="#Mini-project-1-Rock-paper-scissors-lizard-Spock" class="headerlink" title="Mini-project # 1 - Rock-paper-scissors-lizard-Spock"></a>Mini-project # 1 - Rock-paper-scissors-lizard-Spock</h1><p><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C3.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C4.png" alt="ico_topitme"></p>
-<h1 id="Mini-project-2-quot-Guess-the-number-quot-game-quot"><a href="#Mini-project-2-quot-Guess-the-number-quot-game-quot" class="headerlink" title="Mini-project # 2 - &quot;Guess the number&quot; game&quot;"></a>Mini-project # 2 - &quot;Guess the number&quot; game&quot;</h1><p><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C5.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C6.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C7.png" alt="ico_topitme">     </p>
-<h1 id="Mini-project-4-quot-Pong-quot"><a href="#Mini-project-4-quot-Pong-quot" class="headerlink" title="Mini-project # 4 - &quot;Pong&quot;"></a>Mini-project # 4 - &quot;Pong&quot;</h1><p><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C4_1.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C4_2.png" alt="ico_topitme"> </p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/140430_cousera/3.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="/images/blog/140430_cousera/4.png" alt="ico_topitme"></p>
+<h1 id="Mini-project-2-quot-Guess-the-number-quot-game-quot"><a href="#Mini-project-2-quot-Guess-the-number-quot-game-quot" class="headerlink" title="Mini-project # 2 - &quot;Guess the number&quot; game&quot;"></a>Mini-project # 2 - &quot;Guess the number&quot; game&quot;</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/140430_cousera/5.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="/images/blog/140430_cousera/6.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="/images/blog/140430_cousera/7.png" alt="ico_topitme">     </p>
+<h1 id="Mini-project-4-quot-Pong-quot"><a href="#Mini-project-4-quot-Pong-quot" class="headerlink" title="Mini-project # 4 - &quot;Pong&quot;"></a>Mini-project # 4 - &quot;Pong&quot;</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/140430_cousera/4_1.png" alt="ico_topitme"><br><img src="/images/loading/loading.svg" data-original="/images/blog/140430_cousera/4_2.png" alt="ico_topitme"> </p>
 <hr>
 <p><strong>&quot;:-) All the best.&quot;</strong><br><strong>继续加油   以后改作业也要更认真一点了</strong></p>
 ]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>python</tag>
-        <tag>cousera</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cousera_Mini-project # 4 - Pong</title>
-    <url>/blog/20140429/cousera-pong/</url>
-    <content><![CDATA[<p>《An Introduction to Interactive Programming in Python》</p>
-<p>** 小游戏~&quot;Pong&quot;<br>这次时间还是挺充裕的，但是看英文看的头大，就没按步骤写了 <br> 结果花了更多的时间   还写错了一些 <br> 下次还是认真按步骤写好了</p>
-<p>我做的：<br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C1.png" alt="ico_topitme"></p>
-<p>改作业改到一个做的好有创意： 评语评了一句碉堡了 <br> 不知道看懂看不懂 哈哈<br><img src="/images/loading/loading.svg" data-original="%5Cimages%5Cblog%5C140430_cousera%5C2.png" alt="ico_topitme"></p>
-<a id="more"></a>
-
-<p>可以在 <a href="http://www.codeskulptor.org/">codeskullptor</a> 上运行<br>code:   </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Implementation of classic arcade game Pong</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> simplegui</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize globals - pos and vel encode vertical info for paddles</span></span><br><span class="line">WIDTH = <span class="number">600</span></span><br><span class="line">HEIGHT = <span class="number">400</span>       </span><br><span class="line">BALL_RADIUS = <span class="number">20</span></span><br><span class="line">PAD_WIDTH = <span class="number">8</span></span><br><span class="line">PAD_HEIGHT = <span class="number">80</span></span><br><span class="line">HALF_PAD_WIDTH = PAD_WIDTH / <span class="number">2</span></span><br><span class="line">HALF_PAD_HEIGHT = PAD_HEIGHT / <span class="number">2</span></span><br><span class="line">LEFT = <span class="literal">False</span></span><br><span class="line">RIGHT = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize ball_pos and ball_vel for new bal in middle of table</span></span><br><span class="line"><span class="comment"># if direction is RIGHT, the ball's velocity is upper right, else upper left</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spawn_ball</span><span class="params">(direction)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> ball_pos, ball_vel <span class="comment"># these are vectors stored as lists</span></span><br><span class="line">    ball_pos = [WIDTH/<span class="number">2</span>, HEIGHT/<span class="number">2</span>]</span><br><span class="line">    ball_vel = [random.randrange(<span class="number">1</span>, <span class="number">2</span>)*<span class="number">2</span>, random.randrange(<span class="number">-2</span>, <span class="number">2</span>)+<span class="number">0.5</span>]</span><br><span class="line">    <span class="keyword">if</span>(direction == <span class="string">"LEFT"</span>):	ball_vel[<span class="number">0</span>] = -ball_vel[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># define event handlers</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_game</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> paddle1_pos, paddle2_pos, paddle1_vel, paddle2_vel  <span class="comment"># these are numbers</span></span><br><span class="line">    paddle1_pos = [HALF_PAD_WIDTH, HEIGHT / <span class="number">2</span>]</span><br><span class="line">    paddle2_pos = [WIDTH - HALF_PAD_WIDTH, HEIGHT / <span class="number">2</span>]</span><br><span class="line">    <span class="keyword">global</span> score1, score2  <span class="comment"># these are ints</span></span><br><span class="line">    score1 = <span class="number">0</span></span><br><span class="line">    score2 = <span class="number">0</span></span><br><span class="line">    paddle2_vel = <span class="number">0</span></span><br><span class="line">    paddle1_vel = <span class="number">0</span></span><br><span class="line">    spawn_ball(random.choice([<span class="string">"LEFT"</span>, <span class="string">"RIGHT"</span>]))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(canvas)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> score1, score2, paddle1_pos, paddle2_pos, ball_pos, ball_vel</span><br><span class="line">    <span class="keyword">global</span> paddle2_vel, paddle1_vel</span><br><span class="line">     </span><br><span class="line">        </span><br><span class="line">    <span class="comment"># draw mid line and gutters</span></span><br><span class="line">    canvas.draw_line([WIDTH / <span class="number">2</span>, <span class="number">0</span>],[WIDTH / <span class="number">2</span>, HEIGHT], <span class="number">1</span>, <span class="string">"White"</span>)</span><br><span class="line">    canvas.draw_line([PAD_WIDTH, <span class="number">0</span>],[PAD_WIDTH, HEIGHT], <span class="number">1</span>, <span class="string">"White"</span>)</span><br><span class="line">    canvas.draw_line([WIDTH - PAD_WIDTH, <span class="number">0</span>],[WIDTH - PAD_WIDTH, HEIGHT], <span class="number">1</span>, <span class="string">"White"</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># update ball</span></span><br><span class="line">    ball_pos[<span class="number">0</span>] += ball_vel[<span class="number">0</span>]</span><br><span class="line">    ball_pos[<span class="number">1</span>] += ball_vel[<span class="number">1</span>]      </span><br><span class="line">      </span><br><span class="line">    <span class="comment"># draw ball</span></span><br><span class="line">    canvas.draw_circle(ball_pos, BALL_RADIUS, <span class="number">2</span>, <span class="string">"Red"</span>, <span class="string">"White"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># update paddle's vertical position, keep paddle on the screen</span></span><br><span class="line">    <span class="keyword">if</span>(ball_pos[<span class="number">1</span>] + BALL_RADIUS &gt;= HEIGHT <span class="keyword">or</span> ball_pos[<span class="number">1</span>] - BALL_RADIUS &lt;= <span class="number">0</span>):</span><br><span class="line">        ball_vel[<span class="number">1</span>] = -ball_vel[<span class="number">1</span>]</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># draw paddles</span></span><br><span class="line">    canvas.draw_polyline([[HALF_PAD_WIDTH, paddle1_pos[<span class="number">1</span>]-HALF_PAD_HEIGHT], </span><br><span class="line">                          [HALF_PAD_WIDTH, paddle1_pos[<span class="number">1</span>]+HALF_PAD_HEIGHT]], </span><br><span class="line">                         PAD_WIDTH, <span class="string">'Red'</span>)</span><br><span class="line">    paddle1_pos[<span class="number">1</span>] += paddle1_vel</span><br><span class="line">    </span><br><span class="line">    canvas.draw_polyline([[WIDTH - HALF_PAD_WIDTH, paddle2_pos[<span class="number">1</span>]-HALF_PAD_HEIGHT], </span><br><span class="line">                          [WIDTH - HALF_PAD_WIDTH, paddle2_pos[<span class="number">1</span>]+HALF_PAD_HEIGHT]], </span><br><span class="line">                         PAD_WIDTH, <span class="string">'Red'</span>)</span><br><span class="line">    paddle2_pos[<span class="number">1</span>] += paddle2_vel</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> paddle1_pos[<span class="number">1</span>] + HALF_PAD_HEIGHT &gt;= HEIGHT:</span><br><span class="line">        paddle1_pos[<span class="number">1</span>] = HEIGHT - HALF_PAD_HEIGHT</span><br><span class="line">        paddle1_vel = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> paddle1_pos[<span class="number">1</span>] - HALF_PAD_HEIGHT &lt;= <span class="number">0</span>:</span><br><span class="line">        paddle1_pos[<span class="number">1</span>] = HALF_PAD_HEIGHT</span><br><span class="line">        paddle1_vel = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">if</span> paddle2_pos[<span class="number">1</span>] + HALF_PAD_HEIGHT &gt;= HEIGHT:</span><br><span class="line">        paddle2_pos[<span class="number">1</span>] = HEIGHT - HALF_PAD_HEIGHT</span><br><span class="line">        paddle2_vel = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> paddle2_pos[<span class="number">1</span>] - HALF_PAD_HEIGHT &lt;= <span class="number">0</span>:</span><br><span class="line">        paddle2_pos[<span class="number">1</span>] = HALF_PAD_HEIGHT</span><br><span class="line">        paddle2_vel = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(ball_pos[<span class="number">1</span>] &lt; paddle1_pos[<span class="number">1</span>] + HALF_PAD_HEIGHT <span class="keyword">and</span></span><br><span class="line">       ball_pos[<span class="number">1</span>] &gt; paddle1_pos[<span class="number">1</span>] - HALF_PAD_HEIGHT <span class="keyword">and</span></span><br><span class="line">       ball_pos[<span class="number">0</span>] &lt;=  BALL_RADIUS + PAD_WIDTH):</span><br><span class="line">        ball_vel[<span class="number">0</span>] = -ball_vel[<span class="number">0</span>]</span><br><span class="line">        ball_vel[<span class="number">0</span>] *= <span class="number">1.2</span></span><br><span class="line">        ball_vel[<span class="number">1</span>] *= <span class="number">1.2</span></span><br><span class="line">    <span class="keyword">elif</span>(ball_pos[<span class="number">0</span>] &lt;  <span class="number">-1</span>*BALL_RADIUS):</span><br><span class="line">        score2 += <span class="number">1</span></span><br><span class="line">        spawn_ball(random.choice([<span class="string">"LEFT"</span>, <span class="string">"RIGHT"</span>]))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(ball_pos[<span class="number">1</span>] &lt; paddle2_pos[<span class="number">1</span>] + HALF_PAD_HEIGHT <span class="keyword">and</span></span><br><span class="line">       ball_pos[<span class="number">1</span>] &gt; paddle2_pos[<span class="number">1</span>] - HALF_PAD_HEIGHT <span class="keyword">and</span></span><br><span class="line">       ball_pos[<span class="number">0</span>] &gt;= WIDTH - BALL_RADIUS - PAD_WIDTH):</span><br><span class="line">         </span><br><span class="line">        ball_vel[<span class="number">0</span>] = -ball_vel[<span class="number">0</span>] </span><br><span class="line">        ball_vel[<span class="number">0</span>] *= <span class="number">1.2</span></span><br><span class="line">        ball_vel[<span class="number">1</span>] *= <span class="number">1.2</span></span><br><span class="line">    <span class="keyword">elif</span>(ball_pos[<span class="number">0</span>] &gt;= WIDTH + BALL_RADIUS):</span><br><span class="line">        score1 += <span class="number">1</span></span><br><span class="line">        spawn_ball(random.choice([<span class="string">"LEFT"</span>, <span class="string">"RIGHT"</span>]))</span><br><span class="line">    <span class="comment"># draw scores</span></span><br><span class="line">    canvas.draw_text(str(score1), [<span class="number">50</span>, <span class="number">50</span>], <span class="number">50</span>, <span class="string">'Blue'</span>, <span class="string">'serif'</span>)</span><br><span class="line">    canvas.draw_text(str(score2), [<span class="number">500</span>, <span class="number">50</span>], <span class="number">50</span>, <span class="string">'Blue'</span>, <span class="string">'serif'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">keydown</span><span class="params">(key)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> paddle1_vel, paddle2_vel</span><br><span class="line">    acc = <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> key==simplegui.KEY_MAP[<span class="string">"s"</span>]:</span><br><span class="line">        paddle1_vel += acc</span><br><span class="line">    <span class="keyword">elif</span> key==simplegui.KEY_MAP[<span class="string">"w"</span>]:</span><br><span class="line">        paddle1_vel -= acc</span><br><span class="line">    <span class="keyword">elif</span> key==simplegui.KEY_MAP[<span class="string">"down"</span>]:</span><br><span class="line">        paddle2_vel += acc</span><br><span class="line">    <span class="keyword">elif</span> key==simplegui.KEY_MAP[<span class="string">"up"</span>]:</span><br><span class="line">        paddle2_vel -= acc</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">keyup</span><span class="params">(key)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> paddle1_vel, paddle2_vel</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">button_handler</span><span class="params">()</span>:</span></span><br><span class="line">    new_game()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># create frame</span></span><br><span class="line">frame = simplegui.create_frame(<span class="string">"Pong"</span>, WIDTH, HEIGHT)</span><br><span class="line">frame.set_draw_handler(draw)</span><br><span class="line">frame.set_keydown_handler(keydown)</span><br><span class="line">frame.set_keyup_handler(keyup)</span><br><span class="line">frame.add_button(<span class="string">'Reset'</span>, button_handler, <span class="number">60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># start frame</span></span><br><span class="line">new_game()</span><br><span class="line">frame.start()</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>study</tag>
-        <tag>python</tag>
-        <tag>cousera</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cousera 作业_Guess the number</title>
-    <url>/blog/20140414/cousera-python-week3/</url>
-    <content><![CDATA[<blockquote>
-<p> 《An Introduction to Interactive Programming in Python》</p>
-</blockquote>
-<p>*<em>哎   半夜把第三周的大作业写完了     差点来不及  *</em> </p>
-<a id="more"></a>
-
-<p>一个二分法猜数字的小游戏       都给出提示了    照着写就行了 <br> 可是用的是 codeskullptor，还要翻个墙    心酸。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># template for "Guess the number" mini-project</span></span><br><span class="line"><span class="comment"># input will come from buttons and an input field</span></span><br><span class="line"><span class="comment"># all output for the game will be printed in the console</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> simplegui</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize global variables used in your code</span></span><br><span class="line">secret_number = <span class="number">0</span></span><br><span class="line">remain = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># define event handlers for control panel</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">range100</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># button that changes range to range [0,100) and restarts</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">print</span> <span class="string">"New game. Range is from 0 to 100"</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Number of remaining guesses is 7"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">global</span> secret_number, remain</span><br><span class="line">    secret_number = random.randrange(<span class="number">0</span>, <span class="number">100</span>)</span><br><span class="line">    remain = <span class="number">7</span></span><br><span class="line">    <span class="keyword">print</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">range1000</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># button that changes range to range [0,1000) and restarts</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">print</span> <span class="string">"New game. Range is from 0 to 1000"</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Number of remaining guesses is 10"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">global</span> secret_number, remain</span><br><span class="line">    secret_number = random.randrange(<span class="number">0</span>, <span class="number">1000</span>)</span><br><span class="line">    remain = <span class="number">10</span></span><br><span class="line">    <span class="keyword">print</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># helper function to start and restart the game</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_game</span><span class="params">()</span>:</span></span><br><span class="line">     range100()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">input_guess</span><span class="params">(guess)</span>:</span></span><br><span class="line">    <span class="comment"># main game logic goes here	</span></span><br><span class="line">    <span class="keyword">global</span> remain</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Guess was"</span> + guess</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    guess = int(guess)</span><br><span class="line">    <span class="keyword">if</span> guess &gt; secret_number:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"Lower!"</span></span><br><span class="line">    <span class="keyword">elif</span> guess &lt; secret_number:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"Higher!"</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"Correct!\n"</span></span><br><span class="line">        new_game()</span><br><span class="line">    remain = remain - <span class="number">1</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Number of remaining guesses is %d"</span>%(remain) </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> remain == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"sorry u run out of range, the num is %d"</span>%secret_number</span><br><span class="line">        new_game()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">print</span></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="comment"># Handler to draw on canvas</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw</span><span class="params">(canvas)</span>:</span></span><br><span class="line">    canvas.draw_text(message, [<span class="number">50</span>,<span class="number">112</span>], <span class="number">48</span>, <span class="string">"Red"</span>)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment"># create frame</span></span><br><span class="line">f = simplegui.create_frame(<span class="string">"Home"</span>, <span class="number">300</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># register event handlers for control elements</span></span><br><span class="line">f.add_button(<span class="string">"Range is [0, 100)"</span>, range100, <span class="number">200</span>)</span><br><span class="line">f.add_button(<span class="string">"Range is [0, 1000)"</span>, range1000, <span class="number">200</span>)</span><br><span class="line">f.add_input(<span class="string">"Enter a guess"</span>, input_guess, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># call new_game and start frame</span></span><br><span class="line">f.start()</span><br><span class="line">new_game()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># always remember to check your completed program against the grading rubric</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>study</tag>
         <tag>python</tag>
