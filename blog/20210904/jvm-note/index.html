@@ -47,18 +47,18 @@
   };
 </script>
 
-  <meta name="description" content="在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动态加载数据库中的 groovy 脚本，导致 Metaspace out of memory 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障。 但是之后很长一段时间内，都不太明白 Meta">
+  <meta name="description" content="在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy 脚本，导致 Metaspace out of memory 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T 但是之后很长一段时间内，都不太明白 Me">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 内存管理 - SRE 的必修课">
 <meta property="og:url" content="https://changchen.me/blog/20210904/jvm-note/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动态加载数据库中的 groovy 脚本，导致 Metaspace out of memory 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障。 但是之后很长一段时间内，都不太明白 Meta">
+<meta property="og:description" content="在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy 脚本，导致 Metaspace out of memory 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T 但是之后很长一段时间内，都不太明白 Me">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-09-04T08:31:21.000Z">
-<meta property="article:modified_time" content="2021-09-09T18:32:45.594Z">
+<meta property="article:modified_time" content="2021-09-11T08:59:18.418Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -255,20 +255,6 @@
 
               <time title="创建时间：2021-09-04 16:31:21" itemprop="dateCreated datePublished" datetime="2021-09-04T16:31:21+08:00">2021-09-04</time>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/blog/20210904/jvm-note/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20210904/jvm-note/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
           
             <span id="/blog/20210904/jvm-note/" class="post-meta-item leancloud_visitors" data-flag-title="Java 内存管理 - SRE 的必修课" title="阅读次数">
@@ -288,7 +274,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障。</p>
+        <p>在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T</p>
 <p>但是之后很长一段时间内，都不太明白 Metaspace 是什么，为什么会耗尽？和 perm 区的关系是？不同线程本地变量和全局对象的关系？</p>
 <p>正好趁这次机会，系统性的整理和分享一下 ：）</p>
 <a id="more"></a>
@@ -436,13 +422,13 @@
 
           </div>
           
-    
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
+  <script src="https://utteranc.es/client.js"
+          repo="daya0576/comments.daya0576.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -724,37 +710,6 @@
   
 
   
-
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://daya0576.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: {page: {
-            url: "https://changchen.me/blog/20210904/jvm-note/",
-            identifier: "blog/20210904/jvm-note/",
-            title: "Java 内存管理 - SRE 的必修课"
-          }
-        }
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://daya0576.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
-    }
-  });
-</script>
 
 <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

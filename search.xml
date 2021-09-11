@@ -3,7 +3,7 @@
   <entry>
     <title>Java 内存管理 - SRE 的必修课</title>
     <url>/blog/20210904/jvm-note/</url>
-    <content><![CDATA[<p>在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，经过一番排查，最后发现根因竟然是部分网关应用动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障。</p>
+    <content><![CDATA[<p>在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T</p>
 <p>但是之后很长一段时间内，都不太明白 Metaspace 是什么，为什么会耗尽？和 perm 区的关系是？不同线程本地变量和全局对象的关系？</p>
 <p>正好趁这次机会，系统性的整理和分享一下 ：）</p>
 <a id="more"></a>
@@ -4626,9 +4626,8 @@
 </ol>
 <hr>
 <div id="first_week"><div>
-# 第一周 (13 Mar 2017)
 
-<h2 id="完成的工作总结 -35"><a href="# 完成的工作总结 -35" class="headerlink" title="完成的工作总结:"></a>完成的工作总结:</h2><ol>
+<h1 id="第一周 -13-Mar-2017"><a href="# 第一周 -13-Mar-2017" class="headerlink" title="第一周 (13 Mar 2017)"></a>第一周 (13 Mar 2017)</h1><h2 id="完成的工作总结 -35"><a href="# 完成的工作总结 -35" class="headerlink" title="完成的工作总结:"></a>完成的工作总结:</h2><ol>
 <li>Ubuntu 工作环境的搭建 和 HFA 项目的配置.</li>
 <li>Python MRO（Method Resolution Order）<a href="/blog/20170320/python-mro/">笔记</a></li>
 <li>初步了解 adtracker 项目的业务逻辑.    </li>
@@ -4914,8 +4913,8 @@
 </ol>
 ]]></content>
       <tags>
-        <tag>interview</tag>
         <tag>Python</tag>
+        <tag>interview</tag>
       </tags>
   </entry>
   <entry>

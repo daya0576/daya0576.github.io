@@ -56,7 +56,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-08-31T09:42:09.000Z">
-<meta property="article:modified_time" content="2021-09-09T18:32:45.586Z">
+<meta property="article:modified_time" content="2021-09-11T08:59:18.410Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="blog">
 <meta property="article:tag" content="disqus">
@@ -265,20 +265,6 @@
                   </a>
                 </span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/blog/20180831/disqus-new-reaction/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="blog/20180831/disqus-new-reaction/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
           
             <span id="/blog/20180831/disqus-new-reaction/" class="post-meta-item leancloud_visitors" data-flag-title="Disqus 添加了 Reactions 的功能" title="阅读次数">
@@ -382,13 +368,13 @@
 
           </div>
           
-    
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
+  <script src="https://utteranc.es/client.js"
+          repo="daya0576/comments.daya0576.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -669,37 +655,6 @@
   
 
   
-
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://daya0576.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: {page: {
-            url: "https://changchen.me/blog/20180831/disqus-new-reaction/",
-            identifier: "blog/20180831/disqus-new-reaction/",
-            title: "Disqus 添加了 Reactions 的功能"
-          }
-        }
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://daya0576.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
-    }
-  });
-</script>
 
 <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
