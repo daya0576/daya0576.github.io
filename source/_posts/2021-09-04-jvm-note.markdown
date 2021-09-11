@@ -14,11 +14,15 @@ tags: java
 
 ## 一、走近 Java
 
-首先预热一下，简单解释几个常见名词：JVM -> JRE -> JDK 
+首先预热一下，简单解释几个常见名词：`JVM` -> `JRE` -> `JDK` 
 
-- JVM（Java Virtual Machine）：Java虚拟机，它实现了一次编译到处运行，例如 HotSpot 等
-- JRE（Java Runtime Environment），JRE是支持Java程序运行的标准环境。包含 Java SE API 子集 / 虚拟机 
-- JDK（Java Development Kit）：Java程序开发的最小环境。包含 程序语言 / 虚拟机 / 基础类库等，例如 OpenJDK 等 
+- `JVM（Java Virtual Machine）`：Java虚拟机，它实现了一次编译到处运行，例如 HotSpot 等
+- `JRE（Java Runtime Environment）`，JRE是支持Java程序运行的标准环境。包含 Java SE API 子集 / 虚拟机 
+- `JDK（Java Development Kit）`：Java程序开发的最小环境。包含 程序语言 / 虚拟机 / 基础类库等，例如 OpenJDK 等 
+
+参考大图：
+![](/images/blog/2021-09-04-jvm-note/16313763141246.jpg)
+
 
 书中有一段总结挺有意思的，分享一下：*“Oracle收购Sun是Java发展历史上一道明显的分界线。在Sun掌舵的前十几年里，Java获得巨大成功，同时也渐渐显露出来语言演进的缓慢与社区决策的老朽；而在Oracle主导Java后，引起竞争的同时也带来新的活力，Java发展的速度要显著高于Sun时代。Java的未来是继续向前、再攀高峰，还是由盛转衰、锋芒挫缩，你我拭目以待”*
 
@@ -29,13 +33,14 @@ tags: java
 ### Java 内存区域
 网上很多文章因为 java 版本的问题，存在不同程度的过时。
 
-所以花了一点时间，尝试通过「堆」和「栈」两个视角，将 java8 的内存分布重新绘制一遍（如果有不对的地方辛苦帮忙指正）：
+所以花了一点时间，尝试通过「堆」和「栈」两个视角，将 java8 的内存分布重新绘制一遍加深理解：
 ![](/images/blog/2021-09-04-jvm-note/16307787626886.jpg)
+（p.s. 如果有不对的地方辛苦帮忙指正）
 
  
 ### 关键点说明
 #### 1. 关于 Perm 区 & Metaspace
-为了解决持久代内存溢出 & 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。
+为了解决 持久代内存溢出 & 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。
 
 我个人理解最大不同在于：1.8 之前，持久代与 Heap & Stack 都归属**虚拟机内存**，而 Metaspace 侧使用的**本地内存**（native memory），**默认不做限制**。
 
