@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           submodules: true
       - uses: actions/setup-node@master
@@ -53,17 +53,3 @@ jobs:
           publish_dir: ./public
           publish_branch: master  # deploying branch
           cname: changchen.me
-
-      - name: Notification
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: ${{ github.actor }} ${{ github.event_name }} Done!! Cheers～
-
-
-
-
-
-
-
