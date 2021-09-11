@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: true,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="有人建议说教游泳的最好办法是直接把那个孩子扔到水里？🤔 在你心中关于 Java 入门的最佳路径是什么呢？ 这篇博客将记录个人学习 Java 的一些经历与思考，希望同在迷茫的你读到，可以有所收获 ：）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大牙的 Java 入门经历分享（持续更新）">
+<meta property="og:url" content="https://changchen.me/blog/20210911/daya-java-learning-path/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="有人建议说教游泳的最好办法是直接把那个孩子扔到水里？🤔 在你心中关于 Java 入门的最佳路径是什么呢？ 这篇博客将记录个人学习 Java 的一些经历与思考，希望同在迷茫的你读到，可以有所收获 ：）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2021-09-11T15:24:57.000Z">
+<meta property="article:modified_time" content="2021-09-11T16:24:32.418Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="daya0576">
+<meta property="article:tag" content="朱昌健">
+<meta property="article:tag" content="大牙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20210911/daya-java-learning-path/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>大牙的 Java 入门经历分享（持续更新） | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210911/daya-java-learning-path/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          大牙的 Java 入门经历分享（持续更新）
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-11 23:24:57" itemprop="dateCreated datePublished" datetime="2021-09-11T23:24:57+08:00">2021-09-11</time>
+            </span>
+
+          
+            <span id="/blog/20210911/daya-java-learning-path/" class="post-meta-item leancloud_visitors" data-flag-title="大牙的 Java 入门经历分享（持续更新）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>有人建议说教游泳的最好办法是直接把那个孩子扔到水里？🤔 在你心中关于 Java 入门的最佳路径是什么呢？</p>
+<p>这篇博客将记录个人学习 Java 的一些经历与思考，希望同在迷茫的你读到，可以有所收获 ：）</p>
+<a id="more"></a>
+
+<h1 id="1- 个人编程经历"><a href="#1- 个人编程经历" class="headerlink" title="1. 个人编程经历"></a>1. 个人编程经历 </h1><p> 简单分享一下个人 一波三折的编程经历：</p>
+<ol>
+<li>首先缘起高校期间的师生合作项目，在老师的建议下接触 Python🐍</li>
+<li>之后通过 <a href="https://www.tangowithdjango.com/">Tango with Django</a> 教程，迷上 Web 开发，并尝试构建一些个人小项目🥰</li>
+<li>基于之前的经历，毕业后顺利寻得一份 Python 后端开发相关的工作（<a href="/blog/20170321/hypers-first-week-summary/">Hypers 每周小结</a>）</li>
+<li>当第一份工作满一年之际，机缘巧合加入“大厂”为一名 SRE💪</li>
+</ol>
+<p>但很可惜当前公司的技术栈中， Java 才是一等公民。在一次又一次“拥抱变化”之后，开始使用 Java 作为工作的主力语言。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/EF1EF453-2586-4FC7-8E9F-BA8CF47D25B9_1_105_c.jpeg" alt="EF1EF453-2586-4FC7-8E9F-BA8CF47D25B9_1_105_c"></p>
+<h1 id="2-Java- 学习路径"><a href="#2-Java- 学习路径" class="headerlink" title="2. Java 学习路径"></a>2. Java 学习路径 </h1><p> 在<a href="/blog/20180403/impressions-of-google-sre/">《Google SRE》</a>的第 28 章中，谈论了如何让一个 SRE 新手（newbie）快速开始进入 on-call 的队伍：有人建议说教游泳的最好办法是直接把那个孩子扔到水里，但文中并不太赞同这个观点，成为一名合格的 sre 需要 <strong> 体系化 </strong> 的学习和实践。</p>
+<p>学习一门编程语言也是一个道理，除了大胆的上手实践，系统化的学习更为关键。下面将按时间顺序，分享个人 Java 的入门路径，以及受益匪浅的学习资料。</p>
+<h2 id="2-1- 掌握基本语法"><a href="#2-1- 掌握基本语法" class="headerlink" title="2.1 掌握基本语法"></a>2.1 掌握基本语法 </h2><h3 id="2-1-1- 官方文档 -gt-《The-Java™-Tutorials》"><a href="#2-1-1- 官方文档 -gt-《The-Java™-Tutorials》" class="headerlink" title="2.1.1 官方文档 -&gt; 《The Java™ Tutorials》"></a>2.1.1 官方文档 -&gt; 《The Java™ Tutorials》</h3><p> 基于以往的编程经历中，不难发现一门编程语言质量最高的入门教程，往往出自官网（因为是对这门语言最了解的人撰写的？）</p>
+<p>这里推荐<a href="https://docs.oracle.com/javase/tutorial/java/index.html">《The Java™ Tutorials》</a>👍👍👍：</p>
+<ol>
+<li>首先不要被 Tutorial 这个词迷惑了😄，其中例如 Annotations 和 Generic 等部分有很多深入浅出和无死角的说明。</li>
+<li>更为关键是，每一个 topic 的结尾，附上课后练习，可以很方便的进一步巩固和掌握知识。</li>
+</ol>
+<h3 id="2-1-2- 好书推荐 -《Java-8- 实战》"><a href="#2-1-2- 好书推荐 -《Java-8- 实战》" class="headerlink" title="2.1.2 好书推荐 - 《Java 8 实战》"></a>2.1.2 好书推荐 - 《Java 8 实战》</h3><p>假如你和我一样在学生期间接触过 java（jdk1.6 与 eclipse 的时代），重拾后发现现在的 java8 和以前竟然不是一个东西？？？总是被 Stream API、Lambda、方法引用等新特性，绕的云里来雾里去。</p>
+<p>那么恭喜你！有一本秘籍叫做<a href="https://book.douban.com/subject/26772632/">《Java 8 实战》</a>，帮忙你快速掌握 Java 8 的新特性。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16313756701798.jpg" alt=""></p>
+<h3 id="2-1-3- 编程规范 -《阿里编程规范》"><a href="#2-1-3- 编程规范 -《阿里编程规范》" class="headerlink" title="2.1.3 编程规范 - 《阿里编程规范》"></a>2.1.3 编程规范 - 《阿里编程规范》</h3><p>有些瞬间觉得 Java 的 “表达能力” 远不如 Python（有力使不上的感觉）</p>
+<p>例如下面的例子，简单将一个嵌套的二维数组打平的需求。<br>Python 实现的版本不管是在直观的“代码篇幅”，还是“可读性”上都明显占优：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>matrix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x <span class="keyword">for</span> l <span class="keyword">in</span> matrix <span class="keyword">for</span> x <span class="keyword">in</span> l]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Java</span></span><br><span class="line">int[][] matrix = new int[][]&#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line">int[] l = Arrays.stream(matrix)</span><br><span class="line">        .flatMapToInt(Arrays::stream)</span><br><span class="line">        .toArray();</span><br><span class="line">System.out.println(Arrays.toString(l));</span><br><span class="line">// [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+
+<p>但是。。Java 的“笨重”反而又是它最大的优势：在多人（很多人）协作开发的场景，通过各种条条框框，可以更好的保证代码质量的下限 👀</p>
+<p>而《阿里编程规范》即“条条框框”的集大成者。。但说实话没有必要花太多时间细读，因为其中 90% 以上的规范或者最佳实践，已经沉淀在 IDEA 的插件中（<a href="https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines">链接🔗</a>），强烈建议安装获取实时提醒。</p>
+<h2 id="2-2- 编写更加优雅的代码"><a href="#2-2- 编写更加优雅的代码" class="headerlink" title="2.2 编写更加优雅的代码"></a>2.2 编写更加优雅的代码 </h2><h3 id="2-2-1- 相见恨晚的《Effective-Java》"><a href="#2-2-1- 相见恨晚的《Effective-Java》" class="headerlink" title="2.2.1 相见恨晚的《Effective Java》"></a>2.2.1 相见恨晚的《Effective Java》</h3><p> 虽然插件会给出实时的 WARNING 提示，但很可惜，目前还无法提示更加「优雅」的代码。</p>
+<p>阅读《Effective Java》书后，唯一的一个感觉就是相见恨晚，因为其中每个章节都似曾相识（对应同事曾经给我的 CR 建议 😂）</p>
+<p>举其中一个章节为例：<code>Item 53: Use varargs judiciously（明智地使用可变参数）</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需求：子程序接收可变参数，但长度必须大于 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面写法的缺点：1）运行时而不是编译时失败 2）不美观：必须包含对 args 的显式有效性检查</span></span><br><span class="line"><span class="comment">// The WRONG way to use varargs to pass one or more arguments!</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span>... args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Too few arguments"</span>);</span><br><span class="line">    <span class="keyword">int</span> min = args[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; args.length; i++)</span><br><span class="line">        <span class="keyword">if</span> (args[i] &lt; min)</span><br><span class="line">    min = args[i];</span><br><span class="line">    <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确的写法</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> firstArg, <span class="keyword">int</span>... remainingArgs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min = firstArg;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> arg : remainingArgs)</span><br><span class="line">        <span class="keyword">if</span> (arg &lt; min)</span><br><span class="line">          min = arg;</span><br><span class="line">          <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 性能优化：解决大部分场景下，调用创建数组的成本 </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a1)</span> </span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">int</span> a2)</span> </span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">int</span> a2, <span class="keyword">int</span> a3)</span> </span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">int</span> a2, <span class="keyword">int</span> a3, <span class="keyword">int</span>... rest)</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>尝试过阅读英文原版，但太啰嗦了。。推荐<a href="https://github.com/clxering/Effective-Java-3rd-edition-Chinese-English-bilingual">《中英文翻译》</a>，高效的学习和记录要点。</p>
+<h2 id="2-3- 面向对象"><a href="#2-3- 面向对象" class="headerlink" title="2.3 面向对象"></a>2.3 面向对象 </h2><p> 掌握基本语法后，还是很容易写出 <a href="https://zh.wikipedia.org/wiki/%25E9%259D%25A2%25E6%259D%25A1%25E5%25BC%258F%25E4%25BB%25A3%25E7%25A0%2581">面条代码 (Spaghetti Code)</a></p>
+<p>这时你需要尝试开始用「面向对象」来思考和组织你的代码，最终管理好整个项目代码的复杂度（<del>谨防为了 OO 而 OO</del>）。</p>
+<h3 id="2-3-1-UML"><a href="#2-3-1-UML" class="headerlink" title="2.3.1 UML"></a>2.3.1 UML</h3><blockquote>
+<p>Item 19: Design and document for inheritance or else prohibit it</p>
+</blockquote>
+<p>《Effective Java》中有个很有意思的一个建议：如果要使用接口和抽象类，请先写好设计文档。我理解即画好 UML 类图和时序图。</p>
+<p><em>参考之前的一篇博客感受一下：<a href="/blog/20200502/uml-unified-modeling-language/">《解决关于 UML 类图在心中深藏多年的若干疑惑》</a></em></p>
+<h3 id="2-3-2- 设计模式"><a href="#2-3-2- 设计模式" class="headerlink" title="2.3.2 设计模式"></a>2.3.2 设计模式 </h3><p> 软件最重要的一个使命：管理复杂度。而 Java 遇到设计模式就像咖啡遇到牛奶，变成一杯香醇的拿铁～ 深有体会在真实项目中，如果合理的使用构造器、观察者等实用模式，将会有效提升代码的复用性，降低耦合度。</p>
+<p>尝试阅读过 《First Head 设计模式》，《Refactoring Guru》，《设计模式：可复用面向对象软件的基础》后，个人的一点点感悟：<strong>掌握一个设计模式很简单，但如何在真实的场景中，恰到好处的使用才是关键和难点。</strong> 所以建议不要纸上谈兵，抓住每一次写代码的机会，不断的实践练习和提高对代码的要求。</p>
+<p>参考：<em><a href="/blog/20200614/design-pattern/">《Head First 设计模式》学习笔记</a>、<a href="/blog/20201114/why-u-dont-need-design-pattern-in-python/">《Python 不需要设计模式？》</a></em></p>
+<h2 id="2-4-JVM- 虚拟机"><a href="#2-4-JVM- 虚拟机" class="headerlink" title="2.4 JVM 虚拟机"></a>2.4 JVM 虚拟机 </h2><h3 id="2-4-1-WIP-《深入理解 -JVM- 虚拟机》"><a href="#2-4-1-WIP-《深入理解 -JVM- 虚拟机》" class="headerlink" title="2.4.1 [WIP] 《深入理解 JVM 虚拟机》"></a>2.4.1 [WIP] 《深入理解 JVM 虚拟机》</h3><p> 虽然 java 天天被黑，但 JVM 还是很优秀的。更难得有一本深入浅出的书供大众学习，不像难产多年的《Python 源码剖析》每年圣诞节的梗 😊</p>
+<p>虽然书中绝大部份知识，看似在日常中派不上用场（确实例如 class 文件格式每个字段的内容），但很多知识会产生潜移默化提升个人能力，例如：</p>
+<ul>
+<li>理解内存管理和垃圾回收的机制，让你排查线上问题和性能调优时，更加如鱼得水</li>
+<li>学习「解析」与「分派」在 JVM 侧的原理，更好的理解 override 与 overload 的行为</li>
+<li>.. </li>
+</ul>
+<p><em>参考近日的一篇博客：<a href="/blog/20210904/jvm-note/">《Java 内存管理 - SRE 的必修课》</a></em></p>
+<h3 id="2-5-LATER"><a href="#2-5-LATER" class="headerlink" title="2.5 LATER"></a>2.5 LATER</h3><p>侥幸入门后还有很长很长很长的路要走，以下为待读的书单：</p>
+<ul>
+<li>《代码大全》</li>
+<li>《Java 并发编程实战》</li>
+<li>各种源码阅读</li>
+<li>...</li>
+</ul>
+<h1 id="3- 关于坚持"><a href="#3- 关于坚持" class="headerlink" title="3. 关于坚持"></a>3. 关于坚持 </h1><p> 上周地铁上看了一本书，名叫《为什么你总是半途而废》。虽然有一丝丝鸡汤... 但借着其中关于如何坚持到底的几个观点分享一下：</p>
+<blockquote>
+<p>听我讲座的人中有一个舞蹈老师，他曾跟我说：“能够学好舞蹈的人往往都是那些本身就喜欢舞蹈的人，喜欢练习跳舞的人。”相反，学不好的人往往想的是学会舞蹈以后既能扩大自己的交际圈，又能锻炼身体、丰富人生等，他们更多想的是学会舞蹈之后的好处。比起练习的过程，他们更希望感受结果的喜悦，显然很难坚持下去。减肥也是同样的道理，只重视结果的人即便能瘦下来，最终还是会反弹</p>
+</blockquote>
+<p>享受过程：下半年给自己的一个目标：尝试用 Java 技术栈做一个小项目（code for fun），利用解决现实中的问题，帮助他人的成就感，不断自我驱动。</p>
+<blockquote>
+<p>容易半途而废的人总是想独自完成事情，而坚持到底的人却善于借助外力</p>
+</blockquote>
+<p>所以如果你也在学习 Java，可以直接留言联系我，相互监督打卡，持之以恒提一起升编码能力 ：）</p>
+<blockquote>
+<p>先从整件事的 1% 着手</p>
+</blockquote>
+<p>入门一门语言，警惕花一周时间甚至更久，整理出一个完美细致的学习计划。因为通常只是三分钟热度（个人观点）。</p>
+<p>还不如把这份热情用于简单找一本经典书籍或教程直接开学，如果能沉下心来啃完，基本上已经超过绝大部分人了。</p>
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>一直有一个困惑：Java 这门语言是否适合我？（甚至自己是否适合做技术？）<br>给自己的答复是：因为目前还没有及格的掌握这门语言，所以有这个困惑。希望有一天可以对这门语言运用自如，并找到相关的热情点～</p>
+<hr>
+<p>TODO：招聘帖 </p>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/daya0576">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20210904/jvm-note/" rel="prev" title="Java 内存管理 - SRE 的必修课">
+      <i class="fa fa-chevron-left"></i> Java 内存管理 - SRE 的必修课
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+  <script src="https://utteranc.es/client.js"
+          repo="daya0576/comments.daya0576.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1- 个人编程经历"><span class="nav-text">1. 个人编程经历 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Java- 学习路径"><span class="nav-text">2. Java 学习路径 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1- 掌握基本语法"><span class="nav-text">2.1 掌握基本语法 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1- 官方文档 -gt-《The-Java™-Tutorials》"><span class="nav-text">2.1.1 官方文档 -&gt; 《The Java™ Tutorials》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2- 好书推荐 -《Java-8- 实战》"><span class="nav-text">2.1.2 好书推荐 - 《Java 8 实战》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3- 编程规范 -《阿里编程规范》"><span class="nav-text">2.1.3 编程规范 - 《阿里编程规范》</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2- 编写更加优雅的代码"><span class="nav-text">2.2 编写更加优雅的代码 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1- 相见恨晚的《Effective-Java》"><span class="nav-text">2.2.1 相见恨晚的《Effective Java》</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3- 面向对象"><span class="nav-text">2.3 面向对象 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-UML"><span class="nav-text">2.3.1 UML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2- 设计模式"><span class="nav-text">2.3.2 设计模式 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-JVM- 虚拟机"><span class="nav-text">2.4 JVM 虚拟机 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-WIP-《深入理解 -JVM- 虚拟机》"><span class="nav-text">2.4.1 [WIP] 《深入理解 JVM 虚拟机》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-LATER"><span class="nav-text">2.5 LATER</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3- 关于坚持"><span class="nav-text">3. 关于坚持 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#THE-END"><span class="nav-text">THE END</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yihong.run/" title="https://yihong.run/" rel="noopener" target="_blank">喜欢跑步与编程的 yihong0618</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
