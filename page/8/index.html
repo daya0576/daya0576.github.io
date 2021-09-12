@@ -228,6 +228,62 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180222/b-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20180222/b-tree/" class="post-title-link" itemprop="url"><算法导论 (3rd)> 第十八章 - B Tree!</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>之前学DBMS的时候接触到B Tree, 但当时懵懵懂懂我的对B Tree的操作也是一知半解.<br>今天看了书(主要是严谨的定义和完整的伪代码流程), 感触颇深, 以此博客记录一下.    </p>
+<h1 id="B-Tree的定义"><a href="#B-Tree的定义" class="headerlink" title="B Tree的定义:"></a>B Tree的定义:</h1><p><em>(看上去这些定义好像很啰嗦没什么意思, 但花点时间搞清楚后, 看伪代码和下文会清晰很多.)</em>   </p>
+<ol>
+<li>每个节点x有以下的性质<ul>
+<li><code>x.n</code> → 一个节点中关键字的个数.   </li>
+<li><code>x.key1 &lt;= x.key2 &lt;= x.key3</code>, e.g. 一个节点: [A, N, O] → A &lt; N &lt; O</li>
+<li><code>x.leaf</code> → 是否为叶子节点(True/False)</li>
+</ul>
+</li>
+<li>每个节点如果有n个关键字, 就有<strong>n+1个</strong>指向孩子的指针<strong>(x.c1, x.c2, ...)</strong></li>
+<li>每个叶子节点, 都有相同的深度, 即<strong>树的高度h</strong> (为什么呢? 每个叶子节点...)</li>
+<li>对于两个相邻关键字x.key1, x.key2之间(子树上)的<strong>任意一个关键字k</strong>, 必定有x.key1 &lt;= k &lt;= x.key2 </li>
+<li>最后有个很重要的概念: <strong>最小度数(minimum degree) → t</strong>.<br>得到一个节点关键字个数限制:   <img style="max-height:100px" class="lazy" data-original="/images/blog/180221_btree/equation_t.jpg">
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180204/djangodan-yuan-ce-shi-da-ti-su-300s-5s/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -532,50 +588,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20170729/octopress-nginx-vps/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20170729/octopress-nginx-vps/" class="post-title-link" itemprop="url">在 vps 上部署你的静态博客 (网站)</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>昨晚博客搬到香港的vps上了. 在这篇文章把简单的几个步骤, 总结分享一下( 本文主要以Octopress为例子, 但流程其实都是共通的).<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png"></p>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -648,7 +660,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

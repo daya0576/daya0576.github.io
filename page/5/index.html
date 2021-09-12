@@ -228,6 +228,52 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20190113/anomaly-detection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20190113/anomaly-detection/" class="post-title-link" itemprop="url">业务报警智能降噪的那些事</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>近半年工作，一大部分时间在探索监控报警的智能降噪。用这篇博客整理个人点点滴滴的思考，希望可以不断的持续更新..</p>
+<p><img src="/images/blog/190113_abnormal_detection/IMG_2600.jpg" alt=""></p>
+<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>监控的重要性不言而喻，它就相当于 <a href="/blog/20180403/impressions-of-google-sre/">SRE</a> 的眼睛。但由于监控系统静态规则的局限性，经常会产生一些误报，e.g. 促销冲高回落(尖刺)，小流量波动, 季节性趋势下跌，入口下跌等等。轻则形成针对人的「DDOS攻击」，重则导致真正的故障被忽略(狼来了的故事)。所以如何利用算法自动识别噪音，已成为当务之急，将会大大降低人肉处理报警的成本，为公司节省成本。</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20181209/continuous-delivery-by-buddy-work/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -542,57 +588,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180901/hexo-next-update-version/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20180901/hexo-next-update-version/" class="post-title-link" itemprop="url">记一次 Hexo Next 主题的小小小升级 (v6.3.0 → v6.4.0)</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>软件维护有两种截然不同的思路，一种所有的依赖都追踪最新版，一旦出最新版立即开始试用，出问题马上反馈社区或者解决，这样虽然经常需要适配新版，但每次都是小问题，很快就能解决。这是活着的软件，虽然每天都要吃饭很麻烦，但你能看见它的新陈代谢。</p>
-<p>另一种所有的依赖都选择一个不会变的固定版本，能不升级就不升级，旧版本的bug想办法workaround，这种软件的开发者害怕改变，能推到明天的工作绝对不在今天做，并且喜欢以“项目规模太大，客户要求严格，风险太高”为理由，得过且过，这种是死掉的项目，只是还没有埋而已，在这种项目上你会发现做变更也特别困难，许多现代项目里非常常见的功能根本加不进去（因为依赖库不支持）</p>
-<p>活着的项目可能会死，死掉的项目是几乎不可能再活过来的，落后太多版本，一旦升到最新版就发现到处都是问题修不过来了，因为没有跟踪过依赖的版本变更，也搞不清楚可能是什么问题。像JDK这种已经算好的了，不兼容的情况一般比较少，但JDK都不肯升，依赖库肯定也全是JDK6版本的了，要把依赖库直接升到10，只能选择死亡了。</p>
-<p>作者：灵剑<br>链接：<a href="https://www.zhihu.com/question/30137699/answer/476916096">https://www.zhihu.com/question/30137699/answer/476916096</a></p>
-</blockquote>
-<p>以上为知乎上的一个回答. 个人觉得如果对于自己非常熟悉的第三方依赖, 并可以把握风险的话, 还是会不断的去追求最新版本. 毕竟对于新事物的好奇心是活在一个优秀程序员血液里的东西. </p>
-<p>本文简单记录了Hexo Next主题升级版本(v6.3.0 → v6.4.0)的完整过程.  </p>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -665,7 +660,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

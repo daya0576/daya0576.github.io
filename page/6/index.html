@@ -228,6 +228,57 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180901/hexo-next-update-version/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20180901/hexo-next-update-version/" class="post-title-link" itemprop="url">记一次 Hexo Next 主题的小小小升级 (v6.3.0 → v6.4.0)</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>软件维护有两种截然不同的思路，一种所有的依赖都追踪最新版，一旦出最新版立即开始试用，出问题马上反馈社区或者解决，这样虽然经常需要适配新版，但每次都是小问题，很快就能解决。这是活着的软件，虽然每天都要吃饭很麻烦，但你能看见它的新陈代谢。</p>
+<p>另一种所有的依赖都选择一个不会变的固定版本，能不升级就不升级，旧版本的bug想办法workaround，这种软件的开发者害怕改变，能推到明天的工作绝对不在今天做，并且喜欢以“项目规模太大，客户要求严格，风险太高”为理由，得过且过，这种是死掉的项目，只是还没有埋而已，在这种项目上你会发现做变更也特别困难，许多现代项目里非常常见的功能根本加不进去（因为依赖库不支持）</p>
+<p>活着的项目可能会死，死掉的项目是几乎不可能再活过来的，落后太多版本，一旦升到最新版就发现到处都是问题修不过来了，因为没有跟踪过依赖的版本变更，也搞不清楚可能是什么问题。像JDK这种已经算好的了，不兼容的情况一般比较少，但JDK都不肯升，依赖库肯定也全是JDK6版本的了，要把依赖库直接升到10，只能选择死亡了。</p>
+<p>作者：灵剑<br>链接：<a href="https://www.zhihu.com/question/30137699/answer/476916096">https://www.zhihu.com/question/30137699/answer/476916096</a></p>
+</blockquote>
+<p>以上为知乎上的一个回答. 个人觉得如果对于自己非常熟悉的第三方依赖, 并可以把握风险的话, 还是会不断的去追求最新版本. 毕竟对于新事物的好奇心是活在一个优秀程序员血液里的东西. </p>
+<p>本文简单记录了Hexo Next主题升级版本(v6.3.0 → v6.4.0)的完整过程.  </p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180831/disqus-new-reaction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -541,52 +592,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180819/deploy-hexo-blog-to-gcp-oss/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20180819/deploy-hexo-blog-to-gcp-oss/" class="post-title-link" itemprop="url">部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>众所周知, 要使用国内的云服务, 不管是vps也好, cdn加速也好, 域名都是要备案的. 但对于我来说, 备案是不可能备案的，这辈子不可能备案的. </p>
-<p>正好前段时间工作中接触了aliyun的oss, 就萌生了将网站部署到Google Cloud Platform的OSS上的想法💡.<br><img src="/images/blog/180819_hexo_to_gcp_oss/15346829618992.jpg" alt=""></p>
-<p><strong>结论:</strong><br>GCP的OSS速度看上去还是很优秀的, 但部署步骤繁琐, https比较棘手, 还是放弃了这种部署方式.<br>最终选择了Netlify, 见下一篇博客: </p>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -659,7 +664,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
