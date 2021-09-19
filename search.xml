@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2020 大牙的十大 yyds 好物推荐！</title>
+    <title>全网最晚的 2020 好物推荐</title>
     <url>/blog/20210912/2020-top10-recomendation/</url>
     <content><![CDATA[<p>嗯你没有看错。。虽然 2021 年已过半，但全网最晚的 2020 好物推荐它来了 🥰🥰🥰<br><strong><a href="https://twitter.com/year_progress">Year Progress</a></strong>: ▓▓▓▓▓▓▓▓▓▓░░░░░ 69%</p>
 <p>2020 又是买买买的一年。这篇文章分享一下过去一年，<del>永不过时 </del> 提升生活幸福感的十大好物。</p>
@@ -105,7 +105,14 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Python</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>matrix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x <span class="keyword">for</span> l <span class="keyword">in</span> matrix <span class="keyword">for</span> x <span class="keyword">in</span> l]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Java</span></span><br><span class="line">int[][] matrix = new int[][]&#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, &#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;&#125;;</span><br><span class="line">int[] l = Arrays.stream(matrix)</span><br><span class="line">        .flatMapToInt(Arrays::stream)</span><br><span class="line">        .toArray();</span><br><span class="line">System.out.println(Arrays.toString(l));</span><br><span class="line">// [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 
 <p>但是。。Java 的“笨重”反而又是它最大的优势：在多人（很多人）协作开发的场景，通过各种条条框框，可以更好的保证代码质量的下限 👀</p>
-<p>而《阿里编程规范》即“条条框框”的集大成者。。但说实话没有必要花太多时间细读，因为其中 90% 以上的规范或者最佳实践，已经沉淀在 IDEA 的插件中（<a href="https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines">链接🔗</a>），强烈建议安装获取实时提醒。</p>
+<p>而《阿里编程规范》即“条条框框”的集大成者。。<del>但说实话没有必要花太多时间细读 </del>，因为其中 90% 以上的规范或者最佳实践，已经沉淀在 IDEA 的插件中（<a href="https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines"> 链接🔗</a>），强烈建议安装获取实时提醒。</p>
+<p>收回上面不需要细读的话，放假前摸鱼认真阅读时，还是有很多收获。建议仔细阅读，成为一个莫得感情的代码生成机器。</p>
+<p>例如 集合处理 章节中，阐述了编译阶段不会发现的报错：</p>
+<ol>
+<li>数组调用 <code>subList</code> 后得到的其实是 <code>java.util.ArrayList.SubList</code>。⚠️注意这时对父集合元素的增加或删除，会导致报错！！</li>
+<li>集合 -&gt; 数组：最佳实践为 <code>list.toArray(new String[0]);</code>，动态创建与 size 相同的数组，性能最好。</li>
+<li>数组 -&gt; 集合：调用 <code>Arrays.asList()</code> 后，同时⚠️注意不能对处理后的集合，进行增删改查的操作。</li>
+</ol>
 <h2 id="2-2- 编写更加优雅的代码"><a href="#2-2- 编写更加优雅的代码" class="headerlink" title="2.2 编写更加优雅的代码"></a>2.2 编写更加优雅的代码 </h2><h3 id="2-2-1- 相见恨晚的《Effective-Java》"><a href="#2-2-1- 相见恨晚的《Effective-Java》" class="headerlink" title="2.2.1 相见恨晚的《Effective Java》"></a>2.2.1 相见恨晚的《Effective Java》</h3><p> 虽然插件会给出实时的 WARNING 提示，但很可惜，目前还无法提示更加「优雅」的代码。</p>
 <p>阅读《Effective Java》书后，唯一的一个感觉就是相见恨晚，因为其中每个章节都似曾相识（对应同事曾经给我的 CR 建议 😂）</p>
 <p>举其中一个章节为例：<code>Item 53: Use varargs judiciously（明智地使用可变参数）</code></p>
@@ -2360,8 +2367,8 @@
         <category>review</category>
       </categories>
       <tags>
-        <tag>iOS</tag>
         <tag>review</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
