@@ -66,7 +66,15 @@ System.out.println(Arrays.toString(l));
 
 但是。。Java 的“笨重”反而又是它最大的优势：在多人（很多人）协作开发的场景，通过各种条条框框，可以更好的保证代码质量的下限 👀
 
-而《阿里编程规范》即“条条框框”的集大成者。。但说实话没有必要花太多时间细读，因为其中 90% 以上的规范或者最佳实践，已经沉淀在 IDEA 的插件中（[链接🔗](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines)），强烈建议安装获取实时提醒。
+而《阿里编程规范》即“条条框框”的集大成者。。~~但说实话没有必要花太多时间细读~~，因为其中 90% 以上的规范或者最佳实践，已经沉淀在 IDEA 的插件中（[链接🔗](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines)），强烈建议安装获取实时提醒。
+
+收回上面不需要细读的话，放假前摸鱼认真阅读时，还是有很多收获。建议仔细阅读，成为一个莫得感情的代码生成机器。
+
+例如 集合处理 章节中，阐述了编译阶段不会发现的报错：
+
+1. 数组调用 `subList` 后得到的其实是 `java.util.ArrayList.SubList`。⚠️注意这时对父集合元素的增加或删除，会导致报错！！
+2. 集合 -> 数组：最佳实践为 `list.toArray(new String[0]);`，动态创建与size相同的数组，性能最好。
+3. 数组 -> 集合：调用 `Arrays.asList()` 后，同时⚠️注意不能对处理后的集合，进行增删改查的操作。
 
 ## 2.2 编写更加优雅的代码
 ### 2.2.1 相见恨晚的《Effective Java》
