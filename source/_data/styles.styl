@@ -78,8 +78,9 @@ body {
       transform: rotate(360deg);
     }
   }
+
   .site-author-name {
-    line-height:2;
+    line-height: 2;
     font-weight: 400;
   }
 }
@@ -93,10 +94,11 @@ body {
   .post-body {
     p {
       margin: 5px 0 15px 0;
-      line-height: 28px;
+      line-height: 1.5;
+      word-wrap: break-word;
     }
 
-    p+ol,p+ul {
+    p + ol, p + ul {
       margin-top: -10px;
     }
 
@@ -150,6 +152,7 @@ body {
     .post-meta {
       margin: 5px 0 5px 0;
       padding: 5px, 0;
+
       a, time {
         color: #999;
         border-bottom: none;
