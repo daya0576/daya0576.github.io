@@ -20,15 +20,11 @@ tags: java
 - `JRE（Java Runtime Environment）`，JRE是支持Java程序运行的标准环境。包含 Java SE API 子集 / 虚拟机 
 - `JDK（Java Development Kit）`：Java程序开发的最小环境。包含 程序语言 / 虚拟机 / 基础类库等，例如 OpenJDK 等 
 
-参考大图：
-![](/images/blog/2021-09-04-jvm-note/16313763141246.jpg)
-
-
 书中有一段总结挺有意思的，分享一下：*“Oracle收购Sun是Java发展历史上一道明显的分界线。在Sun掌舵的前十几年里，Java获得巨大成功，同时也渐渐显露出来语言演进的缓慢与社区决策的老朽；而在Oracle主导Java后，引起竞争的同时也带来新的活力，Java发展的速度要显著高于Sun时代。Java的未来是继续向前、再攀高峰，还是由盛转衰、锋芒挫缩，你我拭目以待”*
 
 
 ## 二、自动内存管理
-进入正文！
+进入正文！🎉🎉🎉 
 
 ### Java 内存区域
 网上很多文章因为 java 版本的问题，存在不同程度的过时。
