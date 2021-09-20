@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5bffff;
+  background: #9d4128;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2651,14 +2651,6 @@ body .headband {
 .header-inner {
   background-image: url("/images/site-meta-bg/sky_latest.jpg");
   background-size: cover;
-  filter: grayscale(100%);
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-.header-inner:hover {
-  filter: none;
 }
 .header-inner .site-meta {
   background: none;
