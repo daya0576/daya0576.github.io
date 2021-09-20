@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>天使还是恶魔！浅谈 Java 中的 checked exception</title>
+    <url>/blog/20210920/java-checked-exception/</url>
+    <content><![CDATA[<p>记得有一次，觉得处理异常太麻烦，直接 catch 后包装一个 RuntimeException 一路抛了上去。结果被小伙伴 CR 时喷了一顿～</p>
+<p>这篇文章将简单介绍 Java 中异常的分类，使用 checked exceptions 的最佳时机，以及为什么无脑抛 RuntimeException 不是一个好习惯。最后分享如何在 lambda 表达式中，更加优雅的处理 checked exceptions。</p>
+<a id="more"></a>
+
+<h1 id="异常分类"><a href="# 异常分类" class="headerlink" title="异常分类"></a>异常分类</h1><p>Java 中所有异常都继承自<code>Throwable</code>，一般简单将异常分为：</p>
+<ol>
+<li><strong>checked exception</strong>: 调用方必须显性处理的异常，否则编译不通过。</li>
+<li><strong>unchecked exception</strong>: 编译期间是无法提前检测的异常，又细分为<ol>
+<li><code>RuntimeException</code>，例如臭名昭著的 NPE</li>
+<li><code>Error</code>: JVM 抛出异常，例如 <code>OutOfMemoryError</code> 等</li>
+</ol>
+</li>
+</ol>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/exception_checked_and_unchecked.jpg" alt="exception_checked_and_unchecked"></p>
+<h1 id="使用 -Checked-Exceptions- 的最佳时机"><a href="# 使用 -Checked-Exceptions- 的最佳时机" class="headerlink" title="使用 Checked Exceptions 的最佳时机"></a>使用 Checked Exceptions 的最佳时机 </h1><p> 参考《Effective Java》中 Item 70: </p>
+<blockquote>
+<p><strong>Use checked exceptions for recoverable conditions and runtime exceptions for programming errors.</strong> By throwing a checked exception, you force the caller to handle the exception in a catch clause or to propagate it outward.<br>Each checked exception that a method is declared to throw is therefore a potent indication to the API user that the associated condition is a possible outcome of invoking the method.</p>
+</blockquote>
+<p>使用 checked exception 简单的指导原则：<strong>异常是否可恢复</strong>，简而言之即调用方是否有能力处理异常，并做出积极的响应，最终从异常中恢复。例如尝试打开一个不存在的文件，异常被调用方捕捉后，提示用户重新输入文件路径，也是一种所谓的 recoverable conditions。</p>
+<p>否则如果因为编程错误等，无法恢复的情况，则使用 runtime exceptions 尽早让程序结束掉更为合适。</p>
+<h2 id="所以为什么不能无脑抛 -RuntimeException？"><a href="# 所以为什么不能无脑抛 -RuntimeException？" class="headerlink" title="所以为什么不能无脑抛 RuntimeException？"></a>所以为什么不能无脑抛 RuntimeException？</h2><p>哈哈，偶遇这个提问，如果不是翻译自 StackExchange 真的怀疑是不是我同事的困惑。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16321269380121.jpg" alt=""></p>
+<p>举个栗子：假如有一段线上告警后置处理的逻辑，其中一段子步骤为日志的抽样检查，但是因为网络等原因，存在小概率日志拉取失败的异常。这时套用「指导原则」需要抛出一个 checked exception，最终由调用方决定执行重试，或直接跳过该“弱依赖”，对异常进行恢复。</p>
+<p>这时如果直接包装为 RuntimeException 无脑抛上去，则可能会中断整个告警后置处理的逻辑，甚至导致故障告警发不出来，显然是不合适的。</p>
+<h1 id="篇外：如何在 -stream- 中更优雅的处理异常"><a href="# 篇外：如何在 -stream- 中更优雅的处理异常" class="headerlink" title="篇外：如何在 stream 中更优雅的处理异常"></a>篇外：如何在 stream 中更优雅的处理异常 </h1><p> 上文说到，针对 checked exceptions，调用方必须显性的捕捉并处理，但这也是为什么很多程序员对它深恶痛绝。</p>
+<p>更加可恨的是，在 Java8 的 stream 中，不支持直接抛出 checked exceptions.. 所以很容易写出丑陋的代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Scratch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] clazzList = <span class="keyword">new</span> String[]&#123;<span class="string">"java.util.TreeSet"</span>, <span class="string">"2"</span>&#125;;</span><br><span class="line">        Arrays.stream(clazzList)</span><br><span class="line">                .map(s -&gt; &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> Class.forName(s);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一种解决办法是使用 vavr 包：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> io.vavr.CheckedFunction1;</span><br><span class="line"><span class="keyword">import</span> io.vavr.control.Try;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Scratch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] clazzList = <span class="keyword">new</span> String[]&#123;<span class="string">"java.util.TreeSet"</span>, <span class="string">"2"</span>&#125;;</span><br><span class="line">        List&lt;Try&lt;? extends Class&lt;?&gt;&gt;&gt; collect = Arrays.stream(clazzList)</span><br><span class="line">                .map(CheckedFunction1.liftTry(Class::forName))</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打印异常</span></span><br><span class="line">        collect.forEach(x -&gt; x.onFailure(System.out::println));</span><br><span class="line">        <span class="comment">// 打印正常结果</span></span><br><span class="line">        collect.forEach(x -&gt; x.onSuccess(System.out::println));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>翻阅资料的过程中，发现大家对 Java 中的 checked exceptions 是天使还是恶魔的争论十分激烈。</p>
+<p>个人觉得 checked exceptions 还是利大于弊的，合理使用会有效提升接口和程序整体的健壮性。</p>
+<h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://web.archive.org/web/20171216175508/www.yinwang.org/blog-cn/2017/05/23/kotlin">https://web.archive.org/web/20171216175508/www.yinwang.org/blog-cn/2017/05/23/kotlin</a></li>
+<li>《Effective Java》Item 70 &amp; Item 71</li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/121328/is-it-good-practice-to-catch-a-checked-exception-and-throw-a-runtimeexception/121385#121385">https://softwareengineering.stackexchange.com/questions/121328/is-it-good-practice-to-catch-a-checked-exception-and-throw-a-runtimeexception/121385#121385</a></li>
+<li><a href="https://github.com/kun-song/my-blog/issues/36">https://github.com/kun-song/my-blog/issues/36</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>全网最晚的 2020 好物推荐</title>
     <url>/blog/20210912/2020-top10-recomendation/</url>
     <content><![CDATA[<p>嗯你没有看错。。虽然 2021 年已过半，但全网最晚的 2020 好物推荐它来了 🥰🥰🥰<br><strong><a href="https://twitter.com/year_progress">Year Progress</a></strong>: ▓▓▓▓▓▓▓▓▓▓░░░░░ 69%</p>
@@ -144,7 +187,7 @@
 <li>各种源码阅读</li>
 <li>...</li>
 </ul>
-<h1 id="3- 关于坚持"><a href="#3- 关于坚持" class="headerlink" title="3. 关于坚持"></a>3. 关于坚持 </h1><p> 上周地铁上看了一本书，名叫《为什么你总是半途而废》。虽然有一丝丝鸡汤... 但借着其中关于如何坚持到底的几个观点分享一下：</p>
+<h1 id="3- 关于坚持"><a href="#3- 关于坚持" class="headerlink" title="3. 关于坚持"></a>3. 关于坚持 </h1><p> 上周地铁上看了一本书，名叫<a href="https://book.douban.com/subject/35492252/">《为什么你总是半途而废》</a>。虽然有一丝丝鸡汤... 但借着其中关于如何坚持到底的几个观点分享一下：</p>
 <blockquote>
 <p>听我讲座的人中有一个舞蹈老师，他曾跟我说：“能够学好舞蹈的人往往都是那些本身就喜欢舞蹈的人，喜欢练习跳舞的人。”相反，学不好的人往往想的是学会舞蹈以后既能扩大自己的交际圈，又能锻炼身体、丰富人生等，他们更多想的是学会舞蹈之后的好处。比起练习的过程，他们更希望感受结果的喜悦，显然很难坚持下去。减肥也是同样的道理，只重视结果的人即便能瘦下来，最终还是会反弹</p>
 </blockquote>
@@ -177,9 +220,8 @@
 <li><code>JRE（Java Runtime Environment）</code>，JRE 是支持 Java 程序运行的标准环境。包含 Java SE API 子集 / 虚拟机 </li>
 <li><code>JDK（Java Development Kit）</code>：Java 程序开发的最小环境。包含 程序语言 / 虚拟机 / 基础类库等，例如 OpenJDK 等 </li>
 </ul>
-<p>参考大图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16313763141246.jpg" alt=""></p>
 <p>书中有一段总结挺有意思的，分享一下：<em>“Oracle 收购 Sun 是 Java 发展历史上一道明显的分界线。在 Sun 掌舵的前十几年里，Java 获得巨大成功，同时也渐渐显露出来语言演进的缓慢与社区决策的老朽；而在 Oracle 主导 Java 后，引起竞争的同时也带来新的活力，Java 发展的速度要显著高于 Sun 时代。Java 的未来是继续向前、再攀高峰，还是由盛转衰、锋芒挫缩，你我拭目以待”</em></p>
-<h2 id="二、自动内存管理"><a href="# 二、自动内存管理" class="headerlink" title="二、自动内存管理"></a>二、自动内存管理 </h2><p> 进入正文！</p>
+<h2 id="二、自动内存管理"><a href="# 二、自动内存管理" class="headerlink" title="二、自动内存管理"></a>二、自动内存管理 </h2><p> 进入正文！🎉🎉🎉 </p>
 <h3 id="Java- 内存区域"><a href="#Java- 内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域 </h3><p> 网上很多文章因为 java 版本的问题，存在不同程度的过时。</p>
 <p>所以花了一点时间，尝试通过「堆」和「栈」两个视角，将 java8 的内存分布重新绘制一遍加深理解：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16307787626886.jpg" alt=""><br>（p.s. 如果有不对的地方辛苦帮忙指正）</p>
 <h3 id="关键点说明"><a href="# 关键点说明" class="headerlink" title="关键点说明"></a>关键点说明 </h3><h4 id="1- 关于 -Perm- 区 -amp-Metaspace"><a href="#1- 关于 -Perm- 区 -amp-Metaspace" class="headerlink" title="1. 关于 Perm 区 &amp; Metaspace"></a>1. 关于 Perm 区 &amp; Metaspace</h4><p> 为了解决 持久代内存溢出 &amp; 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。</p>
@@ -315,7 +357,8 @@
 <h1 id="展望 -2021"><a href="# 展望 -2021" class="headerlink" title="展望 2021"></a>展望 2021</h1><p>在公司里每个人都需要在财年初录入每个人的 KPI，隔一段时间进行对焦。有的人很反感这种形式，但我倒是挺喜欢有目标感的工作和生活：</p>
 <ol>
 <li><strong>工作・事业</strong> - 有血有肉的普通人<ul>
-<li>[0/0] 明天三月份开始，每周工作日五天中，至少有四天提前五分钟到公司    Early is on time, on time is late, and late is unacceptable.</li>
+<li>[0/0] 明天三月份开始，每周工作日五天中，至少有四天提前五分钟到公司。</li>
+<li>Early is on time, on time is late, and late is unacceptable.</li>
 </ul>
 </li>
 <li><strong>学习・成长</strong> - 业余兴趣驱动的学习和编码<ul>
