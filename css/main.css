@@ -369,7 +369,7 @@ pre {
 }
 pre,
 code {
-  font-family: consolas, Menlo, monospace, -apple-system, PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif;
+  font-family: monospace, consolas, Menlo, -apple-system, PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, Helvetica, sans-serif;
 }
 code {
   background: #eee;
@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #933ce2;
+  background: #631dbb;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

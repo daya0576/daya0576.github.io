@@ -33,8 +33,8 @@
 <p>一种解决办法是使用 vavr 包：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> io.vavr.CheckedFunction1;</span><br><span class="line"><span class="keyword">import</span> io.vavr.control.Try;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Scratch</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] clazzList = <span class="keyword">new</span> String[]&#123;<span class="string">"java.util.TreeSet"</span>, <span class="string">"2"</span>&#125;;</span><br><span class="line">        List&lt;Try&lt;? extends Class&lt;?&gt;&gt;&gt; collect = Arrays.stream(clazzList)</span><br><span class="line">                .map(CheckedFunction1.liftTry(Class::forName))</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打印异常</span></span><br><span class="line">        collect.forEach(x -&gt; x.onFailure(System.out::println));</span><br><span class="line">        <span class="comment">// 打印正常结果</span></span><br><span class="line">        collect.forEach(x -&gt; x.onSuccess(System.out::println));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>翻阅资料的过程中，发现大家对 Java 中的 checked exceptions 是天使还是恶魔的争论十分激烈。</p>
-<p>个人觉得 checked exceptions 还是利大于弊的，合理使用会有效提升接口和程序整体的健壮性。</p>
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>查看资料的过程中，发现大家对 Java 中的 checked exceptions 是天使还是恶魔的争论十分激烈。</p>
+<p>但个人觉得 checked exceptions 还是利大于弊的，合理使用会有效提升接口和程序整体的健壮性。</p>
 <h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
 <li><a href="https://web.archive.org/web/20171216175508/www.yinwang.org/blog-cn/2017/05/23/kotlin">https://web.archive.org/web/20171216175508/www.yinwang.org/blog-cn/2017/05/23/kotlin</a></li>
 <li>《Effective Java》Item 70 &amp; Item 71</li>
@@ -182,9 +182,8 @@
 <p><em>参考近日的一篇博客：<a href="/blog/20210904/jvm-note/">《Java 内存管理 - SRE 的必修课》</a></em></p>
 <h3 id="2-5-LATER"><a href="#2-5-LATER" class="headerlink" title="2.5 LATER"></a>2.5 LATER</h3><p>侥幸入门后还有很长很长很长的路要走，以下为待读的书单：</p>
 <ul>
-<li>《代码大全》</li>
+<li>各种源码阅读：例如 ThreadLocal、ArrayList 等等。阅读源码在好处多多，在了解语言内部实现的同时，帮忙耳濡目染学习更加优雅的代码实现～</li>
 <li>《Java 并发编程实战》</li>
-<li>各种源码阅读</li>
 <li>...</li>
 </ul>
 <h1 id="3- 关于坚持"><a href="#3- 关于坚持" class="headerlink" title="3. 关于坚持"></a>3. 关于坚持 </h1><p> 上周地铁上看了一本书，名叫<a href="https://book.douban.com/subject/35492252/">《为什么你总是半途而废》</a>。虽然有一丝丝鸡汤... 但借着其中关于如何坚持到底的几个观点分享一下：</p>
@@ -396,10 +395,10 @@
 <p>本篇文章为该机器人实现的不完全教程～</p>
 <a id="more"></a>
 
-<h1 id="一、机器人介绍"><a href="# 一、机器人介绍" class="headerlink" title="一、机器人介绍"></a>一、机器人介绍 </h1><p> 源码: <a href="https://github.com/daya0576/he-weather-bot">https://github.com/daya0576/he-weather-bot</a></p>
+<h1 id="1- 机器人介绍"><a href="#1- 机器人介绍" class="headerlink" title="1 机器人介绍"></a>1 机器人介绍 </h1><p> 源码: <a href="https://github.com/daya0576/he-weather-bot">https://github.com/daya0576/he-weather-bot</a></p>
 <p>👉戳链接调戏我：<a href="https://t.me/he_weather_bot">https://t.me/he_weather_bot</a>  </p>
 <p><img src="/images/loading/loading.svg" data-original="https://github.com/daya0576/he-weather-bot/blob/fdd4d924943ab6036646cc6d7b7888fc71b9d3e2/img/2021-02-21%2015-49-06.gifcask.2021-02-21%2017_20_45.gif?raw=true" alt=""></p>
-<h1 id="二、技术栈汇总"><a href="# 二、技术栈汇总" class="headerlink" title="二、技术栈汇总"></a>二、技术栈汇总</h1><ol>
+<h1 id="2- 技术栈汇总"><a href="#2- 技术栈汇总" class="headerlink" title="2 技术栈汇总"></a>2 技术栈汇总</h1><ol>
 <li>开发<ul>
 <li>语言：<code>Python3.9</code></li>
 <li>WEB 框架: <code>fastapi</code></li>
@@ -422,15 +421,15 @@
 <p>尝鲜使用了 python3.9，以及异步的 fastapi web 框架，所以 telegram 的 sdk 也需要使用异步：<a href="https://github.com/aiogram/aiogram">aiogram</a>。</p>
 <p>线上部署白嫖了 Heroku 全家桶：推送 master 即可触发部署(gitops)。同时支持数据库 / 缓存 / 定时任务的一键申请（最重要的都是免费的），以及 环境变量配置，域名 https 卸载，日志在线查看，等傻瓜操作... 唯一的缺点：Heroku 只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。</p>
 <p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/image-20210314172708269.png" alt="image-20210314172708269"></p>
-<h1 id="三、原理 -amp- 实现"><a href="# 三、原理 -amp- 实现" class="headerlink" title="三、原理 &amp; 实现"></a>三、原理 &amp; 实现 </h1><p> 分为以下四个步骤：</p>
+<h1 id="3- 原理 -amp- 实现"><a href="#3- 原理 -amp- 实现" class="headerlink" title="3 原理 &amp; 实现"></a>3 原理 &amp; 实现 </h1><p> 分为以下四个步骤：</p>
 <ol>
 <li>申请机器人 - token</li>
 <li>搭建 server - webhook</li>
 <li>绑定 token &amp; webhook</li>
 <li>线上部署</li>
 </ol>
-<h2 id="机器人申请 -token"><a href="# 机器人申请 -token" class="headerlink" title="机器人申请 - token"></a>机器人申请 - token</h2><p>第一步先找到 <a href="https://t.me/BotFather">@BotFather</a>，创建你的机器人，并获取对应 <code>token</code> 唯一标识。</p>
-<h2 id="本地调试 -webhook"><a href="# 本地调试 -webhook" class="headerlink" title="本地调试 - webhook"></a>本地调试 - webhook</h2><p>telegram python SDK 中提供两种消费机器人动态的方式：</p>
+<h2 id="3-1- 机器人申请 -token"><a href="#3-1- 机器人申请 -token" class="headerlink" title="3.1 机器人申请 - token"></a>3.1 机器人申请 - token</h2><p>第一步先找到 <a href="https://t.me/BotFather">@BotFather</a>，创建你的机器人，并获取对应 <code>token</code> 唯一标识。</p>
+<h2 id="3-2- 本地调试 -webhook"><a href="#3-2- 本地调试 -webhook" class="headerlink" title="3.2 本地调试 - webhook"></a>3.2 本地调试 - webhook</h2><p>telegram python SDK 中提供两种消费机器人动态的方式：</p>
 <ol>
 <li>server 本地主动轮训拉取最新动态 </li>
 <li>server 被动接受 http 请求的推送。类似消息队列的 pull &amp; push，<strong>本文主要基于第二种模式</strong>。</li>
@@ -438,14 +437,17 @@
 <p>所以不管是 fastapi/flask/django，都需要开启一个 <code>/hook</code> 的接口，参考项目中的这档逻辑： <code>telegram_bot.routers.webhook.webhook_handler</code></p>
 <p>p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一个对外可访问的 https 地址。</p>
 <p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/image-20210314172807664.png" alt="image-20210314172807664"></p>
-<h2 id="绑定 -Bot-Token-amp-Server-Webhook"><a href="# 绑定 -Bot-Token-amp-Server-Webhook" class="headerlink" title="绑定 Bot Token &amp; Server Webhook"></a>绑定 Bot Token &amp; Server Webhook</h2><p>用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 <code>webhook</code>，所以需要提前将 <code>webhook</code> 与 <code>token</code> 进行绑定。两种方式：</p>
+<h2 id="3-3- 绑定 -Bot-Token-amp-Server-Webhook"><a href="#3-3- 绑定 -Bot-Token-amp-Server-Webhook" class="headerlink" title="3.3 绑定 Bot Token &amp; Server Webhook"></a>3.3 绑定 Bot Token &amp; Server Webhook</h2><p>用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 <code>webhook</code>，所以需要提前将 <code>webhook</code> 与 <code>token</code> 进行绑定。两种方式：</p>
 <ol>
 <li>手动请求 <code>https://api.telegram.org/bot{token}/setWebhook?url={webhook}</code></li>
 <li>sdk 设置：<code>aiogram.bot.bot.Bot.set_webhook</code> 一个小技巧：在 fastapi app 每次启动的时候，检查如果与当前机器人绑定的 webhook 不同，则进行更新。需要注意调用的频率，参考 <code>telegram_bot.routers.webhook.set_webhook</code></li>
 </ol>
-<h2 id="线上部署"><a href="# 线上部署" class="headerlink" title="线上部署"></a>线上部署</h2><p>heroku 一键部署：参考<a href="https://devcenter.heroku.com/articles/getting-started-with-python">《Getting Started on Heroku with Python》</a></p>
+<h2 id="3-4- 线上部署"><a href="#3-4- 线上部署" class="headerlink" title="3.4 线上部署"></a>3.4 线上部署</h2><p>heroku 一键部署：参考<a href="https://devcenter.heroku.com/articles/getting-started-with-python">《Getting Started on Heroku with Python》</a></p>
 <p>p.s. heroku 原生不支持 poetry，只认识 requrements.txt，可以通过第三方 buildpack 解决：<a href="https://github.com/moneymeets/python-poetry-buildpack">https://github.com/moneymeets/python-poetry-buildpack</a></p>
-<h1 id="四、时序交互 -amp- 系统设计"><a href="# 四、时序交互 -amp- 系统设计" class="headerlink" title="四、时序交互 &amp; 系统设计"></a>四、时序交互 &amp; 系统设计 </h1><p> 用户与 telegram 机器人的交互，大致可以分为三个场景：</p>
+<h2 id="3-5- 网络问题"><a href="#3-5- 网络问题" class="headerlink" title="3.5 网络问题"></a>3.5 网络问题 </h2><p> 利用 proxy 解决本地连接服务端报错的问题：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Connection reset by peer]</span></span><br><span class="line"></span><br><span class="line">bot = Bot(</span><br><span class="line">    token=settings.TELEGRAM_BOT_API_KEY.get_secret_value(),</span><br><span class="line">    proxy=settings.PROXY</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h1 id="4- 时序交互 -amp- 系统设计"><a href="#4- 时序交互 -amp- 系统设计" class="headerlink" title="4 时序交互 &amp; 系统设计"></a>4 时序交互 &amp; 系统设计 </h1><p> 用户与 telegram 机器人的交互，大致可以分为三个场景：</p>
 <ol>
 <li><strong>用户位置更新：</strong> 和风 SDK 很贴心提供了地址相关的 API，不管用户是输入关键字还是发送定位，统一转化为坐标经纬度，在数据库中进行保存。 这部分的代码实现也挺有趣：使用了框架的状态机，当前用户「输入阶段」的状态会保存在缓存之中，e.g. 只有当前状态为等待用户输入地址时，才会对下一次输入的定位或文本进行解析，并更新用户位置。参考 <code>telegram_bot.telegram.finite_state_machine.update_location</code></li>
 <li><strong>实时天气获取</strong>：单个用户触发 <code>/weather</code> 命令，请求外部 API，返回实时天气</li>
@@ -985,8 +987,8 @@
 <p><strong>因为这种特有的写法更符合人类直觉，你觉得呢？</strong>😄</p>
 ]]></content>
       <tags>
-        <tag>python</tag>
         <tag>java</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -1077,8 +1079,8 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>学习</tag>
         <tag>java</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
