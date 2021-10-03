@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-# 一、机器人介绍
+# 1 机器人介绍
 
 源码: [https://github.com/daya0576/he-weather-bot](https://github.com/daya0576/he-weather-bot)
 
@@ -18,7 +18,7 @@ tags:
 
 ![](https://github.com/daya0576/he-weather-bot/blob/fdd4d924943ab6036646cc6d7b7888fc71b9d3e2/img/2021-02-21%2015-49-06.gifcask.2021-02-21%2017_20_45.gif?raw=true)
 
-# 二、技术栈汇总
+# 2 技术栈汇总
 
 1. 开发
     - 语言：`Python3.9`
@@ -40,7 +40,7 @@ tags:
 ![image-20210314172708269](2021-02-21-buld-telegram-bot-from-scratch/image-20210314172708269.png)
 
 
-# 三、原理 & 实现
+# 3 原理 & 实现
 
 分为以下四个步骤：
 
@@ -49,11 +49,11 @@ tags:
 3. 绑定 token & webhook
 4. 线上部署
 
-## 机器人申请 - token
+## 3.1 机器人申请 - token
 
 第一步先找到 [@BotFather](https://t.me/BotFather)，创建你的机器人，并获取对应 `token` 唯一标识。
 
-## 本地调试 - webhook
+## 3.2 本地调试 - webhook
 telegram python SDK 中提供两种消费机器人动态的方式：
 1. server 本地主动轮训拉取最新动态 
 2. server 被动接受 http 请求的推送。类似消息队列的 pull & push，**本文主要基于第二种模式**。
@@ -64,21 +64,33 @@ p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一�
 
 ![image-20210314172807664](2021-02-21-buld-telegram-bot-from-scratch/image-20210314172807664.png)
 
-## 绑定 Bot Token & Server Webhook
+## 3.3 绑定 Bot Token & Server Webhook
 
 用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 `webhook`，所以需要提前将 `webhook` 与 `token` 进行绑定。两种方式：
 
 1. 手动请求 `https://api.telegram.org/bot{token}/setWebhook?url={webhook}`
 2. sdk 设置：`aiogram.bot.bot.Bot.set_webhook` 一个小技巧：在 fastapi app 每次启动的时候，检查如果与当前机器人绑定的 webhook 不同，则进行更新。需要注意调用的频率，参考 `telegram_bot.routers.webhook.set_webhook`
 
-## 线上部署 
+## 3.4 线上部署 
 
 heroku 一键部署：参考[《Getting Started on Heroku with Python》](https://devcenter.heroku.com/articles/getting-started-with-python)
 
 p.s. heroku 原生不支持 poetry，只认识 requrements.txt，可以通过第三方 buildpack 解决：https://github.com/moneymeets/python-poetry-buildpack
 
+## 3.5 网络问题
 
-# 四、时序交互 & 系统设计
+利用 proxy 解决本地连接服务端报错的问题：
+
+```python
+# ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Connection reset by peer]
+
+bot = Bot(
+    token=settings.TELEGRAM_BOT_API_KEY.get_secret_value(),
+    proxy=settings.PROXY
+)
+```
+
+# 4 时序交互 & 系统设计
 
 用户与 telegram 机器人的交互，大致可以分为三个场景：
 

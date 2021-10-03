@@ -87,9 +87,9 @@ class Scratch {
 ```
 
 # THE END
-翻阅资料的过程中，发现大家对 Java 中的 checked exceptions 是天使还是恶魔的争论十分激烈。
+查看资料的过程中，发现大家对 Java 中的 checked exceptions 是天使还是恶魔的争论十分激烈。
 
-个人觉得 checked exceptions 还是利大于弊的，合理使用会有效提升接口和程序整体的健壮性。
+但个人觉得 checked exceptions 还是利大于弊的，合理使用会有效提升接口和程序整体的健壮性。
 
 # 参考：
 1. https://web.archive.org/web/20171216175508/www.yinwang.org/blog-cn/2017/05/23/kotlin
