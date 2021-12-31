@@ -29,7 +29,7 @@ tags: java
 ### Java 内存区域
 网上很多文章因为 java 版本的问题，存在不同程度的过时。
 
-所以花了一点时间，尝试通过「堆」和「栈」两个视角，将 java8 的内存分布重新绘制一遍加深理解：
+所以花了一点时间，尝试通过「栈」和「堆」两个视角，将 java8 的内存分布重新绘制一遍加深理解：
 ![](/images/blog/2021-09-04-jvm-note/16307787626886.jpg)
 （p.s. 如果有不对的地方辛苦帮忙指正）
 
@@ -144,3 +144,5 @@ java 小白历险记，文中如有错误请多包涵，欢迎指正交流。
 2. [《解析与分派》](https://www.yuque.com/wanghuaihoho/aw880k/zsgm3i)
 3. [JEP 122: Remove the Permanent Generation](http://openjdk.java.net/jeps/122)
 4. ...
+
+
