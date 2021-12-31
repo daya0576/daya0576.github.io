@@ -1,10 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>工作七年的你知道如何将字符串转换成数字吗？</title>
+    <title>2021 年终总结 ✨</title>
+    <url>/blog/20211231/2021-daya-summary/</url>
+    <content><![CDATA[<p>2021 过的特别快，部分月份浑浑噩噩，也有很多改变人生轨迹的关键决策。首先来回顾年初设置的目标吧～</p>
+<a id="more"></a>
+
+<h1 id="目标回顾"><a href="# 目标回顾" class="headerlink" title="目标回顾"></a>目标回顾</h1><ol>
+<li><strong>工作・事业</strong> - 有血有肉的普通人 &amp; 做自己喜欢的事<ul>
+<li>✅ [1/1] 每周工作日五天中，至少有四天提前五分钟到公司</li>
+</ul>
+</li>
+<li><strong>学习・成长</strong> - 业余兴趣驱动的学习和编码 <ul>
+<li>✅ [1/2] 个人开源项目建立：<a href="https://github.com/daya0576/he-weather-bot">he-weather-bot</a></li>
+<li>❌ [0/1] 开源社区 - 任何项目贡献超过 500 行代码</li>
+<li>✅ [10/10] 📚读书</li>
+</ul>
+</li>
+<li><strong>人际・社群</strong> - 尝试线下聚会，寻找同路人<ul>
+<li>⚠️ [1/3]线下技术沙龙 meetup</li>
+</ul>
+</li>
+<li><strong>财务・理财</strong> - 工作无法创造财富，超过 10% 除工资以外收入<ul>
+<li>❌ [0/3] 公司内推 / 文章投稿</li>
+<li>✅ [1/1] 资产积累: 购房 +1</li>
+</ul>
+</li>
+<li><strong>家庭・生活</strong> - 家人的陪伴和更加用心一些<ul>
+<li>❌ [1/3] 短途一日游：滴水湖团建</li>
+<li>❌ [1/3] 乒乓球比赛参与：公司比赛 +1</li>
+</ul>
+</li>
+</ol>
+<h2 id="1）工作・事业"><a href="#1）工作・事业" class="headerlink" title="1）工作・事业"></a>1）工作・事业 </h2><h3 id="按时上班"><a href="# 按时上班" class="headerlink" title="按时上班"></a> 按时上班 </h3><p> 互联网公司通常早上 10am 点上班，但由于没有打卡的约束，再加上各种原因，个人习惯 10 点 15 分之后到工位，甚至偶尔突破 30 分 0.0</p>
+<p>先分享一个小故事：</p>
+<blockquote>
+<p>近日感觉自己漫无目浏览手机的时间过长，所以期望买一个电子书阅读器在地铁上看书，以防止时间被偷走。<br>但万万没想到花了更多时间在手机上挑选阅读器：调研 Kindle，文石，小米等各个品牌的优劣特点。。 </p>
+<p>经过这件事情我突然明白了一个道理：脱离手机沉迷的关键并不在于阅读器（工具），而是是否能找到一件更让自己愉悦的事情。 </p>
+</blockquote>
+<p>出于上面的经历和思考，我发现每日永远无法准时到公司的根本原因，在于自己对工作的强烈抵触。所以年初给自己设立了一个“挑战”：每周工作日五天中，至少有四天提前五分钟到公司。期望通过这种表面的方式，改变自己对工作的态度，甚至“迫不及待”去上班（怎么感觉自己在 pua 自己）。</p>
+<p>通过一年的努力，很高兴完成了这个目标，总结下来主要有两个途径：</p>
+<ul>
+<li>意愿：拒绝不感兴趣或者认为没有意义的事情，举个例子：有几个应用（无人使用）挂在我身上，所有隔几个月就会有安全漏洞修复的巡检告警（超期未修复持续上升老板..）。如果以前我会妥协改两行代码然后发布，但现在正确的做法是直接下线应用一劳永逸。通过坚持做个人认为对的事情，挖掘感兴趣的事件，持续提升自己对工作的兴趣。</li>
+<li>技术：例如从交通路线上解决问题，过去我会花十分钟走到地铁站，然后做 40-50 分钟地铁（换乘一站）到公司，但后来探索出一条新的路线：直接打车 15 分钟去换乘站，然后直接坐地铁去公司，总共花费 40 分钟。通过技术上的升级（减少 30% 的通勤时间），提升出行幸福感，大大降低了对上班的抵触。</li>
+</ul>
+<p>期望新的一年在工作之内之外都能挖掘新的乐趣。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/48C785E3-AC4A-49CB-BFA6-DA7FD283827F_1_105_c.jpeg" alt="48C785E3-AC4A-49CB-BFA6-DA7FD283827F_1_105"></p>
+<h2 id="2）学习・成长"><a href="#2）学习・成长" class="headerlink" title="2）学习・成长"></a>2）学习・成长 </h2><h3 id="开源社区参与"><a href="# 开源社区参与" class="headerlink" title="开源社区参与"></a> 开源社区参与 </h3><p> 上半年尝试用业余时间做了一个小项目：<a href="https://github.com/daya0576/he-weather-bot">telegram 的天气预报机器人</a>。虽然不是特别复杂的技术，但看到点亮全球地图的用户，还是非常容易获得成就感。技术人的成长就来自于各种造轮子，期望明年持续 hack 用技术为这个世界带来微小而美好的改变～😊<br><img src="/images/loading/loading.svg" data-original="/images/blog/16409330203087.jpg" alt=""></p>
+<h3 id="读书习惯培养"><a href="# 读书习惯培养" class="headerlink" title="读书习惯培养"></a>读书习惯培养 </h3><p> 全部得益于地铁的碎片时间，勉强完成了 10 本书籍的阅读任务，但很遗憾更多大把的时间被浪费在刷短视频与购物上：</p>
+<ol>
+<li>《解密 Instagram》</li>
+<li>《设计模式》- 可复用面向对象软件的基础 </li>
+<li>《浪潮之巅（第四版 全二册）》</li>
+<li>《这就是 OKR》</li>
+<li>《Salesforce 传奇》</li>
+<li>《深入理解 JVM 虚拟机》读后感</li>
+<li>《Effective Java》</li>
+<li>《邓小平时代》</li>
+<li>《为什么你总是半途而废》</li>
+<li>《小家，越住越大》</li>
+</ol>
+<p>分享一段影响特别深刻的阅读笔记：</p>
+<blockquote>
+<p>在产品发布前，Facebook 通常会在用户库里选取 1%~2% 的人进行测试，来观察用户的反应。接着它可能会对 5% 的用户发布新产品，或者挑几个国家进行发布，最终才会面向全世界进行发布。扎克伯格认为，收集关于用户如何使用产品的数据是很重要的。Facebook 通常会先发布尚未完成的产品，然后利用反馈实时进行调整。</p>
+<p>Instagram 团队打算反其道而行之——向所有 5 亿用户同时发布 Stories，至少先发布一个简单版的。他们发布一个简单版的。他们称之为“YOLO 发布”，YOLO 是“You only live once”（你只能活一次）的首字母缩写。</p>
+</blockquote>
+<p>作为一名 SRE，三板斧（可灰度、可监控、可应急）原则就像烙印一样刻在心中，但 Instagram 团队的“YOLO 发布”给了我巨大的震撼，很多时候我们总说技术风险是一切业务的基石，但反过来如果没有业务的发展，技术风险也毫无意义？</p>
+<h2 id="3）人际・社群"><a href="#3）人际・社群" class="headerlink" title="3）人际・社群"></a>3）人际・社群 </h2><p> 由于性格的关系，这一项“又”完全失守了😭，考虑新的一年是否将这一目标移除（从源头解决问题）。</p>
+<p>新的一年还是期望从兴趣驱动，通过兴趣例如乒乓球等，与这个世界的人建立交集</p>
+<h2 id="4）财务・理财"><a href="#4）财务・理财" class="headerlink" title="4）财务・理财"></a>4）财务・理财 </h2><p> 这一项格外纠结，首先关于“工作无法创造财富，超过 10% 除工资以外收入”的目标，大大的高估了自己，无论是公司内推、个人投稿等途径都毫无进展，还在互联网寒冬裁员浪潮之中，给自己徒增了一丝焦虑。</p>
+<p>但相比于工作以外收入的颗粒无收，受《富爸爸，穷爸爸》的影响，以及逆天的运气，上半年成功购入新房一枚。从认为买房的都是傻 X，变为 30 年的房奴 T^T </p>
+<p>偶尔恍惚之间，会怀疑是否做了错误的选择，被房子绑架了人生？但回到现实，30min 通勤回家后，踩着暖气烘热的地板，躺在 lazyboy 单人沙发，以及不再堵塞的鼻子.. 自然有了新的答案。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/E497F7F7-9D50-455D-8993-8FF9B44465F0.jpeg" alt="E497F7F7-9D50-455D-8993-8FF9B44465F0-w720"></p>
+<p>年底搬家后，每天的生活轨迹也发生了天翻覆地的变化，最明显的一点是每天早上多出了一个小时的个人时间：从过去临近九点起床仓促赶路上班，到现在七点半起床，去门口的麦当劳安静的坐一个多小时，希望最近一周早睡早起的好习惯可以持续延续 🥰</p>
+<h2 id="5）家庭・生活"><a href="#5）家庭・生活" class="headerlink" title="5）家庭・生活"></a>5）家庭・生活 </h2><p> 由于工作的关系，好几次起床的时候老婆已经早早出门，深夜下班回家对方太困已入睡，一不小心真的变成了“室友”。Working is just a partial of your life. 还是期望多花一些时间陪伴家人，做更多有意义的事情。</p>
+<h1 id="新的一年"><a href="# 新的一年" class="headerlink" title="新的一年"></a>新的一年 </h1><h2 id="目标制定"><a href="# 目标制定" class="headerlink" title="目标制定"></a> 目标制定 </h2><p> 大体与去年保持一致，仅仅针对连续两年失败的目标，更加科学的调整了 KR 的衡量标准：</p>
+<ol>
+<li><strong>工作・事业</strong> - 有血有肉的普通人 &amp; 做自己喜欢的事<ul>
+<li><input disabled=""type="checkbox"> [1/10] 找到 10 个人生有意义的瞬间</li>
+</ul>
+</li>
+<li><strong>学习・成长</strong> - 业余兴趣驱动的学习和编码 <ul>
+<li><input disabled=""type="checkbox"> [0/1] 个人开源项目建立 +1 </li>
+<li><input disabled=""type="checkbox"> [0/500] 开源社区 - 任何项目贡献超过 500 行代码</li>
+<li><input disabled=""type="checkbox"> [0/15] 📚读书 x15</li>
+</ul>
+</li>
+<li><strong>人际・社群</strong> - 尝试线下聚会，寻找同路人<ul>
+<li><input disabled=""type="checkbox"> [0/10] 乒乓球社交（认识新朋友）</li>
+</ul>
+</li>
+<li><strong>财务・理财</strong> - 工作无法创造财富，超过 1w 除工资以外的被动收入<ul>
+<li><input disabled=""type="checkbox"> [0/1] 公司内推 +1！</li>
+</ul>
+</li>
+<li><strong>家庭・生活</strong> - 家人的陪伴和更加用心一些<ul>
+<li><input disabled=""type="checkbox"> [0/3] 短途旅行 x3</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>I decide who I am. I&#39;m going to be what I was born to be </p>
+</blockquote>
+<p>2022 年的关键词是「人生的意义」，有人说人生的意义分为两部分：1）对自己来说，在于每一个选择都出于自己的自由意志；2）而另一部分意义在于是向外的，对他人和对这个世界，一些帮助和善意，留下一丝微小的痕迹。   </p>
+<p>而我对于人生意义理解为“热爱”，但很多时刻对自己多了一些怀疑和动摇，比如热爱编程，是否仅仅是动手能力比他人强一点点而产生的虚荣感，是不是根本不喜欢编程只是喜欢靠编程赚的钱？</p>
+<p>在 2022 年第一天的凌晨，写下这篇文章，或许不会有太多人看到。但仅仅是因为没有任何目的的「热爱」：喜欢来用文字记录的感觉，沉下心来，静静感受这个世界和时间的流逝（类似写代码中的 zone mode）。</p>
+<p>期望在新的一年能找到更多这样纯粹的瞬间 ✨</p>
+<hr>
+<p>历年年终总结：</p>
+<ul>
+<li><a href="/blog/20210228/2020-summary/">《2020 年终总结 🥳》</a></li>
+<li><a href="/blog/20200119/2019-summary/">《2019 年终总结 🎉》</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>如何将字符串转换成数字</title>
     <url>/blog/20211003/string2num/</url>
     <content><![CDATA[<blockquote>
-<p>今天面试让一个工作 7 年的候选人写 str to int，写不出来。我快哭了</p>
+<p>今天面试让一个工作 7 年的候选人写 str to int，写不出来。</p>
 </blockquote>
 <p>昨天在 tg 上看到这么一段聊天吐槽🤔，虽然字符串转化逻辑看上去简单，但可以快速考察候选人编码风格与实战能力。尝试自己实现的过程中，刚好发现 java 自带原生实现。这篇文章将简单的分享，阅读对应源码的一些感受 ：）</p>
 <a id="more"></a>
@@ -39,6 +153,7 @@
 <p>例如像做数学题一样，永远不要在细枝末节上偷懒（<strong>不跳步</strong>），反复检查编写用例。</p>
 <h3 id="四、其他"><a href="# 四、其他" class="headerlink" title="四、其他"></a>四、其他</h3><p>btw，阅读代码的时候，意外😯发现原来 java 中也能一行定义两个变量 0.0</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// java</span></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>, len = s.length();</span><br><span class="line"><span class="comment">// 对应 python 的写法</span></span><br><span class="line">i, j = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">i = j = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
 
 <h3 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h3><ol>
 <li><a href="https://stackoverflow.com/questions/40167218/why-does-the-integer-paseint-algorithm-calculate-negative-result-finally-in-su">https://stackoverflow.com/questions/40167218/why-does-the-integer-paseint-algorithm-calculate-negative-result-finally-in-su</a></li>
@@ -273,7 +388,7 @@
 <p>书中有一段总结挺有意思的，分享一下：<em>“Oracle 收购 Sun 是 Java 发展历史上一道明显的分界线。在 Sun 掌舵的前十几年里，Java 获得巨大成功，同时也渐渐显露出来语言演进的缓慢与社区决策的老朽；而在 Oracle 主导 Java 后，引起竞争的同时也带来新的活力，Java 发展的速度要显著高于 Sun 时代。Java 的未来是继续向前、再攀高峰，还是由盛转衰、锋芒挫缩，你我拭目以待”</em></p>
 <h2 id="二、自动内存管理"><a href="# 二、自动内存管理" class="headerlink" title="二、自动内存管理"></a>二、自动内存管理 </h2><p> 进入正文！🎉🎉🎉 </p>
 <h3 id="Java- 内存区域"><a href="#Java- 内存区域" class="headerlink" title="Java 内存区域"></a>Java 内存区域 </h3><p> 网上很多文章因为 java 版本的问题，存在不同程度的过时。</p>
-<p>所以花了一点时间，尝试通过「堆」和「栈」两个视角，将 java8 的内存分布重新绘制一遍加深理解：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16307787626886.jpg" alt=""><br>（p.s. 如果有不对的地方辛苦帮忙指正）</p>
+<p>所以花了一点时间，尝试通过「栈」和「堆」两个视角，将 java8 的内存分布重新绘制一遍加深理解：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16307787626886.jpg" alt=""><br>（p.s. 如果有不对的地方辛苦帮忙指正）</p>
 <h3 id="关键点说明"><a href="# 关键点说明" class="headerlink" title="关键点说明"></a>关键点说明 </h3><h4 id="1- 关于 -Perm- 区 -amp-Metaspace"><a href="#1- 关于 -Perm- 区 -amp-Metaspace" class="headerlink" title="1. 关于 Perm 区 &amp; Metaspace"></a>1. 关于 Perm 区 &amp; Metaspace</h4><p> 为了解决 持久代内存溢出 &amp; 不同虚拟机融合等目的，持久代（PermGen）在 1.8 以后被 Metaspace 取代。</p>
 <p>我个人理解最大不同在于：1.8 之前，持久代与 Heap &amp; Stack 都归属 <strong> 虚拟机内存 </strong>，而 Metaspace 侧使用的<strong> 本地内存 </strong>（native memory），<strong> 默认不做限制</strong>。</p>
 <p><strong>既然没有限制，文章开头故障为什么还会发生呢？？</strong><br>因为通常还是习惯设置 <code>-XX:MaxMetaspaceSize</code> 参数。。所以如果代码编写不当，类占据的空间还是很可能超过指定的空间大小，造成<code>java.lang.OutOfMemoryError: Metaspace</code> 异常 :(</p>
@@ -6218,10 +6333,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
-        <tag>moobox</tag>
-        <tag>work</tag>
         <tag>mysql</tag>
         <tag>django</tag>
+        <tag>moobox</tag>
+        <tag>work</tag>
       </tags>
   </entry>
   <entry>
