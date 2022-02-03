@@ -7,18 +7,21 @@
 <p>这篇文章简单记录今早 java BlockingQueue 学习小记～</p>
 <a id="more"></a>
 
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>BlockingQueue 是 <code>java.util.concurrent</code> 中的一个接口。顾名思义 Queue 代表先进先出的队列，多个线程同时放入对象而其他线程获取对象，Blocking 则代表队列满了或者为空时，尝试放入或获取元素的线程会进入 <code>BLOCKED</code> 阻塞状态（不消耗 CPU 时间片）。</p>
-<p>该数据结构的好处在于完全解耦输入与输出，但同个接口不同场景，对应不同实现。</p>
-<h1 id="接口方法"><a href="# 接口方法" class="headerlink" title="接口方法"></a>接口方法</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/16407823699079.jpg" alt=""></p>
-<p>官方文档解释的很清楚，以获取队列第一个元素为例（如果队列为空）：</p>
+<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><blockquote>
+<p>A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.</p>
+</blockquote>
+<p>BlockingQueue 是 <code>java.util.concurrent</code> 中的一个接口。顾名思义 <strong>Queue</strong> 代表先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出）。<strong>Blocking</strong> 则表示但队列满了或者为空时，尝试放入或获取元素的线程会进入 <code>BLOCKED</code> 阻塞状态（不消耗 CPU 时间片）。</p>
+<h1 id="接口方法"><a href="# 接口方法" class="headerlink" title="接口方法"></a>接口方法 </h1><p> 官方文档解释的很清楚，以获取队列第一个元素为例（如果队列为空）：</p>
 <ul>
 <li><code>remove()</code>: 立即抛出异常 java.util.NoSuchElementException</li>
 <li><code>poll()</code>: 立即返回 null</li>
 <li><code>take()</code>: waiting if necessary</li>
 <li><code>pull(timeout, unit)</code>: waiting + timeout</li>
 </ul>
-<p>p.s. Special value 特殊值指的 false/null 等.. </p>
-<h1 id="接口实现"><a href="# 接口实现" class="headerlink" title="接口实现"></a>接口实现 </h1><p> 一图胜千言，简单绘制常见几种官方队列数据结构（下面将一一说明）：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/16407823699079.jpg" alt=""><br>p.s. Special value 特殊值指的 false/null 等.. </p>
+<p>-</p>
+<p>为了更好理解，参考我绘制的 uml 图，<code>BlockingQueue</code> 接口在 <code>Queue</code> 的基础之上，扩展了 <code>take</code>&amp;<code>put</code> 两个阻塞方法：<br><img src="/images/loading/loading.svg" data-original="/images/blog/blockingqueue.svg" alt="blockingqueue"></p>
+<h1 id="接口实现"><a href="# 接口实现" class="headerlink" title="接口实现"></a>接口实现 </h1><p> 一图胜千言，简单绘制常见几种官方队列数据结构（下面将根据源码一一说明）：</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/java_queue_diff.svg" alt="java_queue_diff"></p>
 <h2 id="1-LinkedBlockingQueue"><a href="#1-LinkedBlockingQueue" class="headerlink" title="1. LinkedBlockingQueue"></a>1. LinkedBlockingQueue</h2><p>顾名思义底层是由链表实现，特性为先入先出，同时没有长度限制</p>
 <h3 id="1-1- 数据结构"><a href="#1-1- 数据结构" class="headerlink" title="1.1 数据结构"></a>1.1 数据结构 </h3><p> 三个部分组成：链表 + 锁 + 迭代器</p>
@@ -45,7 +48,8 @@
 
 <h3 id="4-2- 执行任务"><a href="#4-2- 执行任务" class="headerlink" title="4.2 执行任务"></a>4.2 执行任务</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.DelayQueue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DelayedQueueEvent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> SimpleDateFormat s = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        DelayQueue&lt;DelayedEvent&gt; queue = <span class="keyword">new</span> DelayQueue&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        queue.put(<span class="keyword">new</span> DelayedEvent(<span class="number">1</span>, <span class="number">1</span>, TimeUnit.SECONDS));</span><br><span class="line">        queue.put(<span class="keyword">new</span> DelayedEvent(<span class="number">2</span>, <span class="number">3</span>, TimeUnit.SECONDS));</span><br><span class="line"></span><br><span class="line">        s.format(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">        log(<span class="string">"taking..."</span>);</span><br><span class="line">        DelayedEvent take1 = queue.take();</span><br><span class="line">        log(take1);</span><br><span class="line">        DelayedEvent take2 = queue.take();</span><br><span class="line">        log(take2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2022-02-03 12:27:01 taking...</span></span><br><span class="line">        <span class="comment">// 2022-02-03 12:27:02 DelayedEvent [id=1]</span></span><br><span class="line">        <span class="comment">// 2022-02-03 12:27:04 DelayedEvent [id=2]</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(Object content)</span> </span>&#123;</span><br><span class="line">        System.out.println(s.format(<span class="keyword">new</span> Date()) + <span class="string">""</span> + content.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>--EOF--</p>
+
+<h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 以上 BlockingQueue 的不同实现，都是灵活使用继承与组合后，基于非常简单的数据结构，构建了不同场景适用的复杂队列。</p>
 ]]></content>
       <tags>
         <tag>java</tag>
