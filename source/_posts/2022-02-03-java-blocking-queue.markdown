@@ -126,7 +126,8 @@ private E dequeue() {
 ## 2 ArrayBlockingQueue
 一句话：有界阻塞数组（队列满后，继续放入阻塞），容量不变化。
 
-### 2.1 数据结构（队列初始化）
+### 2.1 数据结构
+底层数据结构，仅简单一个数组（参数1控制大小）
 ```java
 public ArrayBlockingQueue(int capacity, boolean fair) {
     if (capacity <= 0)
