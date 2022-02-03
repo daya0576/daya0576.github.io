@@ -13,12 +13,12 @@ date: 2022-02-03 12:50:34
 <!--more-->
 
 # Intro
-BlockingQueue 是 `java.util.concurrent` 中的一个接口。顾名思义 Queue 代表先进先出的队列，多个线程同时放入对象而其他线程获取对象，Blocking 则代表队列满了或者为空时，尝试放入或获取元素的线程会进入 `BLOCKED` 阻塞状态（不消耗 CPU 时间片）。
+> A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.
 
-该数据结构的好处在于完全解耦输入与输出，但同个接口不同场景，对应不同实现。
+BlockingQueue 是 `java.util.concurrent` 中的一个接口。顾名思义 **Queue** 代表先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出）。**Blocking** 则表示但队列满了或者为空时，尝试放入或获取元素的线程会进入 `BLOCKED` 阻塞状态（不消耗 CPU 时间片）。
+
 
 # 接口方法
-![](/images/blog/16407823699079.jpg)
 
 官方文档解释的很清楚，以获取队列第一个元素为例（如果队列为空）：
 
@@ -27,11 +27,18 @@ BlockingQueue 是 `java.util.concurrent` 中的一个接口。顾名思义 Queue
 - `take()`: waiting if necessary
 - `pull(timeout, unit)`: waiting + timeout
 
+![](/images/blog/16407823699079.jpg)
 p.s. Special value 特殊值指的 false/null 等.. 
+
+-
+
+为了更好理解，参考我绘制的 uml 图，`BlockingQueue` 接口在 `Queue` 的基础之上，扩展了 `take`&`put` 两个阻塞方法：
+![blockingqueue](/images/blog/blockingqueue.svg)
+
 
 # 接口实现
 
-一图胜千言，简单绘制常见几种官方队列数据结构（下面将一一说明）：
+一图胜千言，简单绘制常见几种官方队列数据结构（下面将根据源码一一说明）：
 
 ![java_queue_diff](/images/blog/java_queue_diff.svg)
 
@@ -317,4 +324,8 @@ public class DelayedQueueEvent {
 }
 ```
 
---EOF--
+
+# 总结
+
+以上 BlockingQueue 的不同实现，都是灵活使用继承与组合后，基于非常简单的数据结构，构建了不同场景适用的复杂队列。
+
