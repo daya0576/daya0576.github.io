@@ -5,7 +5,6 @@ tags:
 date: 2022-02-03 12:50:34
 ---
 
-
 最近一周作息发生了一些微妙的变化，晚上 11 点睡觉清晨 7 点自然醒，身体状况明显好转的同时，也明白了什么叫做一天之际在于晨：起床后去门口吃麦当劳早餐的同时，看一会书，感觉一天多活了一个多小时。
 
 这篇文章简单记录今早 java BlockingQueue 学习小记～
@@ -38,21 +37,30 @@ date: 2022-02-03 12:50:34
 
 参考官方注释，`BlockingQueue` 是 `java.util.concurrent` 中的一个接口。顾名思义：**Queue** 表示先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出），**Blocking** 代表当队列满了或者为空时，尝试放入或获取元素的线程会进入阻塞状态。
 
-有点抽象，举个例子：
+## 举个例子
+有点抽象，举个例子：当队列为空时，获取元素 
 ```java
-// 当队列为空时，获取元素：
 ArrayBlockingQueue#take
 └── AQS#await（挂起线程进入 WATTING 状态，直到被 singal 通知或者线程中断）
     └── LockSupport#park
         └── sun.misc.Unsafe#park（native 方法）
             └── 调用操作系统具体实现
-
-// 如何找到 park 对应 cpp 实现
-// 
-
 ```
 
-所以 java.lang.Thread.State 中 BLOCKED 与 WATTING 的区别？
+## park 底层实现?
+native 方法可以理解为另一个层面的接口，供非 java 代码实现底层逻辑。
+
+首先根据 `sun.misc.Unsafe#park` 搜索[源代码](https://github.com/JetBrains/jdk8u_hotspot)：
+![](/images/blog/16439469274665.jpg)
+
+我们发现 `Unsafe#park` 实际调用当前线程 `Parker` 对象的 `park` 方法
+![](/images/blog/16439468851293.jpg)
+
+继续寻找 `Parker::park` 方法..
+![](/images/blog/16439473688366.jpg)
+
+以 linux 实现为例，当超时时间为 0 时，Parker::park 方法最终调用标准库 `pthread_cond_wait`（`# include <pthread.h>`），挂起线程，等待被唤醒。
+![](/images/blog/16439611572855.jpg)
 
 
 # 接口定义
@@ -67,7 +75,7 @@ ArrayBlockingQueue#take
 ![](/images/blog/16407823699079.jpg)
 p.s. Special value 特殊值指的 false/null 等.. 
 
--
+\-
 
 为了更好理解，参考博主绘制的 uml 图，`BlockingQueue` 接口在 `Queue` 的基础之上，扩展了 `take`&`put` 两个阻塞方法：
 ![blockingqueue](/images/blog/blockingqueue.svg)
@@ -364,10 +372,10 @@ public class DelayedQueueEvent {
 
 # 总结
 
-以上 BlockingQueue 的不同实现，都是灵活使用继承与组合后，基于非常简单的数据结构，构建了不同场景适用的复杂队列。
+以上 BlockingQueue 针对不同场景的复杂实现，背后都是灵活使用继承与组合后，基于非常简单的数据结构。希望自己有一天也能写出优雅的面向对象代码。
 
 
-# 参考：
+# 参考
 1. https://gorden5566.com/post/1027.html
 2. https://kkewwei.github.io/elasticsearch_learning/2018/11/10/LockSupport%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB
 3. https://zeral.cn/java/unsafe.park-vs-object.wait/
