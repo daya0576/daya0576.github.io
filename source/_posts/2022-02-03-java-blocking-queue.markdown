@@ -12,13 +12,50 @@ date: 2022-02-03 12:50:34
 
 <!--more-->
 
-# Intro
+# 目录
+
+- [前言](#前言)
+- [接口定义](#接口定义)
+- [接口实现](#接口实现)
+  - [1. LinkedBlockingQueue](#1-linkedblockingqueue)
+    - [1.1 数据结构](#1-1数据结构)
+    - [1.2 新增操作](#1-2新增操作)
+    - [1.3 获取并删除](#1-3获取并删除)
+  - [2 ArrayBlockingQueue](#2-arrayblockingqueue)
+    - [2.1 数据结构](#2-1数据结构)
+    - [2.2 获取元素](#2-2获取元素)
+  - [3. SynchronousQueue](#3-synchronousqueue)
+  - [4 DelayQueue](#4-delayqueue)
+    - [4.1 定义延迟执行任务：](#4-1定义延迟执行任务：)
+    - [4.2 执行任务](#4-2执行任务)
+- [总结](#总结)
+- [参考](#参考)
+
+# 前言
+> java.util.concurrent.BlockingQueue
+> 
 > A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.
 
-BlockingQueue 是 `java.util.concurrent` 中的一个接口。顾名思义 **Queue** 代表先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出）。**Blocking** 则表示但队列满了或者为空时，尝试放入或获取元素的线程会进入 `BLOCKED` 阻塞状态（不消耗 CPU 时间片）。
+参考官方注释，`BlockingQueue` 是 `java.util.concurrent` 中的一个接口。顾名思义：**Queue** 表示先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出），**Blocking** 代表当队列满了或者为空时，尝试放入或获取元素的线程会进入阻塞状态。
+
+有点抽象，举个例子：
+```java
+// 当队列为空时，获取元素：
+ArrayBlockingQueue#take
+└── AQS#await（挂起线程进入 WATTING 状态，直到被 singal 通知或者线程中断）
+    └── LockSupport#park
+        └── sun.misc.Unsafe#park（native 方法）
+            └── 调用操作系统具体实现
+
+// 如何找到 park 对应 cpp 实现
+// 
+
+```
+
+所以 java.lang.Thread.State 中 BLOCKED 与 WATTING 的区别？
 
 
-# 接口方法
+# 接口定义
 
 官方文档解释的很清楚，以获取队列第一个元素为例（如果队列为空）：
 
@@ -32,7 +69,7 @@ p.s. Special value 特殊值指的 false/null 等..
 
 -
 
-为了更好理解，参考我绘制的 uml 图，`BlockingQueue` 接口在 `Queue` 的基础之上，扩展了 `take`&`put` 两个阻塞方法：
+为了更好理解，参考博主绘制的 uml 图，`BlockingQueue` 接口在 `Queue` 的基础之上，扩展了 `take`&`put` 两个阻塞方法：
 ![blockingqueue](/images/blog/blockingqueue.svg)
 
 
@@ -165,7 +202,7 @@ public E take() throws InterruptedException {
         while (count == 0)
             // AQS 的 await 方法（阻塞当前线程直到被 singal 通知或者线程中断）
             //   `LockSupport.park()` -> `sun.misc.Unsafe#park` - native 方法
-			  //     调用linux系统，标准的阻塞接口（^^原理？？？？^^）
+			  //     调用linux系统，标准的阻塞接口（^^原理？？？^^）
             notEmpty.await();
         return dequeue();
     } finally {
@@ -329,3 +366,8 @@ public class DelayedQueueEvent {
 
 以上 BlockingQueue 的不同实现，都是灵活使用继承与组合后，基于非常简单的数据结构，构建了不同场景适用的复杂队列。
 
+
+# 参考：
+1. https://gorden5566.com/post/1027.html
+2. https://kkewwei.github.io/elasticsearch_learning/2018/11/10/LockSupport%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB
+3. https://zeral.cn/java/unsafe.park-vs-object.wait/

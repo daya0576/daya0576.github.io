@@ -44,7 +44,7 @@ SHA1一共有40位, 前两位作为文件夹, 一般使用前八位作为shortcu
 
 ## 第一个commit:   
 
-###git add
+### git add
 **操作:** 新建文件foo.txt, 并执行`git add foo.txt` → 自动生成了一个文件(.git/objects/9d/aeaf...)      
 <img style="max-height:270px" class="lazy" data-original="/images/blog/180315_git_internal/9B1A1C47-EDCD-41EF-A759-4AC2336E2582.png">
 
@@ -54,7 +54,7 @@ SHA1一共有40位, 前两位作为文件夹, 一般使用前八位作为shortcu
 文件名和blob的对应关系保存在 `.git/index`中.    
 <img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/3ADA3565-0DC7-461A-B637-770264553DE6.png">
 
-###git commit
+### git commit
 **提交!**   
 **执行** `git commit -m “foo commit #1”` →  自动新建了两个文件:    
 <img style="max-height:220px" class="lazy" data-original="/images/blog/180315_git_internal/C32B30A0-304F-4C5F-BDB4-C8F1E4AF028B.png">    
