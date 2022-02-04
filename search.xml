@@ -7,11 +7,42 @@
 <p>这篇文章简单记录今早 java BlockingQueue 学习小记～</p>
 <a id="more"></a>
 
-<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><blockquote>
+<h1 id="目录"><a href="# 目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="# 前言">前言</a></li>
+<li><a href="# 接口定义">接口定义</a></li>
+<li><a href="# 接口实现">接口实现</a><ul>
+<li><a href="#1-linkedblockingqueue">1. LinkedBlockingQueue</a><ul>
+<li><a href="#1-1 数据结构">1.1 数据结构</a></li>
+<li><a href="#1-2 新增操作">1.2 新增操作</a></li>
+<li><a href="#1-3 获取并删除">1.3 获取并删除</a></li>
+</ul>
+</li>
+<li><a href="#2-arrayblockingqueue">2 ArrayBlockingQueue</a><ul>
+<li><a href="#2-1 数据结构">2.1 数据结构</a></li>
+<li><a href="#2-2 获取元素">2.2 获取元素</a></li>
+</ul>
+</li>
+<li><a href="#3-synchronousqueue">3. SynchronousQueue</a></li>
+<li><a href="#4-delayqueue">4 DelayQueue</a><ul>
+<li><a href="#4-1 定义延迟执行任务：">4.1 定义延迟执行任务：</a></li>
+<li><a href="#4-2 执行任务">4.2 执行任务</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="# 总结">总结</a></li>
+<li><a href="# 参考">参考</a></li>
+</ul>
+<h1 id="前言"><a href="# 前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>java.util.concurrent.BlockingQueue</p>
 <p>A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.</p>
 </blockquote>
-<p>BlockingQueue 是 <code>java.util.concurrent</code> 中的一个接口。顾名思义 <strong>Queue</strong> 代表先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出）。<strong>Blocking</strong> 则表示但队列满了或者为空时，尝试放入或获取元素的线程会进入 <code>BLOCKED</code> 阻塞状态（不消耗 CPU 时间片）。</p>
-<h1 id="接口方法"><a href="# 接口方法" class="headerlink" title="接口方法"></a>接口方法 </h1><p> 官方文档解释的很清楚，以获取队列第一个元素为例（如果队列为空）：</p>
+<p>参考官方注释，<code>BlockingQueue</code> 是 <code>java.util.concurrent</code> 中的一个接口。顾名思义：<strong>Queue</strong> 表示先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出），<strong>Blocking</strong> 代表当队列满了或者为空时，尝试放入或获取元素的线程会进入阻塞状态。</p>
+<p>有点抽象，举个例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当队列为空时，获取元素：</span></span><br><span class="line">ArrayBlockingQueue#take</span><br><span class="line">└── AQS#await（挂起线程进入 WATTING 状态，直到被 singal 通知或者线程中断）</span><br><span class="line">    └── LockSupport#park</span><br><span class="line">        └── sun.misc.Unsafe#park（native 方法）</span><br><span class="line">            └── 调用操作系统具体实现</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如何找到 park 对应 cpp 实现</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p>所以 java.lang.Thread.State 中 BLOCKED 与 WATTING 的区别？</p>
+<h1 id="接口定义"><a href="# 接口定义" class="headerlink" title="接口定义"></a>接口定义 </h1><p> 官方文档解释的很清楚，以获取队列第一个元素为例（如果队列为空）：</p>
 <ul>
 <li><code>remove()</code>: 立即抛出异常 java.util.NoSuchElementException</li>
 <li><code>poll()</code>: 立即返回 null</li>
@@ -20,7 +51,7 @@
 </ul>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/16407823699079.jpg" alt=""><br>p.s. Special value 特殊值指的 false/null 等.. </p>
 <p>-</p>
-<p>为了更好理解，参考我绘制的 uml 图，<code>BlockingQueue</code> 接口在 <code>Queue</code> 的基础之上，扩展了 <code>take</code>&amp;<code>put</code> 两个阻塞方法：<br><img src="/images/loading/loading.svg" data-original="/images/blog/blockingqueue.svg" alt="blockingqueue"></p>
+<p>为了更好理解，参考博主绘制的 uml 图，<code>BlockingQueue</code> 接口在 <code>Queue</code> 的基础之上，扩展了 <code>take</code>&amp;<code>put</code> 两个阻塞方法：<br><img src="/images/loading/loading.svg" data-original="/images/blog/blockingqueue.svg" alt="blockingqueue"></p>
 <h1 id="接口实现"><a href="# 接口实现" class="headerlink" title="接口实现"></a>接口实现 </h1><p> 一图胜千言，简单绘制常见几种官方队列数据结构（下面将根据源码一一说明）：</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/java_queue_diff.svg" alt="java_queue_diff"></p>
 <h2 id="1-LinkedBlockingQueue"><a href="#1-LinkedBlockingQueue" class="headerlink" title="1. LinkedBlockingQueue"></a>1. LinkedBlockingQueue</h2><p>顾名思义底层是由链表实现，特性为先入先出，同时没有长度限制</p>
@@ -37,7 +68,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayBlockingQueue</span><span class="params">(<span class="keyword">int</span> capacity, <span class="keyword">boolean</span> fair)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (capacity &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    <span class="comment">// 底层数据结构，仅简单一个数组（参数 1 控制大小）</span></span><br><span class="line">    <span class="keyword">this</span>.items = <span class="keyword">new</span> Object[capacity];</span><br><span class="line">    <span class="comment">// 可重入锁：通过参数 2 控制是否公平</span></span><br><span class="line">    <span class="comment">// - 公平：锁的获取符合绝对时间（保证先来先到）</span></span><br><span class="line">    <span class="comment">// - 否则：降低一定线程切换，提升性能（随机获取）</span></span><br><span class="line">    lock = <span class="keyword">new</span> ReentrantLock(fair);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用 await &amp; signal 两个条件作为红绿灯</span></span><br><span class="line">    notEmpty = lock.newCondition();</span><br><span class="line">    notFull =  lock.newCondition();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-2- 获取元素"><a href="#2-2- 获取元素" class="headerlink" title="2.2 获取元素"></a>2.2 获取元素 </h3><p> 新增与获取操作比较类似，以 take 获取元素为例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// java.util.concurrent.ArrayBlockingQueue#take</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    <span class="comment">// ReadLock#lock 优先考虑获取锁，待获取锁成功后，才响应中断</span></span><br><span class="line">    <span class="comment">// 而 lockInterruptibly 直接中断线程</span></span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (count == <span class="number">0</span>)</span><br><span class="line">            <span class="comment">// AQS 的 await 方法（阻塞当前线程直到被 singal 通知或者线程中断）</span></span><br><span class="line">            <span class="comment">//   `LockSupport.park()` -&gt; `sun.misc.Unsafe#park` - native 方法</span></span><br><span class="line">			  <span class="comment">//     调用 linux 系统，标准的阻塞接口（^^ 原理？？？？^^）</span></span><br><span class="line">            notEmpty.await();</span><br><span class="line">        <span class="keyword">return</span> dequeue();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阻塞后何时被唤醒？ 当队列入列后：</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(E x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> Object[] items = <span class="keyword">this</span>.items;</span><br><span class="line">    <span class="comment">// 不难理解，计算放入的 index 并赋值</span></span><br><span class="line">    items[putIndex] = x;</span><br><span class="line">    <span class="keyword">if</span> (++putIndex == items.length)</span><br><span class="line">        putIndex = <span class="number">0</span>;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="comment">// 发送队列不为空信号</span></span><br><span class="line">    notEmpty.signal();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// java.util.concurrent.ArrayBlockingQueue#take</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    <span class="comment">// ReadLock#lock 优先考虑获取锁，待获取锁成功后，才响应中断</span></span><br><span class="line">    <span class="comment">// 而 lockInterruptibly 直接中断线程</span></span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (count == <span class="number">0</span>)</span><br><span class="line">            <span class="comment">// AQS 的 await 方法（阻塞当前线程直到被 singal 通知或者线程中断）</span></span><br><span class="line">            <span class="comment">//   `LockSupport.park()` -&gt; `sun.misc.Unsafe#park` - native 方法</span></span><br><span class="line">			  <span class="comment">//     调用 linux 系统，标准的阻塞接口（^^ 原理？？？^^）</span></span><br><span class="line">            notEmpty.await();</span><br><span class="line">        <span class="keyword">return</span> dequeue();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阻塞后何时被唤醒？ 当队列入列后：</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(E x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> Object[] items = <span class="keyword">this</span>.items;</span><br><span class="line">    <span class="comment">// 不难理解，计算放入的 index 并赋值</span></span><br><span class="line">    items[putIndex] = x;</span><br><span class="line">    <span class="keyword">if</span> (++putIndex == items.length)</span><br><span class="line">        putIndex = <span class="number">0</span>;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="comment">// 发送队列不为空信号</span></span><br><span class="line">    notEmpty.signal();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-SynchronousQueue"><a href="#3-SynchronousQueue" class="headerlink" title="3. SynchronousQueue"></a>3. SynchronousQueue</h2><p>一句话：<strong>放入数据队列的行为 </strong> 是阻塞的，只有等消费后才会同步返回结果。</p>
 <p>如果有困惑可以运行下面的 demo 代码试试：</p>
@@ -50,6 +81,11 @@
 
 
 <h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 以上 BlockingQueue 的不同实现，都是灵活使用继承与组合后，基于非常简单的数据结构，构建了不同场景适用的复杂队列。</p>
+<h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://gorden5566.com/post/1027.html">https://gorden5566.com/post/1027.html</a></li>
+<li><a href="https://kkewwei.github.io/elasticsearch_learning/2018/11/10/LockSupport%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB">https://kkewwei.github.io/elasticsearch_learning/2018/11/10/LockSupport%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB</a></li>
+<li><a href="https://zeral.cn/java/unsafe.park-vs-object.wait/">https://zeral.cn/java/unsafe.park-vs-object.wait/</a></li>
+</ol>
 ]]></content>
       <tags>
         <tag>java</tag>
@@ -3618,9 +3654,9 @@
 <hr>
 <p>一个具体的例子(现在可能一头雾水, 但完成本文第二部分的 Workshop 后, 肯定会豁然开朗):<br><img style="max-height:320px" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-1.png"></p>
 <h1 id="第二部分 -Workshop"><a href="# 第二部分 -Workshop" class="headerlink" title="第二部分: Workshop"></a>第二部分: Workshop</h1><p><strong>提示:</strong> 只有自己实践一遍才能真正领悟 git 的奥妙.<br><strong>小工具:</strong> 监测当前目录下的所有文件: <code>watch -n 1 -d find .</code><br>效果见下图:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/133173A3-26FB-4066-8229-D7FAFEF5B654.png"></p>
-<h2 id="第一个 commit"><a href="# 第一个 commit" class="headerlink" title="第一个 commit:"></a>第一个 commit:</h2><p>###git add<br><strong>操作:</strong> 新建文件 foo.txt, 并执行<code>git add foo.txt</code> → 自动生成了一个文件(.git/objects/9d/aeaf...)<br><img style="max-height:270px" class="lazy" data-original="/images/blog/180315_git_internal/9B1A1C47-EDCD-41EF-A759-4AC2336E2582.png"></p>
+<h2 id="第一个 commit"><a href="# 第一个 commit" class="headerlink" title="第一个 commit:"></a>第一个 commit:</h2><h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p><strong>操作:</strong> 新建文件 foo.txt, 并执行<code>git add foo.txt</code> → 自动生成了一个文件(.git/objects/9d/aeaf...)<br><img style="max-height:270px" class="lazy" data-original="/images/blog/180315_git_internal/9B1A1C47-EDCD-41EF-A759-4AC2336E2582.png"></p>
 <p><strong>上图的文件 (9daeaf) 是什么呢?</strong><br><code>git cat-file -p 9daeaf</code> → 文件 foo.txt 的内容 <br><strong>blob 怎么知道是哪个 path?</strong><br> 文件名和 blob 的对应关系保存在 <code>.git/index</code>中.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/3ADA3565-0DC7-461A-B637-770264553DE6.png"></p>
-<p>###git commit<br><strong>提交!</strong><br><strong>执行</strong> <code>git commit -m “foo commit #1”</code> →  自动新建了两个文件:<br><img style="max-height:220px" class="lazy" data-original="/images/blog/180315_git_internal/C32B30A0-304F-4C5F-BDB4-C8F1E4AF028B.png">    </p>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p><strong>提交!</strong><br><strong>执行</strong> <code>git commit -m “foo commit #1”</code> →  自动新建了两个文件:<br><img style="max-height:220px" class="lazy" data-original="/images/blog/180315_git_internal/C32B30A0-304F-4C5F-BDB4-C8F1E4AF028B.png">    </p>
 <p><strong>两个文件分别对应两个对象:</strong></p>
 <ol>
 <li><p>commit(fb4495):<br>commit 文件中包含这几个内容: 指向的 tree(b54231)/author/committer/message.   </p>
