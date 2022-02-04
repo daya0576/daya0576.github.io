@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git clone 大提速</title>
+    <url>/blog/20220204/git-clone-speedup/</url>
+    <content><![CDATA[<p>不管是工作还是学习中，相信你经常遇到这要的窘境：执行 <code>git clone &lt;url&gt;</code> 之后，不管是因为网速还是仓库过大，等你带薪拉屎结束，命令行还是龟速前行，嘤嘤嘤。</p>
+<p>这篇博客简单分享几个提速小技巧⚡️⚡️⚡️</p>
+<a id="more"></a>
+
+<h1 id="git-clone- 大提速"><a href="#git-clone- 大提速" class="headerlink" title="git clone 大提速"></a>git clone 大提速 </h1><h2 id="1- 设置 -proxy"><a href="#1- 设置 -proxy" class="headerlink" title="1. 设置 proxy"></a>1. 设置 proxy</h2><p> 如果在大陆境内，可以暴力为终端配置代理端口：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export all_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:13659</span><br></pre></td></tr></table></figure>
+
+<h2 id="2- 减小 -clone- 的大小"><a href="#2- 减小 -clone- 的大小" class="headerlink" title="2. 减小 clone 的大小"></a>2. 减小 clone 的大小 </h2><p> 强烈推荐先阅读博主 18 年的一篇文章：<a href="/blog/20180315/git-internal/">《Git Internal (初探 git 的内部实现)》</a>，了解 git 底层的数据结构：<br><img src="/images/loading/loading.svg" data-original="/images/blog/16439392460547.jpg" alt=""></p>
+<p>因此绝大部分情况时候没有必要获取仓库完整的历史（所有 commit 对应的无意义文件，i.e. blob）</p>
+<p>下面三个参数可以按需使用：<br><img src="/images/loading/loading.svg" data-original="/images/blog/gitclonediff.jpg" alt="gitclonediff"></p>
+<h3 id="速度对比测试 -amp- 说明"><a href="# 速度对比测试 -amp- 说明" class="headerlink" title="速度对比测试 &amp; 说明"></a>速度对比测试 &amp; 说明 </h3><p> 以 <code>git@github.com:JetBrains/jdk8u_hotspot.git</code> 为例，进行性能测试对比（未取平均值，仅供参考）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1）Full clones: `gcl &lt;url&gt;`</span></span><br><span class="line"><span class="comment"># 无参数执行完整 clone, 耗时最久.. 达到了夸张的 40 分钟 :(</span></span><br><span class="line">17.79s user 8.67s system 1% cpu 39:31.18 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2）Blobless clones：`--filter=blob:none`</span></span><br><span class="line"><span class="comment"># 只下载 commits &amp; trees，尽可能保留历史记录的同时，避免加载隐藏在历史 commit 中的大文件</span></span><br><span class="line"><span class="comment"># 仅在执行 `git checkout` 时下载该 commit 对应的所有文件（blob）</span></span><br><span class="line">3.62s user 2.32s system 1% cpu 9:18.32 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3）Treeless clones：`--filter=tree:0`</span></span><br><span class="line"><span class="comment"># 如果有些 repo 历史过于悠久，也可以选择不加载 trees，仅保留 commits 历史</span></span><br><span class="line"><span class="comment"># 速度提升的同时，相对于 Blobless clones，存在大量局限性：</span></span><br><span class="line"><span class="comment"># 例如执行 `git merge-base` 或者 `git log` 时不会触发数据的自动加载，</span></span><br><span class="line"><span class="comment"># 而 `git log -- &lt;path&gt;` 则会触发几乎每个 commit 的数据下载。</span></span><br><span class="line">1.69s user 1.09s system 1% cpu 2:55.05 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4）Shallow clones: `gcl --depth 1 &lt;url&gt;`</span></span><br><span class="line"><span class="comment"># 虽然快，但会，甚至在即用即拋的</span></span><br><span class="line">1.06s user 0.80s system 2% cpu 1:26.68 total</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h2><p> 日常开发推荐 2）Blobless clones，兼顾性能与信息完整性。</p>
+<p>3）Treeless clones 仅适用于例如即用即拋的自动化单元测试，或者本地的编译打包。<br>⚠️ 不推荐 4）Shallow clones，存在描述信息丢失或错乱的可能，弊大于利。</p>
+<h1 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/">https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java BlockingQueue 学习小记</title>
     <url>/blog/20220203/java-blocking-queue/</url>
     <content><![CDATA[<p>最近一周作息发生了一些微妙的变化，晚上 11 点睡觉清晨 7 点自然醒，身体状况明显好转的同时，也明白了什么叫做一天之际在于晨：起床后去门口吃麦当劳早餐的同时，看一会书，感觉一天多活了一个多小时。</p>
@@ -38,10 +64,14 @@
 <p>A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.</p>
 </blockquote>
 <p>参考官方注释，<code>BlockingQueue</code> 是 <code>java.util.concurrent</code> 中的一个接口。顾名思义：<strong>Queue</strong> 表示先进先出的队列，多个线程同时放入对象而其他线程获取对象（解耦输入与输出），<strong>Blocking</strong> 代表当队列满了或者为空时，尝试放入或获取元素的线程会进入阻塞状态。</p>
-<p>有点抽象，举个例子：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当队列为空时，获取元素：</span></span><br><span class="line">ArrayBlockingQueue#take</span><br><span class="line">└── AQS#await（挂起线程进入 WATTING 状态，直到被 singal 通知或者线程中断）</span><br><span class="line">    └── LockSupport#park</span><br><span class="line">        └── sun.misc.Unsafe#park（native 方法）</span><br><span class="line">            └── 调用操作系统具体实现</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如何找到 park 对应 cpp 实现</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<h2 id="举个例子"><a href="# 举个例子" class="headerlink" title="举个例子"></a>举个例子 </h2><p> 有点抽象，举个例子：当队列为空时，获取元素 </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArrayBlockingQueue#take</span><br><span class="line">└── AQS#await（挂起线程进入 WATTING 状态，直到被 singal 通知或者线程中断）</span><br><span class="line">    └── LockSupport#park</span><br><span class="line">        └── sun.misc.Unsafe#park（native 方法）</span><br><span class="line">            └── 调用操作系统具体实现</span><br></pre></td></tr></table></figure>
 
-<p>所以 java.lang.Thread.State 中 BLOCKED 与 WATTING 的区别？</p>
+<h2 id="park- 底层实现"><a href="#park- 底层实现" class="headerlink" title="park 底层实现?"></a>park 底层实现?</h2><p>native 方法可以理解为另一个层面的接口，供非 java 代码实现底层逻辑。</p>
+<p>首先根据 <code>sun.misc.Unsafe#park</code> 搜索 <a href="https://github.com/JetBrains/jdk8u_hotspot"> 源代码</a>：<br><img src="/images/loading/loading.svg" data-original="/images/blog/16439469274665.jpg" alt=""></p>
+<p>我们发现 <code>Unsafe#park</code> 实际调用当前线程 <code>Parker</code> 对象的 <code>park</code> 方法<br><img src="/images/loading/loading.svg" data-original="/images/blog/16439468851293.jpg" alt=""></p>
+<p>继续寻找 <code>Parker::park</code> 方法..<br><img src="/images/loading/loading.svg" data-original="/images/blog/16439473688366.jpg" alt=""></p>
+<p>以 linux 实现为例，当超时时间为 0 时，Parker::park 方法最终调用标准库 <code>pthread_cond_wait</code>（<code># include &lt;pthread.h&gt;</code>），挂起线程，等待被唤醒。<br><img src="/images/loading/loading.svg" data-original="/images/blog/16439611572855.jpg" alt=""></p>
 <h1 id="接口定义"><a href="# 接口定义" class="headerlink" title="接口定义"></a>接口定义 </h1><p> 官方文档解释的很清楚，以获取队列第一个元素为例（如果队列为空）：</p>
 <ul>
 <li><code>remove()</code>: 立即抛出异常 java.util.NoSuchElementException</li>
@@ -80,8 +110,8 @@
 <h3 id="4-2- 执行任务"><a href="#4-2- 执行任务" class="headerlink" title="4.2 执行任务"></a>4.2 执行任务</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.DelayQueue;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DelayedQueueEvent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> SimpleDateFormat s = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        DelayQueue&lt;DelayedEvent&gt; queue = <span class="keyword">new</span> DelayQueue&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        queue.put(<span class="keyword">new</span> DelayedEvent(<span class="number">1</span>, <span class="number">1</span>, TimeUnit.SECONDS));</span><br><span class="line">        queue.put(<span class="keyword">new</span> DelayedEvent(<span class="number">2</span>, <span class="number">3</span>, TimeUnit.SECONDS));</span><br><span class="line"></span><br><span class="line">        s.format(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">        log(<span class="string">"taking..."</span>);</span><br><span class="line">        DelayedEvent take1 = queue.take();</span><br><span class="line">        log(take1);</span><br><span class="line">        DelayedEvent take2 = queue.take();</span><br><span class="line">        log(take2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2022-02-03 12:27:01 taking...</span></span><br><span class="line">        <span class="comment">// 2022-02-03 12:27:02 DelayedEvent [id=1]</span></span><br><span class="line">        <span class="comment">// 2022-02-03 12:27:04 DelayedEvent [id=2]</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(Object content)</span> </span>&#123;</span><br><span class="line">        System.out.println(s.format(<span class="keyword">new</span> Date()) + <span class="string">""</span> + content.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 以上 BlockingQueue 的不同实现，都是灵活使用继承与组合后，基于非常简单的数据结构，构建了不同场景适用的复杂队列。</p>
-<h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 以上 BlockingQueue 针对不同场景的复杂实现，背后都是灵活使用继承与组合后，基于非常简单的数据结构。希望自己有一天也能写出优雅的面向对象代码。</p>
+<h1 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://gorden5566.com/post/1027.html">https://gorden5566.com/post/1027.html</a></li>
 <li><a href="https://kkewwei.github.io/elasticsearch_learning/2018/11/10/LockSupport%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB">https://kkewwei.github.io/elasticsearch_learning/2018/11/10/LockSupport%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB</a></li>
 <li><a href="https://zeral.cn/java/unsafe.park-vs-object.wait/">https://zeral.cn/java/unsafe.park-vs-object.wait/</a></li>
