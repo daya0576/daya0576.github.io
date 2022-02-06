@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="-428 725 708 333" width="708" height="333">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-437.5 715.5523 722.5 352" width="722.5" height="352">
   <defs>
     <font-face font-family="PingFang SC" font-size="13" panose-1="2 11 4 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-150" underline-thickness="58" slope="0" x-height="600" cap-height="860" ascent="1060.0021" descent="-340.0007" font-weight="400">
       <font-face-src>
@@ -17,7 +17,7 @@
         <font-face-name name="PingFangSC-Regular"/>
       </font-face-src>
     </font-face>
-    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-498.8" y="691.7">
+    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-509.75" y="680.3523">
       <feOffset in="SourceAlpha" result="offset" dx="0" dy="2"/>
       <feFlood flood-color="#555" flood-opacity=".25" result="flood"/>
       <feComposite in="flood" in2="offset" operator="in" result="color"/>
@@ -27,82 +27,58 @@
       </feMerge>
     </filter>
   </defs>
-  <metadata> Produced by OmniGraffle 7.19.2\n2022-02-01 10:25:06 +0000</metadata>
-  <g id="3__" stroke-opacity="1" fill-opacity="1" stroke="none" fill="none" stroke-dasharray="none">
+  <metadata> Produced by OmniGraffle 7.19.2\n2022-02-06 02:06:55 +0000</metadata>
+  <g id="3__" stroke-opacity="1" stroke="none" fill="none" stroke-dasharray="none" fill-opacity="1">
     <title>3）厨房</title>
-    <rect fill="white" x="-428" y="725" width="708" height="333"/>
+    <rect fill="white" x="-437.5" y="715.5523" width="722.5" height="352"/>
     <g id="3___Layer_1">
       <title>Layer 1</title>
       <g id="Graphic_75">
-        <rect x="137" y="726.2707" width="142" height="159.38006" fill="white"/>
-        <rect x="137" y="726.2707" width="142" height="159.38006" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      </g>
-      <g id="Graphic_27">
-        <ellipse cx="172.30142" cy="746.0497" rx="21.3014580882189" ry="10.3870458861567" fill="#c0ffc0"/>
-        <ellipse cx="172.30142" cy="746.0497" rx="21.3014580882189" ry="10.3870458861567" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      </g>
-      <g id="Graphic_26">
-        <text transform="translate(202.9454 737.0497)" fill="black">
-          <tspan font-family="PingFang SC" font-size="13" font-weight="400" fill="black" x="0" y="14">智能灯</tspan>
-        </text>
+        <rect x="132.5" y="726.2707" width="142" height="99.11115" fill="white"/>
+        <rect x="132.5" y="726.2707" width="142" height="99.11115" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_25">
-        <ellipse cx="172.30142" cy="780.5497" rx="21.3014580882189" ry="10.3870458861567" fill="#ccc"/>
-        <ellipse cx="172.30142" cy="780.5497" rx="21.3014580882189" ry="10.3870458861567" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <ellipse cx="167.80142" cy="740.2707" rx="21.3014580882189" ry="10.3870458861567" fill="#ccc"/>
+        <ellipse cx="167.80142" cy="740.2707" rx="21.3014580882189" ry="10.3870458861567" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_24">
-        <text transform="translate(202.9454 771.5497)" fill="black">
+        <text transform="translate(211.4454 731.2707)" fill="black">
           <tspan font-family="PingFang SC" font-size="13" font-weight="400" fill="black" x="0" y="14">传统灯</tspan>
         </text>
       </g>
       <g id="Graphic_21">
-        <ellipse cx="172.30142" cy="814.2637" rx="5.57127011154128" ry="5.26429422008062" fill="#ccc"/>
-        <ellipse cx="172.30142" cy="814.2637" rx="5.57127011154128" ry="5.26429422008062" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <ellipse cx="167.80142" cy="776.26495" rx="5.57127011154128" ry="5.26429422008059" fill="#ccc"/>
+        <ellipse cx="167.80142" cy="776.26495" rx="5.57127011154128" ry="5.26429422008059" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_20">
-        <text transform="translate(202.9454 805.544)" fill="black">
+        <text transform="translate(211.4454 767.26495)" fill="black">
           <tspan font-family="PingFang SC" font-size="13" font-weight="400" fill="black" x="0" y="14">传统筒灯</tspan>
-        </text>
-      </g>
-      <g id="Graphic_19">
-        <rect x="159.9608" y="840.208" width="24.68125" height="6.88549" fill="#fffc00"/>
-        <rect x="159.9608" y="840.208" width="24.68125" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      </g>
-      <g id="Graphic_18">
-        <text transform="translate(202.9454 834.6507)" fill="black">
-          <tspan font-family="PingFang SC" font-size="13" font-weight="400" fill="black" x="0" y="14">凌动开关</tspan>
         </text>
       </g>
       <g id="Group_14">
         <g id="Graphic_17">
-          <rect x="155.58764" y="868.2791" width="11.142522" height="6.88549" fill="#80ff80"/>
-          <rect x="155.58764" y="868.2791" width="11.142522" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <rect x="151.08764" y="807.3394" width="11.142522" height="6.88549" fill="#80ff80"/>
+          <rect x="151.08764" y="807.3394" width="11.142522" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
         </g>
         <g id="Graphic_16">
-          <rect x="166.73016" y="868.2791" width="11.142522" height="6.88549" fill="#80ff80"/>
-          <rect x="166.73016" y="868.2791" width="11.142522" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <rect x="162.23016" y="807.3394" width="11.142522" height="6.88549" fill="#80ff80"/>
+          <rect x="162.23016" y="807.3394" width="11.142522" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
         </g>
         <g id="Graphic_15">
-          <rect x="177.87269" y="868.2791" width="11.142522" height="6.88549" fill="#80ff80"/>
-          <rect x="177.87269" y="868.2791" width="11.142522" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <rect x="173.37269" y="807.3394" width="11.142522" height="6.88549" fill="#80ff80"/>
+          <rect x="173.37269" y="807.3394" width="11.142522" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
         </g>
       </g>
       <g id="Graphic_13">
-        <text transform="translate(202.9454 862.6507)" fill="black">
+        <text transform="translate(211.4454 801.3234)" fill="black">
           <tspan font-family="PingFang SC" font-size="13" font-weight="400" fill="black" x="0" y="14">无线开关</tspan>
         </text>
       </g>
-      <g id="Line_8">
-        <line x1="137" y1="762.7997" x2="279" y2="762.7997" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      </g>
       <g id="Line_7">
-        <line x1="137" y1="799.544" x2="279" y2="799.544" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line x1="132.5" y1="759.26495" x2="274.5" y2="759.26495" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Line_5">
-        <line x1="137" y1="829.0732" x2="279" y2="829.0732" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-      </g>
-      <g id="Line_4">
-        <line x1="137" y1="856.6507" x2="279" y2="856.6507" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line x1="132.5" y1="792.7942" x2="274.5" y2="792.7942" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_131">
         <rect x="-427" y="726.0523" width="538.5" height="331" fill="white"/>
@@ -187,27 +163,27 @@
         </text>
       </g>
       <g id="Graphic_116">
-        <ellipse cx="22.03402" cy="1004.4247" rx="21.3014580882188" ry="10.3870458861566" fill="#c0ffc0"/>
+        <ellipse cx="22.03402" cy="1004.4247" rx="21.3014580882188" ry="10.3870458861566" fill="#ccc"/>
         <ellipse cx="22.03402" cy="1004.4247" rx="21.3014580882188" ry="10.3870458861566" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_115">
-        <rect x="-67.43196" y="988.8746" width="6.1703125" height="16.38298" fill="#ffff40"/>
+        <rect x="-67.43196" y="988.8746" width="6.1703125" height="16.38298" fill="#ccc"/>
         <rect x="-67.43196" y="988.8746" width="6.1703125" height="16.38298" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_114">
-        <ellipse cx="22.03402" cy="795.9916" rx="21.3014580882188" ry="10.3870458861566" fill="#c0ffc0"/>
+        <ellipse cx="22.03402" cy="795.9916" rx="21.3014580882188" ry="10.3870458861566" fill="#ccc"/>
         <ellipse cx="22.03402" cy="795.9916" rx="21.3014580882188" ry="10.3870458861566" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_113">
-        <rect x="-7.296875" y="859.3743" width="24.68125" height="6.556676" fill="#ffff40"/>
+        <rect x="-7.296875" y="859.3743" width="24.68125" height="6.556676" fill="#ccc"/>
         <rect x="-7.296875" y="859.3743" width="24.68125" height="6.556676" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_112">
-        <ellipse cx="-341.20904" cy="795.9916" rx="21.3014580882188" ry="10.3870458861566" fill="#c0ffc0"/>
+        <ellipse cx="-341.20904" cy="795.9916" rx="21.3014580882188" ry="10.3870458861566" fill="#ccc"/>
         <ellipse cx="-341.20904" cy="795.9916" rx="21.3014580882188" ry="10.3870458861566" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_111">
-        <rect x="-319.86094" y="859.3743" width="24.68125" height="6.88549" fill="#ffff40"/>
+        <rect x="-319.86094" y="859.3743" width="24.68125" height="6.88549" fill="#ccc"/>
         <rect x="-319.86094" y="859.3743" width="24.68125" height="6.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
       </g>
       <g id="Graphic_110">
@@ -354,26 +330,6 @@
             <title>Class</title>
             <circle cx="-307.5203" cy="1026.6713" r="4.42857850499411" fill="#40ff40"/>
             <circle cx="-307.5203" cy="1026.6713" r="4.42857850499411" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-          </g>
-        </g>
-      </g>
-      <g id="Group_170">
-        <g id="Graphic_174">
-          <rect x="-53.23734" y="1032.0523" width="50" height="24" fill="white"/>
-          <text transform="translate(-48.23734 1037.0523)" fill="black">
-            <tspan font-family="PingFang SC" font-size="10" font-weight="400" fill="black" x="0" y="11">人体感应</tspan>
-          </text>
-        </g>
-        <g id="Group_171">
-          <g id="Graphic_173" filter="url(#Shadow)">
-            <title>Class</title>
-            <path d="M -33.618294 1019.2904 L -22.85639 1019.2904 C -21.75182 1019.2904 -20.85639 1020.1858 -20.85639 1021.2904 L -20.85639 1032.0523 C -20.85639 1033.1569 -21.75182 1034.0523 -22.85639 1034.0523 L -33.618294 1034.0523 C -34.722864 1034.0523 -35.618294 1033.1569 -35.618294 1032.0523 L -35.618294 1021.2904 C -35.618294 1020.1858 -34.722864 1019.2904 -33.618294 1019.2904 Z" fill="#40ff40"/>
-            <path d="M -33.618294 1019.2904 L -22.85639 1019.2904 C -21.75182 1019.2904 -20.85639 1020.1858 -20.85639 1021.2904 L -20.85639 1032.0523 C -20.85639 1033.1569 -21.75182 1034.0523 -22.85639 1034.0523 L -33.618294 1034.0523 C -34.722864 1034.0523 -35.618294 1033.1569 -35.618294 1032.0523 L -35.618294 1021.2904 C -35.618294 1020.1858 -34.722864 1019.2904 -33.618294 1019.2904 Z" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-          </g>
-          <g id="Graphic_172">
-            <title>Class</title>
-            <circle cx="-28.237342" cy="1026.6713" r="4.42857850499411" fill="#40ff40"/>
-            <circle cx="-28.237342" cy="1026.6713" r="4.42857850499411" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
           </g>
         </g>
       </g>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="-291 520 799 206" width="799" height="206">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-291 523 799 203" width="799" height="203">
   <defs>
     <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
       <font-face-src>
         <font-face-name name="HelveticaNeue"/>
       </font-face-src>
     </font-face>
-    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-370.9" y="499.4">
+    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-370.9" y="502.7">
       <feOffset in="SourceAlpha" result="offset" dx="0" dy="2"/>
       <feFlood flood-color="#555" flood-opacity=".25" result="flood"/>
       <feComposite in="flood" in2="offset" operator="in" result="color"/>
@@ -42,10 +42,10 @@
       </font-face-src>
     </font-face>
   </defs>
-  <metadata> Produced by OmniGraffle 7.19.2\n2022-02-01 09:03:18 +0000</metadata>
-  <g id="Canvas_" stroke-opacity="1" fill-opacity="1" stroke="none" fill="none" stroke-dasharray="none">
+  <metadata> Produced by OmniGraffle 7.19.2\n2022-02-05 03:37:19 +0000</metadata>
+  <g id="Canvas_" stroke-opacity="1" stroke="none" fill="none" stroke-dasharray="none" fill-opacity="1">
     <title>双控</title>
-    <rect fill="white" x="-291" y="520" width="799" height="206"/>
+    <rect fill="white" x="-291" y="523" width="799" height="203"/>
     <g id="Canvas__Layer_1">
       <title>Layer 1</title>
       <g id="Group_106">
@@ -142,103 +142,107 @@
           </text>
         </g>
       </g>
-      <g id="Group_107">
-        <g id="Group_72">
-          <title>smart bulb 2</title>
-          <g id="Group_74">
-            <g id="Graphic_80" filter="url(#Shadow)">
-              <title>Class</title>
-              <path d="M 321.25494 698.791 L 322.7713 698.791 C 323.8181 698.791 324.6667 699.6396 324.6667 700.6864 L 324.6667 700.6864 C 324.6667 701.73325 323.8181 702.5819 322.7713 702.5819 L 321.25494 702.5819 C 320.2081 702.5819 319.3595 701.73325 319.3595 700.6864 L 319.3595 700.6864 C 319.3595 699.6396 320.2081 698.791 321.25494 698.791 Z" fill="#686a6b"/>
-              <path d="M 321.25494 698.791 L 322.7713 698.791 C 323.8181 698.791 324.6667 699.6396 324.6667 700.6864 L 324.6667 700.6864 C 324.6667 701.73325 323.8181 702.5819 322.7713 702.5819 L 321.25494 702.5819 C 320.2081 702.5819 319.3595 701.73325 319.3595 700.6864 L 319.3595 700.6864 C 319.3595 699.6396 320.2081 698.791 321.25494 698.791 Z" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </g>
-            <g id="Graphic_79" filter="url(#Shadow)">
-              <title>Class</title>
-              <path d="M 318.7059 681.353 L 325.32032 681.353 C 326.4249 681.353 327.32032 682.2484 327.32032 683.353 L 327.32032 698.3073 C 327.32032 699.4119 326.4249 700.3073 325.32032 700.3073 L 318.7059 700.3073 C 317.60133 700.3073 316.7059 699.4119 316.7059 698.3073 L 316.7059 683.353 C 316.7059 682.2484 317.60133 681.353 318.7059 681.353 Z" fill="white"/>
-              <path d="M 318.7059 681.353 L 325.32032 681.353 C 326.4249 681.353 327.32032 682.2484 327.32032 683.353 L 327.32032 698.3073 C 327.32032 699.4119 326.4249 700.3073 325.32032 700.3073 L 318.7059 700.3073 C 317.60133 700.3073 316.7059 699.4119 316.7059 698.3073 L 316.7059 683.353 C 316.7059 682.2484 317.60133 681.353 318.7059 681.353 Z" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </g>
-            <g id="Graphic_78">
-              <title>Class</title>
-              <circle cx="322.20265" cy="677.3726" r="11.3726173826285" fill="#ffff80"/>
-              <circle cx="322.20265" cy="677.3726" r="11.3726173826285" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </g>
-            <g id="Line_77">
-              <line x1="318.9804" y1="692.157" x2="325.0458" y2="692.157" stroke="#686a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </g>
-            <g id="Line_76">
-              <line x1="318.9804" y1="694.8106" x2="325.0458" y2="694.8106" stroke="#686a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </g>
-            <g id="Line_75">
-              <line x1="318.9804" y1="697.4642" x2="325.0458" y2="697.4642" stroke="#686a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-            </g>
-          </g>
-          <g id="Graphic_73">
+      <g id="Graphic_104">
+        <rect x="392.92786" y="550.5" width="62.92838" height="83" fill="#ebebeb"/>
+        <rect x="392.92786" y="550.5" width="62.92838" height="83" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_103">
+        <rect x="269.92786" y="550.5" width="62.92838" height="83" fill="#ffffc0"/>
+        <rect x="269.92786" y="550.5" width="62.92838" height="83" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_102">
+        <circle cx="195.59138" cy="594.8365" r="4.83649085794451" fill="white"/>
+        <circle cx="195.59138" cy="594.8365" r="4.83649085794451" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_101">
+        <circle cx="195.59138" cy="695.56876" r="4.83649085794448" fill="white"/>
+        <circle cx="195.59138" cy="695.56876" r="4.83649085794448" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_100">
+        <text transform="translate(177.35938 635.9786)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">220V</tspan>
+        </text>
+      </g>
+      <g id="Line_99">
+        <line x1="200.42786" y1="695.5755" x2="505.60755" y2="696" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_98">
+        <line x1="505.60755" y1="696" x2="505.60755" y2="592" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      </g>
+      <g id="Line_88">
+        <line x1="435.42786" y1="592" x2="505.60755" y2="592" marker-start="url(#FilledBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_87">
+        <line x1="310.92786" y1="574.0865" x2="413.92786" y2="574.0865" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_86">
+        <line x1="200.42786" y1="594.3365" x2="289.42786" y2="594.3365" marker-end="url(#FilledBall_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_85">
+        <line x1="310.92786" y1="616.5865" x2="413.92786" y2="615.5865" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_84">
+        <line x1="405.56237" y1="574.0865" x2="428.92786" y2="592" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_83">
+        <line x1="295.92786" y1="594.3365" x2="319" y2="574.0865" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_82">
+        <text transform="translate(286.05605 528.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">开关</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" y="13">1</tspan>
+        </text>
+      </g>
+      <g id="Graphic_81">
+        <text transform="translate(409.05605 528.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">开关</tspan>
+          <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" y="13">2</tspan>
+        </text>
+      </g>
+      <g id="Graphic_105">
+        <path d="M 82.03581 650.57 L 82.03581 632.85665 L 115.55377 632.85665 L 115.55377 624 L 136.55377 641.7133 L 115.55377 659.4266 L 115.55377 650.57 Z" fill="white"/>
+        <path d="M 82.03581 650.57 L 82.03581 632.85665 L 115.55377 632.85665 L 115.55377 624 L 136.55377 641.7133 L 115.55377 659.4266 L 115.55377 650.57 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_72">
+        <title>smart bulb 2</title>
+        <g id="Group_74">
+          <g id="Graphic_80" filter="url(#Shadow)">
             <title>Class</title>
-            <text transform="translate(290.35938 707.1375)" fill="#515556">
-              <tspan font-family="PingFang SC" font-size="13" font-weight="600" fill="#515556" x="24.96419" y="14">灯</tspan>
-            </text>
+            <path d="M 321.25494 698.791 L 322.7713 698.791 C 323.8181 698.791 324.6667 699.6396 324.6667 700.6864 L 324.6667 700.6864 C 324.6667 701.73325 323.8181 702.5819 322.7713 702.5819 L 321.25494 702.5819 C 320.2081 702.5819 319.3595 701.73325 319.3595 700.6864 L 319.3595 700.6864 C 319.3595 699.6396 320.2081 698.791 321.25494 698.791 Z" fill="#686a6b"/>
+            <path d="M 321.25494 698.791 L 322.7713 698.791 C 323.8181 698.791 324.6667 699.6396 324.6667 700.6864 L 324.6667 700.6864 C 324.6667 701.73325 323.8181 702.5819 322.7713 702.5819 L 321.25494 702.5819 C 320.2081 702.5819 319.3595 701.73325 319.3595 700.6864 L 319.3595 700.6864 C 319.3595 699.6396 320.2081 698.791 321.25494 698.791 Z" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_79" filter="url(#Shadow)">
+            <title>Class</title>
+            <path d="M 318.7059 681.353 L 325.32032 681.353 C 326.4249 681.353 327.32032 682.2484 327.32032 683.353 L 327.32032 698.3073 C 327.32032 699.4119 326.4249 700.3073 325.32032 700.3073 L 318.7059 700.3073 C 317.60133 700.3073 316.7059 699.4119 316.7059 698.3073 L 316.7059 683.353 C 316.7059 682.2484 317.60133 681.353 318.7059 681.353 Z" fill="white"/>
+            <path d="M 318.7059 681.353 L 325.32032 681.353 C 326.4249 681.353 327.32032 682.2484 327.32032 683.353 L 327.32032 698.3073 C 327.32032 699.4119 326.4249 700.3073 325.32032 700.3073 L 318.7059 700.3073 C 317.60133 700.3073 316.7059 699.4119 316.7059 698.3073 L 316.7059 683.353 C 316.7059 682.2484 317.60133 681.353 318.7059 681.353 Z" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_78">
+            <title>Class</title>
+            <circle cx="322.20265" cy="677.3726" r="11.3726173826285" fill="#ffff80"/>
+            <circle cx="322.20265" cy="677.3726" r="11.3726173826285" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Line_77">
+            <line x1="318.9804" y1="692.157" x2="325.0458" y2="692.157" stroke="#686a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Line_76">
+            <line x1="318.9804" y1="694.8106" x2="325.0458" y2="694.8106" stroke="#686a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Line_75">
+            <line x1="318.9804" y1="697.4642" x2="325.0458" y2="697.4642" stroke="#686a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
           </g>
         </g>
-        <g id="Graphic_104">
-          <rect x="392.92786" y="550.5" width="62.92838" height="83" fill="#ebebeb"/>
-          <rect x="392.92786" y="550.5" width="62.92838" height="83" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Graphic_103">
-          <rect x="269.92786" y="550.5" width="62.92838" height="83" fill="#ffffc0"/>
-          <rect x="269.92786" y="550.5" width="62.92838" height="83" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Graphic_102">
-          <circle cx="195.59138" cy="594.8365" r="4.83649085794451" fill="white"/>
-          <circle cx="195.59138" cy="594.8365" r="4.83649085794451" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Graphic_101">
-          <circle cx="195.59138" cy="695.56876" r="4.83649085794448" fill="white"/>
-          <circle cx="195.59138" cy="695.56876" r="4.83649085794448" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Graphic_100">
-          <text transform="translate(177.35938 635.9786)" fill="black">
-            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="0" y="15">220V</tspan>
-          </text>
-        </g>
-        <g id="Line_99">
-          <line x1="200.42786" y1="695.5755" x2="505.60755" y2="696" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Line_98">
-          <line x1="505.60755" y1="696" x2="505.60755" y2="592" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
-        </g>
-        <g id="Line_88">
-          <line x1="435.42786" y1="592" x2="505.60755" y2="592" marker-start="url(#FilledBall_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Line_87">
-          <line x1="310.92786" y1="574.0865" x2="413.92786" y2="574.0865" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Line_86">
-          <line x1="200.42786" y1="594.3365" x2="289.42786" y2="594.3365" marker-end="url(#FilledBall_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Line_85">
-          <line x1="310.92786" y1="616.5865" x2="413.92786" y2="615.5865" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Line_84">
-          <line x1="405.56237" y1="574.0865" x2="428.92786" y2="592" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Line_83">
-          <line x1="295.92786" y1="594.3365" x2="319" y2="574.0865" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-        </g>
-        <g id="Graphic_82">
-          <text transform="translate(286.05605 528.5)" fill="black">
-            <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">开关</tspan>
-            <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" y="13">1</tspan>
-          </text>
-        </g>
-        <g id="Graphic_81">
-          <text transform="translate(409.05605 528.5)" fill="black">
-            <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">开关</tspan>
-            <tspan font-family="Helvetica Neue" font-size="12" font-weight="400" fill="black" y="13">2</tspan>
+        <g id="Graphic_73">
+          <title>Class</title>
+          <text transform="translate(290.35938 707.1375)" fill="#515556">
+            <tspan font-family="PingFang SC" font-size="13" font-weight="600" fill="#515556" x="24.96419" y="14">灯</tspan>
           </text>
         </g>
       </g>
-      <g id="Graphic_105">
-        <path d="M 80.29479 650.57 L 80.29479 632.85665 L 113.81275 632.85665 L 113.81275 624 L 134.81275 641.7133 L 113.81275 659.4266 L 113.81275 650.57 Z" fill="white"/>
-        <path d="M 80.29479 650.57 L 80.29479 632.85665 L 113.81275 632.85665 L 113.81275 624 L 134.81275 641.7133 L 113.81275 659.4266 L 113.81275 650.57 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <g id="Graphic_108">
+        <text transform="translate(83.55377 589)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">大牙打开</tspan>
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="9.594" y="30">开关1</tspan>
+        </text>
       </g>
     </g>
   </g>
