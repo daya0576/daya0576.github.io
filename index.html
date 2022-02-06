@@ -213,6 +213,50 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20220206/home-lights-practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20220206/home-lights-practice/" class="post-title-link" itemprop="url">【智能家居】新家全屋灯具改造</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>去年末交房后，虽是精装交付，但按耐不住爱折腾的心，将家中绝大部分的灯都换了一遍。在满足个人需求的过程中也踩了不少坑，趁着春季假期写一篇博客记录一下，如果刚好帮到你那就更好啦～</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20220204/git-clone-speedup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -227,7 +271,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/blog/20220204/git-clone-speedup/" class="post-title-link" itemprop="url">git clone 大提速</a>
+            <a href="/blog/20220204/git-clone-speedup/" class="post-title-link" itemprop="url">【奇技淫巧】git clone 大提速</a>
         </h1>
           <div style="height: 5px"></div>
         
@@ -239,7 +283,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>不管是工作还是学习中，相信你经常遇到这要的窘境：执行 <code>git clone &lt;url&gt;</code> 之后，不管是因为网速还是仓库过大，等你带薪拉屎结束，命令行还是龟速前行，嘤嘤嘤。</p>
+          <p>不管是工作还是学习中，相信你经常遇到这要的窘境：执行 <code>git clone &lt;url&gt;</code> 之后，不管是因为网速还是仓库过大，等你带薪拉屎结束，命令行还是龟速前行。</p>
 <p>这篇博客简单分享几个提速小技巧⚡️⚡️⚡️</p>
           <!--noindex-->
           <!--/noindex-->
@@ -329,7 +373,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>2021 过的特别快，部分月份浑浑噩噩，也有很多改变人生轨迹的关键决策。首先来回顾年初设置的目标吧～</p>
+          <p>在 2022 年的第一天，不知为何醒的特别早，甚至第一次感受了上海的日出。回顾 2021 不出意外过的特别快，甚至部分月份浑浑噩噩，但也有很多改变人生轨迹的关键决策。</p>
+<p>这篇文章将帮助自己回顾 2021 年的目标，同时制定新一年的方向。</p>
           <!--noindex-->
           <!--/noindex-->
         
@@ -525,57 +570,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210904/jvm-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20210904/jvm-note/" class="post-title-link" itemprop="url">Java 内存管理 - SRE 的必修课</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T</p>
-<p>但是之后很长一段时间内，都不太明白 Metaspace 是什么，为什么会耗尽？和 perm 区的关系是？不同线程本地变量和全局对象的关系？</p>
-<p>正好趁这次机会，系统性的整理和分享一下 ：）</p>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -643,7 +642,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -654,7 +653,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

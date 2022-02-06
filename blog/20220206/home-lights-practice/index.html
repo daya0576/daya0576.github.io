@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="去年末交房后，虽是精装交付，但按耐不住爱折腾的心，将家中绝大部分的灯都换了一遍。在满足个人需求的过程中也踩了不少坑，趁着春季假期写一篇博客记录一下，如果刚好帮到你那就更好啦～">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【智能家居】新家全屋灯具改造">
+<meta property="og:url" content="https://changchen.me/blog/20220206/home-lights-practice/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="去年末交房后，虽是精装交付，但按耐不住爱折腾的心，将家中绝大部分的灯都换了一遍。在满足个人需求的过程中也踩了不少坑，趁着春季假期写一篇博客记录一下，如果刚好帮到你那就更好啦～">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2022-02-06T07:43:59.000Z">
+<meta property="article:modified_time" content="2022-02-06T07:47:06.870Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="smart home">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20220206/home-lights-practice/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>【智能家居】新家全屋灯具改造 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+
+
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20220206/home-lights-practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【智能家居】新家全屋灯具改造
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-06 15:43:59" itemprop="dateCreated datePublished" datetime="2022-02-06T15:43:59+08:00">2022-02-06</time>
+            </span>
+
+          
+            <span id="/blog/20220206/home-lights-practice/" class="post-meta-item leancloud_visitors" data-flag-title="【智能家居】新家全屋灯具改造" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>去年末交房后，虽是精装交付，但按耐不住爱折腾的心，将家中绝大部分的灯都换了一遍。在满足个人需求的过程中也踩了不少坑，趁着春季假期写一篇博客记录一下，如果刚好帮到你那就更好啦～</p>
+<a id="more"></a>
+
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/smart_home_lights.svg" alt="smart_home_lights"></p>
+<h1 id="一、名词解释"><a href="# 一、名词解释" class="headerlink" title="一、名词解释"></a>一、名词解释 </h1><p> 起初听到「单开双控」、「双开单控」等名词的时候，也是一脸懵逼，所以先明确几个概念：</p>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>墙壁开关</td>
+<td>墙壁开关 = 面板 + 开关 + 暗盒底座。家用开关暗盒基本都是国家标准 86 型，所以升级智能开关一般无需更换底座。</td>
+</tr>
+<tr>
+<td>单开 vs 双开</td>
+<td>顾名思义双开指一个开关面板上有 2 个开关，同理存在 3 个开关即三开</td>
+</tr>
+<tr>
+<td>单控 vs 双控</td>
+<td>双控指两个开关面板可以同步控制一个灯，即在开关 A 关闭灯 1，然后在开关 B 打开灯 1</td>
+</tr>
+</tbody></table>
+<p>p.s. 单控与双控背后的实现非常巧妙！忍不住再简单补充一下：</p>
+<p>例如下图中左边👈为关灯状态，此时博主无论单击开关 1 还是开关 2，灯都会从关闭 -&gt; 开启：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/double_control.svg" alt="double_control"></p>
+<h1 id="二、日常需求"><a href="# 二、日常需求" class="headerlink" title="二、日常需求"></a>二、日常需求 </h1><p> 精装交付后所有灯具如下图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/original.svg" alt="original"></p>
+<p>首先简单罗列个人日常需求：</p>
+<ol>
+<li>普通级（自动场景）：<ul>
+<li>出门 / 回家自动关开灯</li>
+<li>落日自动开灯，并调至暖色</li>
+<li>床头随手开关灯</li>
+<li>深夜自动熄灯 or 一键关闭所有灯</li>
+<li>...</li>
+</ul>
+</li>
+<li>升级版（biantai 需求）：<ul>
+<li>开门后自动开灯（门厅四个筒灯延迟逐个打开）</li>
+<li>夜晚射灯感应活动</li>
+<li>...</li>
+</ul>
+</li>
+</ol>
+<h1 id="三、改造心路历程"><a href="# 三、改造心路历程" class="headerlink" title="三、改造心路历程"></a>三、改造心路历程 </h1><p> 简单分析上面的个人需求后，我们可以发现背后隐含的技术需求：<strong>在一个生态中（HomeKit），通过改造传统灯与开关，实现自动控制家内的每个灯。</strong></p>
+<p><u>补充一下：为什么选择 HomeKit？</u><br>一方面当然是相信苹果封闭生态把控的良好体验；另一方面因为家人用的苹果手机，并且暂时没有更换智能锁的计划，所以只有 HomeKit 可以实现如下前置条件：当最后一个人离家的时候 -&gt; 触发 xxx 自动化场景。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441150164048.jpg" alt=""></p>
+<h2 id="心路历程"><a href="# 心路历程" class="headerlink" title="心路历程"></a>心路历程 </h2><p> 这时聪明的你可能发现 “改造传统灯与开关” 并没有那么简单，两者会衍生出多种组合：<code>传统灯 + 智能开关 </code>、<code> 智能灯 + 传统开关 </code>、<code> 智能灯 + 智能开关 </code>。甚至会出现有<strong> 多对多 </strong> 的情况：<code>智能灯 + 传统灯 vs 传统 + 智能开关</code>？？？</p>
+<p>同时也是最容易踩坑的地方，下面将结合实际的场景，详细介绍博主的心路历程～</p>
+<h3 id="1- 单开单控 - 卧室 - 书房"><a href="#1- 单开单控 - 卧室 - 书房" class="headerlink" title="1) 单开单控 - 卧室 / 书房"></a>1) 单开单控 - 卧室 / 书房 </h3><p> 先从最简单的卧室说起（单开单控），这时摆在我面前的有两个选择：1）仅更换传统开关 or 2）升级传统灯为智能灯🤔。前者成本更低，但缺点为丢失了智能灯的功能性，例如缓慢开启，色温调节，夜灯模式等。后者体验更佳，但墙壁开关沦为了摆设，甚至不小心关闭后，智能灯就完全“离线失联”了。。</p>
+<p>正当纠结时，yeelight 的凌动开关映入我的眼帘，「凌动开关」本质上并非无线智能开关，而是通过触碰时物理的电流脉冲，i.e. 瞬间的断电，从而控制智能灯的状态（默认一直通电，所以原生支持双控）。</p>
+<p><strong>最终卧室采购了 yeelight 光璨吸顶灯 + 凌动开关</strong>，不仅颜值在线，功能也很齐备（HomeKit 认证，凌动支持，夜光模式都不在话下）。使用一个月后，配合床边 aqara 无线按钮（单按开 / 关，双击切换至夜灯模式，摇一摇切换为日光模式），体验非常丝滑。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441141473647.jpg" alt=""></p>
+<p>唯一不太让我满意的是凌动开关的手感，有点神似青轴键盘，<strong>键程长噪音大</strong>，个人更加偏爱鼠标点触。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441096015140.jpg" alt=""></p>
+<p>书房由于用的四年前珍藏的一代 yeelight 彩光灯泡，不支持凌动模式（当前 1s 支持凌动），所以选择了新出的 <strong> 米家屏显开关</strong>（顺便省去一个温湿度计传感器）。按键手感非常喜欢，但美中不足的是，切换为无线开关控制灯泡后.. 延迟略高，粗略估计接近一秒，着实让人有些不爽..</p>
+<p>p.s. 0106 补充：手动升级固件版本后，延迟减少到半秒以内，勉强可以接受。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441143892783.jpg" alt=""></p>
+<p>细心的同学可能注意到，书房明明只有一个开关，为什么选择了双开的开关？<br>这是因为预留控制其他智能设备的开关，例如窗帘、加湿器等，希望不是过度设计 ：）<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/CD1916B3-B9D5-47F3-9BD0-9974F60F5F9B_1_105_c.jpeg" alt="CD1916B3-B9D5-47F3-9BD0-9974F60F5F9B_1_105_c"></p>
+<p>卧室 &amp; 书房单控开关改造就到此为止啦，整体变动见下图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/bedroon_switch.svg" alt="bedroon_switch"></p>
+<h3 id="2- 三开三控 - 厨房"><a href="#2- 三开三控 - 厨房" class="headerlink" title="2) 三开三控 - 厨房"></a>2) 三开三控 - 厨房 </h3><p> 厨房不大但自带了一堆筒灯射灯与一个三开开关，由于这时博主对于智能家居的热情已经从 200% 降低至 50%，所以选择的方案为：<strong>仅替换传统开关为 Aqara D1 智能墙壁开关</strong>，从而达到手机端控制灯的目的。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441200256713.jpg" alt=""></p>
+<p>个人认为，智能灯终极的体验：让用户忘记开关的存在。所以在厨房中配合使用人体传感器：1）光线暗 + 有人进入厨房，自动开灯 2）当传感器持续 15 分钟检测到无人，自动关灯。</p>
+<p>真的很香，谁用谁知道😋<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/kitchen_switch.svg" alt="kitchen_switch"></p>
+<h3 id="3- 三开单控 - 厕所"><a href="#3- 三开单控 - 厕所" class="headerlink" title="3) 三开单控 - 厕所"></a>3) 三开单控 - 厕所 </h3><p> 上面罗列了两种最常见的改造方式（智能灯 + 凌动开关 / 传统灯 + 智能开关），但现实状况往往更加复杂..</p>
+<p>比如我们的厕所，上个月师傅在安装浴霸时，无法找到电源，最终只能将浴霸与厕所的筒灯串联。也就是说如果关闭筒灯的开关，浴霸就断电进入离线状态无法再用遥控器控制 0.0<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441202282954.jpg" alt=""></p>
+<p>这时显然无法像厨房一样，简单采用“传统灯 + 智能开关”的解决方案，但 <strong>aqara 墙壁开关支持转无线</strong>，这样就可以保持物理开关通电保持浴霸在线的同时，按键手动无线控制智能灯。</p>
+<p>⚠️⚠️⚠️但是注意！！<strong>转成无线开关后，在 HomeKit 里面无法生效！！（点击开关后还是作为有线开关直接断电！！）</strong>，只能是在米家或者 Aqara home app 中绑定后置动作。也就是说假如灯是米家生态，只能放弃 zigbee 协议！！将开关通过米家蓝牙网关接入！</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/bathroom_switch.svg" alt="bathroom_switch"></p>
+<h3 id="4- 三开双控 - 客餐厅"><a href="#4- 三开双控 - 客餐厅" class="headerlink" title="4) 三开双控 - 客餐厅"></a>4) 三开双控 - 客餐厅 </h3><p> 终于到了最复杂的双控环节，但还不是最难的... 还记得开头博主的 biantai 需求吗：开门后四个筒灯依次延迟打开（回家的仪式感），所以重金购入四个 <strong>yeelight 蓝牙 Mesh 智能筒灯</strong>，但很遗憾客厅的灯已经替换为宜家的吸顶灯（非智能带遥控）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441231420418.jpg" alt=""></p>
+<p>面对 智能灯 + 传统灯 + 双控开关 的现实，逐步融化..<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441110577026.jpg" alt=""></p>
+<p>先来罗列双控的常见解决方案：</p>
+<ol>
+<li><strong>凌动墙壁开关</strong>：因为永远通电，不难理解原生支持双控。但因为有传统灯具的存在，pass..</li>
+<li><strong>智能墙壁开关 + 无线开关</strong>：假如有双控开关（A+B），设置开关 A1 打开时同步 B1 开灯，A1 关闭时同步 B1 灯关；B1 设置同理。理论上可行，但总觉得不够优雅，同时对无线开关的稳定性存疑，pass...</li>
+<li><strong>小燕多联多控</strong>：小燕智能家居提供的集成方案，但很可惜需要再购买一个昂贵的网关.. 暂时放弃。</li>
+</ol>
+<p>最终做了一个妥协方案（牺牲部分双控功能）：</p>
+<ol>
+<li>入户开关 A：替换为凌动开关 -&gt; 控制智能筒灯</li>
+<li>右边开关 B：替换为智能墙壁开关 -&gt; 左键 &amp; 中键 转无线开关控制筒灯 + 餐厅灯（不离线），又键物理控制客厅灯</li>
+</ol>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441205201392.jpg" alt=""></p>
+<p>所以客餐厅改造后整体布局如下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/living_room.svg" alt="living_room"></p>
+<h2 id="小结"><a href="# 小结" class="headerlink" title="小结"></a>小结 </h2><p> 上面简单介绍了折腾智能灯的心路历程，全屋整体改动如下图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/smart_home_lights.svg" alt="smart_home_lights"></p>
+<p>以下为个人主观视角的最佳组合排名：</p>
+<ol>
+<li>智能灯具 + 人体传感器（灯的最佳体验：忘记开关的存在）</li>
+<li>智能灯具 + 智能开关（灯缓慢亮起的那个感觉，配合物理转无线更多玩法）</li>
+<li>智能灯具 + 凌动开关（物理开关永远比无线稳定省心，如果凌动手感改进，可以上升一位排至第二）</li>
+<li>普通灯具 + 智能开关（保留传统灯具的轻度折腾，也不失为一种选择）</li>
+</ol>
+<h1 id="四 - 总结"><a href="# 四 - 总结" class="headerlink" title="四 总结"></a>四 总结 </h1><p> 最后分享一点个人感悟：</p>
+<ol>
+<li><strong>专业的事让专业的人做</strong>：虽然精装交付，但小小的改造却耗费个人大量精力，怪不得有一句话说如果没经历过装修不是完整的人生。在“装修”过程中，感悟出的一句话即“专业的事让专业的人做”。如果再给我一次机会进行全屋灯光改造，我可能更倾向于直接选择 aqara 或者 米家的全屋灯改造解决方案。</li>
+<li><strong>不要过于迷信 HomeKit</strong>：选用 HomeKit 还一个重要原因希望设备大一统，即直接使用米家开关控制 aqara 窗帘设备。但是后来购入米家的蓝牙 Mesh 网关后，发现它可以同时接入米家设备以及 aqara 的设备。如果对于延迟没有太高要求，可以完全只在米家生态折腾。</li>
+<li><strong>有线永远比无线稳定</strong>：无线开关不管走的本地还是远端，多多少少有一定延迟，恍惚间感叹要是有一种开关，单击后灯可以瞬间打开就好了 XD。还记得有一次，回家支持开关木有自动打开，还以为网络问题，原来是手机没有电了😂</li>
+<li><strong>用户体验</strong>：完全无感 &gt; 物理开关 &gt; 声音控制 &gt; 手机操作，个人认为智能灯最佳体验是让用户完全忘记了开关的存在，尽可能配合使用人体感应、自适应灯光等辅助手段，来达到这个目的。</li>
+<li><strong>历史包袱</strong>：客厅双控的窘境，本质上更多的是因为自己选择了一款宜家的非智能吸顶灯，导致智能灯与传统灯“混搭”，徒增加了复杂度。</li>
+</ol>
+<h1 id="五 - 附录"><a href="# 五 - 附录" class="headerlink" title="五 附录"></a>五 附录 </h1><h2 id="设备列表"><a href="# 设备列表" class="headerlink" title="设备列表"></a> 设备列表</h2><ol>
+<li><strong>网关：</strong><ul>
+<li>绿米 Aqara 网关 M1S（Zigbee 协议低延迟）</li>
+<li>米家智能多模网关（同时支持蓝牙 +Zigbee）</li>
+<li>树莓派 HACS（无认证米家设备接入 HomeKit）</li>
+</ul>
+</li>
+<li><strong>灯具：</strong><ul>
+<li>主卧 Yeelight 易来 光璨 LED 吸顶灯（原生支持 HomeKit + 凌动 + 夜光模式）</li>
+<li>次卧 绿米 Aqara 吸顶灯 L1（支持 HomeKit 接入，不支持凌动）</li>
+<li>客厅 宜家泰尔比恩 + 飞利浦米家智能灯泡</li>
+<li>入户 Yeelight 易来 led 智能蓝牙 Mesh 筒灯 x4</li>
+<li>餐厅 宜家克尼斯胡特 + YeelightLED 灯泡彩光版</li>
+</ul>
+</li>
+<li><strong>开关：</strong><ul>
+<li>绿米 Aqara 智能墙壁开关 D1(ZigBee 单火三键)</li>
+<li>小米米家屏显开关 双开单控（自带温湿度传感）</li>
+<li>易来 Yeelight 凌动开关（自回弹不离线）</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/daya0576">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/smart-home/" rel="tag"># smart home</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20220204/git-clone-speedup/" rel="prev" title="【奇技淫巧】git clone 大提速">
+      <i class="fa fa-chevron-left"></i> 【奇技淫巧】git clone 大提速
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+  <script src="https://utteranc.es/client.js"
+          repo="daya0576/comments.daya0576.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、名词解释"><span class="nav-text">一、名词解释 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、日常需求"><span class="nav-text">二、日常需求 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、改造心路历程"><span class="nav-text">三、改造心路历程 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#心路历程"><span class="nav-text">心路历程 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1- 单开单控 - 卧室 - 书房"><span class="nav-text">1) 单开单控 - 卧室 &#x2F; 书房 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2- 三开三控 - 厨房"><span class="nav-text">2) 三开三控 - 厨房 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3- 三开单控 - 厕所"><span class="nav-text">3) 三开单控 - 厕所 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4- 三开双控 - 客餐厅"><span class="nav-text">4) 三开双控 - 客餐厅 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-text">小结 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四 - 总结"><span class="nav-text">四 总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五 - 附录"><span class="nav-text">五 附录 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设备列表"><span class="nav-text"> 设备列表</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yihong.run/" title="https://yihong.run/" rel="noopener" target="_blank">喜欢跑步与编程的 yihong0618</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

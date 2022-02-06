@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-359.5 333.5 728.5 352" width="728.5" height="352">
+  <defs>
+    <font-face font-family="PingFang SC" font-size="14" panose-1="2 11 4 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-150" underline-thickness="58" slope="0" x-height="600" cap-height="860" ascent="1060.0021" descent="-340.0007" font-weight="400">
+      <font-face-src>
+        <font-face-name name="PingFangSC-Regular"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="PingFang SC" font-size="12" panose-1="2 11 4 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-150" underline-thickness="58" slope="0" x-height="600" cap-height="860" ascent="1060.0021" descent="-340.0007" font-weight="400">
+      <font-face-src>
+        <font-face-name name="PingFangSC-Regular"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="PingFang SC" font-size="8" panose-1="2 11 4 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-150" underline-thickness="58" slope="0" x-height="600" cap-height="860" ascent="1060.0021" descent="-340.0007" font-weight="400">
+      <font-face-src>
+        <font-face-name name="PingFangSC-Regular"/>
+      </font-face-src>
+    </font-face>
+    <filter id="Shadow" filterUnits="userSpaceOnUse" x="-432.35" y="298.3">
+      <feOffset in="SourceAlpha" result="offset" dx="0" dy="2"/>
+      <feFlood flood-color="#555" flood-opacity=".25" result="flood"/>
+      <feComposite in="flood" in2="offset" operator="in" result="color"/>
+      <feMerge>
+        <feMergeNode in="color"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.19.2\n2022-02-06 02:01:24 +0000</metadata>
+  <g id="Canvas_____achieved" stroke-opacity="1" stroke="none" fill="none" stroke-dasharray="none" fill-opacity="1">
+    <title>终极形态（achieved）</title>
+    <rect fill="white" x="-359.5" y="333.5" width="728.5" height="352"/>
+    <g id="Canvas_____achieved_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_82">
+        <rect x="-349" y="344" width="538.5" height="331" fill="white"/>
+        <rect x="-349" y="344" width="538.5" height="331" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_83">
+        <rect x="215.5" y="344.0523" width="143" height="191.06904" fill="white"/>
+        <rect x="215.5" y="344.0523" width="143" height="191.06904" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_81">
+        <rect x="-349" y="483.87866" width="24.68125" height="51.24268" fill="white"/>
+        <rect x="-349" y="483.87866" width="24.68125" height="51.24268" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-344 489.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">入</tspan>
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="35">户</tspan>
+        </text>
+      </g>
+      <g id="Graphic_80">
+        <rect x="-349" y="344" width="155.07437" height="139.87866" fill="white"/>
+        <rect x="-349" y="344" width="155.07437" height="139.87866" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-344 349)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">次卧</tspan>
+        </text>
+      </g>
+      <g id="Graphic_78">
+        <rect x="10.568038" y="344" width="178.93196" height="139.87866" fill="white"/>
+        <rect x="10.568038" y="344" width="178.93196" height="139.87866" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(15.568038 349)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">主卧</tspan>
+        </text>
+      </g>
+      <g id="Graphic_76">
+        <rect x="10.568038" y="569.7448" width="178.93196" height="105.25523" fill="white"/>
+        <rect x="10.568038" y="569.7448" width="178.93196" height="105.25523" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(15.568038 574.7448)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">书房</tspan>
+        </text>
+      </g>
+      <g id="Graphic_75">
+        <ellipse cx="-91.6788" cy="605.0607" rx="21.3014580882188" ry="10.3870458861567" fill="#c0ffc0"/>
+        <ellipse cx="-91.6788" cy="605.0607" rx="21.3014580882188" ry="10.3870458861567" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_73">
+        <rect x="10.568038" y="535.12134" width="78.38924" height="34.62343" fill="white"/>
+        <rect x="10.568038" y="535.12134" width="78.38924" height="34.62343" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(15.568038 540.12134)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">储物</tspan>
+        </text>
+      </g>
+      <g id="Graphic_72">
+        <rect x="88.95728" y="483.87866" width="100.54272" height="85.86611" fill="white"/>
+        <rect x="88.95728" y="483.87866" width="100.54272" height="85.86611" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(93.95728 488.87866)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">厕所</tspan>
+        </text>
+      </g>
+      <g id="Graphic_71">
+        <ellipse cx="-91.6788" cy="413.93933" rx="21.3014580882188" ry="10.3870458861568" fill="#ccc"/>
+        <ellipse cx="-91.6788" cy="413.93933" rx="21.3014580882188" ry="10.3870458861568" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_70">
+        <ellipse cx="65.07126" cy="553.5822" rx="5.57127011154126" ry="5.26429422008056" fill="#c0ffc0"/>
+        <ellipse cx="65.07126" cy="553.5822" rx="5.57127011154126" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_69">
+        <ellipse cx="114.81512" cy="528.8162" rx="5.57127011154127" ry="5.26429422008056" fill="#c0ffc0"/>
+        <ellipse cx="114.81512" cy="528.8162" rx="5.57127011154127" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_68">
+        <ellipse cx="132.76512" cy="528.8162" rx="5.57127011154127" ry="5.26429422008056" fill="#c0ffc0"/>
+        <ellipse cx="132.76512" cy="528.8162" rx="5.57127011154127" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_67">
+        <ellipse cx="114.81512" cy="547.22865" rx="5.57127011154127" ry="5.26429422008056" fill="#c0ffc0"/>
+        <ellipse cx="114.81512" cy="547.22865" rx="5.57127011154127" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_66">
+        <ellipse cx="132.76512" cy="547.22865" rx="5.57127011154127" ry="5.26429422008056" fill="#c0ffc0"/>
+        <ellipse cx="132.76512" cy="547.22865" rx="5.57127011154127" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_65">
+        <rect x="-349" y="535.12134" width="155.07437" height="139.87866" fill="white"/>
+        <rect x="-349" y="535.12134" width="155.07437" height="139.87866" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-344 540.12134)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">厨房</tspan>
+        </text>
+      </g>
+      <g id="Graphic_64">
+        <ellipse cx="100.03402" cy="622.3724" rx="21.3014580882188" ry="10.3870458861567" fill="#c0ffc0"/>
+        <ellipse cx="100.03402" cy="622.3724" rx="21.3014580882188" ry="10.3870458861567" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_63">
+        <rect x="10.568038" y="606.8223" width="4.1703125" height="16.38298" fill="#40ff40"/>
+        <rect x="10.568038" y="606.8223" width="4.1703125" height="16.38298" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_62">
+        <ellipse cx="100.03402" cy="413.93933" rx="21.3014580882188" ry="10.3870458861568" fill="#c0ffc0"/>
+        <ellipse cx="100.03402" cy="413.93933" rx="21.3014580882188" ry="10.3870458861568" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_61">
+        <rect x="70.703125" y="479.322" width="24.68125" height="4.556676" fill="#40ff40"/>
+        <rect x="70.703125" y="479.322" width="24.68125" height="4.556676" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_60">
+        <ellipse cx="-263.20904" cy="413.93933" rx="21.3014580882188" ry="10.3870458861568" fill="#c0ffc0"/>
+        <ellipse cx="-263.20904" cy="413.93933" rx="21.3014580882188" ry="10.3870458861568" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_59">
+        <rect x="-241.86094" y="478.322" width="24.68125" height="5.556676" fill="#fffc00"/>
+        <rect x="-241.86094" y="478.322" width="24.68125" height="5.556676" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_58">
+        <ellipse cx="157.48448" cy="528.8162" rx="12.3406447191074" ry="6.01756191671318" fill="#ccc"/>
+        <ellipse cx="157.48448" cy="528.8162" rx="12.3406447191074" ry="6.01756191671318" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_53">
+        <ellipse cx="-263.20904" cy="615.2721" rx="16.2692489155434" ry="7.93323322371611" fill="#ccc"/>
+        <ellipse cx="-263.20904" cy="615.2721" rx="16.2692489155434" ry="7.93323322371611" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_127">
+        <g id="Graphic_57">
+          <ellipse cx="-316.1227" cy="599.52854" rx="5.57127011154123" ry="5.26429422008056" fill="#ccc"/>
+          <ellipse cx="-316.1227" cy="599.52854" rx="5.57127011154123" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_56">
+          <ellipse cx="-298.1727" cy="599.52854" rx="5.57127011154121" ry="5.26429422008056" fill="#ccc"/>
+          <ellipse cx="-298.1727" cy="599.52854" rx="5.57127011154121" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_55">
+          <ellipse cx="-316.1227" cy="617.941" rx="5.57127011154123" ry="5.26429422008056" fill="#ccc"/>
+          <ellipse cx="-316.1227" cy="617.941" rx="5.57127011154123" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_54">
+          <ellipse cx="-298.1727" cy="617.941" rx="5.57127011154121" ry="5.26429422008056" fill="#ccc"/>
+          <ellipse cx="-298.1727" cy="617.941" rx="5.57127011154121" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_52">
+          <ellipse cx="-316.1227" cy="636.3535" rx="5.57127011154123" ry="5.26429422008056" fill="#ccc"/>
+          <ellipse cx="-316.1227" cy="636.3535" rx="5.57127011154123" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_51">
+          <ellipse cx="-316.1227" cy="654.5592" rx="4.96603463981396" ry="5.0575394621922" fill="#ccc"/>
+          <ellipse cx="-316.1227" cy="654.5592" rx="4.96603463981396" ry="5.0575394621922" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_50">
+          <ellipse cx="-298.1727" cy="636.3535" rx="5.57127011154121" ry="5.26429422008056" fill="#ccc"/>
+          <ellipse cx="-298.1727" cy="636.3535" rx="5.57127011154121" ry="5.26429422008056" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Group_46">
+        <g id="Graphic_49">
+          <rect x="10.568038" y="483.87866" width="9.697507" height="4.88549" fill="#80ff80"/>
+          <rect x="10.568038" y="483.87866" width="9.697507" height="4.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_48">
+          <rect x="20.265545" y="483.87866" width="9.697507" height="4.88549" fill="#80ff80"/>
+          <rect x="20.265545" y="483.87866" width="9.697507" height="4.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_47">
+          <rect x="29.963053" y="483.87866" width="9.697507" height="4.88549" fill="#80ff80"/>
+          <rect x="29.963053" y="483.87866" width="9.697507" height="4.88549" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Group_42">
+        <g id="Graphic_45">
+          <rect x="-199.21782" y="571.4324" width="5.1703125" height="9.563436" fill="#ffff40"/>
+          <rect x="-199.21782" y="571.4324" width="5.1703125" height="9.563436" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_44">
+          <rect x="-199.21782" y="581.3598" width="5.1703125" height="9.563436" fill="#ffff40"/>
+          <rect x="-199.21782" y="581.3598" width="5.1703125" height="9.563436" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_43">
+          <rect x="-199.21782" y="589.86895" width="5.1703125" height="9.563436" fill="#ffff40"/>
+          <rect x="-199.21782" y="589.86895" width="5.1703125" height="9.563436" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Group_37">
+        <g id="Graphic_41">
+          <ellipse cx="-257.12905" cy="510.19615" rx="5.87096396088122" ry="5.83204296385514" fill="#c0ffc0"/>
+          <ellipse cx="-257.12905" cy="510.19615" rx="5.87096396088122" ry="5.83204296385514" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_40">
+          <ellipse cx="-155.5203" cy="508.80385" rx="5.87096396088124" ry="5.83204296385517" fill="#c0ffc0"/>
+          <ellipse cx="-155.5203" cy="508.80385" rx="5.87096396088124" ry="5.83204296385517" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_39">
+          <ellipse cx="-53.91155" cy="508.80385" rx="5.87096396088123" ry="5.83204296385517" fill="#c0ffc0"/>
+          <ellipse cx="-53.91155" cy="508.80385" rx="5.87096396088123" ry="5.83204296385517" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_38">
+          <ellipse cx="47.6972" cy="508.9461" rx="5.87096396088124" ry="5.83204296385512" fill="#c0ffc0"/>
+          <ellipse cx="47.6972" cy="508.9461" rx="5.87096396088124" ry="5.83204296385512" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Group_33">
+        <g id="Graphic_36">
+          <rect x="88.95728" y="523.5519" width="5.1703125" height="7.095406" fill="#40ff40"/>
+          <rect x="88.95728" y="523.5519" width="5.1703125" height="7.095406" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_35">
+          <rect x="88.95728" y="530.9173" width="5.1703125" height="7.095406" fill="#40ff40"/>
+          <rect x="88.95728" y="530.9173" width="5.1703125" height="7.095406" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_34">
+          <rect x="88.95728" y="537.23054" width="5.1703125" height="7.095406" fill="#40ff40"/>
+          <rect x="88.95728" y="537.23054" width="5.1703125" height="7.095406" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Graphic_32">
+        <rect x="145.14386" y="540.45783" width="24.68125" height="12.035105" fill="#ccc"/>
+        <rect x="145.14386" y="540.45783" width="24.68125" height="12.035105" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_30">
+        <ellipse cx="245.67497" cy="360.95903" rx="18.2080724324783" ry="8.87864497685345" fill="#c0ffc0"/>
+        <ellipse cx="245.67497" cy="360.95903" rx="18.2080724324783" ry="8.87864497685345" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_29">
+        <text transform="translate(272.59495 352.45903)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">智能灯</tspan>
+        </text>
+      </g>
+      <g id="Graphic_28">
+        <ellipse cx="245.67497" cy="390.44896" rx="18.2080724324783" ry="8.87864497685342" fill="#ccc"/>
+        <ellipse cx="245.67497" cy="390.44896" rx="18.2080724324783" ry="8.87864497685342" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_27">
+        <text transform="translate(272.59495 381.94896)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">传统灯</tspan>
+        </text>
+      </g>
+      <g id="Graphic_26">
+        <ellipse cx="245.67497" cy="420.89547" rx="4.76221342744368" ry="4.49981640074278" fill="#c0ffc0"/>
+        <ellipse cx="245.67497" cy="420.89547" rx="4.76221342744368" ry="4.49981640074278" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_25">
+        <text transform="translate(272.59495 411.7516)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">智能筒灯</tspan>
+        </text>
+      </g>
+      <g id="Graphic_24">
+        <ellipse cx="245.67497" cy="446.48144" rx="4.76221342744371" ry="4.49981640074286" fill="#ccc"/>
+        <ellipse cx="245.67497" cy="446.48144" rx="4.76221342744371" ry="4.49981640074286" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_23">
+        <text transform="translate(272.59495 437.94634)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">传统筒灯</tspan>
+        </text>
+      </g>
+      <g id="Graphic_22">
+        <rect x="235.12644" y="469.64063" width="21.097053" height="5.885583" fill="#fffc00"/>
+        <rect x="235.12644" y="469.64063" width="21.097053" height="5.885583" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_21">
+        <text transform="translate(272.59495 464.0834)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">单键凌动开关</tspan>
+        </text>
+      </g>
+      <g id="Group_17">
+        <g id="Graphic_20">
+          <rect x="231.38835" y="493.6353" width="9.524412" height="5.885583" fill="#80ff80"/>
+          <rect x="231.38835" y="493.6353" width="9.524412" height="5.885583" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_19">
+          <rect x="240.91277" y="493.6353" width="9.524412" height="5.885583" fill="#80ff80"/>
+          <rect x="240.91277" y="493.6353" width="9.524412" height="5.885583" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_18">
+          <rect x="250.43718" y="493.6353" width="9.524412" height="5.885583" fill="#80ff80"/>
+          <rect x="250.43718" y="493.6353" width="9.524412" height="5.885583" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Graphic_16">
+        <text transform="translate(272.59495 488.0173)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">智能墙壁开关</tspan>
+        </text>
+      </g>
+      <g id="Line_11">
+        <line x1="215.5" y1="375.2766" x2="358.5" y2="375.2766" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_10">
+        <line x1="215.5" y1="406.6849" x2="358.5" y2="406.6849" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_9">
+        <line x1="215.5" y1="432.7199" x2="358.5" y2="432.7199" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_8">
+        <line x1="215.5" y1="458.41327" x2="358.5" y2="458.41327" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_7">
+        <line x1="215.5" y1="483.69557" x2="358.5" y2="483.69557" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_110">
+        <text transform="translate(-188.92563 349.21836)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">客厅</tspan>
+        </text>
+      </g>
+      <g id="Graphic_111">
+        <text transform="translate(-188.92563 540.12134)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" font-weight="400" fill="black" x="0" y="15">餐厅</tspan>
+        </text>
+      </g>
+      <g id="Group_113">
+        <g id="Graphic_117">
+          <rect x="-241.86094" y="652.5506" width="42.60285" height="20.449367" fill="white"/>
+          <text transform="translate(-236.86094 657.2753)" fill="black">
+            <tspan font-family="PingFang SC" font-size="8" font-weight="400" fill="black" x="0" y="8">人体感应</tspan>
+          </text>
+        </g>
+        <g id="Group_114">
+          <g id="Graphic_116" filter="url(#Shadow)">
+            <title>Class</title>
+            <path d="M -224.8485 641.6768 L -216.27052 641.6768 C -215.16595 641.6768 -214.27052 642.5722 -214.27052 643.6768 L -214.27052 652.25475 C -214.27052 653.3593 -215.16595 654.25475 -216.27052 654.25475 L -224.8485 654.25475 C -225.95307 654.25475 -226.8485 653.3593 -226.8485 652.25475 L -226.8485 643.6768 C -226.8485 642.5722 -225.95307 641.6768 -224.8485 641.6768 Z" fill="#40ff40"/>
+            <path d="M -224.8485 641.6768 L -216.27052 641.6768 C -215.16595 641.6768 -214.27052 642.5722 -214.27052 643.6768 L -214.27052 652.25475 C -214.27052 653.3593 -215.16595 654.25475 -216.27052 654.25475 L -224.8485 654.25475 C -225.95307 654.25475 -226.8485 653.3593 -226.8485 652.25475 L -226.8485 643.6768 C -226.8485 642.5722 -225.95307 641.6768 -224.8485 641.6768 Z" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_115">
+            <title>Class</title>
+            <circle cx="-220.55951" cy="647.96575" r="3.77340114705582" fill="#40ff40"/>
+            <circle cx="-220.55951" cy="647.96575" r="3.77340114705582" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_118">
+        <g id="Graphic_122">
+          <rect x="28.039674" y="652.5506" width="42.60285" height="20.449367" fill="white"/>
+          <text transform="translate(33.039674 657.2753)" fill="black">
+            <tspan font-family="PingFang SC" font-size="8" font-weight="400" fill="black" x="0" y="8">人体感应</tspan>
+          </text>
+        </g>
+        <g id="Group_119">
+          <g id="Graphic_121" filter="url(#Shadow)">
+            <title>Class</title>
+            <path d="M 45.052107 641.6768 L 53.63009 641.6768 C 54.73466 641.6768 55.63009 642.5722 55.63009 643.6768 L 55.63009 652.25475 C 55.63009 653.3593 54.73466 654.25475 53.63009 654.25475 L 45.052107 654.25475 C 43.947537 654.25475 43.052107 653.3593 43.052107 652.25475 L 43.052107 643.6768 C 43.052107 642.5722 43.947537 641.6768 45.052107 641.6768 Z" fill="#40ff40"/>
+            <path d="M 45.052107 641.6768 L 53.63009 641.6768 C 54.73466 641.6768 55.63009 642.5722 55.63009 643.6768 L 55.63009 652.25475 C 55.63009 653.3593 54.73466 654.25475 53.63009 654.25475 L 45.052107 654.25475 C 43.947537 654.25475 43.052107 653.3593 43.052107 652.25475 L 43.052107 643.6768 C 43.052107 642.5722 43.947537 641.6768 45.052107 641.6768 Z" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_120">
+            <title>Class</title>
+            <circle cx="49.3411" cy="647.96575" r="3.77340114705585" fill="#40ff40"/>
+            <circle cx="49.3411" cy="647.96575" r="3.77340114705585" stroke="#676a6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+        </g>
+      </g>
+      <g id="Graphic_124">
+        <text transform="translate(272.59495 514.6544)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" font-weight="400" fill="black" x="0" y="13">无线开关</tspan>
+        </text>
+      </g>
+      <g id="Graphic_123">
+        <rect x="244.20396" y="520.35215" width="6.23322" height="5.6045194" fill="#40ff40"/>
+        <rect x="244.20396" y="520.35215" width="6.23322" height="5.6045194" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_125">
+        <line x1="215.5" y1="510.3327" x2="358.5" y2="510.3327" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_128">
+        <rect x="158" y="357.091" width="11.142522" height="10.018655" fill="#40ff40"/>
+        <rect x="158" y="357.091" width="11.142522" height="10.018655" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_129">
+        <rect x="-306.5" y="529.9955" width="24.68125" height="5.125816" fill="#fffc00"/>
+        <rect x="-306.5" y="529.9955" width="24.68125" height="5.125816" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
