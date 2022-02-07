@@ -62,7 +62,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-02-03T04:50:34.000Z">
-<meta property="article:modified_time" content="2022-02-06T07:47:06.870Z">
+<meta property="article:modified_time" content="2022-02-07T09:30:50.566Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -267,32 +267,6 @@
 <p>这篇文章简单记录今早 java BlockingQueue 学习小记～</p>
 <a id="more"></a>
 
-<h1 id="目录"><a href="# 目录" class="headerlink" title="目录"></a>目录</h1><ul>
-<li><a href="# 前言">前言</a></li>
-<li><a href="# 接口定义">接口定义</a></li>
-<li><a href="# 接口实现">接口实现</a><ul>
-<li><a href="#1-linkedblockingqueue">1. LinkedBlockingQueue</a><ul>
-<li><a href="#1-1 数据结构">1.1 数据结构</a></li>
-<li><a href="#1-2 新增操作">1.2 新增操作</a></li>
-<li><a href="#1-3 获取并删除">1.3 获取并删除</a></li>
-</ul>
-</li>
-<li><a href="#2-arrayblockingqueue">2 ArrayBlockingQueue</a><ul>
-<li><a href="#2-1 数据结构">2.1 数据结构</a></li>
-<li><a href="#2-2 获取元素">2.2 获取元素</a></li>
-</ul>
-</li>
-<li><a href="#3-synchronousqueue">3. SynchronousQueue</a></li>
-<li><a href="#4-delayqueue">4 DelayQueue</a><ul>
-<li><a href="#4-1 定义延迟执行任务：">4.1 定义延迟执行任务：</a></li>
-<li><a href="#4-2 执行任务">4.2 执行任务</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="# 总结">总结</a></li>
-<li><a href="# 参考">参考</a></li>
-</ul>
 <h1 id="前言"><a href="# 前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>java.util.concurrent.BlockingQueue</p>
 <p>A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.</p>
@@ -485,7 +459,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子"><span class="nav-text">举个例子 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#park- 底层实现"><span class="nav-text">park 底层实现?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口定义"><span class="nav-text">接口定义 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口实现"><span class="nav-text">接口实现 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-LinkedBlockingQueue"><span class="nav-text">1. LinkedBlockingQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1- 数据结构"><span class="nav-text">1.1 数据结构 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2- 新增操作"><span class="nav-text">1.2 新增操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3- 获取并删除"><span class="nav-text">1.3 获取并删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ArrayBlockingQueue"><span class="nav-text">2 ArrayBlockingQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1- 数据结构"><span class="nav-text">2.1 数据结构 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2- 获取元素"><span class="nav-text">2.2 获取元素 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-SynchronousQueue"><span class="nav-text">3. SynchronousQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-DelayQueue"><span class="nav-text">4 DelayQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1- 定义延迟执行任务："><span class="nav-text">4.1 定义延迟执行任务：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2- 执行任务"><span class="nav-text">4.2 执行任务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子"><span class="nav-text">举个例子 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#park- 底层实现"><span class="nav-text">park 底层实现?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口定义"><span class="nav-text">接口定义 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口实现"><span class="nav-text">接口实现 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-LinkedBlockingQueue"><span class="nav-text">1. LinkedBlockingQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1- 数据结构"><span class="nav-text">1.1 数据结构 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2- 新增操作"><span class="nav-text">1.2 新增操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3- 获取并删除"><span class="nav-text">1.3 获取并删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ArrayBlockingQueue"><span class="nav-text">2 ArrayBlockingQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1- 数据结构"><span class="nav-text">2.1 数据结构 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2- 获取元素"><span class="nav-text">2.2 获取元素 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-SynchronousQueue"><span class="nav-text">3. SynchronousQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-DelayQueue"><span class="nav-text">4 DelayQueue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1- 定义延迟执行任务："><span class="nav-text">4.1 定义延迟执行任务：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2- 执行任务"><span class="nav-text">4.2 执行任务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

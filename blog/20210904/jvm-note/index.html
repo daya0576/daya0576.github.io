@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-09-04T08:31:21.000Z">
-<meta property="article:modified_time" content="2022-02-06T07:47:06.870Z">
+<meta property="article:modified_time" content="2022-02-07T09:30:50.566Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -309,7 +309,14 @@
 <li>分代收集理论：<ul>
 <li>对象初始化 -&gt; <strong>Eden</strong></li>
 <li>Eden 空间不足 -&gt; <strong>Minor GC(YGC)</strong> - 标记 + 复制<ul>
-<li>（从 Eden&amp;S0 复制到 S1 或 老年代，然后交换 S0 与 S1，同时年龄 +1）</li>
+<li>Young Generation = eden(80%) + S0(10%) + S1(10%)</li>
+<li>新生代垃圾回收步骤：<ol>
+<li><code>Eden</code> -&gt; <code>S0</code> </li>
+<li><code>Eden</code> -&gt; <code>S1</code>，<code>S0</code>-&gt;<code>S1</code>（交互触发年龄 +1）</li>
+<li><code>Eden</code> -&gt; <code>S0</code>，<code>S1</code>-&gt;<code>S0</code>（同上年龄 +1）</li>
+<li>若对象未回收 &amp;&amp; 年龄超过阈值：<code>S0&amp;S1</code> -&gt; (老年代)</li>
+</ol>
+</li>
 </ul>
 </li>
 <li>老年代空间不足 -&gt; <strong>Major GC</strong> - 标记 + 整理<ul>
