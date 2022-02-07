@@ -11,25 +11,6 @@ date: 2022-02-03 12:50:34
 
 <!--more-->
 
-# 目录
-
-- [前言](#前言)
-- [接口定义](#接口定义)
-- [接口实现](#接口实现)
-  - [1. LinkedBlockingQueue](#1-linkedblockingqueue)
-    - [1.1 数据结构](#1-1数据结构)
-    - [1.2 新增操作](#1-2新增操作)
-    - [1.3 获取并删除](#1-3获取并删除)
-  - [2 ArrayBlockingQueue](#2-arrayblockingqueue)
-    - [2.1 数据结构](#2-1数据结构)
-    - [2.2 获取元素](#2-2获取元素)
-  - [3. SynchronousQueue](#3-synchronousqueue)
-  - [4 DelayQueue](#4-delayqueue)
-    - [4.1 定义延迟执行任务：](#4-1定义延迟执行任务：)
-    - [4.2 执行任务](#4-2执行任务)
-- [总结](#总结)
-- [参考](#参考)
-
 # 前言
 > java.util.concurrent.BlockingQueue
 > 
