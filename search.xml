@@ -70,6 +70,7 @@
 <p>这时显然无法像厨房一样，简单采用“传统灯 + 智能开关”的解决方案，但 <strong>aqara 墙壁开关支持转无线</strong>，这样就可以保持物理开关通电保持浴霸在线的同时，按键手动无线控制智能灯。</p>
 <p>⚠️⚠️⚠️但是注意！！<strong>转成无线开关后，在 HomeKit 里面无法生效！！（点击开关后还是作为有线开关直接断电！！）</strong>，只能是在米家或者 Aqara home app 中绑定后置动作。也就是说假如灯是米家生态，只能放弃 zigbee 协议！！将开关通过米家蓝牙网关接入！</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/bathroom_switch.svg" alt="bathroom_switch"></p>
+<p><em>UPDATE: 2/14/22: 今晚哼着歌，打开浴霸，准备美美洗个热水澡时，突然断电了。。意料之外，情理之中，开关标识只能承载 200w，小米开关终于不堪重负罢工了。短暂出神后，选择将浴霸与小米灯串联火线（通过人体传感 + 无线开关控制）</em> </p>
 <h3 id="4- 三开双控 - 客餐厅"><a href="#4- 三开双控 - 客餐厅" class="headerlink" title="4) 三开双控 - 客餐厅"></a>4) 三开双控 - 客餐厅 </h3><p> 终于到了最复杂的双控环节，但还不是最难的... 还记得开头博主的 biantai 需求吗：开门后四个筒灯依次延迟打开（回家的仪式感），所以重金购入四个 <strong>yeelight 蓝牙 Mesh 智能筒灯</strong>，但很遗憾客厅的灯已经替换为宜家的吸顶灯（非智能带遥控）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441231420418.jpg" alt=""></p>
 <p>面对 智能灯 + 传统灯 + 双控开关 的现实，逐步融化..<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16441110577026.jpg" alt=""></p>
 <p>先来罗列双控的常见解决方案：</p>
