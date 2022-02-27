@@ -163,6 +163,7 @@ p.s. 0106 补充：手动升级固件版本后，延迟减少到半秒以内，�
     - 绿米Aqara网关M1S（Zigbee 协议低延迟）
     - 米家智能多模网关（同时支持蓝牙+Zigbee）
     - 树莓派 HACS（无认证米家设备接入 HomeKit）
+    - 苹果 HomePod（外网控制内部设备）
 2. **灯具：**
     - 主卧 Yeelight易来 光璨LED吸顶灯（原生支持 HomeKit + 凌动 + 夜光模式）
     - 次卧 绿米Aqara 吸顶灯L1（支持 HomeKit 接入，不支持凌动）

@@ -10,9 +10,6 @@ tags:
 
 <!--more-->
 
-![DB780DB8-D498-4B42-B184-6D48E8FFF7D8_1_105_c](/images/blog/2021-09-04-jvm-note/DB780DB8-D498-4B42-B184-6D48E8FFF7D8_1_105_c.jpeg)
-
-
 # 目标回顾
 首先来回顾年初设置的目标吧～ 
 
