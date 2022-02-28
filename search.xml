@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>重读 Google SLO 小记</title>
+    <title>重读 Google SLO 小记 | 智能监控之殇</title>
     <url>/blog/20220226/sre-slo/</url>
     <content><![CDATA[<blockquote>
 <p>the basic foundations of SRE include <strong>SLOs, monitoring, alerting</strong>, toil reduction, and simplicity.</p>
