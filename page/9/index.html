@@ -245,12 +245,12 @@
 <li>每个节点x有以下的性质<ul>
 <li><code>x.n</code> → 一个节点中关键字的个数.   </li>
 <li><code>x.key1 &lt;= x.key2 &lt;= x.key3</code>, e.g. 一个节点: [A, N, O] → A &lt; N &lt; O</li>
-<li><code>x.leaf</code> → 是否为叶子节点(True/False)</li>
+<li><code>x.leaf</code> → 是否为叶子节点(True&#x2F;False)</li>
 </ul>
 </li>
-<li>每个节点如果有n个关键字, 就有<strong>n+1个</strong>指向孩子的指针<strong>(x.c1, x.c2, ...)</strong></li>
+<li>每个节点如果有n个关键字, 就有<strong>n+1个</strong>指向孩子的指针**(x.c1, x.c2, ...)**</li>
 <li>每个叶子节点, 都有相同的深度, 即<strong>树的高度h</strong> (为什么呢? 每个叶子节点...)</li>
-<li>对于两个相邻关键字x.key1, x.key2之间(子树上)的<strong>任意一个关键字k</strong>, 必定有x.key1 &lt;= k &lt;= x.key2 </li>
+<li>对于两个相邻关键字x.key1, x.key2之间(子树上)的<strong>任意一个关键字k</strong>, 必定有x.key1 &lt;&#x3D; k &lt;&#x3D; x.key2 </li>
 <li>最后有个很重要的概念: <strong>最小度数(minimum degree) → t</strong>.<br>得到一个节点关键字个数限制:   <img style="max-height:100px" class="lazy" data-original="/images/blog/180221_btree/equation_t.jpg">
           <!--noindex-->
           <!--/noindex-->
@@ -559,7 +559,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>近日常常python的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把Python3中的编码搞清, 用这篇文章分享记录一下<strong>(包括utf-8的原理)</strong>.<br><img class="lazy" style="max-height:200px" data-original="/images/blog/170801_encoding/h.png">    </p>
+          <p>近日常常python的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把Python3中的编码搞清, 用这篇文章分享记录一下**(包括utf-8的原理)**.<br><img class="lazy" style="max-height:200px" data-original="/images/blog/170801_encoding/h.png">    </p>
           <!--noindex-->
           <!--/noindex-->
         

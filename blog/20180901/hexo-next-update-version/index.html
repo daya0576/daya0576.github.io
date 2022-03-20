@@ -64,7 +64,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-09-01T08:17:01.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="blog">
@@ -287,16 +287,16 @@
 <p>本文简单记录了 Hexo Next 主题升级版本 (v6.3.0 → v6.4.0) 的完整过程.  </p>
 <a id="more"></a>
 
-<h1 id="本地添加远程仓库 -upstream"><a href="# 本地添加远程仓库 -upstream" class="headerlink" title="本地添加远程仓库 (upstream)"></a> 本地添加远程仓库 (upstream)</h1><p> 博主本地的 <code>theme/next</code> 文件夹是 fork 下来到自己的仓库, 再通过 submodule 管理的:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357925972575.jpg" alt=""></p>
+<h1 id="本地添加远程仓库 -upstream"><a href="# 本地添加远程仓库 -upstream" class="headerlink" title="本地添加远程仓库 (upstream)"></a> 本地添加远程仓库 (upstream)</h1><p> 博主本地的 <code>theme/next</code> 文件夹是 fork 下来到自己的仓库, 再通过 submodule 管理的:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357925972575.jpg"></p>
 <p>所以第一次更新主题版本时, 要添加远程仓库(upstream): <code>git remote add upstream git@github.com:theme-next/hexo-theme-next.git</code></p>
-<p>下图可以看到 <code>origin</code> 对应的是个人仓库, <code>upstream</code>对应的是 Next 项目的仓库.<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15463587822040.jpg" alt=""></p>
-<h1 id="拉取 Next 最新代码"><a href="# 拉取 Next 最新代码" class="headerlink" title="拉取 Next 最新代码"></a>拉取 Next 最新代码 </h1><p><code>git fetch upstream</code> 拉取 Next 项目最新的代码:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357928615366.jpg" alt=""></p>
-<h1 id="合并分支"><a href="# 合并分支" class="headerlink" title="合并分支"></a>合并分支 </h1><p><code>git merge v6.4.0</code> 合并代码:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357931212528.jpg" alt=""></p>
-<p>可以看到 <code>post-reward.styl</code> 文件出现冲突 (conflict) 了.<br>解决冲突后, 马上就大功告成了!!!<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357932201665.jpg" alt=""></p>
-<h1 id="git 记录"><a href="#git 记录" class="headerlink" title="git 记录"></a>git 记录 </h1><p><code>git log</code> 可以清楚的看到 合并 Next 主题代码和本地代码合并的记录:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357933184002.jpg" alt=""></p>
-<h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 升级后 NexT 的版本还是显示<code>v6.3.0</code>,<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15358741539618.jpg" alt=""></p>
-<p>在 telegram 的群里问里一下, 竟然是.. 发布 tag 的时候忘记改 version 了.<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15358762828266.jpg" alt=""></p>
-<p>那么问题来了, 这个 version 变量是哪里来的呢? 再了解了一下, 原来是从 <code>package.json</code> 里取的(<code>themes/next/scripts/helpers.js</code>):<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15358846331974.jpg" alt=""></p>
+<p>下图可以看到 <code>origin</code> 对应的是个人仓库, <code>upstream</code>对应的是 Next 项目的仓库.<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15463587822040.jpg"></p>
+<h1 id="拉取 Next 最新代码"><a href="# 拉取 Next 最新代码" class="headerlink" title="拉取 Next 最新代码"></a>拉取 Next 最新代码 </h1><p><code>git fetch upstream</code> 拉取 Next 项目最新的代码:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357928615366.jpg"></p>
+<h1 id="合并分支"><a href="# 合并分支" class="headerlink" title="合并分支"></a>合并分支 </h1><p><code>git merge v6.4.0</code> 合并代码:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357931212528.jpg"></p>
+<p>可以看到 <code>post-reward.styl</code> 文件出现冲突 (conflict) 了.<br>解决冲突后, 马上就大功告成了!!!<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357932201665.jpg"></p>
+<h1 id="git 记录"><a href="#git 记录" class="headerlink" title="git 记录"></a>git 记录 </h1><p><code>git log</code> 可以清楚的看到 合并 Next 主题代码和本地代码合并的记录:<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15357933184002.jpg"></p>
+<h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 升级后 NexT 的版本还是显示<code>v6.3.0</code>,<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15358741539618.jpg"></p>
+<p>在 telegram 的群里问里一下, 竟然是.. 发布 tag 的时候忘记改 version 了.<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15358762828266.jpg"></p>
+<p>那么问题来了, 这个 version 变量是哪里来的呢? 再了解了一下, 原来是从 <code>package.json</code> 里取的(<code>themes/next/scripts/helpers.js</code>):<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800901_hexo_next_update/15358846331974.jpg"></p>
 <p>cheers, 笔芯❤️</p>
 <p>-eof-</p>
 

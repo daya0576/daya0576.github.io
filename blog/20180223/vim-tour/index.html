@@ -56,7 +56,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-02-23T07:41:28.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="vim">
 <meta name="twitter:card" content="summary">
@@ -257,7 +257,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>和 VIM 相爱的故事要从我的笔记本 <strong> 上下键 </strong> 坏了开始.. 哈哈 <br><img src="/images/loading/loading.svg" data-original="/images/blog/180223_vim/apple.png" alt=""><br> 虽然大二的时候学过 vim, 但一直用的 IDE. 今年强迫自己用了三天 vim 之后, 彻底的爱上用 VIM 写代码的感觉.<br><strong>用这篇博客分享一下自己从 VIM 小白一路不断学习的历程.</strong>  </p>
+        <p>和 VIM 相爱的故事要从我的笔记本 <strong> 上下键 </strong> 坏了开始.. 哈哈 <br><img src="/images/loading/loading.svg" data-original="/images/blog/180223_vim/apple.png"><br> 虽然大二的时候学过 vim, 但一直用的 IDE. 今年强迫自己用了三天 vim 之后, 彻底的爱上用 VIM 写代码的感觉.<br><strong>用这篇博客分享一下自己从 VIM 小白一路不断学习的历程.</strong>  </p>
 <a id="more"></a>
 
 <h2 id="vimtutor"><a href="#vimtutor" class="headerlink" title="vimtutor"></a>vimtutor</h2><p><strong>学会 VIM 的秘诀: 练习 + 练习 + 练习 </strong><br><strong>VIM 入门</strong> 最好的教程就是 VIM 的官方 tutorial: <strong>直接在命令行输入 <code>vimtutor</code></strong>.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor_pre.jpg"><br> 因为在这个教程中, 每个技巧都附带了可供实际操作的练习:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor.jpg">   </p>
@@ -270,12 +270,12 @@
 <li><code>3dd</code>: 删除三行   </li>
 <li><code>dw</code>: 删除一个 word   </li>
 <li><code>d2w</code>: 删除两个 words   </li>
-<li><code>d$</code>(D): 删除到行末   </li>
+<li><code>d$</code>(D): 删除到行末</li>
 </ul>
 </li>
-<li><strong>undo/redo</strong><ul>
+<li><strong>undo&#x2F;redo</strong><ul>
 <li><code>u(U)</code>: undo(大写的 U 会 undo 这一行里的所有历史改动)   </li>
-<li><code>ctrl-r</code>: redo   </li>
+<li><code>ctrl-r</code>: redo</li>
 </ul>
 </li>
 <li><strong>Change</strong>(类似于上边的删除):    <ul>
@@ -285,18 +285,18 @@
 </ul>
 </li>
 <li><strong>Search</strong>:   <ul>
-<li><code>/ —&gt; n(N)</code>: 跳到下一个 / 上一个匹配的地方.   </li>
+<li><code>/ —&gt; n(N)</code>: 跳到下一个 &#x2F; 上一个匹配的地方.   </li>
 <li><code>CTRL-O</code> takes you back to older positions, <code>CTRL-I</code> to newer positions.</li>
 </ul>
 </li>
 <li><strong>快速进入 insert mode</strong>   <ul>
 <li><code>A</code>: edit at end of the line.   </li>
 <li><code>I</code>: edit at beginning of the line.   </li>
-<li>(类似的还有大写的<code>C</code>, 经常用到.)   </li>
+<li>(类似的还有大写的<code>C</code>, 经常用到.)</li>
 </ul>
 </li>
 <li><strong>replace mode</strong>:   <ul>
-<li><code>R</code>: R Enter “replace mode”, which is like insert mode except you will overwrite characters instead of insert between them. (就是.)   </li>
+<li><code>R</code>: R Enter “replace mode”, which is like insert mode except you will overwrite characters instead of insert between them. (就是.)</li>
 </ul>
 </li>
 <li><strong>复制</strong>:   <ul>
@@ -305,8 +305,8 @@
 </li>
 <li><strong>Navigation</strong>:   <ul>
 <li><code>ctrl-y/ctrl-e</code>: 忽略光标位置, 上下移动一行屏幕.    </li>
-<li><code>ctrl-u/ctrl-d</code>: down/up, 上下移动半页.    </li>
-<li><code>ctrl-b/ctrl-f</code>: forward/backward, 上下移动一页.    </li>
+<li><code>ctrl-u/ctrl-d</code>: down&#x2F;up, 上下移动半页.    </li>
+<li><code>ctrl-b/ctrl-f</code>: forward&#x2F;backward, 上下移动一页.</li>
 </ul>
 </li>
 </ol>
@@ -325,11 +325,11 @@
 <li>在一行中查找一个字符: <ul>
 <li>f{char} </li>
 <li>F{char}: 从右边开始找. </li>
-<li>p.s. (可以使用 <code>;</code>/<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
+<li>p.s. (可以使用 <code>;</code>&#x2F;<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
 </ul>
 </li>
-<li><code>&lt;C-x&gt;&lt;C-a&gt;</code>: Number Formats(就是对当前行中第一个数字做 +1/-1 操作, 不知道为什么有这种操作)</li>
-<li>Operator + Motion = Action<ul>
+<li><code>&lt;C-x&gt;&lt;C-a&gt;</code>: Number Formats(就是对当前行中第一个数字做 +1&#x2F;-1 操作, 不知道为什么有这种操作)</li>
+<li>Operator + Motion &#x3D; Action<ul>
 <li><code>daw</code>: delete a complete word(与 dw 的区别: 只要光标在这个 word 中就可以整个 word)    </li>
 <li><code>c3w</code>(not work for ideavim): change 3 words</li>
 <li><code>dap</code>: delete a complete paragraph</li>
@@ -350,7 +350,7 @@
 <li><C-v>: block-wise Visual mode</li>
 </ul>
 </li>
-<li><code>o</code>: go to start/end of highlightened text(跳到选中的开始).  </li>
+<li><code>o</code>: go to start&#x2F;end of highlightened text(跳到选中的开始).  </li>
 <li><code>~</code>: swap case (only if &#39;tildeop&#39; is set)</li>
 <li><code>gu/gU</code>: 改为大写或小写</li>
 </ul>
@@ -360,14 +360,14 @@
 <li>在一行中查找一个字符: <ul>
 <li>f{char} </li>
 <li>F{char}: 从右边开始找. </li>
-<li>p.s. (可以使用 <code>;</code>/<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
+<li>p.s. (可以使用 <code>;</code>&#x2F;<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
 </ul>
 </li>
 <li><code>W/E/B</code>: 根据空格进行移动</li>
-<li><code>%</code>:   <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/move_faster_pair.png">   </li>
-<li><code>[count]G</code>/<code>:[count]</code>: 跳到某一行.</li>
-<li><code>H/M/L</code>: 让光标跳到屏幕的开始 / 中间 / 最后</li>
-<li><code>zz/ze/zb</code>: try it.  </li>
+<li><code>%</code>:     <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/move_faster_pair.png">   </li>
+<li><code>[count]G</code>&#x2F;<code>:[count]</code>: 跳到某一行.</li>
+<li><code>H/M/L</code>: 让光标跳到屏幕的开始 &#x2F; 中间 &#x2F; 最后</li>
+<li><code>zz/ze/zb</code>: try it.</li>
 </ul>
 </li>
 </ul>
@@ -376,11 +376,11 @@
 <p><strong>以下是我的笔记:</strong></p>
 <ul>
 <li>Echoing Messages<ol>
-<li>echo/echom: 都是打印, 但 echom 会记录每次的输出, 可以之后再 <code>:messages</code> 中查看.</li>
+<li>echo&#x2F;echom: 都是打印, 但 echom 会记录每次的输出, 可以之后再 <code>:messages</code> 中查看.</li>
 <li>注释用的是冒号: <code>&quot;</code></li>
 </ol>
 </li>
-<li>Setting Options<br>  例子: :set number numberwidth=6<ol>
+<li>Setting Options<br>  例子: :set number numberwidth&#x3D;6<ol>
 <li>boolean:  <ul>
 <li>set number: on</li>
 <li>set number !: off</li>
@@ -392,15 +392,15 @@
 <li>numberwidth</li>
 <li>wrap (wrap long lines)</li>
 <li>shiftround → (round indence)</li>
-<li>showmatch/matchtime ({})</li>
+<li>showmatch&#x2F;matchtime ({})</li>
 </ul>
 </li>
 </ol>
 </li>
-<li>Basic Mapping/Modal Mapping/Strict Mapping<ol>
+<li>Basic Mapping&#x2F;Modal Mapping&#x2F;Strict Mapping<ol>
 <li>map: <code>map _ dd</code></li>
-<li>nmap/vmap/imap: 在 normal/visual/insert 模式下的 map</li>
-<li>*noremap(划重点):<br>例如 <code>:nmap dd O&lt;esc&gt;jddk</code> 这个 mapping, 加上 <code>nore</code> 后, 会避免循环调用了!</li>
+<li>nmap&#x2F;vmap&#x2F;imap: 在 normal&#x2F;visual&#x2F;insert 模式下的 map</li>
+<li>*noremap(划重点):<br>  例如 <code>:nmap dd O&lt;esc&gt;jddk</code> 这个 mapping, 加上 <code>nore</code> 后, 会避免循环调用了!</li>
 </ol>
 </li>
 <li>Leaders<br>  就是 vimrc 中的<leader>, 当然也可以自定义: <code>let mapleader=&quot;_&quot;</code></li>
@@ -416,7 +416,7 @@
 <li><code>:onoremap p i(</code>: dp(d: action, p: movement)</li>
 <li><code>:onoremap b /return&lt;cr&gt;</code>: db</li>
 <li><code>:onoremap in(:&lt;c-u&gt;normal! f(vi(&lt;cr&gt;</code>: 当光标在 <code>print foo(bar)</code> 括号之外时, 输入<code>cin(</code>. </li>
-<li><code>:onoremap il(:&lt;c-u&gt;normal! F)vi(&lt;cr&gt;</code>: &quot;inside last parentheses&quot; </li>
+<li><code>:onoremap il(:&lt;c-u&gt;normal! F)vi(&lt;cr&gt;</code>: &quot;inside last parentheses&quot;</li>
 </ol>
 </li>
 <li>More Operator-Pending Mappings<br>  其他的一些可以 mapping 的 operations<ol>
@@ -427,9 +427,9 @@
 </ol>
 </li>
 <li>Variables<ol>
-<li>赋值:<br><code>let foo=&quot;bar&quot; / let foo=42</code></li>
-<li>options as variable:<br><code>set textwidth=80</code><br><code>let &amp;textwidth = &amp;textwidth + 10</code><br><code>set textwidth?</code></li>
-<li>local buffer / currentbuffer:<br><code>let &amp;l:number=1 / let b:hello=&quot;world&quot;</code></li>
+<li>赋值:<br>  <code>let foo=&quot;bar&quot; / let foo=42</code></li>
+<li>options as variable:<br>  <code>set textwidth=80</code><br>  <code>let &amp;textwidth = &amp;textwidth + 10</code><br>  <code>set textwidth?</code></li>
+<li>local buffer &#x2F; currentbuffer:<br>  <code>let &amp;l:number=1 / let b:hello=&quot;world&quot;</code></li>
 </ol>
 </li>
 <li>Conditionals:     <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/Conditionals.jpeg">   

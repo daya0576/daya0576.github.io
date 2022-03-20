@@ -55,7 +55,7 @@
 <meta property="og:description" content="It&#39;s so painful to input password every time login to cse server, so this article will show u how to ssh cse server without password.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-08-19T13:56:56.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.343Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.112Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="unsw">
 <meta property="article:tag" content="cse">
@@ -260,20 +260,16 @@
 <a id="more"></a>
 
 
-<p>The CSE login servers doc: <a href="http://taggi.cse.unsw.edu.au/FAQ/Accessing_CSE_login_servers/">http://taggi.cse.unsw.edu.au/FAQ/Accessing_CSE_login_servers/</a>     </p>
+<p>The CSE login servers doc: <a href="http://taggi.cse.unsw.edu.au/FAQ/Accessing_CSE_login_servers/">http://taggi.cse.unsw.edu.au/FAQ/Accessing_CSE_login_servers&#x2F;</a>     </p>
 <p>##My solution:    </p>
 <ul>
 <li><strong>Step1:</strong> generate your ssh public key in your own laptop, my favorite tutotial about this step:<br><a href="https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html">https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html</a>     </li>
 <li><strong>Step2:</strong> put the public key into <code>~/.ssh/authorized_keys</code> in the remote server.     </li>
-<li><strong>Step3:</strong> Done!!!     <img style="max-height:300px" class="lazy" data-original="/images/blog/160819_ssh/ssh.png">    
-
-</li>
+<li><strong>Step3:</strong> Done!!!     <img style="max-height:300px" class="lazy" data-original="/images/blog/160819_ssh/ssh.png"></li>
 </ul>
 <p>##Another tips: </p>
 <ul>
-<li>Use sshfs to mount the whole disk to ur own maschine<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /tmp/ssh</span><br><span class="line"><span class="built_in">alias</span> zsshfs=<span class="string">'sshfs z5082423@login.cse.unsw.edu.au:/import/adams/2/z5082423 /tmp/ssh'</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>Use sshfs to mount the whole disk to ur own maschine<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /tmp/ssh</span><br><span class="line"><span class="built_in">alias</span> zsshfs=<span class="string">'sshfs z5082423@login.cse.unsw.edu.au:/import/adams/2/z5082423 /tmp/ssh'</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>

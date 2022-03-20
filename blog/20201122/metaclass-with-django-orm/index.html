@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2020-11-22T06:58:16.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.351Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -267,8 +267,8 @@
 <h1 id="继承关系"><a href="# 继承关系" class="headerlink" title="继承关系"></a>继承关系 </h1><p> 在 Django ORM 中，编写三行代码构建 model 类 -&gt; 就可以通过 <code>migrate</code> 让框架帮你创建对应的数据库表（甚至包含索引等所有属性）。同时还可以根据它快速做一系列的 <strong> 增删改查 </strong> 操作：  </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">200</span>, blank=<span class="literal">False</span>, null=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 
-<p>翻下 Django 的源码不难看出，上面定义的 <code>Student</code> 类继承了 <code>models.Model</code>，而它又继承于 <code>ModelBase</code>（<strong>是一个由 type 继承而来 metaclass!</strong>）<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16059273576073.jpg" alt=""></p>
-<p>参考：<a href="https://github.com/django/django/blob/master/django/db/models/base.py#L72">django/blob/master/django/db/models/base.py#L72</a></p>
+<p>翻下 Django 的源码不难看出，上面定义的 <code>Student</code> 类继承了 <code>models.Model</code>，而它又继承于 <code>ModelBase</code>（** 是一个由 type 继承而来 metaclass!**）<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16059273576073.jpg"></p>
+<p>参考：<a href="https://github.com/django/django/blob/master/django/db/models/base.py#L72">django&#x2F;blob&#x2F;master&#x2F;django&#x2F;db&#x2F;models&#x2F;base.py#L72</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ModelBase</span><span class="params">(type)</span>:</span></span><br><span class="line">    <span class="string">"""Metaclass for all models."""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, name, bases, attrs, **kwargs)</span>:</span></span><br><span class="line">        super_new = super().__new__</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Also ensure initialization is only performed for subclasses of Model</span></span><br><span class="line">        <span class="comment"># (excluding Model class itself).</span></span><br><span class="line">        parents = [b <span class="keyword">for</span> b <span class="keyword">in</span> bases <span class="keyword">if</span> isinstance(b, ModelBase)]</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> parents:</span><br><span class="line">            <span class="keyword">return</span> super_new(cls, name, bases, attrs)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Create the class.</span></span><br><span class="line">        <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="类的初始化"><a href="# 类的初始化" class="headerlink" title="类的初始化"></a>类的初始化 </h1><p> 如果阅读了上篇，不难理解普通类在定义时，默认使用 <code>type</code> 作为生成类的 metaclass。而 ORM 类继承于 <code>ModelBase</code>，并利用它进行类的初始化：</p>
@@ -278,7 +278,7 @@
 <li><code>ModelBase.__prepare__</code>: 此方法只在 metaclas 中有效，用于 <strong> 初始化 </strong> 命名空间(namespace)，供后续保存类中所有属性，e.g. 类中的方法。并支持“注入”额外的属性，最后供下一步的 <code>__new__</code> 方法使用（但 django 中并未重写，默认返回一个空字典）</li>
 <li><code>ModelBase.__new__</code>: 以 ModelBase(cls) 和 待创建的类名称作为参数，创建并返回一个类(class)</li>
 <li><code>ModelBase.__init__</code>: 对创建的类，做一些初始化操作</li>
-<li><code>ModelBase.__call__</code>: 当上一步返回的类被调用时 <strong><code>()</code></strong> 触发 (类似方法调用)，这时也会触发 <code>Student</code> 与 <code>Model</code> 的 <code>init</code> 方法。<ol>
+<li><code>ModelBase.__call__</code>: 当上一步返回的类被调用时 **<code>()</code>** 触发 (类似方法调用)，这时也会触发 <code>Student</code> 与 <code>Model</code> 的 <code>init</code> 方法。<ol>
 <li><code>Student.__init__</code><ol>
 <li><code>Model.__init__</code></li>
 </ol>
@@ -289,19 +289,21 @@
 <h2 id="Django- 特性"><a href="#Django- 特性" class="headerlink" title="Django 特性"></a>Django 特性</h2><p>Django 主要对 <code>django.db.models.base.ModelBase.__new__</code> 方法做了大量定制化操作</p>
 <p><strong>分为两个部分</strong>：</p>
 <ol>
-<li>前置初始化操作：<ul>
+<li>前置初始化操作：</li>
+</ol>
+<ul>
 <li>Student 的父类（<code>models.Model</code>）被实例化</li>
 <li>获取所有定义的字段，例如 <code>{&#39;name&#39;: &lt;django.db.models.fields.CharField&gt;}</code></li>
 <li>获取 Meta 中的属性：例如 <code>abstract</code>，<code>verbose_name</code> 等</li>
 </ul>
-</li>
+<ol start="2">
 <li>创建新类并返回：<ul>
 <li>在创建之前还做了一系列验证操作，例如一个 app 内不能有相同名字的 model 等等</li>
 </ul>
 </li>
 </ol>
-<p>如下图所示，熟悉的 objects(<code>&lt;class &#39;django.db.models.manager.Manager&#39;&gt;</code>)，也会在第二步被动态生成：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16060245107097.jpg" alt=""></p>
-<p>而所有定义的表字段 (fields) 被存储在 <code>new_class._meta.fields</code> 之中，在写入的过程中也会动态生成 <code>get_{field}_display</code> 方法😃：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16060241730731.jpg" alt=""></p>
+<p>如下图所示，熟悉的 objects(<code>&lt;class &#39;django.db.models.manager.Manager&#39;&gt;</code>)，也会在第二步被动态生成：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16060245107097.jpg"></p>
+<p>而所有定义的表字段 (fields) 被存储在 <code>new_class._meta.fields</code> 之中，在写入的过程中也会动态生成 <code>get_{field}_display</code> 方法😃：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16060241730731.jpg"></p>
 <h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结</h1><p>Django ORM 利用 Python metaclass 的强大特性动态的去创建类，改变了类初始化时的行为。将复杂留给了自己，大大降低了用户的学习和使用成本。  </p>
 <h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
 <li><a href="https://medium.com/swlh/how-django-use-data-descriptors-metaclasses-for-data-modelling-14b307280fce">《How Django Uses Metaclasses For Data Modelling》</a></li>

@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2019-07-27T13:45:50.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta property="article:tag" content="reading">
@@ -268,11 +268,11 @@
 <p>用这篇文章记录一下个人的感受和思考，<strong>当然更加推荐阅读原文。</strong></p>
 <a id="more"></a>
 
-<h1 id="什么是 -Cloudflare"><a href="# 什么是 -Cloudflare" class="headerlink" title="什么是 Cloudflare ?"></a>什么是 Cloudflare ?</h1><p>今天刷 Twitter 的时候刚好看到一个 <a href="https://support.cloudflare.com/hc/en-us/articles/205177068-Step-1-How-does-Cloudflare-work-"> 官方的回答 </a> 还挺不错的。总结一下原理就是在用户与你的网站之间加了一层代理，以提升 security, performance and reliability.<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15642299070568.jpg" alt=""></p>
-<h1 id="故障过程"><a href="# 故障过程" class="headerlink" title="故障过程"></a>故障过程 </h1><p> 按原文描述整理后，习惯将故障的每一步都按 timeline 列出来(UTC)：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15642294239100.jpg" alt=""></p>
-<h1 id="故障原因"><a href="# 故障原因" class="headerlink" title="故障原因"></a>故障原因 </h1><p><strong> 代码变更：</strong>：更新 WAF 规则时，引入一个很容易回溯 (backtrace) 的正则表达式，尝试用画图去解释 backtrace 的原理(总步数与原文不一致，是因为我省略了一些步骤方便理解)：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15654414449732.jpg" alt=""><br><del>(Why is zero plural?🤔😄)</del></p>
+<h1 id="什么是 -Cloudflare"><a href="# 什么是 -Cloudflare" class="headerlink" title="什么是 Cloudflare ?"></a>什么是 Cloudflare ?</h1><p>今天刷 Twitter 的时候刚好看到一个 <a href="https://support.cloudflare.com/hc/en-us/articles/205177068-Step-1-How-does-Cloudflare-work-"> 官方的回答 </a> 还挺不错的。总结一下原理就是在用户与你的网站之间加了一层代理，以提升 security, performance and reliability.<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15642299070568.jpg"></p>
+<h1 id="故障过程"><a href="# 故障过程" class="headerlink" title="故障过程"></a>故障过程 </h1><p> 按原文描述整理后，习惯将故障的每一步都按 timeline 列出来(UTC)：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15642294239100.jpg"></p>
+<h1 id="故障原因"><a href="# 故障原因" class="headerlink" title="故障原因"></a>故障原因 </h1><p><strong> 代码变更：</strong>：更新 WAF 规则时，引入一个很容易回溯 (backtrace) 的正则表达式，尝试用画图去解释 backtrace 的原理(总步数与原文不一致，是因为我省略了一些步骤方便理解)：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15654414449732.jpg"><br><del>(Why is zero plural?🤔😄)</del></p>
 <p>当然如果你不想细看，也可以直接看原文中的动画，有个大致的体感：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/23-steps-1%20-1-.gif" alt="23-steps-1 -1-"></p>
-<p>总而言之，就是随着字符串的增加，正则匹配的时间复杂度爆炸增长，最终导致 CPU 资源耗尽：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15654415085718.jpg" alt=""></p>
+<p>总而言之，就是随着字符串的增加，正则匹配的时间复杂度爆炸增长，最终导致 CPU 资源耗尽：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/15654415085718.jpg"></p>
 <h1 id="故障根因"><a href="# 故障根因" class="headerlink" title="故障根因"></a>故障根因 </h1><p> 原文中列了很多，我挑出了个人认为导致故障最重要的三点：</p>
 <ol>
 <li><strong>WAF 规则变动直接自动部署到生产环境：</strong> cloudflare 的代码变更，正常的部署模式为 DOG(内部员工) → PIG(部分免费用户) → Canaries(灰度) → Global(全量部署), 但对于 WAF 规则的变更，由于常常需要快速全球部署以便于快速应急，所以日常的模式也都是无脑一把推。</li>
@@ -298,7 +298,7 @@
 </ol>
 <h1 id="彩蛋"><a href="# 彩蛋" class="headerlink" title="彩蛋"></a>彩蛋 </h1><p><strong> 最后的最后，这句话真的很触动我。。</strong></p>
 <blockquote>
-<p>This is the first thing I&#39;ve ever done professionally that I truly, completely love. I wake up every day just thrilled at the work we&#39;re doing. <a href="https://gist.github.com/jgrahamc/6bb02a6f7c3799a1590b3cdb901f8e08">Source</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/190717_cloudflare_outage/15633465043345.jpg" alt=""></p>
+<p>This is the first thing I&#39;ve ever done professionally that I truly, completely love. I wake up every day just thrilled at the work we&#39;re doing. <a href="https://gist.github.com/jgrahamc/6bb02a6f7c3799a1590b3cdb901f8e08">Source</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/190717_cloudflare_outage/15633465043345.jpg"></p>
 </blockquote>
 <p>--EOF--</p>
 

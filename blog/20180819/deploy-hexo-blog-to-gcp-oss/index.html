@@ -62,7 +62,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-08-19T10:03:33.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="oss">
@@ -277,21 +277,21 @@
 
       
         <p>众所周知, 要使用国内的云服务, 不管是 vps 也好, cdn 加速也好, 域名都是要备案的. 但对于我来说, 备案是不可能备案的，这辈子不可能备案的. </p>
-<p>正好前段时间工作中接触了 aliyun 的 oss, 就萌生了将网站部署到 Google Cloud Platform 的 OSS 上的想法💡.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346829618992.jpg" alt=""></p>
+<p>正好前段时间工作中接触了 aliyun 的 oss, 就萌生了将网站部署到 Google Cloud Platform 的 OSS 上的想法💡.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346829618992.jpg"></p>
 <p><strong>结论:</strong><br>GCP 的 OSS 速度看上去还是很优秀的, 但部署步骤繁琐, https 比较棘手, 还是放弃了这种部署方式.<br>最终选择了 Netlify, 见下一篇博客: </p>
 <a id="more"></a>
 
-<h1 id="新建 bucket"><a href="# 新建 bucket" class="headerlink" title="新建 bucket"></a>新建 bucket</h1><h2 id="验证对网站的所有权"><a href="# 验证对网站的所有权" class="headerlink" title="验证对网站的所有权"></a>验证对网站的所有权 </h2><p> 创建前要先在 search console 中验证这个网站是你的, <a href="https://www.google.com/webmasters/tools/home?hl=en">验证链接 </a>.<br> 有很多种验证的方法, 如果你使用的是 hexo 的 next 主题, 可以在 <code>_config.yml</code> 中配置 <code>google_site_verification</code> 字段就 ok 了.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836448137.jpg" alt=""></p>
-<h2 id="注意 bucket 的名字"><a href="# 注意 bucket 的名字" class="headerlink" title="注意 bucket 的名字"></a>注意 bucket 的名字 </h2><p> 如果要 serve 静态网站的话, <strong>名字要和域名保持一致.</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836542164.jpg" alt=""></p>
-<h2 id="地区"><a href="# 地区" class="headerlink" title="地区:"></a>地区:</h2><p>记得地区选 Asia 哟.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836624305.jpg" alt=""></p>
-<h1 id="上传文件"><a href="# 上传文件" class="headerlink" title="上传文件"></a>上传文件 </h1><h2 id="gsutil 安装"><a href="#gsutil 安装" class="headerlink" title="gsutil 安装"></a>gsutil 安装</h2><p> 安装 gsutil<br><code>pip install gsutil</code><br>不支持 python3???<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836717853.jpg" alt=""></p>
+<h1 id="新建 bucket"><a href="# 新建 bucket" class="headerlink" title="新建 bucket"></a>新建 bucket</h1><h2 id="验证对网站的所有权"><a href="# 验证对网站的所有权" class="headerlink" title="验证对网站的所有权"></a>验证对网站的所有权 </h2><p> 创建前要先在 search console 中验证这个网站是你的, <a href="https://www.google.com/webmasters/tools/home?hl=en">验证链接 </a>.<br> 有很多种验证的方法, 如果你使用的是 hexo 的 next 主题, 可以在 <code>_config.yml</code> 中配置 <code>google_site_verification</code> 字段就 ok 了.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836448137.jpg"></p>
+<h2 id="注意 bucket 的名字"><a href="# 注意 bucket 的名字" class="headerlink" title="注意 bucket 的名字"></a>注意 bucket 的名字 </h2><p> 如果要 serve 静态网站的话, <strong>名字要和域名保持一致.</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836542164.jpg"></p>
+<h2 id="地区"><a href="# 地区" class="headerlink" title="地区:"></a>地区:</h2><p>记得地区选 Asia 哟.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836624305.jpg"></p>
+<h1 id="上传文件"><a href="# 上传文件" class="headerlink" title="上传文件"></a>上传文件 </h1><h2 id="gsutil 安装"><a href="#gsutil 安装" class="headerlink" title="gsutil 安装"></a>gsutil 安装</h2><p> 安装 gsutil<br><code>pip install gsutil</code><br>不支持 python3???<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346836717853.jpg"></p>
 <h2 id="gsutil 简易版步骤"><a href="#gsutil 简易版步骤" class="headerlink" title="gsutil 简易版步骤"></a>gsutil 简易版步骤 </h2><p> 创建 bucket(或者手动创建, 这个不知道如何定制地区)<br><code>gsutil mb gs://www.hypers.me</code><br>全部 bucket 的权限默认为公共读:<br><code>gsutil defacl set public-read gs://www.hypers.me</code><br>上传文件:<br><code>gsutil rsync -R local-dir gs://www.example.com</code><br>设置 index&amp;404:<br><code>gsutil web set -m index.html -e 404.html gs://www.hypers.me</code></p>
-<h1 id="配置 DNS- 添加 CNAME 记录"><a href="# 配置 DNS- 添加 CNAME 记录" class="headerlink" title="配置 DNS, 添加 CNAME 记录"></a>配置 DNS, 添加 CNAME 记录 </h1><p> 文档: <a href="https://cloud.google.com/storage/docs/hosting-static-website?hl=en_US&_ga=2.265398415.-1885452353.1527271271">https://cloud.google.com/storage/docs/hosting-static-website?hl=en_US&amp;_ga=2.265398415.-1885452353.1527271271</a></p>
+<h1 id="配置 DNS- 添加 CNAME 记录"><a href="# 配置 DNS- 添加 CNAME 记录" class="headerlink" title="配置 DNS, 添加 CNAME 记录"></a>配置 DNS, 添加 CNAME 记录 </h1><p> 文档: <a href="https://cloud.google.com/storage/docs/hosting-static-website?hl=en_US&_ga=2.265398415.-1885452353.1527271271">https://cloud.google.com/storage/docs/hosting-static-website?hl=en_US&amp;_ga&#x3D;2.265398415.-1885452353.1527271271</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NAME                  TYPE     DATA</span><br><span class="line">www.example.com       CNAME    c.storage.googleapis.com.</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="测速"><a href="# 测速" class="headerlink" title="测速"></a>测速</h1><p><strong>GCP OSS(左)</strong> VS <strong>Aliyun 香港 OSS(右)</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346837142907.jpg" alt=""></p>
-<p><strong>GCP OSS(左)</strong> VS <strong>Aliyun 香港 ECS(右)</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346837319940.jpg" alt=""></p>
+<h1 id="测速"><a href="# 测速" class="headerlink" title="测速"></a>测速</h1><p><strong>GCP OSS(左)</strong> VS <strong>Aliyun 香港 OSS(右)</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346837142907.jpg"></p>
+<p><strong>GCP OSS(左)</strong> VS <strong>Aliyun 香港 ECS(右)</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_oss/15346837319940.jpg"></p>
 <h1 id="https"><a href="#https" class="headerlink" title="https"></a>https</h1><p>文档: <a href="https://cloud.google.com/storage/docs/troubleshooting#https">https://cloud.google.com/storage/docs/troubleshooting#https</a><br>提供了三种解决方案:</p>
 <ul>
 <li><a href="https://cloud.google.com/compute/docs/load-balancing/http/adding-a-backend-bucket-to-content-based-load-balancing">set up a load balancer</a></li>

@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2017-03-20T18:16:15.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.112Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -261,27 +261,23 @@
       
         <p>来 Hypers 上班的第一周, 俊哥提到 Python 的继承很灵活, 调用 class 内的方法的话, 有自己的一套 MRO(Method Resolution Order).<br>我找了资料仔细阅读了一下, 这篇日志是我做的笔记.         </p>
 <a id="more"></a>
-
-
-
 <p>###Method Resolution Order</p>
 <ol>
 <li><p>经典类（classic class）MRO</p>
 <ul>
-<li><p>深度遍历</p>
-<ul>
+<li>深度遍历<ul>
 <li>[D, B, A, C, A]<ul>
 <li><strong>[D, B, A, C]</strong></li>
 </ul>
 </li>
 </ul>
-<p><img src="/images/loading/loading.svg" data-original="http://xblog.qiniudn.com/assets/2013-07-25-python-mro/class_diamond.svg" alt="http://xblog.qiniudn.com/assets/2013-07-25-python-mro/class_diamond.svg"></p>
 </li>
 </ul>
+<p> <img src="/images/loading/loading.svg" data-original="http://xblog.qiniudn.com/assets/2013-07-25-python-mro/class_diamond.svg" alt="http://xblog.qiniudn.com/assets/2013-07-25-python-mro/class_diamond.svg"></p>
 </li>
 <li><p>新式类 (new-style class) MRO<br> 它仍然采用从左至右的深度优先遍历，但是如果遍历中出现重复的类，<strong>只保留最后一个</strong>。<br>[D, B, A, object, C, A, object] --&gt; [D, B, C, A, object]<br><img src="/images/loading/loading.svg" data-original="http://xblog.qiniudn.com/assets/2013-07-25-python-mro/newclass_diamond.svg" alt="http://xblog.qiniudn.com/assets/2013-07-25-python-mro/newclass_diamond.svg"></p>
 </li>
-<li><p>类型冲突 <br> 违反了线性化的「 <strong>单调性原则</strong> 」<br><code>class A(X, Y): pass</code><br><code>class B(Y, X): pass</code>   </p>
+<li><p>类型冲突 <br> 违反了线性化的「 <strong>单调性原则</strong> 」<br><code>class A(X, Y): pass</code><br><code>class B(Y, X): pass</code></p>
 </li>
 </ol>
 <p><strong>B 和 A 的 MRO 不一样 </strong><br>_<br>B 被 C 继承时,  C 的 MRO 顺序和 B 不一样了, 很容易导致不易察觉的错误。<br> 所以引用了 C3 MRO, 会产生一个异常.<br><img src="/images/loading/loading.svg" data-original="http://xblog.qiniudn.com/assets/2013-07-25-python-mro/class_conflict.svg" alt="此处输入图片的描述"></p>

@@ -60,7 +60,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2020-11-22T06:57:50.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.351Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -269,7 +269,7 @@
 <li><strong>继承 </strong>：之类继承于父类，e.g. 蛇继承于爬行动物<br> 通过 <code>__base__</code> 属性查看父类</li>
 <li><strong>实例 </strong>：例如小明是一个 instance of human<br> 通过 <code>__class__</code> 查看某个 instance 的类型</li>
 </ul>
-<p>这两种关系，分别对应 UML 中两种画法：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054349536454.jpg" alt=""></p>
+<p>这两种关系，分别对应 UML 中两种画法：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054349536454.jpg"></p>
 <h2 id="新式类 -amp- 旧式类"><a href="# 新式类 -amp- 旧式类" class="headerlink" title="新式类 &amp; 旧式类"></a>新式类 &amp; 旧式类 </h2><p> 新式类保持 class 与 type 的统一，i.e. Creating a new class creates a new type of object<br>python3 中默认都是新式类，文本中的例子也都是基于 python3.7</p>
 <h1 id="二、object- 与 -type"><a href="# 二、object- 与 -type" class="headerlink" title="二、object 与 type"></a>二、object 与 type</h1><h2 id="两大元老之间的关系"><a href="# 两大元老之间的关系" class="headerlink" title="两大元老之间的关系"></a>两大元老之间的关系</h2><p>python 中万物皆对象，可以看到 <code>object</code> 与 <code>type</code> 为两个内置对象(primary object)：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>object</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">object</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span></span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></span><br></pre></td></tr></table></figure>
@@ -280,21 +280,21 @@
 <p>不出意外，<code>type</code> 的父类是 <code>object</code>，同时 <code>type</code> 是由它自己实例化而来的（<em>why？为什么一个对象的实现使它自己？？</em>）。 </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>type.__base__</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">object</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span>.<span class="title">__class__</span></span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">type</span>'&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>emmm，有点绕，这时候就需要画个图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054299808003.jpg" alt=""></p>
+<p>emmm，有点绕，这时候就需要画个图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054299808003.jpg"></p>
 <h2 id="内置数据类型"><a href="# 内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型 </h2><p> 再看下其他内置对象，与 type 还有 object 的关系？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list.__class__</span><br><span class="line">&lt;class &#39;type&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; list.__base__</span><br><span class="line">&lt;class &#39;object&#39;&gt;</span><br></pre></td></tr></table></figure>
 
-<p>list 与 dict 继承于 object，由 type 实例化而来：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054303136575.jpg" alt=""></p>
+<p>list 与 dict 继承于 object，由 type 实例化而来：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054303136575.jpg"></p>
 <h2 id="自定义对象"><a href="# 自定义对象" class="headerlink" title="自定义对象"></a>自定义对象 </h2><p> 再实例化一个 list 和一个自定义类 (MyClass) 看看。<br>注意这时候 my_class 与 自定义列表 都是没有父类的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>l.__class__</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">l</span>.<span class="title">__base__</span></span></span><br><span class="line"><span class="class"><span class="title">Traceback</span> <span class="params">(most recent call last)</span>:</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">AttributeError: <span class="string">'list'</span> object has no attribute <span class="string">'__base__'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">pass</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_class = MyClass()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_class.__base__</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">AttributeError: <span class="string">'MyClass'</span> object has no attribute <span class="string">'__base__'</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054322270354.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054322270354.jpg"></p>
 <p>这个地方有两个小问题自问自答一下：</p>
 <ol>
 <li>Q: 「实例化」这个行为，具体代表什么含义呢？它都做了什么？ A: python 内部实例化一个新的对象时，它其实都使用了自身的 type 属性，并创造一个新的实例对象（调用 <code>__new__</code> &amp; <code>__init__</code> 方法）。   </li>
 <li>Q: 当 MyClass 在代码中定义时，其实默认继承了 object，但为什么它 <strong> 自动 </strong> 变成 type 的实例化对象呢？🤔    A: (见文末总结第二点)</li>
 </ol>
-<h2 id="元类"><a href="# 元类" class="headerlink" title="元类"></a>元类 </h2><p> 基于上面的介绍，我们发现其实可以给所有的对象分为三大类（metaclass / class / instance）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054350983201.jpg" alt=""></p>
+<h2 id="元类"><a href="# 元类" class="headerlink" title="元类"></a>元类 </h2><p> 基于上面的介绍，我们发现其实可以给所有的对象分为三大类（metaclass &#x2F; class &#x2F; instance）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/16054350983201.jpg"></p>
 <p>而 <code>type</code> 其实就是一个内置的 metaclass。这时引出这篇文章的下篇：《浅谈 Python Metaclass（下）：Django ORM 应用与实践》</p>
 <p>突如其来的幽默感🤣：</p>
 <blockquote>

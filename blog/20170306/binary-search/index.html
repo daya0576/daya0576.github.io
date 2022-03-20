@@ -55,7 +55,7 @@
 <meta property="og:description" content="去再惠面试的时候, 问了我一道二分查找的变种题, 我当时答的并不是特别清楚, 用这篇日志整理记录一下.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-03-06T04:45:09.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.112Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="inteview">
@@ -258,14 +258,12 @@
       
         <p>去再惠面试的时候, 问了我一道二分查找的变种题, 我当时答的并不是特别清楚, 用这篇日志整理记录一下.      </p>
 <a id="more"></a>
-
-
 <h2 id="问题的定义"><a href="# 问题的定义" class="headerlink" title="问题的定义"></a>问题的定义</h2><p><strong>input:</strong>    </p>
 <ol>
 <li>给定一个升序排列的自然数数组, eg. [1, 3, 3, 5, 7, 7, 7, 7, 8, 14, 14]   </li>
-<li>任意自然数, eg. 7    </li>
+<li>任意自然数, eg. 7</li>
 </ol>
-<p><strong>output:</strong><br>数组内 值为 7 区域的左右边界 index: [1, 3, 3, 5, <strong>7, 7, 7, 7</strong>, 8, 14, 14]<br>这个例子中就是<strong>(4, 7)</strong>   </p>
+<p><strong>output:</strong><br>数组内 值为 7 区域的左右边界 index: [1, 3, 3, 5, <strong>7, 7, 7, 7</strong>, 8, 14, 14]<br>这个例子中就是 **(4, 7)**   </p>
 <h2 id="我的思路"><a href="# 我的思路" class="headerlink" title="我的思路"></a>我的思路 </h2><p> 我首先想到的是生成 <strong>inverted index</strong> 再去查找, 或者用 <strong>Galloping search</strong>.<br> 后来才想到考官想考察的是 binary search.<br>于是我的思路就变成先用 binary 找到那个值的区域里的随机一点, 然后用两个 while 去找左右的边界.<br>但如果这个区域太大, 时间复杂度又变成 O(n)了.<br>最后考官提醒我可以对二分查找做一下改动就可以啦.    </p>
 <h2 id="原版的二分查找 - 返回 index 和 val"><a href="# 原版的二分查找 - 返回 index 和 val" class="headerlink" title="原版的二分查找 (返回 index 和 val)"></a> 原版的二分查找(返回 index 和 val)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">B = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bin_search</span><span class="params">(val, l, left=None, right=None)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> left <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        left, right = <span class="number">0</span>, len(l)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 终止条件</span></span><br><span class="line">    <span class="keyword">if</span> left &gt; right:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">  </span><br><span class="line">    mid = (left + right) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> l[mid] &gt; val:</span><br><span class="line">        <span class="keyword">return</span> bin_search(val, l, left, mid<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">elif</span> l[mid] &lt; val:</span><br><span class="line">        <span class="keyword">return</span> bin_search(val, l, mid+<span class="number">1</span>, right)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> mid, val</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(bin_search(<span class="number">4</span>, A))</span><br></pre></td></tr></table></figure>
 

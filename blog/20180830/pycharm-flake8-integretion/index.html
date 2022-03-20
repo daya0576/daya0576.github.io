@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-08-30T13:06:05.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="pycharm">
@@ -274,20 +274,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> 在我们的项目中, 每次 push 代码后, gitlab 的 runner 会自动执行一次 flake8 代码静态检查. 当然在本地也可以在终端中手动触发, 但缺点是如果检查出 10 个问题, 我要重复 10 次复制粘贴文件路径在 Pycharm 中修改的操作.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357044080367.jpg" alt=""> </p>
-<p> 今天突然发现可以在 Pycharm 中利用 External Tools 集成 flake8 检查, 点点鼠标就能到具体的代码位置。<br><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357030899815.jpg" alt=""></p>
+        <p> 在我们的项目中, 每次 push 代码后, gitlab 的 runner 会自动执行一次 flake8 代码静态检查. 当然在本地也可以在终端中手动触发, 但缺点是如果检查出 10 个问题, 我要重复 10 次复制粘贴文件路径在 Pycharm 中修改的操作.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357044080367.jpg"> </p>
+<p> 今天突然发现可以在 Pycharm 中利用 External Tools 集成 flake8 检查, 点点鼠标就能到具体的代码位置。<br><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357030899815.jpg"></p>
 <a id="more"></a>
 
-<h1 id="在 settings 中配置 External-Tools"><a href="# 在 settings 中配置 External-Tools" class="headerlink" title="在 settings 中配置 External Tools"></a> 在 settings 中配置 External Tools</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357040869027.jpg" alt=""></p>
-<h1 id="添加配置"><a href="# 添加配置" class="headerlink" title="添加配置:"></a> 添加配置:</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357042026629.jpg" alt=""><br> 配置详情: </p>
+<h1 id="在 settings 中配置 External-Tools"><a href="# 在 settings 中配置 External-Tools" class="headerlink" title="在 settings 中配置 External Tools"></a> 在 settings 中配置 External Tools</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357040869027.jpg"></p>
+<h1 id="添加配置"><a href="# 添加配置" class="headerlink" title="添加配置:"></a> 添加配置:</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357042026629.jpg"><br> 配置详情: </p>
 <ul>
 <li>Program: <code>$PyInterpreterDirectory$/python</code></li>
 <li>Arguments: <code>-m flake8 --show-source --statistics $ProjectFileDir$</code></li>
 <li>Working directory: <code>$ProjectFileDir$</code></li>
 <li>Output Filter: (留空就可以了, pycharm 能自动识别路径.)</li>
 </ul>
-<h1 id="触发 flake8 静态检查"><a href="# 触发 flake8 静态检查" class="headerlink" title="触发 flake8 静态检查:"></a> 触发 flake8 静态检查:</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357028577407.jpg" alt=""></p>
-<h1 id="结果 - 是不是很酷"><a href="# 结果 - 是不是很酷" class="headerlink" title="结果: 是不是很酷"></a> 结果: 是不是很酷 </h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357030899815.jpg" alt=""></p>
+<h1 id="触发 flake8 静态检查"><a href="# 触发 flake8 静态检查" class="headerlink" title="触发 flake8 静态检查:"></a> 触发 flake8 静态检查:</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357028577407.jpg"></p>
+<h1 id="结果 - 是不是很酷"><a href="# 结果 - 是不是很酷" class="headerlink" title="结果: 是不是很酷"></a> 结果: 是不是很酷 </h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180829_ios12_review/15357030899815.jpg"></p>
 
     </div>
 

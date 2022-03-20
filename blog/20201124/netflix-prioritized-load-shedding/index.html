@@ -56,7 +56,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2020-11-24T07:23:10.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.351Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.120Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta name="twitter:card" content="summary">
@@ -269,7 +269,7 @@
 <h2 id="解法："><a href="# 解法：" class="headerlink" title="解法："></a>解法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">网关 (Zuul) 收到请求后，通过三个维度：</span><br><span class="line">throughput &#x2F; functionality &#x2F; criticality </span><br><span class="line">                ↓</span><br><span class="line">          将流量分为三组：</span><br><span class="line">          1. NON_CRITICAL</span><br><span class="line">          2. DEGRADED_EXPERIENCE</span><br><span class="line">          3. CRITICAL</span><br><span class="line">          同时依次打分(1 to 100)</span><br><span class="line">                ↓             </span><br><span class="line">          后端或网关出现容量问题 -&gt; Y -&gt; 分数越高的请求越先响应(类似 priority queue)</span><br><span class="line">                ↓ N</span><br><span class="line">          无视权重，正常处理所有请求</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="新的问题："><a href="# 新的问题：" class="headerlink" title="新的问题："></a>新的问题：</h1><p>Q. 如何保鲜以上的打分策略，i.e. 对 NON_CRITICAL 限流后，不会对用户体验造成严重影响？<br>A. 解法：Chaos Automation Platform<br>抽样极小人群做 A/B 测试：A 组在网关注入限流（参考上文架构图），观察对应的 <em>playback experience.</em>（最核心的指标还是视频是否可以流畅播放），与 B 组是否存在偏移。</p>
+<h1 id="新的问题："><a href="# 新的问题：" class="headerlink" title="新的问题："></a>新的问题：</h1><p>Q. 如何保鲜以上的打分策略，i.e. 对 NON_CRITICAL 限流后，不会对用户体验造成严重影响？<br>A. 解法：Chaos Automation Platform<br>抽样极小人群做 A&#x2F;B 测试：A 组在网关注入限流（参考上文架构图），观察对应的 *playback experience.*（最核心的指标还是视频是否可以流畅播放），与 B 组是否存在偏移。</p>
 <p>如果出现播放问题则需要人工介入修复，并且定期做 regression 以达到保鲜的目的。</p>
 <h1 id="个人思考"><a href="# 个人思考" class="headerlink" title="个人思考"></a>个人思考</h1><ol>
 <li>关于 Chaos：混沌工程最近特别火，最早也是 Netflix 的工程师落地了 Chaos Monkey：通过故障注入来验证线上分布式系统整体的健壮性。其实我理解蚂蚁的红蓝攻防也是它的实践之一，只不过很可惜一直停留在灰度压测环境[doge]</li>

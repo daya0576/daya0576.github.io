@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2021-09-20T08:43:42.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.355Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.124Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -281,7 +281,7 @@
 </blockquote>
 <p>使用 checked exception 简单的指导原则：<strong>异常是否可恢复</strong>，简而言之即调用方是否有能力处理异常，并做出积极的响应，最终从异常中恢复。例如尝试打开一个不存在的文件，异常被调用方捕捉后，提示用户重新输入文件路径，也是一种所谓的 recoverable conditions。</p>
 <p>否则如果因为编程错误等，无法恢复的情况，则使用 runtime exceptions 尽早让程序结束掉更为合适。</p>
-<h2 id="所以为什么不能无脑抛 -RuntimeException？"><a href="# 所以为什么不能无脑抛 -RuntimeException？" class="headerlink" title="所以为什么不能无脑抛 RuntimeException？"></a>所以为什么不能无脑抛 RuntimeException？</h2><p>哈哈，偶遇这个提问，如果不是翻译自 StackExchange 真的怀疑是不是我同事的困惑。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16321269380121.jpg" alt=""></p>
+<h2 id="所以为什么不能无脑抛 -RuntimeException？"><a href="# 所以为什么不能无脑抛 -RuntimeException？" class="headerlink" title="所以为什么不能无脑抛 RuntimeException？"></a>所以为什么不能无脑抛 RuntimeException？</h2><p>哈哈，偶遇这个提问，如果不是翻译自 StackExchange 真的怀疑是不是我同事的困惑。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16321269380121.jpg"></p>
 <p>举个栗子：假如有一段线上告警后置处理的逻辑，其中一段子步骤为日志的抽样检查，但是因为网络等原因，存在小概率日志拉取失败的异常。这时套用「指导原则」需要抛出一个 checked exception，最终由调用方决定执行重试，或直接跳过该“弱依赖”，对异常进行恢复。</p>
 <p>这时如果直接包装为 RuntimeException 无脑抛上去，则可能会中断整个告警后置处理的逻辑，甚至导致故障告警发不出来，显然是不合适的。</p>
 <h1 id="篇外：如何在 -stream- 中更优雅的处理异常"><a href="# 篇外：如何在 -stream- 中更优雅的处理异常" class="headerlink" title="篇外：如何在 stream 中更优雅的处理异常"></a>篇外：如何在 stream 中更优雅的处理异常 </h1><p> 上文说到，针对 checked exceptions，调用方必须显性的捕捉并处理，但这也是为什么很多程序员对它深恶痛绝。</p>

@@ -55,7 +55,7 @@
 <meta property="og:description" content="最近YouTube上看到Gitlab频道的一个视频: Git Internals - How Git Works - Fear Not The SHA!感觉打开了新世界的大门🤩😍🤣. 用这篇博客记录一下感悟和思考, 希望你看完之后, 对下边这张图会有更深的理解.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-03-15T12:55:08.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -258,26 +258,24 @@
         <p>最近 YouTube 上看到 Gitlab 频道的一个视频: <a href="https://www.youtube.com/watch?v=P6jD966jzlk">Git Internals - How Git Works - Fear Not The SHA!</a><br>感觉打开了新世界的大门🤩😍🤣. 用这篇博客记录一下感悟和思考, 希望你看完之后, 对下边这张图会有更深的理解.<br><img style="max-height:350px" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3.png"></p>
 <a id="more"></a>
 
-<h1 id="第一部分 - 基础概念和定义 - 重要"><a href="# 第一部分 - 基础概念和定义 - 重要" class="headerlink" title="第一部分: 基础概念和定义 (重要!)"></a> 第一部分: 基础概念和定义(重要!)</h1><h2 id="Basic-git-workflow"><a href="#Basic-git-workflow" class="headerlink" title="Basic git workflow"></a>Basic git workflow</h2><p>(p.s. git pull = git fetch + git merge)<br><img style="max-height: 400px" class="lazy" data-original="/images/blog/180315_git_internal/1FA4B411-E64F-4438-B889-E4F7DE9C27E5.png"></p>
-<h2 id="万物皆对象"><a href="# 万物皆对象" class="headerlink" title="万物皆对象"></a>万物皆对象 </h2><p>git 中各种概念(e.g. branch/commit..), 其实都是<strong> 对象(文件)</strong>. 每个对象拥有唯一标示: <code>SHA1</code>.<br>SHA1 一共有 40 位, 前两位作为文件夹, 一般使用前八位作为 shortcut (下图红色方框中).<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/AE2169D4-24D6-4E62-81C7-DD783DDDE3DC.png"><br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/15210820035986.jpg"></p>
+<h1 id="第一部分 - 基础概念和定义 - 重要"><a href="# 第一部分 - 基础概念和定义 - 重要" class="headerlink" title="第一部分: 基础概念和定义 (重要!)"></a> 第一部分: 基础概念和定义(重要!)</h1><h2 id="Basic-git-workflow"><a href="#Basic-git-workflow" class="headerlink" title="Basic git workflow"></a>Basic git workflow</h2><p>(p.s. git pull &#x3D; git fetch + git merge)<br><img style="max-height: 400px" class="lazy" data-original="/images/blog/180315_git_internal/1FA4B411-E64F-4438-B889-E4F7DE9C27E5.png"></p>
+<h2 id="万物皆对象"><a href="# 万物皆对象" class="headerlink" title="万物皆对象"></a>万物皆对象 </h2><p>git 中各种概念(e.g. branch&#x2F;commit..), 其实都是<strong> 对象(文件)</strong>. 每个对象拥有唯一标示: <code>SHA1</code>.<br>SHA1 一共有 40 位, 前两位作为文件夹, 一般使用前八位作为 shortcut (下图红色方框中).<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/AE2169D4-24D6-4E62-81C7-DD783DDDE3DC.png"><br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/15210820035986.jpg"></p>
 <h2 id="Git-Model"><a href="#Git-Model" class="headerlink" title="Git Model:"></a>Git Model:</h2><img style="max-height:300px" class="lazy" data-original="/images/blog/180315_git_internal/B7315A1E-8F50-4597-BCEC-5AAAAF5D8DE8.png">
 
 <p>不同的 branch 其实指向对应的 commit<br>然后每个 commit 都会指向它之前的 commit  </p>
 <hr>
 <p>一个具体的例子(现在可能一头雾水, 但完成本文第二部分的 Workshop 后, 肯定会豁然开朗):<br><img style="max-height:320px" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-1.png"></p>
 <h1 id="第二部分 -Workshop"><a href="# 第二部分 -Workshop" class="headerlink" title="第二部分: Workshop"></a>第二部分: Workshop</h1><p><strong>提示:</strong> 只有自己实践一遍才能真正领悟 git 的奥妙.<br><strong>小工具:</strong> 监测当前目录下的所有文件: <code>watch -n 1 -d find .</code><br>效果见下图:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/133173A3-26FB-4066-8229-D7FAFEF5B654.png"></p>
-<h2 id="第一个 commit"><a href="# 第一个 commit" class="headerlink" title="第一个 commit:"></a>第一个 commit:</h2><h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p><strong>操作:</strong> 新建文件 foo.txt, 并执行<code>git add foo.txt</code> → 自动生成了一个文件(.git/objects/9d/aeaf...)<br><img style="max-height:270px" class="lazy" data-original="/images/blog/180315_git_internal/9B1A1C47-EDCD-41EF-A759-4AC2336E2582.png"></p>
+<h2 id="第一个 commit"><a href="# 第一个 commit" class="headerlink" title="第一个 commit:"></a>第一个 commit:</h2><h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p><strong>操作:</strong> 新建文件 foo.txt, 并执行<code>git add foo.txt</code> → 自动生成了一个文件(.git&#x2F;objects&#x2F;9d&#x2F;aeaf...)<br><img style="max-height:270px" class="lazy" data-original="/images/blog/180315_git_internal/9B1A1C47-EDCD-41EF-A759-4AC2336E2582.png"></p>
 <p><strong>上图的文件 (9daeaf) 是什么呢?</strong><br><code>git cat-file -p 9daeaf</code> → 文件 foo.txt 的内容 <br><strong>blob 怎么知道是哪个 path?</strong><br> 文件名和 blob 的对应关系保存在 <code>.git/index</code>中.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/3ADA3565-0DC7-461A-B637-770264553DE6.png"></p>
 <h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p><strong>提交!</strong><br><strong>执行</strong> <code>git commit -m “foo commit #1”</code> →  自动新建了两个文件:<br><img style="max-height:220px" class="lazy" data-original="/images/blog/180315_git_internal/C32B30A0-304F-4C5F-BDB4-C8F1E4AF028B.png">    </p>
 <p><strong>两个文件分别对应两个对象:</strong></p>
 <ol>
-<li><p>commit(fb4495):<br>commit 文件中包含这几个内容: 指向的 tree(b54231)/author/committer/message.   </p>
+<li><p>commit(fb4495):<br>commit 文件中包含这几个内容: 指向的 tree(b54231)&#x2F;author&#x2F;committer&#x2F;message.   </p>
 <img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/600D84D1-5EB3-4085-9C17-AF368B14E2A9.png">
 </li>
 <li><p>tree(b54231)<br>指向的 blob(9daeaf)   </p>
-<img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/3492EBD4-1970-4D1A-8399-B5CA24F10BED.png">
-
-</li>
+<img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/3492EBD4-1970-4D1A-8399-B5CA24F10BED.png"></li>
 </ol>
 <p><strong>完整关系(point references):</strong><br>commit(红色) → tree(黄色) → blob(绿色)<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/6F27581D-D28A-4296-9C0D-7E5ECFEF12C9.png"></p>
 <p>对应这张图:<br><img class="lazy" data-original="/images/blog/180315_git_internal/B7315A1E-8F50-4597-BCEC-5AAAAF5D8DE8-1.png"></p>
@@ -295,15 +293,11 @@
 <li>commit 之后:<br>新建了一个 commit 对象 (8f1fd55) → tree(d905ab) → 三个 blob(两个已经存在的 blob 对象 + 刚刚 add 新增的 blob 对象(ce9db9))<br> 这个地方就是 git 的巧妙之处!!! 复用之前的文件, 所以永远不会保存重复的文件<br>“That&#39;s glorious.” 视频中的原句 XD   <img style="max-height:250px" class="lazy" data-original="/images/blog/180315_git_internal/ABEB63D2-D630-4D0F-AE0D-07A685311A03.png">   
 再举一个例子: 如果创建了一百个相同内容的文件, git add . 之后, 只会创建一个 blob 对象.    
 再对照着看下图(对 blob 的引用), 是不是有种豁然开朗的感觉呢?     
-<img class="lazy" style="max-height: 350px;" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-3.png">
-
-
-
-</li>
+<img class="lazy" style="max-height: 350px;" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-3.png"></li>
 </ol>
-<h2 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h2><p>git checkout -b foobranch → 创建了一个文件: ./.git/refs/heads/foobranch</p>
-<p>cat .git/refs/heads/foobranch → 8f1fd5... → git cat-file -p 8f1fd5 → 第三个 commit<br>所以 branch 就是一个指向 commit 的对象 AHA!<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/C83061B0-4743-4BDE-8938-61A73E65B5AF.png"><br><img style="max-height: 350px;" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-4.png"></p>
-<h2 id="TODO-merge-rebase"><a href="#TODO-merge-rebase" class="headerlink" title="TODO: merge/rebase"></a>TODO: merge/rebase</h2><h1 id="视频最后给出的扩展阅读资料"><a href="# 视频最后给出的扩展阅读资料" class="headerlink" title="视频最后给出的扩展阅读资料:"></a>视频最后给出的扩展阅读资料:</h1><img style="max-height:400px" class="lazy" data-original="/images/blog/180315_git_internal/DF36A37C-15FC-41DC-918E-334982A2635A.png">
+<h2 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h2><p>git checkout -b foobranch → 创建了一个文件: .&#x2F;.git&#x2F;refs&#x2F;heads&#x2F;foobranch</p>
+<p>cat .git&#x2F;refs&#x2F;heads&#x2F;foobranch → 8f1fd5... → git cat-file -p 8f1fd5 → 第三个 commit<br>所以 branch 就是一个指向 commit 的对象 AHA!<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180315_git_internal/C83061B0-4743-4BDE-8938-61A73E65B5AF.png"><br><img style="max-height: 350px;" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3-4.png"></p>
+<h2 id="TODO-merge-x2F-rebase"><a href="#TODO-merge-x2F-rebase" class="headerlink" title="TODO: merge&#x2F;rebase"></a>TODO: merge&#x2F;rebase</h2><h1 id="视频最后给出的扩展阅读资料"><a href="# 视频最后给出的扩展阅读资料" class="headerlink" title="视频最后给出的扩展阅读资料:"></a>视频最后给出的扩展阅读资料:</h1><img style="max-height:400px" class="lazy" data-original="/images/blog/180315_git_internal/DF36A37C-15FC-41DC-918E-334982A2635A.png">
 
 
 
@@ -445,7 +439,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一部分 - 基础概念和定义 - 重要"><span class="nav-text"> 第一部分: 基础概念和定义(重要!)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-git-workflow"><span class="nav-text">Basic git workflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#万物皆对象"><span class="nav-text">万物皆对象 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Model"><span class="nav-text">Git Model:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二部分 -Workshop"><span class="nav-text">第二部分: Workshop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一个 commit"><span class="nav-text">第一个 commit:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-add"><span class="nav-text">git add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-commit"><span class="nav-text">git commit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二个 commit"><span class="nav-text">第二个 commit:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三个 commit"><span class="nav-text">第三个 commit:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Branch"><span class="nav-text">Branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO-merge-rebase"><span class="nav-text">TODO: merge&#x2F;rebase</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视频最后给出的扩展阅读资料"><span class="nav-text">视频最后给出的扩展阅读资料:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一部分 - 基础概念和定义 - 重要"><span class="nav-text"> 第一部分: 基础概念和定义(重要!)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-git-workflow"><span class="nav-text">Basic git workflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#万物皆对象"><span class="nav-text">万物皆对象 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Model"><span class="nav-text">Git Model:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二部分 -Workshop"><span class="nav-text">第二部分: Workshop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一个 commit"><span class="nav-text">第一个 commit:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-add"><span class="nav-text">git add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-commit"><span class="nav-text">git commit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二个 commit"><span class="nav-text">第二个 commit:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三个 commit"><span class="nav-text">第三个 commit:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Branch"><span class="nav-text">Branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO-merge-x2F-rebase"><span class="nav-text">TODO: merge&#x2F;rebase</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视频最后给出的扩展阅读资料"><span class="nav-text">视频最后给出的扩展阅读资料:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

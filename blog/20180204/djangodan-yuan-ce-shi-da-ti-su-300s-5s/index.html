@@ -55,7 +55,7 @@
 <meta property="og:description" content="新的一年有新的开始, 决定使用TDD进行开发! 但第一个问题就是: 执行一次单元测试需要200多秒, 快速地测试执行俨然成为了当务之急!(正经脸🤭)用这篇博客记录一些django单元测试提速的实用小技巧:">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-02-04T11:59:42.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="django">
 <meta property="article:tag" content="unittest">
@@ -258,10 +258,8 @@
       
         <p>新的一年有新的开始, 决定使用 TDD 进行开发! <strong>但第一个问题就是: 执行一次单元测试需要 200 多秒 </strong>, 快速地测试执行俨然成为了当务之急!(正经脸🤭)<br> 用这篇博客记录一些 django 单元测试提速的实用小技巧:<br><img style="max-height:300px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test.gif"></p>
 <a id="more"></a>
-
-
 <h1 id="测试加速技巧🚀🚀🚀"><a href="# 测试加速技巧🚀🚀🚀" class="headerlink" title="测试加速技巧🚀🚀🚀:"></a>测试加速技巧🚀🚀🚀:</h1><h3 id="1- 不每次执行 migration-200s→30s"><a href="#1- 不每次执行 migration-200s→30s" class="headerlink" title="1. 不每次执行 migration(200s→30s)"></a>1. 不每次执行 migration(200s→30s)</h3><p>拖累单元测试的罪魁祸首是每次初始化数据库耗费的时间 (因为我们数据库中有四百多张表, 所以特别的慢)<br> 解决方法: pytest 的 <code>--reuse-db</code> 参数 (默认的测试也有<a href="https://docs.djangoproject.com/en/2.0/ref/django-admin/#cmdoption-test-keepdb"><code>--keepdb</code></a> 参数)    </p>
-<h3 id="2- 新建用户时密码加密的方式 -30s→5s"><a href="#2- 新建用户时密码加密的方式 -30s→5s" class="headerlink" title="2. 新建用户时密码加密的方式 (30s→5s)"></a>2. 新建用户时密码加密的方式(30s→5s)</h3><p> 这是我最为诧异的一个提升点, 在测试的设置中, 覆盖<code>PASSWORD_HASHERS</code> = [&#39;django.contrib.auth.hashers.MD5PasswordHasher&#39;,], 竟然将测试的效率提升了 6 倍左右.        # TODO: 研究一下两种加密方式的具体实现.  </p>
+<h3 id="2- 新建用户时密码加密的方式 -30s→5s"><a href="#2- 新建用户时密码加密的方式 -30s→5s" class="headerlink" title="2. 新建用户时密码加密的方式 (30s→5s)"></a>2. 新建用户时密码加密的方式(30s→5s)</h3><p> 这是我最为诧异的一个提升点, 在测试的设置中, 覆盖<code>PASSWORD_HASHERS</code> &#x3D; [&#39;django.contrib.auth.hashers.MD5PasswordHasher&#39;,], 竟然将测试的效率提升了 6 倍左右.        # TODO: 研究一下两种加密方式的具体实现.  </p>
 <h3 id="3- 并行运行 -5s→90s"><a href="#3- 并行运行 -5s→90s" class="headerlink" title="3. 并行运行 (5s→90s???)"></a>3. 并行运行(5s→90s???)</h3><p> 开启 pytest 的并行运行, 总执行时间竟然从 5s 变为了 90s... 是我打开方式不对吗???   </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest-xdist</span><br><span class="line">pytest tests&#x2F;api_v1&#x2F; --reuse-db -n 4</span><br></pre></td></tr></table></figure>
 

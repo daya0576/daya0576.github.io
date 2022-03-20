@@ -55,7 +55,7 @@
 <meta property="og:description" content="今天面试问到一个算法: 一个汽水是$1, 两个汽水的空瓶换一瓶可乐, 请问给一些钱, 最多能喝几瓶呢?当时思路有些乱, 算法没写清楚, 面试结束去个奶茶店, 重新写了一下.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-02-24T01:30:51.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.112Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -257,8 +257,6 @@
       
         <p>今天面试问到一个算法: 一个汽水是 $1, 两个汽水的 <strong> 空瓶 </strong> 换一瓶可乐, 请问给一些钱, 最多能喝几瓶呢?<br>当时思路有些乱, 算法没写清楚, 面试结束去个奶茶店, 重新写了一下.    </p>
 <a id="more"></a>
-
-
 <h3 id="英文的描述"><a href="# 英文的描述" class="headerlink" title="英文的描述:"></a>英文的描述:</h3><p>A bottle of Coke is $1. You can exchange two empty bottles for a bottle of Coke. You have $20 now in your pocket. So how many bottles of Coke can you drink at most?    </p>
 <h3 id="1- 模拟喝汽水的过程"><a href="#1- 模拟喝汽水的过程" class="headerlink" title="1. 模拟喝汽水的过程."></a>1. 模拟喝汽水的过程.</h3><p>当时写算法的时候, 面试官很看重的是可读性, 例如变量名的定义.<br>作为一个 Python 程序员, 我以后也在这方面也要更加注意.    </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal_drinks</span><span class="params">(n)</span>:</span></span><br><span class="line">    avail_drinks = n</span><br><span class="line">    sum_drunk = <span class="number">0</span></span><br><span class="line">    empty_drinks = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> avail_drinks &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># consume available drinks</span></span><br><span class="line">        sum_drunk += avail_drinks</span><br><span class="line">        empty_drinks += avail_drinks</span><br><span class="line"></span><br><span class="line">        <span class="comment"># replace empty bottles to drinks</span></span><br><span class="line">        avail_drinks = empty_drinks // <span class="number">2</span></span><br><span class="line">        empty_drinks = empty_drinks % <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum_drunk</span><br></pre></td></tr></table></figure>

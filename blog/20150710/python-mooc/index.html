@@ -55,7 +55,7 @@
 <meta property="og:description" content="最近看了慕课网上的一个课程，感觉还不错，做点笔记，以后忘了看看">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-07-10T08:15:41.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.343Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.112Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="study">
 <meta property="article:tag" content="python">
@@ -260,8 +260,6 @@
 <p>最近看了慕课网上的一个课程，<br>感觉还不错，做点笔记，以后忘了看看    </p>
 </blockquote>
 <a id="more"></a>
-
-
 <h3 id="字符串的一些处理："><a href="# 字符串的一些处理：" class="headerlink" title="字符串的一些处理："></a>字符串的一些处理：</h3><p><strong>将字符串中的大小写转换：</strong>   </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">strlwr(sStr1)</span><br><span class="line">sStr1 = sStr1.upper()</span><br><span class="line">sStr1 = sStr1.lower()</span><br><span class="line"><span class="keyword">print</span> <span class="string">'JUST TO TEST IT'</span>.capitalize()</span><br></pre></td></tr></table></figure>
 
@@ -278,7 +276,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：[<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">12</span>]</span><br><span class="line">输出：<span class="number">2</span>*<span class="number">4</span>*<span class="number">5</span>*<span class="number">7</span>*<span class="number">12</span>的结果</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prod</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*y</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> reduce(prod, [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">12</span>])</span><br></pre></td></tr></table></figure>
 
 
-<p>*<em>filter()函数: *</em><br>请利用 filter()过滤出 1~100 中平方根是整数的数，即结果应该是：<br>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
+<p>**filter()函数: **<br>请利用 filter()过滤出 1~100 中平方根是整数的数，即结果应该是：<br>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_sqr</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> math.sqrt(x)%<span class="number">1</span> == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> filter(is_sqr, range(<span class="number">1</span>, <span class="number">101</span>))</span><br></pre></td></tr></table></figure>
 
 

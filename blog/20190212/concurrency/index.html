@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2019-02-12T03:06:26.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -261,10 +261,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>日常 Python 编程若遇到性能瓶颈, 大部分还是由于 <a href="https://en.wikipedia.org/wiki/I/O_bound">I/O 密集型</a> 的操作导致, 例如调用外部接口请求数据超时, 造成整个处理流程的阻塞. 一般会采用多线程来解决这类问题, 但不知道就为什么陷入了多进程, 多线程, 协程的迷惑之中. 用这篇文章记录自己零零星星的学习和思考.</p>
+        <p>日常 Python 编程若遇到性能瓶颈, 大部分还是由于 <a href="https://en.wikipedia.org/wiki/I/O_bound">I&#x2F;O 密集型</a> 的操作导致, 例如调用外部接口请求数据超时, 造成整个处理流程的阻塞. 一般会采用多线程来解决这类问题, 但不知道就为什么陷入了多进程, 多线程, 协程的迷惑之中. 用这篇文章记录自己零零星星的学习和思考.</p>
 <a id="more"></a>
 
-<p><strong>Threading, Multiprocessing &amp; Coroutine 直接的关联关系?</strong><br>看完这篇文章后, 再看下面这张图, 真的会有恍然大悟的感觉:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190212_concurrency/15499416082221.jpg" alt=""></p>
+<p><strong>Threading, Multiprocessing &amp; Coroutine 直接的关联关系?</strong><br>看完这篇文章后, 再看下面这张图, 真的会有恍然大悟的感觉:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190212_concurrency/15499416082221.jpg"></p>
 <h1 id="多线程"><a href="# 多线程" class="headerlink" title="多线程"></a>多线程 </h1><p> 在 Linux 中，线程是由进程来实现，线程就是共享内存的轻量级进程.</p>
 <p><strong>调度的策略?</strong></p>
 <ol>
@@ -277,7 +277,7 @@
 
 <h1 id="协程 -Coroutine"><a href="# 协程 -Coroutine" class="headerlink" title="协程 Coroutine"></a>协程 Coroutine</h1><ol>
 <li><strong>从名字上看:</strong> <code>co</code> 其实就是相互协作的意思, <strong>async IO is a single-threaded, single-process design: cooperative multitasking</strong>, 精髓就是在一个进程一个线程内的协作.</li>
-<li><strong>和多线程对比:</strong> 多线程是在操作系统去调度, 控制执行的顺序. 协程更多的是从代码层面 announcing when they are ready to be switched out. 可以参考下面这张图, 很清晰:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190212_concurrency/15499750511455.jpg" alt=""></li>
+<li><strong>和多线程对比:</strong> 多线程是在操作系统去调度, 控制执行的顺序. 协程更多的是从代码层面 announcing when they are ready to be switched out. 可以参考下面这张图, 很清晰:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190212_concurrency/15499750511455.jpg"></li>
 </ol>
 <p><strong>实现原理:</strong><br>event loop, controls how and when each task gets run. 假设只有两种状态: Ready &amp; Waiting. 把两种状态的 event 放到对应的 list, 不断维护并消费, 直到~~</p>
 <p><strong>调度策略:</strong><br>优先执行等的最久的 event. 所以是个 queue?</p>

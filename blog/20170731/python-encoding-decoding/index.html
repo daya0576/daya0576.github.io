@@ -47,15 +47,15 @@
   };
 </script>
 
-  <meta name="description" content="近日常常python的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把Python3中的编码搞清, 用这篇文章分享记录一下(包括utf-8的原理).">
+  <meta name="description" content="近日常常python的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把Python3中的编码搞清, 用这篇文章分享记录一下**(包括utf-8的原理)**.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 的编码问题笔记 (搞清原理, 一劳永逸)">
 <meta property="og:url" content="https://changchen.me/blog/20170731/python-encoding-decoding/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="近日常常python的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把Python3中的编码搞清, 用这篇文章分享记录一下(包括utf-8的原理).">
+<meta property="og:description" content="近日常常python的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把Python3中的编码搞清, 用这篇文章分享记录一下**(包括utf-8的原理)**.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-07-31T12:59:46.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python3">
 <meta property="article:tag" content="unicode">
@@ -257,7 +257,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>近日常常 python 的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把 Python3 中的编码搞清, 用这篇文章分享记录一下<strong>(包括 utf-8 的原理)</strong>.<br><img class="lazy" style="max-height:200px" data-original="/images/blog/170801_encoding/h.png">    </p>
+        <p>近日常常 python 的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把 Python3 中的编码搞清, 用这篇文章分享记录一下 **(包括 utf-8 的原理)**.<br><img class="lazy" style="max-height:200px" data-original="/images/blog/170801_encoding/h.png">    </p>
 <a id="more"></a>
 
 
@@ -265,15 +265,15 @@
 <h1 id="提示"><a href="# 提示" class="headerlink" title="提示:"></a>提示:</h1><p>下文中都是以 <strong>python3</strong> 为栗子🌰.<br>因为 python3 慢慢变成主流, 而且用 python2 的话我一般会写成兼容的模式:<br><code>&gt;&gt;&gt; from __future__ import print_function, unicode_literals</code></p>
 <h1 id="编码在 python2 和 3 中的区别 - 可跳过 - 最后回过头来看"><a href="# 编码在 python2 和 3 中的区别 - 可跳过 - 最后回过头来看" class="headerlink" title="编码在 python2 和 3 中的区别 (可跳过, 最后回过头来看):"></a> 编码在 python2 和 3 中的区别 (<em> 可跳过, 最后回过头来看 </em>):</h1><p> 摘自 <em>Effective Python</em> 那本书:   </p>
 <blockquote>
-<p>*<em>In Python3: *</em>    </p>
+<p>**In Python3: **    </p>
 <ol>
 <li><strong>bytes</strong>: sequences of 8-bit values.   </li>
-<li><strong>str</strong>: sequences of Unicode characters.<br>bytes and str instances can&#39;t be used with operators(like &gt; or +)    </li>
+<li><strong>str</strong>: sequences of Unicode characters.<br>bytes and str instances can&#39;t be used with operators(like &gt; or +)</li>
 </ol>
 <p><strong>In Python 2:</strong>    </p>
 <ol>
 <li><strong>str</strong>: contains sequences of 8-bit values.   </li>
-<li><strong>unicode</strong>: contains sequences of Unicode characters.<br>str and unicode can be used together with operators if the str only contains 7-bit ASCII characters.   </li>
+<li><strong>unicode</strong>: contains sequences of Unicode characters.<br>str and unicode can be used together with operators if the str only contains 7-bit ASCII characters.</li>
 </ol>
 </blockquote>
 <p>但说实话在今天前, 我对上边那段话的理解还是停留在 python3 有两种类型 (str 和 bytes) 的地步😓.    </p>
@@ -285,13 +285,13 @@
 <h1 id="2-Python3-bytes 类型 - 字节"><a href="#2-Python3-bytes 类型 - 字节" class="headerlink" title="2. Python3 bytes 类型(字节)"></a>2. Python3 bytes 类型(字节)</h1><p>bytes 和 str 一样都是内置的类型:  </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">7</span>]: s = <span class="string">b'haha'</span></span><br><span class="line">In [<span class="number">8</span>]: type(s)</span><br><span class="line">Out[<span class="number">8</span>]: bytes</span><br></pre></td></tr></table></figure>
 <p>个人理解, 它代表的就是以字节 (byte) 为单位存储的二进制, i.e. 一坨的 bytes   </p>
-<h1 id="3-Encoding-decoding"><a href="#3-Encoding-decoding" class="headerlink" title="3. Encoding/decoding:"></a>3. Encoding/decoding:</h1><p>搞清楚 python 中的 str 和 bytes 类型, 这个问题就迎刃而解了.   </p>
+<h1 id="3-Encoding-x2F-decoding"><a href="#3-Encoding-x2F-decoding" class="headerlink" title="3. Encoding&#x2F;decoding:"></a>3. Encoding&#x2F;decoding:</h1><p>搞清楚 python 中的 str 和 bytes 类型, 这个问题就迎刃而解了.   </p>
 <ol>
-<li><strong>Encoding:</strong>   </li>
+<li><strong>Encoding:</strong></li>
 </ol>
 <p><strong>str → bytes</strong><br>因为 str 只是一堆 unicode 字符 (数字).<br> 所以简单的说, encoding 就是把一堆数字, 按特定的编码算法 X(例如 utf-8), 用字节的方式存储在计算机上.   </p>
 <ol start="2">
-<li><strong>Decoding:</strong>   </li>
+<li><strong>Decoding:</strong></li>
 </ol>
 <p><strong>bytes → str</strong><br>举个栗子🌰:   </p>
 <div style='margin-left: 20px'>
@@ -473,7 +473,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#提示"><span class="nav-text">提示:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编码在 python2 和 3 中的区别 - 可跳过 - 最后回过头来看"><span class="nav-text"> 编码在 python2 和 3 中的区别 ( 可跳过, 最后回过头来看 ):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Python3-str 类型 -unicode"><span class="nav-text">1. Python3 str 类型(unicode)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Python3-bytes 类型 - 字节"><span class="nav-text">2. Python3 bytes 类型(字节)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Encoding-decoding"><span class="nav-text">3. Encoding&#x2F;decoding:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-UTF-8 编码 -encoding"><span class="nav-text">4. UTF-8 编码(encoding)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference:</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#提示"><span class="nav-text">提示:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编码在 python2 和 3 中的区别 - 可跳过 - 最后回过头来看"><span class="nav-text"> 编码在 python2 和 3 中的区别 ( 可跳过, 最后回过头来看 ):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Python3-str 类型 -unicode"><span class="nav-text">1. Python3 str 类型(unicode)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Python3-bytes 类型 - 字节"><span class="nav-text">2. Python3 bytes 类型(字节)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Encoding-x2F-decoding"><span class="nav-text">3. Encoding&#x2F;decoding:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-UTF-8 编码 -encoding"><span class="nav-text">4. UTF-8 编码(encoding)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-text">Reference:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

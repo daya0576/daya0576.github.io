@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO">
+  <meta name="description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【SRE】重读 Google SLO 小记 | 智能告警之殇">
 <meta property="og:url" content="https://changchen.me/blog/20220226/sre-slo/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO">
+<meta property="og:description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-02-26T14:34:59.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.355Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.124Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -266,30 +266,30 @@
 
       
         <blockquote>
-<p>the basic foundations of SRE include <strong>SLOs, monitoring, alerting</strong>, toil reduction, and simplicity.</p>
+<p>the basic foundations of SRE include <strong>SLOs, monitoring, alerting</strong>, toil reduction, and simplicity.</p>
 </blockquote>
 <p>最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化<a href="https://sre.google/workbook/table-of-contents/">《Google&#39;s Site Reliability Workbook》</a>，期望激发一些新的灵感～</p>
 <a id="more"></a>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16459388413486.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16459388413486.jpg"></p>
 <h2 id="TOC"><a href="#TOC" class="headerlink" title="TOC"></a>TOC</h2><ul>
-<li><a href="# 一、为什么我们需要定义 slo？">一、为什么我们需要定义 SLO？</a></li>
-<li><a href="# 二、如何定义 slis？">二、如何定义 SLIs？</a></li>
-<li><a href="# 三、如何实现 slis？">三、如何实现 SLIs？</a><ul>
-<li><a href="#1-http 状态码">1. HTTP 状态码</a></li>
-<li><a href="#2 黑盒测试">2. 黑盒测试</a></li>
-<li><a href="#3-slis 的几种高级玩法：">3. SLIs 的几种高级玩法：</a></li>
-<li><a href="#4 监控的监控：">4. 监控的监控：</a></li>
+<li><a href="#%E4%B8%80%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E5%AE%9A%E4%B9%89slo%EF%BC%9F">一、为什么我们需要定义 SLO？</a></li>
+<li><a href="#%E4%BA%8C%E3%80%81%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89slis%EF%BC%9F">二、如何定义 SLIs？</a></li>
+<li><a href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0slis%EF%BC%9F">三、如何实现 SLIs？</a><ul>
+<li><a href="#1-http%E7%8A%B6%E6%80%81%E7%A0%81">1. HTTP 状态码</a></li>
+<li><a href="#2%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95">2. 黑盒测试</a></li>
+<li><a href="#3-slis%E7%9A%84%E5%87%A0%E7%A7%8D%E9%AB%98%E7%BA%A7%E7%8E%A9%E6%B3%95%EF%BC%9A">3. SLIs 的几种高级玩法：</a></li>
+<li><a href="#4%E7%9B%91%E6%8E%A7%E7%9A%84%E7%9B%91%E6%8E%A7%EF%BC%9A">4. 监控的监控：</a></li>
 </ul>
 </li>
-<li><a href="# 四、如何基于 slo 报警？">四、如何基于 SLO 报警？</a><ul>
-<li><a href="#1 告警事件度量指标">1. 告警事件度量指标</a></li>
-<li><a href="#2 告警配置最佳实践">2. 告警配置最佳实践</a><ul>
-<li><a href="#1）目标错误率≥slo 阈值">1）目标错误率≥SLO 阈值</a></li>
-<li><a href="#2）警报窗口增加">2）警报窗口增加</a></li>
-<li><a href="#3）递增警报持续时间">3）递增警报持续时间</a></li>
-<li><a href="#4）消耗速率警报 -burning-rate">4）消耗速率警报 - burning rate</a></li>
-<li><a href="#5）多个消耗速率警报：">5）多个消耗速率警报：</a></li>
-<li><a href="#6）多窗口，多消耗率警报">6）多窗口，多消耗率警报</a></li>
+<li><a href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Eslo%E6%8A%A5%E8%AD%A6%EF%BC%9F">四、如何基于 SLO 报警？</a><ul>
+<li><a href="#1%E5%91%8A%E8%AD%A6%E4%BA%8B%E4%BB%B6%E5%BA%A6%E9%87%8F%E6%8C%87%E6%A0%87">1. 告警事件度量指标</a></li>
+<li><a href="#2%E5%91%8A%E8%AD%A6%E9%85%8D%E7%BD%AE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">2. 告警配置最佳实践</a><ul>
+<li><a href="#1%EF%BC%89%E7%9B%AE%E6%A0%87%E9%94%99%E8%AF%AF%E7%8E%87%E2%89%A5slo%E9%98%88%E5%80%BC">1）目标错误率≥SLO 阈值</a></li>
+<li><a href="#2%EF%BC%89%E8%AD%A6%E6%8A%A5%E7%AA%97%E5%8F%A3%E5%A2%9E%E5%8A%A0">2）警报窗口增加</a></li>
+<li><a href="#3%EF%BC%89%E9%80%92%E5%A2%9E%E8%AD%A6%E6%8A%A5%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4">3）递增警报持续时间</a></li>
+<li><a href="#4%EF%BC%89%E6%B6%88%E8%80%97%E9%80%9F%E7%8E%87%E8%AD%A6%E6%8A%A5-burning-rate">4）消耗速率警报 - burning rate</a></li>
+<li><a href="#5%EF%BC%89%E5%A4%9A%E4%B8%AA%E6%B6%88%E8%80%97%E9%80%9F%E7%8E%87%E8%AD%A6%E6%8A%A5%EF%BC%9A">5）多个消耗速率警报：</a></li>
+<li><a href="#6%EF%BC%89%E5%A4%9A%E7%AA%97%E5%8F%A3%EF%BC%8C%E5%A4%9A%E6%B6%88%E8%80%97%E7%8E%87%E8%AD%A6%E6%8A%A5">6）多窗口，多消耗率警报</a></li>
 </ul>
 </li>
 </ul>
@@ -305,29 +305,35 @@
 </blockquote>
 <p>首先将线上系统 <strong> 抽象分类 </strong> 后，分别设置 SLIs：</p>
 <ol>
-<li>用户 / 商户同步请求<ul>
-<li>成功率 / 延迟</li>
+<li>用户 &#x2F; 商户同步请求</li>
+</ol>
+<ul>
+<li>成功率 &#x2F; 延迟</li>
 <li>Quality：例如业务降级后，HTTP 接口正常响应 200，但业务返回“请稍后重试”，也应该被识别为异常（影响用户体验）。</li>
 </ul>
-</li>
-<li>内部定时 / 异步任务<ul>
+<ol start="2">
+<li>内部定时 &#x2F; 异步任务</li>
+</ol>
+<ul>
 <li>Freshness：数据实时性</li>
 <li>Correctness：数据正确性</li>
 <li>Coverage</li>
 </ul>
-</li>
-<li>存储系统<ul>
+<ol start="3">
+<li>存储系统</li>
+</ol>
+<ul>
 <li>Durability：数据记录可成功读取的比例。</li>
 </ul>
-</li>
+<ol start="4">
 <li>...</li>
 </ol>
 <h2 id="三、如何实现 -SLIs？"><a href="# 三、如何实现 -SLIs？" class="headerlink" title="三、如何实现 SLIs？"></a>三、如何实现 SLIs？</h2><h3 id="1-HTTP- 状态码"><a href="#1-HTTP- 状态码" class="headerlink" title="1. HTTP 状态码"></a>1. HTTP 状态码</h3><blockquote>
 <p>we base the response success on the HTTP status code. 5XX responses count against SLO, while all other requests are considered successful.</p>
 </blockquote>
-<p>文中简单以 http 接口的 5xx 判断请求是否成功。<br><img src="/images/loading/loading.svg" data-original="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fpython_notes_daya%2F9p5gDFiX-R.png?alt=media&token=387b8376-8d9e-454e-93c4-1e4c2569ccfb" alt=""></p>
-<p>公司内部通常以 <strong> 业务错误码作为外部请求成功 / 失败判断标准</strong>，e.g. <code>PROCESS_FAIL</code>， <code>UNKNOWN_EXCEPTION</code>。</p>
-<p>它们又被称为“<strong>灰色错误码 </strong>”... 也就是说当返回给用户<code>PROCESS_FAIL</code> 处理失败时，有可能是内部代码 npe 导致，也可能是用户余额不足，无法代表系统是否真实可用。同时受上游 / 下游外部影响，极大的影响告警准确率。</p>
+<p>文中简单以 http 接口的 5xx 判断请求是否成功。<br><img src="/images/loading/loading.svg" data-original="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fpython_notes_daya%2F9p5gDFiX-R.png?alt=media&token=387b8376-8d9e-454e-93c4-1e4c2569ccfb"></p>
+<p>公司内部通常以 <strong> 业务错误码作为外部请求成功 &#x2F; 失败判断标准</strong>，e.g. <code>PROCESS_FAIL</code>， <code>UNKNOWN_EXCEPTION</code>。</p>
+<p>它们又被称为“<strong>灰色错误码 </strong>”... 也就是说当返回给用户<code>PROCESS_FAIL</code> 处理失败时，有可能是内部代码 npe 导致，也可能是用户余额不足，无法代表系统是否真实可用。同时受上游 &#x2F; 下游外部影响，极大的影响告警准确率。</p>
 <ul>
 <li>一种思路为修改错误码模型，带上可用性属性（am I f**ked up？），但此类“规范”如果没有与监控系统原生打通，随着时间推移很容易“腐化”。</li>
 <li>另一种思路为根因错误码识别，同样监控入口错误码，但将根因错误码塞入请求上下文，透传至入口综合判断业务是否可用（剔除用户余额不足等噪音场景）。但根因错误码识别（强弱依赖）又是一个新的课题。</li>
@@ -368,27 +374,27 @@
 <h4 id="1）目标错误率≥SLO 阈值"><a href="#1）目标错误率≥SLO 阈值" class="headerlink" title="1）目标错误率≥SLO 阈值"></a>1）目标错误率≥SLO 阈值 </h4><p><mark> 只要最近十分钟 slo 消耗破线就进行预警</mark>：<code>ratio_rate10m{job=&quot;myjob&quot;} &gt;= 0.001</code></p>
 <ul>
 <li>好处：非常灵敏保证召回率</li>
-<li>缺点：准确率低，最坏情况下一天最多收到 144 个告警，但整体 SLO 符合预期。 </li>
+<li>缺点：准确率低，最坏情况下一天最多收到 144 个告警，但整体 SLO 符合预期。</li>
 </ul>
 <h4 id="2）警报窗口增加"><a href="#2）警报窗口增加" class="headerlink" title="2）警报窗口增加"></a>2）警报窗口增加 </h4><p><mark> 十分钟 -&gt; 36 小时，SLO 破线才告警</mark>：<code>ratio_rate36h{job=&quot;myjob&quot;} &gt; 0.001</code></p>
 <ul>
 <li>优点：极大提高了准确率</li>
 <li>缺点：计算窗口过大.. 一是浪费计算存储资源，二是上文提到的第四个指标（Reset time）非常不理想。例如下图第 10 分钟时，服务 100% 不可用 5 分钟（蓝线），但报警会持续超过阈值 36 小时（绿线）</li>
 </ul>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458790779987.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458790779987.jpg"></p>
 <h4 id="3）递增警报持续时间"><a href="#3）递增警报持续时间" class="headerlink" title="3）递增警报持续时间"></a>3）递增警报持续时间 </h4><p><mark> 连续 N 分钟大于某个阈值（any -&gt; all）</mark>：<code>ratio_rate1m{job=&quot;myjob&quot;} &gt; 0.001 for: 1h</code></p>
 <ul>
 <li>优点：准确率更高</li>
 <li>缺点：召回率上存在一定缺陷（定时循环消耗 slo 但很快恢复），例如下图持续每五分钟产生一波 100% 不可用，但永远不会告警。</li>
 </ul>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458795516070.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458795516070.jpg"></p>
 <h4 id="4）消耗速率警报 -burning-rate"><a href="#4）消耗速率警报 -burning-rate" class="headerlink" title="4）消耗速率警报 - burning rate"></a>4）消耗速率警报 - burning rate</h4><p>为了避免上几个方案，手动设置检测窗口的窘境，引入 burn rate 燃烧速率的概念。</p>
 <p>例如下图，假设 SLO 为 99.9%（统计窗口为一个月 30 天）：</p>
 <ul>
 <li>如果燃烧速率为 1，则正好一个月消耗完 error budget</li>
-<li>如果燃烧速率为 10（橙色），3 天（30 / 10）就会消耗完</li>
+<li>如果燃烧速率为 10（橙色），3 天（30 &#x2F; 10）就会消耗完</li>
 </ul>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458797569689.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458797569689.jpg"></p>
 <p>新的告警规则：<mark>一小时内花费 30 天错误预算的 5％</mark>：<code>job:slo_errors_per_request:ratio_rate1h{job=&quot;myjob&quot;} &gt; 36 * 0.001</code> </p>
 <p>规则中 36 系数是如何的得出的呢？</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 当 Burning Rate 为 1 时</span><br><span class="line">0.1%        = 30x24h x  Burning Rate 1  x  Burning Speed</span><br><span class="line">// 一小时内花费 30 天错误预算的 5％</span><br><span class="line">0.1% * 5%   = 1h     x  Burning Rate B  x  Burning Speed</span><br><span class="line"></span><br><span class="line">// 计算：</span><br><span class="line">Burning Rate B = 30 x 24 x 5% = 36</span><br></pre></td></tr></table></figure>
@@ -420,8 +426,8 @@
 <p><mark>5min &amp; 60m 的窗口同时破线，才触发预警</mark>：“多个消耗速率警报”的升级版，「短窗口」通过 burning rate 保证 precision&amp;recall，「长窗口」进一步保证 recall 的同时，帮助判断故障是否恢复，完美解决 reset time 的问题。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ratio_rate1h&#123;job="myjob"&#125; &gt; (14.4*0.001)</span><br><span class="line">and</span><br><span class="line">ratio_rate5m&#123;job="myjob"&#125; &gt; (14.4*0.001)</span><br></pre></td></tr></table></figure>
 
-<p>例如下图仅红色区域触发预警事件：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458821188562.jpg" alt=""></p>
-<p>P.S. 困惑与成功率的区别？？？e.g. 最近五分钟平均成功率 &lt;90% &amp;&amp;  最近 1h 平均成功率 &lt; 99%<br>理论上等同，但 burn rate 优势在于仅用一个阈值：36，而成功率还要重新换算，个人理解。 </p>
+<p>例如下图仅红色区域触发预警事件：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458821188562.jpg"></p>
+<p>P.S. 困惑与成功率的区别？？？e.g. 最近五分钟平均成功率 &lt;90% &amp;&amp;  最近 1h 平均成功率 &lt; 99%<br>理论上等同，但 burn rate 优势在于仅用一个阈值：36，而成功率还要重新换算，个人理解。 </p>
 <hr>
 <p>P.S. 关于小流量的问题，文中提到几种解决思路：</p>
 <ul>
@@ -501,8 +507,8 @@
       <i class="fa fa-chevron-left"></i> 【智能家居】精装全屋智能灯改造小记
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20220320/home-assistant-issues/" rel="next" title="【智能家居】如丝般顺滑的家庭网络拓扑">
-      【智能家居】如丝般顺滑的家庭网络拓扑 <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20220320/home-assistant-issues/" rel="next" title="【智能家居】我的家庭网络拓扑">
+      【智能家居】我的家庭网络拓扑 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

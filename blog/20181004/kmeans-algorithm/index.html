@@ -62,7 +62,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-10-04T09:00:35.000Z">
-<meta property="article:modified_time" content="2022-03-20T09:26:39.347Z">
+<meta property="article:modified_time" content="2022-03-20T15:35:09.116Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="machine learning">
@@ -268,14 +268,14 @@
 <p>突然间一些回忆就猛的涌上心头: 本科跟着老师做的算法研究, 最后毕业论文的名字叫做《基于虚拟机放置策略的数据中心网络节能算法研究》, 其实和刚刚提到的资源分配非常类似. 当时在论文摘要中提到了 K-means 算法, 可惜并没有深入去了解原理. 惭愧, 趁这个机会好好学习下, 算法并不复杂, 更多的是作为一次记录与反省.     </p>
 <a id="more"></a>  
 
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386453519338.jpg" alt=""></p>
-<h1 id="supervised-learning- 与 -Unsupervised-learning 的区别"><a href="#supervised-learning- 与 -Unsupervised-learning 的区别" class="headerlink" title="supervised learning 与 Unsupervised learning 的区别"></a>supervised learning 与 Unsupervised learning 的区别 </h1><p> 个人理解 一是知道了一堆人中男人和女人, 找个方法把他们分开, 然后新来一个人也能根据这个方法来判断他的性别. 二是把一堆人自动分为两类.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386471103036.png" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386453519338.jpg"></p>
+<h1 id="supervised-learning- 与 -Unsupervised-learning 的区别"><a href="#supervised-learning- 与 -Unsupervised-learning 的区别" class="headerlink" title="supervised learning 与 Unsupervised learning 的区别"></a>supervised learning 与 Unsupervised learning 的区别 </h1><p> 个人理解 一是知道了一堆人中男人和女人, 找个方法把他们分开, 然后新来一个人也能根据这个方法来判断他的性别. 二是把一堆人自动分为两类.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386471103036.png"></p>
 <h1 id="K-means- 聚类算法的解释"><a href="#K-means- 聚类算法的解释" class="headerlink" title="K-means 聚类算法的解释"></a>K-means 聚类算法的解释</h1><p>K-means 聚类算法属于 Unsupervised learning 的一种, 下文会分四个步骤详细解释一下.</p>
-<h2 id="第一步 -randomly-initialize-two-points"><a href="# 第一步 -randomly-initialize-two-points" class="headerlink" title="第一步: randomly initialize two points"></a>第一步: randomly initialize two points</h2><p>随机选择两个点. 如果想把图中没有标记的点分为 K 类, 就随机选择 K 个点.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386440767307.jpg" alt=""></p>
-<p><strong>优化:</strong> 如下图随机选取三个点, 但如果初始化不好的话, 很可能两个点会一直在一个 cluster 中, i.e. 另外两个 cluster 被合在一起了.<br><strong>解决办法:</strong> 也是挺暴力的, 执行随机放置初始化的点 (也就是步骤一) 一百次, 挑最好的那次来避免这种情况(randomly initialize for 100 times, and pick one for the lowest cost).<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386462428310.jpg" alt=""></p>
-<h2 id="第二步 -cluster-assignment"><a href="# 第二步 -cluster-assignment" class="headerlink" title="第二步: cluster assignment"></a>第二步: cluster assignment</h2><p>将图中的所有点, 根据与初始化点的距离, 分为两组.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386440868835.jpg" alt=""></p>
-<h2 id="第三步 -move-two-points-to-the-new-means-e-g-average-of-the-all-the-blue-points"><a href="# 第三步 -move-two-points-to-the-new-means-e-g-average-of-the-all-the-blue-points" class="headerlink" title="第三步: move two points to the new means(e.g. average of the all the blue points)"></a>第三步: move two points to the new means(e.g. average of the all the blue points)</h2><p>根据第二步得出的两组点, 重现计算新两个的中心(见下图箭头所指的点所示).<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386441156541.jpg" alt=""></p>
-<h2 id="第四步 -until-the-two-point-not-moving-any-further"><a href="# 第四步 -until-the-two-point-not-moving-any-further" class="headerlink" title="第四步: until the two point not moving any further."></a>第四步: until the two point not moving any further.</h2><p>一直重复前三步的操作, 直到新的中心不再变化为止.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386441343119.jpg" alt=""></p>
+<h2 id="第一步 -randomly-initialize-two-points"><a href="# 第一步 -randomly-initialize-two-points" class="headerlink" title="第一步: randomly initialize two points"></a>第一步: randomly initialize two points</h2><p>随机选择两个点. 如果想把图中没有标记的点分为 K 类, 就随机选择 K 个点.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386440767307.jpg"></p>
+<p><strong>优化:</strong> 如下图随机选取三个点, 但如果初始化不好的话, 很可能两个点会一直在一个 cluster 中, i.e. 另外两个 cluster 被合在一起了.<br><strong>解决办法:</strong> 也是挺暴力的, 执行随机放置初始化的点 (也就是步骤一) 一百次, 挑最好的那次来避免这种情况(randomly initialize for 100 times, and pick one for the lowest cost).<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386462428310.jpg"></p>
+<h2 id="第二步 -cluster-assignment"><a href="# 第二步 -cluster-assignment" class="headerlink" title="第二步: cluster assignment"></a>第二步: cluster assignment</h2><p>将图中的所有点, 根据与初始化点的距离, 分为两组.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386440868835.jpg"></p>
+<h2 id="第三步 -move-two-points-to-the-new-means-e-g-average-of-the-all-the-blue-points"><a href="# 第三步 -move-two-points-to-the-new-means-e-g-average-of-the-all-the-blue-points" class="headerlink" title="第三步: move two points to the new means(e.g. average of the all the blue points)"></a>第三步: move two points to the new means(e.g. average of the all the blue points)</h2><p>根据第二步得出的两组点, 重现计算新两个的中心(见下图箭头所指的点所示).<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386441156541.jpg"></p>
+<h2 id="第四步 -until-the-two-point-not-moving-any-further"><a href="# 第四步 -until-the-two-point-not-moving-any-further" class="headerlink" title="第四步: until the two point not moving any further."></a>第四步: until the two point not moving any further.</h2><p>一直重复前三步的操作, 直到新的中心不再变化为止.<br><img src="/images/loading/loading.svg" data-original="/images/blog/181004_kmeans_algorithm/15386441343119.jpg"></p>
 <h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 有不懂的地方尽管给我留言哦, 笔芯.</p>
 <p>--EOF--</p>
 
