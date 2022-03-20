@@ -8,7 +8,7 @@ tags:
 <!--more-->
 
 # Tip1: Fix all
-作为一名 copy/paste 手工劳动者，复制代码后
+作为一名经验丰富的 copy/paste 手工劳动者，复制代码后
 
 ![](/images/blog/2021-09-04-jvm-note/16471630809745.jpg)
 

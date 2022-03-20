@@ -1,13 +1,12 @@
 ---
-title: 重读 Google SLO 小记 | 智能监控之殇
+title: 【SRE】重读 Google SLO 小记 | 智能告警之殇
 date: 2022-02-26 22:34:59
 tags:
 ---
 
-
 > the basic foundations of SRE include **SLOs, monitoring, alerting**, toil reduction, and simplicity.
 
-制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石，过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化[《Google's Site Reliability Workbook》](https://sre.google/workbook/table-of-contents/)，期望激发一些新的灵感～
+最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化[《Google's Site Reliability Workbook》](https://sre.google/workbook/table-of-contents/)，期望激发一些新的灵感～
 
 <!--more-->
 ![](/images/blog/2021-09-04-jvm-note/16459388413486.jpg)
