@@ -19,9 +19,13 @@ jobs:
         with:
           node-version: 10.x
 
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}
+
       - name: Installation
         run: |
-          echo "${{ secrets.GITHUB_ACTION_PRIVATE_KEY }}" > $HOME/.ssh/deploy_key
           npm install
           npm install -g hexo-cli
 
