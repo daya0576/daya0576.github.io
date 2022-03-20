@@ -15,7 +15,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 
 价格: macOS: $15.00   
 亮点: menu bar图标太多放不下的时候, 可以把不常用的隐藏起来(见下图), 赞!   
-![](/images/blog/180507_macos_app/2018-04-18%2021_09_31.gif)
+![](../images/blog/180507_macos_app/2018-04-18%2021_09_31.gif)
 
 <!--more-->
 
@@ -31,7 +31,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 3. 切换全屏的app(workspace)的时候, 去除动画!!!!!   
 <img style="max-height:200px" class="lazy" data-original="/images/blog/180507_macos_app/3FF48154-0C3B-428C-A085-A553CE3F9F76.png">
 
-![workspace](/images/blog/180507_macos_app/workspace.gif)
+![workspace](../images/blog/180507_macos_app/workspace.gif)
 
 # Copied:   
 主页: https://copiedapp.com/   
@@ -43,7 +43,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 主页: https://en.toolinbox.net/iPaste/
 
 亮点: 软件虽小, 但很方便的粘贴剪切版的历史内容, 唯一的不足就是花钱买了app, 竟然还有内购.   
-![](/images/blog/180507_macos_app/F0203FBA-8FCA-428E-A141-1319774F227D.png)
+![](../images/blog/180507_macos_app/F0203FBA-8FCA-428E-A141-1319774F227D.png)
 
 # iStat Menus 6:   
 主页: https://bjango.com/mac/istatmenus/   
@@ -51,7 +51,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 价格: macOS: $14.99   
 亮点:    
 - 好看!    
-![](/images/blog/180507_macos_app/A45BC650-FF78-4940-A1EC-B89A72D5EADD.png)
+![](../images/blog/180507_macos_app/A45BC650-FF78-4940-A1EC-B89A72D5EADD.png)
 - 可以高度自定义
 - 良心app, 让我免费从5升级到了6!
 
@@ -80,27 +80,27 @@ CMD-J的全局搜索实在是太好用. 但公司不让用了云笔记, 感觉�
 主页: http://gifbrewery.com/
 
 制作GIF神器, 方便易用, 谁用谁知道. 本文中的gif动图都是用这个应用制作的.      
-![](/images/blog/180507_macos_app/15372913053465.jpg)
+![](../images/blog/180507_macos_app/15372913053465.jpg)
  
 
 # Alfred:   
 这个神器就不多说了, 截几张图感受一下:   
 
 [快速翻译](https://github.com/whyliam/whyliam.workflows.youdao):
-![](/images/blog/180507_macos_app/15372906675512.jpg)
+![](../images/blog/180507_macos_app/15372906675512.jpg)
 
 URL/base64 + encode/decode
-![](/images/blog/180507_macos_app/62B05219-C848-4E06-BAC3-D91851AB4506.png)
+![](../images/blog/180507_macos_app/62B05219-C848-4E06-BAC3-D91851AB4506.png)
 
 [获取当前的时间戳:](https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert)   
-![](/images/blog/180507_macos_app/15372917873863.jpg)
+![](../images/blog/180507_macos_app/15372917873863.jpg)
 
 
 搜索游览器收藏夹:   
-![](/images/blog/180507_macos_app/15372906448065.jpg)
+![](../images/blog/180507_macos_app/15372906448065.jpg)
 
 根据文件名, 快速定位位置.   
-![](/images/blog/180507_macos_app/15372917180834.jpg)
+![](../images/blog/180507_macos_app/15372917180834.jpg)
 
 
 # SizeUp:
@@ -108,7 +108,7 @@ URL/base64 + encode/decode
 
 快捷键快速改变窗口布局, 类似的软件很多(也搞不清是谁抄的谁了), 至少这个看着还算顺眼, 用着也挺稳定的.  
 <img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/4BA18CD1-240B-43D2-8747-66EAEF44CAA8.png">
-![sizeup.2018-10-06 17_09_26](/images/blog/180507_macos_app/sizeup.2018-10-06%2017_09_26.gif)
+![sizeup.2018-10-06 17_09_26](../images/blog/180507_macos_app/sizeup.2018-10-06%2017_09_26.gif)
 
 
 # GhostSKB:    
@@ -124,7 +124,7 @@ URL/base64 + encode/decode
 
 说实话, 我只用到了其中两个功能(但真的挺好用的):
 - 模拟Windows中拖拽app到屏幕左右边界, 窗口自动占屏幕一半.
-![bettertouch](/images/blog/180507_macos_app/bettertouch.gif)
+![bettertouch](../images/blog/180507_macos_app/bettertouch.gif)
 
 - 新建一些快捷键(例如让关闭屏幕什么的)
 
@@ -150,7 +150,7 @@ URL/base64 + encode/decode
 # MWeb3 
 主页: https://www.mweb.im/
 写markdown的主力文本编辑器, 其实我最喜欢的是它的目录显示(即右边). 
-![Screen Shot 2018-10-06 at 5.18.57 P](/images/blog/180507_macos_app/Screen%20Shot%202018-10-06%20at%205.18.57%20PM.png)
+![Screen Shot 2018-10-06 at 5.18.57 P](../images/blog/180507_macos_app/Screen%20Shot%202018-10-06%20at%205.18.57%20PM.png)
 
 
 (未完待续)

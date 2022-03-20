@@ -24,8 +24,8 @@ https://github.com/daya0576/140730-Tianji_Polytechnic_uni_cal_score.git
 真的是浪费了 好多时间，如果有好的规划，应该会节省更多时间吧、
 
 ###---最后的结果---   
-![](/images/blog/140801_web_score_log/console.jpg)   
-![](/images/blog/140801_web_score_log/result.jpg)  
+![](../images/blog/140801_web_score_log/console.jpg)   
+![](../images/blog/140801_web_score_log/result.jpg)  
 
 
 

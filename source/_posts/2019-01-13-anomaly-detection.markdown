@@ -8,7 +8,7 @@ tags:
 
 近半年工作，一大部分时间在探索监控报警的智能降噪。用这篇博客整理个人点点滴滴的思考，希望可以不断的持续更新..
 
-![](/images/blog/190113_abnormal_detection/IMG_2600.jpg)
+![](../images/blog/190113_abnormal_detection/IMG_2600.jpg)
 
 # 背景介绍
 监控的重要性不言而喻，它就相当于 [SRE](/blog/20180403/impressions-of-google-sre/) 的眼睛。但由于监控系统静态规则的局限性，经常会产生一些误报，e.g. 促销冲高回落(尖刺)，小流量波动, 季节性趋势下跌，入口下跌等等。轻则形成针对人的「DDOS攻击」，重则导致真正的故障被忽略(狼来了的故事)。所以如何利用算法自动识别噪音，已成为当务之急，将会大大降低人肉处理报警的成本，为公司节省成本。
@@ -28,7 +28,7 @@ tags:
 所以想到引入之前上学时老师计算平时分&期末考试成绩时，使用的 Precision，Recall 和 F-Score 的概念，也就是说我们对 Recall 的要求是非常高的，情愿发出100次警报，把其中5次异常都预测正确了，也不要只识别正确其他95次噪音。
 
 这个地方还挺绕但也挺有趣的，可以直接看我画的图(上方的 「异常」和「噪音」代表 groundtruth，圆圈表示 prediction，然后 precision 和 recall 衡量的是异常检测的效果)：
-![UNADJUSTEDNONRAW_thumb_5d09](/images/blog/190113_abnormal_detection/UNADJUSTEDNONRAW_thumb_5d09.jpg)
+![UNADJUSTEDNONRAW_thumb_5d09](../images/blog/190113_abnormal_detection/UNADJUSTEDNONRAW_thumb_5d09.jpg)
 
 
 **举个栗子:**
@@ -49,7 +49,7 @@ f1 = 2 / (1/precision + 1/recall) = 2 * 100% * 50% / (100% + 50%) = 66%
 ```
 
 # 告警整体流程
-![](/images/blog/190113_abnormal_detection/15655985253405.jpg)
+![](../images/blog/190113_abnormal_detection/15655985253405.jpg)
 
 
 ## 1. 入口控制
@@ -100,7 +100,7 @@ EWMA(1) = p(1)EWMA(i) = 0.2 * p4 + 0.8 * (0.2*p3 + 0.8 * (0.2 * p3 + 0.8 * p4))=
 (暂时没有图，自己脑补一下吧)
 
 根本原因是之前(moving average和EWMA)，我们假设相邻两个点的趋势(Δy/Δx)是一样的，但现实往往不是这样的，所以前人发明了一个东西叫做 Double EWMA，开始既考虑量(level)，也考虑趋势(trend). 公式还是一贯的简洁优雅:
-![](/images/blog/190113_abnormal_detection/15473895179711.jpg)
+![](../images/blog/190113_abnormal_detection/15473895179711.jpg)
 
 但是.. 聪明的你一细想，数据都是具有周期性的，既然已经考虑了量(level)和趋势(trend)，是否可以把过去14天，每天这个点的周期数据(seasonal)也考虑进去呢?
 
@@ -108,29 +108,29 @@ EWMA(1) = p(1)EWMA(i) = 0.2 * p4 + 0.8 * (0.2*p3 + 0.8 * (0.2 * p3 + 0.8 * p4))=
 
 **2) 曲线拟合 - 多项式回归(polynomial regression):**
 最近在学吴恩达的机器学习课程，看到 linear regression 的时候，灵机一动，这不是完全为环比基线而生的。
-![](/images/blog/190113_abnormal_detection/15473905503211.jpg)
+![](../images/blog/190113_abnormal_detection/15473905503211.jpg)
 
 具体不展开了，只能说效果还是挺不错的。
 
 
 ### 同比
 很有趣的一个事实: 就算是小众业务的流量，每分钟一二十的请求量，每天的趋势和量级几乎是一致的: 24h的规律，白天上涨，晚上下跌。可以看下图，绿线表示今天的数据，红线表示过去七天的数据。
-![](/images/blog/190113_abnormal_detection/15655958186573.jpg)
+![](../images/blog/190113_abnormal_detection/15655958186573.jpg)
 
 所以自创了一种同比算法: 当今日与历史趋势一致时(余弦相似性)，平移历史数据作为今日的基线。
 
 ### 环比 + 同比
 [外卖订单量预测异常报警模型实践](https://tech.meituan.com/2017/04/21/order-holtwinter.html) 那篇文章给我的最大启发是异常检测可以将数据抽象为一个二维的矩阵，去检测右下角的那个点是否为异常:
-![](/images/blog/190113_abnormal_detection/15473911371405.png)
+![](../images/blog/190113_abnormal_detection/15473911371405.png)
 
 上文提到的 Triple EWMA(Holt-Winters Method)，就是对这个抽象模型的最佳实践(level+trend+seasonal):
-![](/images/blog/190113_abnormal_detection/15473912830670.jpg)
+![](../images/blog/190113_abnormal_detection/15473912830670.jpg)
 
 Facebook 开源了一个周期性异常检测的开源库，叫做 [prophet](https://facebook.github.io/prophet/)，我实验了一下，还是挺友好的(下图为真实监控数据，一月八号为预测):
-![](/images/blog/190113_abnormal_detection/15473914336484.jpg)
+![](../images/blog/190113_abnormal_detection/15473914336484.jpg)
 
 30 min 聚合后的效果:
-![](/images/blog/190113_abnormal_detection/15473915160851.png)
+![](../images/blog/190113_abnormal_detection/15473915160851.png)
 
 prophet 实际的原理可以参考：[https://zr9558.com/2018/11/30/timeseriespredictionfbprophet/](https://zr9558.com/2018/11/30/timeseriespredictionfbprophet/)
 
@@ -144,8 +144,8 @@ prophet 实际的原理可以参考：[https://zr9558.com/2018/11/30/timeseriesp
 不同的基线算法与阈值算法可以相互结合，生成结果。例如如果有四个基线算法，两个阈值算法，最终可以最多获得6个判断结果。然后采用投票者的模式: 只要大于或等于两个结果判断为噪音，就认为此报警为噪音。
 
 ## 5. 告警感知
-1. 告警的可视化：![](/images/blog/190113_abnormal_detection/15655963660533.jpg)
-2. 因为我个人很不希望降噪算法对用户来说是一个完全的黑盒，所以点击告警后，详情页会给出降噪的原因。![](/images/blog/190113_abnormal_detection/15655966294806.jpg)
+1. 告警的可视化：![](../images/blog/190113_abnormal_detection/15655963660533.jpg)
+2. 因为我个人很不希望降噪算法对用户来说是一个完全的黑盒，所以点击告警后，详情页会给出降噪的原因。![](../images/blog/190113_abnormal_detection/15655966294806.jpg)
 
 
 # 数据统计

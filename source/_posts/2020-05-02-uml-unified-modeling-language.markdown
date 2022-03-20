@@ -26,7 +26,7 @@ date: 2020-05-02 01:47:11
 - 属性
 - 方法
 
-![](/images/blog/200104_japan_travel/15883547566041.jpg)
+![](../images/blog/200104_japan_travel/15883547566041.jpg)
 
 P.S. 其中前缀分别代表：
 
@@ -39,11 +39,11 @@ P.S. 其中前缀分别代表：
 
 ## 继承关系
 网上针对以下两种的叫法五花八门，但如果直接叫 `extend` 与 `implement` 就比较好理解了：
-![](/images/blog/200104_japan_travel/15883538437292.jpg)
+![](../images/blog/200104_japan_travel/15883538437292.jpg)
 
 ## 关联关系
+![16178121126738](../images/blog/2021-09-04-jvm-note/16178121126738.jpg)
 
-![](/media/16178121126738.jpg)
 
 
 **Q: composition & aggregation & association 的区别？？**

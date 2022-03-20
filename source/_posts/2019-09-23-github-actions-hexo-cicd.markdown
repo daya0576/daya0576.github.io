@@ -16,7 +16,7 @@ CI/CD(continuous integration and continuous deployment) 被提出很久了并逐
 3. [《部署 Hexo 静态博客 (下) - 偶遇 Netlify, 优雅地持续部署你的博客》](/blog/20180819/deploy-hexo-blog-to-netlify/)
 
 最近几个月一直用的 [Buddy](https://buddy.works/)，页面炫酷操作友好，但美中不足的是有点"小气"：免费版的内存有 1G 的限制，让人每次操作都有点小心翼翼。。正好 GitHub Action 的 Public Beta 终于排上了号！「喜新厌旧」的程序员又开始折腾起来了。
-![](/images/blog/190915_github_actions/15685554780026.jpg)
+![](../images/blog/190915_github_actions/15685554780026.jpg)
 
 
 
@@ -82,11 +82,11 @@ jobs:
 4. ...
 
 ## 缺点：
-- **上手略难：**灵活和用户友好是一对 tradeoff, 和 buddy 拖拖鼠标的填填配置的无脑操作比起来，灵活的 Github actions 还是牺牲了一定的易用性，但毕竟用户都是程序员，应该也不是什么大问题。突然想起来，之前最早宣传的时候，那个炫酷的图为什么再也没看到了，是被放弃了吗？？![](/images/blog/190922_cloudflare_and_next_bug/15691581294746.jpg)
+- **上手略难：**灵活和用户友好是一对 tradeoff, 和 buddy 拖拖鼠标的填填配置的无脑操作比起来，灵活的 Github actions 还是牺牲了一定的易用性，但毕竟用户都是程序员，应该也不是什么大问题。突然想起来，之前最早宣传的时候，那个炫酷的图为什么再也没看到了，是被放弃了吗？？![](../images/blog/190922_cloudflare_and_next_bug/15691581294746.jpg)
 
 - **调试不友好：**不知道是不是我姿势不太对，只能不断的 commit/push 触发 action. 理想情况应该可以在本地直接 debug, 并且只对失败的那一步重试。
 - **慢：**执行一次需要 1m44s. 因为没有缓存，每次都是重新构建，感觉还是有很大提升空间的。
-- **bug多：**不知道是不是公测版的原因，经常碰到奇奇怪怪的 bug...![](/images/blog/190922_cloudflare_and_next_bug/15695951675917.jpg)
+- **bug多：**不知道是不是公测版的原因，经常碰到奇奇怪怪的 bug...![](../images/blog/190922_cloudflare_and_next_bug/15695951675917.jpg)
 
 
  

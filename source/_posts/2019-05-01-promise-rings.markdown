@@ -34,10 +34,10 @@ tags: life
 | **切工(Cut)** | 切工必须 3EX（也就是筛选项的切割、抛光度、对称度） |
 
 可以登陆 [Blue Nile 的网站](https://www.bluenile.com/hk/zh/build-your-own-ring/diamonds?track=NavEngStartWithDia)，手动调整一下参数，看下每项的解释实际感受一下：
-![](/images/blog/190501_promise_rings/15567816167494.jpg)
+![](../images/blog/190501_promise_rings/15567816167494.jpg)
 
 选好钻石后，竟然会自动生成类似的钻石推荐，也太酷了：
-![](/images/blog/190501_promise_rings/15567821153990.jpg)
+![](../images/blog/190501_promise_rings/15567821153990.jpg)
 
 听说 Blue Nile 的中文热线是全球三地轮班，7 * 24 小时在线的，amazing, 陷入了思考 🤔
 
@@ -50,11 +50,11 @@ tags: life
 
 # Will u marry me？
 嘿嘿，希望我们的婚姻是一场谈不完的恋爱～ 希望在读这篇文章的你，也可以找到属于你的幸福，笔芯❤️
-![](/images/blog/190501_promise_rings/15567855334497.jpg)
+![](../images/blog/190501_promise_rings/15567855334497.jpg)
 
-![](/images/blog/190501_promise_rings/15567829786190.jpg)
+![](../images/blog/190501_promise_rings/15567829786190.jpg)
 
-![](/images/blog/190501_promise_rings/15567830039004.jpg)
+![](../images/blog/190501_promise_rings/15567830039004.jpg)
 
 
 

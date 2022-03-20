@@ -10,12 +10,12 @@ tags:
 # Tip1: Fix all
 作为一名经验丰富的 copy/paste 手工劳动者，复制代码后
 
-![](/images/blog/2021-09-04-jvm-note/16471630809745.jpg)
+![](../images/blog/2021-09-04-jvm-note/16471630809745.jpg)
 
 
 # Tip2: File Structure
 有时候文件过大，仅仅像快速找到当前文件内的一个变量或方法：
-![](/images/blog/2021-09-04-jvm-note/16471636200710.jpg)
+![](../images/blog/2021-09-04-jvm-note/16471636200710.jpg)
 
 # Tip3：自动打开 Linke MR 链接
 

@@ -17,7 +17,7 @@ Java 中所有异常都继承自`Throwable`，一般简单将异常分为：
     1. `RuntimeException`，例如臭名昭著的 NPE
     2. `Error`: JVM 抛出异常，例如 `OutOfMemoryError` 等
 
-![exception_checked_and_unchecked](/images/blog/2021-09-04-jvm-note/exception_checked_and_unchecked.jpg)
+![exception_checked_and_unchecked](../images/blog/2021-09-04-jvm-note/exception_checked_and_unchecked.jpg)
 
 # 使用 Checked Exceptions 的最佳时机
 
@@ -32,7 +32,7 @@ Java 中所有异常都继承自`Throwable`，一般简单将异常分为：
 ## 所以为什么不能无脑抛 RuntimeException？
 
 哈哈，偶遇这个提问，如果不是翻译自 StackExchange 真的怀疑是不是我同事的困惑。
-![](/images/blog/2021-09-04-jvm-note/16321269380121.jpg)
+![](../images/blog/2021-09-04-jvm-note/16321269380121.jpg)
 
 举个栗子：假如有一段线上告警后置处理的逻辑，其中一段子步骤为日志的抽样检查，但是因为网络等原因，存在小概率日志拉取失败的异常。这时套用「指导原则」需要抛出一个 checked exception，最终由调用方决定执行重试，或直接跳过该“弱依赖”，对异常进行恢复。
 

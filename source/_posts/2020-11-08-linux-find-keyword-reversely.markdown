@@ -44,7 +44,7 @@ tags:
 # 如何反向 grep 
 
 扯远了，回到正题，如何**\*反向搜索\***文件中的一条记录呢？ 
-![](/images/blog/200104_japan_travel/16048220830172.jpg)
+![](../images/blog/200104_japan_travel/16048220830172.jpg)
 
 
 workload 为一个真实的线上日志：

@@ -11,7 +11,7 @@ tags:
 
 <!--more-->
 
-![](/images/blog/190922_cloudflare_and_next_bug/15691592217110.jpg)
+![](../images/blog/190922_cloudflare_and_next_bug/15691592217110.jpg)
 
 
 
@@ -42,23 +42,23 @@ tags:
 
 ## 2. 调试定位问题
 既然本地重现不了，那么就在线上直接调试 js 呗！刚好页面左上角按钮也失灵了，怀疑是同个问题导致的，直接对这个按钮的「点击事件」添加断点：
-![](/images/blog/190922_cloudflare_and_next_bug/15691601888251.jpg)
+![](../images/blog/190922_cloudflare_and_next_bug/15691601888251.jpg)
 
 对比线上与本地的执行过程后，发现下图中的 `window.addEventListener` 的注册可以执行到，但之后的 `DOMContentLoaded` 事件并没有触发？
-![](/images/blog/190922_cloudflare_and_next_bug/15691575296785.jpg)
+![](../images/blog/190922_cloudflare_and_next_bug/15691575296785.jpg)
 
 p.s. DOMContentLoaded 是什么？   
 推荐这篇文章：[https://zhuanlan.zhihu.com/p/25876048](https://zhuanlan.zhihu.com/p/25876048)
 
 ## 3. 接近真相
 上一步 debug 的时候，遇到一个 `rocket.js`. 直觉告诉我是否和 cloudflare 的 [Rocket Loader](https://www.cloudflare.com/features-optimizer) 有关？怀疑在对 `DOMContentLoaded` 注册的时候，这个事件在这之前就被触发了。
-![Enabling-Rocket-Loader-animation](/images/blog/190922_cloudflare_and_next_bug/Enabling-Rocket-Loader-animation.gif)
+![Enabling-Rocket-Loader-animation](../images/blog/190922_cloudflare_and_next_bug/Enabling-Rocket-Loader-animation.gif)
 
 实锤了。。下图中的 蓝线 代表 `DOMContentLoaded`，红线 代表 `Load`（[两者的区别](https://testdrive-archive.azurewebsites.net/HTML5/DOMContentLoaded/Default.html)）。js 文件被延迟加载，导致其中注册的 `DOMContentLoaded` 事件永远也不会触发😢：
-![](/images/blog/190922_cloudflare_and_next_bug/Pasted%20Graphic%204.png)
+![](../images/blog/190922_cloudflare_and_next_bug/Pasted%20Graphic%204.png)
 
 而本地的正常加载过程是这样的：
-![](/images/blog/190922_cloudflare_and_next_bug/15692441554625.jpg)
+![](../images/blog/190922_cloudflare_and_next_bug/15692441554625.jpg)
 
 
 ### 什么是 Rocket Loader?

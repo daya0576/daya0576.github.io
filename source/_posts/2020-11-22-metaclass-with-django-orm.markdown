@@ -26,7 +26,7 @@ class Student(models.Model):
 ```
 
 翻下 Django 的源码不难看出，上面定义的 `Student` 类继承了 `models.Model`，而它又继承于 `ModelBase`（**是一个由 type 继承而来 metaclass!**）  
-![](/images/blog/200104_japan_travel/16059273576073.jpg)
+![](../images/blog/200104_japan_travel/16059273576073.jpg)
 
 参考：[django/blob/master/django/db/models/base.py#L72](https://github.com/django/django/blob/master/django/db/models/base.py#L72)
 ```python
@@ -82,10 +82,10 @@ Django 主要对 `django.db.models.base.ModelBase.__new__` 方法做了大量定
     - 在创建之前还做了一系列验证操作，例如一个 app 内不能有相同名字的 model 等等
 
 如下图所示，熟悉的 objects(`<class 'django.db.models.manager.Manager'>`)，也会在第二步被动态生成：
-![](/images/blog/200104_japan_travel/16060245107097.jpg)
+![](../images/blog/200104_japan_travel/16060245107097.jpg)
 
 而所有定义的表字段(fields)被存储在 `new_class._meta.fields` 之中，在写入的过程中也会动态生成 `get_{field}_display` 方法😃：
-![](/images/blog/200104_japan_travel/16060241730731.jpg)
+![](../images/blog/200104_japan_travel/16060241730731.jpg)
 
     
 # 总结

@@ -85,15 +85,15 @@ Of course, another reason is my **lacking of preparation**, I should spend more 
    
 
 # Assignment1 (20/09/2016)    
-[Ass1(click me to download)](/images/blog/160731_comp6714/ass1-spec.pdf) is consisted of four questions.     
-Here is my solution: [ass1_solution.pdf](/images/blog/160731_comp6714/ass1.pdf)     
+[Ass1(click me to download)](../images/blog/160731_comp6714/ass1-spec.pdf) is consisted of four questions.     
+Here is my solution: [ass1_solution.pdf](../images/blog/160731_comp6714/ass1.pdf)     
 My mark: Comment: 24 | 14 | 25 | 25 | 1     
 The most awesome part is that, when the mark of ass1 released, lectuer gave the overview(mark distribution) of the whole class:    
 <img style="max-height:400px" class="lazy" data-original="/images/blog/160731_comp6714/ass1_mark.png">    
    
 
 # Project (29/09/2016)  
-[A copy of project spec](/images/blog/160731_comp6714/proj1-spec.pdf)     
+[A copy of project spec](../images/blog/160731_comp6714/proj1-spec.pdf)     
 Quite interesting, extracting birthday and parents in sentences such as:     
 `Waite, the eldest of five children, was born in White Plains, New York on June 22, 1928, to Ralph H. Waite, a construction engineer, and Esther (nee Mitchell) Waite.`    
 It's not hard to get a not bad result, but if you pursue the perfect performance, you need a smarter way to deal with the data, such as parsing the sentence to dependency tree and analyze the syntax.     
@@ -132,8 +132,8 @@ And the lecture ended at 15:01, 6 minutes extended, one critical thing is that t
    
 
 # Assignment2(31/10/2016)     
-[Ass2(click me to download)](/images/blog/160731_comp6714/ass2-spec.pdf) is consisted of four questions too.      
-Here is my solution: [ass2_solution.pdf](/images/blog/160731_comp6714/ass2.pdf)    
+[Ass2(click me to download)](../images/blog/160731_comp6714/ass2-spec.pdf) is consisted of four questions too.      
+Here is my solution: [ass2_solution.pdf](../images/blog/160731_comp6714/ass2.pdf)    
 **So so so interesting**, I have been playing it for the whole day.    
 The difficulty of the questions was well controlled. I mean all the problems were very hard to me in the beginning, but if I spend some time on it and think harder, all the problems will be solved smoothly.           
 The **pleasure** of getting the solution to each question is just unblievable.     

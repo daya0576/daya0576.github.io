@@ -165,4 +165,5 @@ marked:
   smartypants: false
   modifyAnchors: ''
   autolink: true
-
+  prependRoot: true
+  postAsset: false

@@ -11,7 +11,7 @@ tags:
 
 **Threading, Multiprocessing & Coroutine 直接的关联关系?**
 看完这篇文章后, 再看下面这张图, 真的会有恍然大悟的感觉:
-![](/images/blog/190212_concurrency/15499416082221.jpg)
+![](../images/blog/190212_concurrency/15499416082221.jpg)
 
 
 # 多线程
@@ -35,7 +35,7 @@ results = pool_executor.map(_check, risk_items)
 # 协程 Coroutine
 1. **从名字上看:** `co` 其实就是相互协作的意思, **async IO is a single-threaded, single-process design: cooperative multitasking**, 精髓就是在一个进程一个线程内的协作.
 2. **和多线程对比:** 多线程是在操作系统去调度, 控制执行的顺序. 协程更多的是从代码层面announcing when they are ready to be switched out. 可以参考下面这张图, 很清晰:
-![](/images/blog/190212_concurrency/15499750511455.jpg)
+![](../images/blog/190212_concurrency/15499750511455.jpg)
 
 
 **实现原理:**

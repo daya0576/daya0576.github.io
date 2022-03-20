@@ -34,7 +34,7 @@ tags:
 两次检测结果完全不同. 就算检测标准不一样, 但据我观察收集气体的仪器是一摸一样的, 甚至第二家还没按50325标准让我封闭1小时, 而是让我和第一家一样封闭了12个小时. 但最后结果天翻地覆.
 
 这时候, 正常人肯定会怀疑第一家音匀环保科技, 他是治理公司, 会不会故意把甲醛测高想让我治理?? 但见下图, 如果有猫腻, 为何会催我尽快做CMA:     
-![UNADJUSTEDNONRAW_thumb_5399](/images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_5399.jpg)
+![UNADJUSTEDNONRAW_thumb_5399](../images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_5399.jpg)
 
 在接触的第二家的过程中, 反而觉得没有CMA资质的靠谱, 有CMA资质的反而不靠谱. 因为第二家**一上来就问我是不是自如检测, 并且号称他们检测过的自如房子90%都超标了**. 淘宝店也感觉不太正规. 第二家说市面上CMA可以说没有一家可以按照18883标准来的(见上边的文献, 只有GB50325有法律效应), 但问了第三家可以做18883吗? 第三家果断说可以, 但开口就是1000块. 瞬间感觉水好深.... 绝望.
 
@@ -43,15 +43,15 @@ tags:
 ## 2018/09/01: 第一次上门检测(无CMA资质):
 了解到网上的检测仪和试纸都不太靠谱，今天就请了师傅做了个稍微专业一点的检测. 大众点评上找的, 用的GB-18883标准, 关闭了门窗12h+试剂采样20分钟）, 检测结果显示比国家标准超标了50%:
 
-![](/images/blog/180911_ziroom_air_quality/15366694108958.jpg)
+![](../images/blog/180911_ziroom_air_quality/15366694108958.jpg)
 
-![](/images/blog/180911_ziroom_air_quality/15366695601449.jpg)
+![](../images/blog/180911_ziroom_air_quality/15366695601449.jpg)
 
-![](/images/blog/180911_ziroom_air_quality/15366695680182.jpg)
+![](../images/blog/180911_ziroom_air_quality/15366695680182.jpg)
 
-![UNADJUSTEDNONRAW_thumb_52d5](/images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_52d5.jpg)
+![UNADJUSTEDNONRAW_thumb_52d5](../images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_52d5.jpg)
 
-![UNADJUSTEDNONRAW_thumb_5350](/images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_5350.jpg)
+![UNADJUSTEDNONRAW_thumb_5350](../images/blog/180911_ziroom_air_quality/UNADJUSTEDNONRAW_thumb_5350.jpg)
 
 
 ## 2018/09/02: 与自如管家的交流与质问
@@ -62,23 +62,23 @@ tags:
 ## 2018/09/04: 上门检测 (CMA资质)
 如上, 因为自如管家只认有CMA资质机构出的检测报告, 于是在淘宝上重新订了一家. 但一上来就问我是不是自如检测, 我的心里就咯噔了一下. 但问到自如房子的检测结果一般是怎么样时, 答曰: “90%都是超标”, 我也就没多想了. 
 
-![g474rUGSQqiXhErdMfC5Tw_thumb_5397](/images/blog/180911_ziroom_air_quality/g474rUGSQqiXhErdMfC5Tw_thumb_5397.jpg)
-![lnq7gKeARqmDRNimlAMWrQ_thumb_5398](/images/blog/180911_ziroom_air_quality/lnq7gKeARqmDRNimlAMWrQ_thumb_5398.jpg)
+![g474rUGSQqiXhErdMfC5Tw_thumb_5397](../images/blog/180911_ziroom_air_quality/g474rUGSQqiXhErdMfC5Tw_thumb_5397.jpg)
+![lnq7gKeARqmDRNimlAMWrQ_thumb_5398](../images/blog/180911_ziroom_air_quality/lnq7gKeARqmDRNimlAMWrQ_thumb_5398.jpg)
 
 
 ## 2018/09/11: CMA检测结果
 苦等了六天, 终于出结果了.   
 
-![](/images/blog/180911_ziroom_air_quality/15366732672358.jpg)
+![](../images/blog/180911_ziroom_air_quality/15366732672358.jpg)
 
 第一家的解释:
-![uWGigBhKRnOjkrP8SCXk3w_thumb_5393](/images/blog/180911_ziroom_air_quality/uWGigBhKRnOjkrP8SCXk3w_thumb_5393.jpg)
+![uWGigBhKRnOjkrP8SCXk3w_thumb_5393](../images/blog/180911_ziroom_air_quality/uWGigBhKRnOjkrP8SCXk3w_thumb_5393.jpg)
 
 第二家的解释:
-![](/images/blog/180911_ziroom_air_quality/15366727415165.jpg)
+![](../images/blog/180911_ziroom_air_quality/15366727415165.jpg)
 
 于是想着去找第三家再做一次... 开口就是1000, 放弃了, 心累.   
-![](/images/blog/180911_ziroom_air_quality/15366724352698.jpg)
+![](../images/blog/180911_ziroom_air_quality/15366724352698.jpg)
 
 
 # 最后:

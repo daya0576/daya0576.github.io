@@ -67,7 +67,7 @@ from my_code import logger
 ### 3. COMMAND
 
 《Head First 设计模式》 中 java 的实现：
-![](/images/blog/200104_japan_travel/15883270132958.jpg)
+![](../images/blog/200104_japan_travel/15883270132958.jpg)
 
 完整代码参考 [github](https://github.com/bethrobson/Head-First-Design-Patterns/blob/master/src/headfirst/designpatterns/command/remote/LightOnCommand.java)
 
@@ -175,7 +175,7 @@ Python 是一门动态语言，它的方法接受任何参数，当不符合预�
 > Patterns are signs of weakness in programming languages.
 
 这个观点我也不太认同，接触 java 后还是学到了很多，例如利于多人协同维护大型项目的最佳实践。每个语言都有自己的优势与劣势，还是可以相互借鉴的，例如蚂蚁 SOFA 工程的分层🆒：
-![](/images/blog/200104_japan_travel/16053236164113.jpg)
+![](../images/blog/200104_japan_travel/16053236164113.jpg)
 
 
 ## 其他资料：

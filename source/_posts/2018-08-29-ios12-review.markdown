@@ -27,7 +27,7 @@ categories:
 
 # 背景
 忙碌工作了一天, 打开自己的电脑, 发现这封邮件, 于是毫不犹豫就选择了升级了Public Beta, 嘿嘿.
-![](/images/blog/180829_ios12_review/15355522163590.jpg)
+![](../images/blog/180829_ios12_review/15355522163590.jpg)
 
 
 # 最大的改变:
@@ -38,13 +38,13 @@ categories:
 ## 消息中心大变样
 第二个最大的变化就是消息中心, 对同个app的多条消息进行折叠. 
 但我最喜欢的还是一键关闭推送, 舒畅!     
-![UNADJUSTEDNONRAW_thumb_540e](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_540e.jpg)
+![UNADJUSTEDNONRAW_thumb_540e](../images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_540e.jpg)
 
 
 
 ## Memoji
 绝望, 找不到改性别的地方, 有人能教教我吗!?
-![UNADJUSTEDNONRAW_thumb_5336](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5336.jpg)
+![UNADJUSTEDNONRAW_thumb_5336](../images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5336.jpg)
 
 
 ## AR
@@ -52,40 +52,40 @@ categories:
 用了一下“Meature“这个app. 可能因为之前用过类似的app, 所以除了很精致的感觉, 也没有什么特别的地方.    
 
 ??? 不准呀! 我明明有一米八!!!
-![IMG_1219](/images/blog/180829_ios12_review/IMG_1219.jpg)
+![IMG_1219](../images/blog/180829_ios12_review/IMG_1219.jpg)
 
 
 ## 电量统计界面升级
 一个字: 炫酷! (黄色区域表示节电模式, 绿色阴影表示充电.)   
 但仔细一想, 好像并没有什么用吧.    
-![](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5340.jpg)
+![](../images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5340.jpg)
 
 
 ## 机器学习
 iOS11中已经可以很精确的识别出不同的脸. 而iOS12现在可以对物品进行聚类了, 例如运动, 沙滩, 食物, 等等. 并可以添加过滤条件(地点, 时间)进行搜索! 虽然Google很早就能做到了, 但第一次在自己的相册里看到, 至少对我还是很震撼的(主要是几乎没有误识别), 转行做机器学习吧!
 
 搜索 Food & Sydney
-![UNADJUSTEDNONRAW_thumb_533d](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_533d.jpg)
+![UNADJUSTEDNONRAW_thumb_533d](../images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_533d.jpg)
 
 搜索Sport:
-![UNADJUSTEDNONRAW_thumb_540f](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_540f.jpg)
+![UNADJUSTEDNONRAW_thumb_540f](../images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_540f.jpg)
 
 
 而且天天提示我该给女朋友打电话发短信!!
-![](/images/blog/180829_ios12_review/15355523081043.jpg)
+![](../images/blog/180829_ios12_review/15355523081043.jpg)
 
 
 ## siri + workflow
 这个在看发布会中很期待的一个点, 但暂时没有到. 期待可以达到一句话触发滴滴打车回家的效果.   
 
 盗朋友的一张图:
-![IMG_3376](/images/blog/180829_ios12_review/IMG_3376.png)
+![IMG_3376](../images/blog/180829_ios12_review/IMG_3376.png)
 
 
 ## 屏幕时间统计(Screen Time)
 统计肥宅每天玩手机时, 都把时间花哪了. 个人觉得略鸡肋, 可能对家长会有需求吧... 
 但统计通知的频率这个功能, 感觉还是挺有意思的. 苹果这次是真的站在用户的角度思考问题了.
-![UNADJUSTEDNONRAW_thumb_5459](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5459.jpg)
+![UNADJUSTEDNONRAW_thumb_5459](../images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_5459.jpg)
 
 
 ## 其他:
@@ -97,7 +97,7 @@ iOS11中已经可以很精确的识别出不同的脸. 而iOS12现在可以对�
 
 # 总结
 如果你还在因为升iOS11的惨剧在犹豫的话, 赶紧升级吧, iOS12将不停地给你带来新的惊喜 <3
-![UNADJUSTEDNONRAW_thumb_533f](/images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_533f.jpg)
+![UNADJUSTEDNONRAW_thumb_533f](../images/blog/180829_ios12_review/UNADJUSTEDNONRAW_thumb_533f.jpg)
 
 你的晚安 是下意识的恻隐~
 我留至夜深 治疗失眠梦呓~
