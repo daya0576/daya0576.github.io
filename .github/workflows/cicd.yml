@@ -24,6 +24,8 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }} 
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Installation
         run: |
           npm install
           npm install -g hexo-cli
