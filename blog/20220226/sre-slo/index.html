@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石，过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化《Google&#39;s Site R">
+  <meta name="description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重读 Google SLO 小记 | 智能监控之殇">
+<meta property="og:title" content="【SRE】重读 Google SLO 小记 | 智能告警之殇">
 <meta property="og:url" content="https://changchen.me/blog/20220226/sre-slo/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石，过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化《Google&#39;s Site R">
+<meta property="og:description" content="the basic foundations of SRE include SLOs, monitoring, alerting, toil reduction, and simplicity.  最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-02-26T14:34:59.000Z">
-<meta property="article:modified_time" content="2022-03-13T09:37:17.950Z">
+<meta property="article:modified_time" content="2022-03-20T09:26:39.355Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -82,7 +82,7 @@
   };
 </script>
 
-  <title>重读 Google SLO 小记 | 智能监控之殇 | Henry Z's blog~</title>
+  <title>【SRE】重读 Google SLO 小记 | 智能告警之殇 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -235,7 +235,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          重读 Google SLO 小记 | 智能监控之殇
+          【SRE】重读 Google SLO 小记 | 智能告警之殇
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -248,7 +248,7 @@
             </span>
 
           
-            <span id="/blog/20220226/sre-slo/" class="post-meta-item leancloud_visitors" data-flag-title="重读 Google SLO 小记 | 智能监控之殇" title="阅读次数">
+            <span id="/blog/20220226/sre-slo/" class="post-meta-item leancloud_visitors" data-flag-title="【SRE】重读 Google SLO 小记 | 智能告警之殇" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -268,7 +268,7 @@
         <blockquote>
 <p>the basic foundations of SRE include <strong>SLOs, monitoring, alerting</strong>, toil reduction, and simplicity.</p>
 </blockquote>
-<p>制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石，过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化<a href="https://sre.google/workbook/table-of-contents/">《Google&#39;s Site Reliability Workbook》</a>，期望激发一些新的灵感～</p>
+<p>最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化<a href="https://sre.google/workbook/table-of-contents/">《Google&#39;s Site Reliability Workbook》</a>，期望激发一些新的灵感～</p>
 <a id="more"></a>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16459388413486.jpg" alt=""></p>
 <h2 id="TOC"><a href="#TOC" class="headerlink" title="TOC"></a>TOC</h2><ul>
@@ -500,7 +500,10 @@
     <a href="/blog/20220206/home-lights-practice/" rel="prev" title="【智能家居】精装全屋智能灯改造小记">
       <i class="fa fa-chevron-left"></i> 【智能家居】精装全屋智能灯改造小记
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/20220320/home-assistant-issues/" rel="next" title="【智能家居】如丝般顺滑的家庭网络拓扑">
+      【智能家居】如丝般顺滑的家庭网络拓扑 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -583,7 +586,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -594,7 +597,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

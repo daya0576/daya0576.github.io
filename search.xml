@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>重读 Google SLO 小记 | 智能监控之殇</title>
+    <title>【智能家居】如丝般顺滑的家庭网络拓扑</title>
+    <url>/blog/20220320/home-assistant-issues/</url>
+    <content><![CDATA[<p>近期上海疫情😷日益严重，封锁在家着实无聊，淘宝购入一块 R2S 开始折腾软路由科学上网～</p>
+<p>这篇文章简单分享一下我的家庭网络拓扑，以及回答软路由作为二级路由后：<br>1⃣️ <strong>电视设备如何科学上网（主路由模式）？</strong><br>2⃣️ <strong>树莓派 HA（Home Assistant）如何科学上网（旁路由模式）？</strong><br>3⃣️ <strong>HA 如何控制二级路由子设备？</strong>   </p>
+<a id="more"></a>
+
+<h2 id="一、电视如何科学上网（主路由模式）"><a href="# 一、电视如何科学上网（主路由模式）" class="headerlink" title="一、电视如何科学上网（主路由模式）"></a>一、电视如何科学上网（主路由模式）</h2><p>购买软路由后，首当其冲需解决电视科学上网的问题。</p>
+<p>下图为商家推荐的模式，相当于“软路由”完全接管家庭的网络：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/R2S_taobao_solution.svg" alt="R2S_taobao_solution"></p>
+<p>但个人更期望一级路由网络尽可能的纯粹（不影响老婆大人上网秒杀），所以选择将软路由作为 <strong> 二级路由器</strong>。</p>
+<p>在不改变原有网络架构的情况下，配置闲置路由器，实现 <strong> 设备按需接入，即插即用</strong>：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/openwrt_v1.svg" alt="openwrt_v1"></p>
+<p>顺利完成目标，畅快享用好剧！<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/netflix_1.png" alt="netflix_1"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/netflix_2.png" alt="netflix_2"></p>
+<h2 id="二、HA- 如何科学上网（旁路由模式）"><a href="# 二、HA- 如何科学上网（旁路由模式）" class="headerlink" title="二、HA 如何科学上网（旁路由模式）"></a>二、HA 如何科学上网（旁路由模式）</h2><p>子设备一级路由，如果也有“科学上网”的需求，但迫于各种原因无法移动至二级路由网段，例如“HA（home assistant）” 若移动至二级路由后，将无法发现家庭智能设备。</p>
+<p>这时软路由摇身一变，承担起旁路由的职责，也就是说修改子设备的「路由」配置，指向软路由即可：<br><em>⚠️除此之外还需修改软路由防火墙与静态路由配置，请参考第三小节</em></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16477658391223.jpg" alt=""></p>
+<p>从此安装更新等操作，如丝般顺滑 🥰<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16477662119136.jpg" alt=""></p>
+<h2 id="三、HA- 如何控制二级路由子设备"><a href="# 三、HA- 如何控制二级路由子设备" class="headerlink" title="三、HA 如何控制二级路由子设备"></a>三、HA 如何控制二级路由子设备 </h2><p> 引入软路由作为二级路由器后，产生一个新的问题：由于 NAT 以及防火墙的存在，下图中的“树莓派”设备，无法找到二级设备“电视”（不在同一个网段）。</p>
+<p>最终导致无法在 HA（Home Assistant）中，控制电视与游戏机等设备😭：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/r2s_3.svg" alt="r2s_3"></p>
+<p>所以需要手动新增静态路由（添加在 Linksys 与 R2S 路由器中），告诉访问 <code>电视（192.168.2.170）</code>的请求，具体应该走哪一个网关。</p>
+<p>但是在 TP-Link 路由中，可能因为 NAT 以及防火墙的存在，迟迟无法搞定，所以新引入了一个交换机：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/r2s_4.svg" alt="r2s_4"></p>
+<p>以下为具体修改的配置：</p>
+<h3 id="1）新增静态路由"><a href="#1）新增静态路由" class="headerlink" title="1）新增静态路由"></a>1）新增静态路由 </h3><p> 一级路由静态路由设置（帮助树莓派找到二级网段），以 Linksys 路由器为例：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16476806894838.jpg" alt=""></p>
+<p>二级路由（R2S 软路由）不知道为什么没有也没有子设备的路由，</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> route -n  </span></span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">0.0.0.0         10.200.1.1      0.0.0.0         UG    0      0        0 eth0</span><br><span class="line">10.200.1.0      0.0.0.0         255.255.255.0   U     0      0        0 eth0</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://192.168.2.1/cgi-bin/luci/admin/network/routes">http://192.168.2.1/cgi-bin/luci/admin/network/routes</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16477510448050.jpg" alt=""></p>
+<h3 id="2）修改防火墙配置"><a href="#2）修改防火墙配置" class="headerlink" title="2）修改防火墙配置"></a>2）修改防火墙配置 </h3><p> 修改 <code>网络 / 防火墙 / 基本设置</code> 中“转发”配置，更新为“接受”：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16477634717388.jpg" alt=""></p>
+<h3 id="3）实验测试成功"><a href="#3）实验测试成功" class="headerlink" title="3）实验测试成功"></a>3）实验测试成功</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">➜  /dev traceroute 192.168.2.170</span><br><span class="line">traceroute to 192.168.2.170 (192.168.2.170), 64 hops max, 52 byte packets</span><br><span class="line"> 1  linksys01644 (10.200.1.1)  7.046 ms  5.507 ms  6.316 ms</span><br><span class="line"> 2  10.200.1.94 (10.200.1.94)  6.584 ms  7.058 ms  7.362 ms</span><br><span class="line"> 3  192.168.2.170 (192.168.2.170)  7.280 ms  7.356 ms  7.777 ms</span><br></pre></td></tr></table></figure>
+
+<p>顺利重新获取对电视的掌控权 🥰</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/IMG_4495.png" alt="IMG_4495"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16477647212258.jpg" alt=""></p>
+<h2 id="四、参考："><a href="# 四、参考：" class="headerlink" title="四、参考："></a>四、参考：</h2><ol>
+<li><a href="https://www.right.com.cn/FORUM/thread-5493924-1-1.html">https://www.right.com.cn/FORUM/thread-5493924-1-1.html</a> </li>
+<li><a href="https://www.home-assistant.io/integrations/discovery/#mdns-forwarding">https://www.home-assistant.io/integrations/discovery/#mdns-forwarding</a></li>
+<li>..</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>智能家居</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【SRE】重读 Google SLO 小记 | 智能告警之殇</title>
     <url>/blog/20220226/sre-slo/</url>
     <content><![CDATA[<blockquote>
 <p>the basic foundations of SRE include <strong>SLOs, monitoring, alerting</strong>, toil reduction, and simplicity.</p>
 </blockquote>
-<p>制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石，过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化<a href="https://sre.google/workbook/table-of-contents/">《Google&#39;s Site Reliability Workbook》</a>，期望激发一些新的灵感～</p>
+<p>最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化<a href="https://sre.google/workbook/table-of-contents/">《Google&#39;s Site Reliability Workbook》</a>，期望激发一些新的灵感～</p>
 <a id="more"></a>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16459388413486.jpg" alt=""></p>
 <h2 id="TOC"><a href="#TOC" class="headerlink" title="TOC"></a>TOC</h2><ul>
@@ -919,7 +962,7 @@
 <li>《富爸爸，穷爸爸》</li>
 </ul>
 <p>推荐非技术相关的一本书<a href="https://book.douban.com/subject/26146992/">《我们为什么会分手？》</a>，采访了 15 对昔日恋人，多年后在双方的角度说出当时的分手理由。当两个人在一堆关系中发生争执和矛盾的时候，我们总是期望对方不断成长变得理性和“成熟”，但家是讲爱的地方，不是讲理的地方，更多的时候需要的是包容和沟通，以及“自省”。</p>
-<h2 id="人际・社群"><a href="# 人际・社群" class="headerlink" title="人际・社群"></a>人际・社群 </h2><p> 去年有个周末误入阿里云自动化运维的一个线下沙龙，作为一名 sre 却第一次听说了 terraform &amp; Infrastructure as Code (IaC)等概念，给自己带来了很多冲击。<br><img src="/images/loading/loading.svg" data-original="/blog/20210228/2020-summary/75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105_c.jpeg" alt="75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105"></p>
+<h2 id="人际・社群"><a href="# 人际・社群" class="headerlink" title="人际・社群"></a>人际・社群 </h2><p> 去年有个周末误入阿里云自动化运维的一个线下沙龙，作为一名 sre 却第一次听说了 terraform &amp; Infrastructure as Code (IaC)等概念，给自己带来了很多冲击。<br><img src="/images/loading/loading.svg" data-original="2021-02-28-2020-summary/75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105_c.jpeg" alt="75A4921B-D202-4FC3-AD30-0A616ABFCA78_1_105"></p>
 <p>身为一名程序员，代码写多了很容易“自闭”，但闭门造车是大忌。记得读大学的时候有一位助教，教过我们 <code>.Net</code> 等课程，他当时很喜欢钻研技术，但总是一副付出了很多，却郁郁寡欢不得志的样子。在去年的工作中，我也渐渐明白了一个道理，为什么大学的时候，我们要学习软件工程，项目管理等看上去和编程无关的课程：一是程序员的软技能（团队协作，沟通能力等），可能和硬技能一样重要；二是一个大型的项目更多的需要由一群人或一个团队，朝着一个目标一起完成的。</p>
 <p>所以新的一年，可以找机会多去参加一些线上线下 meetup，提升自己的软技能与视野，期望也可以找到一些新的乐趣～</p>
 <h2 id="财务・理财"><a href="# 财务・理财" class="headerlink" title="财务・理财"></a>财务・理财 </h2><p> 一如既往的弱项，但读完《富爸爸，穷爸爸》后，至少对「资产」这个词有了更深的理解，明白富人是靠钱生钱变得富裕。而像我一样不断工作，靠出卖自己的时间获取回报，是一辈子也无法积攒财富的。</p>
@@ -999,7 +1042,7 @@
 </ol>
 <p>尝鲜使用了 python3.9，以及异步的 fastapi web 框架，所以 telegram 的 sdk 也需要使用异步：<a href="https://github.com/aiogram/aiogram">aiogram</a>。</p>
 <p>线上部署白嫖了 Heroku 全家桶：推送 master 即可触发部署(gitops)。同时支持数据库 / 缓存 / 定时任务的一键申请（最重要的都是免费的），以及 环境变量配置，域名 https 卸载，日志在线查看，等傻瓜操作... 唯一的缺点：Heroku 只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。</p>
-<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/image-20210314172708269.png" alt="image-20210314172708269"></p>
+<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/image-20210314172708269.png" alt="image-20210314172708269"></p>
 <h1 id="3- 原理 -amp- 实现"><a href="#3- 原理 -amp- 实现" class="headerlink" title="3 原理 &amp; 实现"></a>3 原理 &amp; 实现 </h1><p> 分为以下四个步骤：</p>
 <ol>
 <li>申请机器人 - token</li>
@@ -1015,7 +1058,7 @@
 </ol>
 <p>所以不管是 fastapi/flask/django，都需要开启一个 <code>/hook</code> 的接口，参考项目中的这档逻辑： <code>telegram_bot.routers.webhook.webhook_handler</code></p>
 <p>p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一个对外可访问的 https 地址。</p>
-<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/image-20210314172807664.png" alt="image-20210314172807664"></p>
+<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/image-20210314172807664.png" alt="image-20210314172807664"></p>
 <h2 id="3-3- 绑定 -Bot-Token-amp-Server-Webhook"><a href="#3-3- 绑定 -Bot-Token-amp-Server-Webhook" class="headerlink" title="3.3 绑定 Bot Token &amp; Server Webhook"></a>3.3 绑定 Bot Token &amp; Server Webhook</h2><p>用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 <code>webhook</code>，所以需要提前将 <code>webhook</code> 与 <code>token</code> 进行绑定。两种方式：</p>
 <ol>
 <li>手动请求 <code>https://api.telegram.org/bot{token}/setWebhook?url={webhook}</code></li>
@@ -1033,7 +1076,7 @@
 <li><strong>定时天气发送</strong>：遍历开启的用户，发送对应城市的天气预报。     定时任务通常由消息驱动实现，通过三层分发 (Splitter-&gt;Loader-&gt;Executor) 等手段避免单点热点。因为是单点部署... 所以简单通过定时 curl http 请求实现，需要考虑扫描误触发 &amp; 恶意攻击，但最好是通过内部的幂等机制支持。</li>
 </ol>
 <h2 id="时序交互"><a href="# 时序交互" class="headerlink" title="时序交互"></a>时序交互 </h2><p> 三个场景对应的时序交互如下：</p>
-<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/16138563037292.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/16138563037292.jpg" alt=""></p>
 <h2 id="系统架构"><a href="# 系统架构" class="headerlink" title="系统架构"></a>系统架构 </h2><p> 虽然是个小玩具，但也需要一定的分层与抽象，减少整体代码的「复杂度」：</p>
 <ol>
 <li>Web 层代表 fastapi app 暴露给外部的两个接口</li>
@@ -1041,7 +1084,7 @@
 <li>Integration 层为对外的依赖封装，例如 <code>weather_client</code> 是一个天气预报获取的接口，定义标准的行为后，底层可以由任意获取外部数据逻辑构成，实现解耦与未来快速替换</li>
 <li>DAL 则是 DB 层的包装</li>
 </ol>
-<p><img src="/images/loading/loading.svg" data-original="/blog/20210221/buld-telegram-bot-from-scratch/16138614119002.jpg" alt=""></p>
+<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/16138614119002.jpg" alt=""></p>
 <p>问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service（同时统一做异常处理，日志打印等等）</p>
 <h1 id="性能问题"><a href="# 性能问题" class="headerlink" title="性能问题"></a>性能问题 </h1><p> 感兴趣可以阅读这两段代码，在遇到 IO 操作时，如何提升性能：</p>
 <ol>
@@ -3046,8 +3089,8 @@
         <category>code</category>
       </categories>
       <tags>
-        <tag>django</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
@@ -6748,8 +6791,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
