@@ -23,8 +23,7 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }} 
-
-      - name: Installation
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
         run: |
           npm install
           npm install -g hexo-cli
