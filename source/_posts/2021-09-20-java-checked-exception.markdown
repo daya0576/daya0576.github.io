@@ -1,7 +1,8 @@
 ---
 title: 天使还是恶魔！浅谈 Java 中的 checked exception 
 date: 2021-09-20 16:43:42
-tags:
+categories:
+- JAVA
 ---
 
 记得有一次，觉得处理异常太麻烦，直接 catch 后包装一个 RuntimeException 一路抛了上去。结果被小伙伴 CR 时喷了一顿～

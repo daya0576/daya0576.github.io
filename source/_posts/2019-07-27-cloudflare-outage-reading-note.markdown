@@ -1,9 +1,8 @@
 ---
 title: Cloudflare 全球宕机复盘读后感
 date: 2019-07-27 21:45:50
-tags:
-- sre
-- reading
+categories:
+- SRE
 ---
 
 

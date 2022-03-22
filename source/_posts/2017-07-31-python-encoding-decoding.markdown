@@ -3,7 +3,8 @@ layout: post
 title: "Python的编码问题笔记(搞清原理, 一劳永逸)"
 date: 2017-07-31 20:59:46
 comments: true
-tags: [python3, unicode, encoding]
+categories:
+- PYTHON
 ---
 
 近日常常python的编码问题纠缠的生活不能自理. 昨天终于静下心来看了看文档, 把Python3中的编码搞清, 用这篇文章分享记录一下**(包括utf-8的原理)**.    

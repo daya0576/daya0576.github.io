@@ -1,7 +1,8 @@
 ---
 title: 多进程/多线程/协程 零零散散的记录
 date: 2019-02-12 11:06:26
-tags:
+categories:
+- PYTHON
 
 ---
 

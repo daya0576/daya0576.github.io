@@ -1,9 +1,8 @@
 ---
 title: "在 Java & Python 中，如何优雅的筛选一堆苹果\U0001F914"
-tags:
-  - java
-  - python
 date: 2020-07-04 19:14:25
+categories:
+- JAVA
 ---
 
 

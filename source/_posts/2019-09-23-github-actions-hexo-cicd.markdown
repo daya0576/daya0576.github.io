@@ -1,7 +1,7 @@
 ---
 title: 使用 GitHub Actions 实现 Hexo 博客的 CICD
-tags:
-  - blog
+categories:
+- 奇技淫巧
 date: 2019-09-23 20:36:32
 ---
 

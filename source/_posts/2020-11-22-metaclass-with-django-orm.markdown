@@ -1,8 +1,8 @@
 ---
 title: 浅谈 Python Metaclass（下）：Django ORM 的应用
 date: 2020-11-22 14:58:16
-tags:
-- python
+categories:
+- PYTHON
 ---
 
 

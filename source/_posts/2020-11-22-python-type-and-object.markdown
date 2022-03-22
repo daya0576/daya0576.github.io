@@ -1,8 +1,8 @@
 ---
 title: 浅谈 Python Metaclass（上）：type 与 object 原理介绍
 date: 2020-11-22 14:57:50
-tags:
-- python
+categories:
+- PYTHON
 ---
 
 

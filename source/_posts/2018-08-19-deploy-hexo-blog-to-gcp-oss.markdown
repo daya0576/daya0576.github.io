@@ -1,11 +1,7 @@
 title: 部署Hexo静态博客(上) - Google Cloud Platform OSS之旅
 date: 2018-08-19 18:03:33
-tags: 
-    - oss
-    - gcp
-    - hexo
 categories:
-  - blog
+- 奇技淫巧
 ---
 
 众所周知, 要使用国内的云服务, 不管是vps也好, cdn加速也好, 域名都是要备案的. 但对于我来说, 备案是不可能备案的，这辈子不可能备案的. 

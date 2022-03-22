@@ -1,7 +1,7 @@
 ---
 title: 树的可视化 - Python anytree 实现
-tags:
-  - python
+categories:
+- PYTHON
 date: 2021-01-24 15:10:08
 ---
 
