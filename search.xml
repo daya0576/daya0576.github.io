@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【智能家居】我的家庭网络拓扑</title>
+    <title>我的家庭网络拓扑</title>
     <url>/blog/20220320/home-assistant-issues/</url>
     <content><![CDATA[<p>近期上海疫情😷日益严重，封锁在家着实无聊，淘宝购入一块 R2S 开始折腾软路由科学上网～</p>
 <p>这篇文章简单分享一下我的家庭网络拓扑，以及回答软路由作为二级路由后：<br>1⃣️ <strong>电视设备如何科学上网（主路由模式）？</strong><br>2⃣️ <strong>树莓派 HA（Home Assistant）如何科学上网（旁路由模式）？</strong><br>3⃣️ <strong>HA 如何控制二级路由子设备？</strong>   </p>
@@ -39,12 +39,12 @@
 <li>..</li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>智能家居</tag>
-      </tags>
+      <categories>
+        <category>智能家居</category>
+      </categories>
   </entry>
   <entry>
-    <title>【SRE】重读 Google SLO 小记 | 智能告警之殇</title>
+    <title>重读 Google SLO 小记 | 智能告警之殇</title>
     <url>/blog/20220226/sre-slo/</url>
     <content><![CDATA[<blockquote>
 <p>the basic foundations of SRE include <strong>SLOs, monitoring, alerting</strong>, toil reduction, and simplicity.</p>
@@ -226,9 +226,12 @@
 <li><a href="https://sre.google/workbook/alerting-on-slos/">https://sre.google/workbook/alerting-on-slos/</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
-    <title>【智能家居】精装全屋智能灯改造小记</title>
+    <title>精装全屋智能灯改造小记</title>
     <url>/blog/20220206/home-lights-practice/</url>
     <content><![CDATA[<p>去年末交房后，虽是精装交付，但按耐不住爱折腾的心，将家中绝大部分的灯都换了一遍。在满足个人需求的过程中也踩了不少坑，趁着春季假期写一篇博客记录一下，如果刚好帮到你那就更好啦～</p>
 <a id="more"></a>
@@ -353,12 +356,12 @@
 </li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>smart home</tag>
-      </tags>
+      <categories>
+        <category>智能家居</category>
+      </categories>
   </entry>
   <entry>
-    <title>【奇技淫巧】git clone 大提速</title>
+    <title>git clone 大提速</title>
     <url>/blog/20220204/git-clone-speedup/</url>
     <content><![CDATA[<p>不管是工作还是学习中，相信你经常遇到这要的窘境：执行 <code>git clone &lt;url&gt;</code> 之后，不管是因为网速还是仓库过大，等你带薪拉屎结束，命令行还是龟速前行。</p>
 <p>这篇博客简单分享几个提速小技巧⚡️⚡️⚡️</p>
@@ -379,12 +382,12 @@
 <li><a href="https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/">https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/</a></li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
   </entry>
   <entry>
-    <title>【爪哇入门】Java BlockingQueue 学习小记</title>
+    <title>Java BlockingQueue 学习小记</title>
     <url>/blog/20220203/java-blocking-queue/</url>
     <content><![CDATA[<p>最近一周作息发生了一些微妙的变化，晚上 11 点睡觉清晨 7 点自然醒，身体状况明显好转的同时，也明白了什么叫做一天之际在于晨：起床后去门口吃麦当劳早餐的同时，看一会书，感觉一天多活了一个多小时。</p>
 <p>这篇文章简单记录今早 java BlockingQueue 学习小记～</p>
@@ -448,9 +451,9 @@
 <li><a href="https://zeral.cn/java/unsafe.park-vs-object.wait/">https://zeral.cn/java/unsafe.park-vs-object.wait/</a></li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>java</tag>
-      </tags>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>2021 年终总结 ✨</title>
@@ -568,6 +571,9 @@
 <li><a href="/blog/20200119/2019-summary/">《2019 年终总结 🎉》</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>如何将字符串转换成数字</title>
@@ -617,9 +623,9 @@
 <li>..</li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>java</tag>
-      </tags>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>天使还是恶魔！浅谈 Java 中的 checked exception</title>
@@ -663,6 +669,9 @@
 <li><a href="https://github.com/kun-song/my-blog/issues/36">https://github.com/kun-song/my-blog/issues/36</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>全网最晚的 2020 好物推荐</title>
@@ -737,6 +746,9 @@
 <h3 id="二、XXX"><a href="# 二、XXX" class="headerlink" title="二、XXX"></a>二、XXX</h3><h2 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h2><p>写完才发现，整篇文章充斥着 “二手”、“性价比”、“白嫖”等词 🤣🤣🤣 </p>
 <p>可能是现实生活中，充满消费的陷阱，受过无数次的毒打。如果你也有强力推荐的好物，也可以直接留言～～</p>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>大牙的 Java 入门经历分享（持续更新）</title>
@@ -825,6 +837,9 @@
 <hr>
 <p>TODO：招聘帖 </p>
 ]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>Java 内存管理 - SRE 的必修课</title>
@@ -908,9 +923,9 @@
 <li>...</li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>java</tag>
-      </tags>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
     <title>大牙的 2020 年终总结 🥳</title>
@@ -1017,6 +1032,9 @@
 </ol>
 <h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>seize the time，珍惜在这个世界的每分每秒～</p>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>零成本打造 Telegram 机器人指北</title>
@@ -1101,6 +1119,9 @@
 </ol>
 <h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>本文介绍的天气预报小玩具，仅供个人练手使用。如果你有一些好的想法，欢迎欢迎私信我 (<a href="https://t.me/daya0576">@daya0576</a>) 一起结对编程～～ 2021 希望去认识一些新朋友 XD</p>
 ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>树的可视化 - Python anytree 实现</title>
@@ -1138,9 +1159,9 @@
 <p>当然你也可以直接查看 anytree 的源码：<code>anytree.render.RenderTree</code>，其中有更多可扩展性的设计，例如样式主题，打印的模式等。</p>
 <p>🍻cheers! have a gooood day~~</p>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>限流还能这么玩 - Netflix 权重限流新思路</title>
@@ -1164,9 +1185,9 @@
 <li>关于限流：个人所知蚂蚁国际的限流主要分为网关 http 和内部系统 rpc 调用的限流，可以精细到接口与请求参数等维度，底层都是使用的令牌桶算法，目前没有动态限流与权重限流等能力。但本质上因为国际业务量不大，没有这类需求与痛点，所以感叹技术与业务都是相生相伴的，缺一不可。</li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>sre</tag>
-      </tags>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
     <title>浅谈 Python Metaclass（下）：Django ORM 的应用</title>
@@ -1222,9 +1243,9 @@
 <li><a href="https://www.python.org/dev/peps/pep-3115/#invoking-the-metaclass">PEP 3115 -- Metaclasses in Python 3000</a></li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>浅谈 Python Metaclass（上）：type 与 object 原理介绍</title>
@@ -1290,9 +1311,9 @@
 <li><a href="https://medium.com/@dboyliao/%E6%B7%BA%E8%AB%87-python-metaclass-dfacf24d6dd5">https://medium.com/@dboyliao/%E6%B7%BA%E8%AB%87-python-metaclass-dfacf24d6dd5</a></li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>Python 不需要设计模式？</title>
@@ -1348,9 +1369,9 @@
 <li>《Python Design Patterns 1》：<a href="https://www.youtube.com/watch?v=Er5K_nR5lDQ">https://www.youtube.com/watch?v=Er5K_nR5lDQ</a></li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>linux 反向查找日志</title>
@@ -1409,9 +1430,9 @@
 </ol>
 <h1 id="彩蛋："><a href="# 彩蛋：" class="headerlink" title="彩蛋："></a>彩蛋：</h1><p>Q: tac 的全称是什么 XD<br>A: cat &lt;-&gt; tac </p>
 ]]></content>
-      <tags>
-        <tag>linux</tag>
-      </tags>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
   </entry>
   <entry>
     <title>《Java 8 实战》读书笔记</title>
@@ -1584,6 +1605,9 @@
 <h2 id="第十二章：新的日期与时间 API"><a href="# 第十二章：新的日期与时间 API" class="headerlink" title="第十二章：新的日期与时间 API"></a>第十二章：新的日期与时间 API</h2><p>(略)</p>
 <h1 id="第四部分：超越 -Java-8"><a href="# 第四部分：超越 -Java-8" class="headerlink" title="第四部分：超越 Java 8"></a>第四部分：超越 Java 8</h1><p>(略)</p>
 ]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>在 Java & Python 中，如何优雅的筛选一堆苹果🤔</title>
@@ -1624,10 +1648,9 @@
 <p>虽然现在双放都可以用一行代码实现需求，但个人觉得这轮比拼还是 python 的 list comprehension 更胜一筹🤔 </p>
 <p><strong>因为这种特有的写法更符合人类直觉，你觉得呢？</strong>😄</p>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>java</tag>
-      </tags>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>Annotation(Decorator) 在 Java & Python 中的应用</title>
@@ -1716,10 +1739,9 @@
 <li><a href="https://juejin.im/post/5b45bd715188251b3a1db54f#heading-3">https://juejin.im/post/5b45bd715188251b3a1db54f#heading-3</a></li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>学习</tag>
-        <tag>java</tag>
-      </tags>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>《Head First 设计模式》学习笔记</title>
@@ -1835,10 +1857,9 @@
 <h2 id="第十二章：模式的模式 -Compound-Pattern"><a href="# 第十二章：模式的模式 -Compound-Pattern" class="headerlink" title="第十二章：模式的模式 - Compound Pattern"></a>第十二章：模式的模式 - Compound Pattern</h2><p>相当于将上面讲解过的设计模式复合使用，刚好跟着敲一遍代码，复习一下。   </p>
 <p>但像文中说的那样，有种牛刀杀鸡的感觉。。</p>
 ]]></content>
-      <tags>
-        <tag>java</tag>
-        <tag>读后感</tag>
-      </tags>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>解决关于 UML 类图在心中深藏多年的若干疑惑</title>
@@ -1888,11 +1909,9 @@
 <li><a href="http://umlgreatchina.org/_templates/main.aspx?sname=faq&amp;section=q1">http://umlgreatchina.org/_templates/main.aspx?sname=faq&amp;section=q1</a></li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>学习</tag>
-        <tag>学习笔记</tag>
-        <tag>uml</tag>
-      </tags>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>【游记】2019.12 东京五日蜜月旅行 highlights</title>
@@ -1923,10 +1942,9 @@
 <p>最后一天逛了一个上午，入手了 T 家的对戒😁，心满意足。其实和国内的价格对齐，当省了税的差价。男款贵了不少，赚到了，赚到了。<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/9C78601A-5CAF-4EEC-894A-1321F51618C2_1_105_c.jpeg" alt="9C78601A-5CAF-4EEC-894A-1321F51618C2_1_105"></p>
 <p>为期五天的佛系旅行就这么结束啦。期望疫情早早结束，大家都可以和心爱的人环游世界～ ❤️   </p>
 ]]></content>
-      <tags>
-        <tag>游记</tag>
-        <tag>日本</tag>
-      </tags>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>2019 年终总结 🎉</title>
@@ -1993,6 +2011,9 @@
 </ol>
 <p>期望明年 2020 年终总结，我的的关键词是：酷！</p>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
       <tags>
         <tag>生活</tag>
         <tag>年终总结</tag>
@@ -2036,9 +2057,9 @@
 </li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
   </entry>
   <entry>
     <title>记一个困扰了我两个星期的博客 Bug 🤒️</title>
@@ -2070,6 +2091,9 @@
 <li>开启 Rocket rocker，但对特定的资源加一个 false flag: <code>&lt;script data-cfasync=&quot;false&quot; src=&quot;/javascript.js&quot;&gt;&lt;/script&gt;</code></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
     <title>macOS 如何将截图自动保存至相册 (Photos)</title>
@@ -2092,10 +2116,9 @@
 <li><a href="https://www.quora.com/Can-I-make-my-macOS-screenshots-automatically-save-to-the-Photos-app-instead-of-the-desktop">https://www.quora.com/Can-I-make-my-macOS-screenshots-automatically-save-to-the-Photos-app-instead-of-the-desktop</a></li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>macos</tag>
-        <tag>tutorial</tag>
-      </tags>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
   </entry>
   <entry>
     <title>Cloudflare 全球宕机复盘读后感</title>
@@ -2139,10 +2162,9 @@
 </blockquote>
 <p>--EOF--</p>
 ]]></content>
-      <tags>
-        <tag>sre</tag>
-        <tag>reading</tag>
-      </tags>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
     <title>Python 版本管理 & 虚拟环境的那些事</title>
@@ -2192,9 +2214,9 @@
 </ol>
 <h1 id="纪念"><a href="# 纪念" class="headerlink" title="纪念"></a>纪念</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/190707_python_env_management/15625174196560.jpg"></p>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>大阪, 奈良, 京都 の 新婚六日游</title>
@@ -2235,6 +2257,9 @@
 <p>疲惫了一天终于，在大丸百货的顶楼，找了一家 <strong> 放题 </strong>(日语自助的意思) 烤肉满足一下😊：<a href="https://www.daimaru.co.jp.c.md.hpcn.transer-cn.com/kyoto/beergardenkyoto/">「大丸ビアガーデン KYOTO」</a>。但这家店鸡贼的很，肉肉是限量的，吃了没文化的亏，想哭。但第一次和这么多日本上班族，一起烤肉喝酒，也是一段蛮神奇的体验～<br><img src="/images/loading/loading.svg" data-original="/images/blog/190624_japan_travel/UNADJUSTEDNONRAW_thumb_65bc.jpg" alt="UNADJUSTEDNONRAW_thumb_65b"></p>
 <h2 id="Day6- 回家"><a href="#Day6- 回家" class="headerlink" title="Day6 回家"></a>Day6 回家 </h2><p> 在京都车站伊势丹百货，陪 CC 逛逛商场准备回家了～ 被寄存在某个角落的我⬇️<br><img src="/images/loading/loading.svg" data-original="/images/blog/190624_japan_travel/rM9S2SlxTE61mtlUCW6OCQ_thumb_664e.jpg" alt="rM9S2SlxTE61mtlUCW6OCQ_thumb_664e"></p>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>一个程序员的选钻戒💍之路</title>
@@ -2292,9 +2317,9 @@
 <li><a href="https://www.smzdm.com/list/70120208/">【什么值得买】一克拉以下都是碎钻？小编用专业知识告诉你这是胡说！</a></li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>life</tag>
-      </tags>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>【学习笔记】正态分布 (Normal Distribution) 学习小记</title>
@@ -2384,6 +2409,9 @@
 <p>Experiment before making a choice.</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>《天空之城》观后感</title>
@@ -2469,6 +2497,9 @@
 <li><a href="https://www.youtube.com/watch?v=9zinZmE3Ogk&quot;Your">https://www.youtube.com/watch?v=9zinZmE3Ogk&quot;Your</a> weakness is ur strength and ur weakness is ur strength.&quot; 哈哈</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>进城务工人员新春返乡流水账 (2019)</title>
@@ -2488,6 +2519,9 @@
 <h1 id="交通"><a href="# 交通" class="headerlink" title="交通"></a>交通 </h1><p> 小区对面刚好是个小学, 过马路时竟然发现和悉尼类似的行人通行装置, 除了不会 滴滴滴滴滴滴 XD<br><img src="/images/loading/loading.svg" data-original="/images/blog/190205_yuhuan_new_year/UNADJUSTEDNONRAW_thumb_5bc3.jpg" alt="UNADJUSTEDNONRAW_thumb_5b"></p>
 <p>(未完待续)</p>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>记一次 Matplotlib 解决多线程画图的故事</title>
@@ -2510,10 +2544,9 @@
 <h1 id="其他"><a href="# 其他" class="headerlink" title="其他:"></a>其他:</h1><p>分享一下我用 matplotlib 画的酷酷的图💪:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190204_matplot_thread_safing/15492804797787.jpg"></p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/190204_matplot_thread_safing/ibaymax.jpg"></p>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>matplot</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>业务报警智能降噪的那些事</title>
@@ -2605,10 +2638,9 @@
 <li>...</li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>sre</tag>
-      </tags>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
     <title>使用 Buddy 实现博客持续部署</title>
@@ -2668,9 +2700,9 @@
 <p>Perfect~</p>
 <h2 id="GitHub-Actions"><a href="#GitHub-Actions" class="headerlink" title="GitHub Actions"></a>GitHub Actions</h2><p><a href="https://github.com/features/actions">链接</a>，申请试用中...<br><img src="/images/loading/loading.svg" data-original="/images/blog/171216_cicd/15524872888810.jpg"></p>
 ]]></content>
-      <tags>
-        <tag>cd, hexo, git</tag>
-      </tags>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
   </entry>
   <entry>
     <title>K-means 学习记录, 没想到你是这样的聚类算法</title>
@@ -2690,10 +2722,9 @@
 <h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 有不懂的地方尽管给我留言哦, 笔芯.</p>
 <p>--EOF--</p>
 ]]></content>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>machine learning</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>自如甲醛检测的魔幻之旅</title>
@@ -2826,12 +2857,8 @@
 </ul>
 ]]></content>
       <categories>
-        <category>databse</category>
+        <category>奇技淫巧</category>
       </categories>
-      <tags>
-        <tag>database</tag>
-        <tag>dbms</tag>
-      </tags>
   </entry>
   <entry>
     <title>博客开启 HTTP/2 后的对比实验, 感觉要起飞了 =.=</title>
@@ -2843,12 +2870,8 @@
 
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>奇技淫巧</category>
       </categories>
-      <tags>
-        <tag>blog</tag>
-        <tag>http</tag>
-      </tags>
   </entry>
   <entry>
     <title>记我为 Hexo Next 主题提交的第一个 PR</title>
@@ -2881,13 +2904,8 @@
 <p>-eof-</p>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>奇技淫巧</category>
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>blog</tag>
-        <tag>next</tag>
-      </tags>
   </entry>
   <entry>
     <title>《蚂蚁金服：科技金融独角兽的崛起》 读后感</title>
@@ -2953,12 +2971,8 @@
 <p>-eof-</p>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>奇技淫巧</category>
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>blog</tag>
-      </tags>
   </entry>
   <entry>
     <title>Disqus 添加了 Reactions 的功能</title>
@@ -2969,8 +2983,8 @@
         <category>blog</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>disqus</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3104,12 +3118,8 @@
 </ol>
 ]]></content>
       <categories>
-        <category>code</category>
+        <category>PYTHON</category>
       </categories>
-      <tags>
-        <tag>django</tag>
-        <tag>mysql</tag>
-      </tags>
   </entry>
   <entry>
     <title>MWeb3.0?? 记一次后悔的购买经历</title>
@@ -3176,13 +3186,8 @@
 </ol>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>奇技淫巧</category>
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>oss</tag>
-        <tag>netlify</tag>
-      </tags>
   </entry>
   <entry>
     <title>部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅</title>
@@ -3215,17 +3220,12 @@
 </ul>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>奇技淫巧</category>
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>oss</tag>
-        <tag>gcp</tag>
-      </tags>
   </entry>
   <entry>
     <title>博客搬家小记 (Octopress → Hexo)</title>
-    <url>/blog/20180807/octopress-to-hexo/</url>
+    <url>/blog/20180806/octopress-to-hexo/</url>
     <content><![CDATA[<p>从 2014 年开始, 不知不觉用 <a href="http://octopress.org/">Octopress</a> 写博客已经四年多了. 用的主题叫做<a href="https://shashankmehta.in/archive/2012/greyshade.html">Greyshade</a>, 陆陆续续做了很多小改动, 同时也使整个项目一团糟, 慢慢的变得难以维护, 编写一篇新博客的成本也越来越高了, 终于下定决心给博客搬个家. </p>
 <p>调研过一些博客框架, 例如车亮亮做的基于 Django 的博客系统 (<a href="https://github.com/liangliangyy/DjangoBlog">GitHub 主页</a>), Jekyll, Ghost, etc. 但最后还是选择了现在最火的 Hexo. 本文主要记录了使用 hexo 的心路历程, 至于如何部署可以参考这篇 blog: <a href="/blog/20170729/octopress-nginx-vps/"> 在 vps 上部署你的静态博客(网站)
 </a>   </p>
@@ -3290,12 +3290,8 @@ disqus 手机端不加载</p>
 </ul>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>奇技淫巧</category>
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>blog</tag>
-      </tags>
   </entry>
   <entry>
     <title>机器学习 (Coursera - Andrew NG) 个人笔记</title>
@@ -3487,6 +3483,9 @@ disqus 手机端不加载</p>
 <h1 id="MWeb3"><a href="#MWeb3" class="headerlink" title="MWeb3"></a>MWeb3</h1><p>主页: <a href="https://www.mweb.im/">https://www.mweb.im/</a><br>写 markdown 的主力文本编辑器, 其实我最喜欢的是它的目录显示(即右边).<br><img src="/images/loading/loading.svg" data-original="/images/blog/180507_macos_app/Screen%20Shot%202018-10-06%20at%205.18.57%20PM.png" alt="Screen Shot 2018-10-06 at 5.18.57 P"></p>
 <p>(未完待续)</p>
 ]]></content>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
       <tags>
         <tag>apple</tag>
         <tag>macos</tag>
@@ -4033,9 +4032,9 @@ disqus 手机端不加载</p>
 <p>欢迎发送简历到 daya0576[AT]gmail.com 联系内推。</p>
 </blockquote>
 ]]></content>
-      <tags>
-        <tag>读后感</tag>
-      </tags>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
     <title>Git Internal(初探 git 的内部实现)</title>
@@ -4682,11 +4681,9 @@ disqus 手机端不加载</p>
 <li><a href="https://docs.python.org/3/library/stdtypes.html#bytes">https://docs.python.org/3/library/stdtypes.html#bytes</a></li>
 </ul>
 ]]></content>
-      <tags>
-        <tag>python3</tag>
-        <tag>unicode</tag>
-        <tag>encoding</tag>
-      </tags>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>在 vps 上部署你的静态博客 (网站)</title>
@@ -4727,10 +4724,9 @@ disqus 手机端不加载</p>
 <h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 你的博客就顺利搭建起来了🎉<br><code>changchen.me --&gt; DNS --&gt; VPS IP --&gt; 301 --&gt; blog dir.</code></p>
 <p>相比以前跨越半个地球去访问网站, 速度刷刷刷的上去了~<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png"><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost2.png">   </p>
 ]]></content>
-      <tags>
-        <tag>octopress</tag>
-        <tag>vps</tag>
-      </tags>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
   </entry>
   <entry>
     <title>排序算法总结 (Python 实现附带思路)</title>
@@ -6754,8 +6750,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
