@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>我的家庭监控大盘</title>
+    <title>如何构建家庭监控大盘</title>
     <url>/blog/20220327/smart-home-dashboard/</url>
     <content><![CDATA[<p>周末突然想起许久前与朋友聊天，谈到他的家庭网络虽然是电信接入，但是质量堪忧总是时不时的“抽风”，最终却也不知是路由器还是宽带在捣鬼。</p>
 <p>作为一名 SRE 每日在解决线上业务可观测的问题，突发奇想有没有可能针对自家的状况，也配置一个监控大盘？🤔</p>

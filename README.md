@@ -1,6 +1,6 @@
 
 ## 智能家居
-- [2022-03-27] [我的家庭监控大盘](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-27-smart-home-dashboard.markdown)
+- [2022-03-27] [如何构建家庭监控大盘](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-27-smart-home-dashboard.markdown)
 - [2022-03-20] [我的家庭网络拓扑](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-20-home-assistant-issues.markdown)
 - [2022-02-06] [精装全屋智能灯改造小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-06-home-lights-practice.markdown)
 ## SRE
