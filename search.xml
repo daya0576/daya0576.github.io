@@ -7,7 +7,7 @@
 <p>作为一名 SRE 每日在解决线上业务可观测的问题，突发奇想有没有可能针对自家的状况，也配置一个监控大盘？🤔</p>
 <a id="more"></a>
 
-<p>花了一天时间踩坑后初版如下，包含局域网设备负载、网络流量、湿温度趋势等信息。本篇文章将分享家庭大盘搭建的思路，希望读者可以少踩几个坑 XD<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16483716356989.jpg"></p>
+<p>花了一天时间踩坑后初版如下，包含局域网设备负载、网络流量、湿温度趋势等信息。本篇文章将分享家庭大盘搭建的思路，希望读者可以少踩几个坑 XD</p>
 <h1 id="TOC"><a href="#TOC" class="headerlink" title="TOC"></a>TOC</h1><ul>
 <li><a href="#toc">TOC</a></li>
 <li><a href="#%E4%B8%80%E3%80%81%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A">一、名词解释</a></li>
@@ -121,7 +121,7 @@
       </categories>
   </entry>
   <entry>
-    <title>我的家庭网络拓扑</title>
+    <title>分享我的家庭网络拓扑</title>
     <url>/blog/20220320/home-assistant-issues/</url>
     <content><![CDATA[<p>近期上海疫情😷日益严重，封锁在家着实无聊，淘宝购入一块 R2S 开始折腾软路由科学上网～</p>
 <p>这篇文章简单分享一下我的家庭网络拓扑，以及回答软路由作为二级路由后：<br>1⃣️ <strong>电视设备如何科学上网（主路由模式）？</strong><br>2⃣️ <strong>树莓派 HA（Home Assistant）如何科学上网（同时开启旁路由模式）？</strong><br>3⃣️ <strong>HA 如何控制二级路由子设备？</strong>   </p>
@@ -6868,10 +6868,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
-        <tag>moobox</tag>
-        <tag>work</tag>
         <tag>mysql</tag>
         <tag>django</tag>
+        <tag>moobox</tag>
+        <tag>work</tag>
       </tags>
   </entry>
   <entry>
