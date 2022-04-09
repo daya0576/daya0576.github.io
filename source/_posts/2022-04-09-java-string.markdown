@@ -1,8 +1,8 @@
 ---
-title: 关于 Java 字符串的秘密 tags:
-
-- JAVA date: 2022-04-09 14:37:58
-
+title: 关于 Java 字符串的秘密 
+date: 2022-04-09 14:37:58
+categories:
+- JAVA 
 ---
 
 最近对 java 字符串（`java.lang.String`）的部分行为感到困惑，抽空查阅资料后，直呼原来是这样？！忍不住写一篇博客纪念一下
