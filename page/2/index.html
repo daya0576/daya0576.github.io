@@ -348,52 +348,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210904/jvm-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20210904/jvm-note/" class="post-title-link" itemprop="url">Java 内存管理 - SRE 的必修课</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy 脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T</p>
-<p>但是之后很长一段时间内，都不太明白 Metaspace 是什么，为什么会耗尽？和 perm 区的关系是？不同线程本地变量和全局对象的关系？</p>
-<p>正好趁这次机会，系统性的整理和分享一下 ：）</p>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210228/2020-summary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -569,6 +523,51 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20201122/metaclass-with-django-orm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20201122/metaclass-with-django-orm/" class="post-title-link" itemprop="url">浅谈 Python Metaclass（下）：Django ORM 的应用</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>用了这么多年 django，原来其中强大的 ORM 即 metaclass 的一种最佳实践，让我们一探其中的奥秘吧✨</p>
+<p>p.s. 文本默认你对 Django 的 ORM 已有一定的概念了解与实践～</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -641,7 +640,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
