@@ -5,7 +5,7 @@ categories:
 - JAVA 
 ---
 
-最近对 java 字符串（`java.lang.String`）的部分行为感到困惑，抽空查阅资料后，直呼原来是这样？！忍不住写一篇博客纪念一下
+最近对 java 字符串（`java.lang.String`）的部分行为感到困惑，抽空查阅资料后豁然开朗。忍不住写一篇博客纪念一下
 
 <!--more-->
 
@@ -59,8 +59,7 @@ int intFoo=1;
 // [arrayBar]：[f, o, o,  , x, x]
 ```
 
-不难理解，int 作为[原始型別](https://zh.wikipedia.org/wiki/%25E5%258E%259F%25E5%25A7%258B%25E5%259E%258B%25E5%2588%25A5)，在 stack
-frame 中，变量与 value 一一对应，而引用类型（reference type）顾名思义，仅保存堆（Heap）中实例对象的内存地址。
+不难理解，int 作为[原始型別](https://zh.wikipedia.org/wiki/%25E5%258E%259F%25E5%25A7%258B%25E5%259E%258B%25E5%2588%25A5)，在 stackframe 中，变量与 value 一一对应，而引用类型（reference type）顾名思义，仅保存堆（Heap）中实例对象的内存地址。
 
 参考去年发布的[博客](/blog/20210904/jvm-note/)：
 ![](../images/blog/2021-09-04-jvm-note/16494818796482.jpg)
