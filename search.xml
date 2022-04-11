@@ -3,7 +3,7 @@
   <entry>
     <title>关于 Java 字符串的秘密</title>
     <url>/blog/20220409/java-string/</url>
-    <content><![CDATA[<p>最近对 java 字符串（<code>java.lang.String</code>）的部分行为感到困惑，抽空查阅资料后，直呼原来是这样？！忍不住写一篇博客纪念一下</p>
+    <content><![CDATA[<p>最近对 java 字符串（<code>java.lang.String</code>）的部分行为感到困惑，抽空查阅资料后豁然开朗。忍不住写一篇博客纪念一下</p>
 <a id="more"></a>
 
 <h2 id="一、不变性"><a href="# 一、不变性" class="headerlink" title="一、不变性"></a>一、不变性 </h2><p> 从源码中不难看出：</p>
@@ -19,7 +19,7 @@
 <p>揭开谜团前，先来看看 primary type 与 reference type 的区别：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// int</span></span><br><span class="line"><span class="keyword">int</span> intFoo=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> intBar=intFoo;</span><br><span class="line">        intBar++;</span><br><span class="line"><span class="comment">// array</span></span><br><span class="line">        <span class="keyword">char</span>[]arrayFoo=<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'f'</span>,<span class="string">'o'</span>,<span class="string">'o'</span>,<span class="string">''</span>,<span class="string">' '</span>,<span class="string">' '</span>&#125;;</span><br><span class="line">        <span class="keyword">char</span>[]arrayBar=arrayFoo;</span><br><span class="line">        arrayBar[<span class="number">4</span>]=<span class="string">'x'</span>;</span><br><span class="line">        arrayBar[<span class="number">5</span>]=<span class="string">'x'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// [intFoo]：1</span></span><br><span class="line"><span class="comment">// [intBar]：2</span></span><br><span class="line"><span class="comment">// [arrayFoo]：[f, o, o,  , x, x]</span></span><br><span class="line"><span class="comment">// [arrayBar]：[f, o, o,  , x, x]</span></span><br></pre></td></tr></table></figure>
 
-<p>不难理解，int 作为 <a href="https://zh.wikipedia.org/wiki/%25E5%258E%259F%25E5%25A7%258B%25E5%259E%258B%25E5%2588%25A5"> 原始型別</a>，在 stack<br>frame 中，变量与 value 一一对应，而引用类型（reference type）顾名思义，仅保存堆（Heap）中实例对象的内存地址。</p>
+<p>不难理解，int 作为 <a href="https://zh.wikipedia.org/wiki/%25E5%258E%259F%25E5%25A7%258B%25E5%259E%258B%25E5%2588%25A5"> 原始型別</a>，在 stackframe 中，变量与 value 一一对应，而引用类型（reference type）顾名思义，仅保存堆（Heap）中实例对象的内存地址。</p>
 <p>参考去年发布的 <a href="/blog/20210904/jvm-note/"> 博客</a>：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16494818796482.jpg"></p>
 <h2 id="三、揭开谜团"><a href="# 三、揭开谜团" class="headerlink" title="三、揭开谜团"></a>三、揭开谜团 </h2><p><a href="https://docs.oracle.com/javase/tutorial/java/data/strings.html"> 官方教程</a> 中提到由于 string 不可变的特性，针对它的任何修改操作会返回一个新的 string 对象：</p>
 <p>参考 <code>java.lang.String#concat</code> 实现：</p>
@@ -1141,7 +1141,7 @@
 </ol>
 <p>尝鲜使用了 python3.9，以及异步的 fastapi web 框架，所以 telegram 的 sdk 也需要使用异步：<a href="https://github.com/aiogram/aiogram">aiogram</a>。</p>
 <p>线上部署白嫖了 Heroku 全家桶：推送 master 即可触发部署(gitops)。同时支持数据库 &#x2F; 缓存 &#x2F; 定时任务的一键申请（最重要的都是免费的），以及 环境变量配置，域名 https 卸载，日志在线查看，等傻瓜操作... 唯一的缺点：Heroku 只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。</p>
-<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/image-20210314172708269.png" alt="image-20210314172708269"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-02-21-buld-telegram-bot-from-scratch/image-20210314172708269.png" alt="image-20210314172708269"></p>
 <h1 id="3- 原理 -amp- 实现"><a href="#3- 原理 -amp- 实现" class="headerlink" title="3 原理 &amp; 实现"></a>3 原理 &amp; 实现 </h1><p> 分为以下四个步骤：</p>
 <ol>
 <li>申请机器人 - token</li>
@@ -1157,11 +1157,11 @@
 </ol>
 <p>所以不管是 fastapi&#x2F;flask&#x2F;django，都需要开启一个 <code>/hook</code> 的接口，参考项目中的这档逻辑： <code>telegram_bot.routers.webhook.webhook_handler</code></p>
 <p>p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一个对外可访问的 https 地址。</p>
-<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/image-20210314172807664.png" alt="image-20210314172807664"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-02-21-buld-telegram-bot-from-scratch/image-20210314172807664.png" alt="image-20210314172807664"></p>
 <h2 id="3-3- 绑定 -Bot-Token-amp-Server-Webhook"><a href="#3-3- 绑定 -Bot-Token-amp-Server-Webhook" class="headerlink" title="3.3 绑定 Bot Token &amp; Server Webhook"></a>3.3 绑定 Bot Token &amp; Server Webhook</h2><p>用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 <code>webhook</code>，所以需要提前将 <code>webhook</code> 与 <code>token</code> 进行绑定。两种方式：</p>
 <ol>
 <li>手动请求 <code>https://api.telegram.org/bot{token}/setWebhook?url={webhook}</code></li>
-<li>sdk 设置：<code>aiogram.bot.bot.Bot.set_webhook</code> 一个小技巧：在 fastapi app 每次启动的时候，检查如果与当前机器人绑定的 webhook 不同，则进行更新。需要注意调用的频率，参考 <code>telegram_bot.routers.webhook.set_webhook</code></li>
+<li>sdk 设置：<code>aiogram.bot.bot.Bot.set_webhook</code>。一个小技巧：在 fastapi app 每次启动的时候，检查如果与当前机器人绑定的 webhook 不同，则进行更新。需要注意调用的频率，参考 <code>telegram_bot.routers.webhook.set_webhook</code></li>
 </ol>
 <h2 id="3-4- 线上部署"><a href="#3-4- 线上部署" class="headerlink" title="3.4 线上部署"></a>3.4 线上部署</h2><p>heroku 一键部署：参考<a href="https://devcenter.heroku.com/articles/getting-started-with-python">《Getting Started on Heroku with Python》</a></p>
 <p>p.s. heroku 原生不支持 poetry，只认识 requrements.txt，可以通过第三方 buildpack 解决：<a href="https://github.com/moneymeets/python-poetry-buildpack">https://github.com/moneymeets/python-poetry-buildpack</a></p>
@@ -1175,7 +1175,7 @@
 <li><strong>定时天气发送</strong>：遍历开启的用户，发送对应城市的天气预报。     定时任务通常由消息驱动实现，通过三层分发 (Splitter-&gt;Loader-&gt;Executor) 等手段避免单点热点。因为是单点部署... 所以简单通过定时 curl http 请求实现，需要考虑扫描误触发 &amp; 恶意攻击，但最好是通过内部的幂等机制支持。</li>
 </ol>
 <h2 id="时序交互"><a href="# 时序交互" class="headerlink" title="时序交互"></a>时序交互 </h2><p> 三个场景对应的时序交互如下：</p>
-<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/16138563037292.jpg"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-02-21-buld-telegram-bot-from-scratch/16138563037292.jpg"></p>
 <h2 id="系统架构"><a href="# 系统架构" class="headerlink" title="系统架构"></a>系统架构 </h2><p> 虽然是个小玩具，但也需要一定的分层与抽象，减少整体代码的「复杂度」：</p>
 <ol>
 <li>Web 层代表 fastapi app 暴露给外部的两个接口</li>
@@ -1183,7 +1183,7 @@
 <li>Integration 层为对外的依赖封装，例如 <code>weather_client</code> 是一个天气预报获取的接口，定义标准的行为后，底层可以由任意获取外部数据逻辑构成，实现解耦与未来快速替换</li>
 <li>DAL 则是 DB 层的包装</li>
 </ol>
-<p><img src="/images/loading/loading.svg" data-original="2021-02-21-buld-telegram-bot-from-scratch/16138614119002.jpg"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-02-21-buld-telegram-bot-from-scratch/16138614119002.jpg"></p>
 <p>问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service（同时统一做异常处理，日志打印等等）</p>
 <h1 id="性能问题"><a href="# 性能问题" class="headerlink" title="性能问题"></a>性能问题 </h1><p> 感兴趣可以阅读这两段代码，在遇到 IO 操作时，如何提升性能：</p>
 <ol>

@@ -47,16 +47,16 @@
   };
 </script>
 
-  <meta name="description" content="最近对 java 字符串（java.lang.String）的部分行为感到困惑，抽空查阅资料后，直呼原来是这样？！忍不住写一篇博客纪念一下">
+  <meta name="description" content="最近对 java 字符串（java.lang.String）的部分行为感到困惑，抽空查阅资料后豁然开朗。忍不住写一篇博客纪念一下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 Java 字符串的秘密">
 <meta property="og:url" content="https://changchen.me/blog/20220409/java-string/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="最近对 java 字符串（java.lang.String）的部分行为感到困惑，抽空查阅资料后，直呼原来是这样？！忍不住写一篇博客纪念一下">
+<meta property="og:description" content="最近对 java 字符串（java.lang.String）的部分行为感到困惑，抽空查阅资料后豁然开朗。忍不住写一篇博客纪念一下">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-04-09T06:37:58.000Z">
-<meta property="article:modified_time" content="2022-04-10T09:30:12.416Z">
+<meta property="article:modified_time" content="2022-04-11T15:29:20.378Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -271,7 +271,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近对 java 字符串（<code>java.lang.String</code>）的部分行为感到困惑，抽空查阅资料后，直呼原来是这样？！忍不住写一篇博客纪念一下</p>
+        <p>最近对 java 字符串（<code>java.lang.String</code>）的部分行为感到困惑，抽空查阅资料后豁然开朗。忍不住写一篇博客纪念一下</p>
 <a id="more"></a>
 
 <h2 id="一、不变性"><a href="# 一、不变性" class="headerlink" title="一、不变性"></a>一、不变性 </h2><p> 从源码中不难看出：</p>
@@ -287,7 +287,7 @@
 <p>揭开谜团前，先来看看 primary type 与 reference type 的区别：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// int</span></span><br><span class="line"><span class="keyword">int</span> intFoo=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> intBar=intFoo;</span><br><span class="line">        intBar++;</span><br><span class="line"><span class="comment">// array</span></span><br><span class="line">        <span class="keyword">char</span>[]arrayFoo=<span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'f'</span>,<span class="string">'o'</span>,<span class="string">'o'</span>,<span class="string">''</span>,<span class="string">' '</span>,<span class="string">' '</span>&#125;;</span><br><span class="line">        <span class="keyword">char</span>[]arrayBar=arrayFoo;</span><br><span class="line">        arrayBar[<span class="number">4</span>]=<span class="string">'x'</span>;</span><br><span class="line">        arrayBar[<span class="number">5</span>]=<span class="string">'x'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// [intFoo]：1</span></span><br><span class="line"><span class="comment">// [intBar]：2</span></span><br><span class="line"><span class="comment">// [arrayFoo]：[f, o, o,  , x, x]</span></span><br><span class="line"><span class="comment">// [arrayBar]：[f, o, o,  , x, x]</span></span><br></pre></td></tr></table></figure>
 
-<p>不难理解，int 作为 <a href="https://zh.wikipedia.org/wiki/%25E5%258E%259F%25E5%25A7%258B%25E5%259E%258B%25E5%2588%25A5"> 原始型別</a>，在 stack<br>frame 中，变量与 value 一一对应，而引用类型（reference type）顾名思义，仅保存堆（Heap）中实例对象的内存地址。</p>
+<p>不难理解，int 作为 <a href="https://zh.wikipedia.org/wiki/%25E5%258E%259F%25E5%25A7%258B%25E5%259E%258B%25E5%2588%25A5"> 原始型別</a>，在 stackframe 中，变量与 value 一一对应，而引用类型（reference type）顾名思义，仅保存堆（Heap）中实例对象的内存地址。</p>
 <p>参考去年发布的 <a href="/blog/20210904/jvm-note/"> 博客</a>：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16494818796482.jpg"></p>
 <h2 id="三、揭开谜团"><a href="# 三、揭开谜团" class="headerlink" title="三、揭开谜团"></a>三、揭开谜团 </h2><p><a href="https://docs.oracle.com/javase/tutorial/java/data/strings.html"> 官方教程</a> 中提到由于 string 不可变的特性，针对它的任何修改操作会返回一个新的 string 对象：</p>
 <p>参考 <code>java.lang.String#concat</code> 实现：</p>
