@@ -30,10 +30,10 @@ public final class String
 
 ```java
 // string
-String stringFoo="foo";
-        String stringBar=stringFoo;
-        stringBar+=" bar";
-        System.out.printf("[intFoo]：%s%n[intBar]：%s%n%n",stringFoo,stringBar);
+String stringFoo = "foo";
+String stringBar = stringFoo;
+stringBar += " bar";
+System.out.printf("[intFoo]：%s%n[intBar]：%s%n%n", stringFoo, stringBar);
 
 // [intFoo]：foo
 // [intBar]：foo bar
@@ -43,14 +43,14 @@ String stringFoo="foo";
 
 ```java
 // int
-int intFoo=1;
-        int intBar=intFoo;
-        intBar++;
+int intFoo = 1;
+int intBar = intFoo;
+intBar++;
 // array
-        char[]arrayFoo=new char[]{'f','o','o',' ',' ',' '};
-        char[]arrayBar=arrayFoo;
-        arrayBar[4]='x';
-        arrayBar[5]='x';
+char[] arrayFoo = new char[]{'f', 'o', 'o', ' ', ' ', ' '};
+char[] arrayBar = arrayFoo;
+arrayBar[4] = 'x';
+arrayBar[5] = 'x';
 
 // 输出
 // [intFoo]：1
@@ -71,16 +71,16 @@ int intFoo=1;
 参考 `java.lang.String#concat` 实现：
 
 ```java
-public String concat(String str){
-        int otherLen=str.length();
-        if(otherLen==0){
+public String concat(String str) {
+    int otherLen = str.length();
+    if (otherLen == 0) {
         return this;
-        }
-        int len=value.length;
-        char buf[]=Arrays.copyOf(value,len+otherLen);
-        str.getChars(buf,len);
-        return new String(buf,true);
-        }
+    }
+    int len = value.length;
+    char buf[] = Arrays.copyOf(value, len + otherLen);
+    str.getChars(buf, len);
+    return new String(buf, true);
+}
 ```
 
 但是相比于 concat 方法，String 两两相加（`+`）的操作符，具体发生了什么呢？
