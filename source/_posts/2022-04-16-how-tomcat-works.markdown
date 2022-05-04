@@ -1,5 +1,5 @@
 ---
-title: 《深入剖析Tomcat》之如何实现套娃🪆
+title: 《深入剖析Tomcat》第五章 - 如何实现套娃🪆
 categories:
   - JAVA
 date: 2022-04-16 15:09:35
@@ -29,7 +29,7 @@ Tomcat 中的四种容器（p.s. 接口可以 extend），本章介绍如何只�
 3. **Context**：一个 Web 应用程序，一个 Context 可以有多个 wrapper
 4. **Wrapper**：表示一个独立的 servlet
 
-一开始可能毫无头绪，但耐心完整阅读章节后会豁然开朗，理解为什么将亲切的将“容器”比喻为套娃 XD
+**注意一开始可能毫无头绪，但耐心完整阅读章节后会豁然开朗，理解为什么将亲切的将“容器”比喻为套娃 XD**
 ![](../images/blog/2021-09-04-jvm-note/16503302866162.jpg)
 
 
@@ -93,7 +93,6 @@ if hasattr(mw_instance, "process_template_response"):
         ),
     )
 ```
-
 
 ### org.apache.catalina.Context
 
