@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>《深入剖析 Tomcat》之如何实现套娃🪆</title>
+    <title>《深入剖析 Tomcat》第五章 - 如何实现套娃🪆</title>
     <url>/blog/20220416/how-tomcat-works/</url>
     <content><![CDATA[<p>同事近期安利的一本葵花宝典，尝试阅读几章后，确实寻得一些避免面条式代码的良药。</p>
 <p>为什么要写这篇博客？最近在读另外一本书：<a href="https://book.douban.com/subject/35546622/">《置身事内》</a>，浅浅读过收获不大，但神奇的是在豆瓣编写书评的过程中，不断翻阅与总结催化了新的收获。所以尝试编写《深入剖析 Tomcat》的读书小记，通过输出的方式加深理解。</p>
@@ -18,7 +18,7 @@
 <li><strong>Context</strong>：一个 Web 应用程序，一个 Context 可以有多个 wrapper</li>
 <li><strong>Wrapper</strong>：表示一个独立的 servlet</li>
 </ol>
-<p>一开始可能毫无头绪，但耐心完整阅读章节后会豁然开朗，理解为什么将亲切的将“容器”比喻为套娃 XD<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16503302866162.jpg"></p>
+<p><strong>注意一开始可能毫无头绪，但耐心完整阅读章节后会豁然开朗，理解为什么将亲切的将“容器”比喻为套娃 XD</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16503302866162.jpg"></p>
 <h3 id="org-apache-catalina-Wrapper"><a href="#org-apache-catalina-Wrapper" class="headerlink" title="org.apache.catalina.Wrapper"></a>org.apache.catalina.Wrapper</h3><p>首先以最底层的 Wrapper 容器为例（通常与 servlet 容器一一对应）</p>
 <h4 id="1）类图结构"><a href="#1）类图结构" class="headerlink" title="1）类图结构"></a>1）类图结构 </h4><p> 类图如下，从左往右：</p>
 <ol>
@@ -33,7 +33,6 @@
 <p>不禁让人想起 python Django 框架的 middleware 实现，有种异曲同工的感觉。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495648804556.jpg"></p>
 <p>但 Django 的实现可是更加“简单”一些 ：）</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义 middleware </span></span><br><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.csrf.CsrfViewMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SessionMiddleware</span><span class="params">(MiddlewareMixin)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_response</span><span class="params">(self, request, response)</span>:</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 框架加载 middleware</span></span><br><span class="line">self._view_middleware = []</span><br><span class="line">self._template_response_middleware = []</span><br><span class="line">self._exception_middleware = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> hasattr(mw_instance, <span class="string">"process_view"</span>):</span><br><span class="line">    self._view_middleware.insert(</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        self.adapt_method_mode(is_async, mw_instance.process_view),</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">if</span> hasattr(mw_instance, <span class="string">"process_template_response"</span>):</span><br><span class="line">    self._template_response_middleware.append(</span><br><span class="line">        self.adapt_method_mode(</span><br><span class="line">            is_async, mw_instance.process_template_response</span><br><span class="line">        ),</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-
 
 <h3 id="org-apache-catalina-Context"><a href="#org-apache-catalina-Context" class="headerlink" title="org.apache.catalina.Context"></a>org.apache.catalina.Context</h3><h4 id="类图结构"><a href="# 类图结构" class="headerlink" title="类图结构"></a>类图结构 </h4><p> 一个 Context 包含多个 Wrapper 容器<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495652434613.jpg"></p>
 <h4 id="时序调用"><a href="# 时序调用" class="headerlink" title="时序调用"></a>时序调用 </h4><p> 建议理清类图后阅读源码，debug 一笔 http 请求的交互，盗一张较清晰的图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495812116720.jpg"></p>

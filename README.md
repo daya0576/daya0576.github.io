@@ -33,7 +33,7 @@
 - [2018-08-24] [Django (2006, 'MySQL server has gone away') 本地重现与解决](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-08-24-django-2006-MySQL-server-has-gone-away.markdown)
 - [2017-07-31] [Python 的编码问题笔记 (搞清原理, 一劳永逸)](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2017-07-31-python-encoding-decoding.markdown)
 ## JAVA
-- [2022-04-16] [《深入剖析 Tomcat》之如何实现套娃🪆](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-04-16-how-tomcat-works.markdown)
+- [2022-04-16] [《深入剖析 Tomcat》第五章 - 如何实现套娃🪆](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-04-16-how-tomcat-works.markdown)
 - [2022-04-09] [关于 Java 字符串的秘密](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-04-09-java-string.markdown)
 - [2022-02-03] [Java BlockingQueue 学习小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-03-java-blocking-queue.markdown)
 - [2021-10-03] [如何将字符串转换成数字](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-10-03-string2num.markdown)
