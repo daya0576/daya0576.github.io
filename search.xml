@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JetBrains IDE 的五个编程小技巧</title>
+    <url>/blog/20220504/idea-tips/</url>
+    <content><![CDATA[<p>第四次尝试 vim 作为主力编程失败，挫败之余分享近期发现的若干 ide 小技巧（适用 intellij idea，pycharm，etc.）</p>
+<a id="more"></a>
+
+<h1 id="5-Tips："><a href="#5-Tips：" class="headerlink" title="5 Tips："></a>5 Tips：</h1><h2 id="Tip1- 如何在终端打开仓库"><a href="#Tip1- 如何在终端打开仓库" class="headerlink" title="Tip1: 如何在终端打开仓库"></a>Tip1: 如何在终端打开仓库</h2><p>Toolbox 中修改 scripts location 后，终端执行 <code>idea xx</code> 即可：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16516488178925.jpg"></p>
+<h2 id="Tip2-Fix-all"><a href="#Tip2-Fix-all" class="headerlink" title="Tip2: Fix all"></a>Tip2: Fix all</h2><p>作为一名经验丰富的 copy&#x2F;paste 手工劳动者，复制代码后如何批量修复小问题：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16471630809745.jpg"><br>参考：</p>
+<h2 id="Tip3-File-Structure"><a href="#Tip3-File-Structure" class="headerlink" title="Tip3: File Structure"></a>Tip3: File Structure</h2><p>文件篇幅过大，如何快速找到当前文件内的一个变量或方法：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16471636200710.jpg"></p>
+<h2 id="Tip4：自动打开 -MR- 链接"><a href="#Tip4：自动打开 -MR- 链接" class="headerlink" title="Tip4：自动打开 MR 链接"></a>Tip4：自动打开 MR 链接 </h2><p> 其实与 ide 无关，编辑 <code>.git/hooks/pre-push</code> 文件即可（记得替换 <code></code> 变量）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">branch&#x3D;$(git rev-parse --abbrev-ref HEAD)</span><br><span class="line">mrUrl&#x3D;&quot;&#123;&#123;url&#125;&#125;&#x2F;new?source_branch&#x3D;$branch&amp;target_branch&#x3D;master&quot;</span><br><span class="line">echo opening:$mrUrl</span><br><span class="line">open $mrUrl</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tip5：Multiple-cursors"><a href="#Tip5：Multiple-cursors" class="headerlink" title="Tip5：Multiple cursors"></a>Tip5：Multiple cursors</h2><p>最早应该在 Sublime 体验多光标编辑，近期给同事在 idea 中演示，对方直呼真骚：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16516497949165.jpg"></p>
+<h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox">https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/resolving-problems.html#apply-quick-fixes">https://www.jetbrains.com/help/idea/resolving-problems.html#apply-quick-fixes</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html">https://www.jetbrains.com/help/idea/viewing-structure-of-a-source-file.html</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/multicursor.html">https://www.jetbrains.com/help/idea/multicursor.html</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>《深入剖析 Tomcat》第五章 - 如何实现套娃🪆</title>
     <url>/blog/20220416/how-tomcat-works/</url>
     <content><![CDATA[<p>同事近期安利的一本葵花宝典，尝试阅读几章后，确实寻得一些避免面条式代码的良药。</p>

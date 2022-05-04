@@ -213,6 +213,52 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180905/blog-http2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20180905/blog-http2/" class="post-title-link" itemprop="url">博客开启 HTTP/2 后的对比实验, 感觉要起飞了 =.=</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今日偶遇一篇 cloudflare 关于 <a href="https://www.cloudflare.com/website-optimization/http2/what-is-http2/">HTTP&#x2F;2 的介绍</a>. 于是将自己的博客升级到 HTTP&#x2F;2, 感觉酷酷的(上边为 http&#x2F;1.1, 下边为 http&#x2F;2), 想起自己大众点评的 id 叫做<code> 酷酷的运动圆</code>, 哈哈哈:<br><img src="/images/loading/loading.svg" data-original="https://i.loli.net/2018/09/07/5b9252752e141.png" alt="bg.png"></p>
+<!--![bg](../images/blog/1800905_blog_http2/bg.png)--> 
+
+
+
+
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180903/hexo-next-first-pr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,54 +580,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180824/django-2006-MySQL-server-has-gone-away/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20180824/django-2006-MySQL-server-has-gone-away/" class="post-title-link" itemprop="url">Django (2006, 'MySQL server has gone away') 本地重现与解决</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近我们的Django项目供Java Sofa应用进行tr调用时, 经常会出现一个异常: <code>django.db.utils.OperationalError: (2006, &#39;MySQL server has gone away&#39;)</code>. 本文记录了<strong>分析, 本地重现与解决此问题</strong>的全过程.</p>
-<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h1><p>Django在1.6引入长链接(<a href="https://docs.djangoproject.com/en/2.1/ref/databases/#persistent-connections">Persistent connections</a>)的概念, 可以在一个HTTP请求中一直用同一个连接对数据库进行读写操作.<br>但我们的应用对数据库的操作<strong>太不频繁</strong>了, 两次操作数据库的间隔大于MySQL配置的超时时间(默认为8个小时), 导致下一次操作数据库时的connection过期失效. </p>
-<blockquote>
-<p>Our databases have a 300-second (5-minute) timeout on inactive connections. That means, if you open a connection to the database, and then you don&#39;t do anything with it for 5 minutes, then the server will disconnect, and the next time you try to execute a query, it will fail.</p>
-</blockquote>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -654,7 +652,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
