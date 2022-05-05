@@ -27,5 +27,5 @@ https://www.jetbrains.com/help/idea/multicursor.html
 Perl 中 $0 就代表全部匹配(本身), 所以就能实现同时替换所有搜索结果, 和多处同时编辑异曲同工:
 (见下图)
 
-
+# Tips6：swap arguments
 
