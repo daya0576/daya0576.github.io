@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Quote of the Day (QOTD) Protocol 实践小记</title>
+    <url>/blog/20220505/quote-of-the-day/</url>
+    <content><![CDATA[<p>周末读《TCP&#x2F;IP 详解：协议》，学到一个非常神奇的协议：RFC 865 - Quote of the Day (QOTD) Protocol</p>
+<a id="more"></a>
+
+
+<h3 id="协议简介"><a href="# 协议简介" class="headerlink" title="协议简介"></a>协议简介</h3><blockquote>
+<p>One quote of the day service is defined as a connection based<br>   application on TCP.  A server listens for TCP connections on TCP port<br>   17.  Once a connection is established a short message is sent out the<br>   connection (and any data received is thrown away).</p>
+</blockquote>
+<p>简而言之，通过端口 17 输出每日名人名言。</p>
+<h3 id="协议实现"><a href="# 协议实现" class="headerlink" title="协议实现"></a>协议实现 </h3><p> 受教主的启发，有没有可能亲手实践该协议，实现 github profile 的动态更新？</p>
+<p>代码如下，配合 github action 每日定时更新：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def get_quote():</span><br><span class="line">    addr &#x3D; (ADDRESS, 17)</span><br><span class="line">    conn &#x3D; socket.create_connection(addr)</span><br><span class="line">    quote &#x3D; conn.recv(4096)</span><br><span class="line"></span><br><span class="line">    return quote.decode(&quot;utf-8&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>最终效果：</p>
+<hr>
+<p>BTW, this post &amp; profile repo are both created by vim :p </p>
+]]></content>
+  </entry>
+  <entry>
     <title>JetBrains IDE 的五个编程小技巧</title>
     <url>/blog/20220504/idea-tips/</url>
     <content><![CDATA[<p>第四次尝试 vim 作为主力编程失败，挫败之余分享近期发现的若干 ide 小技巧（适用 intellij idea，pycharm，etc.）</p>
@@ -725,7 +745,7 @@
 <p>近日感觉自己漫无目浏览手机的时间过长，所以期望买一个电子书阅读器在地铁上看书，以防止时间被偷走。<br>但万万没想到花了更多时间在手机上挑选阅读器：调研 Kindle，文石，小米等各个品牌的优劣特点。。 </p>
 <p>经过这件事情我突然明白了一个道理：脱离手机沉迷的关键并不在于阅读器（工具），而是是否能找到一件更让自己愉悦的事情。 </p>
 </blockquote>
-<p>出于上面的经历和思考，我发现每日永远无法准时到公司的根本原因，在于自己对工作的强烈抵触。所以年初给自己设立了一个“挑战”：每周工作日五天中，至少有四天提前五分钟到公司。期望通过这种表面的方式，改变自己对工作的态度，甚至“迫不及待”去上班（怎么感觉自己在 pua 自己）。</p>
+<p>出于上面的经历和思考，我发现每日永远无法准时到公司的根本原因，在于自己对工作的强烈抵触。所以年初给自己设立了一个“挑战”：每周工作日五天中，至少有四天提前五分钟到公司。期望通过这种表面的方式，改变自己对工作的态度，甚至“迫不及待”去上班（怎么感觉自己在 pua 自己，形成了闭环）。</p>
 <p>通过一年的努力，很高兴完成了这个目标，总结下来主要有两个途径：</p>
 <ul>
 <li>意愿：拒绝不感兴趣或者认为没有意义的事情，举个例子：有几个应用（无人使用）挂在我身上，所有隔几个月就会有安全漏洞修复的巡检告警（超期未修复持续上升老板..）。如果以前我会妥协改两行代码然后发布，但现在正确的做法是直接下线应用一劳永逸。通过坚持做个人认为对的事情，挖掘感兴趣的事件，持续提升自己对工作的兴趣。</li>
