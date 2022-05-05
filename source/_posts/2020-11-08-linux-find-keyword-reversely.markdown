@@ -1,8 +1,8 @@
 ---
 title: linux 反向查找日志
 date: 2020-11-08 16:21:50
-tags:
-- linux
+categories:
+- 奇技淫巧
 ---
 
 

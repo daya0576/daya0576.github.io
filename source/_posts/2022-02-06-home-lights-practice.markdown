@@ -1,7 +1,7 @@
 ---
-title: 【智能家居】精装全屋智能灯改造小记
-tags:
-  - smart home
+title: 精装全屋智能灯改造小记
+categories:
+- 智能家居
 date: 2022-02-06 15:43:59
 ---
 

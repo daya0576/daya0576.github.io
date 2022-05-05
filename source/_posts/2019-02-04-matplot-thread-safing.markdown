@@ -1,8 +1,7 @@
 ---
 title: 记一次 Matplotlib 解决多线程画图的故事
-tags:
-  - matplot
-  - python
+categories:
+- PYTHON
 date: 2019-02-04 19:37:24
 ---
 

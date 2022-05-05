@@ -1,12 +1,8 @@
 ---
 title: 部署Hexo静态博客(下) - 偶遇Netlify, 优雅地持续部署你的博客
 date: 2018-08-19 22:27:15
-tags: 
-    - oss
-    - netlify
-    - hexo
 categories:
-  - blog
+- 奇技淫巧
 ---
 
 接[上篇博客](/blog/20180819/deploy-hexo-blog-to-gcp-oss/), 尝试在GCP的OSS上部署静态博客受挫之后, 痛定思痛, 决定先做一个小小的调查, 再敲定最终的部署方案. 这时候搜到一篇非常棒的文章: [静态网站托管服务平台的横向方案比较](https://blog.csdn.net/grackanil/article/details/81196931). 正是在这篇文章中, 我第一次了解到了[Netlify](https://www.netlify.com/). 并一见钟情了, **因为在Net整个部署过程中, 你只需要提交代码, 其余的master部署预览(包括MR的预览), HTTPS证书, 静态资源的优化与CDN加速, 部署消息通知, 等等都不用再操心. 真的是太优雅了XD**    

@@ -1,7 +1,7 @@
 ---
-title: 【爪哇入门】Java BlockingQueue 学习小记
-tags:
-  - java
+title: Java BlockingQueue 学习小记
+categories:
+- JAVA
 date: 2022-02-03 12:50:34
 ---
 

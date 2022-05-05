@@ -154,7 +154,6 @@ filter_optimize:
   # lower means it will be executed first, default is 10
   priority: 12
 
-
 marked:
   gfm: true
   pedantic: false
@@ -167,3 +166,16 @@ marked:
   autolink: true
   prependRoot: true
   postAsset: false
+
+
+generator_readme:
+  categories:
+    智能家居: 1
+    SRE: 2
+    个人相关: 4
+    PYTHON: 5
+    JAVA: 6
+    奇技淫巧: 7
+  order_by: '-date'
+  layout: 'readme.njk'
+

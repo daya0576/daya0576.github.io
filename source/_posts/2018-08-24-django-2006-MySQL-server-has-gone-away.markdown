@@ -1,11 +1,8 @@
 ---
 title: Django (2006, 'MySQL server has gone away') 本地重现与解决
 date: 2018-08-24 15:34:44
-tags:
-  - django
-  - mysql
 categories:
-  - code
+- PYTHON
 ---
 
 

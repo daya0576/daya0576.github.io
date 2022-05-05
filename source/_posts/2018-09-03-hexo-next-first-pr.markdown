@@ -1,12 +1,8 @@
 ---
 title: 记我为Hexo Next主题提交的第一个PR
 date: 2018-09-03 22:42:33
-tags:
-  - blog
-  - hexo
-  - next
 categories:
-  - blog
+- 奇技淫巧
 ---
 
 用了Hexo的主题一个月了, 本文记录一下我为Hexo Next主题提交的第一个PR: [Safari中无法lazyload Disqus的评论框](https://github.com/theme-next/hexo-theme-next/pull/406). 

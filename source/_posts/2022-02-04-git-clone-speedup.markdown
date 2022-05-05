@@ -1,7 +1,7 @@
 ---
-title: 【奇技淫巧】git clone 大提速
-tags:
-  - git
+title: git clone 大提速
+categories:
+- 奇技淫巧
 date: 2022-02-04 10:40:35
 ---
 

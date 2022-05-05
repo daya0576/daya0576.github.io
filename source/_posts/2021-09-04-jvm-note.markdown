@@ -1,24 +1,37 @@
 ---
-title: Java 内存管理 - SRE 的必修课
-date: 2021-09-04 16:31:21
-tags: java
+title: Java JVM 内存管理 - SRE 的必修课 date: 2021-09-04 16:31:21 categories:
+
+- SRE
+
 ---
 
-在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy 脚本，导致 `Metaspace out of memory` 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T
+在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy
+脚本，导致 `Metaspace out of memory` 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T
 
 但是之后很长一段时间内，都不太明白 Metaspace 是什么，为什么会耗尽？和 perm 区的关系是？不同线程本地变量和全局对象的关系？
 
 正好趁这次机会，系统性的整理和分享一下 ：）
 
+- [一、走近 Java](#一、走近java)
+- [二、自动内存管理](#二、自动内存管理)
+    - [Java 内存区域](#java内存区域)
+    - [关键点说明](#关键点说明)
+        - [1. 关于 Perm 区 & Metaspace](#1关于-perm区-metaspace)
+        - [2. 关于栈帧（Stack Frame）](#2关于栈帧（-stack-frame）)
+        - [3. 关于运行时常量池（Run-Time Constant Pool）](#3关于运行时常量池（-run-time-constant-pool）)
+- [三、垃圾收集器与内存分配策略](#三、垃圾收集器与内存分配策略)
+- [The End](#the-end)
+- [参考](#参考)
+
 <!--more-->
 
 ## 一、走近 Java
 
-首先预热一下，简单解释几个常见名词：`JVM` -> `JRE` -> `JDK` 
+首先预热一下，简单解释几个常见名词：`JVM` -> `JRE` -> `JDK`
 
 - `JVM（Java Virtual Machine）`：Java虚拟机，它实现了一次编译到处运行，例如 HotSpot 等
-- `JRE（Java Runtime Environment）`，JRE是支持Java程序运行的标准环境。包含 Java SE API 子集 / 虚拟机 
-- `JDK（Java Development Kit）`：Java程序开发的最小环境。包含 程序语言 / 虚拟机 / 基础类库等，例如 OpenJDK 等 
+- `JRE（Java Runtime Environment）`，JRE是支持Java程序运行的标准环境。包含 Java SE API 子集 / 虚拟机
+- `JDK（Java Development Kit）`：Java程序开发的最小环境。包含 程序语言 / 虚拟机 / 基础类库等，例如 OpenJDK 等
 
 书中有一段总结挺有意思的，分享一下：*“Oracle收购Sun是Java发展历史上一道明显的分界线。在Sun掌舵的前十几年里，Java获得巨大成功，同时也渐渐显露出来语言演进的缓慢与社区决策的老朽；而在Oracle主导Java后，引起竞争的同时也带来新的活力，Java发展的速度要显著高于Sun时代。Java的未来是继续向前、再攀高峰，还是由盛转衰、锋芒挫缩，你我拭目以待”*
 

@@ -1,8 +1,7 @@
 ---
 title: macOS 如何将截图自动保存至相册(Photos)
-tags:
-  - macos
-  - tutorial
+categories:
+- 奇技淫巧
 date: 2019-07-30 10:58:01
 ---
 

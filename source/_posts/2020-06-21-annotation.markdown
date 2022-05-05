@@ -1,9 +1,8 @@
 ---
 title: Annotation(Decorator) 在 Java & Python 中的应用
 date: 2020-06-21 15:33:29
-tags:
-    - java
-    - 学习
+categories:
+- JAVA
 ---
 
 

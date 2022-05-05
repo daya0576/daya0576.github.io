@@ -1,9 +1,8 @@
 ---
 title: K-means学习记录, 没想到你是这样的聚类算法
 date: 2018-10-04 17:00:35
-tags: 
-  - algorithm
-  - machine learning
+categories:
+- PYTHON
 ---
 
 今日在学机器学习 第八章([Unsupervised learning](https://www.coursera.org/learn/machine-learning/lecture/93VPG/k-means-algorithm)) 的时候, 开头介绍时讲到了 K-means 应用在大型计算集群的资源分配上(见下图). 

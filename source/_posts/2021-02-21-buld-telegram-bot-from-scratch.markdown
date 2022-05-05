@@ -1,7 +1,8 @@
 ---
 title: 零成本打造 Telegram 机器人指北
 date: 2021-02-21 15:42:05
-tags:
+categories:
+- PYTHON
 ---
 
 春节放假在家，写了一个 [和风天气 API](https://dev.qweather.com) 的 [Telegram 天气预报机器人](https://github.com/daya0576/he-weather-bot)🤖️ - 根据用户精准定位查询实时天气，并支持每日的定时自动播报。    
@@ -37,7 +38,7 @@ tags:
 
 线上部署白嫖了 Heroku 全家桶：推送 master 即可触发部署(gitops)。同时支持数据库/缓存/定时任务的一键申请（最重要的都是免费的），以及 环境变量配置，域名https卸载，日志在线查看，等傻瓜操作... 唯一的缺点：Heroku 只在在美国与欧洲提供服务，访问国内 api 会存在一定延迟。
 
-![image-20210314172708269](2021-02-21-buld-telegram-bot-from-scratch/image-20210314172708269.png)
+![image-20210314172708269](../images/blog/2021-02-21-buld-telegram-bot-from-scratch/image-20210314172708269.png)
 
 
 # 3 原理 & 实现
@@ -62,14 +63,14 @@ telegram python SDK 中提供两种消费机器人动态的方式：
 
 p.s. 本地调试推荐 ngrok 这个小工具，一键针对内网 IP 创建一个对外可访问的 https 地址。
 
-![image-20210314172807664](2021-02-21-buld-telegram-bot-from-scratch/image-20210314172807664.png)
+![image-20210314172807664](../images/blog/2021-02-21-buld-telegram-bot-from-scratch/image-20210314172807664.png)
 
 ## 3.3 绑定 Bot Token & Server Webhook
 
 用户与机器人的每次交互，甚至在群组中的每次对话及交互，都会以 http 请求的形式，分发至机器人对应的 `webhook`，所以需要提前将 `webhook` 与 `token` 进行绑定。两种方式：
 
 1. 手动请求 `https://api.telegram.org/bot{token}/setWebhook?url={webhook}`
-2. sdk 设置：`aiogram.bot.bot.Bot.set_webhook` 一个小技巧：在 fastapi app 每次启动的时候，检查如果与当前机器人绑定的 webhook 不同，则进行更新。需要注意调用的频率，参考 `telegram_bot.routers.webhook.set_webhook`
+2. sdk 设置：`aiogram.bot.bot.Bot.set_webhook`。一个小技巧：在 fastapi app 每次启动的时候，检查如果与当前机器人绑定的 webhook 不同，则进行更新。需要注意调用的频率，参考 `telegram_bot.routers.webhook.set_webhook`
 
 ## 3.4 线上部署 
 
@@ -101,7 +102,7 @@ bot = Bot(
 ## 时序交互
 三个场景对应的时序交互如下：
 
-![](2021-02-21-buld-telegram-bot-from-scratch/16138563037292.jpg)
+![](../images/blog/2021-02-21-buld-telegram-bot-from-scratch/16138563037292.jpg)
 
 ## 系统架构
 
@@ -112,7 +113,7 @@ bot = Bot(
 3. Integration 层为对外的依赖封装，例如 `weather_client` 是一个天气预报获取的接口，定义标准的行为后，底层可以由任意获取外部数据逻辑构成，实现解耦与未来快速替换
 4. DAL 则是 DB 层的包装
 
-![](2021-02-21-buld-telegram-bot-from-scratch/16138614119002.jpg)
+![](../images/blog/2021-02-21-buld-telegram-bot-from-scratch/16138614119002.jpg)
 
 问题：cron 触发定时任务后，web 层会直接与 integration 与 dal 层交互，当然可以考虑新加一层 Service（同时统一做异常处理，日志打印等等）
 

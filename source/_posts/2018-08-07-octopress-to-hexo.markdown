@@ -1,10 +1,6 @@
 title: 博客搬家小记(Octopress → Hexo)
-tags:
-  - hexo
-  - blog
 categories:
-  - blog
-date: 2018-08-07 13:43:00
+- 奇技淫巧
 ---
 
 从2014年开始, 不知不觉用[Octopress](http://octopress.org/)写博客已经四年多了. 用的主题叫做[Greyshade](https://shashankmehta.in/archive/2012/greyshade.html), 陆陆续续做了很多小改动, 同时也使整个项目一团糟, 慢慢的变得难以维护, 编写一篇新博客的成本也越来越高了, 终于下定决心给博客搬个家. 

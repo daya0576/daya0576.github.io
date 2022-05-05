@@ -1,7 +1,7 @@
 ---
 title: 限流还能这么玩 - Netflix 权重限流新思路
-tags:
-  - sre
+categories:
+- SRE
 date: 2020-11-24 15:23:10
 ---
 
