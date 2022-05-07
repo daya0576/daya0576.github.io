@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>QOTD Protocal 小记</title>
+    <title>Quote of the Day (QOTD) Protocal 小记</title>
     <url>/blog/20220505/quote-of-the-day/</url>
     <content><![CDATA[<p>周末读《TCP&#x2F;IP 详解》，学到一个非常神奇的协议：RFC 865 - Quote of the Day (QOTD) </p>
 <a id="more"></a>
@@ -10,8 +10,9 @@
 <p>One quote of the day service is defined as a connection based application on TCP.  A server listens for TCP connections on TCP port 17.  Once a connection is established a short message is sent out the connection (and any data received is thrown away).</p>
 </blockquote>
 <p>简而言之，通过端口 17 交互每日 &quot; 名人名言 &quot;。</p>
-<h3 id="协议实现"><a href="# 协议实现" class="headerlink" title="协议实现"></a>协议实现 </h3><p> 受教主的启发，有没有可能亲手实践该协议，实现 github profile 的动态更新？</p>
-<p>核心代码如下，配合 github action 每日定时更新：<a href="https://github.com/daya0576/daya0576">https://github.com/daya0576/daya0576</a></p>
+<h3 id="协议实现"><a href="# 协议实现" class="headerlink" title="协议实现"></a>协议实现 </h3><p> 有没有可能亲手实践该协议？</p>
+<p>受教主的启发，有没有可能将该协议用于 github profile 的更新？</p>
+<p>核心代码如下，配合 github action 每日定时执行：<a href="https://github.com/daya0576/daya0576">https://github.com/daya0576/daya0576</a></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_quote</span><span class="params">()</span>:</span></span><br><span class="line">    addr = (ADDRESS, <span class="number">17</span>)</span><br><span class="line">    conn = socket.create_connection(addr)</span><br><span class="line">    quote = conn.recv(<span class="number">4096</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> quote.decode(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -5877,8 +5878,8 @@ disqus 手机端不加载</p>
 <p>1.Do not run garbage collection too freely, as it can take considerable time to evaluate every memory object within a large system. For example, one team having memory issues tried calling gc.collect() between every step of a complex start-up process, increasing the boot time by 20 times (2000%). Running it more than a few times per day - without specific design reasons - is likely a waste of device resources.<br>2.Run manual garbage collection after your application has completed start up and moves into steady-state operation. This frees potentially huge blocks of memory used to open and parse file, to build and modify object lists, and even code modules never to be used again. For example, one application reading XML configuration files was consuming about 1.5MB of temporary memory during the process. Without manual garbage collection, there is no way to predict when that 1.5MB of memory will be returned to the python memory pools for reuse.<br>3.Run manual garbage collection after infrequently run sections of code which use and then free large blocks of memory. For example, consider running garbage collection after a once-per-day task which evaluates thousands of data points, creates an XML &#39;report&#39;, and then sends that report to a central office via FTP or SMTP&#x2F;email. One application doing such daily reports was creating over 800K worth of temporary sorted lists of historical data. Piggy-backing gc.collect() on such daily chores has the nice side-effect of running it once per day for &#39;free&#39;.<br>4.Consider manually running garbage collection either before or after timing-critical sections of code to prevent garbage collection from disturbing the timing. As example, an irrigation application might sit idle for 10 minutes, then evaluate the status of all field devices and make adjustments. Since delays during system adjustment might affect field device battery life, it makes sense to manually run garbage collection as the gateway is entering the idle period AFTER the adjustment process - or run it every sixth or tenth idle period. This insures that garbage collection won&#39;t be triggered automatically during the next timing-sensitive period.   </p>
 ]]></content>
       <tags>
-        <tag>Python</tag>
         <tag>interview</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
