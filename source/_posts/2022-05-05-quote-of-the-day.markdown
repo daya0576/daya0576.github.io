@@ -1,5 +1,5 @@
 ---
-title: QOTD Protocal 小记
+title: Quote of the Day (QOTD) Protocal 小记
 date: 2022-05-05 22:51:07
 tags:
 ---
@@ -17,9 +17,11 @@ tags:
 
 ### 协议实现
 
-受教主的启发，有没有可能亲手实践该协议，实现 github profile 的动态更新？
+有没有可能亲手实践该协议？
 
-核心代码如下，配合 github action 每日定时更新：https://github.com/daya0576/daya0576
+受教主的启发，有没有可能将该协议用于 github profile 的更新？
+
+核心代码如下，配合 github action 每日定时执行：https://github.com/daya0576/daya0576
 ```python
 def get_quote():
     addr = (ADDRESS, 17)
