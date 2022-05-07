@@ -19,7 +19,7 @@ tags:
 
 有没有可能亲手实践该协议？
 
-受教主的启发，有没有可能将该协议用于 github profile 的更新？
+受教主的启发，将该协议用于 github profile 的更新。
 
 核心代码如下，配合 github action 每日定时执行：https://github.com/daya0576/daya0576
 ```python
