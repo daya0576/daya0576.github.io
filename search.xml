@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Henry's IDE to VIM Cheatsheet</title>
+    <url>/blog/20220814/ide2vim/</url>
+    <content><![CDATA[<p> 近日第五次入门 vim 成功，感觉自己已经无敌了，这篇文章简单分享一些心路历程。</p>
+<a id="more"></a>
+
+<h2 id="优劣势"><a href="# 优劣势" class="headerlink" title="优劣势"></a> 优劣势 </h2><p>vim 不一定适合每个人，也不一定适用于所有的场景；若享受过程则折腾折腾消磨时间，如果不喜欢就不要徒增烦恼。</p>
+<p><strong> 优点：</strong></p>
+<ol>
+<li> 个人的可能性：得益于 vim 编辑器 all in one 的特性，任何编程语言信手拈来（不要小看打开 IDE 十秒启动时间的隐形成本） -- 每年学习一门新语言的目标，不再遥不可及。</li>
+<li> 大人的玩具：vim 对我来说就像一个玩不厌的玩具，甚至在枯燥的工作中注入无限乐趣。不管是无止境的折腾，还是不需要经过大脑思考的自然输入，都可以成为一种享受。</li>
+<li> 高度可定制：任何需求，只要你能想得到，vim 生态中总有对应的定制化配置或插件。实在不行也可以编写自定义函数满足“变态”需求。</li>
+<li>...</li>
+</ol>
+<p><strong> 劣势：</strong></p>
+<ol>
+<li> 代码重构：以静态类型的 java 为例，海量代码移动 or 重构的操作，IDEA 表示碾压式的优势。</li>
+<li> 搜索能力：相比于 IDEA 中的 <code>Search Everywhere</code>，vim 的快速搜索能力更加的纯粹（原始）。</li>
+</ol>
+<h2 id="如何入门？"><a href="# 如何入门？" class="headerlink" title="如何入门？"></a> 如何入门？</h2><p> 翻出历史的记录 <a href="/blog/20180223/vim-tour/">《我和 VIM 的故事》</a>，没想到 18 年就尝试入门 vim.. 从 vimtutor 到《Pratical Vim》，《Learn Vimscript the Hard Way》</p>
+<p> 只可惜始终无法在工作中替换为主力编辑器 :(</p>
+<p> 故萌发了一个思路💡：将 IDE 中不可或缺的核心功能一一拆解后，与 VIM 对应并逐个击破。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16604593475936.jpg"></p>
+<p> 这份个人笔记目前已归档至 GitHub 仓库：<a href="https://github.com/daya0576/ide2vim/">https://github.com/daya0576/ide2vim/</a> </p>
+<p> 仅供参考，若能帮你少走一点弯路，那也是极好的～</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16604709994758.jpg"></p>
+]]></content>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>大连 4 日游小记</title>
     <url>/blog/20220712/dalian-4d/</url>
     <content><![CDATA[<p>一年一度的公司团建旅行，在上海解封喘息的间隙，匆匆飞往大连开启阳光沙滩四日游 ✈️</p>
