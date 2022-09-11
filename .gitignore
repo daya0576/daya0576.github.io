@@ -9,3 +9,5 @@ public/
 .vscode
 
 .MWebMetaData
+*.swp
+
