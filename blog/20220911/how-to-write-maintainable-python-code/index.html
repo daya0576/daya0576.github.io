@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="经常听到一个论调：设计模式本质为弥补编程语言自身的缺陷，例如单例模式的存在，是因为 Java 本身不提供单例对象创建，而 Python 中原生的 import 就是 singleton 的天然实现。 但个人观点这句话仅看到了表象，设计模式初衷还是帮助我们编写更加优雅的代码，背后的目的与语言本身无关。 这篇文章以大型项目痛苦之源 Python 语言为例，通过近期工作中的两个实践案例，尝试分享如何通过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何编写低耦合可维护的 Python 代码">
+<meta property="og:url" content="https://changchen.me/blog/20220911/how-to-write-maintainable-python-code/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="经常听到一个论调：设计模式本质为弥补编程语言自身的缺陷，例如单例模式的存在，是因为 Java 本身不提供单例对象创建，而 Python 中原生的 import 就是 singleton 的天然实现。 但个人观点这句话仅看到了表象，设计模式初衷还是帮助我们编写更加优雅的代码，背后的目的与语言本身无关。 这篇文章以大型项目痛苦之源 Python 语言为例，通过近期工作中的两个实践案例，尝试分享如何通过">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2022-09-11T15:00:50.000Z">
+<meta property="article:modified_time" content="2022-09-11T15:23:09.028Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20220911/how-to-write-maintainable-python-code/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>如何编写低耦合可维护的 Python 代码 | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+
+
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20220911/how-to-write-maintainable-python-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何编写低耦合可维护的 Python 代码
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-09-11 23:00:50" itemprop="dateCreated datePublished" datetime="2022-09-11T23:00:50+08:00">2022-09-11</time>
+            </span>
+
+          
+            <span id="/blog/20220911/how-to-write-maintainable-python-code/" class="post-meta-item leancloud_visitors" data-flag-title="如何编写低耦合可维护的 Python 代码" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>经常听到一个论调：设计模式本质为弥补编程语言自身的缺陷，例如单例模式的存在，是因为 Java 本身不提供单例对象创建，而 Python 中原生的 import 就是 singleton 的天然实现。</p>
+<p>但个人观点这句话仅看到了表象，设计模式初衷还是帮助我们编写更加优雅的代码，背后的目的与语言本身无关。</p>
+<p>这篇文章以大型项目痛苦之源 Python 语言为例，通过近期工作中的两个实践案例，尝试分享如何通过常见设计模式，编写可扩展可维护代码的一点点经验。</p>
+<a id="more"></a>
+
+<h1 id="背景"><a href="# 背景" class="headerlink" title="背景"></a>背景 </h1><p> 近期公司内部发起告警阈值托管项目，故名思义通过历史时序数据，自动学习并清洗合理的告警规则 + 阈值。解放运维人员双手的同时，通过程序自动化的方式保证更高的准确率 &#x2F; 召回率。</p>
+<p>为了规避智能算法黑盒的弊端：用户难以理解告警触发逻辑，进而一步无法调节业务预期 :(</p>
+<p>所以项目初期针对不同类型的时序指标，基于人的专家经验，提炼了一系列告警规则模版，例如成功量下跌、成功量跌零、失败数上涨、历史新增异常等等）。</p>
+<p>理想效果：用户输入一周预计告警个数后，清洗模块自动输出可理解的静态告警规则.. </p>
+<h2 id="1- 阈值清洗流水线抽象 -amp- 扩展"><a href="#1- 阈值清洗流水线抽象 -amp- 扩展" class="headerlink" title="1. 阈值清洗流水线抽象 &amp; 扩展"></a>1. 阈值清洗流水线抽象 &amp; 扩展 </h2><p> 清洗模块代码落地的过程中，发现不同“模版”清洗的流程大同小异，无非 1）拉取历史数据，2）数据预处理，3）特征提取， 4）上下限阈值计算等。</p>
+<p>自然而然地将整理清洗流程，抽象固定为 pipeline 基类，不同“告警模版”理论只需实现对应的「特征提取」逻辑即可，<strong>但如何进一步兼顾清洗流程的扩展性呢？</strong></p>
+<p>例如：</p>
+<ol>
+<li><strong>历史数据完整性检测</strong>：数据预处理前，检查拉取的历史数据，例如判断是否至少满足一天，否则中断流程</li>
+<li><strong>阈值结果人为干预</strong>：阈值完成清洗后，人工微调告警规则，例如调整夜间触发告警的持续时间</li>
+<li><strong>阈值持久化保存</strong>：阈值完成清洗后，进一步执行阈值的持久化（测试用例、实时服务等场景不需要）</li>
+<li>...</li>
+</ol>
+<p>这时曾拜读的 tomcat 源码 <code>Lifecycle</code> 突然跃入脑中！</p>
+<p>有没有可能将上述的“个性化”处理逻辑，以事件的方式动态注入至 pipeline 中，最终在不同阶段的“埋点”触发：</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16628836309525.jpg"></p>
+<p>类图参考：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16628856341583.jpg"></p>
+<p>改造后的 pipeline 片段：<br>p.s. 完整代码参考：<a href="https://github.com/daya0576/python_design_patterns/blob/master/observers/pipeline.py#L7">https://github.com/daya0576/python_design_patterns/blob/master/observers/pipeline.py#L7</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABC, abstractmethod</span><br><span class="line"><span class="keyword">from</span> observers.events <span class="keyword">import</span> LifecycleListener</span><br><span class="line"><span class="keyword">from</span> observers.lifecycle <span class="keyword">import</span> EventType, Lifecycle</span><br><span class="line"><span class="keyword">from</span> observers.utils <span class="keyword">import</span> LifecycleSupport</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BasePipeline</span><span class="params">(Lifecycle, ABC)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.lifecycle = LifecycleSupport(self)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_do_load_data</span><span class="params">(self)</span>:</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line"><span class="meta">    @abstractmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_do_process</span><span class="params">(self)</span>:</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.lifecycle.fire_lifecycle_listener(EventType.START_EVENT)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.lifecycle.fire_lifecycle_listener(EventType.STOP_EVENT)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_listener</span><span class="params">(self, listener: LifecycleListener)</span>:</span></span><br><span class="line">        self.lifecycle.add_lifecycle_listener(listener)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Start.."</span>)</span><br><span class="line">        self.start()</span><br><span class="line">        self._do_load_data()</span><br><span class="line">        self._do_process()</span><br><span class="line">        self.stop()</span><br><span class="line">        print(<span class="string">"Stop"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimplePipeline</span><span class="params">(BasePipeline)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_do_load_data</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Do load data"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_do_process</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"Do process"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最终执行效果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pipeline = SimplePipeline()</span><br><span class="line">pipeline.add_listener(FooLifecycleListener())</span><br><span class="line">pipeline.add_listener(BarLifecycleListener())</span><br><span class="line"></span><br><span class="line">pipeline.process()</span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------</span></span><br><span class="line"><span class="comment"># &gt; Start..</span></span><br><span class="line"><span class="comment"># &gt; Foo event fired...</span></span><br><span class="line"><span class="comment"># &gt; Do load data</span></span><br><span class="line"><span class="comment"># &gt; Do process</span></span><br><span class="line"><span class="comment"># &gt; Bar event fired...</span></span><br><span class="line"><span class="comment"># &gt; Stop</span></span><br></pre></td></tr></table></figure>
+
+<p>如上 Lifecycle demo，本质上为“观察者设计模式”的一种实现。清爽解耦的代码，只有在自由灵活新增代码逻辑的时候，才能懂得它的好。</p>
+<h2 id="2- 告警规则覆盖策略"><a href="#2- 告警规则覆盖策略" class="headerlink" title="2. 告警规则覆盖策略"></a>2. 告警规则覆盖策略 </h2><p> 上文清洗逻辑成功落地后，如何针对不同监控项，覆盖正确的「告警规则模版」成为了新的难题。</p>
+<p>不难理解若监控包含耗时 &#x2F; 失败数指标，直接覆盖耗时上涨 &#x2F; 失败数上涨告警规则即可。</p>
+<p>但假如判断有误，针对失败量监控覆盖「跌零规则模版」，最终告警显示 PROCESS_FAIL 错误码 10m 跌零，请立即处理，那真的要笑掉大牙了。   </p>
+<p><u>那除了人工标定，还有其他“策略”可以自动分析吗？</u><br>部分解法：</p>
+<ol>
+<li>指标类型：例如明确的失败量、耗时等指标</li>
+<li>故障等级：若关联 P1P2 故障等极的规则，必然是业务量级监控</li>
+<li>告警规则：甚至可以分析现有监控告警规则，判断量级下降 or 上升代表异常。</li>
+<li>...</li>
+</ol>
+<p>模拟如上不同场景的策略，是否可以编写直白的伪代码？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">success_count_risk = DefaultSuccessCountRisk()</span><br><span class="line">time_cost_risk = DefaultTimecostRisk()</span><br><span class="line"></span><br><span class="line">strategies = [</span><br><span class="line">    <span class="comment"># 覆盖 P1P2 业务，SPM 监控类型，成功量指标的风险：成功量下跌 / 跌零</span></span><br><span class="line">    P1P2(High(SPM(risk))),</span><br><span class="line">    <span class="comment"># 覆盖 P3P4 业务，白天时间段，耗时指标的风险</span></span><br><span class="line">    P3P4(Daytime(time_cost_risk)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>参考 <strong> 装饰器设计模式</strong>，一个更加恰当咖啡制作的例子，通过不同类的灵活“装饰”，最终获取这杯咖啡的描述与价格：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 来一杯 Espresso</span></span><br><span class="line">beverage = Espresso()</span><br><span class="line">print(beverage)</span><br><span class="line"><span class="comment">// Espresso$1.99</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 来一杯调料为豆浆，摩卡，奶泡的 HouseBlend 咖啡</span></span><br><span class="line">beverage = HouseBlend()</span><br><span class="line">beverage = Soy(Mocha(Whip(beverage)))</span><br><span class="line">print(beverage)</span><br><span class="line"><span class="comment">// HouseBlend, Whip, Mocha, Soy$1.39</span></span><br></pre></td></tr></table></figure>
+
+<p>类图参考：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16629030758513.jpg"></p>
+<p>代码参考：<a href="https://github.com/daya0576/python_design_patterns/blob/master/wrapper/decorator.py">https://github.com/daya0576/python_design_patterns/blob/master/wrapper/decorator.py</a></p>
+<h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 上文两个实战案例，对应观察者模式（Observer）、装饰器模式（Wrapper）两种设计模式，本质上都是“开闭原则”的一种最佳实践：对于扩展，类应该是「开放」的；对于修改，类应该是「封闭」的。</p>
+<p>简而言之，编写代码时需要区分程序中的 <strong>易变 </strong> 和 <strong> 稳定</strong> 部分。对于未来可预见的新增需求，尽可能不修改原有代码，而是通过简单组合的方式快速扩展。</p>
+<h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li>Python 不需要设计模式？：<a href="https://changchen.me/blog/20201114/why-u-dont-need-design-pattern-in-python/">https://changchen.me/blog/20201114/why-u-dont-need-design-pattern-in-python/</a></li>
+<li>《深入剖析 Tomcat》：<a href="https://book.douban.com/subject/10426640/">https://book.douban.com/subject/10426640/</a></li>
+<li>《Head First 设计模式》学习笔记：<a href="https://changchen.me/blog/20200613/design-pattern/">https://changchen.me/blog/20200613/design-pattern/</a></li>
+</ol>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/daya0576">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20220814/ide2vim/" rel="prev" title="Henry's IDE to VIM Cheatsheet">
+      <i class="fa fa-chevron-left"></i> Henry's IDE to VIM Cheatsheet
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+  <script src="https://utteranc.es/client.js"
+          repo="daya0576/comments.daya0576.github.io"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-text">背景 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1- 阈值清洗流水线抽象 -amp- 扩展"><span class="nav-text">1. 阈值清洗流水线抽象 &amp; 扩展 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2- 告警规则覆盖策略"><span class="nav-text">2. 告警规则覆盖策略 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yihong.run/" title="https://yihong.run/" rel="noopener" target="_blank">喜欢跑步与编程的 yihong0618</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=81TFVYHOi27fyiBMQQJceugT-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '81TFVYHOi27fyiBMQQJceugT-gzGzoHsz',
+            'X-LC-Key': 't2AlDMIE0de4cfjGtbNQEYEE',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
