@@ -1,6 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何在 Python 中合理的使用继承</title>
+    <url>/blog/20230122/python-sub-classing/</url>
+    <content><![CDATA[<p>最近两年由于工作需要接触 Java，也遇到很多将继承抽象用的出神入化的小伙伴。而自己却总是东施效颦，写出的代码杂乱无章。特别面向新增的需求改动，在扩展等方面差强人意。</p>
+<p>逐步的，大脑中也慢慢浮现出一丝模模糊糊的经验。尝试将这些浅薄的想法，整理为这篇文章供自己不断积累进化。</p>
+<a id="more"></a>
+
+<h1 id="继承的优缺点"><a href="# 继承的优缺点" class="headerlink" title="继承的优缺点"></a>继承的优缺点 </h1><p> 继承最大的好处在于变量与方法的代码共享，这种强大的便利，也很容易造成“反噬”。</p>
+<p>想象下面这个例子：公司同时生产汽车 Car 和卡车 Truck，车辆可能是电动车 Electric 或 汽油车 Combustion; 所有车型都配备了手动控制 Manual control 或 自动驾驶 Autopilot 功能：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16724872128989.jpg"></p>
+<p>如上多层继承关系耦合错综复杂，给后续代码的改动与阅读造成了极大困扰：</p>
+<ol>
+<li>若属性 A 被多个子类复写后，很难一步找到真实的归属，只能通过 debug 小心翼翼修改代码；</li>
+<li>同时每个方法都归属于 self，一次调用在各个子类父类之间旋转跳跃，更不用说多重继承的 MRO，让人晕头转向。</li>
+</ol>
+<p>雪上加霜的是，软件系统是长出来的。不断膨胀并妥协加入的子类，会导致代码复杂度指数增高，最终超出人类理解和控制的范围。</p>
+<h1 id="何时使用继承"><a href="# 何时使用继承" class="headerlink" title="何时使用继承"></a>何时使用继承 </h1><p> 但是，继承是否一无是处？答案肯定是否定的，因为上面几个问题，更多是人为不合理操作引入。</p>
+<p>继承适用于 稳定且具备严格的层次结构：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">电子邮箱账户 - 数据库中的 ID 和邮箱地址  </span><br><span class="line">  - 电子邮箱：pwd 密码作为登录信息（必选）  </span><br><span class="line">  - 转发邮箱：targets 转发目标地址  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 组合</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailAddr</span>:</span></span><br><span class="line">    id: UUID</span><br><span class="line">    addr: str</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mailbox</span>:</span></span><br><span class="line">    email: EmailAddr</span><br><span class="line">    pwd: str</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Forwarder</span>:</span></span><br><span class="line">    email: EmailAddr</span><br><span class="line">    targets: list[str]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基类继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailAddr</span>:</span></span><br><span class="line">    id: UUID</span><br><span class="line">    addr: str</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mailbox</span><span class="params">(EmailAddr)</span>:</span></span><br><span class="line">    pwd: str</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Forwarder</span><span class="params">(EmailAddr)</span>:</span></span><br><span class="line">    targets: list[str]</span><br></pre></td></tr></table></figure>
+
+<p>回到开头公司汽车的案例，单纯追求代码复用的 <strong> 多层继承</strong>，则使用组合更为合理（继承多个 mixin 也是一种特殊的组合，但不推荐）。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16724888878107.jpg"></p>
+<p>面对 subclass explosion，更多解决思路：<a href="https://python-patterns.guide/gang-of-four/composition-over-inheritance/">《The Composition Over Inheritance Principle》</a></p>
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>继承是把双刃剑，强大却也具备极强的破坏力。秉承着打不过就逃跑的策略，日常还是优先考虑组合来替代。</p>
+<h1 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://hynek.me/articles/python-subclassing-redux/">https://hynek.me/articles/python-subclassing-redux/</a></li>
+<li><a href="https://python-patterns.guide/gang-of-four/composition-over-inheritance/">https://python-patterns.guide/gang-of-four/composition-over-inheritance/</a></li>
+<li><a href="https://refactoring.guru/design-patterns/bridge">https://refactoring.guru/design-patterns/bridge</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>2022 年终小结 🐯</title>
+    <url>/blog/20230122/2022-summary/</url>
+    <content><![CDATA[<p>大年初一清晨，被陆陆续续鞭炮声叫醒，大脑却格外的清醒。伴随着窗外小鸟叽叽喳喳兴奋交谈，简单回忆一下过去一年的点点滴滴。</p>
+<a id="more"></a>
+
+<h1 id="目标回顾"><a href="# 目标回顾" class="headerlink" title="目标回顾"></a>目标回顾 </h1><p> 一如既往回顾年初设置的目标： </p>
+<ol>
+<li>工作・事业 - 有血有肉的普通人 &amp; 做自己喜欢的事<ul>
+<li>✅ [3&#x2F;6] 找到 6 个人生有意义的瞬间</li>
+<li>⚠️ [0&#x2F;1] 尝试去改变组织，或是让自己换一个组织</li>
+</ul>
+</li>
+<li>学习・成长 - 业余兴趣驱动的学习和编码<ul>
+<li>✅ [2&#x2F;2] 个人开源项目建立 or 贡献</li>
+<li>✅ [12&#x2F;10] 📚每月读一本书</li>
+</ul>
+</li>
+<li>人际・社群 - 尝试线下聚会，寻找同路人<ul>
+<li>✅ [7&#x2F;10] 乒乓球社交（微信好友数量）</li>
+<li>❌ [0&#x2F;5] 加入的用户组和交流群 meetup</li>
+</ul>
+</li>
+<li>财务・理财 - 工作无法创造财富(freedom)<ul>
+<li>❌ [0&#x2F;1] 超过 1w 除工资以外的被动收入</li>
+</ul>
+</li>
+<li>家庭・生活 - 家人的陪伴和更加用心一些<ul>
+<li>✅ [1&#x2F;3] 短途旅行 x3</li>
+</ul>
+</li>
+</ol>
+<h2 id="1）工作・事业"><a href="#1）工作・事业" class="headerlink" title="1）工作・事业"></a>1）工作・事业 </h2><h3 id="人生有意义的瞬间"><a href="# 人生有意义的瞬间" class="headerlink" title="人生有意义的瞬间"></a> 人生有意义的瞬间 </h3><p> 零碎的记录：</p>
+<blockquote>
+<p>打完球和老婆一起吃海底捞火锅，属于我们平平淡淡的一瞬间平淡 </p>
+</blockquote>
+<p>比较有趣的是，在 note 备忘录中，留下这条记录后。竟突然出现老婆的留言！？：“海底捞不平淡哦😯，让人热血沸腾🔥”</p>
+<blockquote>
+<p>软路由折腾 -&gt; 智能家居访问子网电视成功</p>
+</blockquote>
+<p>虽然很基础的一个网络路由问题，兴趣驱动折腾一天的乐趣，以及成功后的一丝喜悦，让人心旷神怡。</p>
+<blockquote>
+<p>心灵奇旅观后感 -&gt; 平凡的意义，下雨天听雨的声音</p>
+</blockquote>
+<p>很鸡汤的一部电影，但每天徒步去地铁站，留心关注，也多了几分从前被忽略的风景。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/IMG_5496.jpeg" alt="IMG_5496"></p>
+<p>以及最近读的 <a href="https://book.douban.com/subject/5330333/">《活出生命的意义》</a>，书中阐述 找到生命意义的三个主要途径：</p>
+<ul>
+<li>创造或从事某种工作</li>
+<li>通过体验某种事情或面对某个人（爱）</li>
+<li>在忍受不可避免的苦难时采取某种态度（经历痛苦），也就是说处于绝境的无助受害人，^^ 面对无法改变的厄运，仍能自我超越 ^^</li>
+</ul>
+<p>最后一点，换句话说是选择态度的 ^^ 自由 ^^：</p>
+<ul>
+<li>有时人不知道自己想做什么，这样 他要么去做被人所做的事（乌合之众），要么去做别人希望他做的事（极权主义）</li>
+<li>虽然无法控制生命中会发生什么，但是你一直拥有在任何环境中选择自己的态度和行为方式的自由。而这种选择的自由即是对自己的生命所负责。</li>
+</ul>
+<h3 id="尝试去改变组织，或是让自己换一个组织"><a href="# 尝试去改变组织，或是让自己换一个组织" class="headerlink" title="尝试去改变组织，或是让自己换一个组织"></a>尝试去改变组织，或是让自己换一个组织 </h3><p> 读<a href="https://book.douban.com/subject/35006892/">《程序员修炼之道》</a>的一段话，大为震撼：</p>
+<blockquote>
+<p>我们和很多沮丧的开发者交谈过。他们的担忧多种多样。一些人感觉自己的工作停滞不前。还有一些人认为自己的技术已经过时了。有人觉得自己没有得到应有的重视，有人觉得薪水过低，有人觉得团队已经一团糟。一些人想去亚洲或是欧洲工作，一些人想在家工作。</p>
+<p>软件开发在任何职业列表中，绝对是你自己最能掌控的职业之一。我们的技能供不应求，我们的知识不限于地域，我们可以远程工作。我们收入颇丰。我们真的能做我们想做的任何事情。</p>
+<p>你的工作环境很糟糕？你的工作很无聊？尝试纠正它。不过，不要一直试下去。正如 Martin Fowler 说的，“你可以去改变组织，或是让自己换一个组织。”</p>
+</blockquote>
+<p>虽然今年达成公司内部的晋升，但个人对于公司的价值 vs 整体市场中的竞争力，随着时间不断流逝，如同陷入泥沼一般，让人越发难以挣脱。</p>
+<h4 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h4><p>读到这里，部分小伙伴可能有这样的困惑：为什么明明完成了晋升，还对个人市场竞争力感到焦虑呢？<br>因为公司内部的晋升，本质看中的是人才对于公司的价值，更加极端一点此时此刻的不可或缺性。而这种能力在外部不一定 100% 适用。假设你是一个 BB 机的维修工，虽然你在 大牙 BB 工厂努力工作，辛勤 10 不断升职，但某一天工厂倒闭，突然发现自己的技能已被时代抛弃。</p>
+<h4 id="业务价值"><a href="# 业务价值" class="headerlink" title="业务价值"></a>业务价值 </h4><p> 除了无情的时代浪潮，在过去四年，过分追求“业务价值”，而忽略了自身对技术深度的追求。</p>
+<p>依稀记得入职第一年年中，绩效面谈时，主管给我的建议是：多考虑业务价值的达成。</p>
+<p>而在过去四年中，不断思考和努力追求该目标时，也越发觉得在公司做 技术风险 和 做业务 没有太多本质区别，都是 <strong> 在某个时间点期望达到某个目标</strong>。</p>
+<p>在这种强烈业务驱动的情况下，不可避免造成短视等副作用，i.e. 所谓的局部最优解。也就是说，和最终达成的业务结果相比，具体解决问题使用的某种技术手段，测试用例，代码质量等“无足轻重”的细节，确实不会有太多人关注。</p>
+<p>但进一步更让人焦虑的是，似乎人生也遇到同种困惑：在短期竭尽全力获得更多物质收入的同时，却在长期竞争力的技术深度，以及个人健康等问题一步步陷入泥沼。 </p>
+<p>人生短期的上涨 &#x2F; 下跌，例如工作的高光时刻或低潮，拉长时间，五年十年，整体曲线其实是稳定的。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16743519321909.jpg" width="200" />   </p>
+<h4 id="出卖时间 -vs- 创造杠杆"><a href="# 出卖时间 -vs- 创造杠杆" class="headerlink" title="出卖时间 vs 创造杠杆"></a>出卖时间 vs 创造杠杆 </h4><p> 其实不难理解，公司目的是创建业务价值（赚钱），个人作为 Human Resource 中一份“资源”，无非出卖时间获得金钱上的回报。公司在这一点上，已仁慈义尽。</p>
+<p>但对于个人，除了出卖时间，如何进一步创造杠杆呢？</p>
+<h4 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h4><blockquote>
+<p>如果你的技术过时了，安排时间（你自己的时间）学习一些看起来有趣的新东西。这是一种自我投资，只有为此而加班才是合理的</p>
+<p>就像 Naval 所说的，40 小时是在出卖时间，85 小时是在创造杠杆。 here is the problem </p>
+</blockquote>
+<p>过去总觉得精力被工作榨干，回到家后没有一丝力气学习新技能。但疫情封控居家办公的三个月，多出来的通勤时间实际未充分利用的结局，让人明白 本质原因为 <strong> 缺乏兴趣驱动</strong>，最终无法形成良性循环。</p>
+<p>期望新的一年更多兴趣导向，即使空篮子打水一场空，至少收获了过程的快乐。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/IMG_4656.png" alt="IMG_4656"></p>
+<h2 id="2）学习・成长"><a href="#2）学习・成长" class="headerlink" title="2）学习・成长"></a>2）学习・成长 </h2><h3 id="开源参与"><a href="# 开源参与" class="headerlink" title="开源参与"></a> 开源参与 </h3><p> 比较惭愧，仅参与：</p>
+<ul>
+<li>创建 IDE to VIM Cheatsheet：<a href="https://github.com/daya0576/ide2vim">https://github.com/daya0576/ide2vim</a></li>
+<li>贡献 coc-postfix 一点代码：<a href="https://github.com/fannheyward/coc-postfix">https://github.com/fannheyward/coc-postfix</a></li>
+</ul>
+<p>但是！值得一提的是，今年公司项目涉及部分算法的工作，由于对方部门人员变动等问题，主动承担了部分 Python 代码的开发。</p>
+<p>为了给枯燥的工作多一点色彩，在爱折腾的兴趣驱动下，终于入门并爱上了 Vim，成功删除了 Pycharm IDE。甚至进一步改变了写代码的思维和方式，也为未来创造了更多可能性。</p>
+<p>参考之前的博客<a href="/blog/20220814/ide2vim/">《Henry&#39;s IDE to VIM Cheatsheet》</a>。</p>
+<h3 id="读书"><a href="# 读书" class="headerlink" title="读书"></a>读书 </h3><p> 今年读过大约 10 本书，既然能坚持读完，自然都是值得推荐的：</p>
+<ul>
+<li>活出生命的意义 </li>
+<li>蛤蟆先生去看心理医生 </li>
+<li>爱是一种好得不得了的“病毒” </li>
+<li>深入剖析 Tomcat </li>
+<li>程序员修炼之道（第 2 版） : 通向务实的最高境界 </li>
+<li>爱，需要学习 : 如何拥有高质量的亲密关系 </li>
+<li>Java 8 实战 </li>
+<li>写下你的墓志铭（珍藏版） : 四弦散谈 </li>
+<li>置身事内 : 中国政府与经济发展 </li>
+<li>我们为什么要睡觉？ </li>
+<li>史蒂夫·乔布斯传</li>
+</ul>
+<p>年初期间，我一度很迷茫。当生活失去方向，不如静下心读几本书，自然源源不断涌出新的灵感。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/IMG_5540.png" alt="IMG_5540"></p>
+<h2 id="3）人际・社群"><a href="#3）人际・社群" class="headerlink" title="3）人际・社群"></a>3）人际・社群 </h2><p> 颗粒无收的一年，sad</p>
+<p>当然通过打乒乓，认识了不少朋友。但还是期望认识不同的人，了解不一样的世界和活法。如果你生活或路过上海，不妨邀请你一起喝杯咖啡 ☕️</p>
+<h2 id="4）财务・理财"><a href="#4）财务・理财" class="headerlink" title="4）财务・理财"></a>4）财务・理财 </h2><p> 毫无进展。</p>
+<p>突然回忆起，四年前做过一次 <a href="/blog/20190113/anomaly-detection/"> 大白 </a> 的分享（告警降噪定位的后置系统）。当时老板的老板问到如何保证大白系统自身的稳定性，i.e. 监控自身的稳定性，防止告警漏报。</p>
+<p>回去被老板一顿臭骂，说这还不简单，做好预案冗余即可，如果系统出现问题，支持快速切换。最近这句话一直在脑中浮现，因为套到人生也是一个道理。 </p>
+<p>而当前工作带来的收入，对于整体经济状况，正如一个随时会爆炸的单点 DB 依赖，需要竭尽全力 fix。</p>
+<h2 id="5）家庭・生活"><a href="#5）家庭・生活" class="headerlink" title="5）家庭・生活"></a>5）家庭・生活 </h2><h3 id="旅行"><a href="# 旅行" class="headerlink" title="旅行"></a> 旅行 </h3><p> 众所周知荒谬封控的一年，除了年底小探崇明岛，基本在家平躺。期望新的一年更多探索世界✈️</p>
+<blockquote>
+<p>昨天是段历史，明天是个谜团，而今天是天赐的礼物，像珍惜礼物那样珍惜今天。</p>
+</blockquote>
+<p>BTW，分享 <a href="https://book.douban.com/subject/35143790/">《蛤蟆先生去看心理医生》</a> 书中关于人生状态的二维坐标，让人受益匪浅：</p>
+<ul>
+<li>你好我不好：儿童状态（适应型 &#x2F; 讨好型：童年适应强大的父母 -&gt; 容易情绪化）</li>
+<li>我好你不好：父母状态（挑剔型 &#x2F; 教育型：喜欢批判 -&gt; 这点小事都做不好！）</li>
+<li>我好你也好：成熟的“大人”（感性自己，不断学习 -&gt; 理性）</li>
+</ul>
+<p>每当对伴侣过于挑剔，或出现情绪化时，如上坐标都会浮现闹钟敲响警钟，让自己回到一个成熟的“大人”状态。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16743583458452.jpg"></p>
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><blockquote>
+<p>Life is diverse, try something new</p>
+</blockquote>
+<p>最后推荐一期播客：<a href="https://corecursive.com/software-world-tour-with-son-luong-ngoc/">《Software World Tour With Son Luong Ngoc》</a>。</p>
+<p>以前打乒乓时，以为防守等对方失误就能赢下比赛，后来发现只有主动进攻才能赢得未来。很多时候，仅做出 5% 不到的改变，可能会带来意想不到的巨大变化。</p>
+<hr>
+<p>历年年终总结：</p>
+<ul>
+<li><a href="/blog/20220101/2021-daya-summary/">《2021 年终总结 ✨》</a></li>
+<li><a href="/blog/20210228/2020-summary/">《2020 年终总结 🥳》</a></li>
+<li><a href="/blog/20200119/2019-summary/">《2019 年终总结 🎉》</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Python 3.11 类型注解新特性</title>
     <url>/blog/20221106/type-hinting-python-3-11/</url>
     <content><![CDATA[<p>第一次接触 java 时是无比震惊的，修改大几百行代码，编译通过直接发布至预发部署后，竟运行的无比丝滑。静态类型的绝对优势，对我的 TDD 价值观都带来了极大的冲击。</p>
@@ -963,7 +1125,6 @@
 <p>新的一年还是期望从兴趣驱动，通过兴趣例如乒乓球等，与这个世界的人建立交集</p>
 <h2 id="4）财务・理财"><a href="#4）财务・理财" class="headerlink" title="4）财务・理财"></a>4）财务・理财 </h2><p> 这一项格外纠结，首先关于“工作无法创造财富，超过 10% 除工资以外收入”的目标，大大的高估了自己，无论是公司内推、个人投稿等途径都毫无进展，还在互联网寒冬裁员浪潮之中，给自己徒增了一丝焦虑。</p>
 <p>但相比于工作以外收入的颗粒无收，受《富爸爸，穷爸爸》的影响，以及逆天的运气，上半年成功购入新房一枚。从认为买房的都是傻 X，变为 30 年的房奴 T^T </p>
-<p>偶尔恍惚之间，会怀疑是否做了错误的选择，被房子绑架了人生？但回到现实，30min 通勤回家后，踩着暖气烘热的地板，躺在 lazyboy 单人沙发，以及不再堵塞的鼻子.. 自然有了新的答案。</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/85C7BB12-0479-454F-98F8-1F98B710E5C2_1_102_o.jpeg" alt="85C7BB12-0479-454F-98F8-1F98B710E5C2_1_102_o"></p>
 <p>年底搬家后，每天的生活轨迹也发生了天翻覆地的变化，最明显的一点是每天早上多出了一个小时的个人时间：从过去临近九点起床仓促赶路上班，到现在七点半起床，去门口的麦当劳安静的坐一个多小时，希望最近一周早睡早起的好习惯可以持续延续 🥰 </p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/E497F7F7-9D50-455D-8993-8FF9B44465F0.jpeg" alt="E497F7F7-9D50-455D-8993-8FF9B44465F0-w720"></p>
@@ -7100,8 +7261,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>mysql</tag>
         <tag>django</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>

@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffd670;
+  background: #ff13f1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2725,7 +2725,7 @@ body .headband {
 .posts-expand .post-body h4,
 .posts-expand .post-body h5,
 .posts-expand .post-body h6 {
-  margin: 0.6em 0 0 0;
+  margin: 0.6em 0 0.6em 0;
 }
 .posts-expand .post-body code {
   padding: 4px 4px 1px 4px;
