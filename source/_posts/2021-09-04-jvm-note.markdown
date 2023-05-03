@@ -1,8 +1,8 @@
 ---
-title: Java JVM 内存管理 - SRE 的必修课 date: 2021-09-04 16:31:21 categories:
-
+title: Java JVM 内存管理 - SRE 的必修课 
+date: 2021-09-04 16:31:21 
+categories:
 - SRE
-
 ---
 
 在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy
