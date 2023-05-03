@@ -1,5 +1,5 @@
 ---
-title: 如何调教 GPT - 第一章：Guidelines for Prompting
+title: 你真的会使用 ChatGPT 吗？ | 第一章：Guidelines for Prompting
 tags:
 ---
 
