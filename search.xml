@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SQLAlchemy 与 Pyright 相爱相杀的故事</title>
+    <url>/blog/20230503/python-type-hinting-stubs/</url>
+    <content><![CDATA[<p>Pyright 作为一款功能强大的 Python 语言服务器，提供静态类型检查和代码补全等实用功能。</p>
+<p>但近日使用 SQLAlchemy 时，受到了有误的 Pyright 类型检查报错提示的困扰，本篇文章将简单分享解决思路以及背后的原理。</p>
+<a id="more"></a>
+
+<h2 id="背景"><a href="# 背景" class="headerlink" title="背景"></a>背景 </h2><p> 假设有如下 python 代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy.ext.declarative <span class="keyword">import</span> declarative_base</span><br><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> Column, Integer, String</span><br><span class="line"></span><br><span class="line">Base = declarative_base()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(Base)</span>:</span></span><br><span class="line">    __tablename__ = <span class="string">"users"</span></span><br><span class="line">    id = Column(Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    name = Column(String)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_username</span><span class="params">(name: str)</span>:</span></span><br><span class="line">    print(name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    user = User(id=<span class="number">42</span>, name=<span class="number">42</span>)</span><br><span class="line">    print_username(user.name)</span><br></pre></td></tr></table></figure>
+
+<p>Pyright 认真负责给出如下报错提示：<code>[Pyright reportGeneralTypeIssues] Argument of type &quot;Column[str]&quot; cannot be assigned to parameter &quot;name&quot; of type &quot;str&quot; in function &quot;print_username&quot; [E]</code><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16831164151732.jpg"></p>
+<h2 id="解决办法"><a href="# 解决办法" class="headerlink" title="解决办法"></a>解决办法 </h2><p> 很简单，本地安装 <a href="https://pypi.org/project/sqlalchemy-stubs/">sqlalchemy-stubs</a> 后，报错消失。</p>
+<p>Pyright 可正确识别 <code>user</code> 实例的 <code>name</code> 属性为 <code>str</code> 类型，而不是代码定义的 <code>Column</code> 类型。</p>
+<p>小技巧：无需引用，直接使用 <code>reveal_type</code> 方法调试类型：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16831174091876.jpg"></p>
+<h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY???"></a>WHY???</h2><h3 id="为什么安装 -stub- 包后，无需任何配置，即可直接对 -pyright- 生效？"><a href="# 为什么安装 -stub- 包后，无需任何配置，即可直接对 -pyright- 生效？" class="headerlink" title="为什么安装 stub 包后，无需任何配置，即可直接对 pyright 生效？"></a>为什么安装 stub 包后，无需任何配置，即可直接对 pyright 生效？</h3><blockquote>
+<p>Try to resolve using <strong>stubs or inlined types found within installed packages</strong>.</p>
+<p>For a given package, try to resolve first using a <strong>stub package</strong>. Stub packages, as defined in <a href="https://www.python.org/dev/peps/pep-0561/#type-checker-module-resolution-order">PEP 561</a>, are named the same as the original package but with “-stubs” appended.</p>
+</blockquote>
+<p>参考 <a href="https://github.com/microsoft/pyright/blob/main/docs/import-resolution.md">pyright 文档</a>，默认根据包名 <code>-stubs</code> 后缀自动识别。</p>
+<h3 id="为什么安装 -stub- 包后，可正确识别 -name- 的类型？"><a href="# 为什么安装 -stub- 包后，可正确识别 -name- 的类型？" class="headerlink" title="为什么安装 stub 包后，可正确识别 name 的类型？"></a>为什么安装 stub 包后，可正确识别 name 的类型？</h3><p>首先安装前，pyright 根据 sqlalchemy 的源代码，解析对应的类型，自然将 <code>user.name</code> 当作 <code>Column</code> 类型。安装 sqlalchemy-stubs 后，优先通过 stub 中定义的接口类型解析。</p>
+<p>具体实现参考 <code>sqlalchemy-stubs/sql/schema.pyi::Column</code>，关键代码如下。</p>
+<p>简而言之类似 java 中的泛型（generics），当 Column 的类型定义为 <code>Type[TypeEngine[_T]]</code> 时，强制约束返回的类型为 <code>T</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">_T = TypeVar(<span class="string">'_T'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Column</span><span class="params">(SchemaItem, ColumnClause[_T])</span>:</span></span><br><span class="line">    __visit_name__: str = ...</span><br><span class="line">    key: str = ...</span><br><span class="line">    primary_key: bool = ...</span><br><span class="line">    nullable: bool = ...</span><br><span class="line">    default: Optional[Any] = ...</span><br><span class="line">    server_default: Optional[Any] = ...</span><br><span class="line">    server_onupdate: Optional[FetchedValue] = ...</span><br><span class="line">    index: Optional[bool] = ...</span><br><span class="line">    unique: Optional[bool] = ...</span><br><span class="line">    system: bool = ...</span><br><span class="line">    doc: Optional[str] = ...</span><br><span class="line">    onupdate: Optional[Any] = ...</span><br><span class="line">    autoincrement: Union[bool, str] = ...</span><br><span class="line">    constraints: Set[Constraint] = ...</span><br><span class="line">    foreign_keys: Set[ForeignKey] = ...  <span class="comment"># type: ignore  # incompatible with ColumnElement.foreign_keys</span></span><br><span class="line">    info: Optional[Mapping[str, Any]] = ...</span><br><span class="line">    comment: Optional[str] = ...</span><br><span class="line">    table: Table = ...  <span class="comment"># <span class="doctag">TODO:</span> double-check this.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Now without a name argument.</span></span><br><span class="line"><span class="meta">    @overload</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, type_: Type[TypeEngine[_T]], *args: Any, autoincrement: Union[bool, str] = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 default: Any = ..., doc: str = ..., key: str = ..., index: bool = ..., info: Mapping[str, Any] = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 nullable: bool = ..., onupdate: Any = ..., primary_key: bool = ..., server_default: Any = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 server_onupdate: Union[FetchedValue, FunctionElement] = ..., quote: Optional[bool] = ..., unique: bool = ...,</span></span></span><br><span class="line"><span class="function"><span class="params">                 system: bool = ..., comment: str = ...)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line">    </span><br><span class="line"><span class="meta">    @overload</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance: None, owner: Any)</span> -&gt; Column[_T]:</span> ...</span><br><span class="line"><span class="meta">    @overload</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance: object, owner: Any)</span> -&gt; _T:</span> ...</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://microsoft.github.io/pyright/#/type-concepts?id=debugging-types">https://microsoft.github.io/pyright/#/type-concepts?id=debugging-types</a></li>
+<li><a href="https://github.com/dropbox/sqlalchemy-stubs/issues/140">https://github.com/dropbox/sqlalchemy-stubs/issues/140</a></li>
+<li><a href="https://github.com/microsoft/pyright/blob/main/docs/import-resolution.md">https://github.com/microsoft/pyright/blob/main/docs/import-resolution.md</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>你真的会使用 ChatGPT 吗？ | 第一章：Guidelines for Prompting</title>
+    <url>/blog/20230502/chatgpt-prompt-eng-l2/</url>
+    <content><![CDATA[<p>作为吴教主 Andrew Ng 的头号粉丝，怎能错过最新公开课《ChatGPT Prompt Engineering for Developers》。希望学完该课程后可以更好的“调教”大模型，避免其胡编乱造🤣</p>
+<p>本篇文章整理了第一章 <a href="https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/2/guidelines">Guidelines</a> 的重点，主要阐述了与大模型更好人机交互的两个指导原则：</p>
+<ol>
+<li>Principle 1: Write clear and specific instructions</li>
+<li>Principle 2: Give the model time to &quot;think&quot;</li>
+</ol>
+<a id="more"></a>
+
+<h1 id="两个原则"><a href="# 两个原则" class="headerlink" title="两个原则"></a>两个原则 </h1><h2 id="Principle-1-Write-clear-and-specific-instructions"><a href="#Principle-1-Write-clear-and-specific-instructions" class="headerlink" title="Principle 1: Write clear and specific instructions"></a>Principle 1: Write clear and specific instructions</h2><h3 id="策略 1：划重点"><a href="# 策略 1：划重点" class="headerlink" title="策略 1：划重点"></a> 策略 1：划重点 </h3><p> 使用 <code>```</code> 等分隔符，高亮待分析的独立内容，避免其误导意图。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830723690948.jpg"></p>
+<h3 id="策略 2：明确输出格式"><a href="# 策略 2：明确输出格式" class="headerlink" title="策略 2：明确输出格式"></a>策略 2：明确输出格式 </h3><p> 不难理解，如下图指定生成的内容通过 json 等格式结构化输出：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830192018694.jpg"></p>
+<h3 id="策略 3：让模型学会说“不”"><a href="# 策略 3：让模型学会说“不”" class="headerlink" title="策略 3：让模型学会说“不”"></a>策略 3：让模型学会说“不”</h3><p>简单的 if..else 判断<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830196562591.jpg"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830195655015.jpg"></p>
+<h3 id="策略 4：不要吝啬你的提示"><a href="# 策略 4：不要吝啬你的提示" class="headerlink" title="策略 4：不要吝啬你的提示"></a>策略 4：不要吝啬你的提示 </h3><p> 简单给出若干案例，供模型高效的效仿：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830200654353.jpg"></p>
+<h2 id="Principle-2-Give-the-model-time-to-“think”"><a href="#Principle-2-Give-the-model-time-to-“think”" class="headerlink" title="Principle 2: Give the model time to “think”"></a>Principle 2: Give the model time to “think”</h2><h3 id="策略 1：手把手指导"><a href="# 策略 1：手把手指导" class="headerlink" title="策略 1：手把手指导"></a>策略 1：手把手指导 </h3><p> 提供完成任务所需的所有步骤：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830282120339.jpg"></p>
+<h3 id="策略 2：循循善誘"><a href="# 策略 2：循循善誘" class="headerlink" title="策略 2：循循善誘"></a>策略 2：循循善誘 </h3><p> 当模型给出错误结论时，用户可引导模型将任务分解成若干步骤，<strong>优先给出自身的回答</strong>，再进一步对比判断结论是否正确。</p>
+<p>直接以课程中的例子，学生回答其实是错误的：因为 <strong> 维护成本是 10 元 &#x2F; 平方，而不是 100 元 &#x2F; 平方</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830310966012.jpg"></p>
+<p>换一种提问的方式，迫使模型先独立计算后再判断学生的回答是否正确，最终获取更加准确的回答。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830316216662.jpg"></p>
+<h1 id="模型的局限性：幻觉（Hallucinations）"><a href="# 模型的局限性：幻觉（Hallucinations）" class="headerlink" title="模型的局限性：幻觉（Hallucinations）"></a>模型的局限性：幻觉（Hallucinations）</h1><p>虽然模型被喂食了海量的数据，但它无法完美的记住所有看到的信息，所以并不太了解自己知识的边界。最终导致正确的废话甚至层出不穷的“谎言”。</p>
+<p>模型竟然会为自己辩解，着实有一点可怕。个人觉得 AI 终有一天会作为人类的进化体，物竞天择替代我们成为这个世界的“主人”。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16830318949352.jpg"></p>
+<hr>
+<p>BTW，本篇文章使用的工具：</p>
+<ul>
+<li>模型：GPT-4</li>
+<li>客户端：OpenCat</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>如何在 Python 中合理的使用继承</title>
     <url>/blog/20230122/python-sub-classing/</url>
     <content><![CDATA[<p>最近两年由于工作需要接触 Java，也遇到很多将继承抽象用的出神入化的小伙伴。而自己却总是东施效颦，写出的代码杂乱无章。特别面向新增的需求改动，在扩展等方面差强人意。</p>
@@ -6226,8 +6288,8 @@ disqus 手机端不加载</p>
 <p>1.Do not run garbage collection too freely, as it can take considerable time to evaluate every memory object within a large system. For example, one team having memory issues tried calling gc.collect() between every step of a complex start-up process, increasing the boot time by 20 times (2000%). Running it more than a few times per day - without specific design reasons - is likely a waste of device resources.<br>2.Run manual garbage collection after your application has completed start up and moves into steady-state operation. This frees potentially huge blocks of memory used to open and parse file, to build and modify object lists, and even code modules never to be used again. For example, one application reading XML configuration files was consuming about 1.5MB of temporary memory during the process. Without manual garbage collection, there is no way to predict when that 1.5MB of memory will be returned to the python memory pools for reuse.<br>3.Run manual garbage collection after infrequently run sections of code which use and then free large blocks of memory. For example, consider running garbage collection after a once-per-day task which evaluates thousands of data points, creates an XML &#39;report&#39;, and then sends that report to a central office via FTP or SMTP&#x2F;email. One application doing such daily reports was creating over 800K worth of temporary sorted lists of historical data. Piggy-backing gc.collect() on such daily chores has the nice side-effect of running it once per day for &#39;free&#39;.<br>4.Consider manually running garbage collection either before or after timing-critical sections of code to prevent garbage collection from disturbing the timing. As example, an irrigation application might sit idle for 10 minutes, then evaluate the status of all field devices and make adjustments. Since delays during system adjustment might affect field device battery life, it makes sense to manually run garbage collection as the gateway is entering the idle period AFTER the adjustment process - or run it every sixth or tenth idle period. This insures that garbage collection won&#39;t be triggered automatically during the next timing-sensitive period.   </p>
 ]]></content>
       <tags>
-        <tag>interview</tag>
         <tag>Python</tag>
+        <tag>interview</tag>
       </tags>
   </entry>
   <entry>
@@ -7261,8 +7323,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
