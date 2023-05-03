@@ -5,6 +5,7 @@
 - [2022-02-06] [精装全屋智能灯改造小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-06-home-lights-practice.markdown)
 ## SRE
 - [2022-02-26] [重读 Google SLO 小记 | 智能告警之殇](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-26-sre-slo.markdown)
+- [2021-09-04] [Java JVM 内存管理 - SRE 的必修课](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-09-04-jvm-note.markdown)
 - [2020-11-24] [限流还能这么玩 - Netflix 权重限流新思路](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-11-24-netflix-prioritized-load-shedding.markdown)
 - [2019-09-23] [记一个困扰了我两个星期的博客 Bug 🤒️](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-09-23-cloudflare-display-issue.markdown)
 - [2019-07-27] [Cloudflare 全球宕机复盘读后感](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-07-27-cloudflare-outage-reading-note.markdown)

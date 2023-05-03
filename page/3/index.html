@@ -530,7 +530,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210228/2020-summary/">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20210904/jvm-note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/gravatar.jpg">
@@ -544,7 +544,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/blog/20210228/2020-summary/" class="post-title-link" itemprop="url">大牙的 2020 年终总结 🥳</a>
+            <a href="/blog/20210904/jvm-note/" class="post-title-link" itemprop="url">Java JVM 内存管理 - SRE 的必修课</a>
         </h1>
           <div style="height: 5px"></div>
         
@@ -556,8 +556,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>拖了很久的年终总结，人类就像自己的眼睛一样，大部分的时间无法看见自己的模样，所以需要多照照镜子进行自省和复盘，才不会变成一具行尸走肉。</p>
-<p>这篇文章简单回顾一下 2020 年初设置的目标，以及对 2021 年的展望。</p>
+          <p>在过去三年 SRE 的经历中，遇到过多起因为 JVM OOM 导致的线上故障。其中印象最深的一次排查经历：收到故障外呼后，几个大男人现场梳理业务链路，大眼瞪小眼，最后发现根因竟然是部分网关机器动态加载数据库中的 groovy<br>脚本，导致 <code>Metaspace out of memory</code> 报错，影响了部分 XX 商户的代扣业务，最终落了一个 P4 故障 T…T</p>
+<p>但是之后很长一段时间内，都不太明白 Metaspace 是什么，为什么会耗尽？和 perm 区的关系是？不同线程本地变量和全局对象的关系？</p>
+<p>正好趁这次机会，系统性的整理和分享一下 ：）</p>
+<ul>
+<li><a href="#%E4%B8%80%E3%80%81%E8%B5%B0%E8%BF%91java">一、走近 Java</a></li>
+<li><a href="#%E4%BA%8C%E3%80%81%E8%87%AA%E5%8A%A8%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">二、自动内存管理</a><ul>
+<li><a href="#java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F">Java 内存区域</a></li>
+<li><a href="#%E5%85%B3%E9%94%AE%E7%82%B9%E8%AF%B4%E6%98%8E">关键点说明</a><ul>
+<li><a href="#1%E5%85%B3%E4%BA%8E-perm%E5%8C%BA-metaspace">1. 关于 Perm 区 &amp; Metaspace</a></li>
+<li><a href="#2%E5%85%B3%E4%BA%8E%E6%A0%88%E5%B8%A7%EF%BC%88-stack-frame%EF%BC%89">2. 关于栈帧（Stack Frame）</a></li>
+<li><a href="#3%E5%85%B3%E4%BA%8E%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%88-run-time-constant-pool%EF%BC%89">3. 关于运行时常量池（Run-Time Constant Pool）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E3%80%81%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5">三、垃圾收集器与内存分配策略</a></li>
+<li><a href="#the-end">The End</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
           <!--noindex-->
           <!--/noindex-->
         
@@ -643,7 +660,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
