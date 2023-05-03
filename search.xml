@@ -3,8 +3,8 @@
   <entry>
     <title>SQLAlchemy 与 Pyright 相爱相杀的故事</title>
     <url>/blog/20230503/python-type-hinting-stubs/</url>
-    <content><![CDATA[<p>Pyright 作为一款功能强大的 Python 语言服务器，提供静态类型检查和代码补全等实用功能。</p>
-<p>但近日使用 SQLAlchemy 时，受到了有误的 Pyright 类型检查报错提示的困扰，本篇文章将简单分享解决思路以及背后的原理。</p>
+    <content><![CDATA[<p>Pyright 作为一款功能强大的静态类型检查器，深得我心。但近日使用 SQLAlchemy 时，Pyright 提示的类型检查报错，却让我陷入困扰。</p>
+<p>本篇文章将简单分享解决思路以及背后的原理。</p>
 <a id="more"></a>
 
 <h2 id="背景"><a href="# 背景" class="headerlink" title="背景"></a>背景 </h2><p> 假设有如下 python 代码：</p>
@@ -3741,8 +3741,8 @@
         <category>review</category>
       </categories>
       <tags>
-        <tag>review</tag>
         <tag>iOS</tag>
+        <tag>review</tag>
       </tags>
   </entry>
   <entry>
@@ -7425,8 +7425,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
