@@ -3,7 +3,7 @@
   <entry>
     <title>FormD T1 V2.0 装机小记</title>
     <url>/blog/20230806/build-pc-formd-t1/</url>
-    <content><![CDATA[<p>清晰记得学生期间烈阳高照的一个午后，偷偷买了个 mp4 在小区门口便迫不及待的撕开包装，一股迷人的数码产品“香气”至今令人难忘。</p>
+    <content><![CDATA[<p>清晰记得学生时代，烈阳高照的一个午后，偷偷购入 mp4，路中便迫不及待的撕开包装，一股迷人的数码产品“香气”至今令人难忘。</p>
 <p>多年过去了，我决定自己动手组装一台 PC 小玩具，重新体验开箱的快乐，并与你分享 :)</p>
 <a id="more"></a>
 
@@ -11,10 +11,12 @@
 <h1 id="整体配置："><a href="# 整体配置：" class="headerlink" title="整体配置："></a>整体配置：</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">机箱：FormD T1 Sandwich</span><br><span class="line">主板：华硕 Z690-I GAMING </span><br><span class="line">CPU：Intel Core i5 12400K</span><br><span class="line">内存：海盗船 复仇者 16gx2</span><br><span class="line">SSD：三星 980pro 1T</span><br><span class="line">散热：猫头鹰 NH-L9I 17xx</span><br><span class="line">风扇：猫头鹰 NF-A12x25 两个 </span><br><span class="line"> 显卡：RTX 4070 FE</span><br><span class="line">电源：海盗船 SF750 platinum</span><br></pre></td></tr></table></figure>
 
 <h2 id="必选"><a href="# 必选" class="headerlink" title="必选"></a>必选 </h2><h3 id="机箱 -★★★★★"><a href="# 机箱 -★★★★★" class="headerlink" title="机箱 ★★★★★"></a> 机箱 ★★★★★</h3><p>机箱的选择花了最多的时间，在 ATX、MATX 以及 ITX 中选择了最为小巧的 ITX 机箱（对应主板的尺寸为 17cm x 17cm）</p>
-<p>经过几周的筛选，最终对 FormD T1 一见钟情（我选择的是 SANDWICH KIT + TITANIUM COLOR）。一是颜值即正义，以及配置官网提供了大量 DLC 套件，在组装的过程中，由衷的感叹 t1 机箱就像一份精心设计的代码，不管是可维护性和扩展性都优雅的令人陶醉。</p>
+<p>经过几周的筛选，最终对 FormD T1 一见钟情（我选择的是 SANDWICH KIT + TITANIUM COLOR）。</p>
+<p>一是颜值即正义，配合官网提供了大量 DLC 套件，在组装的过程中，由衷的感叹 t1 机箱就像一份精心设计的代码，不管是可维护性和扩展性都优雅的令人陶醉。</p>
 <p>除了价格略贵，几乎没有任何缺点。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/1EDAD6DE-FC0C-4A95-9251-7A448D00B796_1_105_c.jpeg" alt="1EDAD6DE-FC0C-4A95-9251-7A448D00B796_1_105_c"></p>
-<h3 id="主板 -★★☆☆☆"><a href="# 主板 -★★☆☆☆" class="headerlink" title="主板 ★★☆☆☆"></a>主板 ★★☆☆☆</h3><p>在主板的选择上踩了个小坑，由于习惯了苹果设备雷电口一根 typec 的解决方案，寻思着从 mac mini 切换至 pc 也只需插拔线即可，所以特地选择了附带雷电口的主板：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/%E7%90%86%E6%83%B3.svg" alt="理想"></p>
-<p>理想很丰满，现实却给人无情一击，虽然雷电口可以输出 4k 视频信号，但主板没有 DP In 接口，只能单独显卡接线至显示器，着实不是很优雅：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/%E7%8E%B0%E5%AE%9E.svg" alt="现实"></p>
+<h3 id="主板 -★★☆☆☆"><a href="# 主板 -★★☆☆☆" class="headerlink" title="主板 ★★☆☆☆"></a>主板 ★★☆☆☆</h3><p>在主板的选择上踩了个小坑，由于习惯了苹果设备雷电口一根 typec 的解决方案，寻思着从 mac mini 切换至 pc 也只需插拔线即可，所以特地选择了附带雷电口的主板。</p>
+<p>理想很丰满：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/%E7%90%86%E6%83%B3.svg" alt="理想"></p>
+<p>现实却给人无情一击，虽然雷电口可以输出 4k 视频信号，但主板没有 DP In 接口，只能单独显卡接线至显示器，着实不是很优雅：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/%E7%8E%B0%E5%AE%9E.svg" alt="现实"></p>
 <p>如果 cpu 具备核心显卡，虽然咨询了客服反馈无法输出独显信号，但网上反馈目前普遍支持混合输出（一定性能损耗？），等下一代 cpu 换代时可不能省这个 50 元了 XD</p>
 <h3 id="散热 -★★★★★"><a href="# 散热 -★★★★★" class="headerlink" title="散热 ★★★★★"></a>散热 ★★★★★</h3><p>猫头鹰的风扇给人很大的惊喜，用一个词形容就是精致：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/7488B0C5-4AED-4327-97DE-0318409A167E_1_102_a.jpeg" alt="7488B0C5-4AED-4327-97DE-0318409A167E_1_102_a"></p>
 <p>关于进出风方向：Always intake on the sides (GPU, CPU cooler, PSU), and exhaust out the top</p>
@@ -6429,8 +6431,8 @@ disqus 手机端不加载</p>
 <p>1.Do not run garbage collection too freely, as it can take considerable time to evaluate every memory object within a large system. For example, one team having memory issues tried calling gc.collect() between every step of a complex start-up process, increasing the boot time by 20 times (2000%). Running it more than a few times per day - without specific design reasons - is likely a waste of device resources.<br>2.Run manual garbage collection after your application has completed start up and moves into steady-state operation. This frees potentially huge blocks of memory used to open and parse file, to build and modify object lists, and even code modules never to be used again. For example, one application reading XML configuration files was consuming about 1.5MB of temporary memory during the process. Without manual garbage collection, there is no way to predict when that 1.5MB of memory will be returned to the python memory pools for reuse.<br>3.Run manual garbage collection after infrequently run sections of code which use and then free large blocks of memory. For example, consider running garbage collection after a once-per-day task which evaluates thousands of data points, creates an XML &#39;report&#39;, and then sends that report to a central office via FTP or SMTP&#x2F;email. One application doing such daily reports was creating over 800K worth of temporary sorted lists of historical data. Piggy-backing gc.collect() on such daily chores has the nice side-effect of running it once per day for &#39;free&#39;.<br>4.Consider manually running garbage collection either before or after timing-critical sections of code to prevent garbage collection from disturbing the timing. As example, an irrigation application might sit idle for 10 minutes, then evaluate the status of all field devices and make adjustments. Since delays during system adjustment might affect field device battery life, it makes sense to manually run garbage collection as the gateway is entering the idle period AFTER the adjustment process - or run it every sixth or tenth idle period. This insures that garbage collection won&#39;t be triggered automatically during the next timing-sensitive period.   </p>
 ]]></content>
       <tags>
-        <tag>interview</tag>
         <tag>Python</tag>
+        <tag>interview</tag>
       </tags>
   </entry>
   <entry>
