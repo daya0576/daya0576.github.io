@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="163 121 759 347" width="759" height="347">
+  <defs/>
+  <g id="Canvas_" stroke-dasharray="none" fill="none" stroke="none" fill-opacity="1" stroke-opacity="1">
+    <title>理想</title>
+    <rect fill="white" x="163" y="121" width="759" height="347"/>
+    <g id="Canvas__Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_19">
+        <rect x="163" y="121.5" width="759" height="346.5" fill="white"/>
+      </g>
+      <g id="Group_20">
+        <g id="Graphic_8">
+          <rect x="294" y="241" width="326" height="195" fill="#ccc"/>
+          <rect x="294" y="241" width="326" height="195" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(299 246)" fill="black">
+            <tspan font-family="PingFang SC" font-size="16" fill="black" x="63.808" y="17">显示器（Dell U2720QM）</tspan>
+          </text>
+        </g>
+        <g id="Graphic_7">
+          <rect x="186.5" y="371" width="58" height="26" fill="white"/>
+          <rect x="186.5" y="371" width="58" height="26" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(191.5 375)" fill="black">
+            <tspan font-family="PingFang SC" font-size="13" fill="black" x="11" y="14">鼠标</tspan>
+          </text>
+        </g>
+        <g id="Graphic_6">
+          <rect x="186.5" y="306" width="58" height="26" fill="white"/>
+          <rect x="186.5" y="306" width="58" height="26" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(191.5 310)" fill="black">
+            <tspan font-family="PingFang SC" font-size="13" fill="black" x="11" y="14">键盘</tspan>
+          </text>
+        </g>
+        <g id="Line_5">
+          <path d="M 294 361 L 269.25 361 L 269.25 384 L 244.5 384" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_4">
+          <line x1="294" y1="319" x2="244.5" y2="319" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_3">
+          <rect x="294" y="306" width="92.5" height="26" fill="white"/>
+          <rect x="294" y="306" width="92.5" height="26" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(299 310)" fill="black">
+            <tspan font-family="PingFang SC" font-size="13" fill="black" x="3.42" y="14">USB3.0 下行</tspan>
+          </text>
+        </g>
+        <g id="Graphic_2">
+          <rect x="294" y="348" width="92.5" height="26" fill="white"/>
+          <rect x="294" y="348" width="92.5" height="26" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(299 352)" fill="black">
+            <tspan font-family="PingFang SC" font-size="13" fill="black" x="3.42" y="14">USB3.0 下行</tspan>
+          </text>
+        </g>
+        <g id="Graphic_9">
+          <rect x="512" y="296.25" width="108" height="45.5" fill="white"/>
+          <rect x="512" y="296.25" width="108" height="45.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(517 301)" fill="black">
+            <tspan font-family="PingFang SC" font-size="13" fill="black" x="25.6715" y="14">Type-C</tspan>
+            <tspan font-family="PingFang SC" font-size="13" fill="black" x="6.0155" y="32">（支持DP1.4）</tspan>
+          </text>
+        </g>
+        <g id="Graphic_10">
+          <rect x="757.5" y="153.5" width="141" height="45.5" fill="#ffffc0"/>
+          <rect x="757.5" y="153.5" width="141" height="45.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(762.5 165.75)" fill="black">
+            <tspan font-family="PingFang SC" font-size="15" fill="black" x="33.4375" y="16">Macbook</tspan>
+          </text>
+        </g>
+        <g id="Graphic_11">
+          <rect x="757.5" y="224.875" width="141" height="45.5" fill="#ffffc0"/>
+          <rect x="757.5" y="224.875" width="141" height="45.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(762.5 237.125)" fill="black">
+            <tspan font-family="PingFang SC" font-size="15" fill="black" x="33.445" y="16">Mac Mini</tspan>
+          </text>
+        </g>
+        <g id="Graphic_12">
+          <rect x="757.5" y="296.25" width="141" height="45.5" fill="#ffffc0"/>
+          <rect x="757.5" y="296.25" width="141" height="45.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(762.5 308.5)" fill="black">
+            <tspan font-family="PingFang SC" font-size="15" fill="black" x="55.225" y="16">PC</tspan>
+          </text>
+        </g>
+        <g id="Line_13">
+          <path d="M 620 319 L 688.75 319 L 688.75 176.25 L 757.5 176.25" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_15">
+          <path d="M 620 319 L 688.75 319 L 688.75 247.625 L 757.5 247.625" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_18">
+          <path d="M 621 320 L 621 319 L 757.5 319" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
