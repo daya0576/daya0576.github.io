@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fff;
+  background: #8765c8;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2649,7 +2649,6 @@ body .headband {
   display: none;
 }
 .header-inner {
-  background-image: url("/images/site-meta-bg/sky_latest.jpg");
   background-size: cover;
 }
 .header-inner .site-meta {
