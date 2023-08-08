@@ -6,6 +6,7 @@
     "version": "4.2.1"
   },
   "dependencies": {
+    "darkreader": "^4.9.58",
     "hexo": "^4.2.0",
     "hexo-asset-link": "^2.1.0",
     "hexo-deployer-rsync": "^1.0.0",
