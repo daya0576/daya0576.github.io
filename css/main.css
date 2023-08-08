@@ -1196,7 +1196,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fffeff;
+  background: #54ffeb;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2645,6 +2645,17 @@ ul.breadcrumb li + li:last-child {
 body {
   background-color: #242525;
 }
+body .post-title a,
+body .post-nav a,
+body .post-body a {
+  color: unset;
+}
+body .sidebar li {
+  color: unset;
+}
+body .sidebar .nav-link span {
+  color: unset;
+}
 body .headband {
   display: none;
 }
@@ -2655,7 +2666,7 @@ body .headband {
   background: none;
 }
 .header-inner .site-nav .menu .menu-item a {
-  color: #f9f9f9;
+  color: unset;
   border-bottom: none;
 }
 .header-inner .site-nav .menu .menu-item a:hover,
@@ -2664,10 +2675,6 @@ body .headband {
 }
 .header-inner .site-title {
   font-size: 1.375em;
-}
-.header-inner .local-search-pop-overlay {
-  opacity: 1;
-  background: none;
 }
 .header,
 .sidebar {
@@ -2712,9 +2719,7 @@ body .headband {
 }
 .posts-expand .post-body a,
 .posts-expand .post-body span.exturl {
-  color: #2f7bbf;
   text-decoration: none;
-  border-bottom: none;
 }
 .posts-expand .post-body h1 {
   padding-bottom: 0.3em;
@@ -2753,8 +2758,7 @@ body .headband {
 }
 .posts-expand .post-header .post-meta a,
 .posts-expand .post-header .post-meta time {
-  color: #999;
-  border-bottom: none;
+  color: unset;
 }
 .posts-expand .post-header .post-title {
   font-size: 1.5em;
@@ -2764,13 +2768,8 @@ body .headband {
   vertical-align: baseline;
 }
 .posts-expand .post-header .post-title .post-title-link:hover {
-  color: #2f7bbf;
   text-decoration: none;
   border-bottom: none;
-}
-.posts-expand .post-header .post-comments-count,
-.posts-expand .post-header .disqus-comment-count {
-  color: #999;
 }
 .posts-expand .post-footer {
   padding: 25px;
@@ -2791,13 +2790,6 @@ body .headband {
 }
 .posts-collapse .post-title span {
   margin-left: 5px;
-}
-.posts-collapse .post-title a,
-.posts-collapse .post-title span.exturl {
-  color: #24292e;
-}
-.posts-collapse .post-title .post-title-link:hover {
-  color: #2f7bbf;
 }
 .posts-collapse article {
   margin: 10px 0;
