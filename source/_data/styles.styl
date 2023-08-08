@@ -1,5 +1,15 @@
 body {
   background-color: #242525; 
+  .post-title a, .post-nav a, .post-body a{
+    color: unset;
+  }
+  .sidebar li {
+    color: unset;
+  }
+  // 侧边栏颜色样式
+  .sidebar .nav-link span {
+    color: unset;
+  }
   .headband {
     display: none;
   }
@@ -12,23 +22,12 @@ body {
 .header-inner {
   //background-image: url("/images/site-meta-bg/sky_latest.jpg");
   background-size: cover;
-  //filter: grayscale(1) opacity(1);
-  //-webkit-transition: all .2s ease-in;
-  //-moz-transition: all .2s ease-in;
-  //-o-transition: all .2s ease-in;
-  //transition: all .2s ease-in;
-
-  //&:hover {
-  //  filter: none;
-  //  //opacity: 1 !important;
-  //}
-
   .site-meta {
     background: none;
   }
 
   .site-nav .menu .menu-item a {
-    color: #f9f9f9;
+    color: unset;
     border-bottom: none;
   }
 
@@ -38,13 +37,6 @@ body {
 
   .site-title {
     font-size: 1.375em;
-  }
-
-  // 搜索
-
-  .local-search-pop-overlay {
-    opacity: 1;
-    background: none;
   }
 }
 
@@ -69,7 +61,6 @@ body {
 
   .site-author-image {
     transition: transform 0.75s;
-
     &:hover {
       -webkit-transform: rotate(360deg);
       -moz-transform: rotate(360deg);
@@ -102,9 +93,8 @@ body {
     }
 
     a, span.exturl {
-      color: #2f7bbf;
       text-decoration: none;
-      border-bottom: none;
+      // border-bottom: none;
     }
 
     h1 {
@@ -120,7 +110,6 @@ body {
       padding: 4px 4px 1px 4px;
       //background: #eee8d5;
     }
-
 
     img {
       max-height: 350px;
@@ -153,8 +142,8 @@ body {
       padding: 5px, 0;
 
       a, time {
-        color: #999;
-        border-bottom: none;
+        color: unset;
+        // border-bottom: none;
       }
     }
 
@@ -167,14 +156,9 @@ body {
       }
 
       .post-title-link:hover {
-        color: #2f7bbf;
         text-decoration: none;
         border-bottom: none;
       }
-    }
-
-    .post-comments-count, .disqus-comment-count {
-      color: #999;
     }
   }
 
@@ -210,13 +194,6 @@ body {
       margin-left: 5px;
     }
 
-    a, span.exturl {
-      color: #24292e;
-    }
-
-    .post-title-link:hover {
-      color: #2f7bbf;
-    }
   }
 
   article {
