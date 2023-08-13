@@ -6610,8 +6610,8 @@ disqus 手机端不加载</p>
 <h2 id="Python-list-implementation"><a href="#Python-list-implementation" class="headerlink" title="Python list implementation"></a>Python list implementation</h2><p><a href="http://www.laurentluce.com/posts/python-list-implementation/">http://www.laurentluce.com/posts/python-list-implementation/</a>   </p>
 ]]></content>
       <tags>
-        <tag>study</tag>
         <tag>python</tag>
+        <tag>study</tag>
       </tags>
   </entry>
   <entry>
@@ -7532,8 +7532,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">performance</span><span class="params">(f)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        r = f(*args, **kw)</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'call %s() in %fs'</span> % (f.__name__, (t2 - t1))</span><br><span class="line">        <span class="keyword">return</span> r</span><br><span class="line">    <span class="keyword">return</span> fn</span><br><span class="line"></span><br><span class="line"><span class="meta">@performance</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x,y: x*y, range(<span class="number">1</span>, n+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> factorial(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>study</tag>
         <tag>python</tag>
+        <tag>study</tag>
       </tags>
   </entry>
   <entry>
@@ -7657,8 +7657,8 @@ Python 描述符（descriptor）解密
 
 ]]></content>
       <tags>
-        <tag>study</tag>
         <tag>python</tag>
+        <tag>study</tag>
       </tags>
   </entry>
   <entry>
@@ -7690,8 +7690,8 @@ Python 描述符（descriptor）解密
 <p>###--- 最后的结果 ---<br><img src="/images/loading/loading.svg" data-original="/images/blog/140801_web_score_log/console.jpg"><br><img src="/images/loading/loading.svg" data-original="/images/blog/140801_web_score_log/result.jpg">  </p>
 ]]></content>
       <tags>
-        <tag>study</tag>
         <tag>python</tag>
+        <tag>study</tag>
       </tags>
   </entry>
   <entry>
@@ -7710,8 +7710,8 @@ Python 描述符（descriptor）解密
 <p><strong>&quot;:-) All the best.&quot;</strong><br><strong>继续加油   以后改作业也要更认真一点了</strong></p>
 ]]></content>
       <tags>
-        <tag>study</tag>
         <tag>python</tag>
+        <tag>study</tag>
         <tag>cousera</tag>
       </tags>
   </entry>
