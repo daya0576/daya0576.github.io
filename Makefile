@@ -1,5 +1,7 @@
 nothing:
 	echo "nothing"
+commit:
+	git submodule foreach "echo 'Committing changes.'; git commit -a -q -m 'sync' || :"
 
 push:
 	git push --recurse-submodules=on-demand
