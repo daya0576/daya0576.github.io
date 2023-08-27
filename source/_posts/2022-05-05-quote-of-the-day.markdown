@@ -2,6 +2,8 @@
 title: Quote of the Day (QOTD) Protocal 小记
 date: 2022-05-05 22:51:07
 tags:
+categories:
+- SRE
 ---
 
 周末读《TCP/IP详解》，学到一个非常神奇的协议：RFC 865 - Quote of the Day (QOTD) 

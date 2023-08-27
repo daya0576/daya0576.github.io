@@ -3,6 +3,8 @@ title: Henry's IDE to VIM Cheatsheet
 tags:
   - vim
 date: 2022-08-14 18:04:56
+categories:
+- 奇技淫巧
 ---
 
 

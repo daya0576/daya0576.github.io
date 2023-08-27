@@ -2,6 +2,8 @@
 title: FormD T1 V2.0 装机小记
 date: 2023-08-06 22:12:09
 tags:
+categories:
+- 智能家居
 ---
 
 

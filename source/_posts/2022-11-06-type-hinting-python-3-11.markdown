@@ -3,6 +3,8 @@ title: Python 3.11 类型注解新特性
 tags:
   - Python
 date: 2022-11-06 09:51:05
+categories:
+- PYTHON
 ---
 
 

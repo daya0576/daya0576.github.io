@@ -2,6 +2,8 @@
 title: SQLAlchemy 与 Pyright 相爱相杀的故事
 date: 2023-05-03 21:05:49
 tags:
+categories:
+- PYTHON
 ---
 
 Pyright 作为一款功能强大的静态类型检查器，深得我心。但近日使用 SQLAlchemy 时，Pyright 提示的类型检查报错，却让我陷入困扰。

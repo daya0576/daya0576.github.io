@@ -1,6 +1,8 @@
 ---
 title: 你真的会使用 ChatGPT 吗？ | 第一章：Guidelines for Prompting
 tags:
+categories:
+- LLM
 ---
 
 作为吴教主 Andrew Ng 的头号粉丝，怎能错过最新公开课《ChatGPT Prompt Engineering for Developers》。希望学完该课程后可以更好的“调教”大模型，避免其胡编乱造🤣

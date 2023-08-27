@@ -3,6 +3,8 @@ title: 如何编写低耦合可维护的 Python 代码
 tags:
   - python
 date: 2022-09-11 23:00:50
+categories:
+- PYTHON
 ---
 
 
