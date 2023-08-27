@@ -1,6 +1,7 @@
 nothing:
 	echo "nothing"
 commit:
+	git commit -a -q -m 'sync'
 	git submodule foreach "echo 'Committing changes.'; git commit -a -q -m 'sync' || :"
 
 push:
