@@ -5,7 +5,7 @@ commit:
 	git submodule foreach "echo 'Committing changes.'; git commit -a -q -m 'sync' || :"
 
 push:
-	git push --recurse-submodules=on-demand
+	git push --recurse-submodules=on-demand && git push
 
 deploy:
 	hexo g
