@@ -36,7 +36,7 @@ tags:
 ## 软件入门
 直接使用 vscode PlatformIO 插件进行开发。
 
-推荐食用下面的 hello world 视频进行初步入门：
+推荐食用下面的 hello world 视频快速入门：
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tc3Qnf79Ny8?si=WpN7iNJA51FAhTjm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 实现原理
@@ -46,9 +46,9 @@ tags:
 ![](../images/blog/2021-09-04-jvm-note/16931507619271.jpg)
 
 ### 第一步：metric 指标准备
-将智能家居的部分指标上传至 Grafana Cloud，供后续单片机每分钟抓取展示。
+将智能家居的温度/湿度等指标，用 Grafana agent 上传至 Grafana Cloud，供后续每分钟抓取展示。
 
-关于如何采集温度/湿度等指标，参考之前的分享：[《如何构建家庭监控大盘》](/blog/20220327/smart-home-dashboard/)
+参考之前的分享：[《如何构建家庭监控大盘》](/blog/20220327/smart-home-dashboard/)
 
 ### 第二步：单片机初始化
 Arduino（硬件开发框架）提供了两个 spi 供实现：
@@ -58,14 +58,14 @@ Arduino（硬件开发框架）提供了两个 spi 供实现：
 这一步 `setup` 除了初始化 `PromClient`，还创建了一个 http server。
 
 ### 第三步：用户更新配置
-如上一步所说，作者用 gpt 编写了一个前端页面，方便用户动态控制部分参数：
+接上一步 http server，作者用 gpt 编写了一个前端页面，方便用户动态控制部分配置：
 ![](../images/blog/2021-09-04-jvm-note/16931506456594.jpg)
 
 ### 第四步：指标查询&展示
 每分钟抓取最新的 metric 指标，并在 led 面板上展示：
 ![](../images/blog/2021-09-04-jvm-note/16931521726946.jpg)
 
-链路：小米温度计 -> Home Assistant -> Grafana Cloud -> ESP32 -> LED
+整体链路：小米温度计 -> Home Assistant -> Grafana Cloud -> ESP32 -> LED
 ![overview](../images/blog/2021-09-04-jvm-note/overview.jpg)
 
 ## 总结
@@ -74,4 +74,4 @@ Arduino（硬件开发框架）提供了两个 spi 供实现：
 特别是设备通电的一瞬间，看见屏幕跳出的网络通知，突然有种奇妙的感觉：仿佛家庭中多了一个亲切的新成员 :)
 <image src="/images/blog/2021-09-04-jvm-note/16931514491369.jpg" width="300">
 
-期望未来有时间继续折腾，给大家分享有趣的实践~
+期望未来有时间继续折腾，给大家分享更多有趣的实践~
