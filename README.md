@@ -1,5 +1,6 @@
 
 ## 智能家居
+- [2023-08-28] [Homelab hacking: Grafana on an LED matrix display](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-08-28-homelab-hacking-grafana-on-led.markdown)
 - [2023-08-06] [FormD T1 V2.0 装机小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-08-06-build-pc-formd-t1.markdown)
 - [2022-03-27] [如何构建家庭监控大盘](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-27-smart-home-dashboard.markdown)
 - [2022-03-20] [分享我的家庭网络拓扑](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-20-home-assistant-issues.markdown)
