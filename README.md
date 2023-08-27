@@ -1,9 +1,11 @@
 
 ## 智能家居
+- [2023-08-06] [FormD T1 V2.0 装机小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-08-06-build-pc-formd-t1.markdown)
 - [2022-03-27] [如何构建家庭监控大盘](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-27-smart-home-dashboard.markdown)
 - [2022-03-20] [分享我的家庭网络拓扑](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-20-home-assistant-issues.markdown)
 - [2022-02-06] [精装全屋智能灯改造小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-06-home-lights-practice.markdown)
 ## SRE
+- [2022-05-05] [Quote of the Day (QOTD) Protocal 小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-05-05-quote-of-the-day.markdown)
 - [2022-02-26] [重读 Google SLO 小记 | 智能告警之殇](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-26-sre-slo.markdown)
 - [2021-09-04] [Java JVM 内存管理 - SRE 的必修课](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-09-04-jvm-note.markdown)
 - [2020-11-24] [限流还能这么玩 - Netflix 权重限流新思路](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-11-24-netflix-prioritized-load-shedding.markdown)
@@ -12,6 +14,8 @@
 - [2019-01-13] [业务报警智能降噪的那些事](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-01-13-anomaly-detection.markdown)
 - [2018-04-03] [《Site Reliability Engineering》by Google 读书笔记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-04-13-impressions-of-google-sre.markdown)
 ## 个人相关
+- [2023-01-22] [2022 年终小结 🐯](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-01-22-2022-summary.markdown)
+- [2022-07-12] [大连 4 日游小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-07-12-dalian-4d.markdown)
 - [2022-01-01] [2021 年终总结 ✨](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-01-01-2021-daya-summary.markdown)
 - [2021-09-12] [全网最晚的 2020 好物推荐](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-09-12-2020-top10-recomendation.markdown)
 - [2021-02-28] [大牙的 2020 年终总结 🥳](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-02-28-2020-summary.markdown)
@@ -21,6 +25,10 @@
 - [2019-05-01] [一个程序员的选钻戒💍之路](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-05-01-promise-rings.markdown)
 - [2019-02-05] [进城务工人员新春返乡流水账 (2019)](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-02-05-yuhuan-newye-2019.markdown)
 ## PYTHON
+- [2023-05-03] [SQLAlchemy 与 Pyright 相爱相杀的故事](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-05-03-python-type-hinting-stubs.markdown)
+- [2023-01-22] [如何在 Python 中合理的使用继承](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-01-22-python-sub-classing.markdown)
+- [2022-11-06] [Python 3.11 类型注解新特性](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-11-06-type-hinting-python-3-11.markdown)
+- [2022-09-11] [如何编写低耦合可维护的 Python 代码](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-09-11-how-to-write-maintainable-python-code.markdown)
 - [2021-02-21] [零成本打造 Telegram 机器人指北](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-02-21-buld-telegram-bot-from-scratch.markdown)
 - [2021-01-24] [树的可视化 - Python anytree 实现](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-01-24-anytree-print.markdown)
 - [2020-11-22] [浅谈 Python Metaclass（下）：Django ORM 的应用](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-11-22-metaclass-with-django-orm.markdown)
@@ -34,6 +42,7 @@
 - [2018-08-24] [Django (2006, 'MySQL server has gone away') 本地重现与解决](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-08-24-django-2006-MySQL-server-has-gone-away.markdown)
 - [2017-07-31] [Python 的编码问题笔记 (搞清原理, 一劳永逸)](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2017-07-31-python-encoding-decoding.markdown)
 ## JAVA
+- [2022-05-04] [JetBrains IDE 的五个编程小技巧](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-05-04-idea-tips.markdown)
 - [2022-04-16] [《深入剖析 Tomcat》第五章 - 如何实现套娃🪆](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-04-16-how-tomcat-works.markdown)
 - [2022-04-09] [关于 Java 字符串的秘密](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-04-09-java-string.markdown)
 - [2022-02-03] [Java BlockingQueue 学习小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-03-java-blocking-queue.markdown)
@@ -46,6 +55,7 @@
 - [2020-06-14] [《Head First 设计模式》学习笔记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-06-14-design-pattern.markdown)
 - [2020-05-02] [解决关于 UML 类图在心中深藏多年的若干疑惑](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-05-02-uml-unified-modeling-language.markdown)
 ## 奇技淫巧
+- [2022-08-14] [Henry's IDE to VIM Cheatsheet](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-08-14-ide2vim.markdown)
 - [2022-02-04] [git clone 大提速](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-04-git-clone-speedup.markdown)
 - [2020-11-08] [linux 反向查找日志](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-11-08-linux-find-keyword-reversely.markdown)
 - [2019-09-23] [使用 GitHub Actions 实现 Hexo 博客的 CICD](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-09-23-github-actions-hexo-cicd.markdown)

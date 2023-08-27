@@ -40,6 +40,9 @@
 <li>装机分享网站：<a href="https://pcpartpicker.com/builds/">https://pcpartpicker.com/builds/</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>智能家居</category>
+      </categories>
   </entry>
   <entry>
     <title>SQLAlchemy 与 Pyright 相爱相杀的故事</title>
@@ -72,6 +75,9 @@
 <li><a href="https://github.com/microsoft/pyright/blob/main/docs/import-resolution.md">https://github.com/microsoft/pyright/blob/main/docs/import-resolution.md</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>你真的会使用 ChatGPT 吗？ | 第一章：Guidelines for Prompting</title>
@@ -102,6 +108,9 @@
 <li>客户端：OpenCat</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>LLM</category>
+      </categories>
   </entry>
   <entry>
     <title>如何在 Python 中合理的使用继承</title>
@@ -131,6 +140,9 @@
 <li><a href="https://refactoring.guru/design-patterns/bridge">https://refactoring.guru/design-patterns/bridge</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
   </entry>
   <entry>
     <title>2022 年终小结 🐯</title>
@@ -264,6 +276,9 @@
 <li><a href="/blog/20200119/2019-summary/">《2019 年终总结 🎉》</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
   </entry>
   <entry>
     <title>Python 3.11 类型注解新特性</title>
@@ -325,6 +340,9 @@
 <li>震惊 2：无意中搜索到，该 PEP 681 proposal 的初心是为了解决 pyright 无法正确解析 attr 库静态类型的问题（<a href="https://github.com/microsoft/pyright/issues/146">#146</a>），而作者就是 Eric ... <a href="https://github.com/microsoft/pyright/discussions/1782">https://github.com/microsoft/pyright/discussions/1782</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16677087604976.jpg"></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
       <tags>
         <tag>Python</tag>
       </tags>
@@ -387,6 +405,9 @@
 <li>《Head First 设计模式》学习笔记：<a href="https://changchen.me/blog/20200613/design-pattern/">https://changchen.me/blog/20200613/design-pattern/</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>PYTHON</category>
+      </categories>
       <tags>
         <tag>python</tag>
       </tags>
@@ -417,6 +438,9 @@
 <p> 仅供参考，若能帮你少走一点弯路，那也是极好的～</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16604709994758.jpg"></p>
 ]]></content>
+      <categories>
+        <category>奇技淫巧</category>
+      </categories>
       <tags>
         <tag>vim</tag>
       </tags>
@@ -448,6 +472,9 @@
 <h3 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h3><p>人生阅历人生阅历，期望未来多争取机会去世界各地旅行。亲身经历不同的事、不同的人后，对这个世界才有更深的体会。</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/4B66BFE1-0CE9-4C01-838B-3E513A606F3C_1_102_o.jpeg" alt="4B66BFE1-0CE9-4C01-838B-3E513A606F3C_1_102_o"></p>
 ]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
       <tags>
         <tag>个人相关</tag>
       </tags>
@@ -470,6 +497,9 @@
 <hr>
 <p>BTW, this post &amp; profile repo are both created by vim :p </p>
 ]]></content>
+      <categories>
+        <category>SRE</category>
+      </categories>
   </entry>
   <entry>
     <title>JetBrains IDE 的五个编程小技巧</title>
@@ -495,6 +525,9 @@
 <li><a href="https://www.jetbrains.com/help/idea/multicursor.html">https://www.jetbrains.com/help/idea/multicursor.html</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
   </entry>
   <entry>
     <title>《深入剖析 Tomcat》第五章 - 如何实现套娃🪆</title>
