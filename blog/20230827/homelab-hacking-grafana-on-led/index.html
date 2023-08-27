@@ -64,7 +64,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2023-08-27T16:21:01.000Z">
-<meta property="article:modified_time" content="2023-08-27T16:25:02.207Z">
+<meta property="article:modified_time" content="2023-08-27T16:28:06.902Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -285,25 +285,25 @@
 </ol>
 <p>开发板非常小巧，像一件精美的艺术品，竟然是上海一家公司研发的（乐鑫科技）<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931528039899.jpg"></p>
 <h2 id="软件入门"><a href="# 软件入门" class="headerlink" title="软件入门"></a>软件入门 </h2><p> 直接使用 vscode PlatformIO 插件进行开发。</p>
-<p>推荐食用下面的 hello world 视频进行初步入门：</p>
+<p>推荐食用下面的 hello world 视频快速入门：</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tc3Qnf79Ny8?si=WpN7iNJA51FAhTjm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <h2 id="实现原理"><a href="# 实现原理" class="headerlink" title="实现原理"></a>实现原理 </h2><p> 项目地址：<a href="https://github.com/grafana/esp32-metrics-matrix">https://github.com/grafana/esp32-metrics-matrix</a> </p>
 <p>将代码 flash 至 ESP32 硬件后，整体时序交互如下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931507619271.jpg"></p>
-<h3 id="第一步：metric- 指标准备"><a href="# 第一步：metric- 指标准备" class="headerlink" title="第一步：metric 指标准备"></a>第一步：metric 指标准备 </h3><p> 将智能家居的部分指标上传至 Grafana Cloud，供后续单片机每分钟抓取展示。</p>
-<p>关于如何采集温度 &#x2F; 湿度等指标，参考之前的分享：<a href="/blog/20220327/smart-home-dashboard/">《如何构建家庭监控大盘》</a></p>
+<h3 id="第一步：metric- 指标准备"><a href="# 第一步：metric- 指标准备" class="headerlink" title="第一步：metric 指标准备"></a>第一步：metric 指标准备 </h3><p> 将智能家居的温度 &#x2F; 湿度等指标，用 Grafana agent 上传至 Grafana Cloud，供后续每分钟抓取展示。</p>
+<p>参考之前的分享：<a href="/blog/20220327/smart-home-dashboard/">《如何构建家庭监控大盘》</a></p>
 <h3 id="第二步：单片机初始化"><a href="# 第二步：单片机初始化" class="headerlink" title="第二步：单片机初始化"></a>第二步：单片机初始化</h3><p>Arduino（硬件开发框架）提供了两个 spi 供实现：</p>
 <ul>
 <li><code>setup</code> 在硬件 boot 时执行一次</li>
 <li><code>loop</code> 顾名思义循环执行</li>
 </ul>
 <p>这一步 <code>setup</code> 除了初始化 <code>PromClient</code>，还创建了一个 http server。</p>
-<h3 id="第三步：用户更新配置"><a href="# 第三步：用户更新配置" class="headerlink" title="第三步：用户更新配置"></a>第三步：用户更新配置 </h3><p> 如上一步所说，作者用 gpt 编写了一个前端页面，方便用户动态控制部分参数：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931506456594.jpg"></p>
+<h3 id="第三步：用户更新配置"><a href="# 第三步：用户更新配置" class="headerlink" title="第三步：用户更新配置"></a>第三步：用户更新配置 </h3><p> 接上一步 http server，作者用 gpt 编写了一个前端页面，方便用户动态控制部分配置：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931506456594.jpg"></p>
 <h3 id="第四步：指标查询 -amp- 展示"><a href="# 第四步：指标查询 -amp- 展示" class="headerlink" title="第四步：指标查询 &amp; 展示"></a>第四步：指标查询 &amp; 展示 </h3><p> 每分钟抓取最新的 metric 指标，并在 led 面板上展示：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931521726946.jpg"></p>
-<p>链路：小米温度计 -&gt; Home Assistant -&gt; Grafana Cloud -&gt; ESP32 -&gt; LED<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/overview.jpg" alt="overview"></p>
+<p>整体链路：小米温度计 -&gt; Home Assistant -&gt; Grafana Cloud -&gt; ESP32 -&gt; LED<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/overview.jpg" alt="overview"></p>
 <h2 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h2><p> 第一次接触 ESP32 硬件，玩的也很过瘾。</p>
 <p>特别是设备通电的一瞬间，看见屏幕跳出的网络通知，突然有种奇妙的感觉：仿佛家庭中多了一个亲切的新成员 :)<br><image src="/images/blog/2021-09-04-jvm-note/16931514491369.jpg" width="300"></p>
-<p>期望未来有时间继续折腾，给大家分享有趣的实践~</p>
+<p>期望未来有时间继续折腾，给大家分享更多有趣的实践~</p>
 
     </div>
 
