@@ -7,9 +7,9 @@ tags:
 ---
 
 
-翻看 Grafanacon 2023 的分享视频，偶遇一个有趣的“节目”：[《Homelab hacking: Grafana on an LED matrix display》](https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav)。
+翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：[《Homelab hacking: Grafana on an LED matrix display》](https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav)。
 
-将 Grafana 的 metric 数据展示到 32x8 的 LED 矩阵显示屏上。这种事只是想想就很兴奋！趁着周末实践玩一下～
+将智能家居 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上。这种事只是想想就很兴奋！趁着周末实践玩一下～
 
 <!--more-->
 
