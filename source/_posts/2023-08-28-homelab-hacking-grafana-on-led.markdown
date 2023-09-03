@@ -7,31 +7,20 @@ tags:
 ---
 
 
-翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：[《Homelab hacking: Grafana on an LED matrix display》](https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav)。
+周末翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：[《Homelab hacking: Grafana on an LED matrix display》](https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav)（将智能家居的 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上）。
 
-将智能家居 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上。这种事只是想想就很兴奋！趁着周末实践玩一下～
+这种事只是想想就很兴奋！趁着周末实践玩一下～
 
 <!--more-->
 
-## 初步效果
-书房一开门，一股粉红的迷人气息扑面而来，太酷啦！
-![](../images/blog/2021-09-04-jvm-note/1%20-4-.png)
-
-![](../images/blog/2021-09-04-jvm-note/1%20-5-.png)
-
-![1 -6-](../images/blog/2021-09-04-jvm-note/1%20-6-.png)
-
-![](../images/blog/2021-09-04-jvm-note/16931395653162.jpg)
-
 ## 硬件准备
-1. [必选] ESP32 开发板一枚 - 本文使用 `Espressif ESP32-C3-DevKitM-1`
+1. [必选] ESP32 开发板一枚，本文使用 `Espressif ESP32-C3-DevKitM-1`
 2. [必须] 32x8 LED 面板（WS2812B）
 3. [必选] 杜邦线（公对母），用于连接开发板排针和 LED 面板
 4. [可选] 天线
 5. [可选] 开发板盒子
 
 开发板非常小巧，像一件精美的艺术品，竟然是上海一家公司研发的（乐鑫科技）
-![](../images/blog/2021-09-04-jvm-note/16931528039899.jpg)
 
 ## 软件入门
 直接使用 vscode PlatformIO 插件进行开发。
@@ -75,3 +64,9 @@ Arduino（硬件开发框架）提供了两个 spi 供实现：
 <image src="/images/blog/2021-09-04-jvm-note/16931514491369.jpg" width="300">
 
 期望未来有时间继续折腾，给大家分享更多有趣的实践~
+
+## 最终效果
+书房一开门，一股粉红的迷人气息扑面而来，太酷啦！
+![1 -6-](../images/blog/2021-09-04-jvm-note/1%20-6-.png)
+
+![](../images/blog/2021-09-04-jvm-note/16931395653162.jpg)
