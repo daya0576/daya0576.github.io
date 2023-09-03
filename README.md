@@ -40,6 +40,7 @@
 - [2019-02-12] [多进程 / 多线程 / 协程 零零散散的记录](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-02-12-concurrency.markdown)
 - [2019-02-04] [记一次 Matplotlib 解决多线程画图的故事](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-02-04-matplot-thread-safing.markdown)
 - [2018-10-04] [K-means 学习记录, 没想到你是这样的聚类算法](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-10-04-kmeans-algorithm.markdown)
+- [2018-08-30] [Pycharm 集成 flake8 检查 (External Tools)](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-08-30-pycharm-flake8-integretion.markdown)
 - [2018-08-24] [Django (2006, 'MySQL server has gone away') 本地重现与解决](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-08-24-django-2006-MySQL-server-has-gone-away.markdown)
 - [2017-07-31] [Python 的编码问题笔记 (搞清原理, 一劳永逸)](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2017-07-31-python-encoding-decoding.markdown)
 ## JAVA
