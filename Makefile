@@ -1,11 +1,12 @@
 nothing:
 	echo "nothing"
 commit:
-	git commit -a -q -m 'sync'
 	git submodule foreach "echo 'Committing changes.'; git commit -a -q -m 'sync' || :"
+	git commit -a -q -m 'sync'
 
 push:
-	git push --recurse-submodules=on-demand 
+	git submodule foreach "echo 'push..'; git push"
+	git push 
 
 deploy:
 	hexo g
