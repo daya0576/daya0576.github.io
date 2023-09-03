@@ -47,12 +47,12 @@
   };
 </script>
 
-  <meta name="description" content="翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：《Homelab hacking: Grafana on an LED matrix display》。 将智能家居 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上。这种事只是想想就很兴奋！趁着周末实践玩一下～">
+  <meta name="description" content="周末翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：《Homelab hacking: Grafana on an LED matrix display》（将智能家居的 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上）。 这种事只是想想就很兴奋！趁着周末实践玩一下～">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Homelab hacking: Grafana on an LED matrix display">
 <meta property="og:url" content="https://changchen.me/blog/20230827/homelab-hacking-grafana-on-led/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：《Homelab hacking: Grafana on an LED matrix display》。 将智能家居 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上。这种事只是想想就很兴奋！趁着周末实践玩一下～">
+<meta property="og:description" content="周末翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：《Homelab hacking: Grafana on an LED matrix display》（将智能家居的 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上）。 这种事只是想想就很兴奋！趁着周末实践玩一下～">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
@@ -60,11 +60,8 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
-<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
-<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
-<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2023-08-27T16:21:01.000Z">
-<meta property="article:modified_time" content="2023-08-27T16:28:06.902Z">
+<meta property="article:modified_time" content="2023-09-03T07:33:42.681Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -268,22 +265,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：<a href="https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav">《Homelab hacking: Grafana on an LED matrix display》</a>。</p>
-<p>将智能家居 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上。这种事只是想想就很兴奋！趁着周末实践玩一下～</p>
+        <p>周末翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：<a href="https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav">《Homelab hacking: Grafana on an LED matrix display》</a>（将智能家居的 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上）。</p>
+<p>这种事只是想想就很兴奋！趁着周末实践玩一下～</p>
 <a id="more"></a>
 
-<h2 id="初步效果"><a href="# 初步效果" class="headerlink" title="初步效果"></a>初步效果 </h2><p> 书房一开门，一股粉红的迷人气息扑面而来，太酷啦！<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/1%20-4-.png"></p>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/1%20-5-.png"></p>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/1%20-6-.png" alt="1 -6-"></p>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931395653162.jpg"></p>
 <h2 id="硬件准备"><a href="# 硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ol>
-<li>[必选] ESP32 开发板一枚 - 本文使用 <code>Espressif ESP32-C3-DevKitM-1</code></li>
+<li>[必选] ESP32 开发板一枚，本文使用 <code>Espressif ESP32-C3-DevKitM-1</code></li>
 <li>[必须] 32x8 LED 面板（WS2812B）</li>
 <li>[必选] 杜邦线（公对母），用于连接开发板排针和 LED 面板</li>
 <li>[可选] 天线</li>
 <li>[可选] 开发板盒子</li>
 </ol>
-<p>开发板非常小巧，像一件精美的艺术品，竟然是上海一家公司研发的（乐鑫科技）<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931528039899.jpg"></p>
+<p>开发板非常小巧，像一件精美的艺术品，竟然是上海一家公司研发的（乐鑫科技）</p>
 <h2 id="软件入门"><a href="# 软件入门" class="headerlink" title="软件入门"></a>软件入门 </h2><p> 直接使用 vscode PlatformIO 插件进行开发。</p>
 <p>推荐食用下面的 hello world 视频快速入门：</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tc3Qnf79Ny8?si=WpN7iNJA51FAhTjm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -304,6 +297,8 @@
 <h2 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h2><p> 第一次接触 ESP32 硬件，玩的也很过瘾。</p>
 <p>特别是设备通电的一瞬间，看见屏幕跳出的网络通知，突然有种奇妙的感觉：仿佛家庭中多了一个亲切的新成员 :)<br><image src="/images/blog/2021-09-04-jvm-note/16931514491369.jpg" width="300"></p>
 <p>期望未来有时间继续折腾，给大家分享更多有趣的实践~</p>
+<h2 id="最终效果"><a href="# 最终效果" class="headerlink" title="最终效果"></a>最终效果 </h2><p> 书房一开门，一股粉红的迷人气息扑面而来，太酷啦！<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/1%20-6-.png" alt="1 -6-"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931395653162.jpg"></p>
 
     </div>
 
@@ -433,7 +428,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初步效果"><span class="nav-text">初步效果 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件准备"><span class="nav-text">硬件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件入门"><span class="nav-text">软件入门 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现原理"><span class="nav-text">实现原理 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：metric- 指标准备"><span class="nav-text">第一步：metric 指标准备 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：单片机初始化"><span class="nav-text">第二步：单片机初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：用户更新配置"><span class="nav-text">第三步：用户更新配置 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：指标查询 -amp- 展示"><span class="nav-text">第四步：指标查询 &amp; 展示 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件准备"><span class="nav-text">硬件准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件入门"><span class="nav-text">软件入门 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现原理"><span class="nav-text">实现原理 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：metric- 指标准备"><span class="nav-text">第一步：metric 指标准备 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：单片机初始化"><span class="nav-text">第二步：单片机初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：用户更新配置"><span class="nav-text">第三步：用户更新配置 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：指标查询 -amp- 展示"><span class="nav-text">第四步：指标查询 &amp; 展示 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终效果"><span class="nav-text">最终效果 </span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
