@@ -1,11 +1,10 @@
-
 body {
-  // background-color: #242525; 
-  background-color: #181a1b; 
-  color: #e8e6e3;
-  .post-title a, 
-  .post-nav a, 
-  .post-body a, 
+  /* background-color: #181a1b; */
+  /* color: #e8e6e3; */
+
+  .post-title a,
+  .post-nav a,
+  .post-body a,
   .sidebar li {
     color: unset;
   }
@@ -21,12 +20,13 @@ body {
   }
 }
 
-.content-wrap, .header-inner, .sidebar-inner, .sidebar {
+.content-wrap,
+.header-inner,
+.sidebar-inner,
+.sidebar {
   color: unset;
   background: unset;
 }
-
-
 
 ///////////
 // 侧边栏 //
@@ -43,7 +43,8 @@ body {
     border-bottom: none;
   }
 
-  .site-nav .menu .menu-item a:hover, .site-nav .menu .menu-item-active a {
+  .site-nav .menu .menu-item a:hover,
+  .site-nav .menu .menu-item-active a {
     background: rgba(0, 0, 0, 0.2);
   }
 
@@ -53,16 +54,17 @@ body {
 }
 
 // 侧边栏上
-.header,.sidebar {
-    opacity: 0.3 !important;
-    -webkit-transition: all .2s ease-in;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    transition: all .2s ease-in;
+.header,
+.sidebar {
+  opacity: 0.3 !important;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 
-    &:hover {
-      opacity: 1 !important;
-    }
+  &:hover {
+    opacity: 1 !important;
+  }
 }
 
 // 侧边栏下
@@ -100,21 +102,28 @@ body {
       word-wrap: break-word;
     }
 
-    p + ol, p + ul {
+    p + ol,
+    p + ul {
       margin-top: -10px;
     }
 
-    a, span.exturl {
+    a,
+    span.exturl {
       text-decoration: none;
       // border-bottom: none;
     }
 
     h1 {
-      padding-bottom: .3em;
+      padding-bottom: 0.3em;
       border-bottom: 1px solid #eaecef;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin: 0.6em 0 0.6em 0;
     }
 
@@ -133,7 +142,7 @@ body {
       padding: 0;
       border: 0;
       margin: 5px 0;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     }
 
     // disable shadow for loading img.
@@ -144,7 +153,8 @@ body {
     }
 
     .fancybox img:hover {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12),
+        0 2px 4px 0 rgba(0, 0, 0, 0.08);
     }
   }
 
@@ -153,7 +163,8 @@ body {
       margin: 5px 0 5px 0;
       padding: 5px, 0;
 
-      a, time {
+      a,
+      time {
         color: unset;
         // border-bottom: none;
       }
@@ -184,7 +195,6 @@ body {
   }
 }
 
-
 //////////////////
 // 归档的标题样式 //
 /////////////////
@@ -205,7 +215,6 @@ body {
     span {
       margin-left: 5px;
     }
-
   }
 
   article {
