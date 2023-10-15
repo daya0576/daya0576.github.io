@@ -349,7 +349,7 @@ NexT.utils = {
     var hasTOC = document.querySelector('.post-toc');
     if (hasTOC) {
       sidebarNav.style.display = '';
-      sidebarNav.classList.add('motion-element');
+      // sidebarNav.classList.add('motion-element');
       document.querySelector('.sidebar-nav-toc').click();
     } else {
       sidebarNav.style.display = 'none';

@@ -55,7 +55,7 @@
 <meta property="og:description" content="最近看了django关于性能优化的文档: 链接🔗整理了一下笔记, 并写下几点比较深的感触和我优化django代码的总结.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-05-03T17:34:09.000Z">
-<meta property="article:modified_time" content="2023-10-15T10:01:17.887Z">
+<meta property="article:modified_time" content="2023-10-15T10:31:31.531Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="django">
 <meta property="article:tag" content="orm">
@@ -443,7 +443,7 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element" style="display: none">
+      <ul class="sidebar-nav" style="display: none; opacity: 0;">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -454,6 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <br>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#你的时间才是最宝贵的"><span class="nav-text">你的时间才是最宝贵的:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最重要的原则 -Work-at-the-appropriate-level"><span class="nav-text">最重要的原则: Work at the appropriate level</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用 database 中传统的优化手段"><span class="nav-text">用 database 中传统的优化手段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解 Django 中的 QuerySets"><span class="nav-text">理解 Django 中的 QuerySets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库层级的优化的总结"><span class="nav-text">数据库层级的优化的总结 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决性能问题的具体方法"><span class="nav-text">解决性能问题的具体方法:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生的 explain 方法"><span class="nav-text">原生的 explain 方法:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#connection-queries- 方法"><span class="nav-text">connection.queries 方法 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django-debug-toolbar"><span class="nav-text">django-debug-toolbar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django-devserver"><span class="nav-text">django-devserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-profiler"><span class="nav-text">line profiler:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#举个栗子"><span class="nav-text">举个栗子:</span></a></li></ol></div>
       </div>
       <!--/noindex-->

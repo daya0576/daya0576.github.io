@@ -1194,7 +1194,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d9ee1d;
+  background: #ffabb3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2584,6 +2584,9 @@ body .post-header .post-meta {
 .header:hover,
 .sidebar:hover {
   opacity: 1 !important;
+}
+.sidebar .sidebar-nav {
+  display: none;
 }
 .sidebar .links-of-author {
   margin-top: 5px;
