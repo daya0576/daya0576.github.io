@@ -7528,8 +7528,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>mysql</tag>
         <tag>django</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -7794,11 +7794,6 @@ Python 描述符（descriptor）解密
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
@@ -7811,6 +7806,11 @@ Python 描述符（descriptor）解密
 <hr>
 <p>RIP: 纪念一下陪伴我四年多的老博客 (Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
