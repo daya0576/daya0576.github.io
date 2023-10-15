@@ -7,6 +7,7 @@
 <p>这种事只是想想就很兴奋！趁着周末实践玩一下～</p>
 <a id="more"></a>
 
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/overview.jpg" alt="overview"></p>
 <h2 id="硬件准备"><a href="# 硬件准备" class="headerlink" title="硬件准备"></a>硬件准备</h2><ol>
 <li>[必选] ESP32 开发板一枚，本文使用 <code>Espressif ESP32-C3-DevKitM-1</code></li>
 <li>[必须] 32x8 LED 面板（WS2812B）</li>
@@ -19,7 +20,7 @@
 <p>推荐食用下面的 hello world 视频快速入门：</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tc3Qnf79Ny8?si=WpN7iNJA51FAhTjm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<h2 id="实现原理"><a href="# 实现原理" class="headerlink" title="实现原理"></a>实现原理 </h2><p> 项目地址：<a href="https://github.com/grafana/esp32-metrics-matrix">https://github.com/grafana/esp32-metrics-matrix</a> </p>
+<h2 id="实现原理"><a href="# 实现原理" class="headerlink" title="实现原理"></a>实现原理 </h2><p> 项目地址：<a href="https://github.com/grafana/esp32-metrics-matrix">https://github.com/grafana/esp32-metrics-matrix</a></p>
 <p>将代码 flash 至 ESP32 硬件后，整体时序交互如下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931507619271.jpg"></p>
 <h3 id="第一步：metric- 指标准备"><a href="# 第一步：metric- 指标准备" class="headerlink" title="第一步：metric 指标准备"></a>第一步：metric 指标准备 </h3><p> 将智能家居的温度 &#x2F; 湿度等指标，用 Grafana agent 上传至 Grafana Cloud，供后续每分钟抓取展示。</p>
 <p>参考之前的分享：<a href="/blog/20220327/smart-home-dashboard/">《如何构建家庭监控大盘》</a></p>
@@ -31,7 +32,7 @@
 <p>这一步 <code>setup</code> 除了初始化 <code>PromClient</code>，还创建了一个 http server。</p>
 <h3 id="第三步：用户更新配置"><a href="# 第三步：用户更新配置" class="headerlink" title="第三步：用户更新配置"></a>第三步：用户更新配置 </h3><p> 接上一步 http server，作者用 gpt 编写了一个前端页面，方便用户动态控制部分配置：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931506456594.jpg"></p>
 <h3 id="第四步：指标查询 -amp- 展示"><a href="# 第四步：指标查询 -amp- 展示" class="headerlink" title="第四步：指标查询 &amp; 展示"></a>第四步：指标查询 &amp; 展示 </h3><p> 每分钟抓取最新的 metric 指标，并在 led 面板上展示：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16931521726946.jpg"></p>
-<p>整体链路：小米温度计 -&gt; Home Assistant -&gt; Grafana Cloud -&gt; ESP32 -&gt; LED<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/overview.jpg" alt="overview"></p>
+<p>整体链路：小米温度计 -&gt; Home Assistant -&gt; Grafana Agent -&gt; Grafana Cloud -&gt; ESP32 -&gt; LED<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/overview.jpg" alt="overview"></p>
 <h2 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h2><p> 第一次接触 ESP32 硬件，玩的也很过瘾。</p>
 <p>特别是设备通电的一瞬间，看见屏幕跳出的网络通知，突然有种奇妙的感觉：仿佛家庭中多了一个亲切的新成员 :)<br><image src="/images/blog/2021-09-04-jvm-note/16931514491369.jpg" width="300"></p>
 <p>期望未来有时间继续折腾，给大家分享更多有趣的实践~</p>
@@ -7793,11 +7794,16 @@ Python 描述符（descriptor）解密
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
 <h1 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h1><ul>
-<li>🥑 Foodie - <a href="https://www.instagram.com/daya0576/">instagram</a></li>
+<li>🥑 Foodie - <a href="https://www.instagram.com/daya0576/">Instagram</a></li>
 <li>🐍 Python Backend(built <a href="https://unsw.co/">unsw.co</a> &#x2F; worked in <a href="https://www.hypers.com/">Hypers</a>)</li>
 <li>🚒 SRE(Currently working in Alipay as <a href="/blog/20180403/impressions-of-google-sre/">Server Reboot Engineer</a>)</li>
 <li>🏓 <a href="/blog/20160711/tablet-tennis/">Table Tennis</a></li>
@@ -7805,11 +7811,6 @@ Python 描述符（descriptor）解密
 <hr>
 <p>RIP: 纪念一下陪伴我四年多的老博客 (Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
