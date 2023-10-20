@@ -19,7 +19,7 @@
 - [2022-07-12] [大连 4 日游小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-07-12-dalian-4d.markdown)
 - [2022-01-01] [2021 年终总结 ✨](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-01-01-2021-daya-summary.markdown)
 - [2021-09-12] [全网最晚的 2020 好物推荐](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-09-12-2020-top10-recomendation.markdown)
-- [2021-02-28] [大牙的 2020 年终总结 🥳](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-02-28-2020-summary.markdown)
+- [2021-02-28] [2020 年终总结 🥳](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-02-28-2020-summary.markdown)
 - [2020-03-28] [【游记】2019.12 东京五日蜜月旅行 highlights](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-03-28-japan-travel-episode2.markdown)
 - [2020-01-20] [2019 年终总结 🎉](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2020-01-20-2019-summary.markdown)
 - [2019-07-06] [大阪, 奈良, 京都 の 新婚六日游](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-07-06-japan-travel-note.markdown)
