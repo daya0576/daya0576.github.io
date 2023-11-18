@@ -8,7 +8,7 @@ categories:
 date: 2023-11-18 07:49:24
 ---
 
-Recently I'm researching an internal tool to support chaos/resiliency testing, e.g. performing network delay on dependent redis/db/.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.
+Recently researching an internal tool to support chaos/resiliency testing, e.g. performing network delay on dependent redis/db/.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.
 
 TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). But how can we hijack and manipulate encrypted outbound HTTPS traffic?
 
