@@ -4,7 +4,9 @@
     <title>HTTPS Hijack for Resiliency Test</title>
     <url>/blog/20231117/https-hijack/</url>
     <content><![CDATA[<p>Recently I&#39;m researching an internal tool to support chaos&#x2F;resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.</p>
-<p>TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). <u>But how can we hijack and manipulate encrypted outbound HTTPS traffic?</u></p>
+<p>TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). But how can we hijack and manipulate encrypted outbound HTTPS traffic?</p>
+<a id="more"></a>
+
 <h3 id="1-Traffic-Takeover"><a href="#1-Traffic-Takeover" class="headerlink" title="1. Traffic Takeover"></a>1. Traffic Takeover</h3><p>After sending the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">CONNECT</a> method request, the <code>https_proxy</code> can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  curl                     nginx (proxy_connect)            github.com</span><br><span class="line">    |                             |                          |</span><br><span class="line">(1) |-- CONNECT github.com:443 --&gt;|                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |----[TCP connection]---&gt;|</span><br><span class="line">    |                             |                          |</span><br><span class="line">(2) |&lt;- HTTP/1.1 200           ---|                          |</span><br><span class="line">    |   Connection Established    |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                                                        |</span><br><span class="line">    ========= CONNECT tunnel has been established. ===========</span><br><span class="line">    |                                                        |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |   [SSL stream]      |                          |</span><br><span class="line">(3) |---[GET / HTTP/1.1]-----&gt;|   [SSL stream]   |</span><br><span class="line">    |   [Host: github.com]      |---[GET / HTTP/1.1]--&gt;.</span><br><span class="line">    |                             |   [Host: github.com]   |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |   [SSL stream]   |</span><br><span class="line">    |   [SSL stream]      |&lt;--[HTTP/1.1 200 OK]---'</span><br><span class="line">(4) |&lt;--[HTTP/1.1 200 OK]------|   [&lt; html page &gt;]   |</span><br><span class="line">    |   [&lt; html page &gt;]      |                          |</span><br><span class="line">    |                             |                          |</span><br></pre></td></tr></table></figure>
 
@@ -7750,8 +7752,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
@@ -8030,13 +8032,13 @@ Python 描述符（descriptor）解密
 ]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
