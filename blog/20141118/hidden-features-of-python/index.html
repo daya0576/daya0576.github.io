@@ -49,13 +49,13 @@
 
   <meta name="description" content="最近看了关于python的两个很不错的资料 PEP 8 （Style Guide for Python Code）     Hidden features of Python [closed]   做一下第二个的笔记 加深印象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hidden features of Python 笔记">
+<meta property="og:title" content="hidden features of Python笔记">
 <meta property="og:url" content="https://changchen.me/blog/20141118/hidden-features-of-python/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="最近看了关于python的两个很不错的资料 PEP 8 （Style Guide for Python Code）     Hidden features of Python [closed]   做一下第二个的笔记 加深印象">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2014-11-18T03:30:26.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.901Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.681Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="study">
 <meta property="article:tag" content="python">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title>hidden features of Python 笔记 | Henry Z's blog~</title>
+  <title>hidden features of Python笔记 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hidden features of Python 笔记
+          hidden features of Python笔记
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -250,19 +250,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="最近看了关于 python 的两个很不错的资料"><a href="# 最近看了关于 python 的两个很不错的资料" class="headerlink" title="最近看了关于 python 的两个很不错的资料"></a> 最近看了关于 python 的两个很不错的资料 </h2><ol>
-<li><p><a href="http://legacy.python.org/dev/peps/pep-0008/#blank-lines">PEP 8 （Style Guide for Python Code）</a>   </p>
+        <h2 id="最近看了关于python的两个很不错的资料"><a href="#最近看了关于python的两个很不错的资料" class="headerlink" title="最近看了关于python的两个很不错的资料"></a>最近看了关于python的两个很不错的资料</h2><ol>
+<li><p><a href="http://legacy.python.org/dev/peps/pep-0008/#blank-lines" >PEP 8 （Style Guide for Python Code）</a>   </p>
 </li>
 <li><p><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python">Hidden features of Python [closed]</a></p>
 </li>
 </ol>
-<h4 id="做一下第二个的笔记 - 加深印象"><a href="# 做一下第二个的笔记 - 加深印象" class="headerlink" title="做一下第二个的笔记 加深印象"></a><a style="background-color:#2783F3;color:#fff"> 做一下第二个的笔记 加深印象 </a></h4><a id="more"></a>
+<h4 id="做一下第二个的笔记-加深印象"><a href="#做一下第二个的笔记-加深印象" class="headerlink" title="做一下第二个的笔记 加深印象"></a><a style="background-color:#2783F3;color:#fff">做一下第二个的笔记 加深印象</a></h4><a id="more"></a>
 
 <h3>Quick links to answers:</h3>
 <ul>
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#111176">Argument Unpacking</a></li>
-'*' 不就是 c 语言里取指针的值  
-直接把 list 和 dictionary 里的值变成函数的参数了  
+'*' 不就是c语言里取指针的值  
+直接把list和dictionary里的值变成函数的参数了  
 但实际很少用到把 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_point</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="comment"># do some magic</span></span><br><span class="line"></span><br><span class="line">point_foo = (<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">point_bar = &#123;<span class="string">'y'</span>: <span class="number">3</span>, <span class="string">'x'</span>: <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">draw_point(*point_foo)</span><br><span class="line">draw_point(**point_bar)</span><br></pre></td></tr></table></figure>
 </br>
@@ -271,8 +271,8 @@
 运行的结果：     
 from __future__ import braces    
 SyntaxError: not a chance    
-貌似是个玩笑， 想要引入 c 语言 style 的花括号    
-结果是 not a chance、、     
+貌似是个玩笑， 想要引入c语言style的花括号    
+结果是not a chance、、     
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> braces</span><br></pre></td></tr></table></figure>
 </br>
 
@@ -289,11 +289,11 @@ if A and B in L: → if (A and B) in L:
 看了一篇装饰器的文章，写的挺好的     
 大致明白了原理和应用      
 <a href="http://www.cnblogs.com/coderzh/archive/2010/04/27/python-cookbook33-Decorators.html">http://www.cnblogs.com/coderzh/archive/2010/04/27/python-cookbook33-Decorators.html</a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_args</span><span class="params">(function)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">print</span> <span class="string">'Arguments:'</span>, args, kwargs</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> function(*args, **kwargs)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>@print_args</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(text)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">print</span> text</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>write(<span class="string">'foo'</span>)</span><br><span class="line">Arguments: (<span class="string">'foo'</span>,) &#123;&#125;</span><br><span class="line">foo</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;li&gt;&lt;a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#113198"&gt;Default Argument Gotchas / Dangers of Mutable Default arguments&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">I found this a lot easier to understand when I learned that the default arguments live <span class="keyword">in</span> a tuple that<span class="string">'s an attribute of the function,     </span></span><br><span class="line"><span class="string">e.g. foo.func_defaults. Which, being a tuple, is immutable.     </span></span><br><span class="line"><span class="string"> 还是不太明白     </span></span><br><span class="line"><span class="string">```python</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; def foo(x=[]):</span></span><br><span class="line"><span class="string">...     x.append(1)</span></span><br><span class="line"><span class="string">...     print x</span></span><br><span class="line"><span class="string">... </span></span><br><span class="line"><span class="string">&gt;&gt;&gt; foo()</span></span><br><span class="line"><span class="string">[1]</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; foo()</span></span><br><span class="line"><span class="string">[1, 1]</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; foo()</span></span><br><span class="line"><span class="string">[1, 1, 1]</span></span><br><span class="line"><span class="string">Instead, you should use a sentinel value denoting"not given"and replace with the mutable you'</span>d like <span class="keyword">as</span> default:</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(x=None)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line"><span class="meta">... </span>        x = []</span><br><span class="line"><span class="meta">... </span>    x.append(<span class="number">1</span>)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> x</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo()</span><br><span class="line">[<span class="number">1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo()</span><br><span class="line">[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_args</span><span class="params">(function)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">print</span> <span class="string">'Arguments:'</span>, args, kwargs</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> function(*args, **kwargs)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>@print_args</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(text)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">print</span> text</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>write(<span class="string">'foo'</span>)</span><br><span class="line">Arguments: (<span class="string">'foo'</span>,) &#123;&#125;</span><br><span class="line">foo</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;li&gt;&lt;a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#113198"&gt;Default Argument Gotchas / Dangers of Mutable Default arguments&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">I found this a lot easier to understand when I learned that the default arguments live <span class="keyword">in</span> a tuple that<span class="string">'s an attribute of the function,     </span></span><br><span class="line"><span class="string">e.g. foo.func_defaults. Which, being a tuple, is immutable.     </span></span><br><span class="line"><span class="string">还是不太明白     </span></span><br><span class="line"><span class="string">```python</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; def foo(x=[]):</span></span><br><span class="line"><span class="string">...     x.append(1)</span></span><br><span class="line"><span class="string">...     print x</span></span><br><span class="line"><span class="string">... </span></span><br><span class="line"><span class="string">&gt;&gt;&gt; foo()</span></span><br><span class="line"><span class="string">[1]</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; foo()</span></span><br><span class="line"><span class="string">[1, 1]</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; foo()</span></span><br><span class="line"><span class="string">[1, 1, 1]</span></span><br><span class="line"><span class="string">Instead, you should use a sentinel value denoting "not given" and replace with the mutable you'</span>d like <span class="keyword">as</span> default:</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(x=None)</span>:</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> x <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line"><span class="meta">... </span>        x = []</span><br><span class="line"><span class="meta">... </span>    x.append(<span class="number">1</span>)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> x</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo()</span><br><span class="line">[<span class="number">1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>foo()</span><br><span class="line">[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
 
 
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#102062">Descriptors</a></li>
-Python 描述符（descriptor）解密
+Python描述符（descriptor）解密
 <a href="http://www.geekfan.net/7862/">http://www.geekfan.net/7862/</a>
 
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#111970">Dictionary default <code>.get</code> value</a></li>
@@ -348,7 +348,7 @@ Python 描述符（descriptor）解密
 有机会要学一下
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#113164">Named string formatting</a></li>
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#101549">Nested list/generator comprehensions</a></li>
-双重循环生成 list
+双重循环生成list
 炫酷。。
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[(i,j) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>) <span class="keyword">for</span> j <span class="keyword">in</span> range(i) ]      </span><br><span class="line">((i,j) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>) <span class="keyword">for</span> j <span class="keyword">in</span> range(i) )</span><br></pre></td></tr></table></figure>
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#108297">New types at runtime</a></li>
@@ -358,7 +358,7 @@ Python 描述符（descriptor）解密
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#1024693">ROT13 Encoding</a></li>
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#143636">Regex Debugging</a></li>
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#101739">Sending to Generators</a></li>
-生成器 (generator) 有时间要深入学习一下
+生成器(generator) 有时间要深入学习一下
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#168270">Tab Completion in Interactive Interpreter</a></li>
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#116480">Ternary Expression</a></li>
 <li><a href="http://stackoverflow.com/questions/101268/hidden-features-of-python#114157"><code>try/except/else</code></a></li>
@@ -433,8 +433,8 @@ Python 描述符（descriptor）解密
       <i class="fa fa-chevron-left"></i> our_children
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20150710/python-mooc/" rel="next" title="python_mooc 笔记 - 高阶函数">
-      python_mooc 笔记 - 高阶函数 <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20150710/python-mooc/" rel="next" title="python_mooc笔记-高阶函数">
+      python_mooc笔记-高阶函数 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -503,7 +503,7 @@ Python 描述符（descriptor）解密
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最近看了关于 python 的两个很不错的资料"><span class="nav-text"> 最近看了关于 python 的两个很不错的资料 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#做一下第二个的笔记 - 加深印象"><span class="nav-text"> 做一下第二个的笔记 加深印象 </span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-text">Quick links to answers:</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最近看了关于python的两个很不错的资料"><span class="nav-text">最近看了关于python的两个很不错的资料</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#做一下第二个的笔记-加深印象"><span class="nav-text">做一下第二个的笔记 加深印象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-text">Quick links to answers:</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -630,7 +630,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

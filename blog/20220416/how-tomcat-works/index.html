@@ -49,7 +49,7 @@
 
   <meta name="description" content="同事近期安利的一本葵花宝典，尝试阅读几章后，确实寻得一些避免面条式代码的良药。 为什么要写这篇博客？最近在读另外一本书：《置身事内》，浅浅读过收获不大，但神奇的是在豆瓣编写书评的过程中，不断翻阅与总结催化了新的收获。所以尝试编写《深入剖析Tomcat》的读书小记，通过输出的方式加深理解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《深入剖析 Tomcat》第五章 - 如何实现套娃🪆">
+<meta property="og:title" content="《深入剖析Tomcat》第五章 - 如何实现套娃🪆">
 <meta property="og:url" content="https://changchen.me/blog/20220416/how-tomcat-works/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="同事近期安利的一本葵花宝典，尝试阅读几章后，确实寻得一些避免面条式代码的良药。 为什么要写这篇博客？最近在读另外一本书：《置身事内》，浅浅读过收获不大，但神奇的是在豆瓣编写书评的过程中，不断翻阅与总结催化了新的收获。所以尝试编写《深入剖析Tomcat》的读书小记，通过输出的方式加深理解。">
@@ -63,7 +63,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-04-16T07:09:35.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.909Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>《深入剖析 Tomcat》第五章 - 如何实现套娃🪆 | Henry Z's blog~</title>
+  <title>《深入剖析Tomcat》第五章 - 如何实现套娃🪆 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《深入剖析 Tomcat》第五章 - 如何实现套娃🪆
+          《深入剖析Tomcat》第五章 - 如何实现套娃🪆
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -273,13 +273,13 @@
 
       
         <p>同事近期安利的一本葵花宝典，尝试阅读几章后，确实寻得一些避免面条式代码的良药。</p>
-<p>为什么要写这篇博客？最近在读另外一本书：<a href="https://book.douban.com/subject/35546622/">《置身事内》</a>，浅浅读过收获不大，但神奇的是在豆瓣编写书评的过程中，不断翻阅与总结催化了新的收获。所以尝试编写《深入剖析 Tomcat》的读书小记，通过输出的方式加深理解。</p>
+<p>为什么要写这篇博客？最近在读另外一本书：<a href="https://book.douban.com/subject/35546622/">《置身事内》</a>，浅浅读过收获不大，但神奇的是在豆瓣编写书评的过程中，不断翻阅与总结催化了新的收获。所以尝试编写《深入剖析Tomcat》的读书小记，通过输出的方式加深理解。</p>
 <a id="more"></a>
 
 
-<h1 id="源码指南"><a href="# 源码指南" class="headerlink" title="源码指南"></a>源码指南 </h1><p> 这本书籍年代久远（2004），书籍附带源码为 jdk1.4 版本... </p>
+<h1 id="源码指南"><a href="#源码指南" class="headerlink" title="源码指南"></a>源码指南</h1><p>这本书籍年代久远（2004），书籍附带源码为 jdk1.4 版本... </p>
 <p>强烈推荐以下宝藏仓库（支持 jdk8）：<a href="https://github.com/tengfeipu/How-Tomcat-Works">https://github.com/tengfeipu/How-Tomcat-Works</a> </p>
-<h1 id="读书小记"><a href="# 读书小记" class="headerlink" title="读书小记"></a>读书小记 </h1><p> 本篇主要分享“第五章 servlet 容器”的读书小记～</p>
+<h1 id="读书小记"><a href="#读书小记" class="headerlink" title="读书小记"></a>读书小记</h1><p>本篇主要分享“第五章 servlet 容器”的读书小记～</p>
 <h3 id="org-apache-catalina-Container"><a href="#org-apache-catalina-Container" class="headerlink" title="org.apache.catalina.Container"></a>org.apache.catalina.Container</h3><p>Tomcat 中的四种容器（p.s. 接口可以 extend），本章介绍如何只使用 1 个 Wrapper 实例，或 1 个 Context 实例（带多个 Wrapper 实例）的应用。</p>
 <ol>
 <li><strong>Engine</strong>：表示整个 Catalina servlet 引擎</li>
@@ -289,25 +289,25 @@
 </ol>
 <p><strong>注意一开始可能毫无头绪，但耐心完整阅读章节后会豁然开朗，理解为什么将亲切的将“容器”比喻为套娃 XD</strong><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16503302866162.jpg"></p>
 <h3 id="org-apache-catalina-Wrapper"><a href="#org-apache-catalina-Wrapper" class="headerlink" title="org.apache.catalina.Wrapper"></a>org.apache.catalina.Wrapper</h3><p>首先以最底层的 Wrapper 容器为例（通常与 servlet 容器一一对应）</p>
-<h4 id="1）类图结构"><a href="#1）类图结构" class="headerlink" title="1）类图结构"></a>1）类图结构 </h4><p> 类图如下，从左往右：</p>
+<h4 id="1）类图结构"><a href="#1）类图结构" class="headerlink" title="1）类图结构"></a>1）类图结构</h4><p>类图如下，从左往右：</p>
 <ol>
 <li><code>Loader</code> 负责 servlet 实例的加载（输入类名，输出实例）</li>
 <li><code>Wraper</code> 容器包含一个 <code>Pipeline</code> 用于 <code>Valve</code> 的调度执行</li>
 <li><code>Valve</code> 负责一个具体待执行的任务，同时它实现了 <code>Contained</code> 接口，支持获取对应的容器（包含 valve）</li>
 </ol>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495549173898.jpg"></p>
-<h4 id="2）时序调用"><a href="#2）时序调用" class="headerlink" title="2）时序调用"></a>2）时序调用 </h4><p> 顺便结合上一章 <code>HttpConnector</code> 的讲解，为了处理一笔 http 调用，各个组件的交互如下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495625199690.jpg"></p>
+<h4 id="2）时序调用"><a href="#2）时序调用" class="headerlink" title="2）时序调用"></a>2）时序调用</h4><p>顺便结合上一章 <code>HttpConnector</code> 的讲解，为了处理一笔 http 调用，各个组件的交互如下：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495625199690.jpg"></p>
 <p>值得一提 <code>PipelineValveContext#invokeNext</code> 的实现非常有趣，配合 <code>XxxValve</code> 递归调用，依次执行自定义与默认的 <code>Valve</code><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495634084412.jpg"></p>
 <p>递归执行效果如下，例如 <code>ClientIPLoggerValve</code> 在 <code>invokeNext</code> 之前与之后，都可以执行自定义操作。 🤔 有没有觉得这个调用似曾相识？<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495647257469.jpg"></p>
 <p>不禁让人想起 python Django 框架的 middleware 实现，有种异曲同工的感觉。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495648804556.jpg"></p>
 <p>但 Django 的实现可是更加“简单”一些 ：）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义 middleware </span></span><br><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.csrf.CsrfViewMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</span><br><span class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SessionMiddleware</span><span class="params">(MiddlewareMixin)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_response</span><span class="params">(self, request, response)</span>:</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 框架加载 middleware</span></span><br><span class="line">self._view_middleware = []</span><br><span class="line">self._template_response_middleware = []</span><br><span class="line">self._exception_middleware = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> hasattr(mw_instance, <span class="string">"process_view"</span>):</span><br><span class="line">    self._view_middleware.insert(</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        self.adapt_method_mode(is_async, mw_instance.process_view),</span><br><span class="line">    )</span><br><span class="line"><span class="keyword">if</span> hasattr(mw_instance, <span class="string">"process_template_response"</span>):</span><br><span class="line">    self._template_response_middleware.append(</span><br><span class="line">        self.adapt_method_mode(</span><br><span class="line">            is_async, mw_instance.process_template_response</span><br><span class="line">        ),</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 
-<h3 id="org-apache-catalina-Context"><a href="#org-apache-catalina-Context" class="headerlink" title="org.apache.catalina.Context"></a>org.apache.catalina.Context</h3><h4 id="类图结构"><a href="# 类图结构" class="headerlink" title="类图结构"></a>类图结构 </h4><p> 一个 Context 包含多个 Wrapper 容器<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495652434613.jpg"></p>
-<h4 id="时序调用"><a href="# 时序调用" class="headerlink" title="时序调用"></a>时序调用 </h4><p> 建议理清类图后阅读源码，debug 一笔 http 请求的交互，盗一张较清晰的图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495812116720.jpg"></p>
-<h3 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h3><p> 阅读本章后，感悟 tomcat 的核心在于各个「容器」并非独立的存在，而如名字一般，好比“套娃”各司其职。</p>
-<p>最终通过分层，实现各司其职 + 单向依赖，降低了整体应用的复杂度。</p>
-<h3 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<h3 id="org-apache-catalina-Context"><a href="#org-apache-catalina-Context" class="headerlink" title="org.apache.catalina.Context"></a>org.apache.catalina.Context</h3><h4 id="类图结构"><a href="#类图结构" class="headerlink" title="类图结构"></a>类图结构</h4><p>一个 Context 包含多个 Wrapper 容器<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495652434613.jpg"></p>
+<h4 id="时序调用"><a href="#时序调用" class="headerlink" title="时序调用"></a>时序调用</h4><p>建议理清类图后阅读源码，debug 一笔 http 请求的交互，盗一张较清晰的图：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16495812116720.jpg"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>阅读本章后，感悟 tomcat 的核心在于各个「容器」并非独立的存在，而如名字一般，好比“套娃”各司其职。</p>
+<p>最终通过分层，实现各司其职+单向依赖，降低了整体应用的复杂度。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
 <li><a href="https://my.oschina.net/luozhou/blog/3103710">https://my.oschina.net/luozhou/blog/3103710</a></li>
 </ol>
 
@@ -443,7 +443,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#源码指南"><span class="nav-text">源码指南 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读书小记"><span class="nav-text">读书小记 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org-apache-catalina-Container"><span class="nav-text">org.apache.catalina.Container</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org-apache-catalina-Wrapper"><span class="nav-text">org.apache.catalina.Wrapper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）类图结构"><span class="nav-text">1）类图结构 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）时序调用"><span class="nav-text">2）时序调用 </span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org-apache-catalina-Context"><span class="nav-text">org.apache.catalina.Context</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类图结构"><span class="nav-text">类图结构 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时序调用"><span class="nav-text">时序调用 </span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#源码指南"><span class="nav-text">源码指南</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读书小记"><span class="nav-text">读书小记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#org-apache-catalina-Container"><span class="nav-text">org.apache.catalina.Container</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org-apache-catalina-Wrapper"><span class="nav-text">org.apache.catalina.Wrapper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）类图结构"><span class="nav-text">1）类图结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）时序调用"><span class="nav-text">2）时序调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org-apache-catalina-Context"><span class="nav-text">org.apache.catalina.Context</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类图结构"><span class="nav-text">类图结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时序调用"><span class="nav-text">时序调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -570,7 +570,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

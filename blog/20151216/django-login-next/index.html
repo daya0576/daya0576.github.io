@@ -55,7 +55,7 @@
 <meta property="og:description" content="今天终于解决了项目中的一个问题，就是登录成功后跳转到原先的页面。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-12-16T02:42:43.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.901Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.681Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="django">
@@ -253,11 +253,11 @@
         <p>今天终于解决了项目中的一个问题，就是登录成功后跳转到原先的页面。       </p>
 <a id="more"></a>
 <p>找了好久的资料，终于有一个比较完善的解决方案,<br><a href="http://stackoverflow.com/a/1711592/3538280">http://stackoverflow.com/a/1711592/3538280</a></p>
-<p>1. 在 setting 中引入 request：   </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        <span class="string">'DIRS'</span>: [TEMPLATE_PATH,],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">                <span class="string">"django.core.context_processors.request"</span>,</span><br><span class="line"></span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>1.在setting中引入request：   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        <span class="string">'DIRS'</span>: [TEMPLATE_PATH, ],</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">                <span class="string">"django.core.context_processors.request"</span>,</span><br><span class="line"></span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<p>2. 总体的思路是登录成功后，跳转到上一个页面：<br>（晕，文档中包含 url 字段就报错，直接放图片了，点击可以放大）<br><img class="lazy" data-original="/images/blog/151216_django_next/code_next.jpg"></p>
-<p>3. 模板中就可以和原来一样不做修改了：<br><img class="lazy" data-original="/images/blog/151216_django_next/form.jpg"><br><strong>但是有一个问题：</strong>就是我加了一行 <code>&lt;input type=&quot;hidden&quot; name=&quot;next&quot; value=&quot;&quot; /&gt;</code><br> 不知道为什么 logout 成功了，但 login 的话一定要加这一行代码。   </p>
+<p>2.总体的思路是登录成功后，跳转到上一个页面：<br>（晕，文档中包含url字段就报错，直接放图片了，点击可以放大）<br><img class="lazy" data-original="/images/blog/151216_django_next/code_next.jpg"></p>
+<p>3.模板中就可以和原来一样不做修改了：<br><img class="lazy" data-original="/images/blog/151216_django_next/form.jpg"><br><strong>但是有一个问题：</strong>就是我加了一行<code>&lt;input type=&quot;hidden&quot; name=&quot;next&quot; value=&quot;&quot; /&gt;</code><br>不知道为什么logout成功了，但login的话一定要加这一行代码。   </p>
 
     </div>
 
@@ -321,12 +321,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20150926/moobox-knowledge/" rel="prev" title="记录 moobox 的点滴 (技术篇)">
-      <i class="fa fa-chevron-left"></i> 记录 moobox 的点滴 (技术篇)
+    <a href="/blog/20150926/moobox-knowledge/" rel="prev" title="记录moobox的点滴(技术篇)">
+      <i class="fa fa-chevron-left"></i> 记录moobox的点滴(技术篇)
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20151227/django-subquery/" rel="next" title="Django 子查询 (Subquery)">
-      Django 子查询 (Subquery) <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20151227/django-subquery/" rel="next" title="Django 子查询(Subquery)">
+      Django 子查询(Subquery) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -520,7 +520,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

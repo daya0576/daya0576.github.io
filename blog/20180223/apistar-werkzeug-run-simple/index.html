@@ -56,7 +56,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-02-23T03:20:49.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="apistar">
 <meta property="article:tag" content="werkzeug">
@@ -252,23 +252,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>上个月研究 APIStar 源码, 发现启动 <code>python app.py run</code> 用的是 <strong>werkzeug 的 run_simple</strong> 方法, 仔细读了一下, 感触颇深, 用这篇日志分享一下整个执行流程.       </p>
+        <p>上个月研究APIStar源码, 发现启动<code>python app.py run</code>用的是<strong>werkzeug的run_simple</strong>方法, 仔细读了一下, 感触颇深, 用这篇日志分享一下整个执行流程.       </p>
 <a id="more"></a>
 
 
 
-<h3 id="大致流程"><a href="# 大致流程" class="headerlink" title="大致流程:"></a>大致流程:</h3><p>(ps. 最好和下边的图一起看.)</p>
+<h3 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程:"></a>大致流程:</h3><p>(ps. 最好和下边的图一起看.)</p>
 <ol>
-<li><strong>APIStar 入口</strong>:<br> <code>python app.py run</code> → <code>run_wsgi()</code> → <code>werkzeug.run_simple()</code></li>
-<li><strong><code>werkzeug.run_simple()</code></strong> - <em>apistar&#x2F;commands&#x2F;run.py:26</em>: 因为默认启用了 reloader(自动重启 server), 这时会去 <strong> 检查 <code>WERKZ_RUN_MAIN</code> 这个环境变量:</strong><ul>
+<li><strong>APIStar入口</strong>:<br> <code>python app.py run</code> → <code>run_wsgi()</code> → <code>werkzeug.run_simple()</code></li>
+<li><strong><code>werkzeug.run_simple()</code></strong> - <em>apistar&#x2F;commands&#x2F;run.py:26</em>: 因为默认启用了reloader(自动重启server), 这时会去<strong>检查<code>WERKZ_RUN_MAIN</code>这个环境变量:</strong><ul>
 <li><strong>第一次为<code>&#39;&#39;</code></strong>:    <ul>
 <li><strong>Step 1:</strong> 设置该环境变量为<code>true</code>   </li>
-<li><strong>Step 2:</strong> 在 while 循环中启动一个 <strong> 子进程 </strong>, 并运行<strong> 入口命令(<code>python app.py run</code>)</strong></li>
+<li><strong>Step 2:</strong> 在while循环中启动一个<strong>子进程</strong>, 并运行<strong>入口命令(<code>python app.py run</code>)</strong></li>
 </ul>
 </li>
 <li><strong>第二次为<code>true</code></strong>:<ul>
-<li><strong>Step 1:</strong> <code>srv.serve_forever()</code>:<br>  用一个 thread 启动一个 server 去处理 request - <em>werkzeug&#x2F;serving.py:702</em></li>
-<li><strong>Step 2:</strong> <code>reloader.run()</code>:<br>  用 while 循环每隔一秒去检查所有 iter_module_files 和 self.extra_files, 比较每个文件的修改时间, 如果有更新的话 → <code>sys.exist(3)</code> → 结束 <strong> 子进程</strong>, 重新运行入口命令(python app.py run) (回到外边的 while loop 中.)</li>
+<li><strong>Step 1:</strong> <code>srv.serve_forever()</code>:<br>  用一个thread启动一个server去处理request - <em>werkzeug&#x2F;serving.py:702</em></li>
+<li><strong>Step 2:</strong> <code>reloader.run()</code>:<br>  用while循环每隔一秒去检查所有iter_module_files和self.extra_files, 比较每个文件的修改时间, 如果有更新的话 → <code>sys.exist(3)</code> → 结束<strong>子进程</strong>, 重新运行入口命令(python app.py run) (回到外边的while loop中.)</li>
 </ul>
 </li>
 </ul>
@@ -277,7 +277,7 @@
 <img style="max-height:600px" class="lazy" data-original="/images/blog/180221_run_simple/run_simple.jpg">   
 
 
-<h3 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h3><p> 哎, 努力写了一堆文字, 但感觉还是无法解释的很清楚, 可以看上图中 <strong> 左下角有个 Summary</strong>, 是简化版的逻辑.. 会比较清晰一些.<br>下次还是用画图工具, 将解释和流程图融合在一起, 效果应该会好很多.   </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>哎, 努力写了一堆文字, 但感觉还是无法解释的很清楚, 可以看上图中<strong>左下角有个Summary</strong>, 是简化版的逻辑.. 会比较清晰一些.<br>下次还是用画图工具, 将解释和流程图融合在一起, 效果应该会好很多.   </p>
 <hr>
 <p>说画就画, 但感觉死循环还是画的不够直观呀:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180221_run_simple/process_flow.svg">   </p>
 
@@ -343,12 +343,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20180222/b-tree/" rel="prev" title="<算法导论 (3rd)> 第十八章 - B Tree!">
-      <i class="fa fa-chevron-left"></i> <算法导论 (3rd)> 第十八章 - B Tree!
+    <a href="/blog/20180222/b-tree/" rel="prev" title="<算法导论(3rd)>第十八章 - B Tree!">
+      <i class="fa fa-chevron-left"></i> <算法导论(3rd)>第十八章 - B Tree!
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20180223/vim-tour/" rel="next" title="我和 VIM 的故事">
-      我和 VIM 的故事 <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20180223/vim-tour/" rel="next" title="我和VIM的故事">
+      我和VIM的故事 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -417,7 +417,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#大致流程"><span class="nav-text">大致流程:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#大致流程"><span class="nav-text">大致流程:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -544,7 +544,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

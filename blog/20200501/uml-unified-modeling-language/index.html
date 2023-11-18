@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2020-05-01T17:47:11.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.909Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -270,12 +270,12 @@
         <blockquote>
 <p>UML (Unified Modeling Language) is a graphical language for modeling the structure and behavior of object-oriented systems.</p>
 </blockquote>
-<p>最近在学习经典的设计模式，竟然被类图 (UML Class Diagram) 深深的吸引了。总之个人一直以来，对各种「可视化」都是情有独钟（可能是老年人记忆力比较差，而图像可以在脑中快读投影与记忆）。当然正好也趁这个机会，对 uml 类图有个全面更深的理解，顺便消除之前的好几个困惑。</p>
-<p>想起以前看过的一篇文章，说的是两种写代码的风格：有的人喜欢提前规划，将每个细节思考清晰后再动手，而另一类人则像我高中语文考试写作文，信手拈来，写到哪算哪。个人还是期望做第一类，因为代码说到底只是一种将想法落地的方式，特别是当代码复杂度远远超过我大脑内存时，一份完整详尽的系分设计文档就格外重要（包含类图 &#x2F;sequence&#x2F; 用例等），为后续理解和重构代码都有很大的好处，不然 <code>code and fix</code> 浪费的时间将是指数级翻倍的。当然网上也有很多反对的声音，例如 uml 无用论等🤔 你是怎么觉得的呢？或者可以等读完这篇文章后再发布你的想法。</p>
+<p>最近在学习经典的设计模式，竟然被类图(UML Class Diagram)深深的吸引了。总之个人一直以来，对各种「可视化」都是情有独钟（可能是老年人记忆力比较差，而图像可以在脑中快读投影与记忆）。当然正好也趁这个机会，对 uml 类图有个全面更深的理解，顺便消除之前的好几个困惑。</p>
+<p>想起以前看过的一篇文章，说的是两种写代码的风格：有的人喜欢提前规划，将每个细节思考清晰后再动手，而另一类人则像我高中语文考试写作文，信手拈来，写到哪算哪。个人还是期望做第一类，因为代码说到底只是一种将想法落地的方式，特别是当代码复杂度远远超过我大脑内存时，一份完整详尽的系分设计文档就格外重要（包含类图&#x2F;sequence&#x2F;用例等），为后续理解和重构代码都有很大的好处，不然 <code>code and fix</code> 浪费的时间将是指数级翻倍的。当然网上也有很多反对的声音，例如 uml 无用论等🤔 你是怎么觉得的呢？或者可以等读完这篇文章后再发布你的想法。</p>
 <a id="more"></a>
 
-<h1 id="正文"><a href="# 正文" class="headerlink" title="正文"></a>正文 </h1><p> 分为三个部分，分别为 类的表示 &#x2F; 继承 &#x2F; 关联</p>
-<h2 id="类的表示"><a href="# 类的表示" class="headerlink" title="类的表示"></a>类的表示 </h2><p> 不难理解三个方格分别代表：</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>分为三个部分，分别为 类的表示 &#x2F; 继承 &#x2F; 关联</p>
+<h2 id="类的表示"><a href="#类的表示" class="headerlink" title="类的表示"></a>类的表示</h2><p>不难理解三个方格分别代表：</p>
 <ul>
 <li>类名</li>
 <li>属性</li>
@@ -291,8 +291,8 @@
 <li>Derived (&#x2F;)</li>
 <li>Static (underlined)</li>
 </ul>
-<h2 id="继承关系"><a href="# 继承关系" class="headerlink" title="继承关系"></a>继承关系 </h2><p> 网上针对以下两种的叫法五花八门，但如果直接叫 <code>extend</code> 与 <code>implement</code> 就比较好理解了：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15883538437292.jpg"></p>
-<h2 id="关联关系"><a href="# 关联关系" class="headerlink" title="关联关系"></a>关联关系</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16178121126738.jpg" alt="16178121126738"></p>
+<h2 id="继承关系"><a href="#继承关系" class="headerlink" title="继承关系"></a>继承关系</h2><p>网上针对以下两种的叫法五花八门，但如果直接叫 <code>extend</code> 与 <code>implement</code> 就比较好理解了：<br><img src="/images/loading/loading.svg" data-original="/images/blog/200104_japan_travel/15883538437292.jpg"></p>
+<h2 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16178121126738.jpg" alt="16178121126738"></p>
 <p><strong>Q: composition &amp; aggregation &amp; association 的区别？？</strong><br>A: 本质上是一个包含的关系：Association &gt; Aggregation &gt; Composition</p>
 <ul>
 <li><strong>dependency(依赖)</strong>: 「教授(A)」依赖于「课程资料(B)」 如果「课程资料」的属性或方法被修改，会导致「教授」代码实现崩溃（不一定是类成员变量）</li>
@@ -305,8 +305,8 @@
 <blockquote>
 <p>If you have difficulty distinguishing among association, aggregation and composition relationships, don&#39;t worry! So does everybody else!</p>
 </blockquote>
-<h1 id="个人的一点思考"><a href="# 个人的一点思考" class="headerlink" title="个人的一点思考"></a>个人的一点思考 </h1><p> 不必过于纠结于细节和严格的标准，只要能方便理解即可，怎么舒服怎么来。不然反而与最早的愿景背道而驰了。 </p>
-<h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ul>
+<h1 id="个人的一点思考"><a href="#个人的一点思考" class="headerlink" title="个人的一点思考"></a>个人的一点思考</h1><p>不必过于纠结于细节和严格的标准，只要能方便理解即可，怎么舒服怎么来。不然反而与最早的愿景背道而驰了。 </p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ul>
 <li><a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/">https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/</a></li>
 <li><a href="http://www.cs.utsa.edu/~cs3443/uml/uml.html">http://www.cs.utsa.edu/~cs3443/uml/uml.html</a></li>
 <li><a href="http://umlgreatchina.org/_templates/main.aspx?sname=faq&amp;section=q1">http://umlgreatchina.org/_templates/main.aspx?sname=faq&amp;section=q1</a></li>
@@ -444,7 +444,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-text">正文 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的表示"><span class="nav-text">类的表示 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承关系"><span class="nav-text">继承关系 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联关系"><span class="nav-text">关联关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人的一点思考"><span class="nav-text">个人的一点思考 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的表示"><span class="nav-text">类的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承关系"><span class="nav-text">继承关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联关系"><span class="nav-text">关联关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人的一点思考"><span class="nav-text">个人的一点思考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -571,7 +571,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

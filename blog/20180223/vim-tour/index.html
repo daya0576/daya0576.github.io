@@ -49,14 +49,14 @@
 
   <meta name="description" content="和VIM相爱的故事要从我的笔记本上下键坏了开始..哈哈虽然大二的时候学过vim, 但一直用的IDE. 今年强迫自己用了三天vim之后, 彻底的爱上用VIM写代码的感觉.用这篇博客分享一下自己从VIM小白一路不断学习的历程.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我和 VIM 的故事">
+<meta property="og:title" content="我和VIM的故事">
 <meta property="og:url" content="https://changchen.me/blog/20180223/vim-tour/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="和VIM相爱的故事要从我的笔记本上下键坏了开始..哈哈虽然大二的时候学过vim, 但一直用的IDE. 今年强迫自己用了三天vim之后, 彻底的爱上用VIM写代码的感觉.用这篇博客分享一下自己从VIM小白一路不断学习的历程.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-02-23T07:41:28.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="vim">
 <meta name="twitter:card" content="summary">
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title>我和 VIM 的故事 | Henry Z's blog~</title>
+  <title>我和VIM的故事 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -228,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          我和 VIM 的故事
+          我和VIM的故事
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -251,24 +251,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>和 VIM 相爱的故事要从我的笔记本 <strong> 上下键 </strong> 坏了开始.. 哈哈 <br><img src="/images/loading/loading.svg" data-original="/images/blog/180223_vim/apple.png"><br> 虽然大二的时候学过 vim, 但一直用的 IDE. 今年强迫自己用了三天 vim 之后, 彻底的爱上用 VIM 写代码的感觉.<br><strong>用这篇博客分享一下自己从 VIM 小白一路不断学习的历程.</strong>  </p>
+        <p>和VIM相爱的故事要从我的笔记本<strong>上下键</strong>坏了开始..哈哈<br><img src="/images/loading/loading.svg" data-original="/images/blog/180223_vim/apple.png"><br>虽然大二的时候学过vim, 但一直用的IDE. 今年强迫自己用了三天vim之后, 彻底的爱上用VIM写代码的感觉.<br><strong>用这篇博客分享一下自己从VIM小白一路不断学习的历程.</strong>  </p>
 <a id="more"></a>
 
-<h2 id="vimtutor"><a href="#vimtutor" class="headerlink" title="vimtutor"></a>vimtutor</h2><p><strong>学会 VIM 的秘诀: 练习 + 练习 + 练习 </strong><br><strong>VIM 入门</strong> 最好的教程就是 VIM 的官方 tutorial: <strong>直接在命令行输入 <code>vimtutor</code></strong>.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor_pre.jpg"><br> 因为在这个教程中, 每个技巧都附带了可供实际操作的练习:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor.jpg">   </p>
+<h2 id="vimtutor"><a href="#vimtutor" class="headerlink" title="vimtutor"></a>vimtutor</h2><p><strong>学会VIM的秘诀: 练习+练习+练习</strong><br><strong>VIM入门</strong>最好的教程就是VIM的官方tutorial: <strong>直接在命令行输入<code>vimtutor</code></strong>.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor_pre.jpg"><br>因为在这个教程中, 每个技巧都附带了可供实际操作的练习:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor.jpg">   </p>
 <blockquote>
 <p>It is important to remember that this tutor is set up to teach by use.  That means that you need to execute the commands to learn them properly.  If you only read the text, you will forget the commands!</p>
 </blockquote>
-<h3 id="下边是我做的一些笔记"><a href="# 下边是我做的一些笔记" class="headerlink" title="下边是我做的一些笔记:"></a>下边是我做的一些笔记:</h3><ol>
+<h3 id="下边是我做的一些笔记"><a href="#下边是我做的一些笔记" class="headerlink" title="下边是我做的一些笔记:"></a>下边是我做的一些笔记:</h3><ol>
 <li><strong>删除操作:</strong>    <ul>
 <li><code>dd</code>: 删除一行   </li>
 <li><code>3dd</code>: 删除三行   </li>
-<li><code>dw</code>: 删除一个 word   </li>
-<li><code>d2w</code>: 删除两个 words   </li>
+<li><code>dw</code>: 删除一个word   </li>
+<li><code>d2w</code>: 删除两个words   </li>
 <li><code>d$</code>(D): 删除到行末</li>
 </ul>
 </li>
 <li><strong>undo&#x2F;redo</strong><ul>
-<li><code>u(U)</code>: undo(大写的 U 会 undo 这一行里的所有历史改动)   </li>
+<li><code>u(U)</code>: undo(大写的U会undo这一行里的所有历史改动)   </li>
 <li><code>ctrl-r</code>: redo</li>
 </ul>
 </li>
@@ -279,11 +279,11 @@
 </ul>
 </li>
 <li><strong>Search</strong>:   <ul>
-<li><code>/ —&gt; n(N)</code>: 跳到下一个 &#x2F; 上一个匹配的地方.   </li>
+<li><code>/ —&gt; n(N)</code>: 跳到下一个&#x2F;上一个匹配的地方.   </li>
 <li><code>CTRL-O</code> takes you back to older positions, <code>CTRL-I</code> to newer positions.</li>
 </ul>
 </li>
-<li><strong>快速进入 insert mode</strong>   <ul>
+<li><strong>快速进入insert mode</strong>   <ul>
 <li><code>A</code>: edit at end of the line.   </li>
 <li><code>I</code>: edit at beginning of the line.   </li>
 <li>(类似的还有大写的<code>C</code>, 经常用到.)</li>
@@ -294,7 +294,7 @@
 </ul>
 </li>
 <li><strong>复制</strong>:   <ul>
-<li><code>yw</code>: 复制一个 word</li>
+<li><code>yw</code>: 复制一个word</li>
 </ul>
 </li>
 <li><strong>Navigation</strong>:   <ul>
@@ -304,7 +304,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="Pratical-Vim"><a href="#Pratical-Vim" class="headerlink" title="Pratical Vim"></a>Pratical Vim</h2><p><strong>学完 vimtutor 后, 继续读了一本很不错的书: Practical Vim</strong><br>但是很遗憾只看了一半, 书中有段话挺有意思的: 就是说写程序就像画画, 艺术家大部分的时间其实都是在构图, 思考, 真正用画笔接触画布的时间其实占比很小. 这就像 VIM, 大部分停留在 Normal Mode, 说的还挺有道理的.   </p>
+<h2 id="Pratical-Vim"><a href="#Pratical-Vim" class="headerlink" title="Pratical Vim"></a>Pratical Vim</h2><p><strong>学完vimtutor后, 继续读了一本很不错的书: Practical Vim</strong><br>但是很遗憾只看了一半, 书中有段话挺有意思的: 就是说写程序就像画画, 艺术家大部分的时间其实都是在构图, 思考, 真正用画笔接触画布的时间其实占比很小. 这就像VIM, 大部分停留在Normal Mode, 说的还挺有道理的.   </p>
 <ul>
 <li><strong>Part I: Modes</strong></li>
 <li><strong>Part II: Files</strong></li>
@@ -315,16 +315,16 @@
 </ul>
 <p><strong>分享当时记的一些笔记:</strong></p>
 <ul>
-<li><code>.</code>  --&gt;  repeat last action<br>(因为我们大部分的工作都是重复的, 所以可以巧妙利用这个<code>.</code>, 做到 never repeat yourself)</li>
+<li><code>.</code>  --&gt;  repeat last action<br>(因为我们大部分的工作都是重复的, 所以可以巧妙利用这个<code>.</code>, 做到never repeat yourself)</li>
 <li>在一行中查找一个字符: <ul>
 <li>f{char} </li>
 <li>F{char}: 从右边开始找. </li>
-<li>p.s. (可以使用 <code>;</code>&#x2F;<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
+<li>p.s. (可以使用<code>;</code>&#x2F;<code>,</code>做到repeat和reverse上边的两个操作)</li>
 </ul>
 </li>
-<li><code>&lt;C-x&gt;&lt;C-a&gt;</code>: Number Formats(就是对当前行中第一个数字做 +1&#x2F;-1 操作, 不知道为什么有这种操作)</li>
+<li><code>&lt;C-x&gt;&lt;C-a&gt;</code>: Number Formats(就是对当前行中第一个数字做+1&#x2F;-1操作, 不知道为什么有这种操作)</li>
 <li>Operator + Motion &#x3D; Action<ul>
-<li><code>daw</code>: delete a complete word(与 dw 的区别: 只要光标在这个 word 中就可以整个 word)    </li>
+<li><code>daw</code>: delete a complete word(与dw的区别: 只要光标在这个word中就可以整个word)    </li>
 <li><code>c3w</code>(not work for ideavim): change 3 words</li>
 <li><code>dap</code>: delete a complete paragraph</li>
 </ul>
@@ -334,10 +334,10 @@
 <li><code>yt,</code>: 复制 直到 最近的逗号</li>
 </ul>
 </li>
-<li><code>tip 11</code>: Don’t Count If You Can Repeat(这个 tip 挺有意思的, 就是有时候去数一数有几个 word 还不如直接重复几次来得快)</li>
-<li>Insert Mode:<br><code>&lt;c-o&gt;</code>: 在 insert 模式, 执行一次 normal 模式的操作:<br>例子: <C-o>zz: 在 insert 模式中, 让 cursor 回到屏幕中央</li>
+<li><code>tip 11</code>: Don’t Count If You Can Repeat(这个tip挺有意思的, 就是有时候去数一数有几个word还不如直接重复几次来得快)</li>
+<li>Insert Mode:<br><code>&lt;c-o&gt;</code>: 在insert模式, 执行一次normal模式的操作:<br>例子: <C-o>zz: 在insert模式中, 让cursor回到屏幕中央</li>
 <li>Visual Mode    <ul>
-<li><code>viw</code>: 在一个 word 中间选中整个词    </li>
+<li><code>viw</code>: 在一个word中间选中整个词    </li>
 <li>3-submodules:<ul>
 <li>v: character-wise</li>
 <li>V: line-wise </li>
@@ -350,27 +350,27 @@
 </ul>
 </li>
 <li>Getting Around Faster<ul>
-<li><code>禁用方向键</code>: 在 vimrc 中将方向键禁用, 改掉一个坏习惯最好的办法就是完全禁止自己去做这件事.</li>
+<li><code>禁用方向键</code>: 在vimrc中将方向键禁用, 改掉一个坏习惯最好的办法就是完全禁止自己去做这件事.</li>
 <li>在一行中查找一个字符: <ul>
 <li>f{char} </li>
 <li>F{char}: 从右边开始找. </li>
-<li>p.s. (可以使用 <code>;</code>&#x2F;<code>,</code> 做到 repeat 和 reverse 上边的两个操作)</li>
+<li>p.s. (可以使用<code>;</code>&#x2F;<code>,</code>做到repeat和reverse上边的两个操作)</li>
 </ul>
 </li>
 <li><code>W/E/B</code>: 根据空格进行移动</li>
 <li><code>%</code>:     <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/move_faster_pair.png">   </li>
 <li><code>[count]G</code>&#x2F;<code>:[count]</code>: 跳到某一行.</li>
-<li><code>H/M/L</code>: 让光标跳到屏幕的开始 &#x2F; 中间 &#x2F; 最后</li>
+<li><code>H/M/L</code>: 让光标跳到屏幕的开始&#x2F;中间&#x2F;最后</li>
 <li><code>zz/ze/zb</code>: try it.</li>
 </ul>
 </li>
 </ul>
 <h2 id="Learn-Vimscript-the-Hard-Way"><a href="#Learn-Vimscript-the-Hard-Way" class="headerlink" title="Learn Vimscript the Hard Way:"></a>Learn Vimscript the Hard Way:</h2><p>读的第三本秘籍叫做<a href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the Hard Way</a>    </p>
-<p>只看了三分之一, 感觉挺不错的, 对各种概念原理解释的 <strong> 很全面 </strong>, 关键是每章有课后题, 自己动手才能真正理解.<br> 剩下如果坚持看完的话应该就可以自己编写插件了.   </p>
+<p>只看了三分之一, 感觉挺不错的, 对各种概念原理解释的<strong>很全面</strong>, 关键是每章有课后题, 自己动手才能真正理解.<br>剩下如果坚持看完的话应该就可以自己编写插件了.   </p>
 <p><strong>以下是我的笔记:</strong></p>
 <ul>
 <li>Echoing Messages<ol>
-<li>echo&#x2F;echom: 都是打印, 但 echom 会记录每次的输出, 可以之后再 <code>:messages</code> 中查看.</li>
+<li>echo&#x2F;echom: 都是打印, 但echom会记录每次的输出, 可以之后再<code>:messages</code>中查看.</li>
 <li>注释用的是冒号: <code>&quot;</code></li>
 </ol>
 </li>
@@ -393,28 +393,28 @@
 </li>
 <li>Basic Mapping&#x2F;Modal Mapping&#x2F;Strict Mapping<ol>
 <li>map: <code>map _ dd</code></li>
-<li>nmap&#x2F;vmap&#x2F;imap: 在 normal&#x2F;visual&#x2F;insert 模式下的 map</li>
-<li>*noremap(划重点):<br>  例如 <code>:nmap dd O&lt;esc&gt;jddk</code> 这个 mapping, 加上 <code>nore</code> 后, 会避免循环调用了!</li>
+<li>nmap&#x2F;vmap&#x2F;imap: 在normal&#x2F;visual&#x2F;insert模式下的map</li>
+<li>*noremap(划重点):<br>  例如<code>:nmap dd O&lt;esc&gt;jddk</code>这个mapping, 加上<code>nore</code>后, 会避免循环调用了!</li>
 </ol>
 </li>
-<li>Leaders<br>  就是 vimrc 中的<leader>, 当然也可以自定义: <code>let mapleader=&quot;_&quot;</code></li>
-<li>Abbreviations<br>  例如<code>iabbrev adn and</code>, 输入 adn 就会自动转化为 and.   </li>
+<li>Leaders<br>  就是vimrc中的<leader>, 当然也可以自定义: <code>let mapleader=&quot;_&quot;</code></li>
+<li>Abbreviations<br>  例如<code>iabbrev adn and</code>, 输入adn就会自动转化为and.   </li>
 <li>Training your finger:<ol>
-<li><code>inoremap jk &lt;esc&gt;</code>: 在插入模式中输入 jk 时, 回到正常模式. 说实话, 感觉还是挺好用的 :) </li>
-<li><code>inoremap &lt;esc&gt; &lt;nop&gt;</code>: 废掉 esc 键. 好暴力.<br> 作者说: &quot; 就像和生活中一样, 如果我们彻底改掉一个坏习惯, 那就让它难以或完全不可能被做.&quot;</li>
+<li><code>inoremap jk &lt;esc&gt;</code>: 在插入模式中输入jk时, 回到正常模式. 说实话, 感觉还是挺好用的 :) </li>
+<li><code>inoremap &lt;esc&gt; &lt;nop&gt;</code>: 废掉esc键. 好暴力.<br> 作者说: &quot;就像和生活中一样, 如果我们彻底改掉一个坏习惯, 那就让它难以或完全不可能被做.&quot;</li>
 </ol>
 </li>
-<li>Buffer-Local Options and Mappings<br>  例子: <code>nnoremap &lt;buffer&gt; &lt;leader&gt;d dd</code>, 多了 <buffer>, 就是只在定义这条命令的 buffer(文件?) 生效.  </li>
-<li>Autocommands<br>  例如在修改 vimrc 文件之后, 自动 source 一下:<br>  <code>:autocmd BufferWritePost .vimrc soure %</code>   </li>
-<li>Operator-Pending Mappings<br>  可以 map 一个动作, 试试第三个例子: <ol>
+<li>Buffer-Local Options and Mappings<br>  例子: <code>nnoremap &lt;buffer&gt; &lt;leader&gt;d dd</code>, 多了<buffer>, 就是只在定义这条命令的buffer(文件?)生效.  </li>
+<li>Autocommands<br>  例如在修改vimrc文件之后, 自动source一下:<br>  <code>:autocmd BufferWritePost .vimrc soure %</code>   </li>
+<li>Operator-Pending Mappings<br>  可以map一个动作, 试试第三个例子: <ol>
 <li><code>:onoremap p i(</code>: dp(d: action, p: movement)</li>
 <li><code>:onoremap b /return&lt;cr&gt;</code>: db</li>
-<li><code>:onoremap in(:&lt;c-u&gt;normal! f(vi(&lt;cr&gt;</code>: 当光标在 <code>print foo(bar)</code> 括号之外时, 输入<code>cin(</code>. </li>
-<li><code>:onoremap il(:&lt;c-u&gt;normal! F)vi(&lt;cr&gt;</code>: &quot;inside last parentheses&quot;</li>
+<li><code>:onoremap in( :&lt;c-u&gt;normal! f(vi(&lt;cr&gt;</code>: 当光标在<code>print foo(bar)</code>括号之外时, 输入<code>cin(</code>. </li>
+<li><code>:onoremap il( :&lt;c-u&gt;normal! F)vi(&lt;cr&gt;</code>: &quot;inside last parentheses&quot;</li>
 </ol>
 </li>
-<li>More Operator-Pending Mappings<br>  其他的一些可以 mapping 的 operations<ol>
-<li><code>:normal</code>: 进到 normal mode</li>
+<li>More Operator-Pending Mappings<br>  其他的一些可以mapping的operations<ol>
+<li><code>:normal</code>: 进到normal mode</li>
 <li><code>?^==\+$</code>: performs a search backwards for any line that consists of two or more equal signs and nothing else.</li>
 <li><code>:nohlsearch</code>: clears the search highlighting from the search</li>
 <li><code>kvg_</code></li>
@@ -428,7 +428,7 @@
 </li>
 <li>Conditionals:     <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/Conditionals.jpeg">   
   哈哈, 这个章节的作业: Drink a beer to console yourself about Vim's coercion of strings to integers.</li>
-<li>Comparisons<br>  当设置 <code>set ignorecase</code> 的时候, <code>&quot;foo&quot; == &quot;FOO&quot;</code>为 True.<br>  所以作者说在写 plugin 的时候, 最好使用:   <ul>
+<li>Comparisons<br>  当设置<code>set ignorecase</code>的时候, <code>&quot;foo&quot; == &quot;FOO&quot;</code>为True.<br>  所以作者说在写plugin的时候, 最好使用:   <ul>
 <li><code>==?</code>: 不区分大小写</li>
 <li><code>==#</code>: 比较时区分大小写</li>
 </ul>
@@ -503,8 +503,8 @@
       <i class="fa fa-chevron-left"></i> APIStar - WERKZEUG(run_simple) 源码阅读笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20180315/git-internal/" rel="next" title="Git Internal(初探 git 的内部实现)">
-      Git Internal(初探 git 的内部实现) <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20180315/git-internal/" rel="next" title="Git Internal(初探git的内部实现)">
+      Git Internal(初探git的内部实现) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -700,7 +700,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

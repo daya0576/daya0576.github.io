@@ -49,7 +49,7 @@
 
   <meta name="description" content="今天突然有个小需求，希望在 macOS 上截图后，自动保存至应用 Photos. 搜索了一下，发现系统原生不支持这种骚操作，但有个自带的应用叫 Automator, 可以完美的实现这个需求✌️">
 <meta property="og:type" content="article">
-<meta property="og:title" content="macOS 如何将截图自动保存至相册 (Photos)">
+<meta property="og:title" content="macOS 如何将截图自动保存至相册(Photos)">
 <meta property="og:url" content="https://changchen.me/blog/20190730/save-screenshots-to-photos/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="今天突然有个小需求，希望在 macOS 上截图后，自动保存至应用 Photos. 搜索了一下，发现系统原生不支持这种骚操作，但有个自带的应用叫 Automator, 可以完美的实现这个需求✌️">
@@ -62,7 +62,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2019-07-30T02:58:01.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.909Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title>macOS 如何将截图自动保存至相册 (Photos) | Henry Z's blog~</title>
+  <title>macOS 如何将截图自动保存至相册(Photos) | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -237,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          macOS 如何将截图自动保存至相册 (Photos)
+          macOS 如何将截图自动保存至相册(Photos)
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -274,18 +274,18 @@
         <p>今天突然有个小需求，希望在 macOS 上截图后，自动保存至应用 Photos. 搜索了一下，发现系统原生不支持这种骚操作，但有个自带的应用叫 Automator, 可以完美的实现这个需求✌️</p>
 <a id="more"></a>
 
-<h1 id="整体流程"><a href="# 整体流程" class="headerlink" title="整体流程"></a>整体流程 </h1><h2 id="第一步 - 创建相册"><a href="# 第一步 - 创建相册" class="headerlink" title="第一步: 创建相册"></a> 第一步: 创建相册 </h2><p> 在 Photos 应用中，新建一个相册，随便取一个名字，e.g. Mac Screenshots</p>
-<h2 id="第二步 - 打开 -amp- 配置 -Automator"><a href="# 第二步 - 打开 -amp- 配置 -Automator" class="headerlink" title="第二步: 打开 &amp; 配置 Automator"></a>第二步: 打开 &amp; 配置 Automator</h2><p>Automator 是个系统自带的软件：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643694506733.jpg"></p>
+<h1 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h1><h2 id="第一步-创建相册"><a href="#第一步-创建相册" class="headerlink" title="第一步: 创建相册"></a>第一步: 创建相册</h2><p>在 Photos 应用中，新建一个相册，随便取一个名字，e.g. Mac Screenshots</p>
+<h2 id="第二步-打开-amp-配置-Automator"><a href="#第二步-打开-amp-配置-Automator" class="headerlink" title="第二步: 打开 &amp; 配置 Automator"></a>第二步: 打开 &amp; 配置 Automator</h2><p>Automator 是个系统自带的软件：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643694506733.jpg"></p>
 <p>打开后选择 &quot;New Document&quot;:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643696947239.jpg"></p>
 <p>选择 &quot;Folder Action&quot;:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643697575204.jpg"></p>
 <p>右上角的 &quot;Folder Action receives files and folders added to&quot;, 选择桌面:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643698567086.jpg"></p>
 <p>添加第一个 Action! 在左侧(Action Library) 选择 &quot;Filter Finder Items&quot; 并双击添加。然后编辑添加过滤 &quot;Screen Shot&quot; 开头的文件（如果是中文系统这里可能有点不同）:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643703266478.jpg"></p>
 <p>再新建一个 Action(Import Files into Photos)，把截图导入至对应的相册：<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643705737083.jpg"></p>
 <p>保存 automator workflow</p>
-<h2 id="第三步：使用"><a href="# 第三步：使用" class="headerlink" title="第三步：使用"></a>第三步：使用 </h2><p> 像平时一样截图，稍微等个三四秒喝口咖啡，done~<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643707665517.jpg"></p>
-<h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 其实很早之前就知道 macOS 上有 automator 这个应用，并且看上无比强大，估计做这个团队也挺 high 的。但就像 iPhone 上新推出的 Workflow, 实则总有一种鸡肋的感觉，看上去吊炸天，但配置的成本过高，导致很难去广泛推广和使用。</p>
+<h2 id="第三步：使用"><a href="#第三步：使用" class="headerlink" title="第三步：使用"></a>第三步：使用</h2><p>像平时一样截图，稍微等个三四秒喝口咖啡，done~<br><img src="/images/loading/loading.svg" data-original="/images/blog/190729_save_screenshot_tutorial/15643707665517.jpg"></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>其实很早之前就知道 macOS 上有 automator 这个应用，并且看上无比强大，估计做这个团队也挺 high 的。但就像 iPhone 上新推出的 Workflow, 实则总有一种鸡肋的感觉，看上去吊炸天，但配置的成本过高，导致很难去广泛推广和使用。</p>
 <p>突然想到了「少数派」🐶</p>
-<h1 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://www.quora.com/Can-I-make-my-macOS-screenshots-automatically-save-to-the-Photos-app-instead-of-the-desktop">https://www.quora.com/Can-I-make-my-macOS-screenshots-automatically-save-to-the-Photos-app-instead-of-the-desktop</a></li>
 </ol>
 
@@ -421,7 +421,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整体流程"><span class="nav-text">整体流程 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步 - 创建相册"><span class="nav-text"> 第一步: 创建相册 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步 - 打开 -amp- 配置 -Automator"><span class="nav-text">第二步: 打开 &amp; 配置 Automator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：使用"><span class="nav-text">第三步：使用 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-text">其他 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整体流程"><span class="nav-text">整体流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-创建相册"><span class="nav-text">第一步: 创建相册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-打开-amp-配置-Automator"><span class="nav-text">第二步: 打开 &amp; 配置 Automator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：使用"><span class="nav-text">第三步：使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-text">其他</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -548,7 +548,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

@@ -49,18 +49,18 @@
 
   <meta name="description" content="在moobox工作了两个月，用这篇日志记录这段日子的技术点滴。ps.虽然一直有这个计划，平时也会作笔记，但是到头来还是记得不太全，就粗略的写一下好了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录 moobox 的点滴 (技术篇)">
+<meta property="og:title" content="记录moobox的点滴(技术篇)">
 <meta property="og:url" content="https://changchen.me/blog/20150926/moobox-knowledge/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="在moobox工作了两个月，用这篇日志记录这段日子的技术点滴。ps.虽然一直有这个计划，平时也会作笔记，但是到头来还是记得不太全，就粗略的写一下好了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-09-26T12:43:11.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.901Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.681Z">
 <meta property="article:author" content="daya0576">
+<meta property="article:tag" content="django">
 <meta property="article:tag" content="moobox">
 <meta property="article:tag" content="work">
 <meta property="article:tag" content="mysql">
-<meta property="article:tag" content="django">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://changchen.me/blog/20150926/moobox-knowledge/">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>记录 moobox 的点滴 (技术篇) | Henry Z's blog~</title>
+  <title>记录moobox的点滴(技术篇) | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -229,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          记录 moobox 的点滴 (技术篇)
+          记录moobox的点滴(技术篇)
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -253,61 +253,61 @@
 
       
         <blockquote>
-<p>在 moobox 工作了两个月，用这篇日志记录这段日子的技术点滴。<br>ps. 虽然一直有这个计划，平时也会作笔记，但是到头来还是记得不太全，<br>就粗略的写一下好了。    </p>
+<p>在moobox工作了两个月，用这篇日志记录这段日子的技术点滴。<br>ps.虽然一直有这个计划，平时也会作笔记，但是到头来还是记得不太全，<br>就粗略的写一下好了。    </p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><p>公司用的数据库是 mysql，可惜自己对数据库的知识忘得差不多了，下面记录一些后来回忆起的 sql 用法。<br>有个软件叫做 MySQL Workbanch，还是挺方便的。<br>1. 增删改查就不说了，还是要熟练，总不能写一次去看一下语法吧。<br>2.desc 也是必备，以前上学的时候老是记不清，但工作中还是 desc 用的比较多，asc 是默认的升序。<br>3.left 和 inner join，关联多表的时候的必备，还是要保持清醒。<br>4.group by 后边可以加限制条件，叫做 group by having (...), 学数据库的时候学过，小小鸟提起的时候才如梦初醒<br>group by 的时候可以根据两个条件进行 group by， 例如：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 获取每个地推人员的每天数据</span><br><span class="line">// 计算录入</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">date</span>(from_unixtime(b.CreatedDate+<span class="number">60</span>*<span class="number">60</span>*<span class="number">8</span>)), <span class="keyword">count</span>(<span class="keyword">distinct</span> a.UID),b.CreatedBy <span class="keyword">from</span> ParkingRawData a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> Customer b <span class="keyword">on</span> a.UID = b.ParkingUID <span class="keyword">where</span> <span class="keyword">Source</span> = <span class="string">'tuhu'</span> <span class="keyword">and</span> b.CreatedBy != <span class="string">''</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="built_in">date</span>(from_unixtime(b.CreatedDate+<span class="number">60</span>*<span class="number">60</span>*<span class="number">8</span>)), b.CreatedBy</span><br></pre></td></tr></table></figure>
-<p>4.insert 的妙用：</p>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><p>公司用的数据库是mysql，可惜自己对数据库的知识忘得差不多了，下面记录一些后来回忆起的sql用法。<br>有个软件叫做 MySQL Workbanch，还是挺方便的。<br>1.增删改查就不说了，还是要熟练，总不能写一次去看一下语法吧。<br>2.desc也是必备，以前上学的时候老是记不清，但工作中还是desc用的比较多，asc是默认的升序。<br>3.left和inner join，关联多表的时候的必备，还是要保持清醒。<br>4.group by后边可以加限制条件，叫做group by having (...), 学数据库的时候学过，小小鸟提起的时候才如梦初醒<br>group by的时候可以根据两个条件进行group by， 例如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//获取每个地推人员的每天数据</span><br><span class="line">//计算录入</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">date</span>(from_unixtime(b.CreatedDate+<span class="number">60</span>*<span class="number">60</span>*<span class="number">8</span>)), <span class="keyword">count</span>(<span class="keyword">distinct</span> a.UID),b.CreatedBy <span class="keyword">from</span> ParkingRawData a</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> Customer b <span class="keyword">on</span> a.UID = b.ParkingUID <span class="keyword">where</span> <span class="keyword">Source</span> = <span class="string">'tuhu'</span> <span class="keyword">and</span> b.CreatedBy != <span class="string">''</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="built_in">date</span>(from_unixtime(b.CreatedDate+<span class="number">60</span>*<span class="number">60</span>*<span class="number">8</span>)), b.CreatedBy</span><br></pre></td></tr></table></figure>
+<p>4.insert的妙用：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> ParkingRawDataHistory(RawID,UID,<span class="keyword">Name</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">ID</span>,UID,<span class="keyword">Name</span> <span class="keyword">from</span> ParkingRawData </span><br><span class="line"><span class="keyword">where</span> UID =  <span class="string">'e4d1701c-4185-11e5-af26-3c15c2bca022'</span>;</span><br></pre></td></tr></table></figure>
 <p>5.sql 时间戳    </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FROM_UNIXTIME(<span class="number">1440015345</span>, <span class="string">'%Y 年 %m 月 %d 日'</span> )</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UNIX_TIMESTAMP</span>()</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UNIX_TIMESTAMP</span>(<span class="keyword">Current_TimeStamp</span>)</span><br></pre></td></tr></table></figure>
-<p>6. 模糊查找   </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> ParkingRawData <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">"% 虹景公寓酒店 %"</span></span><br></pre></td></tr></table></figure>
-<p>总结：学好 sql 语句也是很重要的，一句好的 sql 语句能很好的简化代码的复杂度，<br>并且提高接口的效率，只恨自己数据库忘得太快。   </p>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>1. 每次在 django 中添加接口，我都要检查的问题：       </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> FROM_UNIXTIME( <span class="number">1440015345</span>, <span class="string">'%Y年%m月%d日'</span> )</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UNIX_TIMESTAMP</span>()</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UNIX_TIMESTAMP</span>(<span class="keyword">Current_TimeStamp</span>)</span><br></pre></td></tr></table></figure>
+<p>6.模糊查找   </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> ParkingRawData <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">"%虹景公寓酒店%"</span></span><br></pre></td></tr></table></figure>
+<p>总结：学好sql语句也是很重要的，一句好的sql语句能很好的简化代码的复杂度，<br>并且提高接口的效率，只恨自己数据库忘得太快。   </p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>1.每次在django中添加接口，我都要检查的问题：       </p>
 <ul>
 <li><ul>
 <li><ul>
-<li>- 数据库中 api 和 page 的权限。</li>
+<li>-数据库中api和page的权限。</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><ul>
-<li>setting 中数据库变量的配置 和 接口 url 的配置是否正确。</li>
+<li>setting中数据库变量的配置 和 接口url的配置是否正确。</li>
 </ul>
 </li>
-<li>WebInterfaceBase 修改跨越问题（后台和前端没有放在一个项目里）。   </li>
-<li>测试接口时 json 格式是否正确（可以去网上好多在线检测的网站）。</li>
+<li>WebInterfaceBase修改跨越问题（后台和前端没有放在一个项目里）。   </li>
+<li>测试接口时json格式是否正确（可以去网上好多在线检测的网站）。</li>
 </ul>
-<p>2.python list 去除重复元素   </p>
+<p>2.python list去除重复元素   </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(set(all_workers))</span><br><span class="line">&#123;&#125;.fromkeys(workers).keys()</span><br></pre></td></tr></table></figure>
-<p>3.django 端口占用的问题 <br> 查看端口占用    </p>
+<p>3.django端口占用的问题<br>查看端口占用    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I:\Users\Daya&gt;netstat -aon|findstr &quot;8000&quot;</span><br><span class="line">  TCP    0.0.0.0:8000           0.0.0.0:0              LISTENING       5664</span><br><span class="line">  TCP    127.0.0.1:8000         127.0.0.1:49640        ESTABLISHED     5664</span><br><span class="line">  TCP    127.0.0.1:8000         127.0.0.1:49851        ESTABLISHED     5664</span><br><span class="line">  TCP    127.0.0.1:8000         127.0.0.1:49852        ESTABLISHED     5664</span><br><span class="line">  TCP    127.0.0.1:49640        127.0.0.1:8000         ESTABLISHED     3716</span><br><span class="line">  TCP    127.0.0.1:49851        127.0.0.1:8000         ESTABLISHED     3716</span><br><span class="line">  TCP    127.0.0.1:49852        127.0.0.1:8000         ESTABLISHED     3716</span><br><span class="line">I:\Users\Daya&gt;tasklist|findstr &quot;5664&quot;</span><br><span class="line">pycharm.exe                   5664 Console                    1    372,204 K</span><br><span class="line">I:\Users\Daya&gt;tasklist|findstr &quot;3716&quot;</span><br><span class="line">chrome.exe                    3716 Console                    1    196,444 K</span><br></pre></td></tr></table></figure>
-<p>4. 遇到过一个问题就是 django 的问题就是明明有这个文件夹，却报错说找不到。<br>因为这个文件夹里没有 init 的空文件，django 是通过 URL 和这个标示来找的。<br>5. 时间戳的一些操作   </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 时间的转换，python 的包都很完善了。</span></span><br><span class="line"><span class="keyword">print</span> int(time.mktime(time.strptime(<span class="string">"20140903131540"</span>, <span class="string">'%Y%m%d%H%M%S'</span>)))</span><br><span class="line"><span class="comment"># 时间戳，统一 0 时区的时间戳。</span></span><br><span class="line">vtimestamp = str(time.mktime(datetime.datetime.utcnow().timetuple()))</span><br></pre></td></tr></table></figure>
-<p>6. 后来加的分页操作，注意 limit 后边两个参数的意义。   </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cursor.execute(sql_count)</span><br><span class="line">data = cursor.fetchall()</span><br><span class="line"><span class="keyword">if</span> len(data) &gt; <span class="number">0</span>:</span><br><span class="line">    pagecount = data[<span class="number">0</span>][<span class="number">0</span>]/pagesize + <span class="number">1</span></span><br><span class="line">    self.pagecount = pagecount</span><br><span class="line"></span><br><span class="line">start = (pagenumber<span class="number">-1</span>) * pagesize</span><br><span class="line">sql += <span class="string">"limit %s, %s"</span> % (start, pagesize)</span><br></pre></td></tr></table></figure>
+<p>4.遇到过一个问题就是django的问题就是明明有这个文件夹，却报错说找不到。<br>因为这个文件夹里没有init的空文件，django是通过URL和这个标示来找的。<br>5.时间戳的一些操作   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 时间的转换，python的包都很完善了。</span></span><br><span class="line"><span class="keyword">print</span> int(time.mktime(time.strptime(<span class="string">"20140903131540"</span>, <span class="string">'%Y%m%d%H%M%S'</span>)))</span><br><span class="line"><span class="comment"># 时间戳，统一0时区的时间戳。</span></span><br><span class="line">vtimestamp = str(time.mktime(datetime.datetime.utcnow().timetuple()))</span><br></pre></td></tr></table></figure>
+<p>6.后来加的分页操作，注意limit后边两个参数的意义。   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cursor.execute(sql_count)</span><br><span class="line">data = cursor.fetchall()</span><br><span class="line"><span class="keyword">if</span> len(data) &gt; <span class="number">0</span>:</span><br><span class="line">    pagecount = data[<span class="number">0</span>][<span class="number">0</span>]/pagesize + <span class="number">1</span></span><br><span class="line">    self.pagecount = pagecount</span><br><span class="line"></span><br><span class="line">start = (pagenumber<span class="number">-1</span>) * pagesize</span><br><span class="line">sql += <span class="string">" limit %s, %s "</span> % (start, pagesize)</span><br></pre></td></tr></table></figure>
 <p>先说这这些吧，其实还有好多，不细说了。<br><em>说一点感悟吧，写代码就是生活中做事一样，一个好的计划是最重要的， 每一步做什么理清楚后，</em><br><em>写起代码来就事半功倍了，所以不要埋头苦写，做点草稿，有好的规划才行。</em>    </p>
-<h2 id="JS-HTML5"><a href="#JS-HTML5" class="headerlink" title="JS+HTML5"></a>JS+HTML5</h2><p>做后台的话，有时候写完接口，还要迫不得已要把前台的东西都包了、<br>但说实话，之前对 js 真的是完全没有实战过，所以写起来还是很吃力。<br>有力发不出的感觉，总是被一些小错误困扰很久，把一些简单的问题搞复杂。<br>记录一些前端方面的新知识吧。<br>1. 自适应布局：<a href="http://nec.netease.com/library/101023">http://nec.netease.com/library/101023</a><br>之前大一学过 css 布局，但现在都是 html5 了还要手机适配，原来的样式已经用不了了。<br>上面这个网址还不错，有一些自适应的例子，但感觉还是好复杂，应该有更简单的解决方法吧。<br>2.jquery 的 show()和 hide()其实就是改变 dispay:none<br>3. 设置 a 标签的超链接    </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 以前的超链接</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">// 现在的写法，防止出错。   </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">```        </span><br><span class="line">4. 确认按钮   弹出是否提交？   </span><br><span class="line">```javascript</span><br><span class="line">if (confirm("确认信息无误？")) &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>5. 动画  旋转    </p>
+<h2 id="JS-HTML5"><a href="#JS-HTML5" class="headerlink" title="JS+HTML5"></a>JS+HTML5</h2><p>做后台的话，有时候写完接口，还要迫不得已要把前台的东西都包了、<br>但说实话，之前对js真的是完全没有实战过，所以写起来还是很吃力。<br>有力发不出的感觉，总是被一些小错误困扰很久，把一些简单的问题搞复杂。<br>记录一些前端方面的新知识吧。<br>1.自适应布局：<a href="http://nec.netease.com/library/101023">http://nec.netease.com/library/101023</a><br>之前大一学过css布局，但现在都是html5了还要手机适配，原来的样式已经用不了了。<br>上面这个网址还不错，有一些自适应的例子，但感觉还是好复杂，应该有更简单的解决方法吧。<br>2.jquery的show()和hide()其实就是改变dispay:none<br>3.设置a标签的超链接    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//以前的超链接</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">//现在的写法，防止出错。   </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">```        </span><br><span class="line">4.确认按钮   弹出是否提交？   </span><br><span class="line">```javascript</span><br><span class="line">if (confirm("确认信息无误？")) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>5.动画  旋转    </p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:rotate(90deg)</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">transform</span><span class="selector-pseudo">:rotate(0deg)</span>;</span><br><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">transform</span> 0<span class="selector-class">.3s</span>;</span><br></pre></td></tr></table></figure>
-<p>6. 滚动条的自动定位     </p>
+<p>6.滚动条的自动定位     </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.div-fixed-height'</span>).animate(&#123;<span class="attr">scrollTop</span>: $(<span class="string">'#reportdetail'</span>).height()&#125;, <span class="number">300</span>);</span><br></pre></td></tr></table></figure>
-<p>7. 遍历所有 td    </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#nearparkingscontent"</span>).find(<span class="string">":checkbox:checked"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> val = $(<span class="keyword">this</span>).closest(<span class="string">'tr'</span>).find(<span class="string">'td'</span>).eq(<span class="number">7</span>).text();</span><br><span class="line"> 	parking_uids += val + <span class="string">""</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>8.js str 去除最后一位</p>
+<p>7.遍历所有td    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#nearparkingscontent"</span>).find(<span class="string">":checkbox:checked"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> val = $(<span class="keyword">this</span>).closest(<span class="string">'tr'</span>).find(<span class="string">'td'</span>).eq(<span class="number">7</span>).text();</span><br><span class="line"> 	parking_uids += val + <span class="string">" "</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>8.js str去除最后一位</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type.parkingtype = parkingtypestr.substring(<span class="number">0</span>, parkingtypestr.length<span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
-<p>9.checkbox 的 onchange 事件    </p>
+<p>9.checkbox 的onchange事件    </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alertMerge</span>(<span class="params">check1</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(check1.checked==<span class="literal">true</span>)</span><br><span class="line">  <span class="keyword">if</span> (confirm(<span class="string">"确认合并此停车场？"</span>)) &#123;</span><br><span class="line">		<span class="comment">//</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		check1.checked=<span class="literal">false</span>;</span><br><span class="line">	 	<span class="comment">//check1.attr("checked", "checked");</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>10.jquery   移除样式。   </p>
 <pre><code class="javascript">$(&quot;.syzx &gt; span:first&quot;).removeAttr(&quot;style&quot;); 
 </code></pre>
-<p><em>总结 </em>：js 不会的多，记的笔记也多点，但总的来说，个人觉得 js 是一个很灵活的语言，<br> 有时间还是要多掌握一些基础的特性，才能写出一些精炼高效的代码。    </p>
-<h2 id="参与的所有项目大合照"><a href="# 参与的所有项目大合照" class="headerlink" title="参与的所有项目大合照"></a>参与的所有项目大合照</h2><img class="lazy" href="javascript:;" data-original="/images/blog\150923_moobox/sourcetree.png">    
+<p><em>总结</em>：js不会的多，记的笔记也多点，但总的来说，个人觉得js是一个很灵活的语言，<br>有时间还是要多掌握一些基础的特性，才能写出一些精炼高效的代码。    </p>
+<h2 id="参与的所有项目大合照"><a href="#参与的所有项目大合照" class="headerlink" title="参与的所有项目大合照"></a>参与的所有项目大合照</h2><img class="lazy" href="javascript:;" data-original="/images/blog\150923_moobox/sourcetree.png" >    
 从上往下简单介绍一下。    
 1. 
     </div>
@@ -362,10 +362,10 @@
   </div>
 
           <div class="post-tags">
+              <a href="/tags/django/" rel="tag"># django</a>
               <a href="/tags/moobox/" rel="tag"># moobox</a>
               <a href="/tags/work/" rel="tag"># work</a>
               <a href="/tags/mysql/" rel="tag"># mysql</a>
-              <a href="/tags/django/" rel="tag"># django</a>
           </div>
 
         
@@ -374,8 +374,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20150923/moobox-recode/" rel="prev" title="记录 moobox 的点滴 (回忆篇)">
-      <i class="fa fa-chevron-left"></i> 记录 moobox 的点滴 (回忆篇)
+    <a href="/blog/20150923/moobox-recode/" rel="prev" title="记录moobox的点滴(回忆篇)">
+      <i class="fa fa-chevron-left"></i> 记录moobox的点滴(回忆篇)
     </a></div>
       <div class="post-nav-item">
     <a href="/blog/20151216/django-login-next/" rel="next" title="Django 登录或注销后跳转到之前的页面">
@@ -575,7 +575,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

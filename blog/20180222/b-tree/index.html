@@ -49,13 +49,13 @@
 
   <meta name="description" content="之前学DBMS的时候接触到B Tree, 但当时懵懵懂懂我的对B Tree的操作也是一知半解.今天看了书(主要是严谨的定义和完整的伪代码流程), 感触颇深, 以此博客记录一下.     B Tree的定义:(看上去这些定义好像很啰嗦没什么意思, 但花点时间搞清楚后, 看伪代码和下文会清晰很多.)     每个节点x有以下的性质 x.n → 一个节点中关键字的个数.    x.key1 &lt;&#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&lt;算法导论 (3rd)&gt; 第十八章 - B Tree!">
+<meta property="og:title" content="&lt;算法导论(3rd)&gt;第十八章 - B Tree!">
 <meta property="og:url" content="https://changchen.me/blog/20180222/b-tree/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="之前学DBMS的时候接触到B Tree, 但当时懵懵懂懂我的对B Tree的操作也是一知半解.今天看了书(主要是严谨的定义和完整的伪代码流程), 感触颇深, 以此博客记录一下.     B Tree的定义:(看上去这些定义好像很啰嗦没什么意思, 但花点时间搞清楚后, 看伪代码和下文会清晰很多.)     每个节点x有以下的性质 x.n → 一个节点中关键字的个数.    x.key1 &lt;&#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-02-22T10:22:28.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="算法导论">
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title><算法导论 (3rd)> 第十八章 - B Tree! | Henry Z's blog~</title>
+  <title><算法导论(3rd)>第十八章 - B Tree! | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -228,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          <算法导论 (3rd)> 第十八章 - B Tree!
+          <算法导论(3rd)>第十八章 - B Tree!
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -251,40 +251,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>之前学 DBMS 的时候接触到 B Tree, 但当时懵懵懂懂我的对 B Tree 的操作也是一知半解.<br>今天看了书(主要是严谨的定义和完整的伪代码流程), 感触颇深, 以此博客记录一下.    </p>
-<h1 id="B-Tree 的定义"><a href="#B-Tree 的定义" class="headerlink" title="B Tree 的定义:"></a>B Tree 的定义:</h1><p><em>(看上去这些定义好像很啰嗦没什么意思, 但花点时间搞清楚后, 看伪代码和下文会清晰很多.)</em>   </p>
+        <p>之前学DBMS的时候接触到B Tree, 但当时懵懵懂懂我的对B Tree的操作也是一知半解.<br>今天看了书(主要是严谨的定义和完整的伪代码流程), 感触颇深, 以此博客记录一下.    </p>
+<h1 id="B-Tree的定义"><a href="#B-Tree的定义" class="headerlink" title="B Tree的定义:"></a>B Tree的定义:</h1><p><em>(看上去这些定义好像很啰嗦没什么意思, 但花点时间搞清楚后, 看伪代码和下文会清晰很多.)</em>   </p>
 <ol>
-<li>每个节点 x 有以下的性质<ul>
+<li>每个节点x有以下的性质<ul>
 <li><code>x.n</code> → 一个节点中关键字的个数.   </li>
 <li><code>x.key1 &lt;= x.key2 &lt;= x.key3</code>, e.g. 一个节点: [A, N, O] → A &lt; N &lt; O</li>
 <li><code>x.leaf</code> → 是否为叶子节点(True&#x2F;False)</li>
 </ul>
 </li>
-<li>每个节点如果有 n 个关键字, 就有 <strong>n+1 个</strong> 指向孩子的指针 **(x.c1, x.c2, ...)**</li>
-<li>每个叶子节点, 都有相同的深度, 即 <strong> 树的高度 h</strong> (为什么呢? 每个叶子节点...)</li>
-<li>对于两个相邻关键字 x.key1, x.key2 之间 (子树上) 的<strong>任意一个关键字 k</strong>, 必定有 x.key1 &lt;&#x3D; k &lt;&#x3D; x.key2 </li>
-<li>最后有个很重要的概念: <strong>最小度数 (minimum degree) → t</strong>.<br> 得到一个节点关键字个数限制:   <img style="max-height:100px" class="lazy" data-original="/images/blog/180221_btree/equation_t.jpg">   
+<li>每个节点如果有n个关键字, 就有<strong>n+1个</strong>指向孩子的指针**(x.c1, x.c2, ...)**</li>
+<li>每个叶子节点, 都有相同的深度, 即<strong>树的高度h</strong> (为什么呢? 每个叶子节点...)</li>
+<li>对于两个相邻关键字x.key1, x.key2之间(子树上)的<strong>任意一个关键字k</strong>, 必定有x.key1 &lt;&#x3D; k &lt;&#x3D; x.key2 </li>
+<li>最后有个很重要的概念: <strong>最小度数(minimum degree) → t</strong>.<br>得到一个节点关键字个数限制:   <img style="max-height:100px" class="lazy" data-original="/images/blog/180221_btree/equation_t.jpg">   
 <a id="more"></a></li>
 </ol>
-<h1 id="B-Tree 的优势"><a href="#B-Tree 的优势" class="headerlink" title="B Tree 的优势:"></a>B Tree 的优势:</h1><p><strong>B Tree 最大的优势: 相对较小的磁盘存取次数.</strong><br>为什么呢? 因为大部分的操作的时间复杂是和 B Tree 的高度成正比的 (每次查询一个节点都需要一次磁盘访问, 例如查询一个叶子节点需要访问 h(高度) 个节点).    </p>
-<p>B Tree 的高度(具体证明见书, 其实也是等比数列的求和):<br><img style="max-height:100px" class="lazy" data-original="/images/blog/180221_btree/equation_h_1.jpg">   </p>
+<h1 id="B-Tree的优势"><a href="#B-Tree的优势" class="headerlink" title="B Tree的优势:"></a>B Tree的优势:</h1><p><strong>B Tree最大的优势: 相对较小的磁盘存取次数.</strong><br>为什么呢? 因为大部分的操作的时间复杂是和B Tree的高度成正比的(每次查询一个节点都需要一次磁盘访问, 例如查询一个叶子节点需要访问h(高度)个节点).    </p>
+<p>B Tree的高度(具体证明见书, 其实也是等比数列的求和):<br><img style="max-height:100px" class="lazy" data-original="/images/blog/180221_btree/equation_h_1.jpg">   </p>
 <p>而二叉树的高度:<br><img style="max-height:100px" class="lazy" data-original="/images/blog/180221_btree/equation_h_2.jpg">   </p>
-<p>可以看到 B Tree 的高度的对数的底可以比 <code>2</code> 大很多倍, 所以总高度会比二叉树小很多, 从而避免了大量的磁盘访问:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180221_btree/def.jpg">   </p>
-<h1 id="B-Tree 的搜索"><a href="#B-Tree 的搜索" class="headerlink" title="B Tree 的搜索:"></a>B Tree 的搜索:</h1><p>直观的说就是: </p>
+<p>可以看到B Tree的高度的对数的底可以比<code>2</code>大很多倍, 所以总高度会比二叉树小很多, 从而避免了大量的磁盘访问:<br><img style="max-height:200px" class="lazy" data-original="/images/blog/180221_btree/def.jpg">   </p>
+<h1 id="B-Tree的搜索"><a href="#B-Tree的搜索" class="headerlink" title="B Tree的搜索:"></a>B Tree的搜索:</h1><p>直观的说就是: </p>
 <ol>
-<li>遍历节点中的所有关键字, 选择分支 → 找到子节点 | 输出 None(x.leaf&#x3D;&#x3D;True).</li>
+<li>遍历节点中的所有关键字, 选择分支 → 找到子节点 | 输出None(x.leaf&#x3D;&#x3D;True).</li>
 <li>对子节点递归做第一步操作.</li>
 </ol>
-<h1 id="B-Tree 的插入 - 敲重点"><a href="#B-Tree 的插入 - 敲重点" class="headerlink" title="B Tree 的插入 (敲重点):"></a>B Tree 的插入 (敲重点):</h1><ol>
+<h1 id="B-Tree的插入-敲重点"><a href="#B-Tree的插入-敲重点" class="headerlink" title="B Tree的插入 (敲重点):"></a>B Tree的插入 (敲重点):</h1><ol>
 <li><strong>B-TREE-INSERT(T, k)</strong><ul>
 <li>伪代码:    <img style="max-height: 250px" class="lazy" data-original="/images/blog/180221_btree/insert1.jpg"></li>
 </ul>
-<p> <strong>第 2-8 行:</strong> 其实就是对 root 节点为 full 的情况 (x.n &gt;&#x3D; 2t+1) 做了一个特殊处理, 进行 split 操作.<br> <strong>第 8 行:</strong> SPLIT 操作图解:<br> <img style="max-height:130px" class="lazy" data-original="/images/blog/180221_btree/split_root.jpg">   </p>
+<p> <strong>第2-8行:</strong> 其实就是对root节点为full的情况(x.n &gt;&#x3D; 2t+1)做了一个特殊处理, 进行split操作.<br> <strong>第8行:</strong> SPLIT操作图解:<br> <img style="max-height:130px" class="lazy" data-original="/images/blog/180221_btree/split_root.jpg">   </p>
 </li>
 <li><strong>调用子方法 B-TREE-INSERT-NONFULL:</strong>    <img style="max-height:350px" class="lazy" data-original="/images/blog/180221_btree/insert.jpg"></li>
 </ol>
-<p><strong>上图的分析:</strong><br>    1. 如果是叶子节点 (x.leaf&#x3D;&#x3D;True):<br>    就遍历节点中的关键字, 找到正确的位置插入.<br>    2. 否则:<br>        - (1) 遍历节点中的关键字, 找到正确的位置(指针)<br>        - (2) 判断该指针<strong> 指向的子节点 </strong> 是否为 full<br>        - (3) 如果是就对这个子节点做分割(split).<img style="max-height:140px" class="lazy" data-original="/images/blog/180221_btree/split_child.jpg"><br>        - (4) 递归调用 B-TREE-INSERT-NONFULL</p>
-<h1 id="B-Tree 的删除"><a href="#B-Tree 的删除" class="headerlink" title="B Tree 的删除:"></a>B Tree 的删除:</h1><p>(TODO)</p>
+<p><strong>上图的分析:</strong><br>    1. 如果是叶子节点(x.leaf&#x3D;&#x3D;True):<br>    就遍历节点中的关键字, 找到正确的位置插入.<br>    2. 否则:<br>        - (1) 遍历节点中的关键字, 找到正确的位置(指针)<br>        - (2) 判断该指针<strong>指向的子节点</strong>是否为full<br>        - (3) 如果是就对这个子节点做分割(split).<img style="max-height:140px" class="lazy" data-original="/images/blog/180221_btree/split_child.jpg"><br>        - (4) 递归调用B-TREE-INSERT-NONFULL</p>
+<h1 id="B-Tree的删除"><a href="#B-Tree的删除" class="headerlink" title="B Tree的删除:"></a>B Tree的删除:</h1><p>(TODO)</p>
 
     </div>
 
@@ -349,8 +349,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20180204/djangodan-yuan-ce-shi-da-ti-su-300s-5s/" rel="prev" title="Django 单元测试大提速 (250s→5s)">
-      <i class="fa fa-chevron-left"></i> Django 单元测试大提速 (250s→5s)
+    <a href="/blog/20180204/djangodan-yuan-ce-shi-da-ti-su-300s-5s/" rel="prev" title="Django单元测试大提速(250s→5s)">
+      <i class="fa fa-chevron-left"></i> Django单元测试大提速(250s→5s)
     </a></div>
       <div class="post-nav-item">
     <a href="/blog/20180223/apistar-werkzeug-run-simple/" rel="next" title="APIStar - WERKZEUG(run_simple) 源码阅读笔记">
@@ -423,7 +423,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree 的定义"><span class="nav-text">B Tree 的定义:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree 的优势"><span class="nav-text">B Tree 的优势:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree 的搜索"><span class="nav-text">B Tree 的搜索:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree 的插入 - 敲重点"><span class="nav-text">B Tree 的插入 (敲重点):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree 的删除"><span class="nav-text">B Tree 的删除:</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree的定义"><span class="nav-text">B Tree的定义:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree的优势"><span class="nav-text">B Tree的优势:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree的搜索"><span class="nav-text">B Tree的搜索:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree的插入-敲重点"><span class="nav-text">B Tree的插入 (敲重点):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-Tree的删除"><span class="nav-text">B Tree的删除:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -550,7 +550,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

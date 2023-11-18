@@ -49,7 +49,7 @@
 
   <meta name="description" content="日常 Python 编程若遇到性能瓶颈, 大部分还是由于 I&#x2F;O 密集型 的操作导致, 例如调用外部接口请求数据超时, 造成整个处理流程的阻塞. 一般会采用多线程来解决这类问题, 但不知道就为什么陷入了多进程, 多线程, 协程的迷惑之中. 用这篇文章记录自己零零星星的学习和思考.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多进程 &#x2F; 多线程 &#x2F; 协程 零零散散的记录">
+<meta property="og:title" content="多进程&#x2F;多线程&#x2F;协程 零零散散的记录">
 <meta property="og:url" content="https://changchen.me/blog/20190212/concurrency/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="日常 Python 编程若遇到性能瓶颈, 大部分还是由于 I&#x2F;O 密集型 的操作导致, 例如调用外部接口请求数据超时, 造成整个处理流程的阻塞. 一般会采用多线程来解决这类问题, 但不知道就为什么陷入了多进程, 多线程, 协程的迷惑之中. 用这篇文章记录自己零零星星的学习和思考.">
@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2019-02-12T03:06:26.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>多进程 / 多线程 / 协程 零零散散的记录 | Henry Z's blog~</title>
+  <title>多进程/多线程/协程 零零散散的记录 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -232,7 +232,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          多进程 / 多线程 / 协程 零零散散的记录
+          多进程/多线程/协程 零零散散的记录
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -270,32 +270,32 @@
 <a id="more"></a>
 
 <p><strong>Threading, Multiprocessing &amp; Coroutine 直接的关联关系?</strong><br>看完这篇文章后, 再看下面这张图, 真的会有恍然大悟的感觉:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190212_concurrency/15499416082221.jpg"></p>
-<h1 id="多线程"><a href="# 多线程" class="headerlink" title="多线程"></a>多线程 </h1><p> 在 Linux 中，线程是由进程来实现，线程就是共享内存的轻量级进程.</p>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><p>在Linux中，线程是由进程来实现，线程就是共享内存的轻量级进程.</p>
 <p><strong>调度的策略?</strong></p>
 <ol>
 <li>时间片轮转(Round-robin)</li>
 <li>先入先出(FIFO), 除非有更高优先级的线程进入</li>
-<li>分时调度: 优先级随线程的运行时间而动态改变，以确保所有具有 SCHED_OTHER 策略的线程公平运行</li>
+<li>分时调度: 优先级随线程的运行时间而动态改变，以确保所有具有SCHED_OTHER策略的线程公平运行</li>
 </ol>
-<p><strong>python 实现 </strong><br> 个人倾向用 <a href="https://docs.python.org/3/library/concurrent.futures.html">concurrency.future</a> 实现, 一个小 demo:</p>
+<p><strong>python 实现</strong><br>个人倾向用 <a href="https://docs.python.org/3/library/concurrent.futures.html">concurrency.future</a> 实现, 一个小 demo:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> concurrent.futures <span class="keyword">import</span> ThreadPoolExecutor</span><br><span class="line"></span><br><span class="line">pool_executor = ThreadPoolExecutor(max_workers=<span class="number">20</span>)</span><br><span class="line"><span class="comment"># 获取每个检查项的结果</span></span><br><span class="line">results = pool_executor.map(_check, risk_items)</span><br></pre></td></tr></table></figure>
 
-<h1 id="协程 -Coroutine"><a href="# 协程 -Coroutine" class="headerlink" title="协程 Coroutine"></a>协程 Coroutine</h1><ol>
+<h1 id="协程-Coroutine"><a href="#协程-Coroutine" class="headerlink" title="协程 Coroutine"></a>协程 Coroutine</h1><ol>
 <li><strong>从名字上看:</strong> <code>co</code> 其实就是相互协作的意思, <strong>async IO is a single-threaded, single-process design: cooperative multitasking</strong>, 精髓就是在一个进程一个线程内的协作.</li>
-<li><strong>和多线程对比:</strong> 多线程是在操作系统去调度, 控制执行的顺序. 协程更多的是从代码层面 announcing when they are ready to be switched out. 可以参考下面这张图, 很清晰:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190212_concurrency/15499750511455.jpg"></li>
+<li><strong>和多线程对比:</strong> 多线程是在操作系统去调度, 控制执行的顺序. 协程更多的是从代码层面announcing when they are ready to be switched out. 可以参考下面这张图, 很清晰:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190212_concurrency/15499750511455.jpg"></li>
 </ol>
-<p><strong>实现原理:</strong><br>event loop, controls how and when each task gets run. 假设只有两种状态: Ready &amp; Waiting. 把两种状态的 event 放到对应的 list, 不断维护并消费, 直到~~</p>
+<p><strong>实现原理:</strong><br>event loop, controls how and when each task gets run. 假设只有两种状态: Ready &amp; Waiting. 把两种状态的 event 放到对应的list, 不断维护并消费, 直到~~</p>
 <p><strong>调度策略:</strong><br>优先执行等的最久的 event. 所以是个 queue?</p>
 <p><strong>优势:</strong><br>This allows us to share resources a bit more easily in asyncio than in threading. You don’t have to worry about making your code thread-safe.</p>
 <p><strong>小 demo:</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"One"</span>)</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"Two"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">await</span> asyncio.gather(count(), count(), count())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">import</span> time</span><br><span class="line">    s = time.perf_counter()</span><br><span class="line">    asyncio.run(main())</span><br><span class="line">    elapsed = time.perf_counter() - s</span><br><span class="line">    print(<span class="string">f"<span class="subst">&#123;__file__&#125;</span> executed in <span class="subst">&#123;elapsed:<span class="number">0.2</span>f&#125;</span> seconds."</span>)</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="一些疑惑"><a href="# 一些疑惑" class="headerlink" title="一些疑惑"></a>一些疑惑</h1><ol>
+<h1 id="一些疑惑"><a href="#一些疑惑" class="headerlink" title="一些疑惑"></a>一些疑惑</h1><ol>
 <li>为什么不能直接用在 requests 库中?<br>Requests 库是同步的, 会阻塞事件循环. 可以看下 asyncio.tasks.sleep 的实现.</li>
 <li>async 和 await 的具体含义?<br>The keyword await passes function control back to the event loop.</li>
 </ol>
-<h1 id="总结："><a href="# 总结：" class="headerlink" title="总结："></a>总结：</h1><table>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><table>
 <thead>
 <tr>
 <th></th>
@@ -386,8 +386,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20190205/yuhuan-newye-2019/" rel="prev" title="进城务工人员新春返乡流水账 (2019)">
-      <i class="fa fa-chevron-left"></i> 进城务工人员新春返乡流水账 (2019)
+    <a href="/blog/20190205/yuhuan-newye-2019/" rel="prev" title="进城务工人员新春返乡流水账(2019)">
+      <i class="fa fa-chevron-left"></i> 进城务工人员新春返乡流水账(2019)
     </a></div>
       <div class="post-nav-item">
     <a href="/blog/20190217/sky-after-watching/" rel="next" title="《天空之城》观后感">
@@ -460,7 +460,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-text">多线程 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#协程 -Coroutine"><span class="nav-text">协程 Coroutine</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些疑惑"><span class="nav-text">一些疑惑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结："><span class="nav-text">总结：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ref"><span class="nav-text">Ref</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#协程-Coroutine"><span class="nav-text">协程 Coroutine</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些疑惑"><span class="nav-text">一些疑惑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结："><span class="nav-text">总结：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ref"><span class="nav-text">Ref</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -587,7 +587,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

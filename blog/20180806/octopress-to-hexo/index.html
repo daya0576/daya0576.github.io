@@ -49,7 +49,7 @@
 
   <meta name="description" content="从2014年开始, 不知不觉用Octopress写博客已经四年多了. 用的主题叫做Greyshade, 陆陆续续做了很多小改动, 同时也使整个项目一团糟, 慢慢的变得难以维护, 编写一篇新博客的成本也越来越高了, 终于下定决心给博客搬个家.  调研过一些博客框架, 例如车亮亮做的基于Django的博客系统(GitHub主页), Jekyll, Ghost, etc. 但最后还是选择了现在最火的He">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搬家小记 (Octopress → Hexo)">
+<meta property="og:title" content="博客搬家小记(Octopress → Hexo)">
 <meta property="og:url" content="https://changchen.me/blog/20180806/octopress-to-hexo/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="从2014年开始, 不知不觉用Octopress写博客已经四年多了. 用的主题叫做Greyshade, 陆陆续续做了很多小改动, 同时也使整个项目一团糟, 慢慢的变得难以维护, 编写一篇新博客的成本也越来越高了, 终于下定决心给博客搬个家.  调研过一些博客框架, 例如车亮亮做的基于Django的博客系统(GitHub主页), Jekyll, Ghost, etc. 但最后还是选择了现在最火的He">
@@ -62,7 +62,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-08-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title>博客搬家小记 (Octopress → Hexo) | Henry Z's blog~</title>
+  <title>博客搬家小记(Octopress → Hexo) | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -237,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          博客搬家小记 (Octopress → Hexo)
+          博客搬家小记(Octopress → Hexo)
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -271,67 +271,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>从 2014 年开始, 不知不觉用 <a href="http://octopress.org/">Octopress</a> 写博客已经四年多了. 用的主题叫做<a href="https://shashankmehta.in/archive/2012/greyshade.html">Greyshade</a>, 陆陆续续做了很多小改动, 同时也使整个项目一团糟, 慢慢的变得难以维护, 编写一篇新博客的成本也越来越高了, 终于下定决心给博客搬个家. </p>
-<p>调研过一些博客框架, 例如车亮亮做的基于 Django 的博客系统 (<a href="https://github.com/liangliangyy/DjangoBlog">GitHub 主页</a>), Jekyll, Ghost, etc. 但最后还是选择了现在最火的 Hexo. 本文主要记录了使用 hexo 的心路历程, 至于如何部署可以参考这篇 blog: <a href="/blog/20170729/octopress-nginx-vps/"> 在 vps 上部署你的静态博客(网站)
+        <p>从2014年开始, 不知不觉用<a href="http://octopress.org/">Octopress</a>写博客已经四年多了. 用的主题叫做<a href="https://shashankmehta.in/archive/2012/greyshade.html">Greyshade</a>, 陆陆续续做了很多小改动, 同时也使整个项目一团糟, 慢慢的变得难以维护, 编写一篇新博客的成本也越来越高了, 终于下定决心给博客搬个家. </p>
+<p>调研过一些博客框架, 例如车亮亮做的基于Django的博客系统(<a href="https://github.com/liangliangyy/DjangoBlog">GitHub主页</a>), Jekyll, Ghost, etc. 但最后还是选择了现在最火的Hexo. 本文主要记录了使用hexo的心路历程, 至于如何部署可以参考这篇blog: <a href="/blog/20170729/octopress-nginx-vps/">在vps上部署你的静态博客(网站)
 </a>   </p>
 <a id="more"></a>
 
 <p>放一张图纪念一下老博客:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/old_blog.png"></p>
-<h1 id="Octopress 几个痛点"><a href="#Octopress 几个痛点" class="headerlink" title="Octopress 几个痛点"></a>Octopress 几个痛点</h1><h2 id="toc 支持差"><a href="#toc 支持差" class="headerlink" title="toc 支持差"></a>toc 支持差</h2><p>toc: table of content, 虽然在老博客上可以在文章开头手动生成, 但体验肯定没有 hexo 上原生支持的好:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15336334210310.jpg" alt="-w1074"></p>
-<h2 id="痛苦的编辑"><a href="# 痛苦的编辑" class="headerlink" title="痛苦的编辑:"></a>痛苦的编辑:</h2><p>虽然有一些小技巧提升实时预览的响应速度: <a href="/blog/20170812/rake-trick-octopress/">Octopress rake generate 命令的大提速🚀</a>, 但每插入一张图片都需要手动的编辑标签(为了支持 lazy-load), 例如: </p>
+<h1 id="Octopress几个痛点"><a href="#Octopress几个痛点" class="headerlink" title="Octopress几个痛点"></a>Octopress几个痛点</h1><h2 id="toc支持差"><a href="#toc支持差" class="headerlink" title="toc支持差"></a>toc支持差</h2><p>toc: table of content, 虽然在老博客上可以在文章开头手动生成, 但体验肯定没有hexo上原生支持的好:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15336334210310.jpg" alt="-w1074"></p>
+<h2 id="痛苦的编辑"><a href="#痛苦的编辑" class="headerlink" title="痛苦的编辑:"></a>痛苦的编辑:</h2><p>虽然有一些小技巧提升实时预览的响应速度: <a href="/blog/20170812/rake-trick-octopress/">Octopress rake generate 命令的大提速🚀</a>, 但每插入一张图片都需要手动的编辑标签(为了支持lazy-load), 例如: </p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"max-height:350px"</span> <span class="attr">class</span>=<span class="string">"lazy"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">data-original</span>=<span class="string">"/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3.png"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>直接抹杀了我更博的速度, 而 hexo 因为比较好的生态支持, 有 hexo-admin, HexoEditor 之类的工具, 可以解决上面说到的问题.</p>
-<h2 id="octopress 生态不行"><a href="#octopress 生态不行" class="headerlink" title="octopress 生态不行"></a>octopress 生态不行 </h2><p> 已经三年没有更新了.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/github_octopress.png">   </p>
-<h1 id="从迁移 Octopress"><a href="# 从迁移 Octopress" class="headerlink" title="从迁移 Octopress"></a>从迁移 Octopress</h1><p>官方文档: <a href="https://hexo.io/docs/migration.html#Octopress">https://hexo.io/docs/migration.html#Octopress</a></p>
-<h2 id="基本配置"><a href="# 基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><ul>
-<li><p><input checked=""disabled="" type="checkbox"> 
-Template render error: (unknown path)!!!!!!<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15336323445390.jpg" alt="-w890"><br>官方提示: <a href="https://hexo.io/docs/troubleshooting.html#Template-render-error">https://hexo.io/docs/troubleshooting.html#Template-render-error</a><br>日志 <code>hexo s --debug</code><br> 最后发现竟然是 <code>\u2028</code> 的问题, 是一个不占位数, 不可见的字符..<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15336324014527.jpg" alt="-w364"></p>
+<p>直接抹杀了我更博的速度, 而hexo因为比较好的生态支持, 有hexo-admin, HexoEditor之类的工具, 可以解决上面说到的问题.</p>
+<h2 id="octopress生态不行"><a href="#octopress生态不行" class="headerlink" title="octopress生态不行"></a>octopress生态不行</h2><p>已经三年没有更新了.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/github_octopress.png">   </p>
+<h1 id="从迁移Octopress"><a href="#从迁移Octopress" class="headerlink" title="从迁移Octopress"></a>从迁移Octopress</h1><p>官方文档: <a href="https://hexo.io/docs/migration.html#Octopress">https://hexo.io/docs/migration.html#Octopress</a></p>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+Template render error: (unknown path)!!!!!!<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15336323445390.jpg" alt="-w890"><br>官方提示: <a href="https://hexo.io/docs/troubleshooting.html#Template-render-error">https://hexo.io/docs/troubleshooting.html#Template-render-error</a><br>日志<code>hexo s --debug</code><br>最后发现竟然是<code>\u2028</code>的问题, 是一个不占位数, 不可见的字符..<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15336324014527.jpg" alt="-w364"></p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
-图片 (lazyload &amp; fancybox):<br><a href="https://github.com/Robin-front/hexo-lazyload">https://github.com/Robin-front/hexo-lazyload</a><br>fancybox 和 lazyload 的自定义配置!!!: <code>themes/next/source/js/src/utils.js</code><br> 终极解决方案: Webstorm 的 Zero Width Characters locator 插件:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15362478881336.jpg"></p>
+<li><p><input checked="" disabled="" type="checkbox"> 
+图片(lazyload &amp; fancybox):<br><a href="https://github.com/Robin-front/hexo-lazyload">https://github.com/Robin-front/hexo-lazyload</a><br>fancybox和lazyload的自定义配置!!!: <code>themes/next/source/js/src/utils.js</code><br>终极解决方案: Webstorm的Zero Width Characters locator插件:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15362478881336.jpg"></p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
-目录: toc 自动生成</p>
+<li><p><input checked="" disabled="" type="checkbox"> 
+目录: toc自动生成</p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
-基本的 config: <a href="https://hexo.io/docs/configuration.html">https://hexo.io/docs/configuration.html</a></p>
+<li><p><input checked="" disabled="" type="checkbox"> 
+基本的config: <a href="https://hexo.io/docs/configuration.html">https://hexo.io/docs/configuration.html</a></p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 打赏 (Done)</p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 RSS (Done)</p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 Local Search (Done): <a href="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/">https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/</a></p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
+<li><p><input checked="" disabled="" type="checkbox"> 
 Instagram&#x2F;wechat social icon</p>
 </li>
-<li><p><input checked=""disabled="" type="checkbox"> 
-disqus 手机端不加载</p>
+<li><p><input checked="" disabled="" type="checkbox"> 
+disqus手机端不加载</p>
 </li>
 </ul>
-<h2 id="个性化配置"><a href="# 个性化配置" class="headerlink" title="个性化配置"></a>个性化配置 </h2><p> 目标: 让人感觉不到是在用 Hexo 的 Next 主题.</p>
+<h2 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h2><p>目标: 让人感觉不到是在用Hexo的Next主题.</p>
 <ul>
-<li><input disabled=""type="checkbox"> <del>首页文章显示为块状</del></li>
-<li><input checked=""disabled="" type="checkbox"> read more 的按钮.</li>
-<li><input checked=""disabled="" type="checkbox"> 关于我的页面</li>
-<li><input checked=""disabled="" type="checkbox"> 主题颜色</li>
-<li><input checked=""disabled="" type="checkbox"> font-awesome icons: <a href="https://fontawesome.com/v4.7.0/icons/">https://fontawesome.com/v4.7.0/icons/</a></li>
-<li><input checked=""disabled="" type="checkbox"> algolia search(没有 local search 好用)</li>
-<li><input checked=""disabled="" type="checkbox"> 背景图片</li>
-<li><input disabled=""type="checkbox"> github CI</li>
-<li><input disabled=""type="checkbox"> 不翻墙也能使用的 Disqus 评论框.</li>
-<li><input disabled=""type="checkbox"> 分离图片使用 CDN</li>
-<li><input checked=""disabled="" type="checkbox"> github CI</li>
-<li><input disabled=""type="checkbox"> Email Subscriptions</li>
-<li><input disabled=""type="checkbox"> 自定义 404 页面</li>
-<li><input disabled=""type="checkbox"> 百度熊账号</li>
+<li><input disabled="" type="checkbox"> <del>首页文章显示为块状</del></li>
+<li><input checked="" disabled="" type="checkbox"> read more的按钮.</li>
+<li><input checked="" disabled="" type="checkbox"> 关于我的页面</li>
+<li><input checked="" disabled="" type="checkbox"> 主题颜色</li>
+<li><input checked="" disabled="" type="checkbox"> font-awesome icons: <a href="https://fontawesome.com/v4.7.0/icons/">https://fontawesome.com/v4.7.0/icons/</a></li>
+<li><input checked="" disabled="" type="checkbox"> algolia search(没有local search好用)</li>
+<li><input checked="" disabled="" type="checkbox"> 背景图片</li>
+<li><input disabled="" type="checkbox"> github CI</li>
+<li><input disabled="" type="checkbox"> 不翻墙也能使用的Disqus评论框.</li>
+<li><input disabled="" type="checkbox"> 分离图片使用CDN</li>
+<li><input checked="" disabled="" type="checkbox"> github CI</li>
+<li><input disabled="" type="checkbox"> Email Subscriptions</li>
+<li><input disabled="" type="checkbox"> 自定义404页面</li>
+<li><input disabled="" type="checkbox"> 百度熊账号</li>
 </ul>
-<h2 id="优化加载速度"><a href="# 优化加载速度" class="headerlink" title="优化加载速度"></a>优化加载速度</h2><ul>
-<li><input checked=""disabled="" type="checkbox"> HTTP&#x2F;2</li>
-<li><input checked=""disabled="" type="checkbox"> <a href="https://github.com/theme-next/hexo-filter-optimize">hexo-filter-optimize</a> 效果见下图:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15362448125105.jpg"></li>
+<h2 id="优化加载速度"><a href="#优化加载速度" class="headerlink" title="优化加载速度"></a>优化加载速度</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> HTTP&#x2F;2</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://github.com/theme-next/hexo-filter-optimize">hexo-filter-optimize</a> 效果见下图:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180807_octopress_to_hexo/15362448125105.jpg"></li>
 </ul>
 
     </div>
@@ -392,12 +392,12 @@ disqus 手机端不加载</p>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20180707/coursera-machine-learning-note/" rel="prev" title="机器学习 (Coursera - Andrew NG) 个人笔记">
-      <i class="fa fa-chevron-left"></i> 机器学习 (Coursera - Andrew NG) 个人笔记
+    <a href="/blog/20180707/coursera-machine-learning-note/" rel="prev" title="机器学习(Coursera - Andrew NG)个人笔记">
+      <i class="fa fa-chevron-left"></i> 机器学习(Coursera - Andrew NG)个人笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20180819/deploy-hexo-blog-to-gcp-oss/" rel="next" title="部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅">
-      部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅 <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20180819/deploy-hexo-blog-to-gcp-oss/" rel="next" title="部署Hexo静态博客(上) - Google Cloud Platform OSS之旅">
+      部署Hexo静态博客(上) - Google Cloud Platform OSS之旅 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -466,7 +466,7 @@ disqus 手机端不加载</p>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Octopress 几个痛点"><span class="nav-text">Octopress 几个痛点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc 支持差"><span class="nav-text">toc 支持差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#痛苦的编辑"><span class="nav-text">痛苦的编辑:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#octopress 生态不行"><span class="nav-text">octopress 生态不行 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从迁移 Octopress"><span class="nav-text">从迁移 Octopress</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置"><span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化配置"><span class="nav-text">个性化配置 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化加载速度"><span class="nav-text">优化加载速度</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Octopress几个痛点"><span class="nav-text">Octopress几个痛点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc支持差"><span class="nav-text">toc支持差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#痛苦的编辑"><span class="nav-text">痛苦的编辑:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#octopress生态不行"><span class="nav-text">octopress生态不行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从迁移Octopress"><span class="nav-text">从迁移Octopress</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置"><span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化配置"><span class="nav-text">个性化配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化加载速度"><span class="nav-text">优化加载速度</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -593,7 +593,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

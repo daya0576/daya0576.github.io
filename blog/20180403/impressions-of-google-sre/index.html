@@ -64,7 +64,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-04-03T04:04:19.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -273,85 +273,85 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>下一份工作要开始做 SRE 了，准备看下 <a href="http://landing.google.com/sre/book.html">Google 出的《Site Reliability Engineering》</a> 稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。</p>
+        <p>下一份工作要开始做 SRE 了，准备看下<a href="http://landing.google.com/sre/book.html">Google 出的《Site Reliability Engineering》</a>稍微准备一下。感觉写的还是挺不错的, 顺便这篇博客记录读后感(期望更多的是个人的一些思考和感悟)。</p>
 <p>陆陆续续读了快两年。。突然想起一句话：<strong>人生的意义不在于某个时间点的状态，而是随着时间流逝而留下的痕迹</strong>。希望这篇幼稚的笔记也能成为我在这个世界留下的一丝痕迹。</p>
 <p>p.s. 划重点，<strong>欢迎交流或推荐好的书～</strong> </p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/190727_cloudflare_outage/book.jpg" alt="book"></p>
 <a id="more"></a>
 
 <h1 id="Part-I-Introduction"><a href="#Part-I-Introduction" class="headerlink" title="Part I - Introduction"></a>Part I - Introduction</h1><h2 id="Chapter-1-Introduction"><a href="#Chapter-1-Introduction" class="headerlink" title="Chapter 1 - Introduction"></a>Chapter 1 - Introduction</h2><ol>
-<li><strong>dev&#x2F;ops 分离的历史：</strong> 最早时，在公司维护复杂系统的人叫做 sysadmin(systems administrator)，但后来因为 sysadmin 和 developer 需要的技术完全不一样, 所以逐渐分为了两个完全不同的岗位：developer &amp; operations(ops), 应该就是我们所谓的开发与运维吧。</li>
+<li><strong>dev&#x2F;ops分离的历史：</strong> 最早时，在公司维护复杂系统的人叫做sysadmin(systems administrator)，但后来因为 sysadmin 和 developer 需要的技术完全不一样, 所以逐渐分为了两个完全不同的岗位：developer &amp; operations(ops), 应该就是我们所谓的开发与运维吧。</li>
 <li>这种模型(开发与运维的完全分离)，好处和坏处<ul>
-<li>**1) 最大的好处就是:** 业内有成熟的解决方案, 不用重复的造轮子, 所以用人与开发成本也比较低.</li>
+<li>**1) 最大的好处就是:**业内有成熟的解决方案, 不用重复的造轮子, 所以用人与开发成本也比较低.</li>
 <li><strong>2) 但最大的坏处:</strong><ul>
 <li><strong>Direct costs:</strong> 发布和变更需要人工干预 → 系统的规模和需要的人手成线性关系(例如总不能项目多部署一套环境, 就增加一个人手).</li>
-<li><strong>Indirect costs:</strong> (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务 100% 的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.</li>
+<li><strong>Indirect costs:</strong> (个人理解是)开发与运维的矛盾: 开发需要尽快的上最炫最酷的新功能, 而运维则想保持服务100%的稳定性, 再加上完全不同的技术栈, 很容易造成矛盾. 所以一定要在两者之间找一个平衡点.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><strong>google 对于 sre 的目标:</strong> 以软件开发的方式打造一个系统, 将运维的工作变得全自动 (automatic). (Site Reliability Engineering teams focus on hiring software engineers to run our products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.), 终极目标就是: 减少第一条中的 Direct costs(人为干预), 使得<strong> 系统规模与运维人员的人数不成线性增长</strong>.</li>
-<li>有一句话挺有意思的, 说的是要去 <strong> 评估 SRE 的消耗的时间分布</strong>, 才能保证开发人员在 ops 和 development 上花费时间的平衡. 因为 sre 与传统运维最大的不同就是加入了开发, 而不是一味的做 operation. 但相对的 develop 的时间不能超过 50%, 以防止承担了过多原本属于 development team 的事情, 或一直投入运维人员, 而忘了利用原有的员工去做 operation 的工作. 但打动我的是 &quot;measure how SRE time is spent&quot;, 感觉对人对团队对整个 sre 的 measurement, 是所有事情能顺畅实现的基础.</li>
-<li><strong>DevOps?</strong> (这个词近几年很火吧, 但惭愧的是一直没搞懂到底是什么. 书中说可以把 sre 当作一种 devops 的具体实现, 并包含一些独特的扩展?) - &quot;One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions.&quot;</li>
-<li>Service’s SLO?: (<strong>第四章 </strong> 会详细解释一些含义)</li>
-<li><strong>不必过分追求 100%?:</strong> 文中强调的一个观点挺有意思的: 对于 sre 来说, 100% 并不是一个正确的指标? 作者说因为用户其实完全感受不到 99.999% 与 100% 的区别, 而且现实中用户家中的笔记本, 路由器, ISP 等等远达不到 99.99% 的可用性 但还是需要定目标: 如果可用性达到 99.99%, 0.01% 就可以作为 error budget, 然后利用这个 error budget 去冒风险发布一些新特性, 并吸引新用户. (感觉感觉作者认为这样就很好解决了第一条中所谓的 indirect cost, 使得生产事故变成一种预期之内的事情?? 解决了开发追求急切的上新功能, 而运维想要保持 100% 可用性的矛盾.)</li>
+<li><strong>google对于sre的目标:</strong> 以软件开发的方式打造一个系统, 将运维的工作变得全自动(automatic). (Site Reliability Engineering teams focus on hiring software engineers to run our products and to create systems to accomplish the work that would otherwise be performed, often manually, by sysadmins.), 终极目标就是: 减少第一条中的Direct costs(人为干预), 使得<strong>系统规模与运维人员的人数不成线性增长</strong>.</li>
+<li>有一句话挺有意思的, 说的是要去<strong>评估SRE的消耗的时间分布</strong>, 才能保证开发人员在ops和development上花费时间的平衡. 因为sre与传统运维最大的不同就是加入了开发, 而不是一味的做operation. 但相对的develop 的时间不能超过50%, 以防止承担了过多原本属于development team的事情, 或一直投入运维人员, 而忘了利用原有的员工去做operation的工作.但打动我的是 &quot;measure how SRE time is spent&quot;, 感觉对人对团队对整个sre的measurement, 是所有事情能顺畅实现的基础.</li>
+<li><strong>DevOps?</strong> (这个词近几年很火吧, 但惭愧的是一直没搞懂到底是什么. 书中说可以把sre当作一种devops的具体实现, 并包含一些独特的扩展?) - &quot;One could equivalently view SRE as a specific implementation of DevOps with some idiosyncratic extensions.&quot;</li>
+<li>Service’s SLO?: (<strong>第四章</strong>会详细解释一些含义)</li>
+<li><strong>不必过分追求100%?:</strong> 文中强调的一个观点挺有意思的: 对于sre来说, 100%并不是一个正确的指标? 作者说因为用户其实完全感受不到99.999%与100%的区别, 而且现实中用户家中的笔记本, 路由器, ISP等等远达不到99.99%的可用性 但还是需要定目标: 如果可用性达到99.99%, 0.01%就可以作为error budget, 然后利用这个error budget去冒风险发布一些新特性, 并吸引新用户. (感觉感觉作者认为这样就很好解决了第一条中所谓的indirect cost, 使得生产事故变成一种预期之内的事情?? 解决了开发追求急切的上新功能, 而运维想要保持100%可用性的矛盾. )</li>
 <li><strong>blame-free postmortem culture</strong>: 强调出了事故, 不要过分的去指责而是仔细剖解问题, 防止下一次的发生? 在国内领导负责的国情感觉不是很现实 :P</li>
 </ol>
 <h2 id="Chapter-2-The-Production-Environment-at-Google-from-the-Viewpoint-of-an-SRE"><a href="#Chapter-2-The-Production-Environment-at-Google-from-the-Viewpoint-of-an-SRE" class="headerlink" title="Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE"></a>Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE</h2><ol>
 <li><strong>Machine:</strong> A piece of hardware (or perhaps a VM)，<strong>Server:</strong> A piece of software that implements a service</li>
-<li><strong>硬件故障:</strong> 我们平时可能认为, 硬盘内存几乎是不可能坏的, 但文中说到, 对于一个超大规模的 data center 来说, 硬件出故障是个很常见的问题, 所以目标就是要让用户完全无法感知到硬件的故障.</li>
-<li>因为不同的 (几千个) 任务动态的分布在不同的机器上, 所以不能单纯的用 ip 和端口去启动任务, 文中给出的一个解决方案: <code>/bns/&lt;cluster&gt;/&lt;user&gt;/&lt;job name&gt;/&lt;task number&gt;</code>, 然而并不是特明白.</li>
-<li><strong>对于任务的分布 </strong>(例如一个任务需要 3 个 cpu, 2g 内存), 有趣的是文中说到要尽可能优化的放置(二次装箱问题). !!! 但又不能把鸡蛋都放在一个篮子(同个 Rack 或 Pod) 里(很有可能一个路由坏了, 那就全 gg 了).</li>
+<li><strong>硬件故障:</strong> 我们平时可能认为, 硬盘内存几乎是不可能坏的, 但文中说到, 对于一个超大规模的data center来说, 硬件出故障是个很常见的问题, 所以目标就是要让用户完全无法感知到硬件的故障.</li>
+<li>因为不同的(几千个)任务动态的分布在不同的机器上, 所以不能单纯的用ip和端口去启动任务, 文中给出的一个解决方案: <code>/bns/&lt;cluster&gt;/&lt;user&gt;/&lt;job name&gt;/&lt;task number&gt;</code>, 然而并不是特明白.</li>
+<li><strong>对于任务的分布</strong>(例如一个任务需要3个cpu, 2g内存), 有趣的是文中说到要尽可能优化的放置(二次装箱问题). !!!但又不能把鸡蛋都放在一个篮子(同个Rack或Pod)里(很有可能一个路由坏了, 那就全gg了).</li>
 <li>Remote Procedure Call (RPC), 了解一下?</li>
-<li><strong>Life of a Request</strong>: 在 17 年后台研发工程师的一年, 我一直在思考一个问题: 一个 request 的 lifecycle, 于是去读了 web 框架 (Django) 的源码, 自己去实现一个 uwsgi, 看 http, tcp 协议... 看到书中的 request lifecycle, 感觉今年的目标是更多的了解大型项目的 request lifecycle, 例如高并发的负载均衡问题, 等等.(This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.) 原来在 dns server 这就可以根据地区和负载情况, 分配对应的服务器 ip, 但是为什么走到 GFE 反向代理找 frontend server 的时候, 又要去根据 GSLB 进行一次负载均衡的处理呢?<img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/1-lbs.png"></li>
+<li><strong>Life of a Request</strong>: 在 17 年后台研发工程师的一年, 我一直在思考一个问题: 一个 request 的 lifecycle, 于是去读了web框架(Django)的源码, 自己去实现一个uwsgi, 看http, tcp协议... 看到书中的request lifecycle, 感觉今年的目标是更多的了解大型项目的request lifecycle, 例如高并发的负载均衡问题, 等等.(This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.) 原来在dns server这就可以根据地区和负载情况, 分配对应的服务器ip, 但是为什么走到GFE反向代理找frontend server的时候, 又要去根据GSLB进行一次负载均衡的处理呢?<img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/1-lbs.png"></li>
 <li>QPS: queries per second</li>
-<li><strong>N+2 原则</strong>: 如果说预期 3,470 QPS, 而一个 backend server 最多能处理 100QPS, 则至少需要 35 个 server. 但是一般采用 N+2 的策略(37 个 server), 因为:<ul>
+<li><strong>N+2原则</strong>: 如果说预期3,470 QPS, 而一个backend server最多能处理100QPS, 则至少需要35个server. 但是一般采用N+2的策略(37个server), 因为:<ul>
 <li><ol>
-<li>如果在升级中, 会有一个 server 不可用</li>
+<li>如果在升级中, 会有一个server不可用</li>
 </ol>
 </li>
 <li><ol start="2">
-<li>如果一个机器挂了, 会重新放置 task 到别的 server. 但是有时候也可以用 <code>N+1</code> 的原则. 因为如果需要的 server 很少, 比如只需要 3 个 server 的情况, 就可以利用牺牲高延迟的风险, 去节省 20% 的硬件资源 (<code>+1</code> 相对于 <code>+2</code> 节省了一台虚拟机).</li>
+<li>如果一个机器挂了, 会重新放置task到别的server.但是有时候也可以用<code>N+1</code>的原则. 因为如果需要的server很少, 比如只需要3个server的情况, 就可以利用牺牲高延迟的风险, 去节省20%的硬件资源(<code>+1</code>相对于<code>+2</code>节省了一台虚拟机).</li>
 </ol>
 </li>
 </ul>
 </li>
 </ol>
-<h1 id="Part-II-Principles"><a href="#Part-II-Principles" class="headerlink" title="Part II. Principles"></a>Part II. Principles</h1><h2 id="Chapter-3-Embracing-Risk- 拥抱风险"><a href="#Chapter-3-Embracing-Risk- 拥抱风险" class="headerlink" title="Chapter 3 - Embracing Risk (拥抱风险?)"></a>Chapter 3 - Embracing Risk (拥抱风险?)</h2><ol>
-<li><strong>100% 的可用性是个错误的目标?</strong>(100% is probably never the right reliability target?) 文中的解释:<ol>
-<li>因为 cost 和 reliability 并不是线性关系, 99%→100% 会带来极大的开销, 并对服务更新升级的速度造成负面影响.</li>
-<li>像第一章里提到的那样, 用户其实很难感知到 99.99% 和 99.999% 的区别.</li>
-<li>rapid innovation and efficient service operations 的平衡, 即保持服务的高可用 VS 用最快的速度把新功能新特性传递给用户.</li>
+<h1 id="Part-II-Principles"><a href="#Part-II-Principles" class="headerlink" title="Part II. Principles"></a>Part II. Principles</h1><h2 id="Chapter-3-Embracing-Risk-拥抱风险"><a href="#Chapter-3-Embracing-Risk-拥抱风险" class="headerlink" title="Chapter 3 - Embracing Risk (拥抱风险?)"></a>Chapter 3 - Embracing Risk (拥抱风险?)</h2><ol>
+<li><strong>100%的可用性是个错误的目标?</strong>(100% is probably never the right reliability target?) 文中的解释:<ol>
+<li>因为cost和reliability并不是线性关系, 99%→100%会带来极大的开销, 并对服务更新升级的速度造成负面影响.</li>
+<li>像第一章里提到的那样, 用户其实很难感知到99.99%和99.999%的区别.</li>
+<li>rapid innovation and efficient service operations的平衡, 即保持服务的高可用 VS 用最快的速度把新功能新特性传递给用户.</li>
 </ol>
 </li>
-<li><strong>如何评估服务的高可用:</strong> &quot;Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of &#39;nines&#39; we would like to provide: 99.9%, 99.99%, or 99.999% availability.&quot; 想起面试的时候, 问了面试官个很幼稚的问题：如何去评估一个系统的高可用能力, 他笑了笑, 说到了四个 9 和五个 9，参考文章附录的<a href="https://landing.google.com/sre/sre-book/chapters/availability-table/">《Availability Table》</a><ol>
-<li><strong>Time-based availability: availability</strong> &#x3D; uptime &#x2F; (uptime + downtime), 所以 99.99% 就意味着服务 down 的时间不能超过 52.56 分钟.<strong>但是!</strong> 文中提到 google 的 server 是分布在全球的, 就很难用这种方式去测量 availability, 所以引出了一个新的概念: request success rate.</li>
-<li><strong>Aggregate availability:</strong> availability &#x3D; successful requests &#x2F; total requests.<strong>但是!!</strong> 不同的 request 失败对用户的影响其实是不同的, 例如支付失败和获取好友信息 request 失败.</li>
+<li><strong>如何评估服务的高可用:</strong> &quot;Unplanned downtime is captured by the desired level of service availability, usually expressed in terms of the number of &#39;nines&#39; we would like to provide: 99.9%, 99.99%, or 99.999% availability.&quot; 想起面试的时候, 问了面试官个很幼稚的问题：如何去评估一个系统的高可用能力, 他笑了笑, 说到了四个9和五个9，参考文章附录的<a href="https://landing.google.com/sre/sre-book/chapters/availability-table/">《Availability Table》</a><ol>
+<li><strong>Time-based availability: availability</strong> &#x3D; uptime &#x2F; (uptime + downtime), 所以99.99%就意味着服务down的时间不能超过52.56分钟.<strong>但是!</strong> 文中提到google的server是分布在全球的, 就很难用这种方式去测量availability, 所以引出了一个新的概念: request success rate.</li>
+<li><strong>Aggregate availability:</strong> availability &#x3D; successful requests &#x2F; total requests.<strong>但是!!</strong> 不同的request失败对用户的影响其实是不同的, 例如支付失败和获取好友信息request失败.</li>
 </ol>
 </li>
-<li><strong>(个人认为)measurement 的重要性:</strong> 因为 measurement 是提升的基础, 没有量化, 如何比较提升还是破坏呢. 最简单的例子: 我们在优化一段代码速度的时候, 一定要先做 profile, 再针对某几行代码做优化, 最后比较总的运行时间, 看运行速度提升了多少. 比如文中提到的: &quot;By setting a target, we can <strong>assess our current performance and track improvements or degradations</strong> over time.&quot;</li>
+<li><strong>(个人认为)measurement的重要性:</strong> 因为measurement是提升的基础, 没有量化, 如何比较提升还是破坏呢. 最简单的例子: 我们在优化一段代码速度的时候, 一定要先做profile, 再针对某几行代码做优化, 最后比较总的运行时间, 看运行速度提升了多少. 比如文中提到的: &quot;By setting a target, we can <strong>assess our current performance and track improvements or degradations</strong> over time.&quot;</li>
 <li><strong>&quot;Hope is not a strategy.&quot;</strong> → The more data-based the decision can be, the better.</li>
-<li><strong>文中提到对 error budget 的使用 </strong>(定义: 如果可用性定的目标是 99.99%, error budget 就是 0.01%, 然后如果这个季度测量结果为 99.992%, 那么 error budget 就可以认为使用了 20%). 所以可以用 error budget 很好的制约 SRE 团队与 product development 团队. 例如, 提前订好了 reliability 的目标, 如果在开发中, error budget 消耗(使用) 的太快了, 就放缓迭代发布的速率, 并增强测试.</li>
+<li><strong>文中提到对error budget的使用</strong>(定义: 如果可用性定的目标是99.99%, error budget就是0.01%, 然后如果这个季度测量结果为99.992%, 那么error budget就可以认为使用了20%).所以可以用error budget很好的制约SRE团队与product development团队. 例如, 提前订好了reliability的目标, 如果在开发中, error budget消耗(使用)的太快了, 就放缓迭代发布的速率, 并增强测试.</li>
 </ol>
 <h2 id="Chapter-4-Service-Level-Objectives"><a href="#Chapter-4-Service-Level-Objectives" class="headerlink" title="Chapter 4 - Service Level Objectives"></a>Chapter 4 - Service Level Objectives</h2><ol>
-<li>一开始就引出了 <strong> 三个概念</strong>:<ul>
-<li><strong>service level indicators (SLIs</strong>): service 的指标, 比如请求的响应速度, 出错的概率, system throughput(requests per second)等等.</li>
-<li><strong>service level objectives (SLOs</strong>): 目标, 例如 latency 在 100ms 内 or QPS(Query per Second)达到 1 万.<br> 但一般 QPS 很难去制定目标, 因为它是未知的(比如某个明星出轨, weibo 流量爆了).</li>
-<li><strong>service level agreements (SLAs</strong>): 区分 SLO 和 SLA 的区别, SLA 更侧重于如果没有达到之前定的目标应该怎么办. 比如 Google search 就没有 SLA, 因为没有和用户达成协议, 就算某一天不能用了, 虽然会造成一系列的后果, 但不用对用户负责.</li>
+<li>一开始就引出了<strong>三个概念</strong>:<ul>
+<li><strong>service level indicators (SLIs</strong>): service的指标, 比如请求的响应速度, 出错的概率, system throughput(requests per second)等等.</li>
+<li><strong>service level objectives (SLOs</strong>): 目标, 例如latency在100ms内 or QPS(Query per Second)达到1万.<br> 但一般QPS很难去制定目标, 因为它是未知的(比如某个明星出轨, weibo流量爆了).</li>
+<li><strong>service level agreements (SLAs</strong>): 区分SLO和SLA的区别, SLA更侧重于如果没有达到之前定的目标应该怎么办. 比如Google search就没有SLA, 因为没有和用户达成协议, 就算某一天不能用了, 虽然会造成一系列的后果, 但不用对用户负责.</li>
 </ul>
 </li>
-<li>有一句话挺有道理的: 对于 SLI 并不是越多越好, 而是要去监测那些 <strong> 用户真正在乎的指标</strong>.</li>
-<li><strong>选择 SLOs 的准则!:</strong><ul>
+<li>有一句话挺有道理的: 对于SLI并不是越多越好, 而是要去监测那些<strong>用户真正在乎的指标</strong>.</li>
+<li><strong>选择SLOs的准则!:</strong><ul>
 <li>Don&#39;t pick a target based on current performance: ???</li>
-<li><strong>Keep it simple</strong>: 和单元测试一个道理.. 太复杂的话, 功能一变动会很难维护.</li>
-<li><strong>Avoid absolutes</strong>: 没有必要要求不管 QPS 多高, latency 都保持很低.</li>
+<li><strong>Keep it simple</strong>: 和单元测试一个道理..太复杂的话, 功能一变动会很难维护.</li>
+<li><strong>Avoid absolutes</strong>: 没有必要要求不管QPS多高, latency都保持很低.</li>
 <li>Have as few SLOs as possible: 和第二条类似.</li>
-<li><strong>Perfection can wait</strong>: SLOs 刚开始的时候不必太苛刻, 否则很容易造成开发时间的浪费. (想起我看 <a href="/blog/20170503/django-performance-and-optimisation/">Django 性能优化官方文档</a> 的一句话: &quot;Your own time is a valuable resource, more precious than CPU time. Some improvements might be too difficult to be worth implementing, or might affect the portability or maintainability of the code. Not all performance improvements are worth the effort.&quot;)</li>
+<li><strong>Perfection can wait</strong>: SLOs刚开始的时候不必太苛刻, 否则很容易造成开发时间的浪费. (想起我看<a href="/blog/20170503/django-performance-and-optimisation/">Django性能优化官方文档</a>的一句话: &quot;Your own time is a valuable resource, more precious than CPU time. Some improvements might be too difficult to be worth implementing, or might affect the portability or maintainability of the code. Not all performance improvements are worth the effort.&quot;)</li>
 </ul>
 </li>
 </ol>
 <h2 id="Chapter-5-Eliminating-Toil"><a href="#Chapter-5-Eliminating-Toil" class="headerlink" title="Chapter 5 - Eliminating Toil"></a>Chapter 5 - Eliminating Toil</h2><ol>
-<li>&quot;If a human operator needs to touch your system during normal operations, you have a bug. The definition of normal changes as your systems grow.&quot;  有点意思, 以前人们一提起运维, 就想到苦逼. 但真的是这样吗? <strong>看到面试官微信的简介是<code>Never repeat yourself.</code>, 心里又多了一丝的希望的小蜡烛, 因为个人觉得这就是 sre 和传统运维不同的地方.</strong></li>
+<li>&quot;If a human operator needs to touch your system during normal operations, you have a bug. The definition of normal changes as your systems grow.&quot;  有点意思, 以前人们一提起运维, 就想到苦逼. 但真的是这样吗? <strong>看到面试官微信的简介是<code>Never repeat yourself.</code>, 心里又多了一丝的希望的小蜡烛, 因为个人觉得这就是sre和传统运维不同的地方.</strong></li>
 <li>Operation work → <strong>Toil</strong> → 脏活累活, 定义如下:<ul>
 <li>Manual</li>
 <li>Repetitive</li>
@@ -361,99 +361,99 @@
 <li>O(n) with service growth!!!</li>
 </ul>
 </li>
-<li>&quot;The work of reducing toil and scaling up services is the &quot;Engineering&quot; in Site Reliability Engineering.&quot; 有意思, 而且上文提到 toil 如果不及时处理, 就会很快的占据所有人 100% 的时间.</li>
-<li><strong>Calculating Toil:</strong> 挺无脑暴力的一个计算, 如果说一个团队有 6 个人, 在一个周期 (<strong> 六周 </strong>) 中, 每个人 on-call 的时间总共是两周(一周 primary on-call+ 一周 secondary on-call), 那么他 toil 的占比至少为 33%(1&#x2F;6+1&#x2F;6)</li>
-<li>理论上每个 SRE 在 toil 上花费的时间不应该超过 50%.</li>
-<li><strong>Is Toil Always Bad?</strong> toil 并不是永远是不好的, 重复无脑的工作其实能让人变得无比平静(calming)?? 并且完成少量的 toil 还有一丝丝成就感呢. 但多了就要 gg 了, 因为:<ul>
-<li>过多的 toil 会抑制你在实际项目中做贡献, 并令你职业生涯停滞不前.</li>
-<li>每个人都会有忍耐的上限, 无限的 toil 只会让人精疲力尽并感到厌烦.</li>
+<li>&quot;The work of reducing toil and scaling up services is the &quot;Engineering&quot; in Site Reliability Engineering.&quot; 有意思, 而且上文提到toil如果不及时处理, 就会很快的占据所有人100%的时间.</li>
+<li><strong>Calculating Toil:</strong> 挺无脑暴力的一个计算, 如果说一个团队有6个人, 在一个周期(<strong>六周</strong>)中, 每个人on-call的时间总共是两周(一周primary on-call+一周secondary on-call), 那么他toil的占比至少为33%(1&#x2F;6+1&#x2F;6)</li>
+<li>理论上每个SRE在toil上花费的时间不应该超过50%.</li>
+<li><strong>Is Toil Always Bad?</strong> toil 并不是永远是不好的, 重复无脑的工作其实能让人变得无比平静(calming)?? 并且完成少量的toil还有一丝丝成就感呢.但多了就要gg了, 因为:<ul>
+<li>过多的toil会抑制你在实际项目中做贡献, 并令你职业生涯停滞不前.</li>
+<li>每个人都会有忍耐的上限, 无限的toil只会让人精疲力尽并感到厌烦.</li>
 </ul>
 </li>
-<li><strong>结论:</strong> 只要每个人都能消灭一点 toil, 最终就能把精力都放在开发下一代更大规模的架构! 我们的口号是: &quot;Let&#39;s invent more, and toil less!!!&quot;</li>
+<li><strong>结论:</strong> 只要每个人都能消灭一点toil, 最终就能把精力都放在开发下一代更大规模的架构! 我们的口号是: &quot;Let&#39;s invent more, and toil less!!!&quot;</li>
 </ol>
 <h2 id="Chapter-6-Monitoring-Distributed-Systems"><a href="#Chapter-6-Monitoring-Distributed-Systems" class="headerlink" title="Chapter 6 - Monitoring Distributed Systems"></a>Chapter 6 - Monitoring Distributed Systems</h2><ol>
 <li><strong>为什么需要监控:</strong><ul>
-<li>了解整体的趋势: 比如数据库硬盘占用提升的速率, 日活跃用户增长的 <strong> 趋势</strong>. (可以提前做处理?)</li>
+<li>了解整体的趋势: 比如数据库硬盘占用提升的速率, 日活跃用户增长的<strong>趋势</strong>. (可以提前做处理?)</li>
 <li>量化提升: 与历史数据做对比, 很方便直观的比较性能变化.</li>
 <li>及时报警: 在第一时间修复.</li>
-<li>打造 dashboard</li>
+<li>打造dashboard</li>
 </ul>
 </li>
 <li><strong>监控报警不能太频繁:</strong> &quot;When pages occur too frequently, employees second-guess, skim, or even ignore incoming alerts, sometimes even ignoring a &quot;real&quot; page that’s masked by the noise.&quot; 不能稍微有点不对劲就报警, 不然就变成狼来了.</li>
 <li><strong>The Four Golden! Signals</strong> 类似蚂蚁的 spm 自定义监控（常用服务指标）<ul>
-<li>latency: 注意一定要将成功请求与失败请求的延迟数据区分开(我们都知道比如一个 request 失败并返回了 500 或 502, 它的延迟一般都会特别的低) 所以不能将它用作计算到到平均的延迟, i.e. 要将它们过滤出来.</li>
-<li>traffic: 对于 web 服务来说, 通常为 HTTP requests per second.</li>
-<li>errors: 注意对 error 的定义. 还有要注意的一点, 如果 502 了, 例如 Django 的 Sentry 就捕捉不到了. 只能通过查看返回的信息是否正确来监控.</li>
-<li>saturation: 比如再来 20% 的流量, 系统是否能扛住. 或者预测到还有 4 小时, 数据库的硬盘就要满了.</li>
+<li>latency: 注意一定要将成功请求与失败请求的延迟数据区分开(我们都知道比如一个request失败并返回了500或502, 它的延迟一般都会特别的低) 所以不能将它用作计算到到平均的延迟, i.e.要将它们过滤出来.</li>
+<li>traffic: 对于web服务来说, 通常为HTTP requests per second.</li>
+<li>errors: 注意对error的定义. 还有要注意的一点, 如果502了, 例如Django的Sentry就捕捉不到了. 只能通过查看返回的信息是否正确来监控.</li>
+<li>saturation: 比如再来20%的流量, 系统是否能扛住. 或者预测到还有4小时, 数据库的硬盘就要满了.</li>
 </ul>
 </li>
-<li>讲到 <strong> 监测采集数据的频率其实不用太高</strong>. 虽然会发现一些隐藏的细节, 但分析和存储的成本都太高了.</li>
-<li><strong>监测不能搞的太复杂</strong>, 不然监测系统会变得很 fragile, 而且难以维护. 说了三个原则, 其实就是开始时就让 incidents 保持简单, 并定期去清除很少用到的巴拉巴拉.</li>
-<li><strong>&quot;Every page should be actionable!&quot;</strong>   还提到一点: 监测系统发起的 <strong> 报警的问题必须是可以被解决的</strong>. 不难理解, 因为如果报警了解决不了, 那就是完全无效的 → 每次都要忽略掉, 久而久之很可能会忽略掉一些严重的问题的报警.</li>
+<li>讲到<strong>监测采集数据的频率其实不用太高</strong>. 虽然会发现一些隐藏的细节, 但分析和存储的成本都太高了.</li>
+<li><strong>监测不能搞的太复杂</strong>, 不然监测系统会变得很fragile, 而且难以维护. 说了三个原则, 其实就是开始时就让 incidents 保持简单, 并定期去清除很少用到的巴拉巴拉.</li>
+<li><strong>&quot;Every page should be actionable!&quot;</strong>   还提到一点: 监测系统发起的<strong>报警的问题必须是可以被解决的</strong>. 不难理解, 因为如果报警了解决不了, 那就是完全无效的 → 每次都要忽略掉, 久而久之很可能会忽略掉一些严重的问题的报警.</li>
 </ol>
 <h2 id="Chapter-7-The-Evolution-of-Automation-at-Google"><a href="#Chapter-7-The-Evolution-of-Automation-at-Google" class="headerlink" title="Chapter 7 - The Evolution of Automation at Google"></a>Chapter 7 - The Evolution of Automation at Google</h2><ol>
-<li>自动化 (Automation) 的好处:<ul>
+<li>自动化(Automation)的好处:<ul>
 <li>Consistency: 人总是会犯错误的, 相对于机器是个最大的缺点, 也是个最大的优势吧, 嘿嘿.</li>
 <li>A Platform: 可以扩展给多个服务??  第二段没看懂.</li>
-<li>Faster Repairs: 可以自动的去修复一些常见的错误, 特别是在生产环境人工修复 bug 的成本是巨大的..</li>
+<li>Faster Repairs: 可以自动的去修复一些常见的错误, 特别是在生产环境人工修复bug的成本是巨大的..</li>
 <li>Faster Action: 人的手速再快也比不上机器</li>
 <li>Time Saving: 写一个脚本花费的时间 vs 这个脚本未来能节省的时间. 在犹豫的时候, 亲身感受也会强烈自己去写自动化脚本.</li>
 <li>&quot;If we are engineering processes and solutions that are not automatable, we continue having to staff humans to maintain the system. If we have to staff humans to do the work, we are <strong>feeding the machines with the blood, sweat, and tears of human beings</strong>. Think The Matrix with less special effects and more pissed off System Administrators.&quot;</li>
 </ul>
 </li>
-<li>Google 偏爱 automation 的原因:<ul>
-<li>google 的规模很大, 服务于全球的用户, 所以对于 consistency, quickness, and reliability 有极高的需求.</li>
-<li>复杂但是统一的生产环境: 相比直接购买成熟的软件, Google 选择自己造轮子, 所以当无 APIs 可用时, 就方便快捷地去自己实现一个. 从而去搭建完善的自动化系统(用机器去管理机器).</li>
+<li>Google偏爱automation的原因:<ul>
+<li>google的规模很大, 服务于全球的用户, 所以对于consistency, quickness, and reliability有极高的需求.</li>
+<li>复杂但是统一的生产环境: 相比直接购买成熟的软件, Google选择自己造轮子, 所以当无APIs可用时, 就方便快捷地去自己实现一个. 从而去搭建完善的自动化系统(用机器去管理机器).</li>
 </ul>
 </li>
-<li>automate ourselves out of a job:<br>文中举了 <strong> 一个实际例子 </strong>: Ads 的 SRE 团队, 当初计划将 mysql 迁移到 Google 的 cluster scheduling system 上. 这么做的两个好处: 一是减轻维护的工作量, 因为这个平台(cluster scheduling system) 会去自动的重启失败的任务. 二是可以将 mysql instance 做装箱放置. 也就是说在一个 physical machine 上, 尽可能多地放置 mysql instance. 但遇到一个问题: failover 需要消耗一个人 30-90 分钟去处理 (有点没看懂 failover 是什么, 个人理解为机器或各种原因出了问题, 快速的将服务部署在新的硬件上.)<br> 然后 sre 团队就做了一个自动化解决 failover 的东西叫做 &quot;Decider&quot;(95% 的情况下在 30s 内完成 failover). 因为大家意识到 &quot;failure is inevitable, and therefore optimizing to recover quickly through automation.&quot;.<br>最终自动化带来的好处: 节省了无数 (95%) 的人力和物力, 节省了高达 60% 的硬件资源.<br>这句话写的挺好的: &quot;the more time we saved, the more time we were able to spend on optimizing and automating other tedious work&quot;</li>
-<li>文中提到十年前的时候, Cluster Infrastructure SRE team 每隔几个月就要去大量招人, 因为员工的速率和服务的规模成正比 (turning up a service in a new cluster gives new hires exposure to a service’s internals). 想到原来的公司(Hypers) 给新客户部署一套环境的时候(五六个不同的产品), 需要几周的时间, 和这种情况好类似. 然而手动的配置和 shell 脚本都各自的缺点. 好奇 Google 是如何解决这个问题的.</li>
-<li>(接上一条)有意思, 解决方案竟然是 Prodtest (Production Test): extended Python unit test framework, 但是一个有很多依赖的单元测试(如下图):   <img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/7-producttest.png"></li>
+<li>automate ourselves out of a job:<br>文中举了<strong>一个实际例子</strong>: Ads的SRE团队, 当初计划将mysql迁移到Google的cluster scheduling system上. 这么做的两个好处: 一是减轻维护的工作量, 因为这个平台(cluster scheduling system)会去自动的重启失败的任务. 二是可以将mysql instance做装箱放置. 也就是说在一个physical machine上, 尽可能多地放置mysql instance. 但遇到一个问题: failover需要消耗一个人30-90分钟去处理(有点没看懂failover是什么, 个人理解为机器或各种原因出了问题, 快速的将服务部署在新的硬件上.)<br>然后sre团队就做了一个自动化解决failover的东西叫做&quot;Decider&quot;(95%的情况下在30s内完成failover). 因为大家意识到&quot;failure is inevitable, and therefore optimizing to recover quickly through automation.&quot;.<br>最终自动化带来的好处: 节省了无数(95%)的人力和物力, 节省了高达60%的硬件资源.<br>这句话写的挺好的: &quot;the more time we saved, the more time we were able to spend on optimizing and automating other tedious work&quot;</li>
+<li>文中提到十年前的时候, Cluster Infrastructure SRE team每隔几个月就要去大量招人, 因为员工的速率和服务的规模成正比(turning up a service in a new cluster gives new hires exposure to a service’s internals). 想到原来的公司(Hypers)给新客户部署一套环境的时候(五六个不同的产品), 需要几周的时间, 和这种情况好类似. 然而手动的配置和shell脚本都各自的缺点. 好奇Google是如何解决这个问题的.</li>
+<li>(接上一条)有意思, 解决方案竟然是Prodtest (Production Test): extended Python unit test framework, 但是一个有很多依赖的单元测试(如下图):   <img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/7-producttest.png"></li>
 </ol>
-<p><strong>好处:</strong> 方便的校验配置是否正确, 如果出错了, 快速的定位出错的步骤和详细的错误信息. 而且每次出现配置出错造成延期的时候, 就将它加入到单元测试中, 保证相同的错误在未来不会重现.<br><strong>具体疗效:</strong> 有史以来第一次, product manager 可以预测服务上线的具体时间, 并遇到延期时, 可以了解到详细原因.<br><strong>惊不惊喜 (out of the blue)</strong>: 新的挑战 → senior management 让他们在一周内让五个新集群同时上线.<br>6. <strong> 进化!!!:</strong> 从利用 Python 单元测试去找到错误的配置, 变为利用 Python 单元测试去自动修复.     如下图所示, 如果 <code>TestDnsMonitoringConfigExists</code> 没有通过, 就运行 <code>FixDnsMonitoringCreateConfig</code>, 然后再尝试之前的测试. 这过程重试多次后如果还是失败的话, 就报错并通知用户.<br><strong> 缺点 </strong>: &quot;Not all fixes were naturally idempotent, so a flaky test that was followed by a fix might render the system in an inconsistent state.&quot; 说实话没有看明白, 好像是说同一个 fix 很可能有的时候可以成功修复一个问题, 但有的时候又失败了, 造成系统的 inconsistency.<br>7. 用 RPC 代替 SSH: 因为用 SSH 去执行命令经常需要那台机器的 root 权限.<br>8. Google 自动化的进程:<br>    - Operator-triggered manual action (no automation)<br>    - Operator-written, system-specific automation<br>    - Externally maintained generic automation<br>    - Internally maintained, system-specific automation<br>    - Autonomous systems that need no human intervention<br>9. <strong>Borg(集群管理系统):</strong>   诞生的原因: due to the fact that abstractions of the system were relentlessly tied to physical machines. 就是说 server 更多的要从物理机抽象出来, e.g. 原来利用 host&#x2F;port&#x2F;job 分配任务的方式就要被废除了, 而是将集群看作一个整体的资源. 也就是说, 在集群中添加一个服务, 就像给一台计算机新加一块硬盘或 RAM.<br>10. <strong> 高度自动化的坏处:</strong> 会越来越依赖自动化程序, 如果有一天自动化出错了, 反而不知道该怎么办了.</p>
+<p><strong>好处:</strong> 方便的校验配置是否正确, 如果出错了, 快速的定位出错的步骤和详细的错误信息. 而且每次出现配置出错造成延期的时候, 就将它加入到单元测试中, 保证相同的错误在未来不会重现.<br><strong>具体疗效:</strong> 有史以来第一次, product manager可以预测服务上线的具体时间, 并遇到延期时, 可以了解到详细原因.<br><strong>惊不惊喜(out of the blue)</strong>: 新的挑战 → senior management让他们在一周内让五个新集群同时上线.<br>6. <strong>进化!!!:</strong> 从利用Python单元测试去找到错误的配置, 变为利用Python单元测试去自动修复.     如下图所示, 如果<code>TestDnsMonitoringConfigExists</code>没有通过, 就运行<code>FixDnsMonitoringCreateConfig</code>, 然后再尝试之前的测试. 这过程重试多次后如果还是失败的话, 就报错并通知用户.<br><strong>缺点</strong>: &quot;Not all fixes were naturally idempotent, so a flaky test that was followed by a fix might render the system in an inconsistent state.&quot; 说实话没有看明白, 好像是说同一个fix很可能有的时候可以成功修复一个问题, 但有的时候又失败了, 造成系统的inconsistency.<br>7. 用RPC代替SSH: 因为用SSH去执行命令经常需要那台机器的root权限.<br>8. Google自动化的进程:<br>    - Operator-triggered manual action (no automation)<br>    - Operator-written, system-specific automation<br>    - Externally maintained generic automation<br>    - Internally maintained, system-specific automation<br>    - Autonomous systems that need no human intervention<br>9. <strong>Borg(集群管理系统):</strong>   诞生的原因: due to the fact that abstractions of the system were relentlessly tied to physical machines. 就是说server更多的要从物理机抽象出来, e.g.原来利用host&#x2F;port&#x2F;job分配任务的方式就要被废除了, 而是将集群看作一个整体的资源. 也就是说, 在集群中添加一个服务, 就像给一台计算机新加一块硬盘或RAM.<br>10. <strong>高度自动化的坏处:</strong> 会越来越依赖自动化程序, 如果有一天自动化出错了, 反而不知道该怎么办了.</p>
 <h2 id="Chapter-8-Release-Engineering"><a href="#Chapter-8-Release-Engineering" class="headerlink" title="Chapter 8 - Release Engineering"></a>Chapter 8 - Release Engineering</h2><ol>
-<li>在 Google 有个专门的职位叫做 release engineer, 要对很多东西都有深刻的理解, 甚至还包括 customer support.</li>
-<li>文中说 google 是数据驱动的, 所以有专门的 tool(平台)记录每次发布的时间, 各个配置文件都是对应哪个 feature. 这些平台都是由 release engineer 搞出来的.</li>
+<li>在Google有个专门的职位叫做release engineer, 要对很多东西都有深刻的理解, 甚至还包括customer support.</li>
+<li>文中说google是数据驱动的, 所以有专门的tool(平台)记录每次发布的时间, 各个配置文件都是对应哪个feature. 这些平台都是由release engineer搞出来的.</li>
 <li>release engineering 的四个准则:<ul>
-<li>Self-Service Model:   就是说 release engineer 要提供足够多的 automated build system and our deployment tools, 使得发布变成一件全自动的事情. 只有出意外时, 才需要人为的介入.</li>
-<li>High Velocity:   一些暴露给用户的服务, 比如说 Google 搜索, 需要快速的迭代和发布, 这样每个版本之间的差别也越小. 最终使得 testing and troubleshooting easier(为什么呢?).   甚至还会有一种 &quot;Push on Green&quot; 的模式, 只要有改动并且通过了所有测试, 就直接部署了.</li>
+<li>Self-Service Model:   就是说release engineer要提供足够多的automated build system and our deployment tools, 使得发布变成一件全自动的事情. 只有出意外时, 才需要人为的介入.</li>
+<li>High Velocity:   一些暴露给用户的服务, 比如说Google搜索, 需要快速的迭代和发布, 这样每个版本之间的差别也越小. 最终使得 testing and troubleshooting easier(为什么呢?).   甚至还会有一种 &quot;Push on Green&quot;的模式, 只要有改动并且通过了所有测试, 就直接部署了.</li>
 <li>Hermetic Builds:<ul>
 <li>一致性: 如果有两个人, 在两台发布一个版本的代码, 结果应该是完全相同的.</li>
-<li>密封的(hermetic): 就像 docker 的容器一样, 完全不依赖外部的库.</li>
-<li>回滚: 通过重新发布 (老的版本号) 来便捷的实现. 而且连发布工具的版本也是之前发布时的旧版本.</li>
+<li>密封的(hermetic): 就像docker的容器一样, 完全不依赖外部的库.</li>
+<li>回滚: 通过重新发布(老的版本号)来便捷的实现. 而且连发布工具的版本也是之前发布时的旧版本.</li>
 </ul>
 </li>
-<li>Enforcement of Policies and Procedures: 发布的时候, 所有的代码改动都需要 code review 的流程, 并且集成到开发流程之中. 自动发布的平台会把代码变更输出一份报告, 让 SREs 更好的理解改动, 并在出问题的时候迅速定位. (其实这一小节并没有太看懂, 根据标题个人理解大意是说在发布时, 要严格执行一些规范流程.)</li>
+<li>Enforcement of Policies and Procedures:发布的时候, 所有的代码改动都需要code review的流程, 并且集成到开发流程之中. 自动发布的平台会把代码变更输出一份报告, 让SREs更好的理解改动, 并在出问题的时候迅速定位. (其实这一小节并没有太看懂, 根据标题个人理解大意是说在发布时, 要严格执行一些规范流程.)</li>
 </ul>
 </li>
 <li><strong>cherry picking:</strong> ...</li>
-<li>Rapid: Google 的自动发布系统, 然后有一门语言叫做<strong>blueprints</strong>, 专门用来给 Rapid 写配置.</li>
-<li>Configuration Management: 配置管理应该是开发和 sre 合作最紧密的一块区域.. 而且 <strong> 配置更改是 instability 的潜在根源</strong>. 所以在 google 配置管理不断的进化, 发生了很大的变化:<ul>
-<li>Use the mainline for configuration: 在 head of the main branch 修改配置文件, 更改 review 之后再 apply 到生产上(这里的 head 就是 git 里的 HEAD 吗? 没太看懂). 配置与发布版本解偶也导致不一致的问题.</li>
-<li>Include configuration files and binaries in the same MPM package: 和上条刚刚相反. 如果配置少的话, 可以直接把配置文件和执行文件一起打包发布(MPM package 是什么东西). 但相对的配置的灵活性就差了很多.</li>
-<li>Package configuration files into MPM &quot;configuration packages.&quot;: 哎, 看了三遍还是没有看懂, 还有上边的 cherry picking, 看了十遍也没看懂.</li>
+<li>Rapid: Google的自动发布系统, 然后有一门语言叫做<strong>blueprints</strong>, 专门用来给Rapid写配置.</li>
+<li>Configuration Management: 配置管理应该是开发和sre合作最紧密的一块区域.. 而且<strong>配置更改是instability的潜在根源</strong>. 所以在google配置管理不断的进化, 发生了很大的变化:<ul>
+<li>Use the mainline for configuration: 在head of the main branch修改配置文件, 更改review之后再apply到生产上(这里的head就是git里的HEAD吗? 没太看懂). 配置与发布版本解偶也导致不一致的问题.</li>
+<li>Include configuration files and binaries in the same MPM package: 和上条刚刚相反. 如果配置少的话, 可以直接把配置文件和执行文件一起打包发布(MPM package是什么东西). 但相对的配置的灵活性就差了很多.</li>
+<li>Package configuration files into MPM &quot;configuration packages.&quot;: 哎, 看了三遍还是没有看懂, 还有上边的cherry picking, 看了十遍也没看懂.</li>
 <li>Read configuration files from an external store: 如果配置变更很频繁, 可以放到第三方平台管理.</li>
 </ul>
 </li>
 <li>总结:<ul>
-<li>开发和 SRE 不应该为发布头疼. 只要有正确的工具, 合适的自动化, 规范的 policy, etc. 发布只不过是按个按钮的事.</li>
-<li>提早重视 Release Engineering, 反而会降低成本.</li>
-<li>developers, SREs, and release engineers 的合作非常重要, 而且 release engineer 也要去深入了解代码是如何编译和部署的.</li>
+<li>开发和SRE不应该为发布头疼. 只要有正确的工具, 合适的自动化, 规范的policy, etc. 发布只不过是按个按钮的事.</li>
+<li>提早重视Release Engineering, 反而会降低成本.</li>
+<li>developers, SREs, and release engineers的合作非常重要, 而且release engineer也要去深入了解代码是如何编译和部署的.</li>
 </ul>
 </li>
 </ol>
 <h2 id="Chapter-9-Simplicity"><a href="#Chapter-9-Simplicity" class="headerlink" title="Chapter 9 - Simplicity"></a>Chapter 9 - Simplicity</h2><ol>
-<li><code>The price of reliability is the pursuit of the utmost simplicity.</code>: 有种代码越短, bug 越少的意味...</li>
-<li>无聊是一种美德？？ &quot;Unlike a detective story, the lack of excitement, suspense, and puzzles is actually a desirable property of source code.&quot; → <strong>sre 的克星: 惊喜</strong>😂</li>
-<li>不应该对没用的代码产生感情... 在生产环境, <strong>每一行代码都应该是有意义的</strong>, 要是留很多没有的不会触发的代码(比如注释). 要 Version Control System 要何用呢?</li>
+<li><code>The price of reliability is the pursuit of the utmost simplicity.</code>: 有种代码越短, bug越少的意味...</li>
+<li>无聊是一种美德？？ &quot;Unlike a detective story, the lack of excitement, suspense, and puzzles is actually a desirable property of source code.&quot; → <strong>sre的克星: 惊喜</strong>😂</li>
+<li>不应该对没用的代码产生感情... 在生产环境, <strong>每一行代码都应该是有意义的</strong>, 要是留很多没有的不会触发的代码(比如注释). 要Version Control System要何用呢?</li>
 <li>&quot;software bloat&quot;: 臃肿的项目.</li>
-<li>&quot;perfection is finally attained not when there is no longer more to add, but when there is no longer anything to take away&quot; - 和上一条有点类似, 如果暴露的 API 和参数越少, 就更容易理解. 除了问题也能更专注核心问题. less is more!</li>
-<li>设计模块的时候一定要注意 <strong> 低耦合</strong>(大二软件工程学的, 虽然当时竟然觉得都是一些概念毫无用处). 一个好处就是: 当出了问题的时候, 可以在一个子系统中快速的解决并独立发布.</li>
+<li>&quot;perfection is finally attained not when there is no longer more to add, but when there is no longer anything to take away&quot; - 和上一条有点类似, 如果暴露的API和参数越少, 就更容易理解. 除了问题也能更专注核心问题. less is more!</li>
+<li>设计模块的时候一定要注意<strong>低耦合</strong>(大二软件工程学的, 虽然当时竟然觉得都是一些概念毫无用处). 一个好处就是: 当出了问题的时候, 可以在一个子系统中快速的解决并独立发布.</li>
 <li>&quot;... it is also poor practice to create and put into production a <strong>&quot;util&quot; or &quot;misc&quot; binary</strong>. A well-designed distributed system consists of collaborators, each of which has a clear and well-scoped purpose.&quot; - 真的吗?</li>
-<li>&quot;Simple releases are generally better than complicated releases.&quot; - simple is better than complicated, less is better than more. 文中的例子挺有道理的, 发布的时候, 发布时, 只有一个改动肯定比发布一百个没有关联的改动来的好. 因为出了问题, 一百个改动的就很难定位问题. 而且每次发布的东西少, 发布的时候也越自信, 最后达到 <strong> 小步快跑的效果</strong>😊.</li>
-<li>总结: 只有保持<strong>simplicity</strong>, 才能保证 reliability.</li>
+<li>&quot;Simple releases are generally better than complicated releases.&quot; - simple is better than complicated, less is better than more. 文中的例子挺有道理的, 发布的时候, 发布时, 只有一个改动肯定比发布一百个没有关联的改动来的好. 因为出了问题, 一百个改动的就很难定位问题. 而且每次发布的东西少, 发布的时候也越自信, 最后达到<strong>小步快跑的效果</strong>😊.</li>
+<li>总结: 只有保持<strong>simplicity</strong>, 才能保证reliability.</li>
 </ol>
-<h1 id="Part-III-Practices"><a href="#Part-III-Practices" class="headerlink" title="Part III. Practices"></a>Part III. Practices</h1><p>做了一个很有趣的比喻, 将如何运营好一个服务, 比做人类需求 (五层次理论 - Maslow):<br> 更有趣的是, 作者从底向上, 解释了模型的构成, 其中提到的 <strong> 各个子问题 </strong> 就对应第三部分的 <strong> 每一章节</strong>.<br>In an ACM article [[Kri12]](<a href="https://dl.acm.org/citation.cfm?id=2366332">https://dl.acm.org/citation.cfm?id=2366332</a>), we explain how Google performs company-wide resilience testing to ensure we’re capable of weathering the unexpected should a zombie apocalypse or other disaster strike.(????)<br><img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15802012659629.jpg"></p>
+<h1 id="Part-III-Practices"><a href="#Part-III-Practices" class="headerlink" title="Part III. Practices"></a>Part III. Practices</h1><p>做了一个很有趣的比喻, 将如何运营好一个服务, 比做人类需求(五层次理论 - Maslow):<br>更有趣的是, 作者从底向上, 解释了模型的构成, 其中提到的<strong>各个子问题</strong>就对应第三部分的<strong>每一章节</strong>.<br>In an ACM article [[Kri12]](<a href="https://dl.acm.org/citation.cfm?id=2366332">https://dl.acm.org/citation.cfm?id=2366332</a>), we explain how Google performs company-wide resilience testing to ensure we’re capable of weathering the unexpected should a zombie apocalypse or other disaster strike.(????)<br><img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15802012659629.jpg"></p>
 <h2 id="Chapter-10-Practical-Alerting"><a href="#Chapter-10-Practical-Alerting" class="headerlink" title="Chapter 10 - Practical Alerting"></a>Chapter 10 - Practical Alerting</h2><ol>
 <li>&quot;May the queries flow, and the pager stay silent.&quot; XD</li>
 <li>说到监控不仅仅是看一个请求响应的时间, 还可以分解并获取其中各个应用各个阶段的时间花费分布(比如公司内的的 Tracer 就能很完美的对每笔请求做阶段的分析).</li>
@@ -462,28 +462,28 @@
 <li>Black-box monitoring: 简单的说就是通过用户的角度去监控(比如应用宝)</li>
 </ul>
 </li>
-<li>日志系统 Brog 获取数据的基本用法:<br><code>{var=http_requests,job=webserver,instance=host0:80,service=web,zone=us-west} 10</code><br>添加时间范围 (最近十分钟), 就会出现十个值.:<br><code>{var=http_requests,job=webserver,service=web,zone=us-west}[10m] 0 1 2 3 4 5 6 7 8 9 10</code><br> 还可以做 aggregate:<br><code>{var=task:http_requests:**rate10m**,job=webserver,instance=host1:80, ...} 0.9</code></li>
-<li>监控系统 Bornmon, 报警触发规则(配置), 慢慢形成了一门语言.. MaaS, Monitor as code 0.0</li>
-<li>报警触发规则 (语言) 模版化的好处 (提供很多现成的通用 format 的模版): 在一个新应用上线的时候, 会自带一些相联的基础配置, 添加新监控变得很简单. <strong> 最终使得维护难度不随系统规模线性增长.</strong>(之前也多次提到, 感觉是一个做 SRE 非常重要的原则, 感触颇深)</li>
-<li>报警触发规则是语言, 就容易出现 bug, 所以甚至提供了单元测试.</li>
+<li>日志系统Brog获取数据的基本用法:<br><code>{var=http_requests,job=webserver,instance=host0:80,service=web,zone=us-west} 10</code><br>添加时间范围(最近十分钟), 就会出现十个值.:<br><code>{var=http_requests,job=webserver,service=web,zone=us-west}[10m] 0 1 2 3 4 5 6 7 8 9 10</code><br>还可以做aggregate:<br><code>{var=task:http_requests:**rate10m**,job=webserver,instance=host1:80, ...} 0.9</code></li>
+<li>监控系统Bornmon, 报警触发规则(配置), 慢慢形成了一门语言.. MaaS, Monitor as code 0.0</li>
+<li>报警触发规则(语言)模版化的好处(提供很多现成的通用format的模版): 在一个新应用上线的时候, 会自带一些相联的基础配置, 添加新监控变得很简单. <strong>最终使得维护难度不随系统规模线性增长.</strong>(之前也多次提到, 感觉是一个做SRE非常重要的原则, 感触颇深)</li>
+<li>报警触发规则是语言, 就容易出现bug, 所以甚至提供了单元测试.</li>
 <li>对于报警的处理（过去做了一段时间告警降噪，主要 focus 在对流量的算法分析，但其实如下合理的告警策略或事件告警聚合，也是另一维度，很有效的告警降噪）:<ol>
-<li>严重紧急的报警发送给当前 oncall 工程师</li>
+<li>严重紧急的报警发送给当前oncall工程师</li>
 <li>重要但不紧急的发给工单</li>
-<li>其他报警显示到 dashboard.</li>
+<li>其他报警显示到dashboard.</li>
 </ol>
 </li>
 </ol>
-<h2 id="Chapter-11-Being-On-Call"><a href="#Chapter-11-Being-On-Call" class="headerlink" title="Chapter 11 - Being On-Call"></a>Chapter 11 - Being On-Call</h2><p>On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的 <strong> 重要责任 (critical duty)</strong>, 但存在<strong> 几个大坑??</strong>, 会在下文中一一道来(如何保持 reliable services and sustainable workload).</p>
+<h2 id="Chapter-11-Being-On-Call"><a href="#Chapter-11-Being-On-Call" class="headerlink" title="Chapter 11 - Being On-Call"></a>Chapter 11 - Being On-Call</h2><p>On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的<strong>重要责任(critical duty)</strong>, 但存在<strong>几个大坑??</strong>, 会在下文中一一道来(如何保持reliable services and sustainable workload).</p>
 <ol>
 <li>&quot;We cap the amount of time SREs spend on purely operational work at 50%; at minimum, 50% of an SRE’s time should be allocated to engineering projects...&quot; - 相对于纯手工的工作，每个 SRE 至少抽出超过一半的时间做平台开发。之前的章节也反复强调过这个原则了。</li>
 <li>计算 oncall 数量和质量的两个公式：&quot;The quantity of on-call can be calculated by the percent of time spent by engineers on on-call duties. The quality of on-call can be calculated by the number of incidents that occur during an on-call shift.&quot;   每个主管都有义务去根据这两个指标，量化并平衡 oncall 的工作。</li>
-<li>&quot;multi-site team&quot;, 好处是不用上夜班了，并且保证每个人都对生产环境保持熟悉感。但于 <strong> 沟通和协作 </strong> 会存在一定的困难（有业务团队在美国，确实会有这个问题，上班时间完美的错过了）。</li>
+<li>&quot;multi-site team&quot;, 好处是不用上夜班了，并且保证每个人都对生产环境保持熟悉感。但于<strong>沟通和协作</strong>会存在一定的困难（有业务团队在美国，确实会有这个问题，上班时间完美的错过了）。</li>
 <li>&quot;Adequate compensation needs to be considered for out-of-hours support.&quot; - 会对应急的同学提供适当的补偿是非常有必要的，例如 Google 会提供调休和金钱上的奖励。</li>
-<li>应急需理性.. 因为 <strong> 直觉往往都是错的</strong>😂，所以要尽量减少应急人员的压力。文中提到了 &quot;Well-defined incident-management procedures&quot;，蚂蚁有个专门的部门叫做 GOC(Global Operation Center)，在应急的时候统一指挥，在这点做的还是挺不错的。但我认为更重要并有一定争议的一个原则叫做: &quot;A blameless postmortem culture&quot; &#x2F; &quot;focusing on events rather than the people&quot;.</li>
+<li>应急需理性.. 因为<strong>直觉往往都是错的</strong>😂，所以要尽量减少应急人员的压力。文中提到了&quot;Well-defined incident-management procedures&quot;，蚂蚁有个专门的部门叫做 GOC(Global Operation Center)，在应急的时候统一指挥，在这点做的还是挺不错的。但我认为更重要并有一定争议的一个原则叫做: &quot;A blameless postmortem culture&quot; &#x2F; &quot;focusing on events rather than the people&quot;.</li>
 <li>&quot;Finally, when an incident occurs, it’s important to evaluate what went wrong, recognize what went well, and take action to prevent the same errors from recurring in the future.&quot; - 复盘很重要！</li>
 <li>&quot;Recognizing automation opportunities is one of the best ways to prevent human errors&quot; - 人类总是会犯错的，所以无论什么事，都可以提倡自动化。</li>
 <li>&quot;Operational Overload&quot; - 之前提到每个人的手动运维的工作不能超过 50%，但如果就是没控制过超过了呢？文中提到比如临时抽调一个有经验的 SRE 加入，但最理想的情况下，overload 的情况应该像业务系统一样可以被监控和第一时间发现。但是 overload 的原因是什么呢？一个主要的原因就是 &quot;Misconfigured monitoring&quot;<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15625820798875.jpg"></li>
-<li>&quot;Operational Underload&quot; - 总是说做了过多的 toil, 但如果生产环节如果太 &quot;<strong>安静</strong>&quot; 了（故障发生的频率并不是很高），导致应急人员手生了要怎么办呢？   &quot;Google also has a company-wide annual disaster recovery event called DiRT (Disaster Recovery Training) that...&quot; Google 每年也会有演练，模拟故障。和蚂蚁的红蓝攻防一个意思。</li>
+<li>&quot;Operational Underload&quot; - 总是说做了过多的 toil, 但如果生产环节如果太&quot;<strong>安静</strong>&quot;了（故障发生的频率并不是很高），导致应急人员手生了要怎么办呢？   &quot;Google also has a company-wide annual disaster recovery event called DiRT (Disaster Recovery Training) that...&quot; Google 每年也会有演练，模拟故障。和蚂蚁的红蓝攻防一个意思。</li>
 </ol>
 <h2 id="Chapter-12-Effective-Troubleshooting-20190713"><a href="#Chapter-12-Effective-Troubleshooting-20190713" class="headerlink" title="Chapter 12 - Effective Troubleshooting(20190713)"></a>Chapter 12 - Effective Troubleshooting(20190713)</h2><p>&quot;However, we believe that troubleshooting is both learnable and teachable.&quot; - 有个比喻好形象，传授如何排查线上问题就像如何教别人骑车一样，只可意会不可言传～ </p>
 <ol>
@@ -495,7 +495,7 @@
 <li>&quot;Ask &quot;what,&quot; &quot;where,&quot; and &quot;why&quot;&quot; - 排查的时候，想清楚这几个问题，下次我也试试。</li>
 <li>&quot;What touched it last&quot; - 系统运行的好好的，为啥会出问题，肯定是引入了某些变更。现实中，绝大部分的故障是由于变更导致的。</li>
 <li>&quot;Case Study&quot; - 举了一个真实的故障 case, 描述的还挺引人入胜的，感兴趣的可以看一下。</li>
-<li>&quot;Application’s latency, showing 50th, 95th, and 99th percentiles&quot; - 耗时的监控，<strong>99th percentiles</strong> 代表，假如整体样本如果有 100 个，排在第 99 的那个数值。还是挺有启发的，因为平均值很多时候会误导人。<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15630074932574.jpg"></li>
+<li>&quot;Application’s latency, showing 50th, 95th, and 99th percentiles&quot; - 耗时的监控，<strong>99th percentiles</strong> 代表，假如整体样本如果有100个，排在第99的那个数值。还是挺有启发的，因为平均值很多时候会误导人。<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15630074932574.jpg"></li>
 </ol>
 <h2 id="Chapter-13-Emergency-Response-20190718"><a href="#Chapter-13-Emergency-Response-20190718" class="headerlink" title="Chapter 13 - Emergency Response(20190718)"></a>Chapter 13 - Emergency Response(20190718)</h2><p>这一章举了很多实际的例子, 来说明如何应急。</p>
 <ol>
@@ -504,7 +504,7 @@
 <h2 id="Chapter-14-Managing-Incidents-20190728"><a href="#Chapter-14-Managing-Incidents-20190728" class="headerlink" title="Chapter 14 - Managing Incidents(20190728)"></a>Chapter 14 - Managing Incidents(20190728)</h2><p>公司有一个专门的组织叫做 GOC(Global Operation Center), 专门负责应急的调度和故障生命周期管理，不知道 Google 是怎么做的 🤔</p>
 <ol>
 <li>举了一个故障应急的反例，然后列出了不足与应该遵守的一些原则：<ul>
-<li>Recursive Separation of Responsibilities: 应及时 <strong> 分工分层需明确</strong>，又可以细分为一下几个角色：<ul>
+<li>Recursive Separation of Responsibilities: 应及时<strong>分工分层需明确</strong>，又可以细分为一下几个角色：<ul>
 <li>Incident Commander: 让我想到了公司的「值班长」</li>
 <li>Operational Work</li>
 <li>Communication: 这个角色有点像公司的 GOC</li>
@@ -529,12 +529,12 @@
 </li>
 <li><strong>写复盘不应该是一种负担或者惩罚，而是应该被当作一次珍贵的学习机会。</strong> 即使 tradeoff 是会消耗一些工作时间。</li>
 <li>写复盘还有一个重要的原则是之前提到好多次的 blame free. 在公司参加过几次复盘，真的会变成甩锅大会（每个故障需要定责）... 简单说是浪费时间，但真正可怕的问题是有些被事实隐瞒了：&quot;people will not bring issues to light for fear of punishment.&quot;</li>
-<li>Google 的复盘模版：<a href="https://landing.google.com/sre/sre-book/chapters/postmortem/">链接 </a>，从模版排版上可以看到，最重要的是 Root Cause &amp; Actions，接着是 Lessons learned，最后是 整体的 Timeline.<br> 文档是维护在 Google docs 上的，好处是可以支持多人实时编辑 (上学的时间经常用，体验真的很棒. 貌似 yuque 也在做这方面的努力，希望可以早日像 Google docs 一样顺滑)。但更加重要的是<strong> 分享</strong>，尽可能越大范围的传播，每个读者都可以在上面评论与注释（这点公司因为权限的关系，感觉有点差异：&quot;Our goal is to share postmortems to the widest possible audience that would benefit from the knowledge or lessons imparted.&quot;）。    </li>
-<li>&quot;Introducing a Postmortem Culture&quot;：复盘应该是深入 SRE 血液的一种文化，而其中很重要的一点是 <strong> 协作 </strong> 和<strong>分享</strong>，例如可以尝试：<ul>
+<li>Google 的复盘模版：<a href="https://landing.google.com/sre/sre-book/chapters/postmortem/">链接</a>，从模版排版上可以看到，最重要的是 Root Cause &amp; Actions，接着是 Lessons learned，最后是 整体的 Timeline.<br>文档是维护在 Google docs 上的，好处是可以支持多人实时编辑(上学的时间经常用，体验真的很棒.貌似yuque也在做这方面的努力，希望可以早日像 Google docs 一样顺滑)。但更加重要的是<strong>分享</strong>，尽可能越大范围的传播，每个读者都可以在上面评论与注释（这点公司因为权限的关系，感觉有点差异：&quot;Our goal is to share postmortems to the widest possible audience that would benefit from the knowledge or lessons imparted.&quot;）。    </li>
+<li>&quot;Introducing a Postmortem Culture&quot;：复盘应该是深入 SRE 血液的一种文化，而其中很重要的一点是<strong>协作</strong>和<strong>分享</strong>，例如可以尝试：<ul>
 <li>每月复盘集锦</li>
 <li>线上复盘讨论小组</li>
 <li>线下复盘学习俱乐部(reading club)</li>
-<li>故障重演 &#x2F; 演练(Wheel of Misfortune)：真实重现故障，并让新人扮演当时对应的各个角色。</li>
+<li>故障重演&#x2F;演练(Wheel of Misfortune)：真实重现故障，并让新人扮演当时对应的各个角色。</li>
 </ul>
 </li>
 <li>介绍了两个最佳实践：<ul>
@@ -544,12 +544,12 @@
 </li>
 <li>总结：<ul>
 <li>感谢复盘的文化，让 Google 不断减少故障，并带来更好的用户体验。</li>
-<li>但有个虚拟复盘小组发挥了很大的作用，例如统一了各个产品 (YouTube, Google Fiber, Gmail, Google Cloud, AdWords, and Google Maps) 的复盘文档模版，并支持应急中使用的工具，实现模版生成自动化，并可以抓取复盘的数据做趋势分析，等等。这不就是 GOC 嘛</li>
+<li>但有个虚拟复盘小组发挥了很大的作用，例如统一了各个产品(YouTube, Google Fiber, Gmail, Google Cloud, AdWords, and Google Maps)的复盘文档模版，并支持应急中使用的工具，实现模版生成自动化，并可以抓取复盘的数据做趋势分析，等等。这不就是 GOC 嘛</li>
 <li>积累这么多复盘文档后，如何挖掘这个宝库也是个很有价值的课题。目前可以做到自动聚类相似的文档，并且在未来会使用机器学习去根据复盘的知识库预测可能的缺陷和风险点，并实时分析事件，识别相同的故障并防止重复处理。</li>
 </ul>
 </li>
 </ol>
-<h2 id="Chapter-16-Tracking-Outages"><a href="#Chapter-16-Tracking-Outages" class="headerlink" title="Chapter 16 - Tracking Outages"></a>Chapter 16 - Tracking Outages</h2><p>如果量化都做不到，何谈改进呢？稳定性也是一个道理。记得去年面试的时候，问了面试官，如何量化稳定性呢？对方笑了一下，说你听说过四个 9 或者 5 个 9 嘛？</p>
+<h2 id="Chapter-16-Tracking-Outages"><a href="#Chapter-16-Tracking-Outages" class="headerlink" title="Chapter 16 - Tracking Outages"></a>Chapter 16 - Tracking Outages</h2><p>如果量化都做不到，何谈改进呢？稳定性也是一个道理。记得去年面试的时候，问了面试官，如何量化稳定性呢？对方笑了一下，说你听说过四个9或者5个9嘛？</p>
 <p>&quot;&#39;Outalator&#39;, our outage tracker, is one of the tools we use to do just that. Outalator is a system that passively receives all alerts sent by our monitoring systems and allows us to annotate, group, and analyze this data.&quot; - 和公司的故障管理系统的区别点在于，对于数据的接受和处理🤔。</p>
 <ol>
 <li>复盘的局限性：对于很多小范围不严重的问题，无法覆盖。</li>
@@ -557,7 +557,7 @@
 <li>有个系统叫做 Escalator, 如果有些告警长时间没人阅读或处理，将会被降级，例如告警等级从 primary 变为 secondary(<strong>很不错的想法</strong>). </li>
 <li>&quot;it is worthwhile to attempt to minimize the number of alerts triggered by a single event,&quot; - 告警横向聚合为事件，也是一种关键的降噪方式。</li>
 <li>&quot;Historical data is useful&quot; - 文中更多的指的是数据的统计，例如每个月的故障数，各个故障的告警数，或是哪个服务或基础设施贡献了最多的故障，需要持续关注和改进。我们之前也有类似的想法，把所有故障和事件沉淀为知识库，抽象出一些特征值出来，例如监控（告警），订阅人，等等。相当于一个<strong>「故障切片」</strong>，当一个新的故障来的时候就可以快速匹配并给出最可疑的根因。</li>
-<li>&quot;the Outalator also supports a &quot;report mode,&quot; in which the important annotations are expanded inline with the main list in order to provide a quick overview of lowlights.&quot; - 这个和业务同学也聊过。。。尝试将对应告警聚合和事件关联起来，使用 tag 管理，最终调用在线文档 api, 自动生成对应业务的 <strong> 每周高可用报告</strong>。</li>
+<li>&quot;the Outalator also supports a &quot;report mode,&quot; in which the important annotations are expanded inline with the main list in order to provide a quick overview of lowlights.&quot; - 这个和业务同学也聊过。。。尝试将对应告警聚合和事件关联起来，使用 tag 管理，最终调用在线文档 api, 自动生成对应业务的<strong>每周高可用报告</strong>。</li>
 <li>...</li>
 </ol>
 <h2 id="Chapter-17-Testing-for-Reliability"><a href="#Chapter-17-Testing-for-Reliability" class="headerlink" title="Chapter 17 - Testing for Reliability"></a>Chapter 17 - Testing for Reliability</h2><ol>
@@ -566,7 +566,7 @@
 <li>smoking test: 冒烟测试，来源原来是电路测试中，如果通电后没有冒烟，表示一切正常可以继续。</li>
 <li>Stress test: 大促压测</li>
 <li>Canary test: 灰度环境测试，原来来源把一只金丝雀🐦放到煤矿中做测试，防止人直接吸入有毒气体。但值得注意的是灰度环境并不完美，无法检测出所有的潜在风险。</li>
-<li>（... 看的头晕，不是很感兴趣，先跳过了）</li>
+<li>（...看的头晕，不是很感兴趣，先跳过了）</li>
 </ol>
 <h2 id="Chapter-18-Software-Engineering-in-SRE"><a href="#Chapter-18-Software-Engineering-in-SRE" class="headerlink" title="Chapter 18 - Software Engineering in SRE"></a>Chapter 18 - Software Engineering in SRE</h2><p>&quot;Overall, these SRE-developed tools are full-fledged software engineering projects, distinct from one-off solutions and quick hacks&quot; - 自己也亲身经历过一个很大的矛盾点：SRE 的职责是负责整个公司线上的稳定性，但可笑或者无奈的是，往往对于自己开发的工具或产品，无法保证高可用。这时突然想起《进化》中的一句话：“运维能力是整体技术架构能力的体现，运维层面爆发的问题或故障一定是整体技术架构中存在问题，割裂两者，单纯地看技术架构或运维都是毫无意义的”。</p>
 <ol>
@@ -599,18 +599,18 @@
 <li>&quot;A Subset Selection Algorithm&quot; - 这部分有点复杂没太看懂，个人理解就是不同 Subset size 情况下(客户端)，如何处理后端机器资源整体利用率与每台机器负载平衡的 tradeoff. </li>
 <li>常见的负载均衡策略：<ol>
 <li>Simple Round Robin: 大学里学的滚瓜烂熟，莫名的有一份亲切感。。这个算法简单且有效，但在现实复杂的场景下存在一定弊端，因为不同请求消耗的资源以及不同物理机可以提供的资源的存在巨大差异(varying query cost and machine diversity)：例如上一章说到的 Google 搜索与 YouTube 加载视频的请求的差异；以及不同物理机 A 型号的 CPU 可能比 B 型号的 CPU 快两倍。如果你的负载均衡策略无法动态的处理各种无法预测的“变量”，那最终会导致后端机器负载极不均衡。接下来介绍 Least-Loaded Round Robin 与 Weighted Round Robin 两种算法，看看是如何解决上面的缺陷的🤔</li>
-<li>Least-Loaded Round Robin: 每个客户端各自记录，所以对应的后端任务的 <strong> 活跃连接数 </strong>，每次选择连接数最小的那些后端任务进行轮询。但这个地方有几个坑，一是如果请求失败的话，例如 500 502 等是会立即返回的（在之前 99 分监控中也有一定涉及）并造成很大的干扰，其实也暴露出一个本质的问题：<strong> 活跃的连接数并不等同于负载</strong>。还有就是客户端视角的活跃链接数并不能代表这个后端任务全部的活跃连接数。所以在实践中发现，这种负载均衡策略与 Simple Round Robin 效果一样差。</li>
+<li>Least-Loaded Round Robin: 每个客户端各自记录，所以对应的后端任务的<strong>活跃连接数</strong>，每次选择连接数最小的那些后端任务进行轮询。但这个地方有几个坑，一是如果请求失败的话，例如 500 502 等是会立即返回的（在之前 99 分监控中也有一定涉及）并造成很大的干扰，其实也暴露出一个本质的问题：<strong>活跃的连接数并不等同于负载</strong>。还有就是客户端视角的活跃链接数并不能代表这个后端任务全部的活跃连接数。所以在实践中发现，这种负载均衡策略与 Simple Round Robin 效果一样差。</li>
 <li>Weighted Round Robin: 这个算法在负载均衡决策的时候，不再是无状态并不感知后端，而是需要后端提供一些自身的信息：每个机器给自己的容量实时自评(capability score)，然后客户端定时的去选择最优的 backend task 处理请求。从下图可以看到，切换为这种算法以后，不同机器 load 的差异明显变小了，还是挺震撼的：<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15763967669904.jpg"></li>
 </ol>
 </li>
 </ol>
 <h2 id="Chapter-21-Handling-Overload"><a href="#Chapter-21-Handling-Overload" class="headerlink" title="Chapter 21 - Handling Overload"></a>Chapter 21 - Handling Overload</h2><p>不管负载均衡设计算法的多好，总不可避免会出现 overload 的情况（例如秒杀或者双十一的情况），优雅的解决这个问题是保证服务如丝般润滑的基石。</p>
 <ol>
-<li>One option for handling overload is to serve degraded responses - 一个选项就是对服务进行「降级」，例如依赖本地缓存返回结果，牺牲实时性来提升性能。但极端情况下，甚至连 degraded responses 都无法被返回，这时候的策略就是「限流」：对部分请求直接返回异常，来限制 idc 接收流量不超过它的上限。例如一个 idc 内有 100 个后端任务，而每个后端任务最高可以处理的 QPS 是 500，那整个 datacenter 就需要限流 50,000 QPS，真的那么简单吗？</li>
+<li>One option for handling overload is to serve degraded responses - 一个选项就是对服务进行「降级」，例如依赖本地缓存返回结果，牺牲实时性来提升性能。但极端情况下，甚至连 degraded responses 都无法被返回，这时候的策略就是「限流」：对部分请求直接返回异常，来限制 idc 接收流量不超过它的上限。例如一个 idc 内有 100 个后端任务，而每个后端任务最高可以处理的 QPS 是500，那整个 datacenter 就需要限流 50,000 QPS，真的那么简单吗？</li>
 <li>The Pitfalls of &quot;Queries per Second&quot; - QPS 的陷阱🤔，我也想到了，毕竟上面提到过两遍了：Different queries can have vastly different resource requirements. 不管以什么静态的资源建模，总是不靠谱的，那怎么办呢？很类似上一章的 Weighted Round Robin，更加科学的做法是直接根据后端自身的实时可用的容量来决策：A better solution is to measure capacity directly in available resources.</li>
 <li>限流又分为以下两种种：<ol>
 <li>Per-Customer Limits: 在用户维度进行限流，例如 Gmail 每个用户最多只能消耗 4,000 CPU seconds per second. 但怎么实时计算每个用户当前消耗的资源呢？</li>
-<li>Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略 (adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15763998341470.jpg"> 正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔</li>
+<li>Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15763998341470.jpg">正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔</li>
 </ol>
 </li>
 <li>Criticality - 每个请求可以被分为四种，很酷的想法呀，<ul>
@@ -621,7 +621,7 @@
 </ul>
 </li>
 <li>We found that four values were sufficiently robust to model almost every service. - 刚在想只有这四个属性是不是不太够用。。文中也提高曾多次讨论要不要在上面四种属性之间增加更细的类别，但假如增加后会带来大量的维护的成本，并使得决策的系统变得过于复杂。</li>
-<li>A well-behaved backend, supported by robust load balancing policies, should accept only the requests that it can process and reject the rest gracefully. - 总结：一个 robust 的负载均衡系统，在瞬间流量激增的时候，都应该可以高质量的处理预期内的请求，并 <strong> 自动并优雅 </strong> 抛弃无法处理的请求。我们有个常见的误解一样，直觉认为机器过载了 hang 住了就是先把它下线呗，但理论上后端任务不应该在流量超过一定阈值的时候就完全崩溃（当然这里阈值也不能太极端了，例如超过正常的容量的 10 倍..）。</li>
+<li>A well-behaved backend, supported by robust load balancing policies, should accept only the requests that it can process and reject the rest gracefully. - 总结：一个 robust 的负载均衡系统，在瞬间流量激增的时候，都应该可以高质量的处理预期内的请求，并<strong>自动并优雅</strong>抛弃无法处理的请求。我们有个常见的误解一样，直觉认为机器过载了 hang 住了就是先把它下线呗，但理论上后端任务不应该在流量超过一定阈值的时候就完全崩溃（当然这里阈值也不能太极端了，例如超过正常的容量的 10 倍..）。</li>
 </ol>
 <h2 id="Chapter-22-Addressing-Cascading-Failures"><a href="#Chapter-22-Addressing-Cascading-Failures" class="headerlink" title="Chapter 22 - Addressing Cascading Failures"></a>Chapter 22 - Addressing Cascading Failures</h2><p>什么是 Cascading Failures 呢？举个例子，一个容器因为 load 过高挂掉之后，直接导致该集群剩余容器负载增加，最终形成多米诺骨牌效应：该服务所有实例 hang 住。这章就会讲如何解决这个问题。</p>
 <ol>
@@ -659,7 +659,7 @@
 <li>&quot; BASE (Basically Available, Soft state, and Eventual consistency)&quot; - 在 ACID 上对分布式存储提出一套理论。</li>
 <li>&quot;eventual consistency.&quot; - 一般根据 timestamp 选择最新的数据来实现最终一致性，当然也会存在很多问题，例如时钟偏离等。</li>
 <li>&quot;Paxos Overview&quot; - 大名鼎鼎的 Paxos 协议，浅显的理解一下。。第一阶段 proposer 发起投票（每一轮都严格对应一个 sequence number），如果大部分 acceptor 都同意这个决策，则进入第二阶段尝试让它们提交执行（并保存对应的状态）。但 proposer 是怎么选出来的呢？</li>
-<li>（... 略...）</li>
+<li>（...略...）</li>
 <li>&quot;It should be noted that adding a replica in a majority quorum system can potentially decrease system availability&quot; - 经常听到的一个词叫做三地五副本，文中也提到推荐推荐五副本的模式（<strong>增加一个副本也就是六副本可能反而会影响系统的可用性</strong>）。如果五副本中两个副本挂了，系统还可以正常工作（剩余的三副本形成多数派），也就是容忍 40% unavailable. 而在六副本的情况下，需要四个副本正常工作才能维持系统正常运行，也就是只能容忍 33% 的 unavailable.</li>
 <li>&quot;Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica.&quot; - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要左右三节点，任意一边能正常响应即可达成一致性。<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15778678971943.jpg"></li>
 <li>&quot;We deliberately avoided an in-depth discussion about specific algorithms, protocols, or implementations in this chapter.&quot; - 汗。。分布式真的是太复杂了，这章只看懂了 10%。结尾这段话，感觉自己被鄙视了：&quot;If you remember nothing else from this chapter, keep in mind the sorts of problems that distributed consensus can be used to solve, and the types of problems that can arise when ad hoc methods such as heartbeats are used instead of distributed consensus.&quot;</li>
@@ -669,7 +669,7 @@
 <ol>
 <li>linux 自带的 cron 的高可用问题：1) 单点 2）无状态，例如机器重启过程中被漏掉的任务不会重新发起。</li>
 <li>&quot;Cron jobs are designed to perform periodic work, but beyond that, it is hard to know in advance what function they have. &quot; - 一个问题是用户设置的任务对于定时调度系统是是完全无感知的，例如日志清理或垃圾回收任务，可以容忍偶尔忽略执行，或者重复执行多次，但其他任务可能是百分百无法容忍的。但是一般来说，漏了一次比重复执行来的好 😂，不难理解漏发了邮件通知，总比发了两次容易补救。</li>
-<li>&quot;In its &quot;regular&quot; implementations, cron is limited to a single machine. Large-scale system deployments extend our cron solution to multiple machines.&quot; - 为了解决 linux 自带 cron 的单点问题，要将 cron 做成分布式到多台机器上。个人理解就是两个解耦：1）物理机器和服务的解耦，运行一个服务就像向「整个机房」发一个指令，底层自身保障高可用 2）状态和服务的解耦，由分布式文件系统 (GFS) 来保持状态，就算服务被迫迁移机器，也不会有影响。</li>
+<li>&quot;In its &quot;regular&quot; implementations, cron is limited to a single machine. Large-scale system deployments extend our cron solution to multiple machines.&quot; - 为了解决 linux 自带 cron 的单点问题，要将 cron 做成分布式到多台机器上。个人理解就是两个解耦：1）物理机器和服务的解耦，运行一个服务就像向「整个机房」发一个指令，底层自身保障高可用 2）状态和服务的解耦，由分布式文件系统(GFS)来保持状态，就算服务被迫迁移机器，也不会有影响。</li>
 <li>&quot;Tracking the State of Cron Jobs&quot; - 这个地方有两个选项：1) 分布式文件系统 2) 系统内部    但经过深思熟虑后，最终的决策是第二个，但刚刚不还是说放到 GFS 里吗。。原因一是 GFS 一般都是放大文件，不适合这类小型的写操作，延迟比较高。二是定时任务这类重要的服务，要存在尽可能少的依赖。</li>
 <li>&quot;We deploy multiple replicas of the cron service and use the Paxos distributed consensus algorithm to ensure they have consistent state.&quot; - 用了 Paxos 协议来保证一致性和系统高可用（一个 leader 多个 followers 的模式，故障时多数派选举 leader 自动切换）。</li>
 <li>&quot;Beware the large and well-known problem of distributed systems: the thundering herd.&quot; - 这个真的是学到了，例如大部分人配置每日执行的定时任务都会设置在凌晨零点执行：<code>0 0 * * *</code>。理论上没有问题，但在大型系统中如果大量的任务在那个时间点同时触发，可能会瞬间原地爆炸，有个术语叫做 <a href="https://en.wikipedia.org/wiki/Thundering_herd_problem">thundering herd</a>，所以在 crontab 中引入了问号 <code>?</code>，例如针对每日任务，代表可以在一天中任意一个时间点执行：<code>0 ? * * *</code>，来降低某些时间点的负载。</li>
@@ -678,9 +678,9 @@
 <h2 id="Chapter-26-Data-Integrity-What-You-Read-Is-What-You-Wrote"><a href="#Chapter-26-Data-Integrity-What-You-Read-Is-What-You-Wrote" class="headerlink" title="Chapter 26 - Data Integrity: What You Read Is What You Wrote"></a>Chapter 26 - Data Integrity: What You Read Is What You Wrote</h2><p>尝试从数据完整性（Data Integrity）的角度，看我们的资金安全，会不会有一些启发？但貌似是完全不同的两个东西。</p>
 <ol>
 <li>&quot;Now, suppose an artifact were corrupted or lost exactly once a year. If the loss were unrecoverable, uptime of the affected artifact is lost for that year.&quot; - 像之前章节说的，我们通常用几个 9 来衡量服务的高可用能力，但对于数据完整性来说有些不同：假设某个用户有一份数据意外丢失并无法恢复时，对于该用户可用性就直接跌零了。 </li>
-<li>&quot;the secret to superior data integrity is proactive detection and rapid repair and recovery.&quot; - 对于保障数据完整性最好的办法就是提早 <strong> 主动发现 </strong> &amp; <strong> 恢复</strong> </li>
-<li>&quot;No one really wants to make backups; what people really want are restores.&quot; - 说到恢复，有一句话说的好：没有人真的在意那些备份，而是在乎出故障时是否可以将数据及时恢复。&quot;When does a light bulb break? When flicking the switch fails to turn on the light? Not always—often the bulb had already failed, and you simply notice the failure at the unresponsive flick of the switch.&quot; - 针对恢复的重要性在下面引申出另一个非常关键的问题，如何保证数据恢复的有效性？因为即使刚刚成功实施了数据恢复，也无法保证下一次就可以成功，所以需要对整个流程设计 <strong> 自动化 </strong> 的<strong>端到端 </strong> 测试，在灯泡故障时就立即告警，而不是在真正要用的时候才发现坏了。。</li>
-<li>&quot;Combinations of Data Integrity Failure Modes&quot; - 下面这张图还挺有意思的，从数据的生命周期看防止数据丢失的三道防线：1）Soft Deletion：保护用户侧的误删除，可以在回收站中直接恢复。2）Backups and Their Related Recovery Methods：热备份：保留一到两天的数据，可以联系管理员协助恢复。冷备份：3-6 个月保存长期的数据，防止有些 bug 数月以后才发现并需要恢复的场景。3）Early Detection：越早发现，数据越容易恢复也越完整。<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15788191260036.jpg"></li>
+<li>&quot;the secret to superior data integrity is proactive detection and rapid repair and recovery.&quot; - 对于保障数据完整性最好的办法就是提早<strong>主动发现</strong> &amp; <strong>恢复</strong> </li>
+<li>&quot;No one really wants to make backups; what people really want are restores.&quot; - 说到恢复，有一句话说的好：没有人真的在意那些备份，而是在乎出故障时是否可以将数据及时恢复。&quot;When does a light bulb break? When flicking the switch fails to turn on the light? Not always—often the bulb had already failed, and you simply notice the failure at the unresponsive flick of the switch.&quot; - 针对恢复的重要性在下面引申出另一个非常关键的问题，如何保证数据恢复的有效性？因为即使刚刚成功实施了数据恢复，也无法保证下一次就可以成功，所以需要对整个流程设计<strong>自动化</strong>的<strong>端到端</strong>测试，在灯泡故障时就立即告警，而不是在真正要用的时候才发现坏了。。</li>
+<li>&quot;Combinations of Data Integrity Failure Modes&quot; - 下面这张图还挺有意思的，从数据的生命周期看防止数据丢失的三道防线：1）Soft Deletion：保护用户侧的误删除，可以在回收站中直接恢复。2）Backups and Their Related Recovery Methods：热备份：保留一到两天的数据，可以联系管理员协助恢复。冷备份：3-6个月保存长期的数据，防止有些 bug 数月以后才发现并需要恢复的场景。3）Early Detection：越早发现，数据越容易恢复也越完整。<img src="/images/loading/loading.svg" data-original="/images/blog/180403_google_sre/15788191260036.jpg"></li>
 <li>总结：<ol>
 <li>目标（数据快速恢复）比过程（数据备份）重要的多。</li>
 <li>线上系统任意一个部分都有可能出错，所以必须找出所有维度的可能性进行排列组合，利用测试 100% 覆盖，并不断自动化回归，才能保障我们每天睡个好觉。</li>
@@ -705,7 +705,7 @@
 <li>Adaptable: 适用性，对各种各样的发布类型都能做到兼容</li>
 </ul>
 </li>
-<li>&quot;As you can see, some of these requirements are in obvious conflict&quot; - 挺有意思的，针对上面的几个原则，文中提到存在 <strong> 明显的矛盾</strong>，例如无法同时做到 lightweight and thorough. 为了解决这些问题，又搞出了几个策略：Simplicity &#x2F; A high touch approach &#x2F; Fast common paths. 总结一下就是针对通用的部分尽可能的进行抽象复用，例如在一个新的国家上线产品的流程，同时留口子供经验丰富的工程师自己去定制发布流程。</li>
+<li>&quot;As you can see, some of these requirements are in obvious conflict&quot; - 挺有意思的，针对上面的几个原则，文中提到存在<strong>明显的矛盾</strong>，例如无法同时做到 lightweight and thorough. 为了解决这些问题，又搞出了几个策略：Simplicity &#x2F; A high touch approach &#x2F; Fast common paths. 总结一下就是针对通用的部分尽可能的进行抽象复用，例如在一个新的国家上线产品的流程，同时留口子供经验丰富的工程师自己去定制发布流程。</li>
 <li>&quot;In a large organization, engineers may not be aware of available infrastructure for common tasks (such as rate limiting).&quot; - 在大公司中因为信息不对称，经常出现重复造轮子的情况，例如限流功能等等。而在 google 几乎所有的团队都是使用的一个的发布流程，<strong>所以可以利用发布 checklist 这个卡点，促使大家遵循使用经过历史考验的标准组件，避免重复造轮子</strong>。   其实这个 checklist 在蚂蚁对应了系分（系统分析），技风（技术风险系分）和发布计划等，思路都是类似的。</li>
 <li>&quot;Developing a Launch Checklist&quot; - <strong>checklist 简单却有效</strong>，起草新产品的一份 checklist 都需要包含的内容如下（但如何保证用户认真确认并遵守呢？我们公司的发布平台也有类似的机制，但说实话我都没仔细看过，每次都是直接跳过）：<ul>
 <li>Architecture and Dependencies - 上下游依赖：例如分析从用户到最终的后端机器的请求流</li>
@@ -713,7 +713,7 @@
 <li>Capacity Planning - 容量评估，会不会有活动？上线后的峰值和增产趋势？</li>
 <li>Failure Modes - 例如是否有单点的设计等等</li>
 <li>Client Behavior - 客户端侧的检查，例如某个链接对于用户的点击上限等</li>
-<li>Processes and Automation - 虽然提倡 DRY, 但自动化不是完美的，例如流程的推动等还是需要人工操作。为了防止 <strong> 人的单点问题</strong>，需要文档化。这样才能在紧急情况下继续运转。</li>
+<li>Processes and Automation - 虽然提倡 DRY, 但自动化不是完美的，例如流程的推动等还是需要人工操作。为了防止<strong>人的单点问题</strong>，需要文档化。这样才能在紧急情况下继续运转。</li>
 <li>Development Process - 检查所有的代码和配置都有版本控制</li>
 <li>External Dependencies - 第三方依赖梳理</li>
 <li>Rollout Planning - 一次复杂的发布通常耗费很长的时间，而 PR 部门有一些变态的需求，例如在某页 ppt 的时候，发布某个新功能😂 针对这些发布中的风险点，需要提前好预案，例如准备 backup slide 来防止意外。</li>
@@ -725,8 +725,8 @@
 <li>Feature Flag Frameworks: 针对某些小的特性，可以实现对用户的投放，优雅的从 0% -&gt; 100%</li>
 </ul>
 </li>
-<li>&quot;Evolution of the LCE Checklist&quot; - 随着公司的不断发展，线上环境日益复杂，checklist 也越来越繁重，LCE 也做了一系列努力让发布变得更轻量。其中一个手段就是对 <strong> 不同发布的风险进行分级</strong>，例如低风险的发布，只要通过简单的 checklist 即可发布，大约占到 30% 左右。</li>
-<li>&quot;Problems LCE Didn’t Solve&quot; - 文中提到也有一些 <strong> 尚未解决的问题</strong>：<ul>
+<li>&quot;Evolution of the LCE Checklist&quot; - 随着公司的不断发展，线上环境日益复杂，checklist 也越来越繁重，LCE 也做了一系列努力让发布变得更轻量。其中一个手段就是对<strong>不同发布的风险进行分级</strong>，例如低风险的发布，只要通过简单的 checklist 即可发布，大约占到 30% 左右。</li>
+<li>&quot;Problems LCE Didn’t Solve&quot; - 文中提到也有一些<strong>尚未解决的问题</strong>：<ul>
 <li>Scalability changes: 例如某个产品大卖，流量剧增，在不断开发新特性的同时，原先的架构已经变得非常复杂并难以维护。这时候只能重构了，但对应的迁移成本是巨大的，也会对新功能的迭代造成负面的影响。</li>
 <li>Growing operational load: 新功能发布后，后续的维护工作会变得越来越多，甚至包括那些自动化 pipeline 结束后的邮件通知 XD，会占据 sre 日常工作的越来越多时间。</li>
 <li>Infrastructure churn: 意思是说基础设施的变更，需要上层应用 owner 花精力去配合修改依赖或配置文件等等。所以要尽可能提供自动化的工具。</li>
@@ -765,7 +765,7 @@
 <li>Training -&gt; <strong>Onboarding</strong> -&gt; Continuous Improvement</li>
 </ol>
 </li>
-<li>&quot;Early Engagement&quot; - 上面模型的进化，顾名思义，在 <strong> 开发的生命周期的初期就开始让 sre 融入其中</strong>。最终的目标都是一致的，可以更好的接管线上。好处见第一条就不重复了，但需要识别有价值的重要项目的眼光。</li>
+<li>&quot;Early Engagement&quot; - 上面模型的进化，顾名思义，在<strong>开发的生命周期的初期就开始让 sre 融入其中</strong>。最终的目标都是一致的，可以更好的接管线上。好处见第一条就不重复了，但需要识别有价值的重要项目的眼光。</li>
 <li>&quot;Toward a Structural Solution: Frameworks&quot; - 随着业务的发展，如果持续使用上一条的模式，SRE 永远都是不够用的，需要不断的向以下几个原则靠齐：<ul>
 <li>Codified best practices: 将最佳实践代码化，实现不断的沉淀和复用</li>
 <li>A common production platform with a common control surface: 拒绝非标，幸福你我他</li>
@@ -773,7 +773,7 @@
 </ul>
 </li>
 <li>&quot;The original SRE engagement model presented only two options: either full SRE support, or approximately no SRE engagement.&quot; - 如果你想得到 sre 的线上支援，就必须 follow sre 设计的框架和一系列标准。这样让研发只需要专注于业务逻辑的开发，减少 SRE 工作量的同时，保障了线上稳定性。</li>
-<li>Simple PRR Model &#x2F; Early Engagement &#x2F; Frameworks for production services：三种模式不断演进进化而来，也是同时共存的关系。但最后一种 Frameworks 的模式，就是将 <strong> 最佳实践代码化标准化</strong>，才能最大化发挥 SRE 自身的价值，不断提高线上环境的质量。</li>
+<li>Simple PRR Model &#x2F; Early Engagement &#x2F; Frameworks for production services：三种模式不断演进进化而来，也是同时共存的关系。但最后一种 Frameworks 的模式，就是将<strong>最佳实践代码化标准化</strong>，才能最大化发挥 SRE 自身的价值，不断提高线上环境的质量。</li>
 </ol>
 <h1 id="Part-V-Conclusions"><a href="#Part-V-Conclusions" class="headerlink" title="Part V. Conclusions"></a>Part V. Conclusions</h1><p>进入最后两章，将 SRE 与其他重视稳定性的行业相比较，个人感觉确实会存在大量的相似之处。</p>
 <h2 id="Chapter-33-Lessons-Learned-from-Other-Industries"><a href="#Chapter-33-Lessons-Learned-from-Other-Industries" class="headerlink" title="Chapter 33 - Lessons Learned from Other Industries"></a>Chapter 33 - Lessons Learned from Other Industries</h2><p>其他行业例如民航公司，是如何保障稳定性的呢？毕竟如果网页宕机了只是影响用户体验造成舆论危机，但假设波音 737 出了问题，那可是几百条人命。本章总结了一些最佳和最差实践。</p>
@@ -781,14 +781,14 @@
 <li>员工的背景都挺有趣的，有国防部任职的，救生员，激光手术（视网膜）软件设计，核电行业的安全顾问，核潜艇工程师等等，这些行业对可靠性都有着极高的要求。</li>
 <li>从下面四个关键点看可靠性：<ol>
 <li>&quot;Preparedness and Disaster Testing&quot; - 又引用了这句话，Hope is not a strategy. 就像同事经常说的，做稳定性就看我们想的多不多，准备了多少对故障进行预防，并不断的通过演练去验证。<ul>
-<li>&quot;Relentless Organizational Focus on Safety&quot; - 从组织层面对线上安全进行重视，引用 CTO 鲁肃大大的最近的一句话：无论走到哪里，对技术团队来说，最重要的永远是稳定性，技术团队有很多坚持的原则，但是 <strong> 稳定压倒一切是第一原则</strong>。</li>
+<li>&quot;Relentless Organizational Focus on Safety&quot; - 从组织层面对线上安全进行重视，引用 CTO 鲁肃大大的最近的一句话：无论走到哪里，对技术团队来说，最重要的永远是稳定性，技术团队有很多坚持的原则，但是<strong>稳定压倒一切是第一原则</strong>。</li>
 <li>&quot;Attention to Detail&quot; - 例如在核电潜艇行业，对添加润滑剂这个微小细节的忽视，都会造成非常严重的后果。</li>
 <li>&quot;Swing Capacity&quot; - 在通信行业，流量是很难预估的，所以要做到动态可伸缩。</li>
-<li>&quot;Simulations and Live Drills&quot; - 各个行业都需要线上的演练来保证人员的熟练度，就像蚂蚁的红蓝攻防，甚至提到游泳馆的救生员，也会有人 <strong> 故意落水来对他进行考核和训练</strong>，类似于餐饮业的神秘顾客 ：）</li>
+<li>&quot;Simulations and Live Drills&quot; - 各个行业都需要线上的演练来保证人员的熟练度，就像蚂蚁的红蓝攻防，甚至提到游泳馆的救生员，也会有人<strong>故意落水来对他进行考核和训练</strong>，类似于餐饮业的神秘顾客 ：）</li>
 <li>&quot;Defense in Depth and Breadth&quot; - 纵深防御，文中提到核电站的多层防御和隔离，不难理解对核故障是零容忍的，类似公司经常提到的四道防线。</li>
 </ul>
 </li>
-<li>&quot;Postmortem Culture&quot; - 任何行业在真正的灾难发生前，都会有类似的小事故多次上演，我们需要抓住这些机会不断的进行学习和优化。文中救生员半开玩笑举的例子挺形象的：只要我们有一只脚踩入了水中，就会有大量的报告需要填写 😂 这样当真正重大的事故发生时，还是能遵守 <strong> 对事不对人 </strong> 的原则，甚至会让对应的救生员接受心理辅导，你已经尽力了。</li>
+<li>&quot;Postmortem Culture&quot; - 任何行业在真正的灾难发生前，都会有类似的小事故多次上演，我们需要抓住这些机会不断的进行学习和优化。文中救生员半开玩笑举的例子挺形象的：只要我们有一只脚踩入了水中，就会有大量的报告需要填写 😂 这样当真正重大的事故发生时，还是能遵守<strong>对事不对人</strong>的原则，甚至会让对应的救生员接受心理辅导，你已经尽力了。</li>
 <li>&quot;Automating Away Repetitive Work and Operational Overhead&quot; - Never repeat yourself, 不管是不是 sre 应该对所有重复性的劳动都进行抵制，不难理解只要是人总会犯错。</li>
 <li>&quot;Structured and Rational Decision Making&quot;<ul>
 <li>data is critical, 让数据说话做决策。</li>
@@ -798,7 +798,7 @@
 </li>
 </ol>
 </li>
-<li>总结：SRE 与不同行业的稳定性相比，确实在核心原则上基本大同小异，但有个很大不同的是 velocity，因为相对于核电站，人员安全排在第一，对故障零容忍，系统设计好就尽量不去变更；但现代互联网公司讲究的是 <strong> 以快制胜</strong>，快速变更创新的同时利用 error budget 保障线上稳定性。</li>
+<li>总结：SRE 与不同行业的稳定性相比，确实在核心原则上基本大同小异，但有个很大不同的是 velocity，因为相对于核电站，人员安全排在第一，对故障零容忍，系统设计好就尽量不去变更；但现代互联网公司讲究的是<strong>以快制胜</strong>，快速变更创新的同时利用 error budget 保障线上稳定性。</li>
 </ol>
 <h2 id="Chapter-34-Conclusion"><a href="#Chapter-34-Conclusion" class="headerlink" title="Chapter 34 - Conclusion"></a>Chapter 34 - Conclusion</h2><p>领导发言总结，鼓掌👏👏</p>
 <hr>
@@ -806,7 +806,7 @@
 <p>假如你对文中的 SRE 理念比较认同，并想了解支付宝的每一笔交易付款中都发生了什么，如何做到如丝般顺滑，不妨关注一下我们的招聘。</p>
 <p>工作地点：<strong>杭州 &#x2F; 上海 &#x2F; 深圳 &#x2F; 北京</strong></p>
 <p>招聘目标：<strong>技术风险研发工程师 &#x2F; DBA &#x2F; 资金安全架构师 &#x2F; 高可用架构师</strong></p>
-<p>岗位要求：见 <a href="https://job.alibaba.com/zhaopin/PositionDetail.htm?positionId=77388"> 链接</a></p>
+<p>岗位要求：见<a href="https://job.alibaba.com/zhaopin/PositionDetail.htm?positionId=77388">链接</a></p>
 <p>欢迎发送简历到 daya0576[AT]gmail.com 联系内推。</p>
 </blockquote>
 
@@ -868,12 +868,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20180315/git-internal/" rel="prev" title="Git Internal(初探 git 的内部实现)">
-      <i class="fa fa-chevron-left"></i> Git Internal(初探 git 的内部实现)
+    <a href="/blog/20180315/git-internal/" rel="prev" title="Git Internal(初探git的内部实现)">
+      <i class="fa fa-chevron-left"></i> Git Internal(初探git的内部实现)
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20180507/best-macos-apps/" rel="next" title="相依为命的 app 推荐 (macOS)">
-      相依为命的 app 推荐 (macOS) <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20180507/best-macos-apps/" rel="next" title="相依为命的app推荐(macOS)">
+      相依为命的app推荐(macOS) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -942,7 +942,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-I-Introduction"><span class="nav-text">Part I - Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Introduction"><span class="nav-text">Chapter 1 - Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-The-Production-Environment-at-Google-from-the-Viewpoint-of-an-SRE"><span class="nav-text">Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-II-Principles"><span class="nav-text">Part II. Principles</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Embracing-Risk- 拥抱风险"><span class="nav-text">Chapter 3 - Embracing Risk (拥抱风险?)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Service-Level-Objectives"><span class="nav-text">Chapter 4 - Service Level Objectives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Eliminating-Toil"><span class="nav-text">Chapter 5 - Eliminating Toil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-Monitoring-Distributed-Systems"><span class="nav-text">Chapter 6 - Monitoring Distributed Systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-7-The-Evolution-of-Automation-at-Google"><span class="nav-text">Chapter 7 - The Evolution of Automation at Google</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-8-Release-Engineering"><span class="nav-text">Chapter 8 - Release Engineering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-9-Simplicity"><span class="nav-text">Chapter 9 - Simplicity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-III-Practices"><span class="nav-text">Part III. Practices</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-10-Practical-Alerting"><span class="nav-text">Chapter 10 - Practical Alerting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-11-Being-On-Call"><span class="nav-text">Chapter 11 - Being On-Call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-12-Effective-Troubleshooting-20190713"><span class="nav-text">Chapter 12 - Effective Troubleshooting(20190713)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-13-Emergency-Response-20190718"><span class="nav-text">Chapter 13 - Emergency Response(20190718)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-14-Managing-Incidents-20190728"><span class="nav-text">Chapter 14 - Managing Incidents(20190728)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-15-Postmortem-Culture-Learning-from-Failure"><span class="nav-text">Chapter 15 - Postmortem Culture: Learning from Failure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-16-Tracking-Outages"><span class="nav-text">Chapter 16 - Tracking Outages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-17-Testing-for-Reliability"><span class="nav-text">Chapter 17 - Testing for Reliability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-18-Software-Engineering-in-SRE"><span class="nav-text">Chapter 18 - Software Engineering in SRE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-19-Load-Balancing-at-the-Frontend"><span class="nav-text">Chapter 19 - Load Balancing at the Frontend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-20-Load-Balancing-in-the-Datacenter"><span class="nav-text">Chapter 20 - Load Balancing in the Datacenter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-21-Handling-Overload"><span class="nav-text">Chapter 21 - Handling Overload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-22-Addressing-Cascading-Failures"><span class="nav-text">Chapter 22 - Addressing Cascading Failures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-23-Managing-Critical-State-Distributed-Consensus-for-Reliability"><span class="nav-text">Chapter 23 - Managing Critical State: Distributed Consensus for Reliability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-24-Distributed-Periodic-Scheduling-with-Cron"><span class="nav-text">Chapter 24 - Distributed Periodic Scheduling with Cron</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-25-Data-Processing-Pipelines"><span class="nav-text">Chapter 25 - Data Processing Pipelines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-26-Data-Integrity-What-You-Read-Is-What-You-Wrote"><span class="nav-text">Chapter 26 - Data Integrity: What You Read Is What You Wrote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-27-Reliable-Product-Launches-at-Scale"><span class="nav-text">Chapter 27 - Reliable Product Launches at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-28-Accelerating-SREs-to-On-Call-and-Beyond"><span class="nav-text">Chapter 28 - Accelerating SREs to On-Call and Beyond</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-29-Dealing-with-Interrupts"><span class="nav-text">Chapter 29 - Dealing with Interrupts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-30-Embedding-an-SRE-to-Recover-from-Operational-Overload"><span class="nav-text">Chapter 30 - Embedding an SRE to Recover from Operational Overload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-31-Communication-and-Collaboration-in-SRE"><span class="nav-text">Chapter 31 - Communication and Collaboration in SRE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-32-The-Evolving-SRE-Engagement-Model"><span class="nav-text">Chapter 32 - The Evolving SRE Engagement Model</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-V-Conclusions"><span class="nav-text">Part V. Conclusions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-33-Lessons-Learned-from-Other-Industries"><span class="nav-text">Chapter 33 - Lessons Learned from Other Industries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-34-Conclusion"><span class="nav-text">Chapter 34 - Conclusion</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-I-Introduction"><span class="nav-text">Part I - Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Introduction"><span class="nav-text">Chapter 1 - Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-The-Production-Environment-at-Google-from-the-Viewpoint-of-an-SRE"><span class="nav-text">Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-II-Principles"><span class="nav-text">Part II. Principles</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Embracing-Risk-拥抱风险"><span class="nav-text">Chapter 3 - Embracing Risk (拥抱风险?)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Service-Level-Objectives"><span class="nav-text">Chapter 4 - Service Level Objectives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Eliminating-Toil"><span class="nav-text">Chapter 5 - Eliminating Toil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-Monitoring-Distributed-Systems"><span class="nav-text">Chapter 6 - Monitoring Distributed Systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-7-The-Evolution-of-Automation-at-Google"><span class="nav-text">Chapter 7 - The Evolution of Automation at Google</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-8-Release-Engineering"><span class="nav-text">Chapter 8 - Release Engineering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-9-Simplicity"><span class="nav-text">Chapter 9 - Simplicity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-III-Practices"><span class="nav-text">Part III. Practices</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-10-Practical-Alerting"><span class="nav-text">Chapter 10 - Practical Alerting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-11-Being-On-Call"><span class="nav-text">Chapter 11 - Being On-Call</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-12-Effective-Troubleshooting-20190713"><span class="nav-text">Chapter 12 - Effective Troubleshooting(20190713)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-13-Emergency-Response-20190718"><span class="nav-text">Chapter 13 - Emergency Response(20190718)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-14-Managing-Incidents-20190728"><span class="nav-text">Chapter 14 - Managing Incidents(20190728)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-15-Postmortem-Culture-Learning-from-Failure"><span class="nav-text">Chapter 15 - Postmortem Culture: Learning from Failure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-16-Tracking-Outages"><span class="nav-text">Chapter 16 - Tracking Outages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-17-Testing-for-Reliability"><span class="nav-text">Chapter 17 - Testing for Reliability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-18-Software-Engineering-in-SRE"><span class="nav-text">Chapter 18 - Software Engineering in SRE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-19-Load-Balancing-at-the-Frontend"><span class="nav-text">Chapter 19 - Load Balancing at the Frontend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-20-Load-Balancing-in-the-Datacenter"><span class="nav-text">Chapter 20 - Load Balancing in the Datacenter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-21-Handling-Overload"><span class="nav-text">Chapter 21 - Handling Overload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-22-Addressing-Cascading-Failures"><span class="nav-text">Chapter 22 - Addressing Cascading Failures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-23-Managing-Critical-State-Distributed-Consensus-for-Reliability"><span class="nav-text">Chapter 23 - Managing Critical State: Distributed Consensus for Reliability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-24-Distributed-Periodic-Scheduling-with-Cron"><span class="nav-text">Chapter 24 - Distributed Periodic Scheduling with Cron</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-25-Data-Processing-Pipelines"><span class="nav-text">Chapter 25 - Data Processing Pipelines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-26-Data-Integrity-What-You-Read-Is-What-You-Wrote"><span class="nav-text">Chapter 26 - Data Integrity: What You Read Is What You Wrote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-27-Reliable-Product-Launches-at-Scale"><span class="nav-text">Chapter 27 - Reliable Product Launches at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-28-Accelerating-SREs-to-On-Call-and-Beyond"><span class="nav-text">Chapter 28 - Accelerating SREs to On-Call and Beyond</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-29-Dealing-with-Interrupts"><span class="nav-text">Chapter 29 - Dealing with Interrupts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-30-Embedding-an-SRE-to-Recover-from-Operational-Overload"><span class="nav-text">Chapter 30 - Embedding an SRE to Recover from Operational Overload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-31-Communication-and-Collaboration-in-SRE"><span class="nav-text">Chapter 31 - Communication and Collaboration in SRE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-32-The-Evolving-SRE-Engagement-Model"><span class="nav-text">Chapter 32 - The Evolving SRE Engagement Model</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-V-Conclusions"><span class="nav-text">Part V. Conclusions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-33-Lessons-Learned-from-Other-Industries"><span class="nav-text">Chapter 33 - Lessons Learned from Other Industries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-34-Conclusion"><span class="nav-text">Chapter 34 - Conclusion</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1069,7 +1069,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

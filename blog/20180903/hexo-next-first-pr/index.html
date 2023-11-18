@@ -49,14 +49,14 @@
 
   <meta name="description" content="用了Hexo的主题一个月了, 本文记录一下我为Hexo Next主题提交的第一个PR: Safari中无法lazyload Disqus的评论框.  背景Next主题在Disqus评论框的配置中的有一个选项: 开启lazyload. 实现Disqus评论框延迟动态加载的效果.  123456# Disqusdisqus:  enable: true  shortname: daya0576  co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记我为 Hexo Next 主题提交的第一个 PR">
+<meta property="og:title" content="记我为Hexo Next主题提交的第一个PR">
 <meta property="og:url" content="https://changchen.me/blog/20180903/hexo-next-first-pr/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="用了Hexo的主题一个月了, 本文记录一下我为Hexo Next主题提交的第一个PR: Safari中无法lazyload Disqus的评论框.  背景Next主题在Disqus评论框的配置中的有一个选项: 开启lazyload. 实现Disqus评论框延迟动态加载的效果.  123456# Disqusdisqus:  enable: true  shortname: daya0576  co">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-09-03T14:42:33.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -77,7 +77,7 @@
   };
 </script>
 
-  <title>记我为 Hexo Next 主题提交的第一个 PR | Henry Z's blog~</title>
+  <title>记我为Hexo Next主题提交的第一个PR | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -231,7 +231,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          记我为 Hexo Next 主题提交的第一个 PR
+          记我为Hexo Next主题提交的第一个PR
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -265,27 +265,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>用了 Hexo 的主题一个月了, 本文记录一下我为 Hexo Next 主题提交的第一个 PR: <a href="https://github.com/theme-next/hexo-theme-next/pull/406">Safari 中无法 lazyload Disqus 的评论框</a>. </p>
-<h2 id="背景"><a href="# 背景" class="headerlink" title="背景"></a>背景</h2><p>Next 主题在 Disqus 评论框的配置中的有一个选项: 开启 lazyload. 实现 Disqus 评论框延迟动态加载的效果. </p>
+        <p>用了Hexo的主题一个月了, 本文记录一下我为Hexo Next主题提交的第一个PR: <a href="https://github.com/theme-next/hexo-theme-next/pull/406">Safari中无法lazyload Disqus的评论框</a>. </p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Next主题在Disqus评论框的配置中的有一个选项: 开启lazyload. 实现Disqus评论框延迟动态加载的效果. </p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Disqus</span></span><br><span class="line"><span class="attr">disqus:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">shortname:</span> <span class="string">daya0576</span></span><br><span class="line">  <span class="attr">count:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">lazyload:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
-<p>但在 iPhone 上打开时, 就算拖动窗口到最底部, 评论框都不会开始加载. 怀疑是浏览器的问题, 果然在电脑上的 Safari 重现了. </p>
+<p>但在iPhone上打开时, 就算拖动窗口到最底部, 评论框都不会开始加载. 怀疑是浏览器的问题, 果然在电脑上的Safari重现了. </p>
 <a id="more"></a>
 
-<h2 id="分析代码"><a href="# 分析代码" class="headerlink" title="分析代码"></a>分析代码</h2><p>Disqus lazyload 逻辑的代码如下: </p>
+<h2 id="分析代码"><a href="#分析代码" class="headerlink" title="分析代码"></a>分析代码</h2><p>Disqus lazyload逻辑的代码如下: </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.disqus.lazyload %&#125;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> offsetTop = $(<span class="string">'#comments'</span>).offset().top - $(<span class="built_in">window</span>).height();</span><br><span class="line">      <span class="keyword">if</span> (offsetTop &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// load directly when there's no a scrollbar</span></span><br><span class="line">        loadComments();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="built_in">window</span>).on(<span class="string">'scroll.disqus_scroll'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">          <span class="keyword">if</span> (scrollTop &gt;= offsetTop) &#123;</span><br><span class="line">            $(<span class="built_in">window</span>).off(<span class="string">'.disqus_scroll'</span>);</span><br><span class="line">            loadComments();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">    loadComments();</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="首先声明几个概念"><a href="# 首先声明几个概念" class="headerlink" title="首先声明几个概念:"></a>首先声明几个概念:</h3><ul>
+<h3 id="首先声明几个概念"><a href="#首先声明几个概念" class="headerlink" title="首先声明几个概念:"></a>首先声明几个概念:</h3><ul>
 <li>网页顶部: 整个网站页面的最高点. </li>
 <li>游览器窗口顶部: 当前游览器可视窗口的最高点.</li>
 </ul>
-<h3 id="代码逻辑"><a href="# 代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h3><p><code>var offsetTop = $(&#39;#comments&#39;).offset().top - $(window).height();</code> 获取的是: 评论框与网页顶部的距离 - 当前游览器窗口高度. 如果这个距离小于 0(<code>offsetTop &lt;= 0</code>), 说明没有滚动条(评论框与网页顶部的距离小于游览器窗口的高度), 所以可以直接加载评论框.   </p>
+<h3 id="代码逻辑"><a href="#代码逻辑" class="headerlink" title="代码逻辑"></a>代码逻辑</h3><p><code>var offsetTop = $(&#39;#comments&#39;).offset().top - $(window).height();</code> 获取的是: 评论框与网页顶部的距离 - 当前游览器窗口高度. 如果这个距离小于0(<code>offsetTop &lt;= 0</code>), 说明没有滚动条(评论框与网页顶部的距离小于游览器窗口的高度), 所以可以直接加载评论框.   </p>
 <p>如果<code>offsetTop &gt; 0</code>, 就要在用户滚动页面窗口时, 实时的去取当前游览器窗口顶部与网页顶部的距离 <code>scrollTop = document.documentElement.scrollTop</code>. 当这个值超过<code>offsetTop</code>(可以理解为: <code>$(offsetTop + windowHight &gt;= &#39;#comments&#39;).offset().top</code>), 就去加载评论框. </p>
-<p>说的有点绕了, 总结就是当 Disqus 评论框开始进入游览器窗口时, 才会去加载. 但在 Safari 中, 实时的去取当前游览器窗口顶部与网页顶部的距离 <code>scrollTop = document.documentElement.scrollTop</code>时, 返回的永远是 0. 导致了永远不会加载评论框的 bug.</p>
-<h2 id="解决问题"><a href="# 解决问题" class="headerlink" title="解决问题"></a>解决问题 </h2><p> 主要做了两个改动: </p>
+<p>说的有点绕了, 总结就是当Disqus评论框开始进入游览器窗口时, 才会去加载. 但在Safari中, 实时的去取当前游览器窗口顶部与网页顶部的距离 <code>scrollTop = document.documentElement.scrollTop</code>时, 返回的永远是0. 导致了永远不会加载评论框的bug.</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>主要做了两个改动: </p>
 <ul>
-<li>将 <code>scrollTop = document.documentElement.scrollTop</code> 替换为 Safari 兼容的<code>scrollTop = $(window).scrollTop();</code>. </li>
-<li>实时的去获取 <code>$(&#39;#comments&#39;).offset().top - $(window).height()</code>, 因为在调试的过程中, 发现这个值总是不准确, 原来是很多未加载的图片(lazyload) 没有高度造成的. 而且用户可能动态的去改变游览器的窗口大小, 所以感觉这个改动还是挺合理的.<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800903_hexo_next_first_pr/15359887018737.jpg"></li>
+<li>将<code>scrollTop = document.documentElement.scrollTop</code>替换为Safari兼容的<code>scrollTop = $(window).scrollTop();</code>. </li>
+<li>实时的去获取<code>$(&#39;#comments&#39;).offset().top - $(window).height()</code>, 因为在调试的过程中, 发现这个值总是不准确, 原来是很多未加载的图片(lazyload)没有高度造成的. 而且用户可能动态的去改变游览器的窗口大小, 所以感觉这个改动还是挺合理的.<br><img src="/images/loading/loading.svg" data-original="/images/blog/1800903_hexo_next_first_pr/15359887018737.jpg"></li>
 </ul>
 <p>具体代码: </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.disqus.lazyload %&#125;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> offsetTop = $(<span class="string">'#comments'</span>).offset().top - $(<span class="built_in">window</span>).height();</span><br><span class="line">      <span class="keyword">if</span> (offsetTop &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// load directly when there's no a scrollbar</span></span><br><span class="line">        loadComments();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="built_in">window</span>).on(<span class="string">'scroll.disqus_scroll'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="comment">// offsetTop may changes because of manually resizing browser window or lazy loading images.</span></span><br><span class="line">          <span class="keyword">var</span> offsetTop = $(<span class="string">'#comments'</span>).offset().top - $(<span class="built_in">window</span>).height();</span><br><span class="line">          <span class="keyword">var</span> scrollTop = $(<span class="built_in">window</span>).scrollTop();</span><br><span class="line"></span><br><span class="line">          <span class="comment">// pre-load comments a bit? (margin or anything else)</span></span><br><span class="line">          <span class="keyword">if</span> (offsetTop - scrollTop &lt; <span class="number">60</span>) &#123;</span><br><span class="line">            $(<span class="built_in">window</span>).off(<span class="string">'.disqus_scroll'</span>);</span><br><span class="line">            loadComments();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">    loadComments();</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
@@ -354,8 +354,8 @@
       <i class="fa fa-chevron-left"></i> 《蚂蚁金服：科技金融独角兽的崛起》 读后感
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20180905/blog-http2/" rel="next" title="博客开启 HTTP/2 后的对比实验, 感觉要起飞了 =.=">
-      博客开启 HTTP/2 后的对比实验, 感觉要起飞了 =.= <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20180905/blog-http2/" rel="next" title="博客开启HTTP/2后的对比实验, 感觉要起飞了 =.=">
+      博客开启HTTP/2后的对比实验, 感觉要起飞了 =.= <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -424,7 +424,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析代码"><span class="nav-text">分析代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先声明几个概念"><span class="nav-text">首先声明几个概念:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码逻辑"><span class="nav-text">代码逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-text">解决问题 </span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析代码"><span class="nav-text">分析代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先声明几个概念"><span class="nav-text">首先声明几个概念:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码逻辑"><span class="nav-text">代码逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-text">解决问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -551,7 +551,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

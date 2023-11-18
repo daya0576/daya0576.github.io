@@ -49,13 +49,13 @@
 
   <meta name="description" content="昨晚博客搬到香港的vps上了. 在这篇文章把简单的几个步骤, 总结分享一下( 本文主要以Octopress为例子, 但流程其实都是共通的).">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 vps 上部署你的静态博客 (网站)">
+<meta property="og:title" content="在vps上部署你的静态博客(网站)">
 <meta property="og:url" content="https://changchen.me/blog/20170729/octopress-nginx-vps/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="昨晚博客搬到香港的vps上了. 在这篇文章把简单的几个步骤, 总结分享一下( 本文主要以Octopress为例子, 但流程其实都是共通的).">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-07-29T06:10:26.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>在 vps 上部署你的静态博客 (网站) | Henry Z's blog~</title>
+  <title>在vps上部署你的静态博客(网站) | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -229,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在 vps 上部署你的静态博客 (网站)
+          在vps上部署你的静态博客(网站)
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -263,40 +263,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>昨晚博客搬到香港的 vps 上了. 在这篇文章把简单的几个步骤, 总结分享一下(本文主要以 Octopress 为例子, 但流程其实都是共通的).<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png"></p>
+        <p>昨晚博客搬到香港的vps上了. 在这篇文章把简单的几个步骤, 总结分享一下( 本文主要以Octopress为例子, 但流程其实都是共通的).<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png"></p>
 <a id="more"></a>
-<h1 id="背景"><a href="# 背景" class="headerlink" title="背景"></a>背景 </h1><p> 这个 <a href="https://changchen.me/"> 博客 </a> 原先是部署在 Github Page 服务上的, 优缺点很明显:</p>
-<h2 id="优点"><a href="# 优点" class="headerlink" title="优点:"></a>优点:</h2><ol>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>这个<a href="https://changchen.me/">博客</a>原先是部署在Github Page服务上的, 优缺点很明显:</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h2><ol>
 <li>免费!!!</li>
 </ol>
-<h2 id="缺点"><a href="# 缺点" class="headerlink" title="缺点:"></a>缺点:</h2><ol>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h2><ol>
 <li>大陆和美利坚毕竟跨着一个太平洋, 延迟还是有些高的.</li>
-<li>无法配置证书(之前用的 cloudflare 解决方案, 但必须要用它家的 cdn, 感觉不能掌控的因素太多了).</li>
-<li>其实最重要的一点是, 如果博客放在 github 的 page 服务上, 是 <strong> 无法被百度收录 </strong> 的.</li>
+<li>无法配置证书(之前用的cloudflare解决方案, 但必须要用它家的cdn, 感觉不能掌控的因素太多了).</li>
+<li>其实最重要的一点是, 如果博客放在github的page服务上, 是<strong>无法被百度收录</strong>的.</li>
 </ol>
-<h1 id="第一步 - 购买 VPS"><a href="# 第一步 - 购买 VPS" class="headerlink" title="第一步 购买 VPS"></a>第一步 购买 VPS</h1><p>我用的是一个香港的 vps 供应商, 比较小众, 选择它只是因为被他们的主页萌到了 (๑•ᴗ•๑):<br><a href="http://www.hostker.com/">http://www.hostker.com/</a><br>可以点我的 <a href="https://i.hostker.com/flag/8397"><strong> 推广链接 </strong></a> 获取优惠:<br><em>通过邀请链接注册的新用户完成手机绑定可以获得 0.5K 贝壳(相当于 5 元.)</em><br><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/shell.png">   </p>
-<p><strong>选择 vps 的另一个原因:</strong>   </p>
+<h1 id="第一步-购买VPS"><a href="#第一步-购买VPS" class="headerlink" title="第一步 购买VPS"></a>第一步 购买VPS</h1><p>我用的是一个香港的vps供应商, 比较小众, 选择它只是因为被他们的主页萌到了 (๑•ᴗ•๑):<br><a href="http://www.hostker.com/">http://www.hostker.com/</a><br>可以点我的<a href="https://i.hostker.com/flag/8397"><strong>推广链接</strong></a>获取优惠:<br><em>通过邀请链接注册的新用户完成手机绑定可以获得 0.5K 贝壳(相当于 5 元.)</em><br><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/shell.png">   </p>
+<p><strong>选择vps的另一个原因:</strong>   </p>
 <ol>
-<li>可以把自己 <strong> 别的网站</strong>, e.g. <a href="https://www.unsw.co/">unsw.co</a> 也放到这个 vps 上.     </li>
-<li>选的香港 vps, 肯定还可以做别的事情.</li>
+<li>可以把自己<strong>别的网站</strong>, e.g. <a href="https://www.unsw.co/">unsw.co</a> 也放到这个vps上.     </li>
+<li>选的香港vps, 肯定还可以做别的事情.</li>
 </ol>
 <p>所以在节省别的开销的情况下, 这主机的钱💰个人觉得还是值得的.<br><img style="max-height:200px" class="lazy" data-original="/images/blog/170729_hoster/server.png"></p>
-<h1 id="第二步 - 同步网站内容"><a href="# 第二步 - 同步网站内容" class="headerlink" title="第二步 同步网站内容"></a>第二步 同步网站内容 </h1><p> 因为是静态网站, 所以只要把生成的静态内容, 放到 vps 上供访问就行了.<br>Octopress 提供了原生的同步方法: 只需将 <code>rake deploy</code> 的模式从默认的 push 改为 Rsync, 再允许 <code>rake deploy</code> 就会将代码同步到远程的服务器上, 具体的配置如下:   </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Rsync Deploy config</span></span><br><span class="line"><span class="comment"># Be sure your public key is listed in your server's ~/.ssh/authorized_keys file</span></span><br><span class="line"><span class="string">ssh_user</span>       <span class="string">=</span> <span class="string">"username@vps 的 IP 地址 "</span></span><br><span class="line"><span class="string">ssh_port</span>       <span class="string">=</span> <span class="string">"22"</span></span><br><span class="line"><span class="string">document_root</span>  <span class="string">=</span> <span class="string">"~/zblog/"</span></span><br><span class="line"><span class="string">rsync_delete</span>   <span class="string">=</span> <span class="literal">false</span></span><br><span class="line"><span class="string">rsync_args</span>     <span class="string">=</span> <span class="string">""</span>  <span class="comment"># Any extra arguments to pass to rsync</span></span><br><span class="line"><span class="string">deploy_default</span> <span class="string">=</span> <span class="string">"rsync"</span></span><br></pre></td></tr></table></figure>
+<h1 id="第二步-同步网站内容"><a href="#第二步-同步网站内容" class="headerlink" title="第二步 同步网站内容"></a>第二步 同步网站内容</h1><p>因为是静态网站, 所以只要把生成的静态内容, 放到vps上供访问就行了.<br>Octopress提供了原生的同步方法: 只需将<code>rake deploy</code>的模式从默认的push改为Rsync, 再允许<code>rake deploy</code>就会将代码同步到远程的服务器上, 具体的配置如下:   </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Rsync Deploy config</span></span><br><span class="line"><span class="comment"># Be sure your public key is listed in your server's ~/.ssh/authorized_keys file</span></span><br><span class="line"><span class="string">ssh_user</span>       <span class="string">=</span> <span class="string">"username@vps的IP地址"</span></span><br><span class="line"><span class="string">ssh_port</span>       <span class="string">=</span> <span class="string">"22"</span></span><br><span class="line"><span class="string">document_root</span>  <span class="string">=</span> <span class="string">"~/zblog/"</span></span><br><span class="line"><span class="string">rsync_delete</span>   <span class="string">=</span> <span class="literal">false</span></span><br><span class="line"><span class="string">rsync_args</span>     <span class="string">=</span> <span class="string">""</span>  <span class="comment"># Any extra arguments to pass to rsync</span></span><br><span class="line"><span class="string">deploy_default</span> <span class="string">=</span> <span class="string">"rsync"</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="第三步 - 配置 Nginx"><a href="# 第三步 - 配置 Nginx" class="headerlink" title="第三步 配置 Nginx"></a>第三步 配置 Nginx</h1><p>将访问的域名代理 --&gt; vps 上同步的文件夹.<br>我的 nginx 配置供参考:</p>
+<h1 id="第三步-配置Nginx"><a href="#第三步-配置Nginx" class="headerlink" title="第三步 配置Nginx"></a>第三步 配置Nginx</h1><p>将访问的域名代理 --&gt; vps上同步的文件夹.<br>我的nginx配置供参考:</p>
 <ol>
 <li>将<a href="http://www.changchen.me/">www.changchen.me</a> 301 --&gt; changchen.me</li>
-<li>将 changchen.me --&gt; ~&#x2F;zblog&#x2F;</li>
+<li>将changchen.me --&gt; ~&#x2F;zblog&#x2F;</li>
 </ol>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">server_name</span> www.changchen.me;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> https://changchen.me/<span class="variable">$1</span> <span class="literal">redirect</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">root</span> ~/zblog/;</span><br><span class="line">        <span class="attribute">index</span> index.html index.htm;</span><br><span class="line">        <span class="attribute">server_name</span> changchen.me;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="第四部 - 配置 DNS"><a href="# 第四部 - 配置 DNS" class="headerlink" title="第四部 配置 DNS"></a>第四部 配置 DNS</h1><p>我用的是 Dnspod, 只需新建两个 A 记录, 将 <code>changchen.me</code> 和<code>www.changchen.me</code>都指向你的 VPS 的 IP 地址, 然后 nginx 会根据上边的配置去反向代理.   </p>
-<h1 id="第五步 - 配置证书"><a href="# 第五步 - 配置证书" class="headerlink" title="第五步 配置证书"></a>第五步 配置证书 </h1><p>DNS 生效需要一会时间, 刚好可以等待期间为你的博客加上免费的 SSL 证书.<br> 我用的是<a href="https://certbot.eff.org/">Let&#39;s Encrypt</a>, 真的是无脑一键配置.   </p>
-<h1 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h1><p> 你的博客就顺利搭建起来了🎉<br><code>changchen.me --&gt; DNS --&gt; VPS IP --&gt; 301 --&gt; blog dir.</code></p>
+<h1 id="第四部-配置DNS"><a href="#第四部-配置DNS" class="headerlink" title="第四部 配置DNS"></a>第四部 配置DNS</h1><p>我用的是Dnspod, 只需新建两个A记录, 将<code>changchen.me</code>和<code>www.changchen.me</code>都指向你的VPS的IP地址, 然后nginx会根据上边的配置去反向代理.   </p>
+<h1 id="第五步-配置证书"><a href="#第五步-配置证书" class="headerlink" title="第五步 配置证书"></a>第五步 配置证书</h1><p>DNS生效需要一会时间, 刚好可以等待期间为你的博客加上免费的SSL证书.<br>我用的是<a href="https://certbot.eff.org/">Let&#39;s Encrypt</a>, 真的是无脑一键配置.   </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>你的博客就顺利搭建起来了🎉<br><code>changchen.me --&gt; DNS --&gt; VPS IP --&gt; 301 --&gt; blog dir.</code></p>
 <p>相比以前跨越半个地球去访问网站, 速度刷刷刷的上去了~<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png"><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost2.png">   </p>
 
     </div>
@@ -357,12 +357,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20170610/sorting-algorithm/" rel="prev" title="排序算法总结 (Python 实现附带思路)">
-      <i class="fa fa-chevron-left"></i> 排序算法总结 (Python 实现附带思路)
+    <a href="/blog/20170610/sorting-algorithm/" rel="prev" title="排序算法总结(Python实现附带思路)">
+      <i class="fa fa-chevron-left"></i> 排序算法总结(Python实现附带思路)
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20170731/python-encoding-decoding/" rel="next" title="Python 的编码问题笔记 (搞清原理, 一劳永逸)">
-      Python 的编码问题笔记 (搞清原理, 一劳永逸) <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20170731/python-encoding-decoding/" rel="next" title="Python的编码问题笔记(搞清原理, 一劳永逸)">
+      Python的编码问题笔记(搞清原理, 一劳永逸) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -431,7 +431,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-text">背景 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-text">优点:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-text">缺点:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步 - 购买 VPS"><span class="nav-text">第一步 购买 VPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步 - 同步网站内容"><span class="nav-text">第二步 同步网站内容 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三步 - 配置 Nginx"><span class="nav-text">第三步 配置 Nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四部 - 配置 DNS"><span class="nav-text">第四部 配置 DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五步 - 配置证书"><span class="nav-text">第五步 配置证书 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-text">优点:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-text">缺点:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步-购买VPS"><span class="nav-text">第一步 购买VPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二步-同步网站内容"><span class="nav-text">第二步 同步网站内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三步-配置Nginx"><span class="nav-text">第三步 配置Nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四部-配置DNS"><span class="nav-text">第四部 配置DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五步-配置证书"><span class="nav-text">第五步 配置证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -558,7 +558,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

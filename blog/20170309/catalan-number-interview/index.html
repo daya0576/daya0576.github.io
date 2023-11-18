@@ -55,7 +55,7 @@
 <meta property="og:description" content="之前去方付通面试的时候的时候, 问了我N个数依次入栈，出栈顺序有多少种？的算法题, 其实是卡特兰数(Catalan)的应用.当时没有答出来(这要是之前没有接触过, 谁答的出来).现在用这篇日志重新整理记录一下.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-03-09T10:38:32.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="interview">
 <meta property="article:tag" content="algorithm">
@@ -250,22 +250,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>之前去方付通面试的时候的时候, 问了我 <code>N 个数依次入栈，出栈顺序有多少种？</code> 的算法题, 其实是卡特兰数 (Catalan) 的应用.<br>当时没有答出来 (这要是之前没有接触过, 谁答的出来).<br> 现在用这篇日志重新整理记录一下.      </p>
+        <p>之前去方付通面试的时候的时候, 问了我<code>N个数依次入栈，出栈顺序有多少种？</code>的算法题, 其实是卡特兰数(Catalan)的应用.<br>当时没有答出来(这要是之前没有接触过, 谁答的出来).<br>现在用这篇日志重新整理记录一下.      </p>
 <a id="more"></a>
-<h2 id="问题的定义"><a href="# 问题的定义" class="headerlink" title="问题的定义"></a>问题的定义 </h2><p> 一个栈 (无穷大) 的进栈序列为 1，2，3，…，n，有多少个不同的出栈序列?    </p>
-<h3 id="解题思路"><a href="# 解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<h2 id="问题的定义"><a href="#问题的定义" class="headerlink" title="问题的定义"></a>问题的定义</h2><p>一个栈(无穷大)的进栈序列为1，2，3，…，n，有多少个不同的出栈序列?    </p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
 <li>假设进栈序列为[1, 2, 3, 4, 5, 6]   </li>
-<li>因为每个数字都可能是最后一个出栈的 (独立的事件), 所以先单独分析<strong> 当 k 为最后一个出栈数字 </strong> 的情况.    </li>
+<li>因为每个数字都可能是最后一个出栈的(独立的事件), 所以先单独分析<strong>当k为最后一个出栈数字</strong>的情况.    </li>
 <li><ol>
-<li>当 <code>k 进栈</code> 时, [1, 2]肯定已经出栈了, 所以他们 ([1, 2]) 的出栈序列总数为<code>f(k-1)</code></li>
+<li>当<code>k进栈</code>时, [1, 2]肯定已经出栈了, 所以他们([1, 2])的出栈序列总数为<code>f(k-1)</code></li>
 </ol>
 </li>
 </ol>
 <ol start="2">
-<li>当 <code>k 出栈</code> 时, 因为 3 为最后一个出栈, [4, 5, 6]肯定也已经出栈了, 所以他们 [4, 5, 6] 的出栈序列总数为<code>f(n-k)</code></li>
+<li>当<code>k出栈</code>时, 因为3为最后一个出栈, [4, 5, 6]肯定也已经出栈了, 所以他们[4, 5, 6]的出栈序列总数为<code>f(n-k)</code></li>
 </ol>
 <ol start="4">
-<li>所以当 k 为出栈序列的最后一个数字时, 可能序列的总和为<code>f(k-1)*f(n-k)</code></li>
+<li>所以当k为出栈序列的最后一个数字时, 可能序列的总和为<code>f(k-1)*f(n-k)</code></li>
 <li>又因为第二条中, 每个事件为独立的, 所以最后得到了这么一个推导式:<br><code>f(0) = f(1) = 1</code><br><code>f(n) = f(0)*f(n-1)+f(1)*f(n-2) + ... + f(n-1)*f(0) (n&gt;=2)</code></li>
 </ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
@@ -340,8 +340,8 @@
       <i class="fa fa-chevron-left"></i> 面试算法题 - 二分查找搜索范围
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20170318/django-source-code-analysis/" rel="next" title="Django 阅读源码笔记 - Hypers 第一周">
-      Django 阅读源码笔记 - Hypers 第一周 <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20170318/django-source-code-analysis/" rel="next" title="Django 阅读源码笔记 - Hypers第一周">
+      Django 阅读源码笔记 - Hypers第一周 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -410,7 +410,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题的定义"><span class="nav-text">问题的定义 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题的定义"><span class="nav-text">问题的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -537,7 +537,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

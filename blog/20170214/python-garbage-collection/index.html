@@ -55,7 +55,7 @@
 <meta property="og:description" content="阅读了一篇Python垃圾回收的文章, 用这篇日志记录一下. 原文地址: http:&#x2F;&#x2F;www.digi.com&#x2F;wiki&#x2F;developer&#x2F;index.php&#x2F;Python_Garbage_Collection">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-02-14T07:30:18.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="interview">
 <meta property="article:tag" content="Python">
@@ -250,33 +250,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>阅读了一篇 Python 垃圾回收的文章, 用这篇日志记录一下. 原文地址: <a href="http://www.digi.com/wiki/developer/index.php/Python_Garbage_Collection">http://www.digi.com/wiki/developer/index.php/Python_Garbage_Collection</a>    </p>
+        <p>阅读了一篇Python垃圾回收的文章, 用这篇日志记录一下. 原文地址: <a href="http://www.digi.com/wiki/developer/index.php/Python_Garbage_Collection">http://www.digi.com/wiki/developer/index.php/Python_Garbage_Collection</a>    </p>
 <a id="more"></a>
-<p>###Introduction to Python Memory Management<br>不像 c 和 c 艹, Python 的内存分配和释放是完全自动的.     </p>
-<p>Python 的两个内存管理策略:</p>
+<p>###Introduction to Python Memory Management<br>不像c和c艹, Python的内存分配和释放是完全自动的.     </p>
+<p>Python的两个内存管理策略:</p>
 <ol>
 <li>reference counting</li>
-<li>garbage collection<br>在 Python 2.0 之前, 只用 reference counting 作为内存管理.<br>原理: 记录一个对象被其他对象引用的次数. 当对这个对象的引用移除了, 引用计数也减小了. 要是减到 0 了, 这个对象也就被释放了.</li>
+<li>garbage collection<br>在Python 2.0之前, 只用reference counting作为内存管理.<br>原理: 记录一个对象被其他对象引用的次数. 当对这个对象的引用移除了, 引用计数也减小了. 要是减到0了, 这个对象也就被释放了.</li>
 </ol>
-<p>这种方法很高效, 但也有一些 caveat(警告, 缺点的意思吧). 例如它无法解决 reference circle 的问题(有种死锁的味道):   </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_cycle</span><span class="params">()</span>:</span></span><br><span class="line">    l = []</span><br><span class="line">    l.append(l)</span><br><span class="line"></span><br><span class="line">make_cycle()</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Automatic Garbage Collection of Cycles</span></span><br><span class="line">由于有上边这个 reference circle 的问题, 所以需要 scheduled activity 去自动收集垃圾.   </span><br><span class="line">原理: 当 ` 分配的值 - 释放的值 &gt; 阈值 ` 的话: the garbage collector 就会自动运行了. 它会运行 gc 模块去查找阈值.        </span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> gc</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Garbage collection thresholds: %r"</span> % gc.get_threshold()</span><br><span class="line"><span class="comment"># Garbage collection thresholds: (700, 10, 10)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以看到这里默认的阈值是 700</span></span><br></pre></td></tr></table></figure>
-<p>但要 <strong> 注意 </strong> 的是如果 Python 已经把内存爆了的话, automatic garbage collection 是不会执行的. 这时候你需要去处理抛出的异常, 或者程序已经崩溃了.<br>&#39;&#39;&#39;This is aggravated by the fact that the automatic garbage collection places high weight upon the NUMBER of free objects, not on how large they are. Thus any portion of your code which frees up large blocks of memory is a good candidate for running manual garbage collection.<br>&#39;&#39;&#39;   </p>
-<h3 id="Manual-Garbage-Collection"><a href="#Manual-Garbage-Collection" class="headerlink" title="Manual Garbage Collection"></a>Manual Garbage Collection</h3><p>对于一些长时间运行的服务器应用或者嵌入式应用, 自动的垃圾回收可能就有局限性了.<br>虽然在编码中 reference cycle 是要尽量去避免的, 但还是要有怎么去解决他们的办法.<br>手动地回收垃圾是个释放 reference cycle 垃圾内存的好方法.<br>手动回收垃圾的方法:    </p>
+<p>这种方法很高效, 但也有一些caveat(警告, 缺点的意思吧). 例如它无法解决reference circle的问题(有种死锁的味道):   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_cycle</span><span class="params">()</span>:</span></span><br><span class="line">    l = [ ]</span><br><span class="line">    l.append(l)</span><br><span class="line"></span><br><span class="line">make_cycle()</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### Automatic Garbage Collection of Cycles</span></span><br><span class="line">由于有上边这个reference circle的问题, 所以需要scheduled activity去自动收集垃圾.   </span><br><span class="line">原理: 当 `分配的值 - 释放的值 &gt; 阈值` 的话: the garbage collector就会自动运行了. 它会运行gc模块去查找阈值.        </span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> gc</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Garbage collection thresholds: %r"</span> % gc.get_threshold()</span><br><span class="line"><span class="comment"># Garbage collection thresholds: (700, 10, 10)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以看到这里默认的阈值是700</span></span><br></pre></td></tr></table></figure>
+<p>但要<strong>注意</strong>的是如果Python已经把内存爆了的话, automatic garbage collection是不会执行的. 这时候你需要去处理抛出的异常, 或者程序已经崩溃了.<br>&#39;&#39;&#39;This is aggravated by the fact that the automatic garbage collection places high weight upon the NUMBER of free objects, not on how large they are. Thus any portion of your code which frees up large blocks of memory is a good candidate for running manual garbage collection.<br>&#39;&#39;&#39;   </p>
+<h3 id="Manual-Garbage-Collection"><a href="#Manual-Garbage-Collection" class="headerlink" title="Manual Garbage Collection"></a>Manual Garbage Collection</h3><p>对于一些长时间运行的服务器应用或者嵌入式应用, 自动的垃圾回收可能就有局限性了.<br>虽然在编码中reference cycle是要尽量去避免的, 但还是要有怎么去解决他们的办法.<br>手动地回收垃圾是个释放reference cycle垃圾内存的好方法.<br>手动回收垃圾的方法:    </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gc</span><br><span class="line">gc.collect()</span><br></pre></td></tr></table></figure>
 <p><code>gc.collect()</code>返回所有被回收的对象:    </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gc</span><br><span class="line">collected = gc.collect()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Garbage collector: collected %d objects."</span> % (collected)</span><br></pre></td></tr></table></figure>
-<p>创建了几个 reference cycle 的实例:    </p>
+<p>创建了几个reference cycle的实例:    </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys, gc</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_cycle</span><span class="params">()</span>:</span></span><br><span class="line">    l = &#123; &#125;</span><br><span class="line">    l[<span class="number">0</span>] = l</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    collected = gc.collect()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Garbage collector: collected %d objects."</span> % (collected)</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Creating cycles..."</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        make_cycle()</span><br><span class="line">    collected = gc.collect()</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Garbage collector: collected %d objects."</span> % (collected)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    ret = main()</span><br><span class="line">    sys.exit(ret)</span><br></pre></td></tr></table></figure>
 <p>有两种调用手动回收垃圾的策略(很好理解就不解释了):    </p>
 <ol>
 <li>Time-based</li>
 <li>Event-based:  For example, when a user disconnects from the application or when the application is known to enter an idle state.</li>
 </ol>
-<h3 id="几点建议"><a href="# 几点建议" class="headerlink" title="几点建议"></a>几点建议</h3><ol>
-<li>不要太随意地去进行垃圾回收, 会严重影响性能(因为要去 evalute 每一个 memory object).   </li>
+<h3 id="几点建议"><a href="#几点建议" class="headerlink" title="几点建议"></a>几点建议</h3><ol>
+<li>不要太随意地去进行垃圾回收, 会严重影响性能(因为要去evalute每一个memory object).   </li>
 <li>在你的应用启动并趋于稳定后, 再进行手动地垃圾回收.    </li>
 <li>Run manual garbage collection after infrequently run sections of code which use and then free large blocks of memory. 最好在这时运行手动的垃圾回收: 当一段不常用的代码使用并释放了大量内存的是时候.</li>
-<li>当一段代码对 timing 很敏感的时候, 手动回收垃圾最好在它之前或之后运行.<br>_<br>原版的描述:</li>
+<li>当一段代码对timing很敏感的时候, 手动回收垃圾最好在它之前或之后运行.<br>_<br>原版的描述:</li>
 </ol>
 <p>1.Do not run garbage collection too freely, as it can take considerable time to evaluate every memory object within a large system. For example, one team having memory issues tried calling gc.collect() between every step of a complex start-up process, increasing the boot time by 20 times (2000%). Running it more than a few times per day - without specific design reasons - is likely a waste of device resources.<br>2.Run manual garbage collection after your application has completed start up and moves into steady-state operation. This frees potentially huge blocks of memory used to open and parse file, to build and modify object lists, and even code modules never to be used again. For example, one application reading XML configuration files was consuming about 1.5MB of temporary memory during the process. Without manual garbage collection, there is no way to predict when that 1.5MB of memory will be returned to the python memory pools for reuse.<br>3.Run manual garbage collection after infrequently run sections of code which use and then free large blocks of memory. For example, consider running garbage collection after a once-per-day task which evaluates thousands of data points, creates an XML &#39;report&#39;, and then sends that report to a central office via FTP or SMTP&#x2F;email. One application doing such daily reports was creating over 800K worth of temporary sorted lists of historical data. Piggy-backing gc.collect() on such daily chores has the nice side-effect of running it once per day for &#39;free&#39;.<br>4.Consider manually running garbage collection either before or after timing-critical sections of code to prevent garbage collection from disturbing the timing. As example, an irrigation application might sit idle for 10 minutes, then evaluate the status of all field devices and make adjustments. Since delays during system adjustment might affect field device battery life, it makes sense to manually run garbage collection as the gateway is entering the idle period AFTER the adjustment process - or run it every sixth or tenth idle period. This insures that garbage collection won&#39;t be triggered automatically during the next timing-sensitive period.   </p>
 
@@ -342,8 +342,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20170213/python-algorithms/" rel="prev" title="那些年 用 python 刷过的面试算法题">
-      <i class="fa fa-chevron-left"></i> 那些年 用 python 刷过的面试算法题
+    <a href="/blog/20170213/python-algorithms/" rel="prev" title="那些年 用python刷过的面试算法题">
+      <i class="fa fa-chevron-left"></i> 那些年 用python刷过的面试算法题
     </a></div>
       <div class="post-nav-item">
     <a href="/blog/20170220/python-scope/" rel="next" title="Python - Note of Variable Scope">
@@ -543,7 +543,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

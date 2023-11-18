@@ -49,13 +49,13 @@
 
   <meta name="description" content="新的一年有新的开始, 决定使用TDD进行开发! 但第一个问题就是: 执行一次单元测试需要200多秒, 快速地测试执行俨然成为了当务之急!(正经脸🤭)用这篇博客记录一些django单元测试提速的实用小技巧:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Django 单元测试大提速 (250s→5s)">
+<meta property="og:title" content="Django单元测试大提速(250s→5s)">
 <meta property="og:url" content="https://changchen.me/blog/20180204/djangodan-yuan-ce-shi-da-ti-su-300s-5s/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="新的一年有新的开始, 决定使用TDD进行开发! 但第一个问题就是: 执行一次单元测试需要200多秒, 快速地测试执行俨然成为了当务之急!(正经脸🤭)用这篇博客记录一些django单元测试提速的实用小技巧:">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-02-04T11:59:42.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="django">
 <meta property="article:tag" content="unittest">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title>Django 单元测试大提速 (250s→5s) | Henry Z's blog~</title>
+  <title>Django单元测试大提速(250s→5s) | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Django 单元测试大提速 (250s→5s)
+          Django单元测试大提速(250s→5s)
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -250,26 +250,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>新的一年有新的开始, 决定使用 TDD 进行开发! <strong>但第一个问题就是: 执行一次单元测试需要 200 多秒 </strong>, 快速地测试执行俨然成为了当务之急!(正经脸🤭)<br> 用这篇博客记录一些 django 单元测试提速的实用小技巧:<br><img style="max-height:300px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test.gif"></p>
+        <p>新的一年有新的开始, 决定使用TDD进行开发! <strong>但第一个问题就是: 执行一次单元测试需要200多秒</strong>, 快速地测试执行俨然成为了当务之急!(正经脸🤭)<br>用这篇博客记录一些django单元测试提速的实用小技巧:<br><img style="max-height:300px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test.gif"></p>
 <a id="more"></a>
-<h1 id="测试加速技巧🚀🚀🚀"><a href="# 测试加速技巧🚀🚀🚀" class="headerlink" title="测试加速技巧🚀🚀🚀:"></a>测试加速技巧🚀🚀🚀:</h1><h3 id="1- 不每次执行 migration-200s→30s"><a href="#1- 不每次执行 migration-200s→30s" class="headerlink" title="1. 不每次执行 migration(200s→30s)"></a>1. 不每次执行 migration(200s→30s)</h3><p>拖累单元测试的罪魁祸首是每次初始化数据库耗费的时间 (因为我们数据库中有四百多张表, 所以特别的慢)<br> 解决方法: pytest 的 <code>--reuse-db</code> 参数 (默认的测试也有<a href="https://docs.djangoproject.com/en/2.0/ref/django-admin/#cmdoption-test-keepdb"><code>--keepdb</code></a> 参数)    </p>
-<h3 id="2- 新建用户时密码加密的方式 -30s→5s"><a href="#2- 新建用户时密码加密的方式 -30s→5s" class="headerlink" title="2. 新建用户时密码加密的方式 (30s→5s)"></a>2. 新建用户时密码加密的方式(30s→5s)</h3><p> 这是我最为诧异的一个提升点, 在测试的设置中, 覆盖<code>PASSWORD_HASHERS</code> &#x3D; [&#39;django.contrib.auth.hashers.MD5PasswordHasher&#39;,], 竟然将测试的效率提升了 6 倍左右.        # TODO: 研究一下两种加密方式的具体实现.  </p>
-<h3 id="3- 并行运行 -5s→90s"><a href="#3- 并行运行 -5s→90s" class="headerlink" title="3. 并行运行 (5s→90s???)"></a>3. 并行运行(5s→90s???)</h3><p> 开启 pytest 的并行运行, 总执行时间竟然从 5s 变为了 90s... 是我打开方式不对吗???   </p>
+<h1 id="测试加速技巧🚀🚀🚀"><a href="#测试加速技巧🚀🚀🚀" class="headerlink" title="测试加速技巧🚀🚀🚀:"></a>测试加速技巧🚀🚀🚀:</h1><h3 id="1-不每次执行migration-200s→30s"><a href="#1-不每次执行migration-200s→30s" class="headerlink" title="1. 不每次执行migration(200s→30s)"></a>1. 不每次执行migration(200s→30s)</h3><p>拖累单元测试的罪魁祸首是每次初始化数据库耗费的时间(因为我们数据库中有四百多张表, 所以特别的慢)<br>解决方法: pytest的<code>--reuse-db</code>参数(默认的测试也有<a href="https://docs.djangoproject.com/en/2.0/ref/django-admin/#cmdoption-test-keepdb"><code>--keepdb</code></a>参数)    </p>
+<h3 id="2-新建用户时密码加密的方式-30s→5s"><a href="#2-新建用户时密码加密的方式-30s→5s" class="headerlink" title="2. 新建用户时密码加密的方式(30s→5s)"></a>2. 新建用户时密码加密的方式(30s→5s)</h3><p>这是我最为诧异的一个提升点, 在测试的设置中, 覆盖<code>PASSWORD_HASHERS</code> &#x3D; [&#39;django.contrib.auth.hashers.MD5PasswordHasher&#39;,], 竟然将测试的效率提升了6倍左右.        # TODO: 研究一下两种加密方式的具体实现.  </p>
+<h3 id="3-并行运行-5s→90s"><a href="#3-并行运行-5s→90s" class="headerlink" title="3. 并行运行(5s→90s???)"></a>3. 并行运行(5s→90s???)</h3><p>开启pytest的并行运行, 总执行时间竟然从5s变为了90s... 是我打开方式不对吗???   </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest-xdist</span><br><span class="line">pytest tests&#x2F;api_v1&#x2F; --reuse-db -n 4</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="4- 其他"><a href="#4- 其他" class="headerlink" title="4. 其他:"></a>4. 其他:</h3><ul>
-<li>使用 <code>setUpTestData</code> 去初始化数据, 而不是<code>setUp</code>. 这样在下图中的测试中, 数据只会初始化一次而不是三次:   <img style="max-height:200px" class="lazy" data-original="/images/blog/180203_unittest_speedup/setUpTestData.jpg"></li>
+<h3 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他:"></a>4. 其他:</h3><ul>
+<li>使用<code>setUpTestData</code>去初始化数据, 而不是<code>setUp</code>. 这样在下图中的测试中, 数据只会初始化一次而不是三次:   <img style="max-height:200px" class="lazy" data-original="/images/blog/180203_unittest_speedup/setUpTestData.jpg"></li>
 <li>使用内存型数据库, e.g. sqlite</li>
-<li>在 <code>INSTALLED_APPS</code> 中去除不需要的 app.</li>
+<li>在<code>INSTALLED_APPS</code>中去除不需要的app.</li>
 <li>...</li>
 </ul>
-<h1 id="最终效果"><a href="# 最终效果" class="headerlink" title="最终效果:"></a>最终效果:</h1><img style="max-height:300px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test.jpg">   
-用 pycharm 执行的话慢了好多.. 愁人呀.   
+<h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果:"></a>最终效果:</h1><img style="max-height:300px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test.jpg">   
+用pycharm执行的话慢了好多.. 愁人呀.   
 <img style="max-height:400px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test_pycharm.jpg">   
 
 
-<h1 id="完整的配置"><a href="# 完整的配置" class="headerlink" title="完整的配置:"></a>完整的配置:</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> OperationalError, connections</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">"TEST"</span>] = <span class="string">"true"</span></span><br><span class="line">DEBUG = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># <span class="doctag">TODO:</span> remove unnecessary apps</span></span><br><span class="line">INSTALLED_APPS = list(INSTALLED_APPS)</span><br><span class="line"></span><br><span class="line">TEST_DB_NAME = <span class="string">'test.db'</span></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">            <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">            <span class="string">'NAME'</span>: TEST_DB_NAME,</span><br><span class="line">            <span class="string">'TEST'</span>: &#123;<span class="string">'NAME'</span>: TEST_DB_NAME&#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># --------------------- pytest 配置 ----------------------------</span></span><br><span class="line"><span class="comment"># TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'</span></span><br><span class="line">TEST_RUNNER = <span class="string">'tests.runner.PytestTestRunner'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connections[<span class="string">'default'</span>].cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        cursor.execute(<span class="string">'SELECT ID FROM configs_usergroup LIMIT 1'</span>)</span><br><span class="line">    <span class="keyword">except</span> OperationalError:</span><br><span class="line">        <span class="comment"># 第一次数据库为空的情况.</span></span><br><span class="line">        <span class="keyword">import</span> django; django.setup()</span><br><span class="line">        <span class="keyword">from</span> django.core.management <span class="keyword">import</span> call_command</span><br><span class="line">        call_command(<span class="string">"migrate"</span>, interactive=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改变用户生成密码的加密方式, 总执行时间 30s --&gt; 5s ...</span></span><br><span class="line">PASSWORD_HASHERS = [</span><br><span class="line">    <span class="string">'django.contrib.auth.hashers.MD5PasswordHasher'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h1 id="完整的配置"><a href="#完整的配置" class="headerlink" title="完整的配置:"></a>完整的配置:</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> OperationalError, connections</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">"TEST"</span>] = <span class="string">"true"</span></span><br><span class="line">DEBUG = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># <span class="doctag">TODO:</span> remove unnecessary apps</span></span><br><span class="line">INSTALLED_APPS = list(INSTALLED_APPS)</span><br><span class="line"></span><br><span class="line">TEST_DB_NAME = <span class="string">'test.db'</span></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">            <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">            <span class="string">'NAME'</span>: TEST_DB_NAME,</span><br><span class="line">            <span class="string">'TEST'</span>: &#123;<span class="string">'NAME'</span>: TEST_DB_NAME&#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># --------------------- pytest 配置----------------------------</span></span><br><span class="line"><span class="comment"># TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'</span></span><br><span class="line">TEST_RUNNER = <span class="string">'tests.runner.PytestTestRunner'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connections[<span class="string">'default'</span>].cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        cursor.execute(<span class="string">'SELECT ID FROM configs_usergroup LIMIT 1'</span>)</span><br><span class="line">    <span class="keyword">except</span> OperationalError:</span><br><span class="line">        <span class="comment"># 第一次数据库为空的情况.</span></span><br><span class="line">        <span class="keyword">import</span> django; django.setup()</span><br><span class="line">        <span class="keyword">from</span> django.core.management <span class="keyword">import</span> call_command</span><br><span class="line">        call_command(<span class="string">"migrate"</span>, interactive=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改变用户生成密码的加密方式, 总执行时间 30s --&gt; 5s ...</span></span><br><span class="line">PASSWORD_HASHERS = [</span><br><span class="line">    <span class="string">'django.contrib.auth.hashers.MD5PasswordHasher'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 
 
@@ -340,12 +340,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20180203/heapheapheap/" rel="prev" title="<算法导论 (3rd)> 第六章 - Heap!Heap!Heap!">
-      <i class="fa fa-chevron-left"></i> <算法导论 (3rd)> 第六章 - Heap!Heap!Heap!
+    <a href="/blog/20180203/heapheapheap/" rel="prev" title="<算法导论(3rd)>第六章 - Heap!Heap!Heap!">
+      <i class="fa fa-chevron-left"></i> <算法导论(3rd)>第六章 - Heap!Heap!Heap!
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20180222/b-tree/" rel="next" title="<算法导论 (3rd)> 第十八章 - B Tree!">
-      <算法导论 (3rd)> 第十八章 - B Tree! <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20180222/b-tree/" rel="next" title="<算法导论(3rd)>第十八章 - B Tree!">
+      <算法导论(3rd)>第十八章 - B Tree! <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -414,7 +414,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#测试加速技巧🚀🚀🚀"><span class="nav-text">测试加速技巧🚀🚀🚀:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1- 不每次执行 migration-200s→30s"><span class="nav-text">1. 不每次执行 migration(200s→30s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2- 新建用户时密码加密的方式 -30s→5s"><span class="nav-text">2. 新建用户时密码加密的方式(30s→5s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3- 并行运行 -5s→90s"><span class="nav-text">3. 并行运行(5s→90s???)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4- 其他"><span class="nav-text">4. 其他:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终效果"><span class="nav-text">最终效果:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整的配置"><span class="nav-text">完整的配置:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">reference:</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#测试加速技巧🚀🚀🚀"><span class="nav-text">测试加速技巧🚀🚀🚀:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-不每次执行migration-200s→30s"><span class="nav-text">1. 不每次执行migration(200s→30s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-新建用户时密码加密的方式-30s→5s"><span class="nav-text">2. 新建用户时密码加密的方式(30s→5s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-并行运行-5s→90s"><span class="nav-text">3. 并行运行(5s→90s???)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-其他"><span class="nav-text">4. 其他:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终效果"><span class="nav-text">最终效果:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整的配置"><span class="nav-text">完整的配置:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-text">reference:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -541,7 +541,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

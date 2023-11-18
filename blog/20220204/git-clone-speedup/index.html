@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-02-04T02:40:35.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.909Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -270,18 +270,18 @@
 <p>这篇博客简单分享几个提速小技巧⚡️⚡️⚡️</p>
 <a id="more"></a>
 
-<h1 id="git-clone- 大提速"><a href="#git-clone- 大提速" class="headerlink" title="git clone 大提速"></a>git clone 大提速 </h1><h2 id="1- 设置 -proxy"><a href="#1- 设置 -proxy" class="headerlink" title="1. 设置 proxy"></a>1. 设置 proxy</h2><p> 如果在大陆境内，可以暴力为终端配置代理端口：</p>
+<h1 id="git-clone-大提速"><a href="#git-clone-大提速" class="headerlink" title="git clone 大提速"></a>git clone 大提速</h1><h2 id="1-设置-proxy"><a href="#1-设置-proxy" class="headerlink" title="1. 设置 proxy"></a>1. 设置 proxy</h2><p>如果在大陆境内，可以暴力为终端配置代理端口：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export all_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:13659</span><br></pre></td></tr></table></figure>
 
-<h2 id="2- 减小 -clone- 的大小"><a href="#2- 减小 -clone- 的大小" class="headerlink" title="2. 减小 clone 的大小"></a>2. 减小 clone 的大小 </h2><p> 强烈推荐先阅读博主 18 年的一篇文章：<a href="/blog/20180315/git-internal/">《Git Internal (初探 git 的内部实现)》</a>，了解 git 底层的数据结构：<br><img src="/images/loading/loading.svg" data-original="/images/blog/16439392460547.jpg"></p>
+<h2 id="2-减小-clone-的大小"><a href="#2-减小-clone-的大小" class="headerlink" title="2. 减小 clone 的大小"></a>2. 减小 clone 的大小</h2><p>强烈推荐先阅读博主 18 年的一篇文章：<a href="/blog/20180315/git-internal/">《Git Internal (初探 git 的内部实现)》</a>，了解 git 底层的数据结构：<br><img src="/images/loading/loading.svg" data-original="/images/blog/16439392460547.jpg"></p>
 <p>因此绝大部分情况时候没有必要获取仓库完整的历史（所有 commit 对应的无意义文件，i.e. blob）</p>
 <p>下面三个参数可以按需使用：<br><img src="/images/loading/loading.svg" data-original="/images/blog/gitclonediff.jpg" alt="gitclonediff"></p>
-<h3 id="速度对比测试 -amp- 说明"><a href="# 速度对比测试 -amp- 说明" class="headerlink" title="速度对比测试 &amp; 说明"></a>速度对比测试 &amp; 说明 </h3><p> 以 <code>git@github.com:JetBrains/jdk8u_hotspot.git</code> 为例，进行性能测试对比（未取平均值，仅供参考）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1）Full clones: `gcl &lt;url&gt;`</span></span><br><span class="line"><span class="comment"># 无参数执行完整 clone, 耗时最久.. 达到了夸张的 40 分钟 :(</span></span><br><span class="line">17.79s user 8.67s system 1% cpu 39:31.18 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2）Blobless clones：`--filter=blob:none`</span></span><br><span class="line"><span class="comment"># 只下载 commits &amp; trees，尽可能保留历史记录的同时，避免加载隐藏在历史 commit 中的大文件</span></span><br><span class="line"><span class="comment"># 仅在执行 `git checkout` 时下载该 commit 对应的所有文件（blob）</span></span><br><span class="line">3.62s user 2.32s system 1% cpu 9:18.32 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3）Treeless clones：`--filter=tree:0`</span></span><br><span class="line"><span class="comment"># 如果有些 repo 历史过于悠久，也可以选择不加载 trees，仅保留 commits 历史</span></span><br><span class="line"><span class="comment"># 速度提升的同时，相对于 Blobless clones，存在大量局限性：</span></span><br><span class="line"><span class="comment"># 例如执行 `git merge-base` 或者 `git log` 时不会触发数据的自动加载，</span></span><br><span class="line"><span class="comment"># 而 `git log -- &lt;path&gt;` 则会触发几乎每个 commit 的数据下载。</span></span><br><span class="line">1.69s user 1.09s system 1% cpu 2:55.05 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4）Shallow clones: `gcl --depth 1 &lt;url&gt;`</span></span><br><span class="line"><span class="comment"># 虽然快，但会，甚至在即用即拋的</span></span><br><span class="line">1.06s user 0.80s system 2% cpu 1:26.68 total</span><br></pre></td></tr></table></figure>
+<h3 id="速度对比测试-amp-说明"><a href="#速度对比测试-amp-说明" class="headerlink" title="速度对比测试&amp;说明"></a>速度对比测试&amp;说明</h3><p>以 <code>git@github.com:JetBrains/jdk8u_hotspot.git</code> 为例，进行性能测试对比（未取平均值，仅供参考）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1）Full clones: `gcl &lt;url&gt;`</span></span><br><span class="line"><span class="comment"># 无参数执行完整 clone, 耗时最久.. 达到了夸张的 40 分钟 :(</span></span><br><span class="line">17.79s user 8.67s system 1% cpu 39:31.18 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2）Blobless clones：`--filter=blob:none`</span></span><br><span class="line"><span class="comment"># 只下载 commits &amp; trees，尽可能保留历史记录的同时，避免加载隐藏在历史 commit 中的大文件</span></span><br><span class="line"><span class="comment"># 仅在执行 `git checkout` 时下载该 commit 对应的所有文件（blob）</span></span><br><span class="line">3.62s user 2.32s system 1% cpu 9:18.32 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3）Treeless clones：`--filter=tree:0`</span></span><br><span class="line"><span class="comment"># 如果有些 repo 历史过于悠久，也可以选择不加载 trees，仅保留 commits 历史</span></span><br><span class="line"><span class="comment"># 速度提升的同时，相对于 Blobless clones，存在大量局限性：</span></span><br><span class="line"><span class="comment"># 例如执行 `git merge-base` 或者 `git log`时不会触发数据的自动加载，</span></span><br><span class="line"><span class="comment"># 而 `git log -- &lt;path&gt;` 则会触发几乎每个 commit 的数据下载。</span></span><br><span class="line">1.69s user 1.09s system 1% cpu 2:55.05 total</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4）Shallow clones: `gcl --depth 1 &lt;url&gt;`</span></span><br><span class="line"><span class="comment"># 虽然快，但会，甚至在即用即拋的</span></span><br><span class="line">1.06s user 0.80s system 2% cpu 1:26.68 total</span><br></pre></td></tr></table></figure>
 
-<h2 id="总结"><a href="# 总结" class="headerlink" title="总结"></a>总结 </h2><p> 日常开发推荐 2）Blobless clones，兼顾性能与信息完整性。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>日常开发推荐 2）Blobless clones，兼顾性能与信息完整性。</p>
 <p>3）Treeless clones 仅适用于例如即用即拋的自动化单元测试，或者本地的编译打包。<br>⚠️ 不推荐 4）Shallow clones，存在描述信息丢失或错乱的可能，弊大于利。</p>
-<h1 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><a href="https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/">https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/</a></li>
 </ol>
 
@@ -417,7 +417,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-clone- 大提速"><span class="nav-text">git clone 大提速 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1- 设置 -proxy"><span class="nav-text">1. 设置 proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2- 减小 -clone- 的大小"><span class="nav-text">2. 减小 clone 的大小 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#速度对比测试 -amp- 说明"><span class="nav-text">速度对比测试 &amp; 说明 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-clone-大提速"><span class="nav-text">git clone 大提速</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-设置-proxy"><span class="nav-text">1. 设置 proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-减小-clone-的大小"><span class="nav-text">2. 减小 clone 的大小</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#速度对比测试-amp-说明"><span class="nav-text">速度对比测试&amp;说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -544,7 +544,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

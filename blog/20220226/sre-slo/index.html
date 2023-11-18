@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-02-26T14:34:59.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.909Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -286,10 +286,10 @@
 <li><a href="#4%E7%9B%91%E6%8E%A7%E7%9A%84%E7%9B%91%E6%8E%A7%EF%BC%9A">4. 监控的监控：</a></li>
 </ul>
 </li>
-<li><a href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Eslo%E6%8A%A5%E8%AD%A6%EF%BC%9F">四、如何基于 SLO 报警？</a><ul>
+<li><a href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8Eslo%E6%8A%A5%E8%AD%A6%EF%BC%9F">四、如何基于SLO报警？</a><ul>
 <li><a href="#1%E5%91%8A%E8%AD%A6%E4%BA%8B%E4%BB%B6%E5%BA%A6%E9%87%8F%E6%8C%87%E6%A0%87">1. 告警事件度量指标</a></li>
 <li><a href="#2%E5%91%8A%E8%AD%A6%E9%85%8D%E7%BD%AE%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">2. 告警配置最佳实践</a><ul>
-<li><a href="#1%EF%BC%89%E7%9B%AE%E6%A0%87%E9%94%99%E8%AF%AF%E7%8E%87%E2%89%A5slo%E9%98%88%E5%80%BC">1）目标错误率≥SLO 阈值</a></li>
+<li><a href="#1%EF%BC%89%E7%9B%AE%E6%A0%87%E9%94%99%E8%AF%AF%E7%8E%87%E2%89%A5slo%E9%98%88%E5%80%BC">1）目标错误率≥SLO阈值</a></li>
 <li><a href="#2%EF%BC%89%E8%AD%A6%E6%8A%A5%E7%AA%97%E5%8F%A3%E5%A2%9E%E5%8A%A0">2）警报窗口增加</a></li>
 <li><a href="#3%EF%BC%89%E9%80%92%E5%A2%9E%E8%AD%A6%E6%8A%A5%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4">3）递增警报持续时间</a></li>
 <li><a href="#4%EF%BC%89%E6%B6%88%E8%80%97%E9%80%9F%E7%8E%87%E8%AD%A6%E6%8A%A5-burning-rate">4）消耗速率警报 - burning rate</a></li>
@@ -300,24 +300,24 @@
 </ul>
 </li>
 </ul>
-<h2 id="一、为什么我们需要定义 -SLO？"><a href="# 一、为什么我们需要定义 -SLO？" class="headerlink" title="一、为什么我们需要定义 SLO？"></a>一、为什么我们需要定义 SLO？</h2><blockquote>
+<h2 id="一、为什么我们需要定义-SLO？"><a href="#一、为什么我们需要定义-SLO？" class="headerlink" title="一、为什么我们需要定义 SLO？"></a>一、为什么我们需要定义 SLO？</h2><blockquote>
 <p>SLOs are key to making data-driven decisions about reliability</p>
 </blockquote>
-<p>众所周知，一味的追求 100% 可用率不是一个明智的决定。只有制定研发、测试、SRE 一致认同的可用性目标后，才有可能实时量化风险，基于数据驱动告警应急 &amp; 影响变更，最终管理好风险。</p>
-<p>一个反例为公司内部的 <strong> 智能告警</strong>，为什么一直用户口碑不佳？一方面因为纯算法黑盒的不可解释性以及业务特征缺失，但更致命的原因在于缺少用户输入（各个服务重要程度）。如果针对所有服务套用相同检测逻辑，必然极难保证异常检测召回率的前提下，不断提升准确率。</p>
-<h2 id="二、如何定义 -SLIs？"><a href="# 二、如何定义 -SLIs？" class="headerlink" title="二、如何定义 SLIs？"></a>二、如何定义 SLIs？</h2><blockquote>
+<p>众所周知，一味的追求 100% 可用率不是一个明智的决定。只有制定研发、测试、SRE一致认同的可用性目标后，才有可能实时量化风险，基于数据驱动告警应急&amp;影响变更，最终管理好风险。</p>
+<p>一个反例为公司内部的<strong>智能告警</strong>，为什么一直用户口碑不佳？一方面因为纯算法黑盒的不可解释性以及业务特征缺失，但更致命的原因在于缺少用户输入（各个服务重要程度）。如果针对所有服务套用相同检测逻辑，必然极难保证异常检测召回率的前提下，不断提升准确率。</p>
+<h2 id="二、如何定义-SLIs？"><a href="#二、如何定义-SLIs？" class="headerlink" title="二、如何定义 SLIs？"></a>二、如何定义 SLIs？</h2><blockquote>
 <p>The easiest way to get started with setting SLIs is to abstract your system into a few common types of components</p>
 </blockquote>
-<p>首先将线上系统 <strong> 抽象分类 </strong> 后，分别设置 SLIs：</p>
+<p>首先将线上系统<strong>抽象分类</strong>后，分别设置 SLIs：</p>
 <ol>
-<li>用户 &#x2F; 商户同步请求</li>
+<li>用户&#x2F;商户同步请求</li>
 </ol>
 <ul>
-<li>成功率 &#x2F; 延迟</li>
+<li>成功率&#x2F;延迟</li>
 <li>Quality：例如业务降级后，HTTP 接口正常响应 200，但业务返回“请稍后重试”，也应该被识别为异常（影响用户体验）。</li>
 </ul>
 <ol start="2">
-<li>内部定时 &#x2F; 异步任务</li>
+<li>内部定时&#x2F;异步任务</li>
 </ol>
 <ul>
 <li>Freshness：数据实时性</li>
@@ -333,18 +333,18 @@
 <ol start="4">
 <li>...</li>
 </ol>
-<h2 id="三、如何实现 -SLIs？"><a href="# 三、如何实现 -SLIs？" class="headerlink" title="三、如何实现 SLIs？"></a>三、如何实现 SLIs？</h2><h3 id="1-HTTP- 状态码"><a href="#1-HTTP- 状态码" class="headerlink" title="1. HTTP 状态码"></a>1. HTTP 状态码</h3><blockquote>
+<h2 id="三、如何实现-SLIs？"><a href="#三、如何实现-SLIs？" class="headerlink" title="三、如何实现 SLIs？"></a>三、如何实现 SLIs？</h2><h3 id="1-HTTP-状态码"><a href="#1-HTTP-状态码" class="headerlink" title="1. HTTP 状态码"></a>1. HTTP 状态码</h3><blockquote>
 <p>we base the response success on the HTTP status code. 5XX responses count against SLO, while all other requests are considered successful.</p>
 </blockquote>
 <p>文中简单以 http 接口的 5xx 判断请求是否成功。<br><img src="/images/loading/loading.svg" data-original="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Fpython_notes_daya%2F9p5gDFiX-R.png?alt=media&token=387b8376-8d9e-454e-93c4-1e4c2569ccfb"></p>
-<p>公司内部通常以 <strong> 业务错误码作为外部请求成功 &#x2F; 失败判断标准</strong>，e.g. <code>PROCESS_FAIL</code>， <code>UNKNOWN_EXCEPTION</code>。</p>
-<p>它们又被称为“<strong>灰色错误码 </strong>”... 也就是说当返回给用户<code>PROCESS_FAIL</code> 处理失败时，有可能是内部代码 npe 导致，也可能是用户余额不足，无法代表系统是否真实可用。同时受上游 &#x2F; 下游外部影响，极大的影响告警准确率。</p>
+<p>公司内部通常以<strong>业务错误码作为外部请求成功&#x2F;失败判断标准</strong>，e.g. <code>PROCESS_FAIL</code>， <code>UNKNOWN_EXCEPTION</code>。</p>
+<p>它们又被称为“<strong>灰色错误码</strong>”... 也就是说当返回给用户<code>PROCESS_FAIL</code>处理失败时，有可能是内部代码 npe 导致，也可能是用户余额不足，无法代表系统是否真实可用。同时受上游&#x2F;下游外部影响，极大的影响告警准确率。</p>
 <ul>
 <li>一种思路为修改错误码模型，带上可用性属性（am I f**ked up？），但此类“规范”如果没有与监控系统原生打通，随着时间推移很容易“腐化”。</li>
 <li>另一种思路为根因错误码识别，同样监控入口错误码，但将根因错误码塞入请求上下文，透传至入口综合判断业务是否可用（剔除用户余额不足等噪音场景）。但根因错误码识别（强弱依赖）又是一个新的课题。</li>
 </ul>
 <p><strong>个人倾向第一种思路为上策：分布式系统中每个应用需决策并透出这笔请求是否会影响用户（SLO-impacting error），通过这一层风险抽象，最终统一复用一份告警规则</strong></p>
-<h3 id="2- 黑盒测试"><a href="#2- 黑盒测试" class="headerlink" title="2. 黑盒测试"></a>2. 黑盒测试</h3><blockquote>
+<h3 id="2-黑盒测试"><a href="#2-黑盒测试" class="headerlink" title="2. 黑盒测试"></a>2. 黑盒测试</h3><blockquote>
 <p>SLIs can use one or more of the following sources</p>
 <ul>
 <li>Application server logs</li>
@@ -354,71 +354,71 @@
 </ul>
 </blockquote>
 <p>日常监控通常基于日志统计（白盒监控），数据来源是否过于单一？有没有可能发挥黑盒监控测试的重要性？</p>
-<h3 id="3-SLIs- 的几种高级玩法"><a href="#3-SLIs- 的几种高级玩法" class="headerlink" title="3. SLIs 的几种高级玩法"></a>3. SLIs 的几种高级玩法</h3><blockquote>
+<h3 id="3-SLIs-的几种高级玩法"><a href="#3-SLIs-的几种高级玩法" class="headerlink" title="3. SLIs 的几种高级玩法"></a>3. SLIs 的几种高级玩法</h3><blockquote>
 <p>Once you have a healthy and mature SLO and error budget culture, you can continue to improve and refine how you measure and discuss the reliability of your services.</p>
 </blockquote>
 <ul>
-<li><strong>基于用户行为的满意度量化 </strong>（Modeling User Journeys）：以在线购物场景为例，用户关键路径为 1）搜索商品 -》 2）加入购物车 -》3）下单购买，所以有没有可能对应日志事件 join 聚合后，生成一个全新的 SLIs 改善客户体验。本质上与链路监控的传递比检测异曲同工，通过流量漏洞模型在不影响准确率的同时，提升召回率。但提供了新的思路：除了前置的流量染色，还能<strong> 通过单号自动聚合（后计算）生成流量漏斗指标？</strong></li>
+<li><strong>基于用户行为的满意度量化</strong>（Modeling User Journeys）：以在线购物场景为例，用户关键路径为 1）搜索商品 -》 2）加入购物车 -》3）下单购买，所以有没有可能对应日志事件 join 聚合后，生成一个全新的 SLIs 改善客户体验。本质上与链路监控的传递比检测异曲同工，通过流量漏洞模型在不影响准确率的同时，提升召回率。但提供了新的思路：除了前置的流量染色，还能<strong>通过单号自动聚合（后计算）生成流量漏斗指标？</strong></li>
 <li><strong>强依赖建模</strong>（Modeling Dependencies）：不难理解下游 SLOs 制定一定要要比上游严格，例如业务应用服务 SLO 为 99.9% 下游依赖的单点 DB 需要设置为 99.99% 进行风险管理。同时建设缓存、异步处理、降级等保护手段。</li>
 </ul>
-<h3 id="4- 监控的监控"><a href="#4- 监控的监控" class="headerlink" title="4. 监控的监控"></a>4. 监控的监控</h3><blockquote>
+<h3 id="4-监控的监控"><a href="#4-监控的监控" class="headerlink" title="4. 监控的监控"></a>4. 监控的监控</h3><blockquote>
 <p>At Google, we test our monitoring and alerting using a domain-specific language that allows us to create synthetic time series. We then write assertions based upon the values in a derived time series, or the firing status and label presence of specific alerts.</p>
 </blockquote>
 <p>关于监控的监控，思路比较类似：</p>
 <ul>
 <li>建设全自动的回归流程，利用 mock 数据以及真实故障 case，每日回归验证保鲜。</li>
 </ul>
-<h2 id="四、如何基于 SLO 报警？"><a href="# 四、如何基于 SLO 报警？" class="headerlink" title="四、如何基于 SLO 报警？"></a>四、如何基于 SLO 报警？</h2><h3 id="1- 告警事件度量指标"><a href="#1- 告警事件度量指标" class="headerlink" title="1. 告警事件度量指标"></a>1. 告警事件度量指标 </h3><p> 首先理解评判告警事件好坏的四个指标：</p>
+<h2 id="四、如何基于SLO报警？"><a href="#四、如何基于SLO报警？" class="headerlink" title="四、如何基于SLO报警？"></a>四、如何基于SLO报警？</h2><h3 id="1-告警事件度量指标"><a href="#1-告警事件度量指标" class="headerlink" title="1. 告警事件度量指标"></a>1. 告警事件度量指标</h3><p>首先理解评判告警事件好坏的四个指标：</p>
 <ol>
 <li><strong>Precision</strong>：准确率</li>
 <li><strong>Recall</strong>：召回率（故障漏过未告警）</li>
 <li><strong>Detection time</strong>：投递延迟</li>
 <li><strong>Reset time</strong>：告警重置时长</li>
 </ol>
-<h3 id="2- 告警配置最佳实践"><a href="#2- 告警配置最佳实践" class="headerlink" title="2. 告警配置最佳实践"></a>2. 告警配置最佳实践 </h3><p> 假设 SLO 为 99.9%，以下为几种预警方式的优劣分析（最佳实践推演）：</p>
-<h4 id="1）目标错误率≥SLO 阈值"><a href="#1）目标错误率≥SLO 阈值" class="headerlink" title="1）目标错误率≥SLO 阈值"></a>1）目标错误率≥SLO 阈值 </h4><p><mark> 只要最近十分钟 slo 消耗破线就进行预警</mark>：<code>ratio_rate10m{job=&quot;myjob&quot;} &gt;= 0.001</code></p>
+<h3 id="2-告警配置最佳实践"><a href="#2-告警配置最佳实践" class="headerlink" title="2. 告警配置最佳实践"></a>2. 告警配置最佳实践</h3><p>假设 SLO 为 99.9%，以下为几种预警方式的优劣分析（最佳实践推演）：</p>
+<h4 id="1）目标错误率≥SLO阈值"><a href="#1）目标错误率≥SLO阈值" class="headerlink" title="1）目标错误率≥SLO阈值"></a>1）目标错误率≥SLO阈值</h4><p><mark>只要最近十分钟 slo 消耗破线就进行预警</mark>：<code>ratio_rate10m{job=&quot;myjob&quot;} &gt;= 0.001</code></p>
 <ul>
 <li>好处：非常灵敏保证召回率</li>
 <li>缺点：准确率低，最坏情况下一天最多收到 144 个告警，但整体 SLO 符合预期。</li>
 </ul>
-<h4 id="2）警报窗口增加"><a href="#2）警报窗口增加" class="headerlink" title="2）警报窗口增加"></a>2）警报窗口增加 </h4><p><mark> 十分钟 -&gt; 36 小时，SLO 破线才告警</mark>：<code>ratio_rate36h{job=&quot;myjob&quot;} &gt; 0.001</code></p>
+<h4 id="2）警报窗口增加"><a href="#2）警报窗口增加" class="headerlink" title="2）警报窗口增加"></a>2）警报窗口增加</h4><p><mark>十分钟 -&gt; 36小时，SLO 破线才告警</mark>：<code>ratio_rate36h{job=&quot;myjob&quot;} &gt; 0.001</code></p>
 <ul>
 <li>优点：极大提高了准确率</li>
-<li>缺点：计算窗口过大.. 一是浪费计算存储资源，二是上文提到的第四个指标（Reset time）非常不理想。例如下图第 10 分钟时，服务 100% 不可用 5 分钟（蓝线），但报警会持续超过阈值 36 小时（绿线）</li>
+<li>缺点：计算窗口过大.. 一是浪费计算存储资源，二是上文提到的第四个指标（Reset time）非常不理想。例如下图第10分钟时，服务 100% 不可用 5 分钟（蓝线），但报警会持续超过阈值 36 小时（绿线）</li>
 </ul>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458790779987.jpg"></p>
-<h4 id="3）递增警报持续时间"><a href="#3）递增警报持续时间" class="headerlink" title="3）递增警报持续时间"></a>3）递增警报持续时间 </h4><p><mark> 连续 N 分钟大于某个阈值（any -&gt; all）</mark>：<code>ratio_rate1m{job=&quot;myjob&quot;} &gt; 0.001 for: 1h</code></p>
+<h4 id="3）递增警报持续时间"><a href="#3）递增警报持续时间" class="headerlink" title="3）递增警报持续时间"></a>3）递增警报持续时间</h4><p><mark>连续 N 分钟大于某个阈值（any -&gt; all）</mark>：<code>ratio_rate1m{job=&quot;myjob&quot;} &gt; 0.001 for: 1h</code></p>
 <ul>
 <li>优点：准确率更高</li>
 <li>缺点：召回率上存在一定缺陷（定时循环消耗 slo 但很快恢复），例如下图持续每五分钟产生一波 100% 不可用，但永远不会告警。</li>
 </ul>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458795516070.jpg"></p>
-<h4 id="4）消耗速率警报 -burning-rate"><a href="#4）消耗速率警报 -burning-rate" class="headerlink" title="4）消耗速率警报 - burning rate"></a>4）消耗速率警报 - burning rate</h4><p>为了避免上几个方案，手动设置检测窗口的窘境，引入 burn rate 燃烧速率的概念。</p>
+<h4 id="4）消耗速率警报-burning-rate"><a href="#4）消耗速率警报-burning-rate" class="headerlink" title="4）消耗速率警报 - burning rate"></a>4）消耗速率警报 - burning rate</h4><p>为了避免上几个方案，手动设置检测窗口的窘境，引入 burn rate 燃烧速率的概念。</p>
 <p>例如下图，假设 SLO 为 99.9%（统计窗口为一个月 30 天）：</p>
 <ul>
 <li>如果燃烧速率为 1，则正好一个月消耗完 error budget</li>
 <li>如果燃烧速率为 10（橙色），3 天（30 &#x2F; 10）就会消耗完</li>
 </ul>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458797569689.jpg"></p>
-<p>新的告警规则：<mark>一小时内花费 30 天错误预算的 5％</mark>：<code>job:slo_errors_per_request:ratio_rate1h{job=&quot;myjob&quot;} &gt; 36 * 0.001</code> </p>
+<p>新的告警规则：<mark>一小时内花费30天错误预算的5％</mark>：<code>job:slo_errors_per_request:ratio_rate1h{job=&quot;myjob&quot;} &gt; 36 * 0.001</code> </p>
 <p>规则中 36 系数是如何的得出的呢？</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 当 Burning Rate 为 1 时</span><br><span class="line">0.1%        = 30x24h x  Burning Rate 1  x  Burning Speed</span><br><span class="line">// 一小时内花费 30 天错误预算的 5％</span><br><span class="line">0.1% * 5%   = 1h     x  Burning Rate B  x  Burning Speed</span><br><span class="line"></span><br><span class="line">// 计算：</span><br><span class="line">Burning Rate B = 30 x 24 x 5% = 36</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 当 Burning Rate 为 1 时</span><br><span class="line">0.1%        = 30x24h x  Burning Rate 1  x  Burning Speed</span><br><span class="line">// 一小时内花费30天错误预算的5％</span><br><span class="line">0.1% * 5%   = 1h     x  Burning Rate B  x  Burning Speed</span><br><span class="line"></span><br><span class="line">// 计算：</span><br><span class="line">Burning Rate B = 30 x 24 x 5% = 36</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>优点：precision 精度相比上一步 <code>连续 N 分钟 </code> 的阈值配置 大幅提升</li>
+<li>优点：precision 精度相比上一步 <code>连续 N 分钟</code>的阈值配置 大幅提升</li>
 <li>缺点：<ul>
 <li>recall：存在问题易漏漏洞，假设 burn rate 保持在 35，会在 20.5 小时内烧完 30 天的错误预算。</li>
 <li>Reset time：最坏 58 分钟的 Reset time 依旧过长</li>
 </ul>
 </li>
 </ul>
-<h4 id="5）多个消耗速率警报："><a href="#5）多个消耗速率警报：" class="headerlink" title="5）多个消耗速率警报："></a>5）多个消耗速率警报：</h4><p><mark>一小时内消耗 2％的预算 or 六小时内消耗 5％的预算</mark>：<code>ratio_rate1h{job=&quot;myjob&quot;} &gt; (14.4*0.001) or ratio_rate6h{job=&quot;myjob&quot;} &gt; (6*0.001)</code></p>
+<h4 id="5）多个消耗速率警报："><a href="#5）多个消耗速率警报：" class="headerlink" title="5）多个消耗速率警报："></a>5）多个消耗速率警报：</h4><p><mark>一小时内消耗2％的预算 or 六小时内消耗5％的预算</mark>：<code>ratio_rate1h{job=&quot;myjob&quot;} &gt; (14.4*0.001) or ratio_rate6h{job=&quot;myjob&quot;} &gt; (6*0.001)</code></p>
 <p>告警分级：</p>
 <ul>
 <li>阈值    窗口   燃烧率    告警手段</li>
-<li>2％     1 小时   14.4     呼叫</li>
-<li>5％     6 小时     6      呼叫</li>
-<li>10％     3 天      1      工单</li>
+<li>2％     1小时   14.4     呼叫</li>
+<li>5％     6小时     6      呼叫</li>
+<li>10％     3天      1      工单</li>
 </ul>
 <p>虽然解决上一个方案 recall 召回率的漏洞的同时，新引入告警分级，但还存在两个问题：</p>
 <ol>
@@ -432,19 +432,19 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ratio_rate1h&#123;job="myjob"&#125; &gt; (14.4*0.001)</span><br><span class="line">and</span><br><span class="line">ratio_rate5m&#123;job="myjob"&#125; &gt; (14.4*0.001)</span><br></pre></td></tr></table></figure>
 
 <p>例如下图仅红色区域触发预警事件：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16458821188562.jpg"></p>
-<p>P.S. 困惑与成功率的区别？？？e.g. 最近五分钟平均成功率 &lt;90% &amp;&amp;  最近 1h 平均成功率 &lt; 99%<br>理论上等同，但 burn rate 优势在于仅用一个阈值：36，而成功率还要重新换算，个人理解。 </p>
+<p>P.S. 困惑与成功率的区别？？？e.g. 最近五分钟平均成功率&lt;90% &amp;&amp;  最近1h平均成功率 &lt; 99%<br>理论上等同，但 burn rate 优势在于仅用一个阈值：36，而成功率还要重新换算，个人理解。 </p>
 <hr>
 <p>P.S. 关于小流量的问题，文中提到几种解决思路：</p>
 <ul>
 <li>人为模拟流量（黑盒测试）</li>
 <li>多个小服务合并为大服务进行统一监控</li>
-<li>降低 SLO（或者说增大检测窗口 - 根据当前实时流量自动计算）</li>
+<li>降低 SLO（或者说增大检测窗口-根据当前实时流量自动计算）</li>
 </ul>
 <h2 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h2><p>回到现实，由于公司金融业务的特殊性（最高五个九可用率指标，要求一分钟发现，五分钟定位，十分钟恢复），SLO 文化是否无法适用？</p>
 <p>但仔细一想，两者并不矛盾，所谓“一分钟发现”完全可使用「多窗口，多消耗率警报」替换：线上环境将「短窗口」从 5min 缩短为 1min；灰度环境通过「长窗口」的错误预算消耗检测，甚至增强问题发现能力。</p>
-<p>问题在于：<strong>监控系统未按业务重要程度（e.g. SLO 目标）科学自动设置预警</strong>。甚至针对非核心业务，用户手动配置一笔失败即告警的案例也屡见不鲜。</p>
+<p>问题在于：<strong>监控系统未按业务重要程度（e.g. SLO目标）科学自动设置预警</strong>。甚至针对非核心业务，用户手动配置一笔失败即告警的案例也屡见不鲜。</p>
 <p>而 SLO 文化指引的缺失，更根本的原因在于：<strong>当前系统无法精确回答用户的一笔请求是否可用</strong>（SLO-impacting error），文中并没有做过多解答。希望有一天，针对可用性监控，所有业务系统的下单支付服务，也能像 http 接口一样，通过 5xx 即判断是否影响用户。。</p>
-<h2 id="参考"><a href="# 参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://sre.google/workbook/implementing-slos/">https://sre.google/workbook/implementing-slos/</a></li>
 <li><a href="https://sre.google/workbook/monitoring/">https://sre.google/workbook/monitoring/</a></li>
 <li><a href="https://sre.google/workbook/alerting-on-slos/">https://sre.google/workbook/alerting-on-slos/</a></li>
@@ -582,7 +582,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TOC"><span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、为什么我们需要定义 -SLO？"><span class="nav-text">一、为什么我们需要定义 SLO？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、如何定义 -SLIs？"><span class="nav-text">二、如何定义 SLIs？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、如何实现 -SLIs？"><span class="nav-text">三、如何实现 SLIs？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-HTTP- 状态码"><span class="nav-text">1. HTTP 状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2- 黑盒测试"><span class="nav-text">2. 黑盒测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-SLIs- 的几种高级玩法"><span class="nav-text">3. SLIs 的几种高级玩法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4- 监控的监控"><span class="nav-text">4. 监控的监控</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、如何基于 SLO 报警？"><span class="nav-text">四、如何基于 SLO 报警？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1- 告警事件度量指标"><span class="nav-text">1. 告警事件度量指标 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2- 告警配置最佳实践"><span class="nav-text">2. 告警配置最佳实践 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）目标错误率≥SLO 阈值"><span class="nav-text">1）目标错误率≥SLO 阈值 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）警报窗口增加"><span class="nav-text">2）警报窗口增加 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）递增警报持续时间"><span class="nav-text">3）递增警报持续时间 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）消耗速率警报 -burning-rate"><span class="nav-text">4）消耗速率警报 - burning rate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5）多个消耗速率警报："><span class="nav-text">5）多个消耗速率警报：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6）多窗口，多消耗率警报"><span class="nav-text">6）多窗口，多消耗率警报</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-END"><span class="nav-text">THE END</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TOC"><span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、为什么我们需要定义-SLO？"><span class="nav-text">一、为什么我们需要定义 SLO？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、如何定义-SLIs？"><span class="nav-text">二、如何定义 SLIs？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、如何实现-SLIs？"><span class="nav-text">三、如何实现 SLIs？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-HTTP-状态码"><span class="nav-text">1. HTTP 状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-黑盒测试"><span class="nav-text">2. 黑盒测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-SLIs-的几种高级玩法"><span class="nav-text">3. SLIs 的几种高级玩法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-监控的监控"><span class="nav-text">4. 监控的监控</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、如何基于SLO报警？"><span class="nav-text">四、如何基于SLO报警？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-告警事件度量指标"><span class="nav-text">1. 告警事件度量指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-告警配置最佳实践"><span class="nav-text">2. 告警配置最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）目标错误率≥SLO阈值"><span class="nav-text">1）目标错误率≥SLO阈值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）警报窗口增加"><span class="nav-text">2）警报窗口增加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）递增警报持续时间"><span class="nav-text">3）递增警报持续时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）消耗速率警报-burning-rate"><span class="nav-text">4）消耗速率警报 - burning rate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5）多个消耗速率警报："><span class="nav-text">5）多个消耗速率警报：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6）多窗口，多消耗率警报"><span class="nav-text">6）多窗口，多消耗率警报</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-END"><span class="nav-text">THE END</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -709,7 +709,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

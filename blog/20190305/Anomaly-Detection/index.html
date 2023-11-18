@@ -49,7 +49,7 @@
 
   <meta name="description" content="Coursera 上吴恩达的《机器学习》终于学到了第九周的课程。这周上半部分讲述了 Anomaly Detection，因为和工作比较相关（监控报警的智能降噪），所以比较感兴趣也很期待! 然而看完视频后，说实话略有些失望，因为只介绍了正态分布这一种算法。但视频和课后作业带我从各种不同角度深度剖析了一遍正态分布，收获颇多~ 本文主要记录了完成课后编程作业的过程，并用 python 实现一遍(课程为m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】正态分布 (Normal Distribution) 学习小记">
+<meta property="og:title" content="【学习笔记】正态分布(Normal Distribution)学习小记">
 <meta property="og:url" content="https://changchen.me/blog/20190305/Anomaly-Detection/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="Coursera 上吴恩达的《机器学习》终于学到了第九周的课程。这周上半部分讲述了 Anomaly Detection，因为和工作比较相关（监控报警的智能降噪），所以比较感兴趣也很期待! 然而看完视频后，说实话略有些失望，因为只介绍了正态分布这一种算法。但视频和课后作业带我从各种不同角度深度剖析了一遍正态分布，收获颇多~ 本文主要记录了完成课后编程作业的过程，并用 python 实现一遍(课程为m">
@@ -60,7 +60,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2019-03-05T14:36:56.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>【学习笔记】正态分布 (Normal Distribution) 学习小记 | Henry Z's blog~</title>
+  <title>【学习笔记】正态分布(Normal Distribution)学习小记 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -235,7 +235,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【学习笔记】正态分布 (Normal Distribution) 学习小记
+          【学习笔记】正态分布(Normal Distribution)学习小记
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -258,32 +258,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Coursera 上吴恩达的 <a href="https://www.coursera.org/learn/machine-learning/home/welcome">《机器学习》</a> 终于学到了第九周的课程。这周上半部分讲述了 Anomaly Detection，因为和工作比较相关（<a href="/blog/20190113/anomaly-detection/">监控报警的智能降噪</a>），所以比较感兴趣也很期待! 然而看完视频后，说实话略有些失望，因为只介绍了正态分布这一种算法。但视频和课后作业带我从各种不同角度深度剖析了一遍正态分布，收获颇多~</p>
-<p>本文主要记录了完成 <strong> 课后编程作业 </strong> 的过程，并用 <a href="https://github.com/daya0576/Gaussian-Distribution/blob/master/normalization.ipynb">python 实现一遍</a>(课程为 matlab)，talk is cheap, show me the code. 也希望自己也包括正在读这篇文章的你，可以对正态分布有更深的理解。</p>
+        <p>Coursera 上吴恩达的<a href="https://www.coursera.org/learn/machine-learning/home/welcome">《机器学习》</a>终于学到了第九周的课程。这周上半部分讲述了 Anomaly Detection，因为和工作比较相关（<a href="/blog/20190113/anomaly-detection/">监控报警的智能降噪</a>），所以比较感兴趣也很期待! 然而看完视频后，说实话略有些失望，因为只介绍了正态分布这一种算法。但视频和课后作业带我从各种不同角度深度剖析了一遍正态分布，收获颇多~</p>
+<p>本文主要记录了完成<strong>课后编程作业</strong>的过程，并用 <a href="https://github.com/daya0576/Gaussian-Distribution/blob/master/normalization.ipynb">python 实现一遍</a>(课程为matlab)，talk is cheap, show me the code. 也希望自己也包括正在读这篇文章的你，可以对正态分布有更深的理解。</p>
 <a id="more"></a>
 
-<h1 id="课后编程作业"><a href="# 课后编程作业" class="headerlink" title="课后编程作业:"></a>课后编程作业:</h1><blockquote>
+<h1 id="课后编程作业"><a href="#课后编程作业" class="headerlink" title="课后编程作业:"></a>课后编程作业:</h1><blockquote>
 <p>In this exercise，you will implement the anomaly detection algorithm and apply it to detect failing servers on a network。</p>
 </blockquote>
 <p>检测服务器是否异常，兴奋 🥰</p>
-<h2 id="1- 加载数据"><a href="#1- 加载数据" class="headerlink" title="1. 加载数据:"></a>1. 加载数据:</h2><blockquote>
+<h2 id="1-加载数据"><a href="#1-加载数据" class="headerlink" title="1. 加载数据:"></a>1. 加载数据:</h2><blockquote>
 <p>You suspect that the vast majority of these examples are &#39;normal&#39; (non-anomalous) examples of the servers operating normally，but there might also be some examples of servers acting anomalously within this dataset。</p>
 </blockquote>
-<p>利用正态分布检测异常，其实是有一个前提的，就是数据集中大部分的数据都是 &quot; 正常 &quot; 的。将指定的数据集可视化后，可以明显的看到有几个点孤零零的分布在异常的位置。<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/15516041918813.jpg"></p>
-<h2 id="2-1- 高斯分布模型介绍"><a href="#2-1- 高斯分布模型介绍" class="headerlink" title="2.1 高斯分布模型介绍"></a>2.1 高斯分布模型介绍 </h2><p> 有了数据，第二步就是用这些数据建立一个高斯分布的模型: 下图中的公式 <code>P(x;μ，σ^2)</code>，代表给定一个点(x)，返回它在整个分布中的具体概率:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/model.jpg"></p>
-<h2 id="2-2- 模型参数计算"><a href="#2-2- 模型参数计算" class="headerlink" title="2.2 模型参数计算"></a>2.2 模型参数计算 </h2><p> 计算高斯分布模型的两个关键参数:</p>
+<p>利用正态分布检测异常，其实是有一个前提的，就是数据集中大部分的数据都是&quot;正常&quot;的。将指定的数据集可视化后，可以明显的看到有几个点孤零零的分布在异常的位置。<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/15516041918813.jpg"></p>
+<h2 id="2-1-高斯分布模型介绍"><a href="#2-1-高斯分布模型介绍" class="headerlink" title="2.1 高斯分布模型介绍"></a>2.1 高斯分布模型介绍</h2><p>有了数据，第二步就是用这些数据建立一个高斯分布的模型: 下图中的公式 <code>P(x;μ，σ^2)</code>，代表给定一个点(x)，返回它在整个分布中的具体概率:<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/model.jpg"></p>
+<h2 id="2-2-模型参数计算"><a href="#2-2-模型参数计算" class="headerlink" title="2.2 模型参数计算"></a>2.2 模型参数计算</h2><p>计算高斯分布模型的两个关键参数:</p>
 <ol>
-<li>μ(mean): 平均值，读作 mu</li>
+<li>μ(mean): 平均值，读作mu</li>
 <li>σ^2(variance): 方差</li>
 </ol>
 <p>可视化之后，并可以看到大部分的点集中在最中心黄色的圆圈，并且刚刚计算的平均值和反差决定了圆圈的形状和大小。p。s。但看了半天没明白具体每个圈具体代表什么，求指点。<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/15516064266294.jpg"></p>
-<h2 id="2-3- 选择阈值"><a href="#2-3- 选择阈值" class="headerlink" title="2.3 选择阈值"></a>2.3 选择阈值 </h2><p> 完成高斯分布模型的参数之后，可以根据公式计算出每个点在数据集中的概率(越边缘的点概率越低，i.e. 概率越低，越可能是个异常)。在这一小节我们就是要找到一个特定的阈值(ε)，如果某个点的概率在这个阈值以下，<code>p(x) &lt; ε</code>，即可判断为异常!<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/15516075882385.jpg"></p>
-<p>很神奇，作业中是利用 f1 score 来找到最合适的阈值 (之前写过<a href="/blog/20190113/anomaly-detection/#2-%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95"> 异常检测的 precision，recall 和 f1 score 的介绍</a>，感兴趣可以看一下)。</p>
+<h2 id="2-3-选择阈值"><a href="#2-3-选择阈值" class="headerlink" title="2.3 选择阈值"></a>2.3 选择阈值</h2><p>完成高斯分布模型的参数之后，可以根据公式计算出每个点在数据集中的概率(越边缘的点概率越低，i.e. 概率越低，越可能是个异常)。在这一小节我们就是要找到一个特定的阈值(ε)，如果某个点的概率在这个阈值以下，<code>p(x) &lt; ε</code>，即可判断为异常!<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/15516075882385.jpg"></p>
+<p>很神奇，作业中是利用 f1 score 来找到最合适的阈值(之前写过<a href="/blog/20190113/anomaly-detection/#2-%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95">异常检测的precision，recall和f1 score的介绍</a>，感兴趣可以看一下)。</p>
 <p>大致过程是根据最大和最小概率得到的间隔，不断地尝试一千个不同的阈值: <code>stepsize = (max(pval) - min(pval)) / 1000;</code>，最后计算得到 f1 score 最大的那个阈值就是最优解。</p>
-<p>但刚刚一直很疑惑🤔: 给定一个阈值，如何计算哪些点是 tp(true positive: the number of true positives: the ground truth label says it&#39;s an anomaly and our algorithm correctly classified it as an anomaly。)，因为要依赖人工标记的 ground truth。好吧，和怀疑的一样，传入了人工标记好的 cross validation set。</p>
-<h1 id="Python 实现"><a href="#Python 实现" class="headerlink" title="Python 实现"></a>Python 实现 </h1><p><a href="https://github.com/daya0576/Gaussian-Distribution/blob/master/normalization.ipynb"> 要是上边有没看懂的地方，没关系，点我来直接看代码吧!</a><br>但在计算出多个 feature 的 &quot; 概率 &quot; 之后就卡住了，因为一个点如果有两个 features，就会有两个概率，如何合并为一个呢?<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/15517965144087.jpg"></p>
-<h2 id="领悟到的"><a href="# 领悟到的" class="headerlink" title="领悟到的:"></a>领悟到的:</h2><p>Q: 为什么最大的概率不是 100%？（上面说到概率的时候加了引号）<br>A: 因为正态分布的整体的 <strong> 积分面积 </strong> 为 1，只不过宽窄高低不同罢了，所以 y 轴并不代表概率，最大值也就不是 100%</p>
-<h1 id="思考 -amp- 收获"><a href="# 思考 -amp- 收获" class="headerlink" title="思考 &amp; 收获"></a>思考 &amp; 收获</h1><ol>
+<p>但刚刚一直很疑惑🤔: 给定一个阈值，如何计算哪些点是tp(true positive: the number of true positives: the ground truth label says it&#39;s an anomaly and our algorithm correctly classified it as an anomaly。)，因为要依赖人工标记的 ground truth。好吧，和怀疑的一样，传入了人工标记好的 cross validation set。</p>
+<h1 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h1><p><a href="https://github.com/daya0576/Gaussian-Distribution/blob/master/normalization.ipynb">要是上边有没看懂的地方，没关系，点我来直接看代码吧!</a><br>但在计算出多个 feature 的&quot;概率&quot;之后就卡住了，因为一个点如果有两个 features，就会有两个概率，如何合并为一个呢?<br><img src="/images/loading/loading.svg" data-original="/images/blog/190302_cousera_anomaly_detection/15517965144087.jpg"></p>
+<h2 id="领悟到的"><a href="#领悟到的" class="headerlink" title="领悟到的:"></a>领悟到的:</h2><p>Q: 为什么最大的概率不是100%？（上面说到概率的时候加了引号）<br>A: 因为正态分布的整体的<strong>积分面积</strong>为1，只不过宽窄高低不同罢了，所以y轴并不代表概率，最大值也就不是 100%</p>
+<h1 id="思考-amp-收获"><a href="#思考-amp-收获" class="headerlink" title="思考 &amp; 收获"></a>思考 &amp; 收获</h1><ol>
 <li>在机器学习的课程中，大部分情况下，更多的是强调如何选取有效的特征，并同时使用多个特征去做预测。而现实中，我们常常只考虑了一维的特征，例如对于一个 spm 监控(请求量，成功量，成功率，耗时，错误数)，只对请求量做了计算，但其实可以同时对五个特征的数据集做异常检测。</li>
 <li>向量计算: 例如文中提示，在计算 f1 score 的过程中，尽可能使用向量计算，而不是 for 循化: <code>fp = sum((cvPredictions == 1) &amp; (yval == 0))</code>。</li>
 <li>验证了异常检测确实需要用 precision，recall &amp; f1 score 来衡量，上  <a href="/blog/20160731/comp6714-information-retrieval-and-web-search-2016s2/">Information Retrieval</a> 的时候学到的知识，并正确在工作中正确应用实践，给自己点个赞 👍</li>
@@ -421,7 +421,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课后编程作业"><span class="nav-text">课后编程作业:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1- 加载数据"><span class="nav-text">1. 加载数据:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1- 高斯分布模型介绍"><span class="nav-text">2.1 高斯分布模型介绍 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2- 模型参数计算"><span class="nav-text">2.2 模型参数计算 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3- 选择阈值"><span class="nav-text">2.3 选择阈值 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python 实现"><span class="nav-text">Python 实现 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#领悟到的"><span class="nav-text">领悟到的:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思考 -amp- 收获"><span class="nav-text">思考 &amp; 收获</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课后编程作业"><span class="nav-text">课后编程作业:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-加载数据"><span class="nav-text">1. 加载数据:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-高斯分布模型介绍"><span class="nav-text">2.1 高斯分布模型介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-模型参数计算"><span class="nav-text">2.2 模型参数计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-选择阈值"><span class="nav-text">2.3 选择阈值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python实现"><span class="nav-text">Python实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#领悟到的"><span class="nav-text">领悟到的:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思考-amp-收获"><span class="nav-text">思考 &amp; 收获</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -548,7 +548,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

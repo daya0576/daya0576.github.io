@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2022-03-27T09:03:38.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.909Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.689Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -285,7 +285,7 @@
 <li><a href="#4-1-1-openwrt%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F%E6%8C%87%E6%A0%87">4.1.1 Openwrt 软路由系统指标</a></li>
 <li><a href="#4-1-2-ha%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E6%8C%87%E6%A0%87">4.1.2 HA 树莓派系统指标</a></li>
 <li><a href="#4-1-3%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E8%AE%BE%E5%A4%87%E6%95%B0%E6%8D%AE">4.1.3 智能家居设备数据</a></li>
-<li><a href="#4-1-4%E5%AE%B6%E5%BA%AD%E5%A4%96%E7%BD%91%E5%86%85%E7%BD%91%E5%8F%AF%E7%94%A8%E6%80%A7%E6%95%B0%E6%8D%AE">4.1.4 家庭外网 &#x2F; 内网可用性数据</a></li>
+<li><a href="#4-1-4%E5%AE%B6%E5%BA%AD%E5%A4%96%E7%BD%91%E5%86%85%E7%BD%91%E5%8F%AF%E7%94%A8%E6%80%A7%E6%95%B0%E6%8D%AE">4.1.4 家庭外网&#x2F;内网可用性数据</a></li>
 </ul>
 </li>
 <li><a href="#4-2%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8">4.2 数据存储</a><ul>
@@ -300,7 +300,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="一、名词解释"><a href="# 一、名词解释" class="headerlink" title="一、名词解释"></a>一、名词解释</h1><table>
+<h1 id="一、名词解释"><a href="#一、名词解释" class="headerlink" title="一、名词解释"></a>一、名词解释</h1><table>
 <thead>
 <tr>
 <th>名词</th>
@@ -317,7 +317,7 @@
 </tr>
 <tr>
 <td>HA Addons</td>
-<td>Home Assistant 系统加载项，简单理解为由 HA OS 动态新增 &amp; 管理的容器</td>
+<td>Home Assistant 系统加载项，简单理解为由 HA OS 动态新增&amp;管理的容器</td>
 </tr>
 <tr>
 <td>R2S 软路由</td>
@@ -329,17 +329,17 @@
 </tr>
 </tbody></table>
 <p>整体家庭网络拓扑以及关键设备如下（详情参考上一篇文章）：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/network_status.svg" alt="network_status"></p>
-<h1 id="二、监控需求"><a href="# 二、监控需求" class="headerlink" title="二、监控需求"></a>二、监控需求 </h1><p> 基于下图家庭网络拓扑（参考上一篇文章），期望最终绘制的大盘满足以下几个需求：</p>
+<h1 id="二、监控需求"><a href="#二、监控需求" class="headerlink" title="二、监控需求"></a>二、监控需求</h1><p>基于下图家庭网络拓扑（参考上一篇文章），期望最终绘制的大盘满足以下几个需求：</p>
 <ol>
-<li><strong>设备负载情况 </strong>：<code> 树莓派（Home Assistant）</code>、<code>R2S 软路由</code> 等局域网设备的系统指标，例如 load、内存等..</li>
+<li><strong>设备负载情况</strong>：<code>树莓派（Home Assistant）</code>、<code>R2S 软路由</code> 等局域网设备的系统指标，例如 load、内存等..</li>
 <li><strong>宽带流量使用趋势</strong>：Linksys 主路由、子网二级路由，对应的上传下载实时速率，以及历史趋势。</li>
 <li><strong>智能家居传感器</strong>：室内室外湿温度、设备开关状态等..</li>
 <li>...</li>
 </ol>
-<h1 id="三、整体方案"><a href="# 三、整体方案" class="headerlink" title="三、整体方案"></a>三、整体方案 </h1><p> 最终将整体系统分为三部分：</p>
+<h1 id="三、整体方案"><a href="#三、整体方案" class="headerlink" title="三、整体方案"></a>三、整体方案</h1><p>最终将整体系统分为三部分：</p>
 <ol>
 <li><strong>数据收集 &amp; 数据存储</strong>：<ol>
-<li><code>树莓派</code> 相关数据（智能家居信息 + 系统指标），直接保存至本地 InfluxDB</li>
+<li><code>树莓派</code> 相关数据（智能家居信息+系统指标），直接保存至本地 InfluxDB</li>
 <li><code>R2S 软路由</code> 系统指标，通过 expert 的形式暴露，并保存至 Prometheus 中</li>
 </ol>
 </li>
@@ -347,38 +347,38 @@
 </ol>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/home_monitoring_system_design.svg" alt="home_monitoring_system_design"></p>
 <p>p.s. 针对数据存储多说两句，因为博主的 HA 直接以 Home Assistant Operating System 的形式安装在树莓派中，所以可访问 Add-ons（例如直接安装 grafana 等）。如果读者是以 container 的形式安装，针对下文提到的 Add-ons 应用，在宿主机中直接用 docker 一键快速拉起即可。</p>
-<h1 id="四、技术细节"><a href="# 四、技术细节" class="headerlink" title="四、技术细节"></a>四、技术细节 </h1><p> 这一小章简单说下我踩过的那些坑～</p>
-<h2 id="4-1- 数据收集"><a href="#4-1- 数据收集" class="headerlink" title="4.1 数据收集"></a>4.1 数据收集 </h2><h3 id="4-1-1-Openwrt- 软路由系统指标"><a href="#4-1-1-Openwrt- 软路由系统指标" class="headerlink" title="4.1.1 Openwrt 软路由系统指标"></a>4.1.1 Openwrt 软路由系统指标</h3><p> 安装 prometheus node exporter 后，Openwrt 的实时系统数据就会通过 http 接口透出，方便下一章 prometheus 进行采集与持久化：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16483684440919.jpg"></p>
+<h1 id="四、技术细节"><a href="#四、技术细节" class="headerlink" title="四、技术细节"></a>四、技术细节</h1><p>这一小章简单说下我踩过的那些坑～</p>
+<h2 id="4-1-数据收集"><a href="#4-1-数据收集" class="headerlink" title="4.1 数据收集"></a>4.1 数据收集</h2><h3 id="4-1-1-Openwrt-软路由系统指标"><a href="#4-1-1-Openwrt-软路由系统指标" class="headerlink" title="4.1.1 Openwrt 软路由系统指标"></a>4.1.1 Openwrt 软路由系统指标</h3><p>安装 prometheus node exporter 后，Openwrt 的实时系统数据就会通过 http 接口透出，方便下一章 prometheus 进行采集与持久化：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16483684440919.jpg"></p>
 <p>具体脚本如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> openwrt prometheus exporter</span></span><br><span class="line">opkg install prometheus-node-exporter-lua \</span><br><span class="line">prometheus-node-exporter-lua-nat_traffic \</span><br><span class="line">prometheus-node-exporter-lua-netstat \</span><br><span class="line">prometheus-node-exporter-lua-openwrt \</span><br><span class="line">prometheus-node-exporter-lua-wifi \</span><br><span class="line">prometheus-node-exporter-lua-wifi_stations</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动：</span></span><br><span class="line">/etc/init.d/prometheus-node-exporter-lua restart</span><br><span class="line"><span class="meta">#</span><span class="bash"> 打开开机启动</span></span><br><span class="line">/etc/init.d/prometheus-node-exporter-lua enable</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-1-2-HA- 树莓派系统指标"><a href="#4-1-2-HA- 树莓派系统指标" class="headerlink" title="4.1.2 HA 树莓派系统指标"></a>4.1.2 HA 树莓派系统指标 </h3><p> 安装 <a href="https://www.home-assistant.io/integrations/systemmonitor/">System Monitor</a> 集成：修改 <code>/config/configuration.yaml</code> 后重启。</p>
+<h3 id="4-1-2-HA-树莓派系统指标"><a href="#4-1-2-HA-树莓派系统指标" class="headerlink" title="4.1.2 HA 树莓派系统指标"></a>4.1.2 HA 树莓派系统指标</h3><p>安装 <a href="https://www.home-assistant.io/integrations/systemmonitor/">System Monitor</a> 集成：修改 <code>/config/configuration.yaml</code> 后重启。</p>
 <p>配置参考：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sensor:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">platform:</span> <span class="string">systemmonitor</span></span><br><span class="line">    <span class="attr">resources:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">disk_use_percent</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">memory_free</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">memory_use</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">memory_use_percent</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">load_1m</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">load_5m</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">load_15m</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">processor_temperature</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">processor_use</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="4-1-3- 智能家居设备数据"><a href="#4-1-3- 智能家居设备数据" class="headerlink" title="4.1.3 智能家居设备数据"></a>4.1.3 智能家居设备数据</h3><p>HA 安装 <a href="https://www.home-assistant.io/integrations/influxdb/">InfluxDB</a> 集成，配置参考（注意 host 地址 &#x2F; 数据库名称 &#x2F; 用户名密码等信息，需根据实际情况更新）：</p>
+<h3 id="4-1-3-智能家居设备数据"><a href="#4-1-3-智能家居设备数据" class="headerlink" title="4.1.3 智能家居设备数据"></a>4.1.3 智能家居设备数据</h3><p>HA 安装 <a href="https://www.home-assistant.io/integrations/influxdb/">InfluxDB</a> 集成，配置参考（注意 host地址&#x2F;数据库名称&#x2F;用户名密码等信息，需根据实际情况更新）：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">influxdb:</span></span><br><span class="line">  <span class="attr">host:</span> <span class="number">10.200</span><span class="number">.1</span><span class="string">.*</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8086</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">homeassistant</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">grafana</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">***</span></span><br><span class="line">  <span class="attr">ssl:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">verify_ssl:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">max_retries:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">default_measurement:</span> <span class="string">state</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="4-1-4- 家庭外网 -x2F- 内网可用性数据"><a href="#4-1-4- 家庭外网 -x2F- 内网可用性数据" class="headerlink" title="4.1.4 家庭外网 &#x2F; 内网可用性数据"></a>4.1.4 家庭外网 &#x2F; 内网可用性数据</h3><p>HA 安装 <a href="https://www.home-assistant.io/integrations/binary_sensor/">Binary Sensor</a> 集成，配置需要的网络探测（后续用于判定家庭网络的可用性）：</p>
+<h3 id="4-1-4-家庭外网-x2F-内网可用性数据"><a href="#4-1-4-家庭外网-x2F-内网可用性数据" class="headerlink" title="4.1.4 家庭外网&#x2F;内网可用性数据"></a>4.1.4 家庭外网&#x2F;内网可用性数据</h3><p>HA 安装 <a href="https://www.home-assistant.io/integrations/binary_sensor/">Binary Sensor</a> 集成，配置需要的网络探测（后续用于判定家庭网络的可用性）：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">binary_sensor:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">platform:</span> <span class="string">ping</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.2</span><span class="number">.170</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">"Sony TV"</span></span><br><span class="line">    <span class="attr">count:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">scan_interval:</span> <span class="number">10</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">platform:</span> <span class="string">ping</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">47.52</span><span class="string">.*.*</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">"HK SS"</span></span><br><span class="line">    <span class="attr">count:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">scan_interval:</span> <span class="number">10</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">platform:</span> <span class="string">ping</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">223.5</span><span class="number">.5</span><span class="number">.5</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">"ALIBABA DNS"</span></span><br><span class="line">    <span class="attr">count:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">scan_interval:</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
 
 
-<h2 id="4-2- 数据存储"><a href="#4-2- 数据存储" class="headerlink" title="4.2 数据存储"></a>4.2 数据存储</h2><h3 id="4-2-1- 安装 -InfluxDB-Add-on"><a href="#4-2-1- 安装 -InfluxDB-Add-on" class="headerlink" title="4.2.1 安装 InfluxDB Add-on"></a>4.2.1 安装 InfluxDB Add-on</h3><p>HA Add-ons 中找到 InfluxDB 安装即可：<a href="https://github.com/hassio-addons/addon-influxdb">https://github.com/hassio-addons/addon-influxdb</a></p>
+<h2 id="4-2-数据存储"><a href="#4-2-数据存储" class="headerlink" title="4.2 数据存储"></a>4.2 数据存储</h2><h3 id="4-2-1-安装-InfluxDB-Add-on"><a href="#4-2-1-安装-InfluxDB-Add-on" class="headerlink" title="4.2.1 安装 InfluxDB Add-on"></a>4.2.1 安装 InfluxDB Add-on</h3><p>HA Add-ons 中找到 InfluxDB 安装即可：<a href="https://github.com/hassio-addons/addon-influxdb">https://github.com/hassio-addons/addon-influxdb</a></p>
 <p>⚠️注意</p>
 <ol>
 <li>关闭配置中 ssl 选项后启动</li>
 <li>创建用户</li>
 <li>创建数据库</li>
 </ol>
-<h3 id="4-2-2- 安装 -Prometheus-Add-on"><a href="#4-2-2- 安装 -Prometheus-Add-on" class="headerlink" title="4.2.2 安装 Prometheus Add-on"></a>4.2.2 安装 Prometheus Add-on</h3><p>这一步坑较多，有条件的朋友推荐 docker 一键拉起。</p>
-<p>步骤：<br>1）因为该 prometheus addon 为测试版本（未正式发行），需更新 repo 后才能在 ha 中找到：<a href="https://github.com/hassio-addons/repository-beta">https://github.com/hassio-addons/repository-beta</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16483714471537.jpg"></p>
+<h3 id="4-2-2-安装-Prometheus-Add-on"><a href="#4-2-2-安装-Prometheus-Add-on" class="headerlink" title="4.2.2 安装 Prometheus Add-on"></a>4.2.2 安装 Prometheus Add-on</h3><p>这一步坑较多，有条件的朋友推荐 docker 一键拉起。</p>
+<p>步骤：<br>1）因为该 prometheus addon 为测试版本（未正式发行），需更新repo后才能在ha中找到：<a href="https://github.com/hassio-addons/repository-beta">https://github.com/hassio-addons/repository-beta</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16483714471537.jpg"></p>
 <p>2）安装并启动<br>3）参考文档配置 targets 时，文件一定要以 <code>yaml</code> 后缀：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[core-ssh targets]$ cat /share/prometheus/targets/openwrt.yaml</span><br><span class="line">---</span><br><span class="line">job_name: "openwrt"</span><br><span class="line">scrape_interval: 15s</span><br><span class="line">metrics_path: "/metrics"</span><br><span class="line">static_configs:</span><br><span class="line">  - targets: ["10.200.1.94:9100"]</span><br><span class="line">[core-ssh targets]$</span><br></pre></td></tr></table></figure>
 <p>4）web 界面查看 target 是否生效<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16483715464467.jpg"></p>
-<h2 id="4-3- 数据展示"><a href="#4-3- 数据展示" class="headerlink" title="4.3 数据展示"></a>4.3 数据展示 </h2><h3 id="4-3-1- 安装 -Grafana"><a href="#4-3-1- 安装 -Grafana" class="headerlink" title="4.3.1 安装 Grafana"></a>4.3.1 安装 Grafana</h3><p> 安装 grafana 后，根据上一步 InfluxDB + Prometheus 两个数据源，自由配置大盘即可。</p>
+<h2 id="4-3-数据展示"><a href="#4-3-数据展示" class="headerlink" title="4.3 数据展示"></a>4.3 数据展示</h2><h3 id="4-3-1-安装-Grafana"><a href="#4-3-1-安装-Grafana" class="headerlink" title="4.3.1 安装 Grafana"></a>4.3.1 安装 Grafana</h3><p>安装 grafana 后，根据上一步 InfluxDB + Prometheus 两个数据源，自由配置大盘即可。</p>
 <p>如下为我初步配置的大盘，设备负载情况，室内室外温差湿度，以及关心的网络可用性，历史趋势等信息一目了然 ✨</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/16483716356989.jpg"></p>
-<h1 id="参考："><a href="# 参考：" class="headerlink" title="参考："></a>参考：</h1><ul>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ul>
 <li><a href="https://bbs.iobroker.cn/t/topic/7944">https://bbs.iobroker.cn/t/topic/7944</a></li>
 <li><a href="https://grafana.com/blog/2021/02/09/how-i-monitor-my-openwrt-router-with-grafana-cloud-and-prometheus/">https://grafana.com/blog/2021/02/09/how-i-monitor-my-openwrt-router-with-grafana-cloud-and-prometheus/</a></li>
 </ul>
@@ -515,7 +515,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TOC"><span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、名词解释"><span class="nav-text">一、名词解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、监控需求"><span class="nav-text">二、监控需求 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、整体方案"><span class="nav-text">三、整体方案 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、技术细节"><span class="nav-text">四、技术细节 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1- 数据收集"><span class="nav-text">4.1 数据收集 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-Openwrt- 软路由系统指标"><span class="nav-text">4.1.1 Openwrt 软路由系统指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-HA- 树莓派系统指标"><span class="nav-text">4.1.2 HA 树莓派系统指标 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-3- 智能家居设备数据"><span class="nav-text">4.1.3 智能家居设备数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-4- 家庭外网 -x2F- 内网可用性数据"><span class="nav-text">4.1.4 家庭外网 &#x2F; 内网可用性数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2- 数据存储"><span class="nav-text">4.2 数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1- 安装 -InfluxDB-Add-on"><span class="nav-text">4.2.1 安装 InfluxDB Add-on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2- 安装 -Prometheus-Add-on"><span class="nav-text">4.2.2 安装 Prometheus Add-on</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3- 数据展示"><span class="nav-text">4.3 数据展示 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1- 安装 -Grafana"><span class="nav-text">4.3.1 安装 Grafana</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TOC"><span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、名词解释"><span class="nav-text">一、名词解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、监控需求"><span class="nav-text">二、监控需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、整体方案"><span class="nav-text">三、整体方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、技术细节"><span class="nav-text">四、技术细节</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-数据收集"><span class="nav-text">4.1 数据收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-Openwrt-软路由系统指标"><span class="nav-text">4.1.1 Openwrt 软路由系统指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-HA-树莓派系统指标"><span class="nav-text">4.1.2 HA 树莓派系统指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-3-智能家居设备数据"><span class="nav-text">4.1.3 智能家居设备数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-4-家庭外网-x2F-内网可用性数据"><span class="nav-text">4.1.4 家庭外网&#x2F;内网可用性数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-数据存储"><span class="nav-text">4.2 数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-安装-InfluxDB-Add-on"><span class="nav-text">4.2.1 安装 InfluxDB Add-on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-安装-Prometheus-Add-on"><span class="nav-text">4.2.2 安装 Prometheus Add-on</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-数据展示"><span class="nav-text">4.3 数据展示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-安装-Grafana"><span class="nav-text">4.3.1 安装 Grafana</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -642,7 +642,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

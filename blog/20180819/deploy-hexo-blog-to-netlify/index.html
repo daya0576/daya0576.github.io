@@ -49,7 +49,7 @@
 
   <meta name="description" content="接上篇博客, 尝试在GCP的OSS上部署静态博客受挫之后, 痛定思痛, 决定先做一个小小的调查, 再敲定最终的部署方案. 这时候搜到一篇非常棒的文章: 静态网站托管服务平台的横向方案比较. 正是在这篇文章中, 我第一次了解到了Netlify. 并一见钟情了, 因为在Net整个部署过程中, 你只需要提交代码, 其余的master部署预览(包括MR的预览), HTTPS证书, 静态资源的优化与CDN加">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部署 Hexo 静态博客 (下) - 偶遇 Netlify, 优雅地持续部署你的博客">
+<meta property="og:title" content="部署Hexo静态博客(下) - 偶遇Netlify, 优雅地持续部署你的博客">
 <meta property="og:url" content="https://changchen.me/blog/20180819/deploy-hexo-blog-to-netlify/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="接上篇博客, 尝试在GCP的OSS上部署静态博客受挫之后, 痛定思痛, 决定先做一个小小的调查, 再敲定最终的部署方案. 这时候搜到一篇非常棒的文章: 静态网站托管服务平台的横向方案比较. 正是在这篇文章中, 我第一次了解到了Netlify. 并一见钟情了, 因为在Net整个部署过程中, 你只需要提交代码, 其余的master部署预览(包括MR的预览), HTTPS证书, 静态资源的优化与CDN加">
@@ -66,7 +66,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2018-08-19T14:27:15.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -87,7 +87,7 @@
   };
 </script>
 
-  <title>部署 Hexo 静态博客 (下) - 偶遇 Netlify, 优雅地持续部署你的博客 | Henry Z's blog~</title>
+  <title>部署Hexo静态博客(下) - 偶遇Netlify, 优雅地持续部署你的博客 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -241,7 +241,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          部署 Hexo 静态博客 (下) - 偶遇 Netlify, 优雅地持续部署你的博客
+          部署Hexo静态博客(下) - 偶遇Netlify, 优雅地持续部署你的博客
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -275,23 +275,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>接 <a href="/blog/20180819/deploy-hexo-blog-to-gcp-oss/"> 上篇博客 </a>, 尝试在 GCP 的 OSS 上部署静态博客受挫之后, 痛定思痛, 决定先做一个小小的调查, 再敲定最终的部署方案. 这时候搜到一篇非常棒的文章: <a href="https://blog.csdn.net/grackanil/article/details/81196931"> 静态网站托管服务平台的横向方案比较 </a>. 正是在这篇文章中, 我第一次了解到了<a href="https://www.netlify.com/">Netlify</a>. 并一见钟情了, <strong> 因为在 Net 整个部署过程中, 你只需要提交代码, 其余的 master 部署预览(包括 MR 的预览), HTTPS 证书, 静态资源的优化与 CDN 加速, 部署消息通知, 等等都不用再操心. 真的是太优雅了 XD</strong>    </p>
+        <p>接<a href="/blog/20180819/deploy-hexo-blog-to-gcp-oss/">上篇博客</a>, 尝试在GCP的OSS上部署静态博客受挫之后, 痛定思痛, 决定先做一个小小的调查, 再敲定最终的部署方案. 这时候搜到一篇非常棒的文章: <a href="https://blog.csdn.net/grackanil/article/details/81196931">静态网站托管服务平台的横向方案比较</a>. 正是在这篇文章中, 我第一次了解到了<a href="https://www.netlify.com/">Netlify</a>. 并一见钟情了, <strong>因为在Net整个部署过程中, 你只需要提交代码, 其余的master部署预览(包括MR的预览), HTTPS证书, 静态资源的优化与CDN加速, 部署消息通知, 等等都不用再操心. 真的是太优雅了XD</strong>    </p>
 <a id="more"></a>
 
-<h1 id="创建项目"><a href="# 创建项目" class="headerlink" title="创建项目"></a>创建项目 </h1><p> 在 Netlify 注册后的第一次创建项目, 然后授权选择 GitHub 分支时, 就把我惊艳到了: Netlify 会自动检测到该 repo 为 hexo 项目, 并自动配置 <code>build command</code> 和<code>publish directory</code>. <strong>非常的人性化</strong>.   </p>
-<h1 id="点点鼠标三步上线网站"><a href="# 点点鼠标三步上线网站" class="headerlink" title="点点鼠标三步上线网站"></a>点点鼠标三步上线网站</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346905025065.jpg"></p>
-<h2 id="第一步 - 自动部署"><a href="# 第一步 - 自动部署" class="headerlink" title="第一步: 自动部署"></a>第一步: 自动部署 </h2><p> 不用做任何设置, 每次 master 分支有更新代码, Netlify 就会帮你自动部署代码. 图中左下角为 master 分支的每次部署记录, 右下角为每个 PR 的部署, 而且和 master 分支一样, 会次部署会提供 url 供用户预览网站效果.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346905884358.jpg"><br>实时看到部署的日志:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346911202648.jpg"><br>监测到我刚开始写博客时, 一些外链图片的 http 与 https 混用, 太酷了:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346911557201.jpg"></p>
-<h2 id="第二步 - 修改 cname 绑定域名"><a href="# 第二步 - 修改 cname 绑定域名" class="headerlink" title="第二步: 修改 cname 绑定域名"></a>第二步: 修改 cname 绑定域名</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346942823694.jpg"></p>
-<h2 id="第三步 - 开启 HTTPS"><a href="# 第三步 - 开启 HTTPS" class="headerlink" title="第三步: 开启 HTTPS"></a>第三步: 开启 HTTPS</h2><p>自动生成 Let’s Encrypt 的证书, 也支持上传自己的证书.<br>文档: <a href="https://www.netlify.com/docs/ssl/">https://www.netlify.com/docs/ssl/</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346942384652.jpg"></p>
-<h1 id="其他优势"><a href="# 其他优势" class="headerlink" title="其他优势:"></a>其他优势:</h1><h2 id="提供 webhook 的形式触发部署"><a href="# 提供 webhook 的形式触发部署" class="headerlink" title="提供 webhook 的形式触发部署"></a>提供 webhook 的形式触发部署</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15347783952164.jpg"></p>
-<h2 id="自动在每个页面注入 html 代码 - 适用于一些验证的场景"><a href="# 自动在每个页面注入 html 代码 - 适用于一些验证的场景" class="headerlink" title="自动在每个页面注入 html 代码, 适用于一些验证的场景."></a>自动在每个页面注入 html 代码, 适用于一些验证的场景.</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15347784904890.jpg"></p>
-<h2 id="自动优化"><a href="# 自动优化" class="headerlink" title="自动优化"></a>自动优化 </h2><p> 其中例如图片的无损压缩感觉还是挺有意义的.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346938018934.jpg"></p>
-<h2 id="通知"><a href="# 通知" class="headerlink" title="通知:"></a>通知:</h2><p>部署成功 &#x2F; 失败可以通过各种形式传递到用户.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346943108245.jpg"></p>
-<h2 id="一键 HTTPS"><a href="# 一键 HTTPS" class="headerlink" title="一键 HTTPS"></a>一键 HTTPS</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15347785789379.jpg"></p>
-<h2 id="TODO- 其他优点"><a href="#TODO- 其他优点" class="headerlink" title="(TODO: 其他优点)"></a>(TODO: 其他优点)</h2><h1 id="缺点"><a href="# 缺点" class="headerlink" title="缺点:"></a>缺点:</h1><p>当然世界上没有什么东西是完美的, netlify 也有一些相对的缺点:</p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>在Netlify注册后的第一次创建项目, 然后授权选择GitHub分支时, 就把我惊艳到了: Netlify会自动检测到该repo为hexo项目, 并自动配置<code>build command</code>和<code>publish directory</code>. <strong>非常的人性化</strong>.   </p>
+<h1 id="点点鼠标三步上线网站"><a href="#点点鼠标三步上线网站" class="headerlink" title="点点鼠标三步上线网站"></a>点点鼠标三步上线网站</h1><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346905025065.jpg"></p>
+<h2 id="第一步-自动部署"><a href="#第一步-自动部署" class="headerlink" title="第一步: 自动部署"></a>第一步: 自动部署</h2><p>不用做任何设置, 每次master分支有更新代码, Netlify就会帮你自动部署代码. 图中左下角为master分支的每次部署记录, 右下角为每个PR的部署, 而且和master分支一样, 会次部署会提供url供用户预览网站效果.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346905884358.jpg"><br>实时看到部署的日志:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346911202648.jpg"><br>监测到我刚开始写博客时, 一些外链图片的http与https混用, 太酷了:<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346911557201.jpg"></p>
+<h2 id="第二步-修改cname绑定域名"><a href="#第二步-修改cname绑定域名" class="headerlink" title="第二步: 修改cname绑定域名"></a>第二步: 修改cname绑定域名</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346942823694.jpg"></p>
+<h2 id="第三步-开启HTTPS"><a href="#第三步-开启HTTPS" class="headerlink" title="第三步: 开启HTTPS"></a>第三步: 开启HTTPS</h2><p>自动生成Let’s Encrypt的证书, 也支持上传自己的证书.<br>文档: <a href="https://www.netlify.com/docs/ssl/">https://www.netlify.com/docs/ssl/</a><br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346942384652.jpg"></p>
+<h1 id="其他优势"><a href="#其他优势" class="headerlink" title="其他优势:"></a>其他优势:</h1><h2 id="提供webhook的形式触发部署"><a href="#提供webhook的形式触发部署" class="headerlink" title="提供webhook的形式触发部署"></a>提供webhook的形式触发部署</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15347783952164.jpg"></p>
+<h2 id="自动在每个页面注入html代码-适用于一些验证的场景"><a href="#自动在每个页面注入html代码-适用于一些验证的场景" class="headerlink" title="自动在每个页面注入html代码, 适用于一些验证的场景."></a>自动在每个页面注入html代码, 适用于一些验证的场景.</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15347784904890.jpg"></p>
+<h2 id="自动优化"><a href="#自动优化" class="headerlink" title="自动优化"></a>自动优化</h2><p>其中例如图片的无损压缩感觉还是挺有意义的.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346938018934.jpg"></p>
+<h2 id="通知"><a href="#通知" class="headerlink" title="通知:"></a>通知:</h2><p>部署成功&#x2F;失败可以通过各种形式传递到用户.<br><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15346943108245.jpg"></p>
+<h2 id="一键HTTPS"><a href="#一键HTTPS" class="headerlink" title="一键HTTPS"></a>一键HTTPS</h2><p><img src="/images/loading/loading.svg" data-original="/images/blog/180819_hexo_to_gcp_netlify/15347785789379.jpg"></p>
+<h2 id="TODO-其他优点"><a href="#TODO-其他优点" class="headerlink" title="(TODO: 其他优点)"></a>(TODO: 其他优点)</h2><h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h1><p>当然世界上没有什么东西是完美的, netlify也有一些相对的缺点:</p>
 <ol>
-<li>速度和阿里云的 ecs 或 oss 比起来还是要一些差距的.</li>
-<li>不能检测到 git submodule 的变更.</li>
+<li>速度和阿里云的ecs或oss比起来还是要一些差距的.</li>
+<li>不能检测到git submodule的变更.</li>
 </ol>
 
     </div>
@@ -352,8 +352,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20180819/deploy-hexo-blog-to-gcp-oss/" rel="prev" title="部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅">
-      <i class="fa fa-chevron-left"></i> 部署 Hexo 静态博客 (上) - Google Cloud Platform OSS 之旅
+    <a href="/blog/20180819/deploy-hexo-blog-to-gcp-oss/" rel="prev" title="部署Hexo静态博客(上) - Google Cloud Platform OSS之旅">
+      <i class="fa fa-chevron-left"></i> 部署Hexo静态博客(上) - Google Cloud Platform OSS之旅
     </a></div>
       <div class="post-nav-item">
     <a href="/blog/20180824/mweb3-review/" rel="next" title="MWeb3.0?? 记一次后悔的购买经历">
@@ -426,7 +426,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建项目"><span class="nav-text">创建项目 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#点点鼠标三步上线网站"><span class="nav-text">点点鼠标三步上线网站</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步 - 自动部署"><span class="nav-text">第一步: 自动部署 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步 - 修改 cname 绑定域名"><span class="nav-text">第二步: 修改 cname 绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步 - 开启 HTTPS"><span class="nav-text">第三步: 开启 HTTPS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他优势"><span class="nav-text">其他优势:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提供 webhook 的形式触发部署"><span class="nav-text">提供 webhook 的形式触发部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动在每个页面注入 html 代码 - 适用于一些验证的场景"><span class="nav-text">自动在每个页面注入 html 代码, 适用于一些验证的场景.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动优化"><span class="nav-text">自动优化 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通知"><span class="nav-text">通知:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一键 HTTPS"><span class="nav-text">一键 HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO- 其他优点"><span class="nav-text">(TODO: 其他优点)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缺点"><span class="nav-text">缺点:</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建项目"><span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#点点鼠标三步上线网站"><span class="nav-text">点点鼠标三步上线网站</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-自动部署"><span class="nav-text">第一步: 自动部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-修改cname绑定域名"><span class="nav-text">第二步: 修改cname绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步-开启HTTPS"><span class="nav-text">第三步: 开启HTTPS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他优势"><span class="nav-text">其他优势:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提供webhook的形式触发部署"><span class="nav-text">提供webhook的形式触发部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动在每个页面注入html代码-适用于一些验证的场景"><span class="nav-text">自动在每个页面注入html代码, 适用于一些验证的场景.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动优化"><span class="nav-text">自动优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通知"><span class="nav-text">通知:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一键HTTPS"><span class="nav-text">一键HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO-其他优点"><span class="nav-text">(TODO: 其他优点)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缺点"><span class="nav-text">缺点:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -553,7 +553,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 

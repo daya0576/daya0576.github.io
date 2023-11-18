@@ -55,7 +55,7 @@
 <meta property="og:description" content="这个博客是三四年前用Octopress框架搭的, 老年人的博客, 哈哈.但是用久了之后有个问题很困扰我: 文章多了之后, 每次运行rake generate要很久.分享一个小技巧: 可以大大提高了rake generate的速度(12.93s → 1.37s), 实时预览的时候也能对修改秒做响应了!">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-08-12T09:11:12.000Z">
-<meta property="article:modified_time" content="2023-11-18T00:15:14.905Z">
+<meta property="article:modified_time" content="2023-11-18T01:11:02.685Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="Octopress">
 <meta name="twitter:card" content="summary">
@@ -249,13 +249,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这个博客是三四年前用 Octopress 框架搭的, 老年人的博客, 哈哈.<br>但是用久了之后 <strong> 有个问题很困扰我:</strong> 文章多了之后, 每次运行 <code>rake generate</code> 要很久.<br>分享一个小技巧: 可以 <strong> 大大提高了 <code>rake generate</code> 的速度(12.93s → 1.37s)</strong>, 实时预览的时候也能对修改秒做响应了!   </p>
+        <p>这个博客是三四年前用Octopress框架搭的, 老年人的博客, 哈哈.<br>但是用久了之后<strong>有个问题很困扰我:</strong> 文章多了之后, 每次运行<code>rake generate</code>要很久.<br>分享一个小技巧: 可以<strong>大大提高了<code>rake generate</code>的速度(12.93s → 1.37s)</strong>, 实时预览的时候也能对修改秒做响应了!   </p>
 <a id="more"></a>   
 <blockquote>
-<p>这个提速的小技巧就是 Octopress 自带的两条命令:<br><code>1. rake isolate\[&#39;xxx.md&#39;\]</code>: 将其他博客文件 (除了 xxx.md) 移出 <code>_post</code> 文件夹, 暂存到另一个临时的地方. 以达到提速的效果.<br><code>2. rake integrate</code>: 将暂存的全部文件都恢复.<br><img style="max-height:350px" class="lazy" data-original="/images/blog/170812_rake_tricky/rake_suggestion.png">   </p>
+<p>这个提速的小技巧就是Octopress自带的两条命令:<br><code>1. rake isolate\[&#39;xxx.md&#39;\]</code>: 将其他博客文件(除了xxx.md)移出<code>_post</code>文件夹, 暂存到另一个临时的地方. 以达到提速的效果.<br><code>2. rake integrate</code>: 将暂存的全部文件都恢复.<br><img style="max-height:350px" class="lazy" data-original="/images/blog/170812_rake_tricky/rake_suggestion.png">   </p>
 </blockquote>
 <blockquote>
-<p>可以从图上看到, isolate 之后, rake generate 的速度大大大大的提升了:<br>从 12.93s → 1.37s<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170812_rake_tricky/result.png">    </p>
+<p>可以从图上看到, isolate之后, rake generate的速度大大大大的提升了:<br>从12.93s → 1.37s<br><img style="max-height:300px" class="lazy" data-original="/images/blog/170812_rake_tricky/result.png">    </p>
 </blockquote>
 
     </div>
@@ -319,8 +319,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/blog/20170810/python-format-summary/" rel="prev" title="熟悉的陌生人: Python format 用法大全~">
-      <i class="fa fa-chevron-left"></i> 熟悉的陌生人: Python format 用法大全~
+    <a href="/blog/20170810/python-format-summary/" rel="prev" title="熟悉的陌生人: Python format用法大全~">
+      <i class="fa fa-chevron-left"></i> 熟悉的陌生人: Python format用法大全~
     </a></div>
       <div class="post-nav-item">
     <a href="/blog/20170914/quantans-of-sea-summary/" rel="next" title="【游记】皇家量子号 五天四晚">
@@ -518,7 +518,7 @@ DarkReader.enable({
     // darkSchemeTextColor: "#E7EDF2",
 });
 </script>
-  <script src="//cdn.jsdelivr.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
 
