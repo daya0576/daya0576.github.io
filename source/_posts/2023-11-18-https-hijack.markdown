@@ -10,7 +10,9 @@ date: 2023-11-18 07:49:24
 
 Recently I'm researching an internal tool to support chaos/resiliency testing, e.g. performing network delay on dependent redis/db/.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.
 
-TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). <u>But how can we hijack and manipulate encrypted outbound HTTPS traffic?</u>
+TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). But how can we hijack and manipulate encrypted outbound HTTPS traffic?
+
+<!--more-->
 
 ### 1. Traffic Takeover
 After sending the [CONNECT](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6) method request, the `https_proxy` can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.
