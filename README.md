@@ -6,6 +6,7 @@
 - [2022-03-20] [分享我的家庭网络拓扑](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-20-home-assistant-issues.markdown)
 - [2022-02-06] [精装全屋智能灯改造小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-06-home-lights-practice.markdown)
 ## SRE
+- [2023-11-18] [HTTPS Hijack for Resiliency Test](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-11-18-https-hijack.markdown)
 - [2022-05-05] [Quote of the Day (QOTD) Protocal 小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-05-05-quote-of-the-day.markdown)
 - [2022-02-26] [重读 Google SLO 小记 | 智能告警之殇](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-26-sre-slo.markdown)
 - [2021-09-04] [Java JVM 内存管理 - SRE 的必修课](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-09-04-jvm-note.markdown)
@@ -15,6 +16,7 @@
 - [2019-01-13] [业务报警智能降噪的那些事](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-01-13-anomaly-detection.markdown)
 - [2018-04-03] [《Site Reliability Engineering》by Google 读书笔记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-04-13-impressions-of-google-sre.markdown)
 ## 个人相关
+- [2023-11-18] [为什么我从 iPhone 切换至 Android 手机](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-11-18-iphone2android.markdown)
 - [2023-11-04] [近况更新 | 为什么我离开了工作五年的蚂蚁金服 🐜](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-11-04-why-did-i-left-ant-group.markdown)
 - [2023-01-22] [2022 年终小结 🐯](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-01-22-2022-summary.markdown)
 - [2022-07-12] [大连 4 日游小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-07-12-dalian-4d.markdown)

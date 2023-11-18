@@ -1,6 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HTTPS Hijack for Resiliency Test</title>
+    <url>/blog/20231117/https-hijack/</url>
+    <content><![CDATA[<p>Recently I&#39;m researching an internal tool to support chaos&#x2F;resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.</p>
+<p>TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). <u>But how can we hijack and manipulate encrypted outbound HTTPS traffic?</u></p>
+<h3 id="1-Traffic-Takeover"><a href="#1-Traffic-Takeover" class="headerlink" title="1. Traffic Takeover"></a>1. Traffic Takeover</h3><p>After sending the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">CONNECT</a> method request, the <code>https_proxy</code> can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  curl                     nginx (proxy_connect)            github.com</span><br><span class="line">    |                             |                          |</span><br><span class="line">(1) |-- CONNECT github.com:443 --&gt;|                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |----[TCP connection]---&gt;|</span><br><span class="line">    |                             |                          |</span><br><span class="line">(2) |&lt;- HTTP/1.1 200           ---|                          |</span><br><span class="line">    |   Connection Established    |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                                                        |</span><br><span class="line">    ========= CONNECT tunnel has been established. ===========</span><br><span class="line">    |                                                        |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |   [SSL stream]      |                          |</span><br><span class="line">(3) |---[GET / HTTP/1.1]-----&gt;|   [SSL stream]   |</span><br><span class="line">    |   [Host: github.com]      |---[GET / HTTP/1.1]--&gt;.</span><br><span class="line">    |                             |   [Host: github.com]   |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |   [SSL stream]   |</span><br><span class="line">    |   [SSL stream]      |&lt;--[HTTP/1.1 200 OK]---'</span><br><span class="line">(4) |&lt;--[HTTP/1.1 200 OK]------|   [&lt; html page &gt;]   |</span><br><span class="line">    |   [&lt; html page &gt;]      |                          |</span><br><span class="line">    |                             |                          |</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Traffic-Processing"><a href="#2-Traffic-Processing" class="headerlink" title="2. Traffic Processing"></a>2. Traffic Processing</h3><p>Currently we can only filter traffic by domain (from the <code>CONNECT</code> method request). The TLS encryption prevents us from inspecting the specific endpoints and body within the encrypted traffic.</p>
+<p><u>How can we Hijack https requests and classify the network traffic by endpoint?</u></p>
+<p>We have to address two issues:</p>
+<ol>
+<li>Identity:<ol>
+<li>client → server:   ask for appropriate certificate</li>
+<li>server → client:   provide server certificate (and intermediate)</li>
+<li>client:                   receive certificate and ensure Common Name(domain name) of request matching</li>
+<li>client:                   Confirm that the root certificate (valid  Certificate Chain)</li>
+</ol>
+</li>
+<li>Encryption:<ol>
+<li>TLS handshake: asymmetric Encryption →  generates a symmetric encryption key (the session key)</li>
+<li>Data transmission: session key → data encryption</li>
+</ol>
+</li>
+</ol>
+<p>Appropriate workflow (i.e. MITM attack):<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rtf%20MITM.drawio%20-1-.svg" alt="rtf MITM.drawio -1-"></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a href="https://github.com/chobits/ngx_http_proxy_connect_module">https://github.com/chobits/ngx_http_proxy_connect_module</a></li>
+<li><a href="https://manual.nssurge.com/book/understanding-surge/en/#tls-https-and-mitm">https://manual.nssurge.com/book/understanding-surge/en/#tls-https-and-mitm</a></li>
+<li><a href="https://github.com/tinyproxy/tinyproxy">https://github.com/tinyproxy/tinyproxy</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>SRE</category>
+      </categories>
+      <tags>
+        <tag>sre</tag>
+        <tag>chaos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为什么我从 iPhone 切换至 Android 手机</title>
+    <url>/blog/20231117/iphone2android/</url>
+    <content><![CDATA[<p>在 9 月购入了 iPhone Pro 钛金属版本后，我迫不及待地进行了拆机，并且通过 iCloud 进行了熟练的备份还原。然而，当看到主屏幕界面和布局高度还原后，一股索然无味涌上心头。恍惚间，好像根本没有更换过新手机一样！于是，最终决定退掉它。</p>
+<p>不知不觉间，我手中竟然同时拥有 10 多个苹果设备，这还不包括家人。。苹果公司借助其强大的生态系统，成功地将用户牢牢地捆绑在其中。例如，手机 &#x2F; 平板可以作为电视遥控器，HomeKit 可以在家里无人时触发自动化场景，手表可以自动解锁电脑等等。尽管这些细节确实非常方便，但我 <strong> 越来越不喜欢这种被绑架束缚 </strong> 的感觉了。</p>
+<a id="more"></a>
+
+<hr>
+<p>在安卓阵营中，首先吸引我眼球的是 Nothing Phone2。炫酷可定制的跑马灯背板，对中年男人来说毫无抵抗力。然而极低的性价比以及无大陆服务点的窘迫，让人迟迟犹豫不决无法下手。</p>
+<p>然后上月老朋友雷老板发布了小米 14，作为多年的米粉（家中 40+ 米家设备），<strong>如何完全说服自己切换至小米手机呢？</strong> </p>
+<h3 id="功能分析"><a href="# 功能分析" class="headerlink" title="功能分析"></a>功能分析 </h3><p> 经过一番思考，我的解决方案是向 ChatGPT 请求一份手机功能模型，以确保选择一款主力手机能够满足我的所有功能需求。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 通话功能：拨打电话、接听电话</span><br><span class="line">- 短信功能：发送短信、接收短信、群发短信</span><br><span class="line">- 联系人管理：添加联系人、编辑联系人信息、删除联系人、联系人分组</span><br><span class="line">- 日历和提醒：日历应用、设置提醒事项、闹钟功能</span><br><span class="line">- 网络连接：Wi-Fi 连接、移动数据连接、蓝牙连接、NFC（近场通信）</span><br><span class="line">- 邮件和社交媒体：邮件客户端、社交媒体应用</span><br><span class="line">- 多媒体功能：相机拍照、摄像录制、图片和视频查看、音乐播放器</span><br><span class="line">- 上网浏览：浏览器、搜索引擎</span><br><span class="line">- 应用商店：下载和安装应用程序、更新应用程序、卸载应用程序</span><br><span class="line">- 设置和个性化：调整屏幕亮度和音量、更改壁纸和主题、设置语言和输入法、安全设置，包括屏幕锁和指纹识别</span><br><span class="line">- GPS 和导航：使用 GPS 定位、导航应用</span><br><span class="line">- 文件管理：管理文件和文件夹、文件传输和共享</span><br><span class="line">- 云服务：同步数据到云端、存储和备份数据</span><br></pre></td></tr></table></figure>
+
+<h4 id="图标说明"><a href="# 图标说明" class="headerlink" title="图标说明"></a>图标说明</h4><ul>
+<li>✅：功能新增</li>
+<li>☑️：功能平替</li>
+<li>⚠️：功能缺失</li>
+</ul>
+<h4 id="优缺点分析"><a href="# 优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h4><ul>
+<li><strong>通话功能 &amp; 短信功能</strong><ul>
+<li>✅ 更加丰富的垃圾电话短信拦截，AI 助理自动接听，以及电话助理录音等能力。</li>
+<li>⚠️ 即时聊天工具，例如 Facetime、iMessage 等功能，不提供跨平台使用。</li>
+</ul>
+</li>
+<li><strong>联系人管理</strong></li>
+<li><strong>日历和提醒</strong></li>
+<li><strong>网络连接</strong><ul>
+<li>✅ 更为开放的 NFC 功能，可直接作为小区门禁卡使用。</li>
+<li>⚠️ 放弃 Surge 软件全家桶，以及失去一键修改配置，全设备自动同步生效的能力。</li>
+</ul>
+</li>
+<li><strong>邮件和社交媒体</strong><ul>
+<li>☑️ 仅使用邮件的基础功能，安卓端提供更多第三方邮件客户端。</li>
+</ul>
+</li>
+<li><strong>多媒体功能</strong></li>
+<li><strong>上网浏览</strong><ul>
+<li>☑️ 当前使用全平台支持的 chrome 软件，对手机上网无强依赖</li>
+<li>☑️ 目前购入 Reeder 软件作为 Feedly RSS 的客户端，安卓平替 app？</li>
+<li>☑️ 密码管理 keychain -&gt; bitwarden</li>
+</ul>
+</li>
+<li><strong>应用商店</strong><ul>
+<li>✅ 不同于 iOS，下载软件或收听音乐，无需频繁切换不同区域的账号</li>
+<li>✅ 众所周知苹果用户较强付费能力，对应更高的软件价格（例如 anki 移动端软件仅在 iOS 中收费 ¥168，而在安卓中收费 ¥0）</li>
+</ul>
+</li>
+<li><strong>设置和个性化</strong><ul>
+<li>✅ 定制性更强，允许用户更多的自定义和个性化设置，包括主题、小部件、启动器等。以及未来 root 后</li>
+</ul>
+</li>
+<li><strong>GPS 和导航</strong></li>
+<li><strong>文件管理</strong></li>
+<li><strong>云服务</strong><ul>
+<li>✅ 提供更灵活的文件管理选项，对接 nas 等服务更为便捷。</li>
+<li>⚠️ 全平台照片文件备份，考虑迁移至 Google One 或本地 nas</li>
+</ul>
+</li>
+<li><strong>硬件及周边</strong><ul>
+<li>✅ 屏幕 120hz 高刷 &amp; </li>
+<li>☑️ 苹果手表、AirPods 耳机、Apple TV 的放弃 -&gt; 购买其他硬件替换</li>
+<li>☑️ 电视硬件交互 -&gt; 可接受（家中平板或其他设备即可）</li>
+<li>☑️ 智能家居交互 -&gt; 使用开源的 Home Assistant（全平台兼容）</li>
+<li>⚠️ CarPlay</li>
+</ul>
+</li>
+</ul>
+<p>根据上面的分析，可以看出如果我切换到安卓手机，我将会获得一系列的新功能。而对于我之前担心的功能缺失问题，在实际使用一周后，都有成熟的解决方案：</p>
+<ul>
+<li>iMessage 即时聊天工具：早上刷到 <a href="https://www.youtube.com/watch?v=ji5HwS3bhlU">MKBHD 一个视频 </a>（谈到美国 iPhone 市场占有率，最近十年逐年从 40% 增长至 50%，但令人惊讶的是，在青少年的占有率为 80%，可能是由于社交融入等原因，类似小天才手表？然后 Nothing Phone 将推出 exclusive 的 iMessage App，背后的原因竟然是，，，用户通过 android 设备交互后，有很多 mac 机器做 proxy 代理）。anyway 值得期待的是，Apple 宣称<a href="https://9to5mac.com/2023/11/16/apple-rcs-coming-to-iphone/"> 明年将支持 RCS</a>，i.e. Andriod 版的 iMessage</li>
+<li>Surge 软件全家桶：比较惊喜的是，在安卓端发现一个成熟的软件叫做 <a href="https://getsurfboard.com/">Surfboard</a>，它直接使用 Surge 的语法作为配置（当然还是存在部分缺失，例如 SSID SUSPEND），但至少我只需要维护一份配置文件</li>
+<li>照片备份：将所有设备照片备份至家中的 nas 即可，统一维护查阅。</li>
+<li>CarPlay：安卓手机有对应的 Carlife，虽然图标与交互略逊一筹，但基本的导航需求可满足。</li>
+</ul>
+<hr>
+<p>最后尽管小米安卓系统在动画与交互等方面与精致的 iOS 系统存在一定差距，但对我来说，它提供了极大的自由。随心所欲操纵手机的自由，以及随时随地选择下一部手机的自由。</p>
+<p>✌️Peace and love</p>
+]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
+  </entry>
+  <entry>
     <title>近况更新 | 为什么我离开了工作五年的蚂蚁金服 🐜</title>
     <url>/blog/20231104/why-did-i-left-ant-group/</url>
     <content><![CDATA[<p>离职那天习惯性的拿起手机，想打开钉钉查看消息，才发现应用已被删除。瞬间竟有股如释重负的感觉，一直绷着的弦突然间松下来了，一种难以描述的轻松感。</p>
@@ -6772,8 +6894,8 @@ disqus 手机端不加载</p>
 <h2 id="Python-list-implementation"><a href="#Python-list-implementation" class="headerlink" title="Python list implementation"></a>Python list implementation</h2><p><a href="http://www.laurentluce.com/posts/python-list-implementation/">http://www.laurentluce.com/posts/python-list-implementation/</a>   </p>
 ]]></content>
       <tags>
-        <tag>python</tag>
         <tag>study</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -7366,8 +7488,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 <p><strong>Exam</strong>   </p>
 ]]></content>
       <tags>
-        <tag>comp9321</tag>
         <tag>unsw</tag>
+        <tag>comp9321</tag>
       </tags>
   </entry>
   <entry>
@@ -7628,8 +7750,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>mysql</tag>
         <tag>django</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -7694,8 +7816,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">performance</span><span class="params">(f)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        r = f(*args, **kw)</span><br><span class="line">        t2 = time.time()</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'call %s() in %fs'</span> % (f.__name__, (t2 - t1))</span><br><span class="line">        <span class="keyword">return</span> r</span><br><span class="line">    <span class="keyword">return</span> fn</span><br><span class="line"></span><br><span class="line"><span class="meta">@performance</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> reduce(<span class="keyword">lambda</span> x,y: x*y, range(<span class="number">1</span>, n+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> factorial(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>python</tag>
         <tag>study</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -7819,8 +7941,8 @@ Python 描述符（descriptor）解密
 
 ]]></content>
       <tags>
-        <tag>python</tag>
         <tag>study</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -7852,8 +7974,8 @@ Python 描述符（descriptor）解密
 <p>###--- 最后的结果 ---<br><img src="/images/loading/loading.svg" data-original="/images/blog/140801_web_score_log/console.jpg"><br><img src="/images/loading/loading.svg" data-original="/images/blog/140801_web_score_log/result.jpg">  </p>
 ]]></content>
       <tags>
-        <tag>python</tag>
         <tag>study</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -7872,8 +7994,8 @@ Python 描述符（descriptor）解密
 <p><strong>&quot;:-) All the best.&quot;</strong><br><strong>继续加油   以后改作业也要更认真一点了</strong></p>
 ]]></content>
       <tags>
-        <tag>python</tag>
         <tag>study</tag>
+        <tag>python</tag>
         <tag>cousera</tag>
       </tags>
   </entry>
@@ -7908,13 +8030,13 @@ Python 描述符（descriptor）解密
 ]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
