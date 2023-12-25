@@ -214,6 +214,54 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180824/django-2006-MySQL-server-has-gone-away/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/daya0576/daya0576.github.io@master/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20180824/django-2006-MySQL-server-has-gone-away/" class="post-title-link" itemprop="url">Django (2006, 'MySQL server has gone away') 本地重现与解决</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近我们的Django项目供Java Sofa应用进行tr调用时, 经常会出现一个异常: <code>django.db.utils.OperationalError: (2006, &#39;MySQL server has gone away&#39;)</code>. 本文记录了<strong>分析, 本地重现与解决此问题</strong>的全过程.</p>
+<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析:"></a>原因分析:</h1><p>Django在1.6引入长链接(<a href="https://docs.djangoproject.com/en/2.1/ref/databases/#persistent-connections">Persistent connections</a>)的概念, 可以在一个HTTP请求中一直用同一个连接对数据库进行读写操作.<br>但我们的应用对数据库的操作<strong>太不频繁</strong>了, 两次操作数据库的间隔大于MySQL配置的超时时间(默认为8个小时), 导致下一次操作数据库时的connection过期失效. </p>
+<blockquote>
+<p>Our databases have a 300-second (5-minute) timeout on inactive connections. That means, if you open a connection to the database, and then you don&#39;t do anything with it for 5 minutes, then the server will disconnect, and the next time you try to execute a query, it will fail.</p>
+</blockquote>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180824/mweb3-review/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -527,50 +575,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20180315/git-internal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/daya0576/daya0576.github.io@master/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20180315/git-internal/" class="post-title-link" itemprop="url">Git Internal(初探git的内部实现)</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近YouTube上看到Gitlab频道的一个视频: <a href="https://www.youtube.com/watch?v=P6jD966jzlk">Git Internals - How Git Works - Fear Not The SHA!</a><br>感觉打开了新世界的大门🤩😍🤣. 用这篇博客记录一下感悟和思考, 希望你看完之后, 对下边这张图会有更深的理解.<br><img style="max-height:350px" class="lazy" data-original="/images/blog/180315_git_internal/6993E92A-CB86-4BB9-9063-F3134BDC94D3.png"></p>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -643,7 +647,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">141</span>
+          <span class="site-state-item-count">142</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

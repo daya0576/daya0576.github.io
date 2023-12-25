@@ -1,18 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2023 年终小结 🎄</title>
+    <url>/blog/20231225/2023-summary/</url>
+    <content><![CDATA[<p>今年年终小结来的特别早，因为近期跳槽后（从互联网的大牙变成了外企的 Henry :) ），正巧碰上新公司圣诞一周假期（Recharge Days）🎄🎄🎄 趁此机会一起回顾如海浪般平静却充满涌动的 2023</p>
+<a id="more"></a>
+
+<h1 id="目标回顾"><a href="#目标回顾" class="headerlink" title="目标回顾"></a>目标回顾</h1><p>O1：健康状况提升 #生活</p>
+<ul>
+<li>✅ KR1：饮食 -&gt; 年底无明显痘痘</li>
+<li>❌ KR2：运动 -&gt; 跑步一个月至少四次、引体向上 10 个 </li>
+<li>⚠️ KR3：旅行 x3</li>
+</ul>
+<p>O2：自身成长提升 #成长</p>
+<ul>
+<li>❌ KR1：技能学习+2（视频编辑、烹饪等）</li>
+<li>✅ KR2：读书 10+（数量不强制，每本带读后感）</li>
+<li>❌ KR3：社交积累+2（线下社区、线上用户组等）</li>
+</ul>
+<p>O3：被动收入提升 #财务</p>
+<ul>
+<li>❌ KR1：5% 被动收入！！！</li>
+<li>❌ KR2：记账省钱</li>
+</ul>
+<h2 id="1）工作・事业"><a href="#1）工作・事业" class="headerlink" title="1）工作・事业"></a>1）工作・事业</h2><p>作为一名 SRE，假如将更换工作比作一次线上生产变更，将是一件极其高风险的“变更”⚠️⚠️⚠️。因为它完完全全违背变更三板斧：无法灰度与监控，甚至不符合预期无法回滚...</p>
+<p>然而这次运气不错，变更基本符合预期。如果用一个词形容新工作，那将会是“松弛感”。无论是同事间清晰的分工，井井有条的 jira 任务和日历；还是没有主动拉人功能的线上会议（震惊）；以及行政阿姨慵懒的坐在椅子上，晒着太阳玩手机。就好像甘菊茶的热茶，一点点治愈了我的焦虑，那些口号，“今天的最好表现，是明天的最低要求”，也在记忆中慢慢随风而去。</p>
+<p>当然全新的工作，作为新人从零开始，自然是极具挑战（和成就感）。例如每个同事一口流利自信的英语，就令人羡慕的直流口水。</p>
+<p>但总而言之，这次主动“拥抱变化”算一次不错的人生体验，“你最痛苦的时候可是你成长最快的时候”😉。感谢给予帮助和认可的朋友与同事们 &lt;3</p>
+<p>p.s. 当然任何事情都有两面性，未来有机会可以分享外企和互联网大厂的差别和优缺点。</p>
+<hr>
+<p>万圣节气氛拉满 🎃<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/61DA381E-8975-447F-B090-F1CF04FD1B43_1_105_c.jpeg" alt="61DA381E-8975-447F-B090-F1CF04FD1B43_1_105_c"></p>
+<p>随时开一局的茶水间和吃不完的零食🏓<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/528FF8BC-CC3E-4DDB-B163-1448595E3BDF_1_102_o.jpeg" alt="528FF8BC-CC3E-4DDB-B163-1448595E3BDF_1_102_o"></p>
+<h2 id="2）学习・成长"><a href="#2）学习・成长" class="headerlink" title="2）学习・成长"></a>2）学习・成长</h2><p>今年抽空读了一些书，收获不菲（总分为 3 分方便区分，小于等于 1 分不推荐阅读）：</p>
+<ul>
+<li>⭐️ <del>《人体修复手册》</del></li>
+<li>⭐️⭐️⭐️ 《Fluent Python》&#x2F;&#x2F; 说实话看了很多年终于读完，深入浅出介绍了所有 pythonic 的高级特性，是 python 进阶的不二选择</li>
+<li>⭐️⭐️⭐️ 《当我谈跑步时，我谈些什么（2015典藏版）》&#x2F;&#x2F; 伟大的作家，仅仅是充斥全书的巧妙比喻，就着实令人陶醉</li>
+<li>⭐️⭐️⭐️ 《亲密关系（第6版）》&#x2F;&#x2F; 严谨的教科书，无论有没有困惑，重新读一遍笔记总会有新的收获</li>
+<li>⭐️⭐️ 《叩叩》</li>
+<li>⭐️⭐️⭐️ 《为什么伟大不能被计划》&#x2F;&#x2F; 更深的理解为什么 KPI 必败</li>
+<li>⭐️⭐️⭐️ 《浮生六记》</li>
+<li>⭐️⭐️ 《精英的傲慢》</li>
+<li>⭐️⭐️ 《内脏脂肪退散》</li>
+<li><del>《中国城市大洗牌》</del></li>
+<li>⭐️⭐️⭐️ 《《资本论》的读法》&#x2F;&#x2F; 仅仅是让人意识到自己是个打工人，就值得了。</li>
+<li>⭐️⭐️⭐️ 《小米创业思考》&#x2F;&#x2F; “专注、极致、口碑、快” ！！！</li>
+<li>⭐️⭐️ 《你以为的人生意义就是人生的意义吗？》</li>
+<li>⭐️⭐️ 《学会呼吸》&#x2F;&#x2F; 嘴巴用来吃饭，鼻子用来呼吸</li>
+<li>⭐️ <del>《怎样才能不杀死你的植物》</del></li>
+<li>⭐️⭐️ 《跑步治愈》</li>
+</ul>
+<p>甚至双十一买了个新书架，施行了一次“扩容”，忍不住分享：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/48C57C6F-E9FE-40F9-899F-1BF2748A9FEE_1_102_o.jpeg" alt="48C57C6F-E9FE-40F9-899F-1BF2748A9FEE_1_102_o"></p>
+<h2 id="3）人际・社群"><a href="#3）人际・社群" class="headerlink" title="3）人际・社群"></a><del>3）人际・社群</del></h2><p><del>依稀记得六七岁，大约初入小学年级时，每个周六周日反而醒的格外早。一起床便前往“作战室”将象棋、围棋、军旗等等统统铺开，掀起一场对战厮杀。</del></p>
+<p><del>还有个爱好是坐在门口吃早餐，将食物少许洒落地上，看蚂蚁搬运，也能“沉迷”一早上。习惯了独处，在社交上也没有太大的动机，除了交好的乒乓球友，又是颗粒无收的一年。</del></p>
+<p><del>干脆将这个分类删除</del></p>
+<h2 id="4）财务・理财"><a href="#4）财务・理财" class="headerlink" title="4）财务・理财"></a>4）财务・理财</h2><p>打工，从某种意义上来说，是最容易的一种赚钱手段，但与时间投入的线性关系几乎不可能突破。</p>
+<p>今年除了 adsense 的被动广告收入，依旧颗粒无收 T^T 明年需重点突破。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035208300586.jpg"></p>
+<h2 id="5）家庭・生活"><a href="#5）家庭・生活" class="headerlink" title="5）家庭・生活"></a>5）家庭・生活</h2><h3 id="饮食"><a href="#饮食" class="headerlink" title="饮食"></a>饮食</h3><p>23 年抗痘暂时成功，虽然部分顽固痘印即使时间也难以磨灭，全当岁月的痕迹，提醒切莫随意透支身体。</p>
+<p>简单分享一点点心得（每人情况不同，强烈建议就医对症下药！！！）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">根因：</span><br><span class="line">1. 皮肤油脂分泌过多、毛囊皮脂腺导管堵塞</span><br><span class="line">预防：</span><br><span class="line">1. 注意饮食，避免牛奶！少吃高糖高油食物（甜食、饮料等）</span><br><span class="line">2. 避免挤抠痘痘皮疹，科学证明多三个月恢复</span><br><span class="line">3. 早睡（遵循 11-11:30 入睡）</span><br><span class="line">治疗：</span><br><span class="line">1. 脓头及较表浅的皮损 -&gt; XXX酸软膏外用</span><br><span class="line">2. 较深在的痤疮 -&gt; XX脂软膏</span><br><span class="line">3. 注意防晒，如果变成黑色更难消褪</span><br><span class="line">4. 刷酸&#x2F;光子（暂未尝试）</span><br></pre></td></tr></table></figure>
+
+<h3 id="运动"><a href="#运动" class="headerlink" title="运动"></a>运动</h3><p>分享一组有趣的截图对比，右图是从十月开始乒乓球运动的记录，左边则是跑步记录。</p>
+<p>兴趣驱动 vs KPI 驱动的结果，应该不难看出天壤之别。也或者很多时候，KPI 执行不到位，大概率是目标制定的不合理🤔<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035219868069.jpg"></p>
+<p>今年的两个冠军🏆🏆 虽然含金量一般，但也算生活的小惊喜～<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035228678549.jpg"></p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035229032524.jpg"></p>
+<h3 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a>旅行</h3><p>自驾苏州两日一夜，说实话与梦想中的江南温婉落差较大。期待新的一年，去世界转转，学习不同文化不同的活法。</p>
+<h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>2024 年的主题：兴趣驱动</p>
+<p>O1：工作・事业</p>
+<ul>
+<li>KR1：学习课程 &amp; 考取 AWS SysOps Administrator 证书</li>
+<li>KR2：参与三个开源项目 &amp; 开启一个开源项目</li>
+<li><mark>KR3：找到度量口语能力的手段 &amp; 相关兴趣应用 +2（基本无障碍的口语交流）</mark></li>
+</ul>
+<p>O2：学习・成长</p>
+<ul>
+<li>KR1：尝试学习一种感兴趣新的技能（烹饪、摄影、自由泳、...）</li>
+<li>KR2：读书并完成 10+ 读后感</li>
+</ul>
+<p>O3：财务・理财</p>
+<ul>
+<li><mark>KR1：3% 被动收入</mark></li>
+</ul>
+<hr>
+<p>历年年终总结：</p>
+<ul>
+<li><a href="/blog/20230122/2022-summary/">《2022 年终小结 🐯》</a></li>
+<li><a href="/blog/20220101/2021-daya-summary/">《2021 年终总结 ✨》</a></li>
+<li><a href="/blog/20210228/2020-summary/">《2020 年终总结 🥳》</a></li>
+<li><a href="/blog/20200119/2019-summary/">《2019 年终总结 🎉》</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>个人相关</category>
+      </categories>
+  </entry>
+  <entry>
     <title>HTTPS Hijack for Resiliency Test</title>
     <url>/blog/20231117/https-hijack/</url>
-    <content><![CDATA[<p>Recently researching an internal tool to support chaos&#x2F;resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.</p>
+    <content><![CDATA[<p>Recently researching an internal tool to support resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.</p>
 <p>TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). But how can we hijack and manipulate encrypted outbound HTTPS traffic?</p>
 <a id="more"></a>
 
-<h3 id="1-Traffic-Takeover"><a href="#1-Traffic-Takeover" class="headerlink" title="1. Traffic Takeover"></a>1. Traffic Takeover</h3><p>After sending the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">CONNECT</a> method request, the <code>https_proxy</code> can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  curl                     nginx (proxy_connect)            github.com</span><br><span class="line">    |                             |                          |</span><br><span class="line">(1) |-- CONNECT github.com:443 --&gt;|                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |----[ TCP connection ]---&gt;|</span><br><span class="line">    |                             |                          |</span><br><span class="line">(2) |&lt;- HTTP/1.1 200           ---|                          |</span><br><span class="line">    |   Connection Established    |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                                                        |</span><br><span class="line">    ========= CONNECT tunnel has been established. ===========</span><br><span class="line">    |                                                        |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |   [ SSL stream       ]      |                          |</span><br><span class="line">(3) |---[ GET / HTTP/1.1   ]-----&gt;|   [ SSL stream       ]   |</span><br><span class="line">    |   [ Host: github.com ]      |---[ GET / HTTP/1.1   ]--&gt;.</span><br><span class="line">    |                             |   [ Host: github.com ]   |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |   [ SSL stream       ]   |</span><br><span class="line">    |   [ SSL stream       ]      |&lt;--[ HTTP/1.1 200 OK  ]---'</span><br><span class="line">(4) |&lt;--[ HTTP/1.1 200 OK  ]------|   [ &lt; html page &gt;    ]   |</span><br><span class="line">    |   [ &lt; html page &gt;    ]      |                          |</span><br><span class="line">    |                             |                          |</span><br></pre></td></tr></table></figure>
+<h2 id="1-Traffic-Takeover"><a href="#1-Traffic-Takeover" class="headerlink" title="1. Traffic Takeover"></a>1. Traffic Takeover</h2><p>Enable traffic through a proxy server via HTTP(S)_PROXY  environment variable, and most standard libraries follow this convention.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:&lt;port&gt;;export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:&lt;port&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-Traffic-Processing"><a href="#2-Traffic-Processing" class="headerlink" title="2. Traffic Processing"></a>2. Traffic Processing</h3><p>Currently we can only filter traffic by domain (from the <code>CONNECT</code> method request). The TLS encryption prevents us from inspecting the specific endpoints and body within the encrypted traffic.</p>
-<p><u>How can we Hijack https requests and classify the network traffic by endpoint?</u></p>
-<p>We have to address two issues:</p>
+<p>After sending the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">CONNECT</a> method request, the <code>https_proxy</code> can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/http_proxy_original.drawio.svg" alt="http_proxy_original.drawio"></p>
+<h2 id="2-Traffic-Processing"><a href="#2-Traffic-Processing" class="headerlink" title="2. Traffic Processing"></a>2. Traffic Processing</h2><p>Implement a lightweight HTTP proxy by native http.server module in Python.</p>
+<h3 id="HTTP-Transparent-Proxy"><a href="#HTTP-Transparent-Proxy" class="headerlink" title="HTTP (Transparent Proxy)"></a>HTTP (Transparent Proxy)</h3><p>According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">rfc7231</a>. As long as the <code>CONNECT</code> method request is handled, the proxy can forward the TCP stream to and from the client by establishing a HTTP tunnel.</p>
+<h3 id="HTTPS-Hijack"><a href="#HTTPS-Hijack" class="headerlink" title="HTTPS (Hijack)"></a>HTTPS (Hijack)</h3><p>As we known, the TLS encryption prevents us from inspecting the specific endpoints and headers within the encrypted traffic.</p>
+<p>We must hijack HTTPS requests to determine the type of dependency service (such as ACM, OSS, etc.):</p>
 <ol>
 <li>Identity:<ol>
 <li>client → server:   ask for appropriate certificate</li>
@@ -27,8 +123,8 @@
 </ol>
 </li>
 </ol>
-<p>Appropriate workflow (i.e. MITM attack):<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rtf%20MITM.drawio%20-1-.svg" alt="rtf MITM.drawio -1-"></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<p>Appropriate workflow (i.e. MITM attack):<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rtf%20MITM1.drawio.svg" alt="rtf MITM1.drawio"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://github.com/chobits/ngx_http_proxy_connect_module">https://github.com/chobits/ngx_http_proxy_connect_module</a></li>
 <li><a href="https://manual.nssurge.com/book/understanding-surge/en/#tls-https-and-mitm">https://manual.nssurge.com/book/understanding-surge/en/#tls-https-and-mitm</a></li>
 <li><a href="https://github.com/tinyproxy/tinyproxy">https://github.com/tinyproxy/tinyproxy</a></li>
@@ -45,7 +141,7 @@
   <entry>
     <title>为什么我从 iPhone 切换至 Android 手机</title>
     <url>/blog/20231117/iphone2android/</url>
-    <content><![CDATA[<p>在 9 月购入了 iPhone Pro 钛金属版本后，我迫不及待地进行了拆机，并且通过 iCloud 进行了熟练的备份还原。然而，当看到主屏幕界面和布局高度还原后，一股索然无味涌上心头。恍惚间，好像根本没有更换过新手机一样！于是，最终决定退掉它。</p>
+    <content><![CDATA[<p>在 9 月购入了 iPhone Pro 钛金属版本后，我迫不及待地进行了拆机，并且通过 iCloud 进行了熟练的备份还原。然而，当看到主屏幕界面和布局高度还原后，一股索然无味涌上心头。恍惚间，好像根本没有更换过新手机一样！于是。。最终决定退掉它。</p>
 <p>不知不觉间，我手中竟然同时拥有 10 多个苹果设备，这还不包括家人。。苹果公司借助其强大的生态系统，成功地将用户牢牢地捆绑在其中。例如，手机&#x2F;平板可以作为电视遥控器，HomeKit 可以在家里无人时触发自动化场景，手表可以自动解锁电脑等等。尽管这些细节确实非常方便，但我<strong>越来越不喜欢这种被绑架束缚</strong>的感觉了。</p>
 <a id="more"></a>
 
@@ -131,31 +227,60 @@
 <p>但话说在前，从未后悔加入蚂蚁，过去五年无比精彩且充实的旅程，是人生难得的一份宝藏。</p>
 <a id="more"></a>
 
-<hr>
-<p>⚠️声明：我在此声明，撰写的文章中的描述仅代表我个人的经历和感受的总结和反思，而不是要对公司或团队发表任何指责或批评。如果在我撰写的文章中有任何不合适或误导性的观点，我深感抱歉，并请立即联系我以便进行修正或删除。</p>
 <p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/421583C9-C1E6-489C-AFB8-F8F1BFFBB14E_1_201_a.jpeg" alt="421583C9-C1E6-489C-AFB8-F8F1BFFBB14E_1_201_a"></p>
+<h1 id="TOC"><a href="#TOC" class="headerlink" title="TOC"></a>TOC</h1><ul>
+<li><a href="#%E4%B8%80%E3%80%81%E5%85%B3%E4%BA%8E%E6%88%91">一、关于我</a></li>
+<li><a href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A6%BB%E5%BC%80%E8%9A%82%E8%9A%81">二、为什么离开蚂蚁</a><ul>
+<li><a href="#%E5%A5%BD%E7%9A%84%E5%9C%B0%E6%96%B9">好的地方</a><ul>
+<li><a href="#1%EF%BC%89%E6%B8%85%E6%99%B0%E7%9A%84%E6%88%90%E9%95%BF%E8%B7%AF%E5%BE%84%E4%B8%B0%E5%8E%9A%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%9B%9E%E6%8A%A5">1）清晰的成长路径 &amp; 丰厚的经济回报</a></li>
+<li><a href="#2%EF%BC%89%E4%B8%93%E4%B8%9A%E7%9A%84%E5%90%8C%E4%BA%8B">2）专业的同事</a></li>
+<li><a href="#3%EF%BC%89%E6%9E%81%E5%85%B7%E2%80%9C%E6%8C%91%E6%88%98%E2%80%9D%E7%9A%84%E5%B7%A5%E4%BD%9C">3）极具“挑战”的工作</a></li>
+</ul>
+</li>
+<li><a href="#%E8%B4%9F%E9%9D%A2%E5%9B%A0%E7%B4%A0">负面因素</a><ul>
+<li><a href="#1%EF%BC%89%E6%97%A0%E6%83%85%E7%9A%84%E8%A2%AB%E5%89%A5%E5%89%8A%E8%80%85">1）无情的被剥削者</a></li>
+<li><a href="#2%EF%BC%89%E4%BC%98%E7%BB%A9%E8%87%B3%E4%B8%8A">2）优绩至上</a><ul>
+<li><a href="#%E7%9F%AD%E8%A7%86%E4%B8%8D%E4%B8%93%E4%B8%9A">短视 &amp; 不专业</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E8%BF%87%E5%BA%A6%E5%8C%85%E8%A3%85">项目过度包装</a></li>
+<li><a href="#%E6%80%A7%E6%A0%BC%E5%90%8E%E9%81%97%E7%97%87">性格后遗症</a></li>
+</ul>
+</li>
+<li><a href="#3%EF%BC%89%E4%B8%AA%E4%BA%BA%E5%B8%82%E5%9C%BA%E7%AB%9E%E4%BA%89%E5%8A%9B%E4%B8%8B%E6%BB%91">3）个人市场竞争力下滑</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%96%E9%83%A8%E5%9B%A0%E7%B4%A0">外部因素</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8A%A0%E5%85%A5%E6%96%B0%E5%85%AC%E5%8F%B8">三、为什么加入新公司</a><ul>
+<li><a href="#%E7%9F%AD%E6%9C%9F">短期</a></li>
+<li><a href="#%E9%95%BF%E6%9C%9F">长期</a></li>
+</ul>
+</li>
+<li><a href="#the-end">THE END</a></li>
+</ul>
 <h1 id="一、关于我"><a href="#一、关于我" class="headerlink" title="一、关于我"></a>一、关于我</h1><p>17 年大学毕业后，只身来到上海，寻觅了一份<a href="/blog/20170223/python-backend-inteview-summery/">创业公司后端开发</a>的工作，成为一名打工崽。</p>
-<p>记得某天工作整整满一年时，命运的齿轮开始转动。晚上收到来自蚂蚁的一份邮件（称博客吸引，可以帮忙内推），便顺水推舟进入面试，并最终加入蚂蚁，成为了一名业务 SRE（<a href="/blog/20180403/impressions-of-google-sre/">Site Reliability Engineer</a>）。主要参与国际支付业务线上稳定性保障（AliExpress&#x2F;天猫国际&#x2F;Apple代扣&#x2F;Lazada&#x2F;...），通过软件工程等实践在监控告警领域持续探索。</p>
-<p><u>p.s. 为什么离开创业公司加入蚂蚁？</u><br>记得面试阶段，对方提问：你维护的业务线上一共维护了几台机器？当时我掰着手指回答后，对方笑了一下，兴奋的说有没有兴趣加入蚂蚁，一起管理上万台服务器（当然加入后，机器也轮不到我们维护 :P）</p>
+<p>某天工作大约满一年时，命运的齿轮开始悄悄转动。收到来自蚂蚁的一份邮件，便顺水推舟进入面试，并最终只身前往杭州加入蚂蚁，成为了一名业务 SRE（<a href="/blog/20180403/impressions-of-google-sre/">Site Reliability Engineer</a>）。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17027150685951.jpg"></p>
+<p><u>p.s. 为什么离开创业公司加入蚂蚁？</u><br>创业公司项目管理开发规范，同事技艺高超友善，唯一的缺点是贫困。</p>
+<p>加入一家“大厂”，应该是每个学历普通资质一般程序员，遥不可及的梦想。</p>
+<p>依稀记得面试阶段，对方提问：你维护的业务线上一共维护了几台机器？当时我掰着手指回答后，对方笑了一下，兴奋的说有没有兴趣加入蚂蚁，一起管理上万台服务器（当然加入后，机器也轮不到我们维护 :P）</p>
 <h1 id="二、为什么离开蚂蚁"><a href="#二、为什么离开蚂蚁" class="headerlink" title="二、为什么离开蚂蚁"></a>二、为什么离开蚂蚁</h1><blockquote>
 <p>Pros<br>Good place to earn money.<br>Cons<br>High pression physically and mentally.</p>
 </blockquote>
-<h2 id="好的地方"><a href="#好的地方" class="headerlink" title="好的地方"></a>好的地方</h2><h3 id="1）清晰的成长路径-amp-丰厚的经济回报"><a href="#1）清晰的成长路径-amp-丰厚的经济回报" class="headerlink" title="1）清晰的成长路径 &amp; 丰厚的经济回报"></a>1）清晰的成长路径 &amp; 丰厚的经济回报</h3><p>每个层级有清晰的能力模型（点&#x2F;线&#x2F;面），标准规范的晋升流程。在蚂蚁五年中，比较幸运参加了三次晋升答辩（成功了两次）。</p>
-<p>high performance 与晋升，对应经济收入的指数型增长。可能难以想象，相比第一份工作，年收入增长接近十倍～</p>
-<h3 id="2）专业的同事"><a href="#2）专业的同事" class="headerlink" title="2）专业的同事"></a>2）专业的同事</h3><p>作为每天共事的同事，其对应的专业程度，是工作幸福感的巨大因素之一。</p>
-<p>而蚂蚁的同事，无论是个人学历资质，还是工作负责程度，都令人无可挑剔。</p>
+<h2 id="好的地方"><a href="#好的地方" class="headerlink" title="好的地方"></a>好的地方</h2><h3 id="1）清晰的成长路径-amp-丰厚的经济回报"><a href="#1）清晰的成长路径-amp-丰厚的经济回报" class="headerlink" title="1）清晰的成长路径 &amp; 丰厚的经济回报"></a>1）清晰的成长路径 &amp; 丰厚的经济回报</h3><p>每个层级有清晰的能力模型（点&#x2F;线&#x2F;面），标准规范的晋升流程。在蚂蚁五年中，比较幸运参加了三次晋升答辩，成功了两次。</p>
+<p>high performance 与晋升，对应经济收入的指数型增长。可能难以想象，相比第一份工作，奋斗五年后年收入增长超过五倍～<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17034924177002.jpg"></p>
+<h3 id="2）专业的同事"><a href="#2）专业的同事" class="headerlink" title="2）专业的同事"></a>2）专业的同事</h3><p>作为每天共事的同事，其对应的专业程度，是工作幸福感的巨大因素之一。而蚂蚁的同事，无论是个人能力，还是工作负责程度，都令人无可挑剔。</p>
 <h3 id="3）极具“挑战”的工作"><a href="#3）极具“挑战”的工作" class="headerlink" title="3）极具“挑战”的工作"></a>3）极具“挑战”的工作</h3><p>就如加入蚂蚁面试的小故事一样，海量的业务体量，带来了前所未有的技术和业务挑战。</p>
 <p>作为一名 SRE，和传统运维搬机器的刻板印象不同，需要深入理解业务：例如一笔支付请求链路由上百个微服务节点组成，SRE 需要了解每个节点的作用以及依赖，甚至深入业务系统的源码，针对不合理的逻辑直接提交 PR 进行优化。</p>
 <hr>
 <p>分享一个津津乐道的小故事：记得一次线上会员系统的数据库抖动了 30s 后自动恢复，但导致某个支付咨询业务的成功量下跌超过 30%，触发了 P1 故障。故障复盘时，所有人的焦点都集中在数据库的稳定性优化，但大家都忽略了一点：一条成熟的支付链路为什么对会员系统的数据库存在强依赖？？也就是说在支付链路中，理论上即使会员系统数据库出现问题，99% 的请求也应该由缓存处理，不应该受到影响。</p>
-<p>所以我花了一周时间，阅读了会员系统的 java 源码，终于发现其提供的类似 <code>get_or_create</code> 的服务，在一开始准备上下文 thread local 的过程中，直接请求了数据的当前时间，用于后续实际触发注册的输入。所以即使用户信息已注册，并存储在缓存之中，还是会依赖数据库。</p>
+<p>所以我花了一周时间，阅读了会员系统的 java 源码，终于发现其提供的类似 <code>get_or_create</code> 的服务，在一开始准备上下文 thread local 的过程中，直接请求了数据的当前时间，用于后续实际触发注册的输入。所以即使用户信息已注册，并存储在缓存之中，还是会依赖数据库（不合理的 hard dependency）。</p>
 <p>于是灵机一动，参考之前 Django 框架中 ORM “懒加载” 的设计，对获取数据库当前时间的方法进行了改造（考虑系统内其他 rpc 服务都可以规避数据库强依赖问题），只有当真正使用该属性时，才会发生数据库的交互。最终成功提交 PR 并发布。</p>
-<p>但更进一步，面向未来，如何避免其他系统，以及持续的代码改动再次引入该问题呢？除了通过日志 tracing 的关联和离线清洗产出 T+1 的报表进行预警，还可以通过定期的自动化线上回归演练，来尽早规避该问题。</p>
+<p>但更进一步，面向未来，如何避免其他系统，以及持续的代码改动再次引入该问题呢？除了通过日志离线清洗产出 T+1 的报表进行预警，或自动化线上回归演练，来尽早规避该问题。</p>
 <hr>
-<p>虽然不像创业公司，每天可以接触新的有趣技术玩物，在蚂蚁却更像一个创业团队，锻炼如何将一件事“做成”的能力：业务背景 -&gt; 定义问题 -&gt; 大的逻辑 -&gt; 技术落地 -&gt; 量化度量 -&gt; 未来规划..</p>
-<p>举个不恰当的例子，每个财年开始后，每天工作时都会思考一个问题，也就是如何在你下个晋升答辩中，如何将今年的故事说的更加生动，更加打动评委。</p>
-<p>当然如果每个“小P”都需要不断思考自己从事工作的业务价值，不难理解对公司整体业务达成有益，但对于个人来说，除了掉头发，也会有一些负面的影响。</p>
-<h2 id="负面因素"><a href="#负面因素" class="headerlink" title="负面因素"></a>负面因素</h2><p>逻辑：资本剥削 -&gt; 优绩至上 -&gt; ^^个人市场竞争力^^下滑</p>
+<p>虽然不像创业公司，每天可以接触新的有趣技术玩物，在蚂蚁却更像一个创业团队，锻炼如何将一件事“做成”的能力：深入业务 -&gt; 定义问题 -&gt; 整体逻辑 -&gt; 技术落地 -&gt; 量化度量 -&gt; 未来规划..</p>
+<p>举个不恰当的例子，博主每个财年开始后，每天工作时都会思考一个问题，也就是如何在你下个晋升答辩中，如何将今年的故事说的更加生动，更加打动评委。也许，凑巧，博主在写故事上有一些独特的天赋。</p>
+<p>但如果每个“小P”工程师都需要不断思考自己从事工作的业务价值，对公司整体业务达成可能有益，但对于个人工程师来说，除了掉头发，会有一些负面的影响。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17008832470085.jpg"></p>
+<h2 id="负面因素"><a href="#负面因素" class="headerlink" title="负面因素"></a>负面因素</h2><p>资本剥削 -&gt; 优绩至上 -&gt; ^^个人市场竞争力^^下滑</p>
 <h3 id="1）无情的被剥削者"><a href="#1）无情的被剥削者" class="headerlink" title="1）无情的被剥削者"></a>1）无情的被剥削者</h3><p>读完同事推荐的<a href="https://book.douban.com/subject/36091879/">《《资本论》的读法》》</a>后，竟才恍然，作为打工人（也就是被剥削者），本质与富士康的工人没有本质区别。</p>
 <p><u>为什么工作这么“累”？农耕时代-&gt;工业时代，大多数人手中的生产工具被少数掌握。</u></p>
 <blockquote>
@@ -169,10 +294,10 @@
 <blockquote>
 <p>因而这是自由的双层剥削，第一层你变成了一个劳动者，你的劳动力只能够换钱，不能拿去换别的，这已经将你的自由剥夺了一层。还有另外一件事情，就是你又被绑在一个工作岗位上，你只能够在这个固定的工作位置上去实现你的劳动价值。这个固定的工作位置会给你提供安全感，但它同时也就取消了你自由离开这个位置去做其他不同工作的可能性。</p>
 </blockquote>
-<h3 id="2）优绩至上"><a href="#2）优绩至上" class="headerlink" title="2）优绩至上"></a>2）优绩至上</h3><p>业务价值：记得 p5 年中绩效考核沟通时，老板反馈其他都不错，就是业务价值需要进一步提升。</p>
-<p>但业务价值，也就是 kpi 至上，难免会带来一定副作用：</p>
-<h4 id="短视-amp-不专业"><a href="#短视-amp-不专业" class="headerlink" title="短视 &amp; 不专业"></a>短视 &amp; 不专业</h4><p>由于绩效考核的周期为一年，不难理解绝大部份的项目存活周期不超过一年。</p>
-<p>同时也不难理解网传的很多大力出奇迹的故事。记得公司鼎盛大力招人的时候，全组技术的人员吃完晚饭，就闭关会议室直至十一二点。只为找简历面试，甚至每周简历捞取数量不达标，会进行罚款。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17034909673595.jpg"></p>
+<h3 id="2）优绩至上"><a href="#2）优绩至上" class="headerlink" title="2）优绩至上"></a>2）优绩至上</h3><p>业务价值：记得 p5 年中绩效考核沟通时，老板反馈其他都不错，就是业务价值需要进一步提升🤔。但业务价值，也就是 kpi 至上，难免会带来一定副作用：</p>
+<h4 id="短视-amp-不专业"><a href="#短视-amp-不专业" class="headerlink" title="短视 &amp; 不专业"></a>短视 &amp; 不专业</h4><p>由于绩效考核的周期为一年，不难理解绝大部份的项目存活周期不超过一年。同时也不难理解网传的很多大力出奇迹的故事。记得公司鼎盛大力招人的时候，</p>
+<p>全组技术的人员吃完晚饭，就闭关会议室直至十一二点。只为找简历面试，甚至每周简历捞取数量不达标，会进行罚款。</p>
 <p>参考<a href="https://book.douban.com/subject/35732136/">《原则》</a>这本书中描绘的经济周期曲线，社会生产力持续发展主要依赖技术的突破和进步。短期人为政策的调控虽然可以影响小周期，但无法改变长周期，甚至对长周期的增长存在一定副作用。</p>
 <h4 id="项目过度包装"><a href="#项目过度包装" class="headerlink" title="项目过度包装"></a>项目过度包装</h4><p>技术人需要产出报表说明自己的业务价值，最终导致项目三分靠努力，七分靠包装（shishangdiaohua）</p>
 <h4 id="性格后遗症"><a href="#性格后遗症" class="headerlink" title="性格后遗症"></a>性格后遗症</h4><p>记得罗翔老师来公司讲座，推荐了一本书<a href="https://book.douban.com/subject/35586814/">《精英的傲慢》</a>：</p>
@@ -181,20 +306,21 @@
 </blockquote>
 <p>同理对应公司内部文化，优绩至上对个人性格甚至家庭，也会造成一定影响：例如生活中对身边人苛刻、自我制造的焦虑、技术兴趣的消磨、今日事今日毕的执念等</p>
 <h3 id="3）个人市场竞争力下滑"><a href="#3）个人市场竞争力下滑" class="headerlink" title="3）个人市场竞争力下滑"></a>3）个人市场竞争力下滑</h3><p>最终长期以往，对个人的专业能力，心理健康，甚至家庭幸福，造成一定负面影响。也就是说所以虽然内部努力晋升，收入翻倍增长，但对应的快乐不可长期持续，同时个人在市场中的竞争力也逐日下滑。</p>
+<p>五年来一直在脑中挥之不去的一张照片，有一天肯定会离开这家公司。<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17034911473204.jpg"></p>
 <h2 id="外部因素"><a href="#外部因素" class="headerlink" title="外部因素"></a>外部因素</h2><p>某次周五晚出差坐在餐车车厢发呆，零零星星的六七个乘客，仅如同约好的一般，静静地，专注地，刷着抖音。</p>
 <p>着实无聊，我也被感染不自知的打开抖音，竟被带货直播吸引并下单。🤯令人震惊的是，整体下单支付体验竟如丝般顺滑，输入手机号后便绑定了信用卡快捷支付，每月月底自动扣款。在那一瞬间，为公司的支付业务感到了深深的担忧。</p>
 <h1 id="三、为什么加入新公司"><a href="#三、为什么加入新公司" class="headerlink" title="三、为什么加入新公司"></a>三、为什么加入新公司</h1><p>比较幸运加入了一家外企，除了 6 点前下班的原因，从短期与长期视角，分享一点思考：</p>
-<h2 id="短期"><a href="#短期" class="headerlink" title="短期"></a>短期</h2><p>打工第二个 5 年，持续积累^^核心竞争力^^（Don&#39;t Be The Best, Be The Only ）</p>
+<h2 id="短期"><a href="#短期" class="headerlink" title="短期"></a>短期</h2><p>打工第二个 5 年，持续积累^^核心竞争力^^（Don&#39;t Be The Best, Be The Only ）。</p>
+<p>准备离开上一家公司时，HR 变着法子的问我，是什么时候出现开始找工作的念头。我只能诚实的回答，每年我都会在市场上寻觅新的机会。在不断面试的过程中，博主发现市场上不缺资深的开发，也有很多身经百战的运维人员，却没有懂高可用还能写一手漂亮代码的 SRE。</p>
 <ul>
-<li>参考特征：<code>buff 叠加</code>，<code>兴趣驱动</code>，<code>市场需求</code>、...</li>
 <li>目标：<ul>
-<li>运维能力（通用技术栈，例如 AWS）</li>
-<li>编程能力（回馈开源社区）</li>
-<li>外语能力（流畅无障碍的口语交流）</li>
+<li>编程能力：回馈开源社区</li>
+<li>运维能力：通用技术栈，例如 AWS</li>
+<li>外语能力：流畅无障碍的口语交流</li>
 </ul>
 </li>
 <li>风险：<ul>
-<li>当然有一天可能会发现不是一个最佳选择，个人只是喜欢钱，而不是写代码 ：）</li>
+<li>当然有一天可能会发现不是一个最佳选择，只是喜欢钱，而不是写代码 ：）</li>
 </ul>
 </li>
 </ul>
@@ -6717,8 +6843,8 @@ disqus手机端不加载</p>
 <p>1.Do not run garbage collection too freely, as it can take considerable time to evaluate every memory object within a large system. For example, one team having memory issues tried calling gc.collect() between every step of a complex start-up process, increasing the boot time by 20 times (2000%). Running it more than a few times per day - without specific design reasons - is likely a waste of device resources.<br>2.Run manual garbage collection after your application has completed start up and moves into steady-state operation. This frees potentially huge blocks of memory used to open and parse file, to build and modify object lists, and even code modules never to be used again. For example, one application reading XML configuration files was consuming about 1.5MB of temporary memory during the process. Without manual garbage collection, there is no way to predict when that 1.5MB of memory will be returned to the python memory pools for reuse.<br>3.Run manual garbage collection after infrequently run sections of code which use and then free large blocks of memory. For example, consider running garbage collection after a once-per-day task which evaluates thousands of data points, creates an XML &#39;report&#39;, and then sends that report to a central office via FTP or SMTP&#x2F;email. One application doing such daily reports was creating over 800K worth of temporary sorted lists of historical data. Piggy-backing gc.collect() on such daily chores has the nice side-effect of running it once per day for &#39;free&#39;.<br>4.Consider manually running garbage collection either before or after timing-critical sections of code to prevent garbage collection from disturbing the timing. As example, an irrigation application might sit idle for 10 minutes, then evaluate the status of all field devices and make adjustments. Since delays during system adjustment might affect field device battery life, it makes sense to manually run garbage collection as the gateway is entering the idle period AFTER the adjustment process - or run it every sixth or tenth idle period. This insures that garbage collection won&#39;t be triggered automatically during the next timing-sensitive period.   </p>
 ]]></content>
       <tags>
-        <tag>interview</tag>
         <tag>Python</tag>
+        <tag>interview</tag>
       </tags>
   </entry>
   <entry>
@@ -7537,8 +7663,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 </blockquote>
 ]]></content>
       <tags>
-        <tag>comp9315</tag>
         <tag>unsw</tag>
+        <tag>comp9315</tag>
       </tags>
   </entry>
   <entry>
@@ -7752,8 +7878,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
       <tags>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>

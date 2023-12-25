@@ -47,16 +47,17 @@
   };
 </script>
 
-  <meta name="description" content="Recently researching an internal tool to support chaos&#x2F;resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and rec">
+  <meta name="description" content="Recently researching an internal tool to support resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTPS Hijack for Resiliency Test">
 <meta property="og:url" content="https://changchen.me/blog/20231117/https-hijack/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
-<meta property="og:description" content="Recently researching an internal tool to support chaos&#x2F;resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and rec">
+<meta property="og:description" content="Recently researching an internal tool to support resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from u">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2023-11-17T23:49:24.000Z">
-<meta property="article:modified_time" content="2023-11-18T01:22:12.836Z">
+<meta property="article:modified_time" content="2023-12-25T17:53:34.701Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta property="article:tag" content="chaos">
@@ -263,16 +264,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Recently researching an internal tool to support chaos&#x2F;resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.</p>
+        <p>Recently researching an internal tool to support resiliency testing, e.g. performing network delay on dependent redis&#x2F;db&#x2F;.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.</p>
 <p>TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). But how can we hijack and manipulate encrypted outbound HTTPS traffic?</p>
 <a id="more"></a>
 
-<h3 id="1-Traffic-Takeover"><a href="#1-Traffic-Takeover" class="headerlink" title="1. Traffic Takeover"></a>1. Traffic Takeover</h3><p>After sending the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">CONNECT</a> method request, the <code>https_proxy</code> can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">  curl                     nginx (proxy_connect)            github.com</span><br><span class="line">    |                             |                          |</span><br><span class="line">(1) |-- CONNECT github.com:443 --&gt;|                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |----[ TCP connection ]---&gt;|</span><br><span class="line">    |                             |                          |</span><br><span class="line">(2) |&lt;- HTTP/1.1 200           ---|                          |</span><br><span class="line">    |   Connection Established    |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                                                        |</span><br><span class="line">    ========= CONNECT tunnel has been established. ===========</span><br><span class="line">    |                                                        |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |   [ SSL stream       ]      |                          |</span><br><span class="line">(3) |---[ GET / HTTP/1.1   ]-----&gt;|   [ SSL stream       ]   |</span><br><span class="line">    |   [ Host: github.com ]      |---[ GET / HTTP/1.1   ]--&gt;.</span><br><span class="line">    |                             |   [ Host: github.com ]   |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |                          |</span><br><span class="line">    |                             |   [ SSL stream       ]   |</span><br><span class="line">    |   [ SSL stream       ]      |&lt;--[ HTTP/1.1 200 OK  ]---'</span><br><span class="line">(4) |&lt;--[ HTTP/1.1 200 OK  ]------|   [ &lt; html page &gt;    ]   |</span><br><span class="line">    |   [ &lt; html page &gt;    ]      |                          |</span><br><span class="line">    |                             |                          |</span><br></pre></td></tr></table></figure>
+<h2 id="1-Traffic-Takeover"><a href="#1-Traffic-Takeover" class="headerlink" title="1. Traffic Takeover"></a>1. Traffic Takeover</h2><p>Enable traffic through a proxy server via HTTP(S)_PROXY  environment variable, and most standard libraries follow this convention.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:&lt;port&gt;;export http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:&lt;port&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-Traffic-Processing"><a href="#2-Traffic-Processing" class="headerlink" title="2. Traffic Processing"></a>2. Traffic Processing</h3><p>Currently we can only filter traffic by domain (from the <code>CONNECT</code> method request). The TLS encryption prevents us from inspecting the specific endpoints and body within the encrypted traffic.</p>
-<p><u>How can we Hijack https requests and classify the network traffic by endpoint?</u></p>
-<p>We have to address two issues:</p>
+<p>After sending the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">CONNECT</a> method request, the <code>https_proxy</code> can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/http_proxy_original.drawio.svg" alt="http_proxy_original.drawio"></p>
+<h2 id="2-Traffic-Processing"><a href="#2-Traffic-Processing" class="headerlink" title="2. Traffic Processing"></a>2. Traffic Processing</h2><p>Implement a lightweight HTTP proxy by native http.server module in Python.</p>
+<h3 id="HTTP-Transparent-Proxy"><a href="#HTTP-Transparent-Proxy" class="headerlink" title="HTTP (Transparent Proxy)"></a>HTTP (Transparent Proxy)</h3><p>According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">rfc7231</a>. As long as the <code>CONNECT</code> method request is handled, the proxy can forward the TCP stream to and from the client by establishing a HTTP tunnel.</p>
+<h3 id="HTTPS-Hijack"><a href="#HTTPS-Hijack" class="headerlink" title="HTTPS (Hijack)"></a>HTTPS (Hijack)</h3><p>As we known, the TLS encryption prevents us from inspecting the specific endpoints and headers within the encrypted traffic.</p>
+<p>We must hijack HTTPS requests to determine the type of dependency service (such as ACM, OSS, etc.):</p>
 <ol>
 <li>Identity:<ol>
 <li>client → server:   ask for appropriate certificate</li>
@@ -287,8 +290,8 @@
 </ol>
 </li>
 </ol>
-<p>Appropriate workflow (i.e. MITM attack):<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rtf%20MITM.drawio%20-1-.svg" alt="rtf MITM.drawio -1-"></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<p>Appropriate workflow (i.e. MITM attack):<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rtf%20MITM1.drawio.svg" alt="rtf MITM1.drawio"></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://github.com/chobits/ngx_http_proxy_connect_module">https://github.com/chobits/ngx_http_proxy_connect_module</a></li>
 <li><a href="https://manual.nssurge.com/book/understanding-surge/en/#tls-https-and-mitm">https://manual.nssurge.com/book/understanding-surge/en/#tls-https-and-mitm</a></li>
 <li><a href="https://github.com/tinyproxy/tinyproxy">https://github.com/tinyproxy/tinyproxy</a></li>
@@ -359,7 +362,10 @@
     <a href="/blog/20231117/iphone2android/" rel="prev" title="为什么我从 iPhone 切换至 Android 手机">
       <i class="fa fa-chevron-left"></i> 为什么我从 iPhone 切换至 Android 手机
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/20231225/2023-summary/" rel="next" title="2023 年终小结 🎄">
+      2023 年终小结 🎄 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -427,7 +433,7 @@
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <br>
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Traffic-Takeover"><span class="nav-text">1. Traffic Takeover</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Traffic-Processing"><span class="nav-text">2. Traffic Processing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Traffic-Takeover"><span class="nav-text">1. Traffic Takeover</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Traffic-Processing"><span class="nav-text">2. Traffic Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-Transparent-Proxy"><span class="nav-text">HTTP (Transparent Proxy)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS-Hijack"><span class="nav-text">HTTPS (Hijack)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -443,7 +449,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">141</span>
+          <span class="site-state-item-count">142</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
