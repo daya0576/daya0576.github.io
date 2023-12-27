@@ -1194,7 +1194,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #bb75bf;
+  background: #ffc718;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1708,7 +1708,7 @@ pre .javascript .function {
 }
 @media (max-width: 767px) {
   .posts-expand {
-    margin: 0 0px;
+    margin: 0 20px;
   }
 }
 @media (min-width: 992px) {
@@ -2639,6 +2639,7 @@ body .post-header .post-meta {
 }
 .posts-expand .post-body img {
   max-height: 350px;
+  max-width: 450px;
   margin: 0 auto 10px;
 }
 .posts-expand .post-body .fancybox img {
