@@ -3,7 +3,7 @@
   <entry>
     <title>2023 年终小结 🎄</title>
     <url>/blog/20231225/2023-summary/</url>
-    <content><![CDATA[<p>熟悉我的朋友知道博主最近机缘巧合换了一份工作，从互联网的大牙变成了外企的 Henry :)</p>
+    <content><![CDATA[<p>熟悉我的朋友可能知道，博主最近机缘巧合换了一份工作（从互联网的大牙变成了外企的 Henry :)）</p>
 <p>正巧碰上新公司圣诞一周假期（Recharge Days），趁此机会一起回顾如海浪般平静却充满涌动的 2023</p>
 <a id="more"></a>
 
@@ -4199,8 +4199,8 @@
 <p>你的晚安 是下意识的恻隐~<br>我留至夜深 治疗失眠梦呓~</p>
 ]]></content>
       <tags>
-        <tag>iOS</tag>
         <tag>review</tag>
+        <tag>iOS</tag>
       </tags>
   </entry>
   <entry>
@@ -6657,8 +6657,8 @@ disqus手机端不加载</p>
 </ol>
 ]]></content>
       <tags>
-        <tag>interview</tag>
         <tag>algorithm</tag>
+        <tag>interview</tag>
       </tags>
   </entry>
   <entry>
@@ -7664,8 +7664,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 </blockquote>
 ]]></content>
       <tags>
-        <tag>comp9315</tag>
         <tag>unsw</tag>
+        <tag>comp9315</tag>
       </tags>
   </entry>
   <entry>
@@ -7877,10 +7877,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
-        <tag>mysql</tag>
-        <tag>django</tag>
         <tag>moobox</tag>
         <tag>work</tag>
+        <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
@@ -8145,6 +8145,11 @@ Python描述符（descriptor）解密
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
@@ -8157,11 +8162,6 @@ Python描述符（descriptor）解密
 <hr>
 <p>RIP: 纪念一下陪伴我四年多的老博客(Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
