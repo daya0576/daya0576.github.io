@@ -3,11 +3,12 @@
   <entry>
     <title>2023 年终小结 🎄</title>
     <url>/blog/20231225/2023-summary/</url>
-    <content><![CDATA[<p>最近从互联网的大牙变成了外企的 Henry :)，正巧碰上新公司圣诞一周假期（Recharge Days）🎄🎄🎄 </p>
-<p>趁此机会一起回顾如海浪般平静却充满涌动的 2023</p>
+    <content><![CDATA[<p>熟悉我的朋友知道博主最近机缘巧合换了一份工作，从互联网的大牙变成了外企的 Henry :)</p>
+<p>正巧碰上新公司圣诞一周假期（Recharge Days），趁此机会一起回顾如海浪般平静却充满涌动的 2023</p>
 <a id="more"></a>
 
-<h1 id="目标回顾"><a href="#目标回顾" class="headerlink" title="目标回顾"></a>目标回顾</h1><p>O1：健康状况提升 #生活</p>
+<h1 id="目标回顾"><a href="#目标回顾" class="headerlink" title="目标回顾"></a>目标回顾</h1><p>拉垮的完成度，是否要给自己一个 325 年度自评？（逃</p>
+<p>O1：健康状况提升 #生活</p>
 <ul>
 <li>✅ KR1：饮食 -&gt; 年底无明显痘痘</li>
 <li>❌ KR2：运动 -&gt; 跑步一个月至少四次、引体向上 10 个 </li>
@@ -24,10 +25,10 @@
 <li>❌ KR1：5% 被动收入！！！</li>
 <li>❌ KR2：记账省钱</li>
 </ul>
-<h2 id="1）工作・事业"><a href="#1）工作・事业" class="headerlink" title="1）工作・事业"></a>1）工作・事业</h2><p>作为一名 SRE，假如将更换工作，比作一次线上生产变更，将是一件极其高风险的“变更”⚠️⚠️⚠️。因为它完完全全违背变更三板斧：无法灰度与监控，甚至不符合预期无法回滚...</p>
-<p>然而这次运气不错，如果用一个词形容新工作，那将会是“松弛感”。无论是同事间清晰的分工，井井有条的 jira 任务和日历；没有主动拉人功能的线上会议（震惊）；以及行政阿姨慵懒的坐在椅子上，晒着太阳玩手机。就好像洋甘菊热茶，一点点治愈了我的焦虑，那些口号，“今天的最好表现，是明天的最低要求”，也在记忆中慢慢随风而去。</p>
-<p>当然全新的工作，作为新人从零开始，自然是极具挑战（和成就感）。例如每个同事一口流利自信的英语，就令人羡慕的直流口水。</p>
-<p>但总而言之，这次主动“拥抱变化”算一次不错的人生体验，“你最痛苦的时候可是你成长最快的时候”😉。感谢给予帮助和认可的朋友与同事们 &lt;3</p>
+<h2 id="1）工作・事业"><a href="#1）工作・事业" class="headerlink" title="1）工作・事业"></a>1）工作・事业</h2><p>作为一名 SRE，假如将更换工作比作一次线上生产变更，将是一件极其高风险的“变更”⚠️⚠️⚠️。因为它完完全全违背变更三板斧：无法灰度与监控，甚至不符合预期无法回滚...</p>
+<p>但人生通常不安常理出牌，就像 《解密 Instagram》中提到，向 5 亿用户同时发布了 story 新特性，又称 YOLO 发布（You only live once）。</p>
+<p>如果用一个词形容新工作，那将会是“松弛感”。无论是同事间清晰的分工，井井有条的 jira 任务和日历；没有主动拉人功能的线上会议（震惊）；以及行政阿姨慵懒的坐在椅子上，晒着太阳玩手机。就好像洋甘菊热茶，一点点治愈了我的焦虑，那些口号，“今天的最好表现，是明天的最低要求”，也在记忆中慢慢随风而去。</p>
+<p>当然全新的工作，作为新人从零开始，自然是极具挑战（和成就感）。例如每个同事一口流利自信的英语，就令人羡慕的直流口水。但总而言之，这次主动“拥抱变化”算一次不错的人生体验，“你最痛苦的时候可是你成长最快的时候”😉。感谢给予帮助和认可的朋友与同事们 &lt;3</p>
 <p>p.s. 任何事情都有两面性，未来有机会可以分享外企和互联网大厂的差别和优缺点。</p>
 <hr>
 <p>万圣节气氛拉满 🎃<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/61DA381E-8975-447F-B090-F1CF04FD1B43_1_105_c.jpeg" alt="61DA381E-8975-447F-B090-F1CF04FD1B43_1_105_c"></p>
@@ -35,7 +36,7 @@
 <h2 id="2）学习・成长"><a href="#2）学习・成长" class="headerlink" title="2）学习・成长"></a>2）学习・成长</h2><p>今年抽空读了一些书，收获不菲（总分为 3 分方便区分，小于等于 1 分不推荐阅读）：</p>
 <ul>
 <li>⭐️ <del>《人体修复手册》</del></li>
-<li>⭐️⭐️⭐️ 《Fluent Python》&#x2F;&#x2F; 说实话看了很多年终于读完，深入浅出介绍了所有 pythonic 的高级特性，是 python 进阶的不二选择</li>
+<li>⭐️⭐️⭐️ 《Fluent Python》&#x2F;&#x2F; 说实话看了很多年，今年终于读完，它深入浅出介绍了所有 pythonic 的高级特性，是 python 进阶的不二选择</li>
 <li>⭐️⭐️⭐️ 《当我谈跑步时，我谈些什么（2015典藏版）》&#x2F;&#x2F; 伟大的作家，仅仅是充斥全书的巧妙比喻，就着实令人陶醉</li>
 <li>⭐️⭐️⭐️ 《亲密关系（第6版）》&#x2F;&#x2F; 严谨的教科书，无论有没有困惑，重新读一遍笔记总会有新的收获</li>
 <li>⭐️⭐️ 《叩叩》</li>
@@ -52,9 +53,8 @@
 <li>⭐️⭐️ 《跑步治愈》</li>
 </ul>
 <p>甚至为了“扩容”，双十一购入新书架，忍不住分享：<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/48C57C6F-E9FE-40F9-899F-1BF2748A9FEE_1_102_o.jpeg" alt="48C57C6F-E9FE-40F9-899F-1BF2748A9FEE_1_102_o"></p>
-<h2 id="3）人际・社群"><a href="#3）人际・社群" class="headerlink" title="3）人际・社群"></a><del>3）人际・社群</del></h2><p><del>依稀记得六七岁，大约初入小学年级时，每个周六周日反而醒的格外早。一起床便前往“作战室”将象棋、围棋、军旗等等统统铺开，掀起一场对战厮杀。</del></p>
-<p><del>还有个爱好是坐在门口吃早餐，将食物少许洒落地上，看蚂蚁搬运，也能“沉迷”一早上。习惯了独处，在社交上也没有太大的动机，除了交好的乒乓球友，又是颗粒无收的一年。</del></p>
-<p><del>干脆将这个分类删除</del></p>
+<h2 id="3）人际・社群"><a href="#3）人际・社群" class="headerlink" title="3）人际・社群"></a><del>3）人际・社群</del></h2><p><del>依稀记得六七岁，大约初入小学年级时，每个周六周日反而醒的格外早。有个爱好是坐在门口吃早餐，将食物少许洒落地上，看蚂蚁搬运，也能“沉迷”一早上。习惯了独处，在社交上也没有太大的动机，除了交好的乒乓球友，又是颗粒无收的一年。</del></p>
+<p><del>干脆未来将这个分类删除？</del></p>
 <h2 id="4）财务・理财"><a href="#4）财务・理财" class="headerlink" title="4）财务・理财"></a>4）财务・理财</h2><p>打工，从某种意义上来说，是较容易的一种赚钱手段，但缺点明显，时间投入与收益的线性关系几乎不可能突破。</p>
 <p>今年除了 adsense 的被动收入，依旧颗粒无收 T^T </p>
 <p>明年需重点关注突破<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035208300586.jpg"></p>
@@ -64,9 +64,8 @@
 
 <h3 id="运动"><a href="#运动" class="headerlink" title="运动"></a>运动</h3><p>分享一组有趣的截图对比，右图是从十月开始乒乓球运动的记录，左则是跑步记录。</p>
 <p>兴趣驱动 vs KPI 驱动的结果，应该不难看出天壤之别。也或者很多时候，KPI 执行不到位，大概率是目标制定的不合理🤔<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035219868069.jpg"></p>
-<p>今年的两个冠军🏆🏆 虽然含金量一般，但也算生活的小惊喜～<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035229032524.jpg"><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035228678549.jpg"></p>
-<h3 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a>旅行</h3><p>自驾苏州两日一夜，说实话与梦想中的江南温婉落差较大。</p>
-<p>期待新的一年，去世界转转，学习不同文化不同的活法。</p>
+<p>今年的两个冠军🏆🏆 虽然含金量一般，但也算生活的小惊喜～<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035228678549.jpg"><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17035229032524.jpg"></p>
+<h3 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a>旅行</h3><p>仅仅自驾苏州两日一夜，说实话与梦想中的江南温婉落差较大。期待新的一年，去世界转转，学习不同文化不同的活法。</p>
 <h1 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h1><p>2024 年的主题：兴趣驱动</p>
 <p>O1：工作・事业</p>
 <ul>
@@ -4200,8 +4199,8 @@
 <p>你的晚安 是下意识的恻隐~<br>我留至夜深 治疗失眠梦呓~</p>
 ]]></content>
       <tags>
-        <tag>review</tag>
         <tag>iOS</tag>
+        <tag>review</tag>
       </tags>
   </entry>
   <entry>
@@ -7665,8 +7664,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 </blockquote>
 ]]></content>
       <tags>
-        <tag>unsw</tag>
         <tag>comp9315</tag>
+        <tag>unsw</tag>
       </tags>
   </entry>
   <entry>
@@ -7878,10 +7877,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
+        <tag>mysql</tag>
+        <tag>django</tag>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
