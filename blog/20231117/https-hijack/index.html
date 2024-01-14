@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2023-11-17T23:49:24.000Z">
-<meta property="article:modified_time" content="2023-12-30T23:37:11.742Z">
+<meta property="article:modified_time" content="2024-01-14T21:03:22.146Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="sre">
 <meta property="article:tag" content="chaos">
@@ -275,7 +275,7 @@
 <p>After sending the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">CONNECT</a> method request, the <code>https_proxy</code> can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/http_proxy_original.drawio.svg" alt="http_proxy_original.drawio"></p>
 <h2 id="2-Traffic-Processing"><a href="#2-Traffic-Processing" class="headerlink" title="2. Traffic Processing"></a>2. Traffic Processing</h2><p>Implement a lightweight HTTP proxy by native http.server module in Python.</p>
 <h3 id="HTTP-Transparent-Proxy"><a href="#HTTP-Transparent-Proxy" class="headerlink" title="HTTP (Transparent Proxy)"></a>HTTP (Transparent Proxy)</h3><p>According to <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6">rfc7231</a>. As long as the <code>CONNECT</code> method request is handled, the proxy can forward the TCP stream to and from the client by establishing a HTTP tunnel.</p>
-<h3 id="HTTPS-Hijack"><a href="#HTTPS-Hijack" class="headerlink" title="HTTPS (Hijack)"></a>HTTPS (Hijack)</h3><p>As we known, the TLS encryption prevents us from inspecting the specific endpoints and headers within the encrypted traffic.</p>
+<h3 id="HTTPS-Hijack"><a href="#HTTPS-Hijack" class="headerlink" title="HTTPS (Hijack)"></a>HTTPS (Hijack)</h3><p>As we know, the TLS encryption prevents us from inspecting the specific endpoints and headers within the encrypted traffic.</p>
 <p>We must hijack HTTPS requests to determine the type of dependency service (such as ACM, OSS, etc.):</p>
 <ol>
 <li>Identity:<ol>
@@ -531,7 +531,7 @@
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
