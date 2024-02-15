@@ -34,7 +34,7 @@ Implement a lightweight HTTP proxy by native http.server module in Python.
 According to [rfc7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6). As long as the `CONNECT` method request is handled, the proxy can forward the TCP stream to and from the client by establishing a HTTP tunnel.
 
 ### HTTPS (Hijack)
-As we known, the TLS encryption prevents us from inspecting the specific endpoints and headers within the encrypted traffic.
+As we know, the TLS encryption prevents us from inspecting the specific endpoints and headers within the encrypted traffic.
 
 We must hijack HTTPS requests to determine the type of dependency service (such as ACM, OSS, etc.):
 
