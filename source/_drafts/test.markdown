@@ -8,9 +8,8 @@ tags:
 
 ## rate/increase
 
-首先计算首尾两个 sample 的差值
-
-例如下图 `1 1 1 2 3`，则 `resultFloat = 3 - 1 = 2`
+### 推断估算（extrapolate）
+首先计算首尾两个 sample 的差值，例如下图 `1 1 1 2 3`，则 `resultFloat = 3 - 1 = 2`
 ![rate-1.drawio](images/rate-1.drawio.svg)
 ```go
 numSamplesMinusOne = len(samples.Floats) - 1
@@ -22,6 +21,16 @@ if !isCounter {
 }
 ```
 
+但现实世界中，首尾 samples（`firstT` & `lastT`）并不会刚好落在 range 的开始/结束位置（`rangeStart`/`rangeEnd`），所以需要进一步<mark>推断（extrapolate）</mark> `rangeStart` 的位置，从而估计更加准确的 rate 变化率。
+
+如上图假如不做推断，`increase = 3 - 1 = 2`，推断扩展后 `increase = 4 - 0 = 4`
+显然后置更加准确，同时不难理解：
+- 为什么 rate 函数计算的结果会出现小数点
+- 为什么 推荐针对平稳型数据使用 rate 计算变化率
+
+![rate-4.drawio](images/rate-4.drawio.svg)
+
+### 边界情况处理
 <mark>边界情况1</mark> -> 处理计数器重置（e.g. exporter 重启等情况）
 例如 `1 2 3 1 2`，则 `resultFloat = 2 - 1 + 3 = 4`，个人理解等同于 `(3 - 1) + (2 - 0)`
 ![rate-2.drawio](images/rate-2.drawio.svg)
@@ -36,10 +45,7 @@ for _, currPoint := range samples.Floats[1:] {
 }
 ```
 
-由于现实世界中，首尾 samples（`firstT` & `lastT`）并不会刚好落在 range 的开始/结束位置（`rangeStart`/`rangeEnd`），所以需要进一步推断（extrapolate）`rangeStart` 位置，从而估计更加准确的数值变化率。
-
-<mark>边界情况2</mark> -> 推断范围限制（起始时间估计的计数不得为负数）
-简而言之，下图黄线向左延伸时，不得低于 x 轴
+<mark>边界情况2</mark> -> 推断范围限制（估计的起始时间，对应计数不得为负数）。简而言之，下图黄线向左持续延伸时，不得低于 x 轴
 ![rate-3.drawio](images/rate-3.drawio.svg)
 
 ```go
@@ -67,19 +73,13 @@ if isCounter && resultFloat > 0 && len(samples.Floats) > 0 && samples.Floats[0].
 
 <mark>边界情况3</mark> -> 推断范围限制（根据样本平均间隔）
 
-以下图为例，sample 只有两个（A & B），所以`平均间隔 = (75s - 45s) / (2 - 1) = 30s`，`阈值 = 30s * 1.1 = 33s`
+以下图为例，sample 只有两个（A & B），所以`平均间隔 averageDurationBetweenSamples = (75s - 45s) / (2 - 1) = 30s`，`阈值 extrapolationThreshold = 30s * 1.1 = 33s`
 
 由于 `durationToStart = 45s - 30s = 15s < 33s`，所以黄线可以扩展至 `rangeStart`
 
-若超出阈值，则最多延伸样本平均间隔的一半（注意首尾相加刚好凑齐一个整的间隔）
+反之若超出阈值，则最多延伸样本平均间隔的一半（注意首尾相加刚好凑齐一个整的间隔）
 
 ![rate-4.drawio](images/rate-4.drawio.svg)
-
-假如不做推断，`increase = 3 - 1 = 2`，推断扩展后 `increase = 4 - 0 = 4`
-
-显然后置更加准确，同时不难理解：
-- 为什么 rate 函数计算的结果会出现小数点
-- 为什么 推荐针对平稳性数据使用 rate 计算变化率
 
 ```go
 extrapolationThreshold := averageDurationBetweenSamples * 1.1
