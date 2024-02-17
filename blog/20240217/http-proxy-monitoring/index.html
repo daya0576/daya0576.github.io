@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://changchen.me').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},
+    algolia: {
+      appID: 'POROKYZNST',
+      apiKey: '1dc4f6bb5e7bd202ffa75e2a3ec88a63',
+      indexName: 'zblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the custom.styl: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":null}}
+  };
+</script>
+
+  <meta name="description" content="家庭网络质量，如同水电燃气一般，对生活幸福感至关重要。突发奇想为家中的网络中枢 HTTP proxy 编写 Prometheus exporter 并配置可观测大盘。 本文主要介绍 如何编写一个自定义的 exporter，以及 PromQL 中 rate&#x2F;irate 函数的实现原理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monitoring HTTP Proxy">
+<meta property="og:url" content="https://changchen.me/blog/20240217/http-proxy-monitoring/index.html">
+<meta property="og:site_name" content="Henry Z&#39;s blog~">
+<meta property="og:description" content="家庭网络质量，如同水电燃气一般，对生活幸福感至关重要。突发奇想为家中的网络中枢 HTTP proxy 编写 Prometheus exporter 并配置可观测大盘。 本文主要介绍 如何编写一个自定义的 exporter，以及 PromQL 中 rate&#x2F;irate 函数的实现原理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
+<meta property="article:published_time" content="2024-02-17T08:31:52.000Z">
+<meta property="article:modified_time" content="2024-02-17T09:27:25.150Z">
+<meta property="article:author" content="daya0576">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="daya0576">
+<meta property="article:tag" content="朱昌健">
+<meta property="article:tag" content="大牙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://changchen.me/images/loading/loading.svg">
+
+<link rel="canonical" href="https://changchen.me/blog/20240217/http-proxy-monitoring/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Monitoring HTTP Proxy | Henry Z's blog~</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-79497021-2');
+      }
+    </script>
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f08a1f7937d18f480bef30f531b4289f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Henry Z's blog~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Just relax, take it easy..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-terminal"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-list-ul"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-hashtag"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/index.html" rel="section"><i class="fa fa-fw fa-star-half-o"></i>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+
+
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20240217/http-proxy-monitoring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/daya0576/daya0576.github.io@master/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Monitoring HTTP Proxy
+        </h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-02-17 16:31:52" itemprop="dateCreated datePublished" datetime="2024-02-17T16:31:52+08:00">2024-02-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>家庭网络质量，如同水电燃气一般，对生活幸福感至关重要。突发奇想为家中的网络中枢 HTTP proxy 编写 Prometheus exporter 并配置可观测大盘。</p>
+<p>本文主要介绍 如何编写一个自定义的 exporter，以及 PromQL 中 <code>rate</code>&#x2F;<code>irate</code> 函数的实现原理。</p>
+<a id="more"></a>
+
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/17081545533064.jpg"></p>
+<h1 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exporter (0.0.0.0:8000) ---pull--&gt; Prometheus -&gt; Grafana</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step1-编写-HTTP-proxy-exporter"><a href="#Step1-编写-HTTP-proxy-exporter" class="headerlink" title="Step1: 编写 HTTP proxy exporter"></a>Step1: 编写 HTTP proxy exporter</h2><p>Prometheus 中共存在四种 metrics 类型：</p>
+<ol>
+<li><code>Counter</code>: 累计计数的指标，随着时间的推移递增，例如请求数量、错误次数等。</li>
+<li><code>Gauge</code>: 适用于需要实时测量的指标，例如CPU 使用率、内存占用、网络延迟等。</li>
+<li><code>Histogram</code>: 用于度量和统计数据分布的指标类型，例如默认的 bucket 使用的 Web&#x2F;RPC 请求耗时范围，从毫秒到秒：<code>DEFAULT_BUCKETS = (.005, .01, .025, .05, .075, .1, .25, .5, .75, 1.0, 2.5, 5.0, 7.5, 10.0, INF)</code>。</li>
+<li><code>Summary</code>: 在不同百分位数上对观测值进行摘要统计的指标类型。</li>
+</ol>
+<p>最终决定使用 <code>Counter</code> 统计请求总数与失败数，<code>Histogram</code> 统计请求耗时：<a href="https://github.com/daya0576/proxy-monitor/blob/master/proxy_monitor/exporter.py">proxy_monitor&#x2F;exporter.py</a></p>
+<h2 id="Step2-接入-Prometheus"><a href="#Step2-接入-Prometheus" class="headerlink" title="Step2: 接入 Prometheus"></a>Step2: 接入 Prometheus</h2><p>修改 yaml 配置文件，重启后，稍等片刻即可生效。</p>
+<h2 id="Step3-配置-Grafana-大盘"><a href="#Step3-配置-Grafana-大盘" class="headerlink" title="Step3: 配置 Grafana 大盘"></a>Step3: 配置 Grafana 大盘</h2><p>针对 <code>Counter</code> 指标，通常使用 <code>rate</code>&#x2F;<code>increase</code> 函数查询每分钟的请求量。但该函数背后的实现原理是？以及 <code>rate</code> 与 <code>irate</code> 函数的区别？</p>
+<p>代码是我们最好的朋友，尝试通过源码一探究竟 :)</p>
+<h3 id="rate-amp-increase"><a href="#rate-amp-increase" class="headerlink" title="rate &amp; increase"></a>rate &amp; increase</h3><p>Source code: <a href="https://github.com/prometheus/prometheus/blob/6feffeb92e36b064a53d2283e50d6db355c95cb0/promql/functions.go#L70">promql&#x2F;functions.go</a></p>
+<h4 id="1）计算平均增长率"><a href="#1）计算平均增长率" class="headerlink" title="1）计算平均增长率"></a>1）计算平均增长率</h4><p>首先计算首尾两个 sample 的差值，例如下图 <code>1 1 1 2 3</code>，则 <code>resultFloat = 3 - 1 = 2</code><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rate-1.drawio.svg" alt="rate-1.drawio"></p>
+<p>关键代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">numSamplesMinusOne = <span class="built_in">len</span>(samples.Floats) - <span class="number">1</span></span><br><span class="line">firstT = samples.Floats[<span class="number">0</span>].T</span><br><span class="line">lastT = samples.Floats[numSamplesMinusOne].T</span><br><span class="line">resultFloat = samples.Floats[numSamplesMinusOne].F - samples.Floats[<span class="number">0</span>].F</span><br><span class="line"><span class="keyword">if</span> !isCounter &#123;</span><br><span class="line">  <span class="keyword">break</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2）推测拟合"><a href="#2）推测拟合" class="headerlink" title="2）推测拟合"></a>2）推测拟合</h4><p>现实世界中，虽然样本间隔时间大概率接近，但首尾样本（<code>firstT</code> &amp; <code>lastT</code>）并不会刚好落在 range 的开始&#x2F;结束位置（<code>rangeStart</code> &amp; <code>rangeEnd</code>）</p>
+<p>所以需要进一步<mark>推断（extrapolate）</mark> <code>rangeStart</code> 位置的 counter 数值（i.e. 黄色虚线延伸）。</p>
+<p>从而尝试估算更加真实的 rate 变化率（允许一定误差）。</p>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rate-4.drawio.svg" alt="rate-4.drawio"></p>
+<p>如上图，假如不做推断，<code>increase = 3 - 1 = 2</code>，尝试推断后 <code>increase = 4 - 0 = 4</code></p>
+<p>显然后置更加准确，同时也不难理解：</p>
+<ul>
+<li>为什么 rate 函数计算的结果会出现小数点</li>
+<li>为什么 推荐针对平稳型数据使用 rate 计算变化率</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// p.s. extrapolate 推测的源码逻辑，请参考下文 “边界情况3”</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3）边界情况处理"><a href="#3）边界情况处理" class="headerlink" title="3）边界情况处理"></a>3）边界情况处理</h4><p><mark>边界情况1</mark> -&gt; 处理计数器重置（e.g. exporter 重启等情况）</p>
+<p>例如 <code>1 2 3 1 2</code>，则 <code>resultFloat = 2 - 1 + 3 = 4</code>，个人理解等同于 <code>(3 - 1) + (2 - 0)</code><br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rate-2.drawio.svg" alt="rate-2.drawio"></p>
+<p>关键代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Handle counter resets:</span></span><br><span class="line">prevValue := samples.Floats[<span class="number">0</span>].F</span><br><span class="line"><span class="keyword">for</span> _, currPoint := <span class="keyword">range</span> samples.Floats[<span class="number">1</span>:] &#123;</span><br><span class="line">  <span class="keyword">if</span> currPoint.F &lt; prevValue &#123;</span><br><span class="line">    resultFloat += prevValue</span><br><span class="line">  &#125;</span><br><span class="line">  prevValue = currPoint.F</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><mark>边界情况2</mark> -&gt; 推断范围限制（估计的起始时间，对应计数不得为负数）。</p>
+<p>简而言之，下图黄线向左持续延伸时，不得低于 x 轴<br><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rate-3.drawio.svg" alt="rate-3.drawio"></p>
+<p>关键代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Duration between first/last samples and boundary of range.</span></span><br><span class="line">durationToStart := <span class="keyword">float64</span>(firstT-rangeStart) / <span class="number">1000</span></span><br><span class="line">durationToEnd := <span class="keyword">float64</span>(rangeEnd-lastT) / <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">sampledInterval := <span class="keyword">float64</span>(lastT-firstT) / <span class="number">1000</span></span><br><span class="line">averageDurationBetweenSamples := sampledInterval / <span class="keyword">float64</span>(numSamplesMinusOne)</span><br><span class="line"></span><br><span class="line"><span class="comment">// TODO(beorn7): Do this for histograms, too.</span></span><br><span class="line"><span class="keyword">if</span> isCounter &amp;&amp; resultFloat &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">len</span>(samples.Floats) &gt; <span class="number">0</span> &amp;&amp; samples.Floats[<span class="number">0</span>].F &gt;= <span class="number">0</span> &#123;</span><br><span class="line">  <span class="comment">// Counters cannot be negative. If we have any slope at all</span></span><br><span class="line">  <span class="comment">// (i.e. resultFloat went up), we can extrapolate the zero point</span></span><br><span class="line">  <span class="comment">// of the counter. If the duration to the zero point is shorter</span></span><br><span class="line">  <span class="comment">// than the durationToStart, we take the zero point as the start</span></span><br><span class="line">  <span class="comment">// of the series, thereby avoiding extrapolation to negative</span></span><br><span class="line">  <span class="comment">// counter values.</span></span><br><span class="line">  durationToZero := sampledInterval * (samples.Floats[<span class="number">0</span>].F / resultFloat)</span><br><span class="line">  <span class="keyword">if</span> durationToZero &lt; durationToStart &#123;</span><br><span class="line">    durationToStart = durationToZero</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><mark>边界情况3</mark> -&gt; 推断范围限制（根据样本平均间隔）</p>
+<p>以下图为例，sample 只有两个（A &amp; B），所以平均间隔 <code>averageDurationBetweenSamples = (75s - 45s) / (2 - 1) = 30s</code>，阈值<code>extrapolationThreshold = 30s * 1.1 = 33s</code></p>
+<ul>
+<li>由于 <code>durationToStart = 45s - 30s = 15s &lt; 33s</code>，未超过阈值，所以黄线可以扩展至 <code>rangeStart</code></li>
+<li>反之若超出阈值，则最多延伸样本平均间隔的一半（首尾相加刚好凑齐一个整的间隔）</li>
+</ul>
+<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/rate-4.drawio.svg" alt="rate-4.drawio"></p>
+<p>关键代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If the first/last samples are close to the boundaries of the range,</span></span><br><span class="line"><span class="comment">// extrapolate the result. This is as we expect that another sample</span></span><br><span class="line"><span class="comment">// will exist given the spacing between samples we've seen thus far,</span></span><br><span class="line"><span class="comment">// with an allowance for noise.</span></span><br><span class="line">extrapolationThreshold := averageDurationBetweenSamples * <span class="number">1.1</span></span><br><span class="line">extrapolateToInterval := sampledInterval</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> durationToStart &lt; extrapolationThreshold &#123;</span><br><span class="line">  extrapolateToInterval += durationToStart</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  extrapolateToInterval += averageDurationBetweenSamples / <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> durationToEnd &lt; extrapolationThreshold &#123;</span><br><span class="line">  extrapolateToInterval += durationToEnd</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  extrapolateToInterval += averageDurationBetweenSamples / <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">factor := extrapolateToInterval / sampledInterval</span><br></pre></td></tr></table></figure>
+
+<h4 id="4）increase-vs-rate"><a href="#4）increase-vs-rate" class="headerlink" title="4）increase vs rate"></a>4）<code>increase</code> vs <code>rate</code></h4><p>参考如下代码，不难理解 <code>rate</code> 每秒增长率，等同于 <code>increase / range seconds</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> isRate &#123;</span><br><span class="line">  factor /= ms.Range.Seconds()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="irate"><a href="#irate" class="headerlink" title="irate"></a>irate</h3><p>不同于 rate，irate 函数仅取最后两个样本进行计算，以获取更快的响应速度，所以推荐有时效性需求的场景使用。</p>
+<p>The source code below is straightforward:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">lastSample := samples.Floats[<span class="built_in">len</span>(samples.Floats)<span class="number">-1</span>]</span><br><span class="line">previousSample := samples.Floats[<span class="built_in">len</span>(samples.Floats)<span class="number">-2</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> resultValue <span class="keyword">float64</span></span><br><span class="line"><span class="keyword">if</span> isRate &amp;&amp; lastSample.F &lt; previousSample.F &#123;</span><br><span class="line">  <span class="comment">// Counter reset.</span></span><br><span class="line">  resultValue = lastSample.F</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  resultValue = lastSample.F - previousSample.F</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sampledInterval := lastSample.T - previousSample.T</span><br><span class="line"><span class="keyword">if</span> sampledInterval == <span class="number">0</span> &#123;</span><br><span class="line">  <span class="comment">// Avoid dividing by 0.</span></span><br><span class="line">  <span class="keyword">return</span> out, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> isRate &#123;</span><br><span class="line">  <span class="comment">// Convert to per-second.</span></span><br><span class="line">  resultValue /= <span class="keyword">float64</span>(sampledInterval) / <span class="number">1000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>大功告成，大盘 <a href="https://snapshots.raintank.io/dashboard/snapshot/3QVghA6z8jRcAroLnJDTxjZ8CAeUaCWh">instant snapshot</a> &amp; 配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;annotations&quot;:&#123;&quot;list&quot;:[&#123;&quot;builtIn&quot;:1,&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;grafana&quot;,&quot;uid&quot;:&quot;-- Grafana --&quot;&#125;,&quot;enable&quot;:true,&quot;hide&quot;:true,&quot;iconColor&quot;:&quot;rgba(0, 211, 255, 1)&quot;,&quot;name&quot;:&quot;Annotations &amp; Alerts&quot;,&quot;target&quot;:&#123;&quot;limit&quot;:100,&quot;matchAny&quot;:false,&quot;tags&quot;:[],&quot;type&quot;:&quot;dashboard&quot;&#125;,&quot;type&quot;:&quot;dashboard&quot;&#125;]&#125;,&quot;editable&quot;:true,&quot;fiscalYearStartMonth&quot;:0,&quot;graphTooltip&quot;:0,&quot;id&quot;:11,&quot;links&quot;:[],&quot;liveNow&quot;:false,&quot;panels&quot;:[&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;fieldConfig&quot;:&#123;&quot;defaults&quot;:&#123;&quot;color&quot;:&#123;&quot;mode&quot;:&quot;thresholds&quot;&#125;,&quot;custom&quot;:&#123;&quot;fillOpacity&quot;:70,&quot;lineWidth&quot;:1&#125;,&quot;mappings&quot;:[],&quot;thresholds&quot;:&#123;&quot;mode&quot;:&quot;absolute&quot;,&quot;steps&quot;:[&#123;&quot;color&quot;:&quot;green&quot;,&quot;value&quot;:null&#125;,&#123;&quot;color&quot;:&quot;red&quot;,&quot;value&quot;:1&#125;]&#125;&#125;,&quot;overrides&quot;:[]&#125;,&quot;gridPos&quot;:&#123;&quot;h&quot;:6,&quot;w&quot;:12,&quot;x&quot;:0,&quot;y&quot;:0&#125;,&quot;id&quot;:6,&quot;interval&quot;:&quot;5m&quot;,&quot;options&quot;:&#123;&quot;colWidth&quot;:0.9,&quot;legend&quot;:&#123;&quot;displayMode&quot;:&quot;hidden&quot;,&quot;placement&quot;:&quot;bottom&quot;&#125;,&quot;rowHeight&quot;:0.9,&quot;showValue&quot;:&quot;never&quot;,&quot;tooltip&quot;:&#123;&quot;mode&quot;:&quot;single&quot;,&quot;sort&quot;:&quot;none&quot;&#125;&#125;,&quot;targets&quot;:[&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(increase(request_count_total&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;wifi.vivo.com.cn&#x2F;generate_204\\\&quot;, status_code!&#x3D;\\\&quot;204\\\&quot;&#125;[5m]) or vector(0))&quot;,&quot;hide&quot;:false,&quot;legendFormat&quot;:&quot;Direct&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;B&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(increase(request_count_total&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;www.google.com&#x2F;generate_204\\\&quot;, status_code!&#x3D;\\\&quot;204\\\&quot;&#125;[5m]) or vector(0))&quot;,&quot;hide&quot;:false,&quot;interval&quot;:&quot;&quot;,&quot;legendFormat&quot;:&quot;Proxy&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;A&quot;&#125;],&quot;title&quot;:&quot;Status&quot;,&quot;type&quot;:&quot;status-history&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;fieldConfig&quot;:&#123;&quot;defaults&quot;:&#123;&quot;color&quot;:&#123;&quot;mode&quot;:&quot;palette-classic&quot;&#125;,&quot;custom&quot;:&#123;&quot;axisLabel&quot;:&quot;&quot;,&quot;axisPlacement&quot;:&quot;auto&quot;,&quot;axisSoftMin&quot;:0,&quot;barAlignment&quot;:0,&quot;drawStyle&quot;:&quot;line&quot;,&quot;fillOpacity&quot;:0,&quot;gradientMode&quot;:&quot;none&quot;,&quot;hideFrom&quot;:&#123;&quot;legend&quot;:false,&quot;tooltip&quot;:false,&quot;viz&quot;:false&#125;,&quot;lineInterpolation&quot;:&quot;linear&quot;,&quot;lineWidth&quot;:1,&quot;pointSize&quot;:5,&quot;scaleDistribution&quot;:&#123;&quot;type&quot;:&quot;linear&quot;&#125;,&quot;showPoints&quot;:&quot;auto&quot;,&quot;spanNulls&quot;:false,&quot;stacking&quot;:&#123;&quot;group&quot;:&quot;A&quot;,&quot;mode&quot;:&quot;none&quot;&#125;,&quot;thresholdsStyle&quot;:&#123;&quot;mode&quot;:&quot;off&quot;&#125;&#125;,&quot;mappings&quot;:[],&quot;thresholds&quot;:&#123;&quot;mode&quot;:&quot;absolute&quot;,&quot;steps&quot;:[&#123;&quot;color&quot;:&quot;green&quot;,&quot;value&quot;:null&#125;,&#123;&quot;color&quot;:&quot;red&quot;,&quot;value&quot;:80&#125;]&#125;&#125;,&quot;overrides&quot;:[]&#125;,&quot;gridPos&quot;:&#123;&quot;h&quot;:6,&quot;w&quot;:12,&quot;x&quot;:12,&quot;y&quot;:0&#125;,&quot;id&quot;:8,&quot;options&quot;:&#123;&quot;legend&quot;:&#123;&quot;calcs&quot;:[],&quot;displayMode&quot;:&quot;list&quot;,&quot;placement&quot;:&quot;bottom&quot;&#125;,&quot;tooltip&quot;:&#123;&quot;mode&quot;:&quot;single&quot;,&quot;sort&quot;:&quot;none&quot;&#125;&#125;,&quot;targets&quot;:[&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(increase(request_count_total&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;wifi.vivo.com.cn&#x2F;generate_204\\\&quot;&#125;[1m]))&quot;,&quot;legendFormat&quot;:&quot;Direct&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;A&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(increase(request_count_total&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;www.google.com&#x2F;generate_204\\\&quot;, proxy&#x3D;\\\&quot;http:&#x2F;&#x2F;127.0.0.1:6152\\\&quot;&#125;[1m]))&quot;,&quot;hide&quot;:false,&quot;legendFormat&quot;:&quot;Proxy&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;B&quot;&#125;],&quot;title&quot;:&quot;Total Request&quot;,&quot;type&quot;:&quot;timeseries&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;fieldConfig&quot;:&#123;&quot;defaults&quot;:&#123;&quot;color&quot;:&#123;&quot;mode&quot;:&quot;palette-classic&quot;&#125;,&quot;custom&quot;:&#123;&quot;axisLabel&quot;:&quot;&quot;,&quot;axisPlacement&quot;:&quot;auto&quot;,&quot;barAlignment&quot;:-1,&quot;drawStyle&quot;:&quot;line&quot;,&quot;fillOpacity&quot;:0,&quot;gradientMode&quot;:&quot;none&quot;,&quot;hideFrom&quot;:&#123;&quot;legend&quot;:false,&quot;tooltip&quot;:false,&quot;viz&quot;:false&#125;,&quot;lineInterpolation&quot;:&quot;linear&quot;,&quot;lineWidth&quot;:1,&quot;pointSize&quot;:1,&quot;scaleDistribution&quot;:&#123;&quot;type&quot;:&quot;linear&quot;&#125;,&quot;showPoints&quot;:&quot;auto&quot;,&quot;spanNulls&quot;:false,&quot;stacking&quot;:&#123;&quot;group&quot;:&quot;A&quot;,&quot;mode&quot;:&quot;none&quot;&#125;,&quot;thresholdsStyle&quot;:&#123;&quot;mode&quot;:&quot;off&quot;&#125;&#125;,&quot;mappings&quot;:[],&quot;thresholds&quot;:&#123;&quot;mode&quot;:&quot;absolute&quot;,&quot;steps&quot;:[&#123;&quot;color&quot;:&quot;green&quot;,&quot;value&quot;:null&#125;,&#123;&quot;color&quot;:&quot;red&quot;,&quot;value&quot;:80&#125;]&#125;&#125;,&quot;overrides&quot;:[]&#125;,&quot;gridPos&quot;:&#123;&quot;h&quot;:6,&quot;w&quot;:12,&quot;x&quot;:0,&quot;y&quot;:6&#125;,&quot;id&quot;:9,&quot;options&quot;:&#123;&quot;legend&quot;:&#123;&quot;calcs&quot;:[],&quot;displayMode&quot;:&quot;list&quot;,&quot;placement&quot;:&quot;bottom&quot;&#125;,&quot;tooltip&quot;:&#123;&quot;mode&quot;:&quot;single&quot;,&quot;sort&quot;:&quot;none&quot;&#125;&#125;,&quot;targets&quot;:[&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(increase(request_count_total&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;wifi.vivo.com.cn&#x2F;generate_204\\\&quot;, status_code!&#x3D;\\\&quot;204\\\&quot;&#125;[2m]) or vector(0))&quot;,&quot;hide&quot;:false,&quot;legendFormat&quot;:&quot;Direct&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;A&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(increase(request_count_total&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;www.google.com&#x2F;generate_204\\\&quot;, status_code!&#x3D;\\\&quot;204\\\&quot;&#125;[2m]))&quot;,&quot;hide&quot;:false,&quot;legendFormat&quot;:&quot;Proxy&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;B&quot;&#125;],&quot;title&quot;:&quot;Total Error Count&quot;,&quot;type&quot;:&quot;timeseries&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;fieldConfig&quot;:&#123;&quot;defaults&quot;:&#123;&quot;color&quot;:&#123;&quot;mode&quot;:&quot;palette-classic&quot;&#125;,&quot;custom&quot;:&#123;&quot;axisLabel&quot;:&quot;&quot;,&quot;axisPlacement&quot;:&quot;auto&quot;,&quot;barAlignment&quot;:0,&quot;drawStyle&quot;:&quot;line&quot;,&quot;fillOpacity&quot;:0,&quot;gradientMode&quot;:&quot;none&quot;,&quot;hideFrom&quot;:&#123;&quot;legend&quot;:false,&quot;tooltip&quot;:false,&quot;viz&quot;:false&#125;,&quot;lineInterpolation&quot;:&quot;linear&quot;,&quot;lineWidth&quot;:1,&quot;pointSize&quot;:1,&quot;scaleDistribution&quot;:&#123;&quot;type&quot;:&quot;linear&quot;&#125;,&quot;showPoints&quot;:&quot;auto&quot;,&quot;spanNulls&quot;:false,&quot;stacking&quot;:&#123;&quot;group&quot;:&quot;A&quot;,&quot;mode&quot;:&quot;none&quot;&#125;,&quot;thresholdsStyle&quot;:&#123;&quot;mode&quot;:&quot;off&quot;&#125;&#125;,&quot;mappings&quot;:[],&quot;thresholds&quot;:&#123;&quot;mode&quot;:&quot;absolute&quot;,&quot;steps&quot;:[&#123;&quot;color&quot;:&quot;green&quot;,&quot;value&quot;:null&#125;,&#123;&quot;color&quot;:&quot;red&quot;,&quot;value&quot;:80&#125;]&#125;,&quot;unit&quot;:&quot;s&quot;&#125;,&quot;overrides&quot;:[]&#125;,&quot;gridPos&quot;:&#123;&quot;h&quot;:6,&quot;w&quot;:12,&quot;x&quot;:12,&quot;y&quot;:6&#125;,&quot;id&quot;:2,&quot;interval&quot;:&quot;1m&quot;,&quot;options&quot;:&#123;&quot;legend&quot;:&#123;&quot;calcs&quot;:[],&quot;displayMode&quot;:&quot;list&quot;,&quot;placement&quot;:&quot;bottom&quot;&#125;,&quot;tooltip&quot;:&#123;&quot;mode&quot;:&quot;single&quot;,&quot;sort&quot;:&quot;none&quot;&#125;&#125;,&quot;targets&quot;:[&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;exemplar&quot;:false,&quot;expr&quot;:&quot;sum(rate(request_latency_seconds_sum&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;wifi.vivo.com.cn&#x2F;generate_204\\\&quot;&#125;[1m])) &#x2F; \nsum(rate(request_latency_seconds_count&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;wifi.vivo.com.cn&#x2F;generate_204\\\&quot;&#125;[1m]))&quot;,&quot;hide&quot;:false,&quot;instant&quot;:false,&quot;legendFormat&quot;:&quot;Direct&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;A&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(rate(request_latency_seconds_sum&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;www.google.com&#x2F;generate_204\\\&quot;, proxy&#x3D;\\\&quot;\\\&quot;&#125;[1m])) &#x2F; \nsum(rate(request_latency_seconds_count&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;www.google.com&#x2F;generate_204\\\&quot;, proxy&#x3D;\\\&quot;\\\&quot;&#125;[1m]))&quot;,&quot;hide&quot;:false,&quot;legendFormat&quot;:&quot;Proxy&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;B&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;sum(rate(request_latency_seconds_sum&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;www.google.com&#x2F;generate_204\\\&quot;, proxy&#x3D;\\\&quot;http:&#x2F;&#x2F;127.0.0.1:6152\\\&quot;&#125;[1m])) &#x2F; \nsum(rate(request_latency_seconds_count&#123;target&#x3D;\\\&quot;http:&#x2F;&#x2F;www.google.com&#x2F;generate_204\\\&quot;, proxy&#x3D;\\\&quot;http:&#x2F;&#x2F;127.0.0.1:6152\\\&quot;&#125;[1m]))&quot;,&quot;hide&quot;:false,&quot;legendFormat&quot;:&quot;Proxy^2&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;C&quot;&#125;],&quot;title&quot;:&quot;Timecost&quot;,&quot;type&quot;:&quot;timeseries&quot;&#125;,&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;fieldConfig&quot;:&#123;&quot;defaults&quot;:&#123;&quot;color&quot;:&#123;&quot;mode&quot;:&quot;palette-classic&quot;&#125;,&quot;custom&quot;:&#123;&quot;axisLabel&quot;:&quot;&quot;,&quot;axisPlacement&quot;:&quot;auto&quot;,&quot;barAlignment&quot;:0,&quot;drawStyle&quot;:&quot;line&quot;,&quot;fillOpacity&quot;:0,&quot;gradientMode&quot;:&quot;none&quot;,&quot;hideFrom&quot;:&#123;&quot;legend&quot;:false,&quot;tooltip&quot;:false,&quot;viz&quot;:false&#125;,&quot;lineInterpolation&quot;:&quot;linear&quot;,&quot;lineWidth&quot;:1,&quot;pointSize&quot;:5,&quot;scaleDistribution&quot;:&#123;&quot;type&quot;:&quot;linear&quot;&#125;,&quot;showPoints&quot;:&quot;auto&quot;,&quot;spanNulls&quot;:false,&quot;stacking&quot;:&#123;&quot;group&quot;:&quot;A&quot;,&quot;mode&quot;:&quot;none&quot;&#125;,&quot;thresholdsStyle&quot;:&#123;&quot;mode&quot;:&quot;off&quot;&#125;&#125;,&quot;mappings&quot;:[],&quot;thresholds&quot;:&#123;&quot;mode&quot;:&quot;absolute&quot;,&quot;steps&quot;:[&#123;&quot;color&quot;:&quot;green&quot;,&quot;value&quot;:null&#125;,&#123;&quot;color&quot;:&quot;red&quot;,&quot;value&quot;:80&#125;]&#125;&#125;,&quot;overrides&quot;:[]&#125;,&quot;gridPos&quot;:&#123;&quot;h&quot;:6,&quot;w&quot;:12,&quot;x&quot;:0,&quot;y&quot;:12&#125;,&quot;id&quot;:10,&quot;options&quot;:&#123;&quot;legend&quot;:&#123;&quot;calcs&quot;:[],&quot;displayMode&quot;:&quot;list&quot;,&quot;placement&quot;:&quot;bottom&quot;&#125;,&quot;tooltip&quot;:&#123;&quot;mode&quot;:&quot;single&quot;,&quot;sort&quot;:&quot;none&quot;&#125;&#125;,&quot;targets&quot;:[&#123;&quot;datasource&quot;:&#123;&quot;type&quot;:&quot;prometheus&quot;,&quot;uid&quot;:&quot;azkld1iRk&quot;&#125;,&quot;editorMode&quot;:&quot;code&quot;,&quot;expr&quot;:&quot;increase(request_count_total&#123;status_code!&#x3D;\\\&quot;204\\\&quot;&#125;[5m])&quot;,&quot;hide&quot;:false,&quot;legendFormat&quot;:&quot;__auto&quot;,&quot;range&quot;:true,&quot;refId&quot;:&quot;A&quot;&#125;],&quot;title&quot;:&quot;Total Error Count&quot;,&quot;type&quot;:&quot;timeseries&quot;&#125;],&quot;refresh&quot;:&quot;1m&quot;,&quot;schemaVersion&quot;:36,&quot;style&quot;:&quot;dark&quot;,&quot;tags&quot;:[],&quot;templating&quot;:&#123;&quot;list&quot;:[]&#125;,&quot;time&quot;:&#123;&quot;from&quot;:&quot;now-12h&quot;,&quot;to&quot;:&quot;now&quot;&#125;,&quot;timepicker&quot;:&#123;&#125;,&quot;timezone&quot;:&quot;&quot;,&quot;title&quot;:&quot;Proxy Monitoring&quot;,&quot;uid&quot;:&quot;O_f9QPmRk&quot;,&quot;version&quot;:8,&quot;weekStart&quot;:&quot;&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ul>
+<li><a href="https://zhangguanzhang.github.io/2020/07/30/prometheus-rate-and-irate/#/rate">https://zhangguanzhang.github.io/2020/07/30/prometheus-rate-and-irate/#/rate</a></li>
+<li><a href="https://promlabs.com/blog/2021/01/29/how-exactly-does-promql-calculate-rates/">https://promlabs.com/blog/2021/01/29/how-exactly-does-promql-calculate-rates/</a></li>
+</ul>
+
+    </div>
+
+      <footer class="post-footer">
+        
+  <div class="followme flex-column align-center">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="flex align-center social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/daya0576">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://t.me/daya_lifestyle">
+                <span class="icon">
+                  <i class="fa fa-telegram"></i>
+                </span>
+
+                <span class="label">Telegram</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">Wechat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/20240217/why-did-i-join-autodesk/" rel="prev" title="在 Autodesk 工作是怎样一番体验？">
+      <i class="fa fa-chevron-left"></i> 在 Autodesk 工作是怎样一番体验？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+  <script src="https://utteranc.es/client.js"
+          repo="daya0576/comments.daya0576.github.io"
+          issue-term="pathname"
+          theme="github-dark"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav" style="display: none; opacity: 0;">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <br>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Workflow"><span class="nav-text">Workflow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step1-编写-HTTP-proxy-exporter"><span class="nav-text">Step1: 编写 HTTP proxy exporter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step2-接入-Prometheus"><span class="nav-text">Step2: 接入 Prometheus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step3-配置-Grafana-大盘"><span class="nav-text">Step3: 配置 Grafana 大盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rate-amp-increase"><span class="nav-text">rate &amp; increase</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）计算平均增长率"><span class="nav-text">1）计算平均增长率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）推测拟合"><span class="nav-text">2）推测拟合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）边界情况处理"><span class="nav-text">3）边界情况处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）increase-vs-rate"><span class="nav-text">4）increase vs rate</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#irate"><span class="nav-text">irate</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-text">参考：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="daya0576"
+      src="https://cdn.jsdelivr.net/gh/daya0576/daya0576.github.io@master/images/gravatar.jpg">
+  <p class="site-author-name" itemprop="name">daya0576</p>
+  <div class="site-description" itemprop="description">大牙的一亩三分地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:daya0576@gmail.com" title="E-Mail → mailto:daya0576@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope-o"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/daya0576" title="Twitter → https://twitter.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/daya0576" title="Instagram → https://instagram.com/daya0576" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → /atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://laike9m.com/" title="https://laike9m.com/" rel="noopener" target="_blank">laike9m's blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://chenhuichao.com/" title="https://chenhuichao.com/" rel="noopener" target="_blank">Hypers 陈惠超 超人~</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yuzhouwan.com/" title="https://yuzhouwan.com/" rel="noopener" target="_blank">宇宙湾</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.kawabangga.com" title="https://www.kawabangga.com" rel="noopener" target="_blank">肥仔同事 laixintao</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhuguocheng29.cn/" title="https://www.zhuguocheng29.cn/" rel="noopener" target="_blank">一只会Think的Zhu</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lijingying91.github.io/" title="https://lijingying91.github.io/" rel="noopener" target="_blank">Li Jingying's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://yihong.run/" title="https://yihong.run/" rel="noopener" target="_blank">喜欢跑步与编程的 yihong0618</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daya0576</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.67/darkreader.min.js"></script>
+<script>
+DarkReader.enable({
+    brightness: 100,
+    contrast: 90,
+    sepia: 10,
+    darkSchemeBackgroundColor: "#000"
+    // darkSchemeTextColor: "#E7EDF2",
+});
+</script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  
+
+  
+
+<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
