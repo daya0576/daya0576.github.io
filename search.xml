@@ -79,7 +79,7 @@
     <title>在 Autodesk 工作是怎样一番体验？</title>
     <url>/blog/20240217/why-did-i-join-autodesk/</url>
     <content><![CDATA[<p>记得大学学习编程时，即使书本提供了完整解法，个人也习惯在电脑中抄写一遍，抚摸每一行代码，以获得最真实透彻的理解。</p>
-<p>机缘巧合加入上海 Autodesk 满三个月，简单分享一些个人真实的体验与感受。希望不管是对 SRE 还是职业生涯工作选择，可以带来一点点参考与帮助 :)</p>
+<p>机缘巧合有幸加入上海 Autodesk，简单分享三个月，一些个人真实的体验与感受。希望不管是对 SRE 还是职业生涯工作选择，可以带来一点点参考与帮助 :)</p>
 <a id="more"></a>
 
 <h3 id="Good"><a href="#Good" class="headerlink" title="Good"></a>Good</h3><blockquote>
@@ -8036,10 +8036,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
+        <tag>mysql</tag>
+        <tag>django</tag>
         <tag>moobox</tag>
         <tag>work</tag>
-        <tag>django</tag>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -8304,6 +8304,11 @@ Python描述符（descriptor）解密
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
@@ -8316,11 +8321,6 @@ Python描述符（descriptor）解密
 <hr>
 <p>RIP: 纪念一下陪伴我四年多的老博客(Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
