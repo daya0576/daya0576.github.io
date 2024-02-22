@@ -79,7 +79,7 @@
     <title>在 Autodesk 工作是怎样一番体验？</title>
     <url>/blog/20240217/why-did-i-join-autodesk/</url>
     <content><![CDATA[<p>记得大学学习编程时，即使书本提供了完整解法，个人也习惯在电脑中抄写一遍，抚摸每一行代码，以获得最真实透彻的理解。</p>
-<p>机缘巧合有幸加入上海 Autodesk，简单分享三个月，一些个人真实的体验与感受。希望不管是对 SRE 还是职业生涯工作选择，可以带来一点点参考与帮助 :)</p>
+<p>机缘巧合有幸加入上海 Autodesk，在外企中真真切切体验了三个月，分享一些个人真实的感受。希望不管是对 SRE 还是职业生涯工作选择，可以带来一点点参考与帮助 :)</p>
 <a id="more"></a>
 
 <h3 id="Good"><a href="#Good" class="headerlink" title="Good"></a>Good</h3><blockquote>
@@ -89,20 +89,24 @@
 </blockquote>
 <ul>
 <li>WLB<ul>
-<li>早九晚六的工作模式，以及居家办公的选项，给予个人更多自由度 &amp; 人生可能性 :)</li>
-<li>假期：入职 15 天年假，15 天带薪病假，圣诞假期 recharge days，...</li>
+<li>早九晚六的工作模式，以及居家办公的选项，给予个人更多自由度 &amp; 人生可能性 :) 丰厚的假期：入职 15 天年假，15 天带薪病假，圣诞假期 recharge days，...</li>
 <li>背后很简单的道理，软件工程中，工作产出 vs 工作时长与人头数，往往没有直接的线性关系</li>
 </ul>
 </li>
 <li>专业的同事<ul>
-<li>本以为“轻松”自由的氛围，很容易导致两极分化（人性惰性持续放大），但出人意料所有的同事都很专业负责。工作职责相关部分，组内对于变更管控流程, 定期 service review 以及 firedrill 演练等，都十分科学先进。</li>
-<li>个人理解背后的逻辑：一个 10000 人的公司中，可能 100 个人决定了这家公司的上限，而只有尽可能自由的工作氛围才能吸引这 100 人，并将创造力最大化。</li>
+<li>本以为“轻松”自由的氛围，很容易导致两极分化（人性惰性持续放大），但出人意料的是，<strong>所有</strong>的同事不仅专业还很负责。还记得刚到蚂蚁时，向其他团队同事提问帮忙，往往会导致已读不回（不难理解不对 kpi 以外的事浪费时间），但在新公司中，每个人都会热情的回复❤️。</li>
+<li>工作职责相关部分，组内对于变更管控流程, 定期 service review 以及 firedrill 演练等，都十分科学先进。</li>
+<li>个人理解背后的逻辑：1）一个 10000 人的公司中，可能 100 个人决定了这家公司的上限，而只有尽可能自由的工作氛围才能吸引这 100 人，并将创造力最大化。2）kpi 是一把双刃剑，使用需慎重</li>
 </ul>
 </li>
 <li>松弛感<ul>
 <li>在上一家公司，作为 &quot;sales&quot;，工作内容很重要，但更关键的是如何推销，当然个人也是个商品 :)</li>
-<li>还记得有句口号叫 “昨天的最好表现，是今天的最高要求”，导致做每件事前都需要思考如何体现在年末的答辩 ppt 中，导致内耗。</li>
 <li>加入新公司后，工作方式出现一定转变，无论大小的任务都会有 jira tickets 进行管理记录。某种程度上，消除了大部分自我制造的焦虑。<del>但公司组织运行逻辑没有改变，看似井井有条的表面，个人的主观能动性依然扮演着主角</del></li>
+</ul>
+</li>
+<li>IC vs Manager<ul>
+<li>在上一家公司，令人一直困惑的是，大部分同事晋升为 P7 后，基本无法专注于 coding。</li>
+<li>在新公司中，manager 只管人，高职级的 dev 也可以专注于代码（e.g. P8 &amp; P9）。当然万事有弊有利，但对于个人，幸运有一份土壤可以永远做一个 nerd</li>
 </ul>
 </li>
 <li>关于拉会<ul>
@@ -116,7 +120,7 @@
 <ul>
 <li>业务理解瓶颈<ul>
 <li>作为核心业务团队的 SRE，除了通过暴露的 api 理解业务整体的 workflow。如何更近进一步学习系统中各个模块的职责和风险？</li>
-<li>暂时想到的策略：代码是我最好的朋友，可以尝试承担部分 dev 的工作，边干边学。<ul>
+<li>暂时想到的策略：代码是我最好的朋友，可以尝试承担部分 dev 的工作，边干边学。例如：<ul>
 <li>dev: 70% 业务开发，30% ops</li>
 <li>sre: 15% 业务开发，35% 平台开发，50% ops</li>
 </ul>
@@ -125,11 +129,11 @@
 </li>
 <li>护城河？<ul>
 <li>曾工作在好几百人的 SRE 团队，各个子团队通过构建系统持续积累（<del>zaolunzi</del>），最终打造了各自的护城河。</li>
-<li>单兵作战提供了机动性与自由度，但如何持续聚焦并积累个人在公司内部与市场的核心竞争力？</li>
+<li>如今单兵作战提供了机动性与自由度，但如何聚焦并持续积累个人在公司内部与市场的核心竞争力？</li>
 </ul>
 </li>
 <li>任务难 vs 成就感<ul>
-<li>客观原因：每个团队“非标”技术栈百花齐放，加上薄弱的 infra 基础设施。系统维护成本随时间指数上升，导致 dev 接近 50% 的时间处理非 feature 开发相关工作。最终衍生出部分任务，无人知晓是否可行，以及实施路径，需要自行探索，所以凭空制造了难度。</li>
+<li>客观原因：当前每个团队“非标”技术栈百花齐放，加上薄弱的 infra 基础设施。系统维护成本随时间指数上升，导致 dev 接近 50% 的时间处理非 feature 开发相关工作。最终衍生出部分任务，无人知晓是否可行，以及实施路径，需要自行探索，所以凭空制造了难度。</li>
 <li>但面对前人好多个月未解决的“难题”，通过不懈的尝试和坚持，迎难而上解决的瞬间，也会带来持久的成就感。</li>
 </ul>
 </li>
@@ -141,9 +145,9 @@
 </ul>
 <h3 id="Negative"><a href="#Negative" class="headerlink" title="Negative"></a>Negative</h3><ul>
 <li>效率较低，显示器申请后，接近一个月交付。</li>
-<li>半遮半掩的裁员</li>
+<li>外资撤出的浪潮中，如何针对对下个五年做好预案？</li>
 </ul>
-<h3 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h3><p><u>放弃未归属的期权和积累，加入一家公司从头开始，假设如果万一，短期内被裁员会后悔吗？</u><br>不会：</p>
+<h3 id="THE-END"><a href="#THE-END" class="headerlink" title="THE END"></a>THE END</h3><p><u>放弃未归属的期权和多年积累，加入一家公司从头开始，假设如果万一，短期内被裁员会后悔吗？</u><br>不会：</p>
 <ul>
 <li>人生的目标不是最大化财富，而是最大化人生体验。加入外企对我来说是一种全新的人生体验，即使短期的真实体验也是一种宝贵的财富。</li>
 <li>越年轻 承担风险的能力越高，若组建家庭或养育子女后，你的失败将对其他人造成影响。</li>
@@ -6848,8 +6852,8 @@ disqus手机端不加载</p>
 
 ]]></content>
       <tags>
-        <tag>algorithm</tag>
         <tag>inteview</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -8036,10 +8040,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
-        <tag>mysql</tag>
-        <tag>django</tag>
         <tag>moobox</tag>
         <tag>work</tag>
+        <tag>django</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -8304,11 +8308,6 @@ Python描述符（descriptor）解密
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>关于我</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h1 id="ID"><a href="#ID" class="headerlink" title="ID"></a>ID</h1><p>daya0576 | Shanghai</p>
@@ -8321,6 +8320,11 @@ Python描述符（descriptor）解密
 <hr>
 <p>RIP: 纪念一下陪伴我四年多的老博客(Octopress):<br><img src="/images/loading/loading.svg" data-original="https://zblog-static.oss-cn-hangzhou.aliyuncs.com/octopress.gif" alt="past blog"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>tags</title>
