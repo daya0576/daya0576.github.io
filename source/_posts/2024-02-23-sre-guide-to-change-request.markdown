@@ -4,7 +4,7 @@ date: 2024-02-23 22:35:18
 tags:
 ---
 
-The system never goes down without changes, e.g. code release, traffic overloaded or external dependency down,...
+System will never go down without "changes", e.g. code release, traffic overloaded or external dependency down,...
 
 In all kinds of changes above, human changes are responsible for over 80% of incidents, as humans are not machines and make mistakes all the time :)
 

@@ -1,5 +1,5 @@
 ---
-title: HTTPS Hijack for Resiliency Test
+title: Resiliency Test - HTTP/HTTPS Hijack
 tags:
   - sre
   - chaos
