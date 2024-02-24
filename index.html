@@ -214,6 +214,51 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20240224/scala-fd-leak/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/daya0576/daya0576.github.io@master/images/gravatar.jpg">
+      <meta itemprop="name" content="daya0576">
+      <meta itemprop="description" content="大牙的一亩三分地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry Z's blog~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/20240224/scala-fd-leak/" class="post-title-link" itemprop="url">The Story of Troubleshooting File Descriptor Leaks</a>
+        </h1>
+          <div style="height: 5px"></div>
+        
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Recently, we discovered some unexpected autoscaling EC2_INSTANCE_TERMINATE events in our Scala system: &quot;instance was taken out of service in response to an ELB system health check failure&quot;.</p>
+<p>After checking the error logs, it was caused by <code>Too many open files</code>, then impacted DNS resolution, resulting in errors when accessing the AWS endpoint, finally causing the server to hang.</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20240223/sre-guide-to-change-request/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -240,7 +285,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>The system never goes down without changes, e.g. code release, traffic overloaded or external dependency down,...</p>
+          <p>System will never go down without &quot;changes&quot;, e.g. code release, traffic overloaded or external dependency down,...</p>
 <p>In all kinds of changes above, human changes are responsible for over 80% of incidents, as humans are not machines and make mistakes all the time :)</p>
 <p>So when planning a change request for production operation (without a perfect and automated pipeline), how can we leverage strategies to minimize the risk and impact on our customers? </p>
           <!--noindex-->
@@ -409,7 +454,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/blog/20231117/https-hijack/" class="post-title-link" itemprop="url">HTTPS Hijack for Resiliency Test</a>
+            <a href="/blog/20231117/https-hijack/" class="post-title-link" itemprop="url">Resiliency Test - HTTP/HTTPS Hijack</a>
         </h1>
           <div style="height: 5px"></div>
         
@@ -527,51 +572,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://changchen.me/blog/20230827/homelab-hacking-grafana-on-led/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/daya0576/daya0576.github.io@master/images/gravatar.jpg">
-      <meta itemprop="name" content="daya0576">
-      <meta itemprop="description" content="大牙的一亩三分地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Henry Z's blog~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/20230827/homelab-hacking-grafana-on-led/" class="post-title-link" itemprop="url">Homelab hacking: Grafana on an LED matrix display</a>
-        </h1>
-          <div style="height: 5px"></div>
-        
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>周末翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：<a href="https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav">《Homelab hacking: Grafana on an LED matrix display》</a>（将智能家居的 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上）。</p>
-<p>这种事只是想想就很兴奋！趁着周末实践玩一下～</p>
-          <!--noindex-->
-          <!--/noindex-->
-        
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -644,7 +644,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

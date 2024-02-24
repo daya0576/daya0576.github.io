@@ -6,7 +6,7 @@
 - [2022-03-20] [分享我的家庭网络拓扑](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-03-20-home-assistant-issues.markdown)
 - [2022-02-06] [精装全屋智能灯改造小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-06-home-lights-practice.markdown)
 ## SRE
-- [2023-11-18] [HTTPS Hijack for Resiliency Test](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-11-18-https-hijack.markdown)
+- [2023-11-18] [Resiliency Test - HTTP/HTTPS Hijack](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-11-18-https-hijack.markdown)
 - [2022-05-05] [Quote of the Day (QOTD) Protocal 小记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-05-05-quote-of-the-day.markdown)
 - [2022-02-26] [重读 Google SLO 小记 | 智能告警之殇](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2022-02-26-sre-slo.markdown)
 - [2021-09-04] [Java JVM 内存管理 - SRE 的必修课](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2021-09-04-jvm-note.markdown)
