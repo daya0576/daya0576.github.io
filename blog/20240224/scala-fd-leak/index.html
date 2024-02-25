@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2024-02-24T07:49:27.000Z">
-<meta property="article:modified_time" content="2024-02-24T07:56:28.298Z">
+<meta property="article:modified_time" content="2024-02-25T15:11:51.740Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -256,7 +256,7 @@
 
       
         <p>Recently, we discovered some unexpected autoscaling EC2_INSTANCE_TERMINATE events in our Scala system: &quot;instance was taken out of service in response to an ELB system health check failure&quot;.</p>
-<p>After checking the error logs, it was caused by <code>Too many open files</code>, then impacted DNS resolution, resulting in errors when accessing the AWS endpoint, finally causing the server to hang.</p>
+<p>After checking the error logs, the issue was caused by <code>Too many open files</code>, which leaded to unsuccessful DNS resolution, consequently resulting in errors when accessing the AWS endpoint, finally causing the server to hang.</p>
 <a id="more"></a>
 
 <h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><p>Luckily, we can still log in to the instance. From the following command, you can see that the system&#39;s maximum file descriptor (fd) limit is 65534, while soft and hard limits applying to the process are both 4096.</p>
