@@ -6,7 +6,7 @@ tags:
 
 Recently, we discovered some unexpected autoscaling EC2_INSTANCE_TERMINATE events in our Scala system: "instance was taken out of service in response to an ELB system health check failure".
 
-After checking the error logs, it was caused by `Too many open files`, then impacted DNS resolution, resulting in errors when accessing the AWS endpoint, finally causing the server to hang.
+After checking the error logs, the issue was caused by `Too many open files`, which leaded to unsuccessful DNS resolution, consequently resulting in errors when accessing the AWS endpoint, finally causing the server to hang.
 
 <!--more-->
 
