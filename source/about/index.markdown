@@ -7,13 +7,14 @@ comments: true
 
 # ID
 
-daya0576 | Shanghai
+daya0576
 
 # Tags
 
-- 🥑 Foodie - [Instagram](https://www.instagram.com/daya0576/)
-- 🐍 Python Backend(built [unsw.co](https://unsw.co/) / worked in [Hypers](https://www.hypers.com/))
-- 🚒 SRE(Currently working in Alipay as [Server Reboot Engineer](/blog/20180403/impressions-of-google-sre/))
+- 📍 Shanghai
+- 🥑 Foodie -> [Instagram](https://www.instagram.com/daya0576/)
+- 🐍 Python Backend (built [unsw.co](https://unsw.co/) / worked in [Hypers](https://www.hypers.com/))
+- 🚒 SRE (Currently working in Autodesk as a [Server Reboot Engineer](/blog/20180403/impressions-of-google-sre/))
 - 🏓 [Table Tennis](/blog/20160711/tablet-tennis/)
 
 ---
