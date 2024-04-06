@@ -7,7 +7,7 @@ tags:
 
 家庭网络质量，如同水电燃气一般，对生活幸福感至关重要。突发奇想为家中的网络中枢 HTTP proxy 编写 Prometheus exporter 并配置可观测大盘。
 
-本文主要介绍 如何编写一个自定义的 exporter，以及 PromQL 中 `rate`/`irate` 函数的实现原理。
+趁此机会学习 如何编写一个自定义的 exporter，以及 PromQL 中 `rate`/`irate` 函数的实现原理。
 
 <!--more-->
 
