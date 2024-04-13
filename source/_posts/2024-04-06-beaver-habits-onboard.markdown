@@ -1,11 +1,11 @@
 ---
-title: Beaver Habits Tracker Project Kickoff
+title: Beaver Habits Tracker Onboard
 date: 2024-04-06 12:27:50
 tags:
 ---
 
 
-When switching from Android to iOS, I was unable to find a light-weighted but satisfying habit tracking app, so I decided to make one by myself :)
+When switching from Android to iOS, I was unable to find a light-weighted but handy habit tracking app, so I decided to make one by myself :)
 
 For the name of the project, it came from a game called "[Against the Storm](https://store.steampowered.com/app/1336490/Against_the_Storm/)" (which I spent over 100 hours, highly recommended). In the game, my favorite city builder species is **beaver**, hoping this web app works as a beaver to save ur precious moments in your fleeting life.
 
