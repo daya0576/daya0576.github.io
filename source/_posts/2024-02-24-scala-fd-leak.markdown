@@ -1,5 +1,5 @@
 ---
-title: The Story of Troubleshooting File Descriptor Leaks
+title: The Story of Troubleshooting Scala File Descriptor Leaks
 date: 2024-02-24 15:49:27
 tags:
 ---

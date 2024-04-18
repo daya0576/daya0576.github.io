@@ -106,4 +106,5 @@ class Habit[R: CheckedRecord](Protocol):
     - [x] User management
     - [ ] User timezone
 
+![1505DDDA-0669-46E6-9FDF-25FEDD1870C9](../images/blog/2021-09-04-jvm-note/1505DDDA-0669-46E6-9FDF-25FEDD1870C9.png)
 
