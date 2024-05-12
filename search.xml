@@ -101,7 +101,7 @@
 <h1 id="The-End"><a href="#The-End" class="headerlink" title="The End"></a>The End</h1><p><strong>Good:</strong></p>
 <ul>
 <li>英文普及度极高，便利店餐厅基本流利无障碍，年长者运营的餐厅即使不会英文也极其热情</li>
-<li>公交地铁列车极其安静，内向者的天堂</li>
+<li>公交地铁列车极其安静，内向者的天堂。餐厅食用结束都需要将餐具主动归还。</li>
 </ul>
 <p><strong>Bad:</strong></p>
 <ul>
@@ -8029,8 +8029,8 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 </blockquote>
 ]]></content>
       <tags>
-        <tag>unsw</tag>
         <tag>comp9315</tag>
+        <tag>unsw</tag>
       </tags>
   </entry>
   <entry>
@@ -8242,10 +8242,10 @@ Unfortunately, it's not feasible for testing data(can not be seen by students). 
 从上往下简单介绍一下。    
 1. ]]></content>
       <tags>
-        <tag>django</tag>
         <tag>moobox</tag>
         <tag>work</tag>
         <tag>mysql</tag>
+        <tag>django</tag>
       </tags>
   </entry>
   <entry>
