@@ -55,9 +55,8 @@
 <meta property="og:description" content="When switching from Android to iOS, I was unable to find a light-weighted but handy habit tracking app, so I decided to make one by myself :) For the name of the project, it came from a game called &amp;q">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
-<meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2024-04-06T04:27:50.000Z">
-<meta property="article:modified_time" content="2024-04-18T08:58:39.821Z">
+<meta property="article:modified_time" content="2024-05-12T09:38:47.542Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -277,15 +276,15 @@
 </ul>
 </li>
 </ol>
-<h2 id="Persistent-Storage"><a href="#Persistent-Storage" class="headerlink" title="Persistent Storage"></a>Persistent Storage</h2><p>As mentioned above, NiceGUI handles everything in server side, high network latency would destroy user experiences. </p>
+<h2 id="Persistent-Storage"><a href="#Persistent-Storage" class="headerlink" title="Persistent Storage"></a>Persistent Storage</h2><p>As mentioned above, NiceGUI handles everything in server side, high network latency would destroy user experiences.</p>
 <p>Some solutions:</p>
 <ol>
-<li>Global CDN and edge servers</li>
-<li>Self-host option</li>
+<li>Global CDN:  Utilizing a global CDN helps mitigate network latency by distributing content across multiple edge servers located strategically worldwide.</li>
+<li>Self-host option: Providing a self-host option allows users to host the NiceGUI application on their own infrastructure or servers.</li>
 <li>...</li>
 </ol>
-<p>In order to provide self-host and flexible backend storage options, <a href="https://github.com/daya0576/beaverhabits/blob/master/beaverhabits/storage/storage.py">storage interfaces</a> were defined with various implementations, e.g. session-based file or user-based Sqlite.</p>
-<p>BTW, the code below leverages the latest features of Python 3.12: <a href="https://docs.python.org/3/whatsnew/3.12.html#pep-695-type-parameter-syntax">PEP 695: Type Parameter Syntax</a> :)</p>
+<p>In order to provide flexible backend storage options, <a href="https://github.com/daya0576/beaverhabits/blob/master/beaverhabits/storage/storage.py">interfaces</a> were defined with various implementations, e.g. session-based file or user-based file&#x2F;database.</p>
+<p>BTW, the code below leverages the latest features of Python 3.12: <a href="https://docs.python.org/3/whatsnew/3.12.html#pep-695-type-parameter-syntax">PEP 695: Type Parameter Syntax</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheckedRecord</span><span class="params">(Protocol)</span>:</span></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">day</span><span class="params">(self)</span> -&gt; datetime.date:</span> ...</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">done</span><span class="params">(self)</span> -&gt; bool:</span> ...</span><br><span class="line"></span><br><span class="line"><span class="meta">    @done.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">done</span><span class="params">(self, value: bool)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f"<span class="subst">&#123;self.day&#125;</span> <span class="subst">&#123;<span class="string">'[x]'</span> <span class="keyword">if</span> self.done <span class="keyword">else</span> <span class="string">'[ ]'</span>&#125;</span>"</span></span><br><span class="line"></span><br><span class="line">    __repr__ = __str__</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Habit</span>[<span class="title">R</span>:</span> CheckedRecord](Protocol):</span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span> -&gt; str:</span> ...</span><br><span class="line"></span><br><span class="line"><span class="meta">    @name.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self, value: str)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">priority</span><span class="params">(self)</span> -&gt; int:</span> ...</span><br><span class="line"></span><br><span class="line"><span class="meta">    @priority.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">priority</span><span class="params">(self, value: int)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">records</span><span class="params">(self)</span> -&gt; List[R]:</span> ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_records_by_days</span><span class="params">(self, days: List[datetime.date])</span> -&gt; List[R]:</span> ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">tick</span><span class="params">(self, record: R)</span> -&gt; <span class="keyword">None</span>:</span> ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line">    __repr__ = __str__</span><br></pre></td></tr></table></figure>
 
 <h1 id="Future"><a href="#Future" class="headerlink" title="Future.."></a>Future..</h1><ol>
@@ -315,7 +314,6 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/loading/loading.svg" data-original="/images/blog/2021-09-04-jvm-note/1505DDDA-0669-46E6-9FDF-25FEDD1870C9.png" alt="1505DDDA-0669-46E6-9FDF-25FEDD1870C9"></p>
 
     </div>
 
@@ -378,7 +376,10 @@
     <a href="/blog/20240224/scala-fd-leak/" rel="prev" title="The Story of Troubleshooting Scala File Descriptor Leaks">
       <i class="fa fa-chevron-left"></i> The Story of Troubleshooting Scala File Descriptor Leaks
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/20240512/go-to-south-korea/" rel="next" title="去韩国">
+      去韩国 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -462,7 +463,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

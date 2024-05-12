@@ -16,6 +16,7 @@
 - [2019-01-13] [业务报警智能降噪的那些事](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2019-01-13-anomaly-detection.markdown)
 - [2018-04-03] [《Site Reliability Engineering》by Google 读书笔记](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2018-04-13-impressions-of-google-sre.markdown)
 ## 个人相关
+- [2024-05-12] [去韩国](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2024-05-12-go-to-south-korea.markdown)
 - [2023-12-26] [2023 年终小结 🎄](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-12-26-2023-summary.markdown)
 - [2023-11-18] [为什么我从 iPhone 切换至 Android 手机](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-11-18-iphone2android.markdown)
 - [2023-11-04] [近况更新 | 为什么我离开了工作五年的蚂蚁金服 🐜](https://github.com/daya0576/daya0576.github.io/blob/source/source/_posts/2023-11-04-why-did-i-left-ant-group.markdown)
