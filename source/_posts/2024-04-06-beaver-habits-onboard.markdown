@@ -33,16 +33,16 @@ Some thoughts after several weeks development:
     - ...
 
 ## Persistent Storage
-As mentioned above, NiceGUI handles everything in server side, high network latency would destroy user experiences. 
+As mentioned above, NiceGUI handles everything in server side, high network latency would destroy user experiences.
 
 Some solutions:
-1. Global CDN and edge servers
-2. Self-host option
+1. Global CDN:  Utilizing a global CDN helps mitigate network latency by distributing content across multiple edge servers located strategically worldwide.
+2. Self-host option: Providing a self-host option allows users to host the NiceGUI application on their own infrastructure or servers.
 3. ...
 
-In order to provide self-host and flexible backend storage options, [storage interfaces](https://github.com/daya0576/beaverhabits/blob/master/beaverhabits/storage/storage.py) were defined with various implementations, e.g. session-based file or user-based Sqlite.
+In order to provide flexible backend storage options, [interfaces](https://github.com/daya0576/beaverhabits/blob/master/beaverhabits/storage/storage.py) were defined with various implementations, e.g. session-based file or user-based file/database.
 
-BTW, the code below leverages the latest features of Python 3.12: [PEP 695: Type Parameter Syntax](https://docs.python.org/3/whatsnew/3.12.html#pep-695-type-parameter-syntax) :)
+BTW, the code below leverages the latest features of Python 3.12: [PEP 695: Type Parameter Syntax](https://docs.python.org/3/whatsnew/3.12.html#pep-695-type-parameter-syntax)
 
 ```python
 class CheckedRecord(Protocol):
@@ -106,5 +106,5 @@ class Habit[R: CheckedRecord](Protocol):
     - [x] User management
     - [ ] User timezone
 
-![1505DDDA-0669-46E6-9FDF-25FEDD1870C9](../images/blog/2021-09-04-jvm-note/1505DDDA-0669-46E6-9FDF-25FEDD1870C9.png)
+
 
