@@ -38,7 +38,6 @@ tags:
 17 年大学毕业后，只身来到上海，寻觅了一份[创业公司后端开发](/blog/20170223/python-backend-inteview-summery/)的工作，成为一名打工崽。
 
 某天工作大约满一年时，命运的齿轮开始悄悄转动。收到来自蚂蚁的一份邮件，便顺水推舟进入面试，并最终只身前往杭州加入蚂蚁，成为了一名业务 SRE（[Site Reliability Engineer](/blog/20180403/impressions-of-google-sre/)）。
-![](../images/blog/2021-09-04-jvm-note/17027150685951.jpg)
 
 <u>p.s. 为什么离开创业公司加入蚂蚁？</u>
 创业公司项目管理开发规范，同事技艺高超友善，唯一的缺点是贫困。
