@@ -49,7 +49,7 @@
 
   <meta name="description" content="家庭网络质量，如同水电燃气一般，对生活幸福感至关重要。突发奇想为家中的网络中枢 HTTP proxy 编写 Prometheus exporter 并配置可观测大盘。 趁此机会学习 如何编写一个自定义的 exporter，以及 PromQL 中 rate&#x2F;irate 函数的实现原理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Monitoring HTTP Proxy">
+<meta property="og:title" content="源码分析 PromQL 中的 rate 与 irate 方法">
 <meta property="og:url" content="https://changchen.me/blog/20240217/http-proxy-monitoring/index.html">
 <meta property="og:site_name" content="Henry Z&#39;s blog~">
 <meta property="og:description" content="家庭网络质量，如同水电燃气一般，对生活幸福感至关重要。突发奇想为家中的网络中枢 HTTP proxy 编写 Prometheus exporter 并配置可观测大盘。 趁此机会学习 如何编写一个自定义的 exporter，以及 PromQL 中 rate&#x2F;irate 函数的实现原理。">
@@ -61,7 +61,7 @@
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="og:image" content="https://changchen.me/images/loading/loading.svg">
 <meta property="article:published_time" content="2024-02-17T08:31:52.000Z">
-<meta property="article:modified_time" content="2024-10-11T15:11:16.229Z">
+<meta property="article:modified_time" content="2024-11-16T03:50:57.126Z">
 <meta property="article:author" content="daya0576">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="daya0576">
@@ -82,7 +82,7 @@
   };
 </script>
 
-  <title>Monitoring HTTP Proxy | Henry Z's blog~</title>
+  <title>源码分析 PromQL 中的 rate 与 irate 方法 | Henry Z's blog~</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79497021-2"></script>
     <script>
@@ -236,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Monitoring HTTP Proxy
+          源码分析 PromQL 中的 rate 与 irate 方法
         </h1>
         <div class="post-meta">
             <span class="post-meta-item">
@@ -392,8 +392,8 @@
       <i class="fa fa-chevron-left"></i> 在 Autodesk 工作是怎样一番体验？
     </a></div>
       <div class="post-nav-item">
-    <a href="/blog/20240223/sre-guide-to-change-request/" rel="next" title="A Site Reliability Engineer's Simple Guide to Change Request">
-      A Site Reliability Engineer's Simple Guide to Change Request <i class="fa fa-chevron-right"></i>
+    <a href="/blog/20240224/scala-fd-leak/" rel="next" title="The Story of Troubleshooting Scala File Descriptor Leaks">
+      The Story of Troubleshooting Scala File Descriptor Leaks <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
