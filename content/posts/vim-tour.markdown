@@ -7,7 +7,7 @@ tags: [vim]
 ---
 
 和VIM相爱的故事要从我的笔记本**上下键**坏了开始..哈哈   
-![](../images/blog/180223_vim/apple.png)
+![](/images/blog/180223_vim/apple.png)
 虽然大二的时候学过vim, 但一直用的IDE. 今年强迫自己用了三天vim之后, 彻底的爱上用VIM写代码的感觉.   
 **用这篇博客分享一下自己从VIM小白一路不断学习的历程.**  
 

@@ -43,7 +43,7 @@ categories:
 | Linksys | Linksys 路由器，家庭网路中的主路由。 |
 
 整体家庭网络拓扑以及关键设备如下（详情参考上一篇文章）：
-![network_status](../images/blog/2021-09-04-jvm-note/network_status.svg)
+![network_status](/images/blog/2021-09-04-jvm-note/network_status.svg)
 
 
 # 二、监控需求
@@ -64,7 +64,7 @@ categories:
     2. `R2S 软路由` 系统指标，通过 expert 的形式暴露，并保存至 Prometheus 中
 2. **数据展示**：通过主流的 grafana 可视化平台，配置大盘展示数据 
 
-![home_monitoring_system_design](../images/blog/2021-09-04-jvm-note/home_monitoring_system_design.svg)
+![home_monitoring_system_design](/images/blog/2021-09-04-jvm-note/home_monitoring_system_design.svg)
 
 p.s. 针对数据存储多说两句，因为博主的 HA 直接以 Home Assistant Operating System 的形式安装在树莓派中，所以可访问 Add-ons（例如直接安装 grafana 等）。如果读者是以 container 的形式安装，针对下文提到的 Add-ons 应用，在宿主机中直接用 docker 一键快速拉起即可。
 
@@ -74,7 +74,7 @@ p.s. 针对数据存储多说两句，因为博主的 HA 直接以 Home Assistan
 ## 4.1 数据收集
 ### 4.1.1 Openwrt 软路由系统指标
 安装 prometheus node exporter 后，Openwrt 的实时系统数据就会通过 http 接口透出，方便下一章 prometheus 进行采集与持久化：
-![](../images/blog/2021-09-04-jvm-note/16483684440919.jpg)
+![](/images/blog/2021-09-04-jvm-note/16483684440919.jpg)
 
 具体脚本如下：
 ```shell
@@ -165,7 +165,7 @@ HA Add-ons 中找到 InfluxDB 安装即可：https://github.com/hassio-addons/ad
 
 步骤：
 1）因为该 prometheus addon 为测试版本（未正式发行），需更新repo后才能在ha中找到：https://github.com/hassio-addons/repository-beta
-![](../images/blog/2021-09-04-jvm-note/16483714471537.jpg)
+![](/images/blog/2021-09-04-jvm-note/16483714471537.jpg)
 
 2）安装并启动
 3）参考文档配置 targets 时，文件一定要以 `yaml` 后缀：
@@ -180,7 +180,7 @@ static_configs:
 [core-ssh targets]$
 ```
 4）web 界面查看 target 是否生效
-![](../images/blog/2021-09-04-jvm-note/16483715464467.jpg)
+![](/images/blog/2021-09-04-jvm-note/16483715464467.jpg)
 
 
 ## 4.3 数据展示
@@ -190,7 +190,7 @@ static_configs:
 
 如下为我初步配置的大盘，设备负载情况，室内室外温差湿度，以及关心的网络可用性，历史趋势等信息一目了然 ✨
 
-![](../images/blog/2021-09-04-jvm-note/16483716356989.jpg)
+![](/images/blog/2021-09-04-jvm-note/16483716356989.jpg)
 
 
 # 参考：

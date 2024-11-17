@@ -15,21 +15,21 @@ There is [official troubleshooting solution](https://hexo.io/docs/troubleshootin
 Exception raised by `hexo s --debug`:   
 > Template render error: (unknown path) 
 >    SyntaxError: Invalid or unexpected token
-![](../images/blog/190302_uwsgi_with_threading_bug/15515115013020.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515115013020.jpg)
 
 # Solution
 Install plugin [Zero Width Characters locator](https://plugins.jetbrains.com/plugin/7448-zero-width-characters-locator) in [WebStorm](https://www.jetbrains.com/webstorm/) :   
-![](../images/blog/190302_uwsgi_with_threading_bug/15515120638235.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515120638235.jpg)
 
 ## 1. Realtime inspection
 This plugin will remind u all the invisible zero width characters in realtime:   
-![](../images/blog/190302_uwsgi_with_threading_bug/15515118874778.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515118874778.jpg)
 
 ## 2. Inspecting globally
 1. Step 1: trigger searching actions(`⌘ + shift + A`):
-![](../images/blog/190302_uwsgi_with_threading_bug/15515125320948.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515125320948.jpg)
 2. Step 2: find all annoying zero width unicode characters and fix them!!!
-![](../images/blog/190302_uwsgi_with_threading_bug/15515126741490.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515126741490.jpg)
 
 
 

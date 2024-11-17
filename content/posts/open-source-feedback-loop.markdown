@@ -15,7 +15,10 @@ Hi 好久不见～ 最近几个月沉迷于与游戏《Against The Storm》，�
 # Globalization
 项目从一开始，便通过全英文与开源的方式，尝试面向全球用户群体。
 
-Demo 页面部署在 fly.io 中，从下图中 edge 边缘节点流量监控，不难看出，确实成功触达了全球用户。
+Demo 页面目前部署在 fly.io 中。
+
+从下图中 edge 节点流量监控，不难看出，确实成功触达了全球用户。
+
 ![](/images/blog/2021-09-04-jvm-note/17317273177416.jpg)
 
 # Feedback Loop
@@ -87,4 +90,5 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 ---
 
 Here is the streak of my table tennis training records :)
-![](../images/blog/2021-09-04-jvm-note/17317247576292.jpg)
+
+![](/images/blog/2021-09-04-jvm-note/17317247576292.jpg)

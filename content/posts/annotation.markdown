@@ -251,13 +251,13 @@ System.out.println(hello.value());
 ```
 
 当我们上文在调用 `getAnnotation` 获取注解实例的时候，**返回的其实是一个 jdk 通过动态代理机制生成的一个代理类 `$Proxy1`**，它实现了我们的注解接口，并将所有方法重写：
-![](../images/blog/200104_japan_travel/15927097087465.jpg)
+![](/images/blog/200104_japan_travel/15927097087465.jpg)
 
 所以调用 `value` 方法的时候，本质上是调用 `AnnotationInvocationHandler#invoke`，通过方法的名称(value)作为 key，去注解的 map 中取出对应的 value:   
-![](../images/blog/200104_japan_travel/15927101174836.jpg)
+![](/images/blog/200104_japan_travel/15927101174836.jpg)
 
 终于真相大白了，默默在心里说了一句：原来是这样～
-![](../images/blog/200104_japan_travel/15927103964765.jpg)
+![](/images/blog/200104_japan_travel/15927103964765.jpg)
 
 p.s. 偶然翻到一个简化版的实现，感兴趣可以看看：https://gist.github.com/nathansgreen/11084652
 

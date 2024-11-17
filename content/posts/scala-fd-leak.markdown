@@ -88,7 +88,7 @@ Thread.sleep(1.hour.toMillis);
 // stream.close();
 ```
 
-![C95E36ED-116F-4BDF-8133-1652B0E2721C_1_201_a](../images/blog/2021-09-04-jvm-note/C95E36ED-116F-4BDF-8133-1652B0E2721C_1_201_a.jpeg)
+![C95E36ED-116F-4BDF-8133-1652B0E2721C_1_201_a](/images/blog/2021-09-04-jvm-note/C95E36ED-116F-4BDF-8133-1652B0E2721C_1_201_a.jpeg)
 
 
 # What happens inside `Files#list`?
@@ -129,4 +129,4 @@ Java_sun_nio_fs_UnixNativeDispatcher_opendir0(JNIEnv* env, jclass this,
 ```
 
 C Standard Library: eventually `opendir` trigger system call `openat`
-![](../images/blog/2021-09-04-jvm-note/17087608145598.jpg)
+![](/images/blog/2021-09-04-jvm-note/17087608145598.jpg)

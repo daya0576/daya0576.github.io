@@ -16,23 +16,23 @@ Cloudflare 在七月二日发生了一次全球性的宕机，个人托管在上
 
 # 什么是 Cloudflare ?
 今天刷 Twitter 的时候刚好看到一个[官方的回答](https://support.cloudflare.com/hc/en-us/articles/205177068-Step-1-How-does-Cloudflare-work-)还挺不错的。总结一下原理就是在用户与你的网站之间加了一层代理，以提升 security, performance and reliability.
-![](../images/blog/190727_cloudflare_outage/15642299070568.jpg)
+![](/images/blog/190727_cloudflare_outage/15642299070568.jpg)
 
 
 # 故障过程
 按原文描述整理后，习惯将故障的每一步都按 timeline 列出来(UTC)：
-![](../images/blog/190727_cloudflare_outage/15642294239100.jpg)
+![](/images/blog/190727_cloudflare_outage/15642294239100.jpg)
 
 # 故障原因
 **代码变更：**：更新 WAF 规则时，引入一个很容易回溯 (backtrace) 的正则表达式，尝试用画图去解释 backtrace 的原理(总步数与原文不一致，是因为我省略了一些步骤方便理解)：
-![](../images/blog/190727_cloudflare_outage/15654414449732.jpg)
+![](/images/blog/190727_cloudflare_outage/15654414449732.jpg)
 ~~(Why is zero plural?🤔😄)~~
 
 当然如果你不想细看，也可以直接看原文中的动画，有个大致的体感：
-![23-steps-1 -1-](../images/blog/190727_cloudflare_outage/23-steps-1%20-1-.gif)
+![23-steps-1 -1-](/images/blog/190727_cloudflare_outage/23-steps-1%20-1-.gif)
 
 总而言之，就是随着字符串的增加，正则匹配的时间复杂度爆炸增长，最终导致 CPU 资源耗尽：
-![](../images/blog/190727_cloudflare_outage/15654415085718.jpg)
+![](/images/blog/190727_cloudflare_outage/15654415085718.jpg)
 
 
 # 故障根因
@@ -66,7 +66,7 @@ Cloudflare 的变更管理&感知看上去做的挺不错的, 但真正发生故
 # 彩蛋
 **最后的最后，这句话真的很触动我。。**
 > This is the first thing I've ever done professionally that I truly, completely love. I wake up every day just thrilled at the work we're doing. [Source](https://gist.github.com/jgrahamc/6bb02a6f7c3799a1590b3cdb901f8e08)
-![](../images/blog/190717_cloudflare_outage/15633465043345.jpg)
+![](/images/blog/190717_cloudflare_outage/15633465043345.jpg)
 
 
 

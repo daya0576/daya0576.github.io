@@ -37,7 +37,7 @@ if __name__ == "__main__":
 ```
 
 Pyright 认真负责给出如下报错提示：`[Pyright reportGeneralTypeIssues] Argument of type "Column[str]" cannot be assigned to parameter "name" of type "str" in function "print_username" [E]`
-![](../images/blog/2021-09-04-jvm-note/16831164151732.jpg)
+![](/images/blog/2021-09-04-jvm-note/16831164151732.jpg)
 
 
 ## 解决办法
@@ -46,7 +46,7 @@ Pyright 认真负责给出如下报错提示：`[Pyright reportGeneralTypeIssues
 Pyright 可正确识别 `user` 实例的 `name` 属性为 `str` 类型，而不是代码定义的 `Column` 类型。
 
 小技巧：无需引用，直接使用 `reveal_type` 方法调试类型：
-![](../images/blog/2021-09-04-jvm-note/16831174091876.jpg)
+![](/images/blog/2021-09-04-jvm-note/16831174091876.jpg)
 
 
 ## WHY???

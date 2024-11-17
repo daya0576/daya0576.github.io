@@ -72,16 +72,16 @@ deploy:
 
 ## Buddy
 最后快速吸引我眼球的自动化部署工具叫做 [Buddy](https://app.buddy.works), 每次 GitHub 更新代码后就会自动触发执行部署:
-![](../images/blog/171216_cicd/15450540893764.jpg)
+![](/images/blog/171216_cicd/15450540893764.jpg)
 
 Buddy 的个性化流程编排的交互做的很好: 这样可以把每一步的边界可以分的很清楚, 让人身心愉悦. 而且因为用的 docker, 所以第一次缓存后, 之后每次执行的速度也特别的快.
-![](../images/blog/171216_cicd/15450634864348.jpg)
+![](/images/blog/171216_cicd/15450634864348.jpg)
 
 Perfect~
 
 ## GitHub Actions
 [链接](https://github.com/features/actions)，申请试用中...    
-![](../images/blog/171216_cicd/15524872888810.jpg)
+![](/images/blog/171216_cicd/15524872888810.jpg)
 
 
 

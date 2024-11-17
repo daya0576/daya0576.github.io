@@ -20,7 +20,7 @@ categories:
 通过 `__class__` 查看某个 instance 的类型
 
 这两种关系，分别对应 UML 中两种画法：
-![](../images/blog/200104_japan_travel/16054349536454.jpg)
+![](/images/blog/200104_japan_travel/16054349536454.jpg)
 
 ## 新式类 & 旧式类
 新式类保持 class 与 type 的统一，i.e. Creating a new class creates a new type of object
@@ -54,7 +54,7 @@ python 中万物皆对象，可以看到 `object` 与 `type` 为两个内置对�
 ```
 
 emmm，有点绕，这时候就需要画个图：
-![](../images/blog/200104_japan_travel/16054299808003.jpg)
+![](/images/blog/200104_japan_travel/16054299808003.jpg)
 
 
 ## 内置数据类型
@@ -68,7 +68,7 @@ emmm，有点绕，这时候就需要画个图：
 ```
 
 list 与 dict 继承于 object，由 type 实例化而来：
-![](../images/blog/200104_japan_travel/16054303136575.jpg)
+![](/images/blog/200104_japan_travel/16054303136575.jpg)
 
 ## 自定义对象
 再实例化一个 list 和一个自定义类(MyClass)看看。
@@ -93,7 +93,7 @@ Traceback (most recent call last):
 AttributeError: 'MyClass' object has no attribute '__base__'
 ```
 
-![](../images/blog/200104_japan_travel/16054322270354.jpg)
+![](/images/blog/200104_japan_travel/16054322270354.jpg)
 
 这个地方有两个小问题自问自答一下：
 
@@ -103,7 +103,7 @@ AttributeError: 'MyClass' object has no attribute '__base__'
 ## 元类
 
 基于上面的介绍，我们发现其实可以给所有的对象分为三大类（metaclass / class / instance）：
-![](../images/blog/200104_japan_travel/16054350983201.jpg)
+![](/images/blog/200104_japan_travel/16054350983201.jpg)
 
 而 `type` 其实就是一个内置的 metaclass。这时引出这篇文章的下篇：《浅谈 Python Metaclass（下）：Django ORM 应用与实践》
 

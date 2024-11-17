@@ -13,7 +13,7 @@ categories:
 
 # 背景
 在我们的Django应用中, 一个完整http请求的处理链路如下:    
-![](../images/blog/190302_uwsgi_with_threading_bug/15515110409824.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515110409824.jpg)
 
 最后三步(view + 线程池 + method)的代码逻辑如下:    
 ```python
@@ -38,10 +38,10 @@ def view(request):  # noqa
 # 排查
 ## 线索一: 日志
 遇到这类线上问题, 第一直觉肯定是去查看日志. 花了一些时间尝试多打印日志定位问题, 但最后发现每个线程的日志会在流程最后一步中(抛给线程池并执行的method)中随机中断, 并且没有抛出任何异常, 如果有的话肯定会被 future 的 [callback](https://docs.python.org/3/library/asyncio-task.html#asyncio.Task.add_done_callback)进行处理, 并被 sentry 捕捉到).   
-![](../images/blog/190302_uwsgi_with_threading_bug/15515185157041.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515185157041.jpg)
 
 **但是!** 有个重要的细节被忽略掉了: 线程处理中断的时候, 线程id没有改变, 但进程id新起了一个, 这个点为未来埋下了伏笔
-![](../images/blog/190302_uwsgi_with_threading_bug/15515183233503.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515183233503.jpg)
 
 
 ## 线索二: 重现的频率
@@ -49,7 +49,7 @@ def view(request):  # noqa
 
 # 猜猜猜
 基于上述两个线索, 机智的同事猜到了 bug 的原因: 我们在 uwsgi 的配置文件中设置了 [max-requests=5000](https://uwsgi-docs-additions.readthedocs.io/en/latest/Options.html#max-requests), 也就是说如果每个 worker 收到超过 5000 个请求, 就会被杀掉并且重启(killed and restart):    
-![](../images/blog/190302_uwsgi_with_threading_bug/15515147365023.jpg)
+![](/images/blog/190302_uwsgi_with_threading_bug/15515147365023.jpg)
 
 一般情况下, 这是没有什么问题的, 因为 worker 每次 respawn(重生)的时候, 会等它 gracefully 处理完所有的请求. 但我们的view把任务抛到线程池处理直接返回了, 导致uwsgi 认为请求处理完毕并reload worker 了.   
 

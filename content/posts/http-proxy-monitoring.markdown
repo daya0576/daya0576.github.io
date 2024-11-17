@@ -13,7 +13,7 @@ categories:
 
 <!--more-->
 
-![](../images/blog/2021-09-04-jvm-note/17081545533064.jpg)
+![](/images/blog/2021-09-04-jvm-note/17081545533064.jpg)
 
 # Workflow
 ```
@@ -42,7 +42,7 @@ Source code: [promql/functions.go](https://github.com/prometheus/prometheus/blob
 
 #### 1）计算平均增长率
 首先计算首尾两个 sample 的差值，例如下图 `1 1 1 2 3`，则 `resultFloat = 3 - 1 = 2`
-![rate-1.drawio](../images/blog/2021-09-04-jvm-note/rate-1.drawio.svg)
+![rate-1.drawio](/images/blog/2021-09-04-jvm-note/rate-1.drawio.svg)
 
 关键代码如下：
 ```go
@@ -62,7 +62,7 @@ if !isCounter {
 
 从而尝试估算更加真实的 rate 变化率（允许一定误差）。
 
-![rate-4.drawio](../images/blog/2021-09-04-jvm-note/rate-4.drawio.svg)
+![rate-4.drawio](/images/blog/2021-09-04-jvm-note/rate-4.drawio.svg)
 
 如上图，假如不做推断，`increase = 3 - 1 = 2`，尝试推断后 `increase = 4 - 0 = 4`
 
@@ -78,7 +78,7 @@ if !isCounter {
 <mark>边界情况1</mark> -> 处理计数器重置（e.g. exporter 重启等情况）
 
 例如 `1 2 3 1 2`，则 `resultFloat = 2 - 1 + 3 = 4`，个人理解等同于 `(3 - 1) + (2 - 0)`
-![rate-2.drawio](../images/blog/2021-09-04-jvm-note/rate-2.drawio.svg)
+![rate-2.drawio](/images/blog/2021-09-04-jvm-note/rate-2.drawio.svg)
 
 关键代码如下：
 ```go
@@ -95,7 +95,7 @@ for _, currPoint := range samples.Floats[1:] {
 <mark>边界情况2</mark> -> 推断范围限制（估计的起始时间，对应计数不得为负数）。
 
 简而言之，下图黄线向左持续延伸时，不得低于 x 轴
-![rate-3.drawio](../images/blog/2021-09-04-jvm-note/rate-3.drawio.svg)
+![rate-3.drawio](/images/blog/2021-09-04-jvm-note/rate-3.drawio.svg)
 
 关键代码如下：
 ```go
@@ -127,7 +127,7 @@ if isCounter && resultFloat > 0 && len(samples.Floats) > 0 && samples.Floats[0].
 - 由于 `durationToStart = 45s - 30s = 15s < 33s`，未超过阈值，所以黄线可以扩展至 `rangeStart`
 - 反之若超出阈值，则最多延伸样本平均间隔的一半（首尾相加刚好凑齐一个整的间隔）
 
-![rate-4.drawio](../images/blog/2021-09-04-jvm-note/rate-4.drawio.svg)
+![rate-4.drawio](/images/blog/2021-09-04-jvm-note/rate-4.drawio.svg)
 
 关键代码如下：
 ```go

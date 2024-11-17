@@ -11,35 +11,35 @@ categories:
 
 <!--more-->  
 
-![](../images/blog/181004_kmeans_algorithm/15386453519338.jpg)
+![](/images/blog/181004_kmeans_algorithm/15386453519338.jpg)
 
 # supervised learning 与 Unsupervised learning的区别
 个人理解 一是知道了一堆人中男人和女人, 找个方法把他们分开, 然后新来一个人也能根据这个方法来判断他的性别. 二是把一堆人自动分为两类. 
-![](../images/blog/181004_kmeans_algorithm/15386471103036.png)
+![](/images/blog/181004_kmeans_algorithm/15386471103036.png)
 
 
 # K-means 聚类算法的解释
 K-means 聚类算法属于 Unsupervised learning 的一种, 下文会分四个步骤详细解释一下.
 ## 第一步: randomly initialize two points
 随机选择两个点. 如果想把图中没有标记的点分为K类, 就随机选择K个点.    
-![](../images/blog/181004_kmeans_algorithm/15386440767307.jpg)
+![](/images/blog/181004_kmeans_algorithm/15386440767307.jpg)
 
 **优化:** 如下图随机选取三个点, 但如果初始化不好的话, 很可能两个点会一直在一个cluster中, i.e. 另外两个cluster被合在一起了.
 **解决办法:** 也是挺暴力的, 执行随机放置初始化的点(也就是步骤一)一百次, 挑最好的那次来避免这种情况(randomly initialize for 100 times, and pick one for the lowest cost). 
-![](../images/blog/181004_kmeans_algorithm/15386462428310.jpg)
+![](/images/blog/181004_kmeans_algorithm/15386462428310.jpg)
 
 ## 第二步: cluster assignment 
 将图中的所有点, 根据与初始化点的距离, 分为两组.
-![](../images/blog/181004_kmeans_algorithm/15386440868835.jpg)
+![](/images/blog/181004_kmeans_algorithm/15386440868835.jpg)
 
 
 ## 第三步: move two points to the new means(e.g. average of the all the blue points)
 根据第二步得出的两组点, 重现计算新两个的中心(见下图箭头所指的点所示).   
-![](../images/blog/181004_kmeans_algorithm/15386441156541.jpg)
+![](/images/blog/181004_kmeans_algorithm/15386441156541.jpg)
 
 ## 第四步: until the two point not moving any further.
 一直重复前三步的操作, 直到新的中心不再变化为止.   
-![](../images/blog/181004_kmeans_algorithm/15386441343119.jpg)
+![](/images/blog/181004_kmeans_algorithm/15386441343119.jpg)
 
 
 # 其他

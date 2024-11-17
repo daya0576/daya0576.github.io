@@ -38,6 +38,6 @@ categories:
 
 <div style="color: white">大文娱(鱼)...</div>
 
-![UNADJUSTEDNONRAW_thumb_5070](../images/blog/180829_ant_journal_entry/UNADJUSTEDNONRAW_thumb_5070.jpg)
+![UNADJUSTEDNONRAW_thumb_5070](/images/blog/180829_ant_journal_entry/UNADJUSTEDNONRAW_thumb_5070.jpg)
 
 -EOF-

@@ -22,38 +22,38 @@ categories:
 
 # 本地添加远程仓库(upstream)
 博主本地的`theme/next`文件夹是fork下来到自己的仓库, 再通过submodule管理的: 
-![](../images/blog/1800901_hexo_next_update/15357925972575.jpg)
+![](/images/blog/1800901_hexo_next_update/15357925972575.jpg)
 
 所以第一次更新主题版本时, 要添加远程仓库(upstream): `git remote add upstream git@github.com:theme-next/hexo-theme-next.git`
 
 下图可以看到`origin`对应的是个人仓库, `upstream`对应的是Next项目的仓库. 
-![](../images/blog/1800901_hexo_next_update/15463587822040.jpg)
+![](/images/blog/1800901_hexo_next_update/15463587822040.jpg)
 
 # 拉取Next最新代码
 `git fetch upstream`拉取Next项目最新的代码:   
-![](../images/blog/1800901_hexo_next_update/15357928615366.jpg)
+![](/images/blog/1800901_hexo_next_update/15357928615366.jpg)
 
 # 合并分支
 `git merge v6.4.0`合并代码:
-![](../images/blog/1800901_hexo_next_update/15357931212528.jpg)
+![](/images/blog/1800901_hexo_next_update/15357931212528.jpg)
 
 可以看到`post-reward.styl`文件出现冲突(conflict)了.    
 解决冲突后, 马上就大功告成了!!!    
-![](../images/blog/1800901_hexo_next_update/15357932201665.jpg)
+![](/images/blog/1800901_hexo_next_update/15357932201665.jpg)
 
 # git记录
 `git log`可以清楚的看到 合并Next主题代码和本地代码合并的记录:
-![](../images/blog/1800901_hexo_next_update/15357933184002.jpg)
+![](/images/blog/1800901_hexo_next_update/15357933184002.jpg)
 
 # 其他
 升级后NexT的版本还是显示`v6.3.0`, 
-![](../images/blog/1800901_hexo_next_update/15358741539618.jpg)
+![](/images/blog/1800901_hexo_next_update/15358741539618.jpg)
 
 在telegram的群里问里一下, 竟然是..发布tag的时候忘记改version了.   
-![](../images/blog/1800901_hexo_next_update/15358762828266.jpg)
+![](/images/blog/1800901_hexo_next_update/15358762828266.jpg)
 
 那么问题来了, 这个version变量是哪里来的呢? 再了解了一下, 原来是从`package.json`里取的(`themes/next/scripts/helpers.js`):
-![](../images/blog/1800901_hexo_next_update/15358846331974.jpg)
+![](/images/blog/1800901_hexo_next_update/15358846331974.jpg)
 
 
 cheers, 笔芯❤️

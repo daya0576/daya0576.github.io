@@ -63,7 +63,7 @@ Disqus lazyload逻辑的代码如下:
 主要做了两个改动: 
 - 将`scrollTop = document.documentElement.scrollTop`替换为Safari兼容的`scrollTop = $(window).scrollTop();`. 
 - 实时的去获取`$('#comments').offset().top - $(window).height()`, 因为在调试的过程中, 发现这个值总是不准确, 原来是很多未加载的图片(lazyload)没有高度造成的. 而且用户可能动态的去改变游览器的窗口大小, 所以感觉这个改动还是挺合理的.
-![](../images/blog/1800903_hexo_next_first_pr/15359887018737.jpg)
+![](/images/blog/1800903_hexo_next_first_pr/15359887018737.jpg)
 
 
 具体代码: 

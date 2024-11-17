@@ -24,7 +24,7 @@ export https_proxy=http://127.0.0.1:<port>;export http_proxy=http://127.0.0.1:<p
 ```
 
 After sending the [CONNECT](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6) method request, the `https_proxy` can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.
-![http_proxy_original.drawio](../images/blog/2021-09-04-jvm-note/http_proxy_original.drawio.svg)
+![http_proxy_original.drawio](/images/blog/2021-09-04-jvm-note/http_proxy_original.drawio.svg)
 
 
 ## 2. Traffic Processing
@@ -48,7 +48,7 @@ We must hijack HTTPS requests to determine the type of dependency service (such 
     2. Data transmission: session key → data encryption
 
 Appropriate workflow (i.e. MITM attack):
-![rtf MITM1.drawio](../images/blog/2021-09-04-jvm-note/rtf%20MITM1.drawio.svg)
+![rtf MITM1.drawio](/images/blog/2021-09-04-jvm-note/rtf%20MITM1.drawio.svg)
 
 ## Reference 
 1. https://github.com/chobits/ngx_http_proxy_connect_module

@@ -13,12 +13,12 @@ categories:
 
 <!--more-->
 
-![1](../images/blog/2021-09-04-jvm-note/1.png)
-![2](../images/blog/2021-09-04-jvm-note/2.png)
-![5](../images/blog/2021-09-04-jvm-note/5.png)
-![6](../images/blog/2021-09-04-jvm-note/6.png)
-![7](../images/blog/2021-09-04-jvm-note/7.png)
-![8](../images/blog/2021-09-04-jvm-note/8.png)
+![1](/images/blog/2021-09-04-jvm-note/1.png)
+![2](/images/blog/2021-09-04-jvm-note/2.png)
+![5](/images/blog/2021-09-04-jvm-note/5.png)
+![6](/images/blog/2021-09-04-jvm-note/6.png)
+![7](/images/blog/2021-09-04-jvm-note/7.png)
+![8](/images/blog/2021-09-04-jvm-note/8.png)
 
 
 # 整体配置：
@@ -43,36 +43,36 @@ SSD：三星980pro 1T
 一是颜值即正义，配合官网提供了大量 DLC 套件，在组装的过程中，由衷的感叹 t1 机箱就像一份精心设计的代码，不管是可维护性和扩展性都优雅的令人陶醉。
 
 除了价格略贵，几乎没有任何缺点。
-![1EDAD6DE-FC0C-4A95-9251-7A448D00B796_1_105_c](../images/blog/2021-09-04-jvm-note/1EDAD6DE-FC0C-4A95-9251-7A448D00B796_1_105_c.jpeg)
+![1EDAD6DE-FC0C-4A95-9251-7A448D00B796_1_105_c](/images/blog/2021-09-04-jvm-note/1EDAD6DE-FC0C-4A95-9251-7A448D00B796_1_105_c.jpeg)
 
 
 ### 主板 ★★☆☆☆
 在主板的选择上踩了个小坑，由于习惯了苹果设备雷电口一根 typec 的解决方案，寻思着从 mac mini 切换至 pc 也只需插拔线即可，所以特地选择了附带雷电口的主板。
 
 理想很丰满：
-![理想](../images/blog/2021-09-04-jvm-note/%E7%90%86%E6%83%B3.svg)
+![理想](/images/blog/2021-09-04-jvm-note/%E7%90%86%E6%83%B3.svg)
 
 现实却给人无情一击，虽然雷电口可以输出 4k 视频信号，但主板没有 DP In 接口，只能单独显卡接线至显示器，着实不是很优雅：
-![现实](../images/blog/2021-09-04-jvm-note/%E7%8E%B0%E5%AE%9E.svg)
+![现实](/images/blog/2021-09-04-jvm-note/%E7%8E%B0%E5%AE%9E.svg)
 
 如果 cpu 具备核心显卡，虽然咨询了客服反馈无法输出独显信号，但网上反馈目前普遍支持混合输出（一定性能损耗？），等下一代 cpu 换代时可不能省这个 50 元了 XD
 
 ### 散热 ★★★★★
 猫头鹰的风扇给人很大的惊喜，用一个词形容就是精致：
-![7488B0C5-4AED-4327-97DE-0318409A167E_1_102_a](../images/blog/2021-09-04-jvm-note/7488B0C5-4AED-4327-97DE-0318409A167E_1_102_a.jpeg)
+![7488B0C5-4AED-4327-97DE-0318409A167E_1_102_a](/images/blog/2021-09-04-jvm-note/7488B0C5-4AED-4327-97DE-0318409A167E_1_102_a.jpeg)
 
 关于进出风方向：Always intake on the sides (GPU, CPU cooler, PSU), and exhaust out the top
 
 ### CPU ★★★☆☆
 中规中矩，性价比之王，真实游戏体验中还未遇到瓶颈。
-![IMG_7616](../images/blog/2021-09-04-jvm-note/IMG_7616.jpeg)
+![IMG_7616](/images/blog/2021-09-04-jvm-note/IMG_7616.jpeg)
 
 ### 显卡 ★★★★☆
 4070fe 两槽的苗条身材，配合200w 的高能效，搭配 itx 机箱简直就是绝配
-![1](../images/blog/2021-09-04-jvm-note/1-2.png)
+![1](/images/blog/2021-09-04-jvm-note/1-2.png)
 
 除了一定的性价比问题。。
-![1](../images/blog/2021-09-04-jvm-note/1-1.png)
+![1](/images/blog/2021-09-04-jvm-note/1-1.png)
 
 
 ## 可选
@@ -94,7 +94,7 @@ SSD：三星980pro 1T
 装机的难度比想象小一些，跟着视频或官网的电子说明书，多少花点时间即可圆满完成任务。
 
 😚为10月25日发售的天际线2做好充足的准备～
-![Pasted Graphic](../images/blog/2021-09-04-jvm-note/Pasted%20Graphic.png)
+![Pasted Graphic](/images/blog/2021-09-04-jvm-note/Pasted%20Graphic.png)
 
 
 # 参考

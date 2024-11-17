@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-![overview](../images/blog/2021-09-04-jvm-note/overview.jpg)
+![overview](/images/blog/2021-09-04-jvm-note/overview.jpg)
 
 ## TOC
 - [TOC](#toc)
@@ -49,7 +49,7 @@ tags:
 项目地址：https://github.com/grafana/esp32-metrics-matrix
 
 将代码 flash 至 ESP32 硬件后，整体时序交互如下：
-![](../images/blog/2021-09-04-jvm-note/16931507619271.jpg)
+![](/images/blog/2021-09-04-jvm-note/16931507619271.jpg)
 
 ### 第一步：metric 指标准备
 
@@ -69,15 +69,15 @@ Arduino（硬件开发框架）提供了两个 spi 供实现：
 ### 第三步：用户更新配置
 
 接上一步 http server，作者用 gpt 编写了一个前端页面，方便用户动态控制部分配置：
-![](../images/blog/2021-09-04-jvm-note/16931506456594.jpg)
+![](/images/blog/2021-09-04-jvm-note/16931506456594.jpg)
 
 ### 第四步：指标查询&展示
 
 每分钟抓取最新的 metric 指标，并在 led 面板上展示：
-![](../images/blog/2021-09-04-jvm-note/16931521726946.jpg)
+![](/images/blog/2021-09-04-jvm-note/16931521726946.jpg)
 
 整体链路：小米温度计 -> Home Assistant -> Grafana Agent -> Grafana Cloud -> ESP32 -> LED
-![overview](../images/blog/2021-09-04-jvm-note/overview.jpg)
+![overview](/images/blog/2021-09-04-jvm-note/overview.jpg)
 
 ## 总结
 
@@ -91,6 +91,6 @@ Arduino（硬件开发框架）提供了两个 spi 供实现：
 ## 最终效果
 
 书房一开门，一股粉红的迷人气息扑面而来，太酷啦！
-![1 -6-](../images/blog/2021-09-04-jvm-note/1%20-6-.png)
+![1 -6-](/images/blog/2021-09-04-jvm-note/1%20-6-.png)
 
-![](../images/blog/2021-09-04-jvm-note/16931395653162.jpg)
+![](/images/blog/2021-09-04-jvm-note/16931395653162.jpg)

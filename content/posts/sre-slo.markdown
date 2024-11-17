@@ -11,7 +11,7 @@ tags:
 最近学了个新的单词：cornerstone，而制定 SLOs，配置监控，以及告警应急可以说是 SRE 的基石。过去几年个人工作也与可用性监控相爱相杀。最近工作遇到一些瓶颈，周末重温 Google SLO 文化[《Google's Site Reliability Workbook》](https://sre.google/workbook/table-of-contents/)，期望激发一些新的灵感～
 
 <!--more-->
-![](../images/blog/2021-09-04-jvm-note/16459388413486.jpg)
+![](/images/blog/2021-09-04-jvm-note/16459388413486.jpg)
 
 
 
@@ -122,7 +122,7 @@ tags:
 - 优点：极大提高了准确率
 - 缺点：计算窗口过大.. 一是浪费计算存储资源，二是上文提到的第四个指标（Reset time）非常不理想。例如下图第10分钟时，服务 100% 不可用 5 分钟（蓝线），但报警会持续超过阈值 36 小时（绿线）
 
-![](../images/blog/2021-09-04-jvm-note/16458790779987.jpg)
+![](/images/blog/2021-09-04-jvm-note/16458790779987.jpg)
 
 
 #### 3）递增警报持续时间
@@ -131,7 +131,7 @@ tags:
 - 优点：准确率更高
 - 缺点：召回率上存在一定缺陷（定时循环消耗 slo 但很快恢复），例如下图持续每五分钟产生一波 100% 不可用，但永远不会告警。
 
-![](../images/blog/2021-09-04-jvm-note/16458795516070.jpg)
+![](/images/blog/2021-09-04-jvm-note/16458795516070.jpg)
 
 
 #### 4）消耗速率警报 - burning rate
@@ -142,7 +142,7 @@ tags:
 - 如果燃烧速率为 1，则正好一个月消耗完 error budget
 - 如果燃烧速率为 10（橙色），3 天（30 / 10）就会消耗完
 
-![](../images/blog/2021-09-04-jvm-note/16458797569689.jpg)
+![](/images/blog/2021-09-04-jvm-note/16458797569689.jpg)
 
 新的告警规则：<mark>一小时内花费30天错误预算的5％</mark>：`job:slo_errors_per_request:ratio_rate1h{job="myjob"} > 36 * 0.001` 
 
@@ -186,7 +186,7 @@ ratio_rate5m{job="myjob"} > (14.4*0.001)
 ```
 
 例如下图仅红色区域触发预警事件：
-![](../images/blog/2021-09-04-jvm-note/16458821188562.jpg)
+![](/images/blog/2021-09-04-jvm-note/16458821188562.jpg)
 
 P.S. 困惑与成功率的区别？？？e.g. 最近五分钟平均成功率<90% &&  最近1h平均成功率 < 99%
 理论上等同，但 burn rate 优势在于仅用一个阈值：36，而成功率还要重新换算，个人理解。 

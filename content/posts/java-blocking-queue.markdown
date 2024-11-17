@@ -32,16 +32,16 @@ ArrayBlockingQueue#take
 native 方法可以理解为另一个层面的接口，供非 java 代码实现底层逻辑。
 
 首先根据 `sun.misc.Unsafe#park` 搜索[源代码](https://github.com/JetBrains/jdk8u_hotspot)：
-![](../images/blog/16439469274665.jpg)
+![](/images/blog/16439469274665.jpg)
 
 我们发现 `Unsafe#park` 实际调用当前线程 `Parker` 对象的 `park` 方法
-![](../images/blog/16439468851293.jpg)
+![](/images/blog/16439468851293.jpg)
 
 继续寻找 `Parker::park` 方法..
-![](../images/blog/16439473688366.jpg)
+![](/images/blog/16439473688366.jpg)
 
 以 linux 实现为例，当超时时间为 0 时，Parker::park 方法最终调用标准库 `pthread_cond_wait`（`# include <pthread.h>`），挂起线程，等待被唤醒。
-![](../images/blog/16439611572855.jpg)
+![](/images/blog/16439611572855.jpg)
 
 
 # 接口定义
@@ -53,20 +53,20 @@ native 方法可以理解为另一个层面的接口，供非 java 代码实现�
 - `take()`: waiting if necessary
 - `pull(timeout, unit)`: waiting + timeout
 
-![](../images/blog/16407823699079.jpg)
+![](/images/blog/16407823699079.jpg)
 p.s. Special value 特殊值指的 false/null 等.. 
 
 \-
 
 为了更好理解，参考博主绘制的 uml 图，`BlockingQueue` 接口在 `Queue` 的基础之上，扩展了 `take`&`put` 两个阻塞方法：
-![blockingqueue](../images/blog/blockingqueue.svg)
+![blockingqueue](/images/blog/blockingqueue.svg)
 
 
 # 接口实现
 
 一图胜千言，简单绘制常见几种官方队列数据结构（下面将根据源码一一说明）：
 
-![java_queue_diff](../images/blog/java_queue_diff.svg)
+![java_queue_diff](/images/blog/java_queue_diff.svg)
 
 
 ## 1. LinkedBlockingQueue

@@ -18,7 +18,7 @@ categories:
 继承最大的好处在于变量与方法的代码共享，这种强大的便利，也很容易造成“反噬”。
 
 想象下面这个例子：公司同时生产汽车 Car 和卡车 Truck，车辆可能是电动车 Electric 或 汽油车 Combustion; 所有车型都配备了手动控制 Manual control 或 自动驾驶 Autopilot 功能：
-![](../images/blog/2021-09-04-jvm-note/16724872128989.jpg)
+![](/images/blog/2021-09-04-jvm-note/16724872128989.jpg)
 
 如上多层继承关系耦合错综复杂，给后续代码的改动与阅读造成了极大困扰：
 1. 若属性 A 被多个子类复写后，很难一步找到真实的归属，只能通过 debug 小心翼翼修改代码；
@@ -62,7 +62,7 @@ class Forwarder(EmailAddr):
 ```
 
 回到开头公司汽车的案例，单纯追求代码复用的**多层继承**，则使用组合更为合理（继承多个 mixin 也是一种特殊的组合，但不推荐）。
-![](../images/blog/2021-09-04-jvm-note/16724888878107.jpg)
+![](/images/blog/2021-09-04-jvm-note/16724888878107.jpg)
 
 面对 subclass explosion，更多解决思路：[《The Composition Over Inheritance Principle》](https://python-patterns.guide/gang-of-four/composition-over-inheritance/)
 

@@ -16,18 +16,18 @@ categories:
 ## Tip1: 如何在终端打开仓库
 Toolbox 中修改 scripts location 后，终端执行 `idea xx` 即可：
 
-![](../images/blog/2021-09-04-jvm-note/16516488178925.jpg)
+![](/images/blog/2021-09-04-jvm-note/16516488178925.jpg)
 
 
 ## Tip2: Fix all
 作为一名经验丰富的 copy/paste 手工劳动者，复制代码后如何批量修复小问题：
 
-![](../images/blog/2021-09-04-jvm-note/16471630809745.jpg)
+![](/images/blog/2021-09-04-jvm-note/16471630809745.jpg)
 参考：
 
 ## Tip3: File Structure
 文件篇幅过大，如何快速找到当前文件内的一个变量或方法：
-![](../images/blog/2021-09-04-jvm-note/16471636200710.jpg)
+![](/images/blog/2021-09-04-jvm-note/16471636200710.jpg)
 
 ## Tip4：自动打开 MR 链接
 其实与 ide 无关，编辑 `.git/hooks/pre-push` 文件即可（记得替换 `{{url}}` 变量）：
@@ -43,7 +43,7 @@ open $mrUrl
 
 最早应该在 Sublime 体验多光标编辑，近期给同事在 idea 中演示，对方直呼真骚：
 
-![](../images/blog/2021-09-04-jvm-note/16516497949165.jpg)
+![](/images/blog/2021-09-04-jvm-note/16516497949165.jpg)
 
 
 

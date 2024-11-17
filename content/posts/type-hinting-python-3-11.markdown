@@ -13,7 +13,7 @@ categories:
 万幸 Python 虽然是动态类型语言，但经过多年的发展，[类型注解](https://docs.python.org/3/library/typing.html#relevant-peps)已逐步成熟。刚好十月底 [Python 3.11.0 发布](https://www.python.org/downloads/release/python-3110/)，让我们一起看看又引入了哪些新特性呢？
 
 <!--more-->
-![](../images/blog/2021-09-04-jvm-note/16677087604976.jpg)
+![](/images/blog/2021-09-04-jvm-note/16677087604976.jpg)
 
 TOC:
 - [**PEP 673**: Self type](#pep-673-https-peps-python-orgpep-0673-self-type引入-self类型)
@@ -178,5 +178,5 @@ c.name = "foo"
 题外话  
 - 震惊1：[pyright 项目](https://github.com/microsoft/pyright)中天天吭哧吭哧提交代码，辛勤认真回复 issue 的维护者 [Eric Traut](https://github.com/erictraut)，竟然是微软的 Technical Fellow
 - 震惊2：无意中搜索到，该 PEP 681 proposal 的初心是为了解决 pyright 无法正确解析 attr 库静态类型的问题（[#146](https://github.com/microsoft/pyright/issues/146)），而作者就是 Eric ... https://github.com/microsoft/pyright/discussions/1782  
-![](../images/blog/2021-09-04-jvm-note/16677087604976.jpg)
+![](/images/blog/2021-09-04-jvm-note/16677087604976.jpg)
 

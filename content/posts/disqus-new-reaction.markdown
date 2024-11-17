@@ -7,4 +7,4 @@ tags:
 ---
 
 效果图, 太 cool 了, 可惜只有新加的文章才能开启:
-![](../images/blog/180829_ios12_review/15357091006842.jpg)
+![](/images/blog/180829_ios12_review/15357091006842.jpg)

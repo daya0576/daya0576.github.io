@@ -22,12 +22,12 @@ export all_proxy=socks5://127.0.0.1:13659
 
 ## 2. 减小 clone 的大小
 强烈推荐先阅读博主 18 年的一篇文章：[《Git Internal (初探 git 的内部实现)》](/blog/20180315/git-internal/)，了解 git 底层的数据结构：
-![](../images/blog/16439392460547.jpg)
+![](/images/blog/16439392460547.jpg)
 
 因此绝大部分情况时候没有必要获取仓库完整的历史（所有 commit 对应的无意义文件，i.e. blob）
 
 下面三个参数可以按需使用：
-![gitclonediff](../images/blog/gitclonediff.jpg)
+![gitclonediff](/images/blog/gitclonediff.jpg)
 
 
 ### 速度对比测试&说明

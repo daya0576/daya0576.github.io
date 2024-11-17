@@ -88,9 +88,9 @@ if __name__ == '__main__':
 
 # 其他:
 分享一下我用 matplotlib 画的酷酷的图💪:    
-![](../images/blog/190204_matplot_thread_safing/15492804797787.jpg)
+![](/images/blog/190204_matplot_thread_safing/15492804797787.jpg)
 
-![](../images/blog/190204_matplot_thread_safing/ibaymax.jpg)
+![](/images/blog/190204_matplot_thread_safing/ibaymax.jpg)
 
 
 

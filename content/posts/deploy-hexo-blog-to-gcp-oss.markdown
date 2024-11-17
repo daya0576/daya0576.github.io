@@ -1,3 +1,4 @@
+---
 title: 部署Hexo静态博客(上) - Google Cloud Platform OSS之旅
 date: 2018-08-19 18:03:33
 categories:
@@ -7,7 +8,7 @@ categories:
 众所周知, 要使用国内的云服务, 不管是vps也好, cdn加速也好, 域名都是要备案的. 但对于我来说, 备案是不可能备案的，这辈子不可能备案的. 
 
 正好前段时间工作中接触了aliyun的oss, 就萌生了将网站部署到Google Cloud Platform的OSS上的想法💡.
-![](../images/blog/180819_hexo_to_gcp_oss/15346829618992.jpg)
+![](/images/blog/180819_hexo_to_gcp_oss/15346829618992.jpg)
 
 **结论:**    
 GCP的OSS速度看上去还是很优秀的, 但部署步骤繁琐, https比较棘手, 还是放弃了这种部署方式.   
@@ -19,14 +20,14 @@ GCP的OSS速度看上去还是很优秀的, 但部署步骤繁琐, https比较�
 ## 验证对网站的所有权
 创建前要先在search console中验证这个网站是你的, [验证链接](https://www.google.com/webmasters/tools/home?hl=en). 
 有很多种验证的方法, 如果你使用的是hexo的next主题, 可以在`_config.yml`中配置`google_site_verification`字段就ok了. 
-![](../images/blog/180819_hexo_to_gcp_oss/15346836448137.jpg)
+![](/images/blog/180819_hexo_to_gcp_oss/15346836448137.jpg)
 ## 注意bucket的名字
 如果要serve静态网站的话, **名字要和域名保持一致.**
-![](../images/blog/180819_hexo_to_gcp_oss/15346836542164.jpg)
+![](/images/blog/180819_hexo_to_gcp_oss/15346836542164.jpg)
 
 ## 地区:
 记得地区选Asia哟.
-![](../images/blog/180819_hexo_to_gcp_oss/15346836624305.jpg)
+![](/images/blog/180819_hexo_to_gcp_oss/15346836624305.jpg)
 
 
 # 上传文件
@@ -34,7 +35,7 @@ GCP的OSS速度看上去还是很优秀的, 但部署步骤繁琐, https比较�
 安装gsutil
 `pip install gsutil`
 不支持python3??? 
-![](../images/blog/180819_hexo_to_gcp_oss/15346836717853.jpg)
+![](/images/blog/180819_hexo_to_gcp_oss/15346836717853.jpg)
 
 ## gsutil简易版步骤
 创建bucket(或者手动创建, 这个不知道如何定制地区)   
@@ -57,10 +58,10 @@ www.example.com       CNAME    c.storage.googleapis.com.
 
 # 测速
 **GCP OSS(左)** VS **Aliyun香港 OSS(右)**   
-![](../images/blog/180819_hexo_to_gcp_oss/15346837142907.jpg)
+![](/images/blog/180819_hexo_to_gcp_oss/15346837142907.jpg)
 
 **GCP OSS(左)** VS **Aliyun香港 ECS(右)**
-![](../images/blog/180819_hexo_to_gcp_oss/15346837319940.jpg)
+![](/images/blog/180819_hexo_to_gcp_oss/15346837319940.jpg)
 
 
 # https

@@ -52,7 +52,7 @@ categories:
 ➜  unswco git:(develope) ✗ pyenv which python
 /Users/henry/.pyenv/versions/3.7.0/bin/python
 ```
-![](../images/blog/190707_python_env_management/15624854039065.jpg)
+![](/images/blog/190707_python_env_management/15624854039065.jpg)
 
 
 # 虚拟环境管理
@@ -66,7 +66,7 @@ categories:
 
 ## 3. venv
 Python 3.3 之后官方自带的虚拟环境管理，与 `virtualenv` 在实现上有一定不同，但看不到使用上有什么不同。
-![](../images/blog/190707_python_env_management/15625545552451.jpg)
+![](/images/blog/190707_python_env_management/15625545552451.jpg)
 [Source](https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments)
 
 ## 4. Pipenv
@@ -81,7 +81,7 @@ Python 3.3 之后官方自带的虚拟环境管理，与 `virtualenv` 在实现�
 
 # 其他
 如果你只是想用 pip 安装一些全局的小工具，那么[pipsi](https://github.com/mitsuhiko/pipsi) 或者 [pipx](https://github.com/pipxproject/pipx) 就是个不错的选择。它会为每个命令行工具自动生成一个虚拟环境：
-![](../images/blog/190707_python_env_management/15625174046152.jpg)
+![](/images/blog/190707_python_env_management/15625174046152.jpg)
 
 **p.s. 推荐使用 `pipx`, 因为 `pipsi` 已经不再维护。**
 
@@ -92,7 +92,7 @@ Python 3.3 之后官方自带的虚拟环境管理，与 `virtualenv` 在实现�
 
 
 # 纪念
-![](../images/blog/190707_python_env_management/15625174196560.jpg)
+![](/images/blog/190707_python_env_management/15625174196560.jpg)
 
 
 

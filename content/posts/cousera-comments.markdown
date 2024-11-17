@@ -16,19 +16,19 @@ tags: [study, python, cousera]
 
 <!--more-->
 
-![ico_topitme](../images/blog/140430_cousera/3.png)   
-![ico_topitme](../images/blog/140430_cousera/4.png)
+![ico_topitme](/images/blog/140430_cousera/3.png)   
+![ico_topitme](/images/blog/140430_cousera/4.png)
 
 
 # Mini-project # 2 - "Guess the number" game"   
-![ico_topitme](../images/blog/140430_cousera/5.png)     
-![ico_topitme](../images/blog/140430_cousera/6.png)   
-![ico_topitme](../images/blog/140430_cousera/7.png)     
+![ico_topitme](/images/blog/140430_cousera/5.png)     
+![ico_topitme](/images/blog/140430_cousera/6.png)   
+![ico_topitme](/images/blog/140430_cousera/7.png)     
 
 
 # Mini-project # 4 - "Pong"   
-![ico_topitme](../images/blog/140430_cousera/4_1.png)     
-![ico_topitme](../images/blog/140430_cousera/4_2.png) 
+![ico_topitme](/images/blog/140430_cousera/4_1.png)     
+![ico_topitme](/images/blog/140430_cousera/4_2.png) 
 
 
 ---

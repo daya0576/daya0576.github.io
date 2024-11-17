@@ -40,10 +40,10 @@ categories:
 
 有没有可能将上述的“个性化”处理逻辑，以事件的方式动态注入至 pipeline 中，最终在不同阶段的“埋点”触发：
 
-![](../images/blog/2021-09-04-jvm-note/16628836309525.jpg)
+![](/images/blog/2021-09-04-jvm-note/16628836309525.jpg)
 
 类图参考：
-![](../images/blog/2021-09-04-jvm-note/16628856341583.jpg)
+![](/images/blog/2021-09-04-jvm-note/16628856341583.jpg)
 
 
 
@@ -156,7 +156,7 @@ print(beverage)
 ```
 
 类图参考：
-![](../images/blog/2021-09-04-jvm-note/16629030758513.jpg)
+![](/images/blog/2021-09-04-jvm-note/16629030758513.jpg)
 
 代码参考：https://github.com/daya0576/python_design_patterns/blob/master/wrapper/decorator.py
 

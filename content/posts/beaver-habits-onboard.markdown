@@ -14,7 +14,7 @@ For the name of the project, it came from a game called "[Against the Storm](htt
 
 GitHub: https://github.com/daya0576/beaverhabits/
 Demo: https://beaverhabits.com/demo/
-![40740423-A4AB-4806-9A6A-6F1B896FC8AE_1_201_a](../images/blog/2021-09-04-jvm-note/40740423-A4AB-4806-9A6A-6F1B896FC8AE_1_201_a.jpeg)
+![40740423-A4AB-4806-9A6A-6F1B896FC8AE_1_201_a](/images/blog/2021-09-04-jvm-note/40740423-A4AB-4806-9A6A-6F1B896FC8AE_1_201_a.jpeg)
 
 
 # Tech stacks

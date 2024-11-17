@@ -17,28 +17,28 @@ date: 2019-07-30 10:58:01
 
 ## 第二步: 打开 & 配置 Automator
 Automator 是个系统自带的软件：
-![](../images/blog/190729_save_screenshot_tutorial/15643694506733.jpg)
+![](/images/blog/190729_save_screenshot_tutorial/15643694506733.jpg)
 
 打开后选择 "New Document":
-![](../images/blog/190729_save_screenshot_tutorial/15643696947239.jpg)
+![](/images/blog/190729_save_screenshot_tutorial/15643696947239.jpg)
 
 选择 "Folder Action":
-![](../images/blog/190729_save_screenshot_tutorial/15643697575204.jpg)
+![](/images/blog/190729_save_screenshot_tutorial/15643697575204.jpg)
 
 右上角的 "Folder Action receives files and folders added to", 选择桌面:
-![](../images/blog/190729_save_screenshot_tutorial/15643698567086.jpg)
+![](/images/blog/190729_save_screenshot_tutorial/15643698567086.jpg)
 
 添加第一个 Action! 在左侧(Action Library) 选择 "Filter Finder Items" 并双击添加。然后编辑添加过滤 "Screen Shot" 开头的文件（如果是中文系统这里可能有点不同）:
-![](../images/blog/190729_save_screenshot_tutorial/15643703266478.jpg)
+![](/images/blog/190729_save_screenshot_tutorial/15643703266478.jpg)
 
 再新建一个 Action(Import Files into Photos)，把截图导入至对应的相册：
-![](../images/blog/190729_save_screenshot_tutorial/15643705737083.jpg)
+![](/images/blog/190729_save_screenshot_tutorial/15643705737083.jpg)
 
 保存 automator workflow
 
 ## 第三步：使用
 像平时一样截图，稍微等个三四秒喝口咖啡，done~
-![](../images/blog/190729_save_screenshot_tutorial/15643707665517.jpg)
+![](/images/blog/190729_save_screenshot_tutorial/15643707665517.jpg)
 
 
 # 其他

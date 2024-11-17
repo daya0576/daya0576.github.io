@@ -15,6 +15,11 @@ categories:
 # 2021
 
 ## 正文
+在蚂蚁一共参与了三次晋升答辩：
+- 2019: p5->p6 (passed)
+- 2021: p6->p7 (failed)
+- 2022: p6->p7 (passed)
+
 如何获得晋升机会？
 - 阿里的绩效体系：3.75(30%) + 3.5(60%) + 3.25(10%)
 - 晋升条件：3.75 主管提名 OR 3.5+自主提名
@@ -43,7 +48,7 @@ categories:
     - 其他团队/产品的协作配合
     - ...
 
-![](../images/blog/2021-09-04-jvm-note/17311220522080.jpg)
+![](/images/blog/2021-09-04-jvm-note/17311220522080.jpg)
 
 
 ### 二、现场答辩
@@ -100,5 +105,7 @@ categories:
 
 # 彩蛋 🥳
 翻到以前罗翔老师来公司做分享，大家提的问题 XD
-![telegram-cloud-photo-size-5-6070963679538558060-y](../images/blog/2021-09-04-jvm-note/telegram-cloud-photo-size-5-6070963679538558060-y.jpg)
-![telegram-cloud-photo-size-5-6070963679538558116-x](../images/blog/2021-09-04-jvm-note/telegram-cloud-photo-size-5-6070963679538558116-x.jpg)
+
+![telegram-cloud-photo-size-5-6070963679538558060-y](/images/blog/2021-09-04-jvm-note/telegram-cloud-photo-size-5-6070963679538558060-y.jpg)
+
+![telegram-cloud-photo-size-5-6070963679538558116-x](/images/blog/2021-09-04-jvm-note/telegram-cloud-photo-size-5-6070963679538558116-x.jpg)

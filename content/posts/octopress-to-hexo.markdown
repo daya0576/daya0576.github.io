@@ -1,3 +1,4 @@
+---
 title: 博客搬家小记(Octopress → Hexo)
 date: 2023-08-07 21:05:49
 categories:
@@ -12,13 +13,13 @@ categories:
 <!--more-->
 
 放一张图纪念一下老博客:
-![](../images/blog/180807_octopress_to_hexo/old_blog.png)
+![](/images/blog/180807_octopress_to_hexo/old_blog.png)
 
 
 # Octopress几个痛点
 ## toc支持差
 toc: table of content, 虽然在老博客上可以在文章开头手动生成, 但体验肯定没有hexo上原生支持的好:
-![-w1074](../images/blog/180807_octopress_to_hexo/15336334210310.jpg)
+![-w1074](/images/blog/180807_octopress_to_hexo/15336334210310.jpg)
 
 
 ## 痛苦的编辑:
@@ -31,7 +32,7 @@ toc: table of content, 虽然在老博客上可以在文章开头手动生成, �
 
 ## octopress生态不行
 已经三年没有更新了.
-![](../images/blog/180807_octopress_to_hexo/github_octopress.png)   
+![](/images/blog/180807_octopress_to_hexo/github_octopress.png)   
 
 
 # 从迁移Octopress
@@ -39,16 +40,16 @@ toc: table of content, 虽然在老博客上可以在文章开头手动生成, �
 
 ## 基本配置
 - [x] Template render error: (unknown path)!!!!!!   
-![-w890](../images/blog/180807_octopress_to_hexo/15336323445390.jpg)
+![-w890](/images/blog/180807_octopress_to_hexo/15336323445390.jpg)
 官方提示: [https://hexo.io/docs/troubleshooting.html#Template-render-error](https://hexo.io/docs/troubleshooting.html#Template-render-error)
 日志`hexo s --debug`
 最后发现竟然是`\u2028`的问题, 是一个不占位数, 不可见的字符..
-![-w364](../images/blog/180807_octopress_to_hexo/15336324014527.jpg)
+![-w364](/images/blog/180807_octopress_to_hexo/15336324014527.jpg)
 - [x] 图片(lazyload & fancybox):    
 [https://github.com/Robin-front/hexo-lazyload](https://github.com/Robin-front/hexo-lazyload)
 fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`   
 终极解决方案: Webstorm的Zero Width Characters locator插件:
-![](../images/blog/180807_octopress_to_hexo/15362478881336.jpg)
+![](/images/blog/180807_octopress_to_hexo/15362478881336.jpg)
 
 - [x] 目录: toc自动生成
 - [x] 基本的config: [https://hexo.io/docs/configuration.html](https://hexo.io/docs/configuration.html)
@@ -78,7 +79,7 @@ fancybox和lazyload的自定义配置!!!: `themes/next/source/js/src/utils.js`
 ## 优化加载速度
 - [x] HTTP/2
 - [x] [hexo-filter-optimize](https://github.com/theme-next/hexo-filter-optimize) 效果见下图:
-![](../images/blog/180807_octopress_to_hexo/15362448125105.jpg)
+![](/images/blog/180807_octopress_to_hexo/15362448125105.jpg)
 
 
 

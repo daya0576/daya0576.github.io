@@ -43,7 +43,7 @@ categories:
 网上很多文章因为 java 版本的问题，存在不同程度的过时。
 
 所以花了一点时间，尝试通过「栈」和「堆」两个视角，将 java8 的内存分布重新绘制一遍加深理解：
-![](../images/blog/2021-09-04-jvm-note/16307787626886.jpg)
+![](/images/blog/2021-09-04-jvm-note/16307787626886.jpg)
 （p.s. 如果有不对的地方辛苦帮忙指正）
 
  
@@ -60,7 +60,7 @@ categories:
 程序运行本质上是方法的套娃调用，也就是不断入栈与出栈的过程。
 
 而每个栈帧（Stack Frame）中，本地变量（Local Variables）与 Heap 的关系如下：
-![](../images/blog/2021-09-04-jvm-note/16307786911033.jpg)
+![](/images/blog/2021-09-04-jvm-note/16307786911033.jpg)
 
 #### 3. 关于运行时常量池（Run-Time Constant Pool）
 ##### 1）首先理解 class 文件的常量池（Constant Pool）& 符号应用
@@ -153,7 +153,7 @@ p.s. 我们常说的 **动态连接**（Dynamic Linking）：指的是在开头�
 
 ## The End
 java 小白历险记，文中如有错误请多包涵，欢迎指正交流。
-![3FB01AAE-67BF-4755-B6ED-0A301FFB3B36_1_105_c](../images/blog/2021-09-04-jvm-note/3FB01AAE-67BF-4755-B6ED-0A301FFB3B36_1_105_c.jpeg)
+![3FB01AAE-67BF-4755-B6ED-0A301FFB3B36_1_105_c](/images/blog/2021-09-04-jvm-note/3FB01AAE-67BF-4755-B6ED-0A301FFB3B36_1_105_c.jpeg)
 
 
 ## 参考

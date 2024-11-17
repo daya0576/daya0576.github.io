@@ -47,7 +47,7 @@ date: 2020-06-14 01:05:14
 ## 第一章：策略模式 - 整合鸭子的行为
 将易变的属性，做为一个对象变量去初始化进行**组合（行为也是一种对象！）**
 
-![1. Duck Behaviors](../images/blog/200104_japan_travel/1.%20Duck%20Behaviors.png)
+![1. Duck Behaviors](/images/blog/200104_japan_travel/1.%20Duck%20Behaviors.png)
 
 
 ## 第二章：观察者模式 - The Observer Pattern
@@ -55,7 +55,7 @@ date: 2020-06-14 01:05:14
 
 **目的：**让观察者和被观察者，尽可能的解耦。  
 
-![2. Observer Pattern](../images/blog/200104_japan_travel/2.%20Observer%20Pattern.png)
+![2. Observer Pattern](/images/blog/200104_japan_travel/2.%20Observer%20Pattern.png)
 
 效果：
 
@@ -76,7 +76,7 @@ weatherData.setMeasurements(80, 65, 30.4f);
 ## 第三章：装饰者模式 - The Decorator Pattern
 当遇到继承无法解决的问题，可以尝试使用更为优雅的装饰者模式：
 
-![3. The Decorator Pattern: Decorating Objects](../images/blog/200104_japan_travel/3.%20The%20Decorator%20Pattern:%20Decorating%20Objects.png)
+![3. The Decorator Pattern: Decorating Objects](/images/blog/200104_japan_travel/3.%20The%20Decorator%20Pattern:%20Decorating%20Objects.png)
 
 最终效果如下，但初始化的方式有点简陋。文中也提到后续 “工厂” & “生成器” 模式，将有更好的方式建立被装饰对象。
 ``` java
@@ -97,7 +97,7 @@ System.out.println(beverage1);
 
 > 简单工厂其实不是一个设计模式，反而更像是一种编程习惯。
 
-![4. The Factory Pattern](../images/blog/200104_japan_travel/4.%20The%20Factory%20Pattern.png)
+![4. The Factory Pattern](/images/blog/200104_japan_travel/4.%20The%20Factory%20Pattern.png)
 
 在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。例如下面代码中
 
@@ -123,7 +123,7 @@ A: 因为需要在一开始就创建好对象，但实际一直没有用到，�
 Q. 什么需要单例呢？
 A: 确保一个类只有一个实例，并提供一个全局访问点。
 
-![5. Singleton](../images/blog/200104_japan_travel/5.%20Singleton.png)
+![5. Singleton](/images/blog/200104_japan_travel/5.%20Singleton.png)
 
 效果：
 ```java
@@ -133,7 +133,7 @@ Singleton instance = Singleton.getInstance();
 
 ## 第六章：命令模式 - The Command Pattern:
 RemoteLoader 可能有点困惑，其他可以简单将它理解为 `main` 函数，将 Light 和 LightOnCommand 绑定，并将 command 与 remoteControl 绑定：
-![](../images/blog/200104_japan_travel/15883270132958.jpg)
+![](/images/blog/200104_japan_travel/15883270132958.jpg)
 
 效果：
 ```java
@@ -154,7 +154,7 @@ Adaptor 继承了 Target 接口，并根据火鸡的特效实现了对应的鸭�
 
 最终达到与 client 交互时，可以直接把它当作一只鸭子。   
 
-![7. Adaptor ](../images/blog/200104_japan_travel/7.%20Adaptor%20.png)
+![7. Adaptor ](/images/blog/200104_japan_travel/7.%20Adaptor%20.png)
 
 三个的区别：
 - decorator: 将一个接口转成另外一个接口
@@ -184,12 +184,12 @@ turkeyAdaptor.fly();
 
 **⚠️注意抽象类中 brew 和 addCondiments 方法 是用斜体标示的，需要让子类实现对应细节。**而抽象类统一管理统一的处理流程与子步骤，并暴露给客户代码（减少整个系统的依赖）。
 
-![8. Template](../images/blog/200104_japan_travel/8.%20Template.png)
+![8. Template](/images/blog/200104_japan_travel/8.%20Template.png)
 
 
 ## 第九章：迭代与组合模式 - The Iterator and Composite Patterns
 迭代器模式，针对底层不同的 数组、列表、散列表等，统一为迭代器的对外接口。
-![um](../images/blog/200104_japan_travel/uml.png)
+![um](/images/blog/200104_japan_travel/uml.png)
 
 
 
@@ -197,7 +197,7 @@ turkeyAdaptor.fly();
 
 状态机。最近在做一个 telegram 群组管理的机器人，对于用户状态的管理，刚好也可以用到这个设计模式：
        
-![](../images/blog/200104_japan_travel/15920333438139.jpg)
+![](/images/blog/200104_japan_travel/15920333438139.jpg)
 
 效果：
 ```java
@@ -236,7 +236,7 @@ System.out.println(gumballMachine);
 - 但命令一个程序员去写代码的时候，在完成需求 crud 的同时，还要补充文档！
 
 静态 proxy：
-![](../images/blog/200104_japan_travel/15920354270766.jpg)
+![](/images/blog/200104_japan_travel/15920354270766.jpg)
 
 动态 proxy：
 - TODO

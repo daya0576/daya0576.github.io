@@ -15,4 +15,5 @@ hugo.linux
 # Personal
 *.swp
 *.swo
+.idea
 

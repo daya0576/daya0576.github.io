@@ -21,7 +21,7 @@ categories:
 
 但很可惜当前公司的技术栈中， Java 才是一等公民。在一次又一次“拥抱变化”之后，开始使用 Java 作为工作的主力语言。
 
-![EF1EF453-2586-4FC7-8E9F-BA8CF47D25B9_1_105_c](../images/blog/2021-09-04-jvm-note/EF1EF453-2586-4FC7-8E9F-BA8CF47D25B9_1_105_c.jpeg)
+![EF1EF453-2586-4FC7-8E9F-BA8CF47D25B9_1_105_c](/images/blog/2021-09-04-jvm-note/EF1EF453-2586-4FC7-8E9F-BA8CF47D25B9_1_105_c.jpeg)
 
 
 # 2. Java 学习路径
@@ -42,7 +42,7 @@ categories:
 假如你和我一样在学生期间接触过 java（jdk1.6 与 eclipse 的时代），重拾后发现现在的 java8 和以前竟然不是一个东西？？？总是被 Stream API、Lambda、方法引用等新特性，绕的云里来雾里去。
 
 那么恭喜你！有一本秘籍叫做[《Java 8 实战》](https://book.douban.com/subject/26772632/)，帮忙你快速掌握 Java 8 的新特性。
-![](../images/blog/2021-09-04-jvm-note/16313756701798.jpg)
+![](/images/blog/2021-09-04-jvm-note/16313756701798.jpg)
 
 
 ### 2.1.3 编程规范 - 《阿里编程规范》

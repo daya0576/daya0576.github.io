@@ -192,7 +192,7 @@ Optional<Transaction> maxTransaction = transactions.stream()
 ### 总结
 
 用文中的一张图总结一下：
-![](../images/blog/200104_japan_travel/15948931158639.jpg)
+![](/images/blog/200104_japan_travel/15948931158639.jpg)
 
 
 ## 第六章：用流收集数据

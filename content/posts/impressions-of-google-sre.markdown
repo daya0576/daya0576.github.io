@@ -13,7 +13,7 @@ categories:
 
 p.s. 划重点，**欢迎交流或推荐好的书～** 
 
-![book](../images/blog/190727_cloudflare_outage/book.jpg)
+![book](/images/blog/190727_cloudflare_outage/book.jpg)
 <!--more-->
 
 # Part I - Introduction
@@ -186,7 +186,7 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
 做了一个很有趣的比喻, 将如何运营好一个服务, 比做人类需求(五层次理论 - Maslow):
 更有趣的是, 作者从底向上, 解释了模型的构成, 其中提到的**各个子问题**就对应第三部分的**每一章节**.
 In an ACM article [\[Kri12]\](https://dl.acm.org/citation.cfm?id=2366332), we explain how Google performs company-wide resilience testing to ensure we’re capable of weathering the unexpected should a zombie apocalypse or other disaster strike.(????)
-![](../images/blog/180403_google_sre/15802012659629.jpg)
+![](/images/blog/180403_google_sre/15802012659629.jpg)
 
 
 ## Chapter 10 - Practical Alerting
@@ -220,7 +220,7 @@ On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责
 7. 应急需理性.. 因为**直觉往往都是错的**😂，所以要尽量减少应急人员的压力。文中提到了"Well-defined incident-management procedures"，蚂蚁有个专门的部门叫做 GOC(Global Operation Center)，在应急的时候统一指挥，在这点做的还是挺不错的。但我认为更重要并有一定争议的一个原则叫做: "A blameless postmortem culture" / "focusing on events rather than the people".
 8. "Finally, when an incident occurs, it’s important to evaluate what went wrong, recognize what went well, and take action to prevent the same errors from recurring in the future." - 复盘很重要！
 9. "Recognizing automation opportunities is one of the best ways to prevent human errors" - 人类总是会犯错的，所以无论什么事，都可以提倡自动化。
-10. "Operational Overload" - 之前提到每个人的手动运维的工作不能超过 50%，但如果就是没控制过超过了呢？文中提到比如临时抽调一个有经验的 SRE 加入，但最理想的情况下，overload 的情况应该像业务系统一样可以被监控和第一时间发现。但是 overload 的原因是什么呢？一个主要的原因就是 "Misconfigured monitoring"![](../images/blog/180403_google_sre/15625820798875.jpg)
+10. "Operational Overload" - 之前提到每个人的手动运维的工作不能超过 50%，但如果就是没控制过超过了呢？文中提到比如临时抽调一个有经验的 SRE 加入，但最理想的情况下，overload 的情况应该像业务系统一样可以被监控和第一时间发现。但是 overload 的原因是什么呢？一个主要的原因就是 "Misconfigured monitoring"![](/images/blog/180403_google_sre/15625820798875.jpg)
 11. "Operational Underload" - 总是说做了过多的 toil, 但如果生产环节如果太"**安静**"了（故障发生的频率并不是很高），导致应急人员手生了要怎么办呢？   "Google also has a company-wide annual disaster recovery event called DiRT (Disaster Recovery Training) that..." Google 每年也会有演练，模拟故障。和蚂蚁的红蓝攻防一个意思。
 
 ## Chapter 12 - Effective Troubleshooting(20190713)
@@ -234,7 +234,7 @@ On-Call 对于维持系统稳定性来说, 是每个 SRE 工程师的**重要责
 6. "Ask "what," "where," and "why"" - 排查的时候，想清楚这几个问题，下次我也试试。
 7. "What touched it last" - 系统运行的好好的，为啥会出问题，肯定是引入了某些变更。现实中，绝大部分的故障是由于变更导致的。
 8. "Case Study" - 举了一个真实的故障 case, 描述的还挺引人入胜的，感兴趣的可以看一下。
-9. "Application’s latency, showing 50th, 95th, and 99th percentiles" - 耗时的监控，**99th percentiles** 代表，假如整体样本如果有100个，排在第99的那个数值。还是挺有启发的，因为平均值很多时候会误导人。![](../images/blog/180403_google_sre/15630074932574.jpg)
+9. "Application’s latency, showing 50th, 95th, and 99th percentiles" - 耗时的监控，**99th percentiles** 代表，假如整体样本如果有100个，排在第99的那个数值。还是挺有启发的，因为平均值很多时候会误导人。![](/images/blog/180403_google_sre/15630074932574.jpg)
 
 
 ## Chapter 13 - Emergency Response(20190718)
@@ -326,7 +326,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. "The differing needs of the two requests play a role in how we determine the optimal distribution for each request at the **global** level" - 针对一个请求很难有最优的“策略”，因为会存在各种各样的变量。例如两个用户请求，分别是搜索和上传视频，前者追求的是更低的 RTT 以达到最快的响应，而后者则需要尽可能大的带宽。
 3. 负载均衡策略的又分为以下两种：
     1. "Load Balancing Using DNS" - 但 DNS 有各种限制，想到了阿里的 GSLB 智能解析，有空可以好好研究一下是如何解决这些限制的。
-    2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。所以 1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。![](../images/blog/191006_adsense/15757909665620.jpg)
+    2. "Load Balancing at the Virtual IP Address" - LVS, 转发的策略为`id(packet) mod N`, 这样所有属于一个连接的包都被转发到对应的机器上，并且是无状态的方案：不用在内存中记录每个连接与机器的对应关系。看上去很完美？但想象 backends 中有一台机器挂了被移除或者新机器上线的场景，那不就全部错位了，需要从头开始 hashing (mod 就是一种最基本的 hashing)，最后导致缓存命中率下降 db 负担增加。所以 1997 年的时候，提出了一种新的方案叫做 [consistent hashing](https://dl.acm.org/citation.cfm?id=258660)：看了一下简单说就是将输入的 id 分为 n 个区间(假设 id 是 32 位的，那它肯定有一个取值的范围，头尾相接刚好形成一个环)，不同区间对应后台不同的机器，当上线或下线机器时，可以简单的分割或者合并区间。好美妙的算法，但如何保证不会出现热点问题呢？是不是在 consistent hashing 前要做一次预处理，以保证输入足够均匀。![](/images/blog/191006_adsense/15757909665620.jpg)
 
 
 ## Chapter 20 - Load Balancing in the Datacenter
@@ -339,7 +339,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 3. 常见的负载均衡策略：
     1. Simple Round Robin: 大学里学的滚瓜烂熟，莫名的有一份亲切感。。这个算法简单且有效，但在现实复杂的场景下存在一定弊端，因为不同请求消耗的资源以及不同物理机可以提供的资源的存在巨大差异(varying query cost and machine diversity)：例如上一章说到的 Google 搜索与 YouTube 加载视频的请求的差异；以及不同物理机 A 型号的 CPU 可能比 B 型号的 CPU 快两倍。如果你的负载均衡策略无法动态的处理各种无法预测的“变量”，那最终会导致后端机器负载极不均衡。接下来介绍 Least-Loaded Round Robin 与 Weighted Round Robin 两种算法，看看是如何解决上面的缺陷的🤔
     2. Least-Loaded Round Robin: 每个客户端各自记录，所以对应的后端任务的**活跃连接数**，每次选择连接数最小的那些后端任务进行轮询。但这个地方有几个坑，一是如果请求失败的话，例如 500 502 等是会立即返回的（在之前 99 分监控中也有一定涉及）并造成很大的干扰，其实也暴露出一个本质的问题：**活跃的连接数并不等同于负载**。还有就是客户端视角的活跃链接数并不能代表这个后端任务全部的活跃连接数。所以在实践中发现，这种负载均衡策略与 Simple Round Robin 效果一样差。
-    3. Weighted Round Robin: 这个算法在负载均衡决策的时候，不再是无状态并不感知后端，而是需要后端提供一些自身的信息：每个机器给自己的容量实时自评(capability score)，然后客户端定时的去选择最优的 backend task 处理请求。从下图可以看到，切换为这种算法以后，不同机器 load 的差异明显变小了，还是挺震撼的：![](../images/blog/180403_google_sre/15763967669904.jpg)
+    3. Weighted Round Robin: 这个算法在负载均衡决策的时候，不再是无状态并不感知后端，而是需要后端提供一些自身的信息：每个机器给自己的容量实时自评(capability score)，然后客户端定时的去选择最优的 backend task 处理请求。从下图可以看到，切换为这种算法以后，不同机器 load 的差异明显变小了，还是挺震撼的：![](/images/blog/180403_google_sre/15763967669904.jpg)
 
 
 ## Chapter 21 - Handling Overload
@@ -349,7 +349,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 2. The Pitfalls of "Queries per Second" - QPS 的陷阱🤔，我也想到了，毕竟上面提到过两遍了：Different queries can have vastly different resource requirements. 不管以什么静态的资源建模，总是不靠谱的，那怎么办呢？很类似上一章的 Weighted Round Robin，更加科学的做法是直接根据后端自身的实时可用的容量来决策：A better solution is to measure capacity directly in available resources.
 3. 限流又分为以下两种种：
     1. Per-Customer Limits: 在用户维度进行限流，例如 Gmail 每个用户最多只能消耗 4,000 CPU seconds per second. 但怎么实时计算每个用户当前消耗的资源呢？
-    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:![](../images/blog/180403_google_sre/15763998341470.jpg)正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
+    2. Client-Side Throttling: 思考这么一个问题，即使对用户维度进行限流，后端还是需要对请求处理，并返回响应（告诉用户自己无法处理了），结果大量的资源还是被浪费掉了（处理 HTTP 协议也需要消耗资源）。而客户端维度的限流可以解决掉该问题：当客户端检测到自己发起的大部分请求都被服务端因为 out of quota 被拒绝掉了，就直接不发起其请求了，文中把这种技术叫做 自适应的限流策略(adaptive throttling), 具体的实现参考下面的公式，计算后返回的结果叫做 Client request rejection probability:![](/images/blog/180403_google_sre/15763998341470.jpg)正常情况下 requests  和 accepts 是相等的（根据过去两分钟的数据统计），但后端任务开始拒绝请求时，accepts 就会比 requests 小，当 K 等于 2 并且 accepts 持续小于 requests 的一半时，就会直接在客户端开始限流（根据上图公式计算得出的概率）。当请求持续上升的时候客户端抛弃请求的概率也也会不断上升。但我理解在如果请求量减少的情况，后端任务的压力减少并可以正常处理请求的时候，i.e. accepts 大于 requests 的一半，客户端的限流又自动解除了，所以叫做自适应的限流，很酷哦 🤔
 4. Criticality - 每个请求可以被分为四种，很酷的想法呀，
     - CRITICAL_PLUS: 最高优先级的请求，如果失败会严重影响用户的体验。
     - CRITICAL: 线上请求的默认类型，同样会对用户产生严重的影响，只是没有 CRITICAL_PLUS 严重。
@@ -392,7 +392,7 @@ how we balance user traffic between datacenters: 本章主要讲 google 如何�
 5. "Paxos Overview" - 大名鼎鼎的 Paxos 协议，浅显的理解一下。。第一阶段 proposer 发起投票（每一轮都严格对应一个 sequence number），如果大部分 acceptor 都同意这个决策，则进入第二阶段尝试让它们提交执行（并保存对应的状态）。但 proposer 是怎么选出来的呢？
 6. （...略...）
 7.  "It should be noted that adding a replica in a majority quorum system can potentially decrease system availability" - 经常听到的一个词叫做三地五副本，文中也提到推荐推荐五副本的模式（**增加一个副本也就是六副本可能反而会影响系统的可用性**）。如果五副本中两个副本挂了，系统还可以正常工作（剩余的三副本形成多数派），也就是容忍 40% unavailable. 而在六副本的情况下，需要四个副本正常工作才能维持系统正常运行，也就是只能容忍 33% 的 unavailable.
-8. "Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica." - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要左右三节点，任意一边能正常响应即可达成一致性。![](../images/blog/180403_google_sre/15778678971943.jpg)
+8. "Such a distribution would mean that in the average case, consensus could be achieved in North America without waiting for replies from Europe, or that from Europe, consensus can be achieved by exchanging messages only with the east coast replica." - 下图的部署模式不知道和我们常提的三地五中心是不是一个意思，好处在于每次的 proposal 只要左右三节点，任意一边能正常响应即可达成一致性。![](/images/blog/180403_google_sre/15778678971943.jpg)
 9. "We deliberately avoided an in-depth discussion about specific algorithms, protocols, or implementations in this chapter." - 汗。。分布式真的是太复杂了，这章只看懂了 10%。结尾这段话，感觉自己被鄙视了："If you remember nothing else from this chapter, keep in mind the sorts of problems that distributed consensus can be used to solve, and the types of problems that can arise when ad hoc methods such as heartbeats are used instead of distributed consensus."
 
 
@@ -417,7 +417,7 @@ linux 上自带的 cron，蚂蚁的分布式系统定时调度 Scheduler，googl
 1. "Now, suppose an artifact were corrupted or lost exactly once a year. If the loss were unrecoverable, uptime of the affected artifact is lost for that year." - 像之前章节说的，我们通常用几个 9 来衡量服务的高可用能力，但对于数据完整性来说有些不同：假设某个用户有一份数据意外丢失并无法恢复时，对于该用户可用性就直接跌零了。 
 2. "the secret to superior data integrity is proactive detection and rapid repair and recovery." - 对于保障数据完整性最好的办法就是提早**主动发现** & **恢复** 
 3. "No one really wants to make backups; what people really want are restores." - 说到恢复，有一句话说的好：没有人真的在意那些备份，而是在乎出故障时是否可以将数据及时恢复。"When does a light bulb break? When flicking the switch fails to turn on the light? Not always—often the bulb had already failed, and you simply notice the failure at the unresponsive flick of the switch." - 针对恢复的重要性在下面引申出另一个非常关键的问题，如何保证数据恢复的有效性？因为即使刚刚成功实施了数据恢复，也无法保证下一次就可以成功，所以需要对整个流程设计**自动化**的**端到端**测试，在灯泡故障时就立即告警，而不是在真正要用的时候才发现坏了。。
-5. "Combinations of Data Integrity Failure Modes" - 下面这张图还挺有意思的，从数据的生命周期看防止数据丢失的三道防线：1）Soft Deletion：保护用户侧的误删除，可以在回收站中直接恢复。2）Backups and Their Related Recovery Methods：热备份：保留一到两天的数据，可以联系管理员协助恢复。冷备份：3-6个月保存长期的数据，防止有些 bug 数月以后才发现并需要恢复的场景。3）Early Detection：越早发现，数据越容易恢复也越完整。![](../images/blog/180403_google_sre/15788191260036.jpg)
+5. "Combinations of Data Integrity Failure Modes" - 下面这张图还挺有意思的，从数据的生命周期看防止数据丢失的三道防线：1）Soft Deletion：保护用户侧的误删除，可以在回收站中直接恢复。2）Backups and Their Related Recovery Methods：热备份：保留一到两天的数据，可以联系管理员协助恢复。冷备份：3-6个月保存长期的数据，防止有些 bug 数月以后才发现并需要恢复的场景。3）Early Detection：越早发现，数据越容易恢复也越完整。![](/images/blog/180403_google_sre/15788191260036.jpg)
 6. 总结：
     1. 目标（数据快速恢复）比过程（数据备份）重要的多。
     2. 线上系统任意一个部分都有可能出错，所以必须找出所有维度的可能性进行排列组合，利用测试 100% 覆盖，并不断自动化回归，才能保障我们每天睡个好觉。
