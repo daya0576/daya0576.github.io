@@ -1,0 +1,85 @@
+---
+layout: post
+title: "Comp9315 DBMS Implementation 16s1"
+date: 2016-02-28 11:24:07
+comments: true
+tags: [comp9315, unsw]
+---
+
+>来unsw的第一个学期，选了四门课，    
+分别用四篇日志记录每门课程的心路历程。       
+这篇日志写的是 **Comp9315: DBMS Implementation**
+
+<!--more-->
+
+
+Write down your experience about this course through this url:     
+[http://www.unsw.co/rango/category/comp9315/](http://www.unsw.co/rango/category/comp9315/)    
+
+
+
+>### 2016/02/25 ###
+----------
+Home page of this course(Semester 1 2016)：    
+[http://cse.unsw.edu.au/~cs9315](http://cse.unsw.edu.au/~cs9315)     
+Course Outline:    
+<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/outline.png">     
+
+
+
+>### 2016/02/29 ###
+----------
+**week1**   
+First lecture of this semester, the lecturer is so cool!    
+Talking about introduction of this course and PostgreSQL 9.4.6    
+<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/teacher.JPG">     
+
+
+
+>### 2016/03/10 ###
+----------
+**week2**    
+The prac designed by jas is awesome，learning cs by practising is the most important.       
+
+
+>### 2016/03/20 ###
+----------
+**week4!!**       
+开始做第一个assignment咯，要在PostgreSQL里自定义一个email类型，    
+顺便学了一下regular expression，原来regex是两个单词的缩写，现在才发现。    
+匹配 RFC822 standard的邮件格式。    
+<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/email_regex.jpg">    
+
+
+>### 2016/04/05 ###
+----------
+**week5**      
+Humorous and responsible teacher:)   
+(every week before the lecture,     
+jas will spend few minutes to introduce some famous people in database field.)   
+<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/teacher2.JPG">    
+
+
+>### 2016/04/14 ###
+----------
+**week6.**       
+Talking about something about really boring.      
+
+
+>### 2016/05/20 ###
+----------
+**week11.**    
+Struggling in assit3, but the lecturer is so nice,    
+have a look at this code blow: the comment tell u all the things u have to do.   
+<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/assit3_code.png">    
+Yesterday I saw a blog talking about Jas, saying that he is a crazy guy, but also an admiring person.   
+Haha    
+<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/elephant.jpg">    
+
+
+>### 2016/06/18 ###
+**Fianl Exam**    
+The final 3 hours exam is done in labs.   
+The first programming question is not hard, but I had no time to debug and complete it.   
+Anyway, althought the lecture is sometimes a bit boring, but if u want to learn internal structure of DBMS, this course will not be a bad choice.     
+

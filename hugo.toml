@@ -1,0 +1,12 @@
+baseURL = 'https://changchen.me'
+languageCode = 'zh-hans'
+title = "Henry Z's blog"
+theme = 'nostyleplease'
+
+ignoreLogs = ['warning-goldmark-raw-html']
+
+[permalinks]
+  [permalinks.page]
+    posts = '/blog/:year:month:day/:slugorfilename/'
+  [permalinks.section]
+    posts = '/articles/'
