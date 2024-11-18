@@ -16,4 +16,5 @@ hugo.linux
 *.swp
 *.swo
 .idea
+.MWebMetaData/
 
