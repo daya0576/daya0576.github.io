@@ -7,6 +7,6 @@ commit:
 	git commit -a -q -m 'sync'
 
 push:
-	git submodule foreach "echo 'push..'; git push fork"
+	git submodule foreach "echo 'push..'; git push"
 	git push 
 
