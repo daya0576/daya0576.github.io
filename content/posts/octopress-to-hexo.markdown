@@ -15,7 +15,6 @@ categories:
 放一张图纪念一下老博客:
 ![](/images/blog/180807_octopress_to_hexo/old_blog.png)
 
-
 # Octopress几个痛点
 ## toc支持差
 toc: table of content, 虽然在老博客上可以在文章开头手动生成, 但体验肯定没有hexo上原生支持的好:
