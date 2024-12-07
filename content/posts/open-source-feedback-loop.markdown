@@ -82,7 +82,8 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 
 小小的脑袋转念一想，将 beaver habit tracker 定位为 **selfhosted app**，既保护个人数据隐私，又解决了性能的问题。瞬间化腐朽为神奇。
 
-同时通过 selfh.st newsletter，收获了一波流量。
+同时通过 selfh.st newsletter，收获了一波流量：
+![](/images/blog/2021-09-04-jvm-note/17335353503792.jpg)
 
 # Future
 开源项目通过互帮互助带来持久的成就感，如果进而一步通过提供价值来创造物质收入，将是未来进一步探索的方向。
