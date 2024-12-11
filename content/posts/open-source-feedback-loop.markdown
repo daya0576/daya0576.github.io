@@ -15,9 +15,15 @@ Hi 好久不见～ 最近几个月沉迷于与游戏《Against The Storm》，�
 # Globalization
 项目从一开始，便通过全英文与开源的方式，尝试面向全球用户群体。
 
-Demo 页面目前部署在 fly.io 中。
+Demo 页面目前部署在 [fly.io](https://fly.io/) 中。在过去一周中，通过 [umami](https://umami.is/) 统计可以看到，已有超过 30 个国家的用户访问：
+- France: 28%
+- United States: 20%
+- Germany: 8%
+- Canada: 5%
+- Japan: 4%
+- India: 3%
 
-从下图中 edge 节点流量监控，不难看出，确实成功触达了全球用户。
+同时从下图中 edge 节点流量监控，不难看出，确实成功触达了全球用户。
 
 ![](/images/blog/2021-09-04-jvm-note/17317273177416.jpg)
 
@@ -54,7 +60,7 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 ```
 
 ## Issues
-而更加难得可贵的是，开发过程中，通过社区用户反馈的需求与问题，持续打磨优化产品。
+而更加难得可贵的是，开发过程中，通过社区用户反馈的需求与问题，持续对产品进行打磨和优化。
 
 包含但不限于：[daya0576/beaverhabits/issues](https://github.com/daya0576/beaverhabits/issues?q=is%253Aissue+)
 
@@ -62,12 +68,14 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 - Everyone can sign up
 - Cannot order them
 - To add standalone mode for iOS 
+- Center the page so it works on desktop web as well
+- Add a total number of a habit completed to the right of today?
 - Add docker images for `arm`, `arm/v7`, `amd`, `amd64/v3`, ...
 - ...
 
 以最后一点 docker image 为例，一开始简单本地构建镜像并 push 至 docker hub。
 
-但后续用户反馈在 amd 甚至 amd/v3 的机器中不适配，所以通过 github action 自动构建了对应架构镜像并发布。
+但后续用户反馈在 amd 甚至 amd/v3 的机器中不适配，所以通过 github action 自动构建了对应架构镜像并发布：[.github/workflows/publish.yml#L14](https://github.com/daya0576/beaverhabits/blob/c012577267047527362cfc0c9cfc17003b9212af/.github/workflows/publish.yml#L14)
 
 再后来甚至有用户直接贡献了 raspberry pi 对应的构建代码：[Add Dockerfile for arm32 build (raspberry pi3 and below) #12](https://github.com/daya0576/beaverhabits/pull/12)
 
@@ -86,6 +94,13 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 ![](/images/blog/2021-09-04-jvm-note/17335353503792.jpg)
 
 # Future
+
+## Open API
+Beaver Habits 作为一款 minimalist 的 web app，未来除了用户提出的 issue，暂时不会新增过于复杂的功能。但会提供一套开放的 Open API，供第三方集成。
+
+有趣的是，就在这个想法提出的当天，用户也提出了类似需求 issue [#25](https://github.com/daya0576/beaverhabits/issues/25) :)
+
+## Make Money in Your Sleep
 开源项目通过互帮互助带来持久的成就感，如果进而一步通过提供价值来创造物质收入，将是未来进一步探索的方向。
 
 ---
