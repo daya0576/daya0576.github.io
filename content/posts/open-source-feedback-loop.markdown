@@ -22,6 +22,7 @@ Demo 页面目前部署在 [fly.io](https://fly.io/) 中。在过去一周中，
 - Canada: 5%
 - Japan: 4%
 - India: 3%
+- ...
 
 同时从下图中 edge 节点流量监控，不难看出，确实成功触达了全球用户。
 
