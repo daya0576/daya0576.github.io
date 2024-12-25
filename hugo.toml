@@ -10,3 +10,6 @@ ignoreLogs = ['warning-goldmark-raw-html']
     posts = '/blog/:year:month:day/:slugorfilename/'
   [permalinks.section]
     posts = '/archives/'
+
+[markup.goldmark.renderer]
+unsafe= true
