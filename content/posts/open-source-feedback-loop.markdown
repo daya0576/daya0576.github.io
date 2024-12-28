@@ -98,6 +98,13 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 
 ![](/images/blog/2021-09-04-jvm-note/17335353503792.jpg)
 
+# Lessons Learned
+
+## 
+相比于开发代码，如何运营开源项目毫不简单，例如取个好名字，拥有一个朗朗上口的域名，实际就成功了一半。
+
+而在
+
 # Future
 
 ## Open API

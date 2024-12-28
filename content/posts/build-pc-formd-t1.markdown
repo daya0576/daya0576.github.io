@@ -14,9 +14,14 @@ categories:
 <!--more-->
 
 ![1](/images/blog/2021-09-04-jvm-note/1.png)
+
+
 ![2](/images/blog/2021-09-04-jvm-note/2.png)
+
 ![5](/images/blog/2021-09-04-jvm-note/5.png)
-![6](/images/blog/2021-09-04-jvm-note/6.png)
+
+![IMG_7731](/images/blog/2021-09-04-jvm-note/IMG_7731.png)
+
 ![7](/images/blog/2021-09-04-jvm-note/7.png)
 ![8](/images/blog/2021-09-04-jvm-note/8.png)
 

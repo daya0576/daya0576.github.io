@@ -111,6 +111,11 @@ Un-raid 顾名思义，即“非-RAID”：不同于 raid5 甚至 raid1，仅利
 
 ![unraid](/images/blog/2021-09-04-jvm-note/unraid.png)
 
+待填满的 Pool & Array 池：
+
+![](/images/blog/2021-09-04-jvm-note/17353574826432.jpg)
+
+
 搭配 Infuse 管理电影与个人视频：
 
 ![](/images/blog/2021-09-04-jvm-note/17353453778902.jpg)
@@ -119,7 +124,7 @@ Un-raid 顾名思义，即“非-RAID”：不同于 raid5 甚至 raid1，仅利
 Unraid 系统几乎每个特性，都击中在博主的心趴上。期待未来几天继续探索更多功能：
 
 - [ ] 雷电4 直连
-- [ ] 搭配 Mover Tuning 自定义缓存池移动
+- [ ] 搭配 Mover Tuning 自定义缓存池移动逻辑
 - [ ] 虚拟化游戏体验
-- [ ] 网外连接 
+- [x] 网外连接：简单通过 cloudflare tunnel 即可实现
 - [ ] ...
