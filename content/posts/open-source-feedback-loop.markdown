@@ -100,10 +100,12 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 
 # Lessons Learned
 
-## 
+## Elevator Pitch
 相比于开发代码，如何运营开源项目毫不简单，例如取个好名字，拥有一个朗朗上口的域名，实际就成功了一半。
 
-而在
+> An elevator pitch, elevator speech, lift speech, or elevator statement is a short description of an idea, product, or company that explains the concept in a way such that any listener can understand it in a short period of time.
+
+而在论坛中宣传自己的产品时，千万提醒自己用户像一张白纸一无所知，关键在于在第一句话中让受众立即了解你的产品。
 
 # Future
 
