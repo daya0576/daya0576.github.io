@@ -90,14 +90,19 @@ Un-raid 顾名思义，即“非-RAID”：不同于 raid5 甚至 raid1，仅利
 ## 硬件交互
 
 万兆链路：
-```js 
-- z690i 主板
-- M2 NVMe 延长线 转 PCIE x4 (ADT-Link M42UF) // 做工精良
-- 万兆 PCIe 网卡 (TL-NT521 - AQC107) // 光口几乎没有发热
-- DAC 线缆 (兮克 SKM-10G 1M) 
-- 万兆交换机 (兮克 SKS3200-4E2X) // 小巧全铝，包含两个 SFP+ 接口
-- 光转电模块 (兮克 SKT-10G) // 名不虚传发热巨大
-- 万兆网口 (Mac Mini)
+```
+// FormD T1
+- ROG STRIX Z690-I 
+- M.2 NVMe to PCIe x4 Extension Cable (ADT-Link M42UF)
+- 10G PCIe NIC (TL-NT521 - AQC107)
+
+// Switch
+- 10G DAC Cable (XikeStor)
+- 10G Switch (XikeStor)
+- 10G SFP+ to RJ45 Module (XikeStor)
+
+// Mac Mini
+- 10 Gigabit Ethernet Port
 ```
 
 简单收纳后效果似乎还不错哟：
