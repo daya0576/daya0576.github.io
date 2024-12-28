@@ -1,5 +1,5 @@
 ---
-title: "终端搬家小记(iTerm → Alacritty)"
+title: "终端搬家小记（iTerm → Alacritty）"
 date: 2024-12-08T14:49:56+08:00
 categories:
 - 奇技淫巧

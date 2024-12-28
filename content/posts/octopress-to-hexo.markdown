@@ -1,5 +1,5 @@
 ---
-title: 博客搬家小记(Octopress → Hexo)
+title: 博客搬家小记（Octopress → Hexo）
 date: 2018-08-06 21:05:49
 categories:
 - 奇技淫巧
