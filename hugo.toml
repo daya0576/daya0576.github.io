@@ -13,3 +13,7 @@ ignoreLogs = ['warning-goldmark-raw-html']
 
 [markup.goldmark.renderer]
 unsafe= true
+
+[params]
+  description = "Henry Z's blog"
+  images = ['site-feature-image.jpg']

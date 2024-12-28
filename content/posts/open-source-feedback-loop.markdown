@@ -12,10 +12,12 @@ Hi 好久不见～ 最近几个月沉迷于与游戏《Against The Storm》，�
 
 <!--more-->
 
+![](/images/blog/2021-09-04-jvm-note/17353550144918.jpg)
+
 # Globalization
 项目从一开始，便通过全英文与开源的方式，尝试面向全球用户群体。
 
-Demo 页面目前部署在 [fly.io](https://fly.io/) 中。在过去一周中，通过 [umami](https://umami.is/) 统计可以看到，已有超过 30 个国家的用户访问：
+Demo 页面目前部署在 [fly.io](https://fly.io/) 中。在过去一个月中，通过 [umami](https://umami.is/) 统计可以看到，已有超过 90 个国家的用户访问：
 - France: 28%
 - United States: 20%
 - Germany: 8%
@@ -71,6 +73,7 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 - To add standalone mode for iOS 
 - Center the page so it works on desktop web as well
 - Add a total number of a habit completed to the right of today?
+- API documentation
 - Add docker images for `arm`, `arm/v7`, `amd`, `amd64/v3`, ...
 - ...
 
@@ -83,15 +86,16 @@ Loving your application so far! There is no satisfactory self hosted habit app u
 # Challenges
 当然在开发的过程中，也遇到了大大小小的挑战。
 
-例如项目通过 pure python 实现，底层使用的框架叫做 [nicegui](https://nicegui.io/)。
+例如项目通过 pure python 实现，底层使用的框架为 [nicegui](https://nicegui.io/)。
 
 该框架对应的设计哲学为 `backend-first`，也就是说所有的代码实现以及交互逻辑，都是通过后端实现。举个例子，点击下拉菜单，也需要通过 websocket 与后端交互后，再在前端渲染内容..
 
-这种方式如同 GIL 一样简化了复杂度，但同时牺牲了性能。对于 nicegui 来说，较高的网络延迟将会严重影响用户的体验 🤔
+这种方式如同 GIL 一样简化了复杂度，但同时牺牲了性能。所以较高的网络延迟可能会严重影响用户的体验 🤔
 
 小小的脑袋转念一想，将 beaver habit tracker 定位为 **selfhosted app**，既保护个人数据隐私，又解决了性能的问题。瞬间化腐朽为神奇。
 
 同时通过 selfh.st newsletter，收获了一波流量：
+
 ![](/images/blog/2021-09-04-jvm-note/17335353503792.jpg)
 
 # Future

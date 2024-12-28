@@ -78,6 +78,14 @@ Un-raid 顾名思义，即“非-RAID”：不同于 raid5 甚至 raid1，仅利
 
 > Simple is better than complex.
 
+## 缘分
+
+更为奇妙的是，安装完 Unraid 并打开应用商店的一刻。首页最新加入的应用竟然是我开发 [Beaver Habit Tracker](https://github.com/daya0576/beaverhabits)（感谢好心人☺️）：
+
+![](/images/blog/2021-09-04-jvm-note/17353556762017.jpg)
+
+缘分妙不可言～
+
 # 最终效果
 ## 硬件交互
 
@@ -104,6 +112,7 @@ Un-raid 顾名思义，即“非-RAID”：不同于 raid5 甚至 raid1，仅利
 ![unraid](/images/blog/2021-09-04-jvm-note/unraid.png)
 
 搭配 Infuse 管理电影与个人视频：
+
 ![](/images/blog/2021-09-04-jvm-note/17353453778902.jpg)
 
 # 总结
