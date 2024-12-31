@@ -128,8 +128,34 @@ Un-raid 顾名思义，即“非-RAID”：不同于 raid5 甚至 raid1，仅利
 # 总结
 Unraid 系统几乎每个特性，都击中在博主的心趴上。期待未来几天继续探索更多功能：
 
-- [ ] 雷电4 直连
-- [ ] 搭配 Mover Tuning 自定义缓存池移动逻辑
-- [ ] 虚拟化游戏体验
+- [ ] 雷电4 直连（官方暂不支持 thunderbolt bridge，但理论上可行）
+- [ ] 搭配 Mover Tuning 自定义缓存池移动逻辑（例如根据日期文件大小等）
+- [x] 虚拟化游戏体验
+    - step by step tutorial to enable GPU passthrough: https://www.youtube.com/watch?v=nTZ1Whx3cZo
+    - 尝试升级主板 bios 版本解决了无法启动的问题
+    - 成功启动后，体验非常非常的丝滑（舒服）
 - [x] 网外连接：简单通过 cloudflare tunnel 即可实现
-- [ ] ...
+- ...
+
+
+# 其他
+## "cache" file and directory information
+我们尽可能的希望 Array 处于休眠的状态，通过 NFS 的 `Tunable (fuse_remember)` 配置，缓存文件/目录名称：
+
+![](/images/blog/2021-09-04-jvm-note/17355275285679.jpg)
+
+## macOS 自动挂载 NFS
+```
+sudo vifs
+# 根据情况添加下面的配置
+lena.local:/mnt/user/movies /System/Volumes/Data/Lena/movies nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=6553
+lena.local:/mnt/user/tt /System/Volumes/Data/Lena/tt nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=6553
+
+sudo automount -cv
+```
+
+## 避免必须要键盘连接才能启动
+xxx
+
+参考：
+1. https://www.truenas.com/community/threads/motherboards-that-boot-automatically-from-usb-without-pressing-f8-or-so-solved.11672/
