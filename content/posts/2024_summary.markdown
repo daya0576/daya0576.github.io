@@ -32,7 +32,7 @@ categories:
 ### ✅ KR1：运维 -> 考取 AWS SysOps Administrator 证书
 坦率地说，AWS 的证书考取有一定功利与应试，但在职场游戏规则中，它从侧面反映积极向上的态度，以及对新事物的接受与学习能力。
 
-当然在考取证书的过程中，顺便完成了 26 个小时的 udemy 课程学习，也收获了满满的笔记。举个例子，在准备 cutover plan 的时候，route53 weighted routing 便突然浮现在我的脑海中。。
+除此之外，在考取证书的过程中，顺便完成了 26 个小时的 udemy 课程学习，也收获了满满的笔记。举个例子，在准备 cutover plan 的时候，route53 weighted routing 便突然浮现在我的脑海中。。
 
 总而言之，考试费用虽然不便宜，但对于快速了解 AWS 或个人职业发展，是一项不错的投资：
 ![](/images/blog/global/17357148148964.jpg)
