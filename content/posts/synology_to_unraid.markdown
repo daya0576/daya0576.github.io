@@ -5,9 +5,9 @@ categories:
 - 智能家居
 ---
 
-自从购买了 Mac Mini M4 PRO mac, 博主便寝食难安 :(
+自从购买了 Mac Mini M4 PRO, 博主便寝食难安 :(
 
-原因竟是选配了「**万兆**」网口，却无奈家中预铺的网线与群晖 DS220+ 都受限**千兆**，白白浪费着实令人焦虑。
+原因竟是选配了「万兆」网口，却无奈家中预铺的网线与群晖 DS220+ 都受限**千兆**，白白浪费着实令人焦虑。
 
 近日更是被群晖硬盘“炒豆子”声音困扰，于是便着手打造一台心目中理想的万兆 nas 🤩
 1. 拒绝噪音：全固态阵列 or 机械硬盘休眠
@@ -129,33 +129,60 @@ Un-raid 顾名思义，即“非-RAID”：不同于 raid5 甚至 raid1，仅利
 Unraid 系统几乎每个特性，都击中在博主的心趴上。期待未来几天继续探索更多功能：
 
 - [ ] 雷电4 直连（官方暂不支持 thunderbolt bridge，但理论上可行）
-- [ ] 搭配 Mover Tuning 自定义缓存池移动逻辑（例如根据日期文件大小等）
+- [x] 搭配 Mover Tuning 自定义缓存池移动逻辑（例如根据日期文件大小等）
 - [x] 虚拟化游戏体验
-    - step by step tutorial to enable GPU passthrough: https://www.youtube.com/watch?v=nTZ1Whx3cZo
-    - 尝试升级主板 bios 版本解决了无法启动的问题
-    - 成功启动后，体验非常非常的丝滑（舒服）
 - [x] 网外连接：简单通过 cloudflare tunnel 即可实现
 - ...
 
 
 # 其他
+## Mover Tuning 设置
+以大疆拍摄的乒乓球视频工作流为例：
+
+1. 将当日乒乓球录制视频导入 Cache，进行回顾与视频剪辑
+2. 每日凌晨两点定制扫描，若满足下面的条件，则移动至冷备 Array
+    - 视频距上次超过 15 天
+    - 文件大于 10M
+
+![](/images/blog/global/17356894814590.jpg)
+
+
+## 虚拟化游戏体验
+step by step tutorial to enable GPU passthrough: 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nTZ1Whx3cZo?si=Xa0M5en81hF6pwL6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+虽然遇到了显卡无法 passthrough 显示器无法点亮的问题，但万幸最终通过升级 bois 版本解决了。
+
+成功启动后，体验非常丝滑（舒服😌）
+
 ## "cache" file and directory information
-我们尽可能的希望 Array 处于休眠的状态，通过 NFS 的 `Tunable (fuse_remember)` 配置，缓存文件/目录名称：
+尽可能的希望 Array 处于休眠的状态，可以通过 NFS 的 `Tunable (fuse_remember)` 配置，可以缓存文件/目录名称：
 
 ![](/images/blog/2021-09-04-jvm-note/17355275285679.jpg)
 
 ## macOS 自动挂载 NFS
 ```
+# fstab 编辑的入口: /etc/fstab
 sudo vifs
-# 根据情况添加下面的配置
-lena.local:/mnt/user/movies /System/Volumes/Data/Lena/movies nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=6553
-lena.local:/mnt/user/tt /System/Volumes/Data/Lena/tt nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=6553
+
+# device-spec     mount-point     fs-type      options     
+lena.local:/mnt/user/movies /System/Volumes/Data/Lena/movies nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=65536
+lena.local:/mnt/user/tt /System/Volumes/Data/Lena/tt nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=65536
 
 sudo automount -cv
 ```
 
-## 避免必须要键盘连接才能启动
-xxx
+不清楚为什么这种方式，导致传输速率极慢。排查无果，暂时切换为原生的 finder 挂载，并加入 login items
 
-参考：
+## 避免必须要键盘连接才能启动
+
+尝试了很多 bois 设置无果，最终够买了键盘长期直连。
+
 1. https://www.truenas.com/community/threads/motherboards-that-boot-automatically-from-usb-without-pressing-f8-or-so-solved.11672/
+
+## GPU 休眠/关闭
+
+安装插件后，虽然观察到 GPU 使用率为 0，但依然在耗电并产生电流声噪音：
+
+![](/images/blog/global/17356900667932.jpg)
+
