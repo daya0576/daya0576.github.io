@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="-687.531 15.5 1328.2369 236" width="1328.2369" height="236">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas__" fill="none" stroke-opacity="1" stroke="none" fill-opacity="1" stroke-dasharray="none">
+    <title>云宽带</title>
+    <rect fill="white" x="-687.531" y="15.5" width="1328.2369" height="236"/>
+    <g id="Canvas___Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_31">
+        <rect x="-317.5" y="31" width="280" height="205" fill="#ebebeb"/>
+        <rect x="-317.5" y="31" width="280" height="205" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-312.5 36)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">次卧 (弱电箱)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_30">
+        <rect x="-221" y="67.125" width="161.75" height="49.75" fill="#ccc"/>
+        <rect x="-221" y="67.125" width="161.75" height="49.75" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-216 73.5)" fill="black">
+          <tspan font-family="PingFang SC" font-weight="bold" font-size="14" fill="black" x="47.875" y="15" xml:space="preserve">电信光猫</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="63.875" y="33" xml:space="preserve">桥接</tspan>
+        </text>
+      </g>
+      <g id="Graphic_29">
+        <text transform="translate(-298 99)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="0" y="13" xml:space="preserve">光纤入户</tspan>
+        </text>
+      </g>
+      <g id="Graphic_28">
+        <path d="M -656.5822 94.67207 C -675.7341 92 -668.0968 69.50554 -637.54514 73.34375 C -634.7106 65.86185 -599.18314 67.076245 -599.4154 73.34375 C -577.1386 65.32753 -548.67014 81.31171 -567.7652 89.32793 C -544.8521 93.2144 -568.0544 114.15417 -586.85914 110.65625 C -588.3641 116.48645 -621.98135 118.5267 -624.932 110.65625 C -643.96784 119.06151 -683.6606 106.13796 -656.5822 94.67207 Z" fill="white"/>
+        <path d="M -656.5822 94.67207 C -675.7341 92 -668.0968 69.50554 -637.54514 73.34375 C -634.7106 65.86185 -599.18314 67.076245 -599.4154 73.34375 C -577.1386 65.32753 -548.67014 81.31171 -567.7652 89.32793 C -544.8521 93.2144 -568.0544 114.15417 -586.85914 110.65625 C -588.3641 116.48645 -621.98135 118.5267 -624.932 110.65625 C -643.96784 119.06151 -683.6606 106.13796 -656.5822 94.67207 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-649.256 81)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="8.154998" y="17" xml:space="preserve">Internet</tspan>
+        </text>
+      </g>
+      <g id="Line_27">
+        <line x1="-560.51" y1="92" x2="-505.92206" y2="92" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_39">
+        <g id="Line_7">
+          <line x1="496" y1="59.5" x2="547.7297" y2="59.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Line_6">
+          <line x1="496" y1="87.27941" x2="547.7297" y2="87.27941" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+        </g>
+        <g id="Graphic_5">
+          <text transform="translate(564.7059 50)" fill="black">
+            <tspan font-family="PingFang SC" font-size="14" fill="black" x="0" y="15" xml:space="preserve">有线连接</tspan>
+          </text>
+        </g>
+        <g id="Graphic_4">
+          <text transform="translate(564.7059 77.77941)" fill="black">
+            <tspan font-family="PingFang SC" font-size="14" fill="black" x="0" y="15" xml:space="preserve">无线连接</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Graphic_33">
+        <path d="M -216 140.81434 L -64.25 140.81434 C -61.488576 140.81434 -59.25 143.05291 -59.25 145.81434 L -59.25 202.37684 C -59.25 205.13826 -61.488576 207.37684 -64.25 207.37684 L -216 207.37684 C -218.76142 207.37684 -221 205.13826 -221 202.37684 L -221 145.81434 C -221 143.05291 -218.76142 140.81434 -216 140.81434 Z" fill="#c0ffc0"/>
+        <path d="M -216 140.81434 L -64.25 140.81434 C -61.488576 140.81434 -59.25 143.05291 -59.25 145.81434 L -59.25 202.37684 C -59.25 205.13826 -61.488576 207.37684 -64.25 207.37684 L -216 207.37684 C -218.76142 207.37684 -221 205.13826 -221 202.37684 L -221 145.81434 C -221 143.05291 -218.76142 140.81434 -216 140.81434 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-216 147.09559)" fill="black">
+          <tspan font-family="PingFang SC" font-weight="bold" font-size="14" fill="black" x="27.505" y="15" xml:space="preserve">Linksys 主路由</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="25.205" y="33" xml:space="preserve">WAN: 192.168.71.2</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="34.139" y="50" xml:space="preserve">LAN: 10.200.1.1</tspan>
+        </text>
+      </g>
+      <g id="Line_34">
+        <line x1="-140.125" y1="116.875" x2="-140.125" y2="140.81434" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_36">
+        <rect x="24.02206" y="31" width="379.97794" height="205" fill="#ebebeb"/>
+        <rect x="24.02206" y="31" width="379.97794" height="205" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(29.02206 36)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">书房</tspan>
+        </text>
+      </g>
+      <g id="Graphic_37">
+        <rect x="66.02206" y="167" width="145" height="49.75" fill="#ffffc0"/>
+        <rect x="66.02206" y="167" width="145" height="49.75" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(71.02206 173.375)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" fill="black" x="39.5" y="15" xml:space="preserve">办公电脑</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="32.736" y="33" xml:space="preserve">10.200.1.246</tspan>
+        </text>
+      </g>
+      <g id="Line_38">
+        <line x1="-59.25" y1="190.73621" x2="66.02206" y2="191.45754" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_40">
+        <path d="M 71.02206 79.1875 L 206.02206 79.1875 C 208.78348 79.1875 211.02206 81.42608 211.02206 84.1875 L 211.02206 130.8125 C 211.02206 133.57392 208.78348 135.8125 206.02206 135.8125 L 71.02206 135.8125 C 68.260635 135.8125 66.02206 133.57392 66.02206 130.8125 L 66.02206 84.1875 C 66.02206 81.42608 68.260635 79.1875 71.02206 79.1875 Z" fill="#c0ffc0"/>
+        <path d="M 71.02206 79.1875 L 206.02206 79.1875 C 208.78348 79.1875 211.02206 81.42608 211.02206 84.1875 L 211.02206 130.8125 C 211.02206 133.57392 208.78348 135.8125 206.02206 135.8125 L 71.02206 135.8125 C 68.260635 135.8125 66.02206 133.57392 66.02206 130.8125 L 66.02206 84.1875 C 66.02206 81.42608 68.260635 79.1875 71.02206 79.1875 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(71.02206 89)" fill="black">
+          <tspan font-family="PingFang SC" font-weight="bold" font-size="14" fill="black" x="13.397" y="15" xml:space="preserve">Linksys2 (mesh)</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="33.93" y="33" xml:space="preserve">10.200.1.196</tspan>
+        </text>
+      </g>
+      <g id="Line_41">
+        <path d="M -59.25 157.45496 L 3.3860294 157.45496 L 3.3860294 107.5 L 66.02206 107.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_42">
+        <rect x="259" y="82.625" width="118.5" height="49.75" fill="#ffffc0"/>
+        <rect x="259" y="82.625" width="118.5" height="49.75" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(264 89)" fill="black">
+          <tspan font-family="PingFang SC" font-size="14" fill="black" x="26.25" y="15" xml:space="preserve">我的手机</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="19.804" y="33" xml:space="preserve">10.200.1.237</tspan>
+        </text>
+      </g>
+      <g id="Line_43">
+        <line x1="211.02206" y1="107.5" x2="259" y2="107.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Graphic_53">
+        <rect x="-496.02206" y="67.125" width="117" height="49.75" fill="white"/>
+        <rect x="-496.02206" y="67.125" width="117" height="49.75" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(-491.02206 73.5)" fill="black">
+          <tspan font-family="PingFang SC" font-weight="bold" font-size="14" fill="black" x="32.5" y="15" xml:space="preserve">云网关</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="11.242" y="33" xml:space="preserve">192.168.71.1/24</tspan>
+        </text>
+      </g>
+      <g id="Line_54">
+        <line x1="-379.02206" y1="92" x2="-230.9" y2="92" marker-end="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
