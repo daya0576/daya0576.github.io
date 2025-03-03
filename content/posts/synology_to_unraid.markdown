@@ -139,9 +139,10 @@ Unraid 系统几乎每个特性，都击中在博主的心趴上。期待未来�
 ## Mover Tuning 设置
 以大疆拍摄的乒乓球视频工作流为例：
 
-1. 将当日乒乓球录制视频导入 Cache，进行回顾与视频剪辑
-2. 每日凌晨两点定制扫描，若满足下面的条件，则移动至冷备 Array
-    - 视频距上次超过 15 天
+1. [Cache] 将当日乒乓球录制视频导入
+2. [Cache] 回顾与视频剪辑
+3. [Array] 每日凌晨两点定制扫描，若满足下面的条件，则移动至冷备
+    - 视频超过 15 天
     - 文件大于 10M
 
 ![](/images/blog/global/17356894814590.jpg)
@@ -153,26 +154,6 @@ step by step tutorial to enable GPU passthrough:
 
 虽然遇到了显卡无法 passthrough 显示器无法点亮的问题，但万幸最终通过升级 bois 版本解决了。
 
-成功启动后，体验非常丝滑（舒服😌）
-
-## "cache" file and directory information
-尽可能的希望 Array 处于休眠的状态，可以通过 NFS 的 `Tunable (fuse_remember)` 配置，可以缓存文件/目录名称：
-
-![](/images/blog/2021-09-04-jvm-note/17355275285679.jpg)
-
-## macOS 自动挂载 NFS
-```
-# fstab 编辑的入口: /etc/fstab
-sudo vifs
-
-# device-spec     mount-point     fs-type      options     
-lena.local:/mnt/user/movies /System/Volumes/Data/Lena/movies nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=65536
-lena.local:/mnt/user/tt /System/Volumes/Data/Lena/tt nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=65536
-
-sudo automount -cv
-```
-
-不清楚为什么这种方式，导致传输速率极慢。排查无果，暂时切换为原生的 finder 挂载，并加入 login items
 
 ## 避免必须要键盘连接才能启动
 
@@ -180,11 +161,22 @@ sudo automount -cv
 
 1. https://www.truenas.com/community/threads/motherboards-that-boot-automatically-from-usb-without-pressing-f8-or-so-solved.11672/
 
-## GPU 休眠/关闭
+## 电流滋滋声
 
-安装插件后，虽然观察到 GPU 使用率为 0，但依然在耗电并产生**电流声噪音**：
+起初怀疑为 GPU 啸叫⚡️
 
-![](/images/blog/global/17356900667932.jpg)
+然而安装插件后，虽然 GPU 设置为 p8 节能模式，但电流声依然未缓解：
+![](/images/blog/global/17359155365436.jpg)
+
+故将主机上的设备一一移除，最终发现疑似 CPU 产生的噪音。
+
+这时一条关键的线索浮出水面：当在主机执行 stress test 跑满负载时（相比于 low load 低负载），噪音竟然消失了。至少可以确认 cpu 导致的问题。
+
+最终在 asus bois 设置中一顿操作，终于消灭了电流声噪音：
+```
+CPU C-states [Auto]->[Disabled]
+Acoustic Noise Mitigation [Disabled]->[Enabled] // 关键
+```
 
 **Update on 2025/03/03:**
 最新发现电流声，并不是显卡发出的，而是电源发出的啸叫（coil whine）。我使用的电源是海盗船 sf750，与客服沟通后更换为 sf600，但很遗憾还是未解决问题，最终申请了退款。
