@@ -30,14 +30,14 @@ categories:
 
 2022 年开始，电信未通知用户情况下默认开启。
 
-对老婆解释：之前快递支持上门送件，结果有一天只配送至菜鸟驿站，但细思恐极的是菜鸟号称为了方便接收快递，直接配了你家的钥匙，你不在家也能给你送进去 =。=
+对老婆解释：之前快递支持上门送件，结果有一天只配送至菜鸟驿站，但细思恐极的是菜鸟号称为了方便接收快递，直接配了你家的钥匙。
 
 ![cloud_gateway](/images/blog/global/cloud_gateway.svg)
 
 
 ## 选项二: Surge Ponte
 
-幸运的是，Surge 支持开启私有 mesh 网络：[Ponte](https://kb.nssurge.com/surge-knowledge-base/zh/guidelines/ponte)。通过国内代理，或直接使用公网 IP 做端口转发即可开启：
+幸运的是，Surge 支持开启私有 mesh 网络：[Ponte](https://kb.nssurge.com/surge-knowledge-base/zh/guidelines/ponte)。通过国内代理做转发，或直接使用公网 IP 做端口转发即可开启：
 
 博主选择了后者，通过以下步骤 100% 掌控家庭的网络：
 
@@ -47,10 +47,22 @@ categories:
 4. 通过 Surge 开启 Ponte 并在路由器中设置端口转发（如下图）
 5. 通过域名 mini.sponte 无缝丝滑访问家庭自部署服务
 
-![](/images/blog/global/17407472274868.jpg)
+### 通过 ssh 回家
 
-![](/images/blog/global/17407499769050.jpg)
+个人的 ssh config 供参考：
+```shell
+# Optional
+Host *
+    ServerAliveInterval 15
+    ServerAliveCountMax 10
+    AddressFamily inet
 
+# Target
+Host surge_mini
+    HostName mini.local
+    User mini
+    ProxyCommand nc -x 127.0.0.1:6153 %h %p 
+```
 
 # 服务管理
 
