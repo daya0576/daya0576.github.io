@@ -178,3 +178,10 @@ CPU C-states [Auto]->[Disabled]
 Acoustic Noise Mitigation [Disabled]->[Enabled] // 关键
 ```
 
+**Update on 2025/03/03:**
+最新发现电流声，并不是显卡发出的，而是电源发出的啸叫（coil whine）。我使用的电源是海盗船 sf750，与客服沟通后更换为 sf600，但很遗憾还是未解决问题，最终申请了退款。
+
+购买新品牌电源后，啸叫还是未解决。进一步怀疑家中供电问题。
+
+最终通过购买隔离变压器解决：
+![5D334F23-CEA5-410F-A05C-28CC97C268BB_4_5005_c](/images/blog/global/5D334F23-CEA5-410F-A05C-28CC97C268BB_4_5005_c.jpeg)
