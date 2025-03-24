@@ -47,6 +47,10 @@ categories:
 4. 通过 Surge 开启 Ponte 并在路由器中设置端口转发（如下图）
 5. 通过域名 mini.sponte 无缝丝滑访问家庭自部署服务
 
+![](/images/blog/global/17407617194520.jpg)
+
+
+
 ![](/images/blog/global/17407472274868.jpg)
 
 ![](/images/blog/global/17407499769050.jpg)
