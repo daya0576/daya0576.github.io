@@ -9,14 +9,17 @@ draft: true
 
 偶然刷到一条 [reddit](https://www.reddit.com/r/selfhosted/comments/1jaosfe/sharing_my_setup/) 的帖子，介绍日常使用的 selfhosted 软件。文中提到他对 [Beaver Habit Tracker](https://github.com/daya0576/beaverhabits) 的极简心动，但很遗憾由于 accessibility 的问题导致他无法使用。
 
-第一时间没有明白 accessibility 的含义，以为是交互不够友好。后来才注意到作者是一名盲人，由于网站从来没有考虑到无障碍的设计，导致他无法使用。内心小小的受震撼，准备学习相关的知识，这篇文章将介绍博主 Udemy 课程 [Web Accessibility Training Course WCAG 2.1 & 2.2 Compliance](https://www.udemy.com/course/web-accessibility-training-course-wcag-21-compliance/?couponCode=KEEPLEARNING) 的笔记与心得。
+第一时间没有明白 accessibility 的含义，以为是交互不够友好。后来才注意到作者是一名盲人，由于网站从来没有考虑到无障碍的设计，导致他无法使用。内心小小的受震撼，这篇文章将介绍 Udemy 课程 [Web Accessibility Training Course WCAG 2.1 & 2.2 Compliance](https://www.udemy.com/course/web-accessibility-training-course-wcag-21-compliance/?couponCode=KEEPLEARNING) 的笔记与心得。
+
+# 测试网页的可访问性
+安装游览器插件 [WAVE web accessibility evaluation tool](https://wave.webaim.org/extension/)，可以帮助你快速评估网页内容的可访问性。
 
 # 重新认识无障碍（Accessibility）
 ## 定义残疾人
 残疾人的定义可从不同视角来看待：
 
 ### 1. 医学模式
-认为残疾是个体与外界互动的障碍，也就说只要能够治疗他们当前的医疗状况，他们就不再会有残障。例如给盲人做了一次手术修复视力，他就不再残障。
+认为残疾是个体与外界互动的障碍，也就说只要能够治疗个体当前的医疗状况，他们就不再会有残障。例如给盲人做了一次手术修复视力，他就不再残障。
 
 ### 2. 社会模式
 强调关注个人的环境而非个体自身。也就是说只要改变社会运行方式并消除障碍后，这个人就不再是“残疾人”了（They are disabled by the way the environment is organized，Remove barriers and the person is not longer 'disabled'）。
@@ -51,3 +54,67 @@ P.S. 当然所谓的「社会模式」的定义也有一些批评声音：如果
 
 除了依赖语音识别技术进行操作，也要确保网站能够完全通过键盘导航。
 
+
+# 如何提升可访问性
+## No text content & Alternative text
+例如 icons 和 charts 等等，需要提供 alternative and equivalent text（文字是 the most accessable medium）。并且添加 alt text 对网页的 SEO 有一定好处。
+```html
+// Guideline
+// 尽可能保持简短：最多 7 or 8 words，不要包含累赘的信息：“这是一个图片”
+// 如果是复杂的图片，可以靠谱单独添加一段描述，或设置链接到完整描述。也可以使用 `longdesc` 属性，但可能有兼容性问题，可能只在 JAWS 上工作
+// 描述应该与图片的*目的*保持一致，例如表单的提交按钮，alt text 就应该被设置为提交
+// 如果图片仅是装饰作用或与标题重复，记得将 alt 属性设置为空
+// 确保背景图片仅用于装饰，因为无法对背景图片添加 alt 描述
+<img src="" alt="description"> 
+```
+
+## Accessible video
+注意点⚠️：
+  - 确保播放器支持字幕，并可以通过键盘访问所有交互元素
+  - 确保不要自动播放视频 
+  - 确保视频不包含 flashing or strongcontent；which can cause seizuies
+  - 确保提供的手语与视频同步
+
+奇怪的知识：原来 YouTube 上的 CC 代表 closed capture
+
+## Contrast & Colours
+为什么好的对比度设计很重要？
+- 超过 50 岁的司机，相比于 30 岁，在夜晚需要几乎两倍的灯光才能保证安全驾驶。
+- 8% 的男性与 0.5% 的女性有一定程度色盲
+
+以博客为例，可以使用 WAVE 软件来改善网页的对比度（对比度的范围：1 - 21）
+
+可以看到正文的对比度符合要求，但链接的对比度有待提升（注意不同字体大小的对比度要求不同）：
+![](/images/blog/global/17427813192153.jpg)
+
+通过手动调节颜色，使得对比度符合要求：
+![](/images/blog/global/17427814143805.jpg)
+
+其他注意点：
+- 确保不要仅以颜色作为传递信息的手段，例如使用颜色标识表单中的字段是必填的
+- 需要避免的颜色组合: 红色/绿色、蓝色/黄色、。。。
+
+## Accessible links
+当盲人使用 screen reader 游览网页时，常常会一次性获取所有的链接方便进一步阅读自己感兴趣的信息。下图为在 macOS 中使用 VoiceOver 时，`ctrl+option+u` 获取链接菜单：
+![](/images/blog/global/17427843523053.jpg)
+
+如何让链接更有意义？
+1. 确保链接使用描述性文字，而不是 点击这里 或 阅读更多
+2. 使用下划线突出链接，并在 fucos 时高亮
+3. 不要使用完整的 URL 作为链接的文本
+4. 链接到 PDF 或其他文本：建议添加图标、文件大小、以及打开需要的软件链接。
+5. 考虑插入“skip link”，方便依赖键盘导航或使用屏幕阅读器的用户，可以直接跳过重复的导航菜单而访问页面的主要内容
+
+[Skip Navigation Links](https://webaim.org/techniques/skipnav/) 的一个例子：
+```html
+<!--
+1. 确保链接是 body 中的第一个元素
+2. 确保链接通过 css 隐藏
+-->
+<body>
+<a href="#maincontent">Skip to main content</a>
+...
+<main id="maincontent">
+<h1>Heading</h1>
+<p>This is the first paragraph</p>
+```
