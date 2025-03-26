@@ -7,12 +7,10 @@ draft: true
 # 背景
 > I've also been looking for a habit tracker that just does habits. Closest I've found is Beaver Habit Tracker but its accessibility issues made it impossible for me to use
 
-偶然刷到一条 [reddit](https://www.reddit.com/r/selfhosted/comments/1jaosfe/sharing_my_setup/) 的帖子，介绍日常使用的 selfhosted 软件。文中提到他对 [Beaver Habit Tracker](https://github.com/daya0576/beaverhabits) 的极简心动，但很遗憾由于 accessibility 的问题导致他无法使用。
+偶然刷到一条 [reddit](https://www.reddit.com/r/selfhosted/comments/1jaosfe/sharing_my_setup/) 的帖子，介绍日常使用的 selfhosted 软件。文中提到他对 [Beaver Habit Tracker](https://github.com/daya0576/beaverhabits) 的极简万分心动，但很遗憾由于 accessibility 的问题导致他无法使用。
 
 第一时间没有明白 accessibility 的含义，以为是交互不够友好。后来才注意到作者是一名盲人，由于网站从来没有考虑到无障碍的设计，导致他无法使用。内心小小的受震撼，这篇文章将介绍 Udemy 课程 [Web Accessibility Training Course WCAG 2.1 & 2.2 Compliance](https://www.udemy.com/course/web-accessibility-training-course-wcag-21-compliance/?couponCode=KEEPLEARNING) 的笔记与心得。
 
-# 测试网页的可访问性
-安装游览器插件 [WAVE web accessibility evaluation tool](https://wave.webaim.org/extension/)，可以帮助你快速评估网页内容的可访问性。
 
 # 重新认识无障碍（Accessibility）
 ## 定义残疾人
@@ -82,15 +80,13 @@ P.S. 当然所谓的「社会模式」的定义也有一些批评声音：如果
 - 超过 50 岁的司机，相比于 30 岁，在夜晚需要几乎两倍的灯光才能保证安全驾驶。
 - 8% 的男性与 0.5% 的女性有一定程度色盲
 
-以博客为例，可以使用 WAVE 软件来改善网页的对比度（对比度的范围：1 - 21）
-
-可以看到正文的对比度符合要求，但链接的对比度有待提升（注意不同字体大小的对比度要求不同）：
+以个人博客为例，可以使用 WAVE 软件来改善网页的对比度（对比度的范围：1 - 21）。可以看到正文的对比度符合要求，但链接的对比度有待提升（注意不同字体大小的对比度要求不同）：
 ![](/images/blog/global/17427813192153.jpg)
 
 通过手动调节颜色，使得对比度符合要求：
 ![](/images/blog/global/17427814143805.jpg)
 
-其他注意点：
+⚠️其他注意点：
 - 确保不要仅以颜色作为传递信息的手段，例如使用颜色标识表单中的字段是必填的
 - 需要避免的颜色组合: 红色/绿色、蓝色/黄色、。。。
 
@@ -98,7 +94,7 @@ P.S. 当然所谓的「社会模式」的定义也有一些批评声音：如果
 当盲人使用 screen reader 游览网页时，常常会一次性获取所有的链接方便进一步阅读自己感兴趣的信息。下图为在 macOS 中使用 VoiceOver 时，`ctrl+option+u` 获取链接菜单：
 ![](/images/blog/global/17427843523053.jpg)
 
-如何让链接更有意义？
+⚠️如何让链接更有意义？
 1. 确保链接使用描述性文字，而不是 点击这里 或 阅读更多
 2. 使用下划线突出链接，并在 fucos 时高亮
 3. 不要使用完整的 URL 作为链接的文本
@@ -118,3 +114,64 @@ P.S. 当然所谓的「社会模式」的定义也有一些批评声音：如果
 <h1>Heading</h1>
 <p>This is the first paragraph</p>
 ```
+
+## Accessible Tables 表格
+⚠️注意点：
+- 表格尽可能仅表达数据，而不是用来布局（个人理解丢失了层级信息）
+- 表格格式化的技巧：**标题加粗向左对齐，内容向右对齐**
+- 鼠标聚焦的时候高亮辅助提示
+
+扩展阅读：[Tables Tutorial](https://www.w3.org/WAI/tutorials/tables/#:~:text=Accessible%20tables%20need%20HTML%20markup,td%3E%20to%20make%20tables%20accessible)
+
+## Accessible Form 表单
+⚠️注意点：屏幕阅读器自带表单模式，除了确保针对每个字段添加并关联明确的 label，还需要对字段进行分组（因为盲人范围表单或跳转时往往缺少上下文）：
+```html
+<fieldset>
+  <legend>Personal Details</legend>
+  <label for="name">Name<lable>
+  <input name="Name" type="text id="name">
+  ...
+</fieldset>
+
+<fieldset>
+  ...
+</fieldset>
+```
+
+表单校验以及错误提示的处理：
+- 不同校验方式的策略：
+    - 服务器端校验：错误显示在页面顶部，并 id 聚焦在错误信息上（通过`url#myerrormessages`）。
+    - 客户端校验：在填写单个字段后或提交时触发，并确保用户能迅速定位到问题字段
+- 关于弹框：
+    - javascript 弹框虽然大部分情况下令人讨厌，但这个场景下是屏幕阅读器友好并推荐使用。可以考虑使用 `aria-invalid="true"` 字段帮助屏幕阅读器识别无效字段
+
+
+## Accessible javascript
+⚠️注意点：
+- 即使 JavaScript 被禁用，确保所有的功能可以正常使用
+- 事件处理：除了 `mouseover`，`mouseout` 等，也要支持使用键盘对应的事件 `onfocus`，`onblur` 等
+
+
+## ARIA（Accessible Rich Internet Applications Suite）
+对网页元素添加额外的属性，方便 screen reader 直接定位，举个例子（注意 `role` 属性）：
+```html
+<!--the main navigation-->
+<div id="mainnav" role="navigaton" aria-labelledby="mainnavigation">
+<h2  id="mainnavigation">Main Navigation</h2>
+...main navigation links here ...
+</div>
+
+<!--the right-hand column navigation-->
+<div id="rightcolunnnav" role="navigation" aria-labelledby="rightnavigation">
+<h2  id="rightnavigation">Right-Hand Column Navigation</h2>
+...right-hand column navigation goes here ...
+</div>
+```
+
+更多参考：https://www.w3.org/TR/wai-aria-practices-1.1/
+
+# 总结
+
+虽然课程中针对各个组件罗列了详细的 checklist，但也可以安装游览器插件 [WAVE web accessibility evaluation tool](https://wave.webaim.org/extension/) 帮助你快速评估网页内容的可访问性。
+
+待博主将网页优化一版后，再更新用户的反馈。
