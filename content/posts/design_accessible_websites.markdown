@@ -12,8 +12,7 @@ draft: false
 第一时间没有明白 accessibility 的含义，以为是交互不够友好。后来才注意到作者是一名盲人，由于网站从来没有考虑到无障碍的设计，导致他无法使用。内心小小的受震撼，这篇文章将介绍 Udemy 课程 [Web Accessibility Training Course WCAG 2.1 & 2.2 Compliance](https://www.udemy.com/course/web-accessibility-training-course-wcag-21-compliance/?couponCode=KEEPLEARNING) 的学习笔记与心得。
 
 # 更新（2025/03/28）
-
-
+// TODO
 
 # 重新认识无障碍（Accessibility）
 ## 定义残疾人

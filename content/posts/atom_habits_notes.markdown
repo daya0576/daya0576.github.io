@@ -1,5 +1,5 @@
 ---
-title: "《Atomic Habits》阅读笔记"
+title: "《Atomic Habits｜原子习惯》阅读笔记"
 date: 2025-03-19T07:10:45+08:00
 ---
 
