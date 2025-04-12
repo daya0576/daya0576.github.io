@@ -2,7 +2,7 @@
 title: "无障碍网页设计（Design Accessible Websites）"
 date: 2025-03-23T09:46:36+08:00
 categories:
-- 个人相关
+- 独立开发
 ---
 
 # 背景

@@ -3,7 +3,7 @@ title: 为什么个人开源项目让我感到兴奋
 date: 2024-11-16 11:02:16
 tags:
 categories:
-- 个人相关
+- 独立开发
 ---
 
 Hi 好久不见～ 最近几个月沉迷于与游戏《Against The Storm》，与开发一款 web app，叫做：[Beaver Habit Tracker](https://github.com/daya0576/beaverhabits)

@@ -3,7 +3,7 @@ title: Beaver Habit Tracker Onboard
 date: 2024-04-06 12:27:50
 tags:
 categories:
-- 个人相关
+- 独立开发
 ---
 
 When switching from Android to iOS, I was unable to find a light-weighted but handy habit tracking app, so I decided to make one by myself :)

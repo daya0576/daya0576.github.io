@@ -2,7 +2,7 @@
 title: "《The Lean Startup｜精益创业》读后感"
 date: 2025-03-28T00:51:00+08:00
 categories:
-- 个人相关
+- 独立开发
 ---
 
 # Glossary
