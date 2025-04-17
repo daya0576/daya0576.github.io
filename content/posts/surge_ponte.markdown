@@ -5,7 +5,7 @@ categories:
 - 智能家居
 ---
 
-通过自部署（Self-Hosted），你可以轻易地使用 [Bitwarden](https://bitwarden.com/) 取代 1Password 丝滑地管理所有密钥；使用 [Transmission](https://transmissionbt.com/) 随时随地通过游览器插件一键下载喜欢的 pt 电影；使用 [Home Assistant](https://www.home-assistant.io/) 管理家中所有智能设备并远程控制...
+通过自部署（Self-Hosted），你可以使用 [Bitwarden](https://bitwarden.com/) 取代 1Password 丝滑地管理所有密钥；使用 [Transmission](https://transmissionbt.com/) 随时随地一键下载喜欢的 pt 电影；使用 [Home Assistant](https://www.home-assistant.io/) 管理家中所有智能设备并远程控制...
 
 配合同城小于 5ms 的延迟，甚至可以在公司午休时，一键回家写会代码放松一下 ^^
 
