@@ -67,7 +67,7 @@ almost done the encoding, but have no idea of the in maintaining Vitter's invari
 **Week 4(holiday):**    
 **Assignment 1:**   
 Having completed the encoding and decoding!!! cheers~    
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160317_comp9319/assign1_half.JPG">
+<img style="max-height:350px" src="/images/blog/160317_comp9319/assign1_half.JPG">
  
 
 
@@ -79,7 +79,7 @@ The assignment2.. Backward BWT search...
 I did everything, made a lot of improvement, but my program is still so slow...   
 but anyway, I tried my best, proud of myself.    
 It so hard and fun to improve efficiency of a program.     
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160317_comp9319/assit2.jpg">
+<img style="max-height:300px" src="/images/blog/160317_comp9319/assit2.jpg">
  
 
 >### 2016/04/20 ###
@@ -87,7 +87,7 @@ It so hard and fun to improve efficiency of a program.
 **Week 8:**    
 About the marking of assignment2.. So moved that Raymond forgiven my mistake.   
 He is so strict and has his own principles, but is also an extremely nice person, full of emotion.                
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160317_comp9319/assit2_mark.jpg">
+<img style="max-height:300px" src="/images/blog/160317_comp9319/assit2_mark.jpg">
  
 
 >### 2016/05/15 ###
@@ -106,28 +106,28 @@ Made silly mistake again...
 but Raymond is so kind.    
 The assit3 is almost done now, much easier than assit 1 and 2.    
 When I am writing README file and thinking that if Raymond can give each student some feedbacks, it will be great.     
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160317_comp9319/assit2_email.PNG">
+<img style="max-height:400px" src="/images/blog/160317_comp9319/assit2_email.PNG">
  
 
 >### 2016/05/19 ###
 **Assit3 done.**    
 I used the Boyer Moore Algorithm without index and the efficiency is not bad.    
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160317_comp9319/assit3_bm.jpg">    
+<img style="max-height:350px" src="/images/blog/160317_comp9319/assit3_bm.jpg">    
 Perfect mark of assignment3:    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160317_comp9319/assit3_mark.jpg">    
+<img style="max-height:300px" src="/images/blog/160317_comp9319/assit3_mark.jpg">    
 
 
 >### 2016/05/25 ###
 **Last lecture**    
 Thanks Raymond!             
-<img style="max-height:320px" class="lazy" data-original="/images/blog/160317_comp9319/last_lecture.JPG">   
+<img style="max-height:320px" src="/images/blog/160317_comp9319/last_lecture.JPG">   
 
 
 >### 2016/06/18 ###
 **Fianl Exam**    
 2 hours before final exam, best wishes to myself.    
 And this is my cheating sheet, a piece of art!     
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160317_comp9319/sheet.JPG">    
+<img style="max-height:350px" src="/images/blog/160317_comp9319/sheet.JPG">    
 Although most of the questions were on the exercises provided,     
 some of them is tricky and not easy to solve.    
 

@@ -13,7 +13,7 @@ tags: [life, table tennis]
    
 # 小学
 最早接触乒乓球是在小学二三年级的时候，那时去楚门少年宫，一个大叔拍马屁送了一个球拍给我，到现在我还留着这个球拍， 满满的都是岁月的痕迹。
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160718_tt/340.JPG">     
+<img style="max-height:400px" src="/images/blog/160718_tt/340.JPG">     
 那时'小区'里有很多打球的小伙伴，一个石头桌就可以围着十几个人玩的热火朝天。后来谁家的地下室多了一个真的球桌，周末时都会赶快完成老妈布置的作业出去浪。当然没有球桌也挡不住我们的热情，夏天在地上用石头画一条线就直接开打了，哈哈。   
 
 # 初中
@@ -26,27 +26,27 @@ tags: [life, table tennis]
 关于县比赛：不知道学校怎么想的，总是怕影响学习反对我们去打比赛，强力的阻挠，也是心累。     
 高一时的县比赛，手感好的不行，那时真的是运气女神的眷顾，莫名其妙就进了决赛，拿了一个单打第二，但我还是记得那场决赛我犯的每个失误，小伙伴们叫暂停围着我指导我的场景，遗憾有时候也是那么的美好。以至于后两年人品差的每年第一轮就败在徐中x的拍下，悲剧的一轮游～～      
 高二时，终于说服学校有机会打团体了，那时真的是我们的最强整容，我，潇潇，董博x，张裕禄。一直以来，我最喜欢的真的还是团体赛，当你站在场上的时候，你代表的不是你的个人，而是在为学校而战，那种热血沸腾，紧张窒息的感觉真的太难忘了。那天我们几乎没有输一场比赛，堪称完美的拿到了团体冠军，记得最后一轮第三场的时候，领队过来和我们说只要赢了这场就是冠军了，我们当时也是。。赢下最后一分的时候真的很开心，唯一的遗憾就是去吃了一个超坑的火锅，哈哈哈哈。但那天真的是我高中为数不多特别特别开心的一天          
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160718_tt/highschool.JPG">       
+<img style="max-height:400px" src="/images/blog/160718_tt/highschool.JPG">       
 
 # 大学本科
 高三时就略过吧，很的是噩梦，不想去回忆。
 高考也是噩梦呀，发挥严重失常去了天津工大，和乒乓球有关特别的回忆就是大三时的校乒乓球比赛，当时听到有比赛，激动了好久，那种感觉，是我热血沸腾的青春呀 ：）     
 单打：主要几个专业的都弃权了，我那时状态真的差的不行，但靠着老道的经验还是有惊无险的拿了单打冠军。印象最深的还是半决赛，打到二比二平，最后决胜局的时候11:12落后一个的时候，我倒地救到了一个快落地的球，对方心态失衡最后翻盘成功。     
 团体：我们三人小分队在赛前一周，每天晚上都会去华苑的球馆练球，那个星期的练球也是挺重要的。团体赛赢的挺惊心动魄的，小组赛的时候还输了一场，但正是因为小组赛的四场比赛让我迅速调整各个人的位置。半决赛时，三号小胖吹牛b吹破了，输了比赛，第五场是我们的高畅对对面的一个专业的，那时真的有点绝望了，但高畅是完美的比赛型的选手，脑子转的飞快，最后强强对抗击败了对方，还记得赢下最后一个球后和他的击掌庆祝，现在手还隐隐做痛。。看对方输球后坐在那还就没说话。 决赛的对手弱的一b，轻松三比零带走。这个冠军还是非常非常有质量的，给我十个单打冠军也不换这个团体冠军。           
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160718_tt/uni.jpg">       
+<img style="max-height:400px" src="/images/blog/160718_tt/uni.jpg">       
 
 
 # 硕士
 再后来就是在悉尼读master的故事了，上个学期参加了ITTA的志愿者，转型当了裁判，还是挺有趣的。
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160718_tt/sydney.jpg">     
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160718_tt/itta.png">     
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160718_tt/IMG_6277.jpeg">     
+<img style="max-height:350px" src="/images/blog/160718_tt/sydney.jpg">     
+<img style="max-height:350px" src="/images/blog/160718_tt/itta.png">     
+<img style="max-height:350px" src="/images/blog/160718_tt/IMG_6277.jpeg">     
 
 哈哈, 前几天打ITTA Spring比赛的一段视频,有没有小张继科的赶脚~~
 <video controls="" name="media" poster="/images/blog/160703_diary/poster.jpg"><source src="/images/blog/160703_diary/final.mp4" type="video/mp4"></video>
 
 USYD monthly competition, 之前打了division 1的比赛, 都是专业的.. 小组赛三场一场都没赢. 这次去参加division 2的比赛, 一不小心拿了第一名, 嘻嘻, 开心~~
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160718_tt/firstplace.JPG">       
+<img style="max-height:400px" src="/images/blog/160718_tt/firstplace.JPG">       
 
 # 感悟
 打了这么多年球还是挺有感悟的:   

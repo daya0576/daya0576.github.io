@@ -64,9 +64,9 @@ for i in range(1, 6):
 然而刚好自己从家带了显示器，每天就自己背着键盘鼠标和我的笔记本去公司。     
 刚开始他们也就让我给新电脑配一下环境，以前写python的时候都是用eclipse。     
 然而用上PyCharm后就知道eclipse弱爆了，就说配色和主题就爆了eclipse几条街，    
-<img class="lazy" data-original="/images/blog\150923_moobox/arrayToXml.png" >    
+<img src="/images/blog\150923_moobox/arrayToXml.png" >    
 之后就是看公司django后台的代码了，当时真的是一头雾水。     
-幸好有人带我，他的名字叫做小小鸟<img class="lazy" data-original="http://ctc.qzonestyle.gtimg.cn/qzone/em/e113.gif" >     
+幸好有人带我，他的名字叫做小小鸟<img src="http://ctc.qzonestyle.gtimg.cn/qzone/em/e113.gif" >     
 怎么说呢，真的非常感激小小鸟，不知道这辈子再也碰不到这么耐心的老师了、    
 小小鸟是个典型的外强中柔的人，有时候一着急也会发脾气，人的个性特别强    
 所以brain对他提需求的时候，其实有些需求不太合理，小小鸟也不太鸟他，态度极其恶劣。    

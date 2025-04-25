@@ -19,7 +19,7 @@ The CSE login servers doc: [http://taggi.cse.unsw.edu.au/FAQ/Accessing_CSE_login
 [https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html)     
 - **Step2:** put the public key into `~/.ssh/authorized_keys` in the remote server.     
 - **Step3:** Done!!!     
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160819_ssh/ssh.png">    
+<img style="max-height:300px" src="/images/blog/160819_ssh/ssh.png">    
 
 ##Another tips: 
 - Use sshfs to mount the whole disk to ur own maschine

@@ -16,13 +16,13 @@ tags: [Octopress]
 > 这个提速的小技巧就是Octopress自带的两条命令:    
 `1. rake isolate\['xxx.md'\]`: 将其他博客文件(除了xxx.md)移出`_post`文件夹, 暂存到另一个临时的地方. 以达到提速的效果.         
 `2. rake integrate`: 将暂存的全部文件都恢复.   
-<img style="max-height:350px" class="lazy" data-original="/images/blog/170812_rake_tricky/rake_suggestion.png">   
+<img style="max-height:350px" src="/images/blog/170812_rake_tricky/rake_suggestion.png">   
 
 
 
 > 可以从图上看到, isolate之后, rake generate的速度大大大大的提升了:   
 从12.93s → 1.37s   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170812_rake_tricky/result.png">    
+<img style="max-height:300px" src="/images/blog/170812_rake_tricky/result.png">    
 
  
 

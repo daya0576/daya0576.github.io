@@ -38,7 +38,7 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
 3. 因为不同的(几千个)任务动态的分布在不同的机器上, 所以不能单纯的用ip和端口去启动任务, 文中给出的一个解决方案: `/bns/<cluster>/<user>/<job name>/<task number>`, 然而并不是特明白.
 4. **对于任务的分布**(例如一个任务需要3个cpu, 2g内存), 有趣的是文中说到要尽可能优化的放置(二次装箱问题). !!!但又不能把鸡蛋都放在一个篮子(同个Rack或Pod)里(很有可能一个路由坏了, 那就全gg了).
 5. Remote Procedure Call (RPC), 了解一下?
-6. **Life of a Request**: 在 17 年后台研发工程师的一年, 我一直在思考一个问题: 一个 request 的 lifecycle, 于是去读了web框架(Django)的源码, 自己去实现一个uwsgi, 看http, tcp协议... 看到书中的request lifecycle, 感觉今年的目标是更多的了解大型项目的request lifecycle, 例如高并发的负载均衡问题, 等等.(This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.) 原来在dns server这就可以根据地区和负载情况, 分配对应的服务器ip, 但是为什么走到GFE反向代理找frontend server的时候, 又要去根据GSLB进行一次负载均衡的处理呢?<img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/1-lbs.png">
+6. **Life of a Request**: 在 17 年后台研发工程师的一年, 我一直在思考一个问题: 一个 request 的 lifecycle, 于是去读了web框架(Django)的源码, 自己去实现一个uwsgi, 看http, tcp协议... 看到书中的request lifecycle, 感觉今年的目标是更多的了解大型项目的request lifecycle, 例如高并发的负载均衡问题, 等等.(This request ultimately ends up at Google’s DNS server, which talks to GSLB. As GSLB keeps track of traffic load among frontend servers across regions, it picks which server IP address to send to this user.) 原来在dns server这就可以根据地区和负载情况, 分配对应的服务器ip, 但是为什么走到GFE反向代理找frontend server的时候, 又要去根据GSLB进行一次负载均衡的处理呢?<img style="max-height:300px" src="/images/blog/180403_google_sre/1-lbs.png">
 7. QPS: queries per second
 8. **N+2原则**: 如果说预期3,470 QPS, 而一个backend server最多能处理100QPS, 则至少需要35个server. 但是一般采用N+2的策略(37个server), 因为:
     - 1) 如果在升级中, 会有一个server不可用
@@ -130,7 +130,7 @@ p.s. 划重点，**欢迎交流或推荐好的书～**
 最终自动化带来的好处: 节省了无数(95%)的人力和物力, 节省了高达60%的硬件资源.
 这句话写的挺好的: "the more time we saved, the more time we were able to spend on optimizing and automating other tedious work"
 4. 文中提到十年前的时候, Cluster Infrastructure SRE team每隔几个月就要去大量招人, 因为员工的速率和服务的规模成正比(turning up a service in a new cluster gives new hires exposure to a service’s internals). 想到原来的公司(Hypers)给新客户部署一套环境的时候(五六个不同的产品), 需要几周的时间, 和这种情况好类似. 然而手动的配置和shell脚本都各自的缺点. 好奇Google是如何解决这个问题的.
-5. (接上一条)有意思, 解决方案竟然是Prodtest (Production Test): extended Python unit test framework, 但是一个有很多依赖的单元测试(如下图):   <img style="max-height:300px" class="lazy" data-original="/images/blog/180403_google_sre/7-producttest.png">
+5. (接上一条)有意思, 解决方案竟然是Prodtest (Production Test): extended Python unit test framework, 但是一个有很多依赖的单元测试(如下图):   <img style="max-height:300px" src="/images/blog/180403_google_sre/7-producttest.png">
 **好处:** 方便的校验配置是否正确, 如果出错了, 快速的定位出错的步骤和详细的错误信息. 而且每次出现配置出错造成延期的时候, 就将它加入到单元测试中, 保证相同的错误在未来不会重现.
 **具体疗效:** 有史以来第一次, product manager可以预测服务上线的具体时间, 并遇到延期时, 可以了解到详细原因.
 **惊不惊喜(out of the blue)**: 新的挑战 → senior management让他们在一周内让五个新集群同时上线.

@@ -19,10 +19,10 @@ tags: [c, internship]
 3.数据存储及管理: 利用c语言存储用户信息, 保存并管理聊天记录等功能。   
 
 **背景:** 那是大二的暑假吧, 学校组织的为期一个月的东软实习. 第一个星期介绍了linux, c, 企业开发流程 的一些基本知识. 然后以七八人一小组完成一个完整的项目. 当时是自荐当组长,当最后一个名额时, 羞涩的我鼓起勇气当了组长(其实还是很感激当时的老师,给了我好几个鼓励的眼神), 然后每个组长一轮一轮挑选自己的组员.     
-<img style="max-height:340px" class="lazy" data-original="/images/blog/160909_uchat/1.png">
+<img style="max-height:340px" src="/images/blog/160909_uchat/1.png">
 
 **项目介绍:** 当时的项目是做一个局域网内基于linux的即时聊天软件, 印象比较深的是第一次接触比较专业的开发流程.还记得老师总是强调说编码只是整个开发流程中一部分,  现在写越久的代码, 真的是越有体会当时的一些道理.     
-<img style="max-height:200px" class="lazy" data-original="/images/blog/160909_uchat/table.png">
+<img style="max-height:200px" src="/images/blog/160909_uchat/table.png">
 
 **开发回忆:**  当时的住宿条件还是很不错的, 两人间还带阳台, 晚上我们还会聚在一起打dota, 哈哈. 我总会买瓶奶边写代码边喝, 中午午休的时候还会和国臣踢踢实况.      
 开发中印象比较深的几个回忆:     
@@ -31,6 +31,6 @@ tags: [c, internship]
 3. 当时有两种架构, 一种是一个server多个clients的结构, 另一种是,没有server的架构, 我当时觉得没有server的必要, 每个人上线的时候就会向所有好友发送信号告诉他们我上线了, 但最后实现的时候还是造成很多麻烦.      
 4. 哈哈, 当时国臣执着于实现一个窗口抖动, 最后还是让他实现了, 效果还是特别不错的 哈哈哈.      
 当时几个女组员做的ppt....      
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160909_uchat/3.png">
+<img style="max-height:400px" src="/images/blog/160909_uchat/3.png">
 
 **总结:** 总的来说真的是特别怀念那段时光把, 慵懒的阳光, 稚嫩的代码, 负责任的老师, 友好的同学... 可惜永远回不去了~~           

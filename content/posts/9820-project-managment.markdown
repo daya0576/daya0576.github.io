@@ -21,7 +21,7 @@ This blog is sharing my experience of GSOE9820 Project Management in 16s2
 **week1**    
 Everyone said that this course is useless and waste of time.      
 Unfortunately this course is compulsory and not easy to apply exemption.      
-<img style="max-height:132px" class="lazy" data-original="/images/blog/160811_9820/compulsory.png">     
+<img style="max-height:132px" src="/images/blog/160811_9820/compulsory.png">     
  
 
 
@@ -29,7 +29,7 @@ Unfortunately this course is compulsory and not easy to apply exemption.
 ----------
 **week3**    
 A fun moment in lecture...     
-<img style="max-height:450px" class="lazy" data-original="/images/blog/160811_9820/fun.JPG">     
+<img style="max-height:450px" src="/images/blog/160811_9820/fun.JPG">     
  
 
 
@@ -37,7 +37,7 @@ A fun moment in lecture...
 ----------
 So so so boring!!!     
 Some times you even have the illusion that this managment knowledge is somehow useful...     
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160811_9820/illusion.png">     
+<img style="max-height:400px" src="/images/blog/160811_9820/illusion.png">     
  
 
 

@@ -13,7 +13,7 @@ tags: [apple, 测评]
 
 # 老七 - 机无忌
 在买新手机前就被老七的这款无线充电的**独特造型**深深吸引了😍, 将手机斜放着正好可以用于面部识别解锁. 诶哟, 很不错的想法哦:  
-<img style="max-height:350px" class="lazy" data-original="/images/blog/171212_three_wireless_chargers_review/laoqi.png">   
+<img style="max-height:350px" src="/images/blog/171212_three_wireless_chargers_review/laoqi.png">   
 还有一个**最大的优点**就是..**便宜!**    
 于是手机还没到手, 便迫不及待的下单了.     
 
@@ -21,7 +21,7 @@ tags: [apple, 测评]
 但是..手机到手后**体验并不是很好**, 主要体现在这么几个方面:   
 
 1. 突出的摄像头会硌到后边的托板(因为我喜欢裸奔, 如果戴套了应该就没有这个问题了.)   
-2. 向上滑(退出app时), 手指会硌到底座:    <img style="max-height:200px" class="lazy" data-original="/images/blog/171212_three_wireless_chargers_review/laoqi1.png">
+2. 向上滑(退出app时), 手指会硌到底座:    <img style="max-height:200px" src="/images/blog/171212_three_wireless_chargers_review/laoqi1.png">
 3. 需要同时加钱购买Type-C的线 :(   
 4. 发热: 对比与下边两个官方的无线充电, 会有发热的现象.    
 
@@ -40,7 +40,7 @@ tags: [apple, 测评]
 2. 样子骚.   
 
 本来想线上直接下单, 但快递要隔天才能送到. 不爽, 还是直接去Apple store体验一下再决定买不买好了:   
-<img style="max-height:500px" class="lazy" data-original="/images/blog/171212_three_wireless_chargers_review/belkin.jpg">
+<img style="max-height:500px" src="/images/blog/171212_three_wireless_chargers_review/belkin.jpg">
 
 **实体店上手的感觉:**    
 
@@ -55,12 +55,12 @@ tags: [apple, 测评]
 官网地址: [mophie-wireless-charging-base](https://www.apple.com/cn/shop/product/HL812CH/A/mophie-wireless-charging-base)   
 
 当触摸到的时候就爱上了它, 小巧却在正反面都做了防滑处理, 并且很重(和Belkin相比). 有种稳稳的幸福的感觉.   
-<img style="max-height:400px" class="lazy" data-original="/images/blog/171212_three_wireless_chargers_review/mophie1.jpg">
+<img style="max-height:400px" src="/images/blog/171212_three_wireless_chargers_review/mophie1.jpg">
 
 ---
 
 果断拔草:    
-<img style="max-height:500px" class="lazy" data-original="/images/blog/171212_three_wireless_chargers_review/mophie2.jpg">
+<img style="max-height:500px" src="/images/blog/171212_three_wireless_chargers_review/mophie2.jpg">
 
 
 

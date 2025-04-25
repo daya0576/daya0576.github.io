@@ -13,7 +13,7 @@ My summary of Perl in semester 16s2 of (COMP2041|COMP9041) in UNSW.
 
 > My note of lectures, it was a mess and not well organized.    
 So I decided to write this blog to make things clear(I need time to modify).       
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160920_perl/note.JPG"> 
+<img style="max-height:350px" src="/images/blog/160920_perl/note.JPG"> 
 
 
 >Perl = **P**ractical **E**xtraction and **R**eport **L**anguage    

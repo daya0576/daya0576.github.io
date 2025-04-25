@@ -16,9 +16,9 @@ tags: [vim]
 ## vimtutor
 **学会VIM的秘诀: 练习+练习+练习**   
 **VIM入门**最好的教程就是VIM的官方tutorial: **直接在命令行输入`vimtutor`**.   
-<img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor_pre.jpg">   
+<img style="max-height:200px" src="/images/blog/180223_vim/vimtutor_pre.jpg">   
 因为在这个教程中, 每个技巧都附带了可供实际操作的练习:    
-<img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/vimtutor.jpg">   
+<img style="max-height:200px" src="/images/blog/180223_vim/vimtutor.jpg">   
 > It is important to remember that this tutor is set up to teach by use.  That means that you need to execute the commands to learn them properly.  If you only read the text, you will forget the commands!
 
 
@@ -104,7 +104,7 @@ tags: [vim]
         - p.s. (可以使用`;`/`,`做到repeat和reverse上边的两个操作)
     - `W/E/B`: 根据空格进行移动
     - `%`:   
-    <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/move_faster_pair.png">   
+    <img style="max-height:200px" src="/images/blog/180223_vim/move_faster_pair.png">   
     - `[count]G`/`:[count]`: 跳到某一行.
     - `H/M/L`: 让光标跳到屏幕的开始/中间/最后
     - `zz/ze/zb`: try it.  
@@ -173,7 +173,7 @@ tags: [vim]
     3. local buffer / currentbuffer:   
     `let &l:number=1 / let b:hello="world"`
 - Conditionals:   
-    <img style="max-height:200px" class="lazy" data-original="/images/blog/180223_vim/Conditionals.jpeg">   
+    <img style="max-height:200px" src="/images/blog/180223_vim/Conditionals.jpeg">   
     哈哈, 这个章节的作业: Drink a beer to console yourself about Vim's coercion of strings to integers.
 - Comparisons
     当设置`set ignorecase`的时候, `"foo" == "FOO"`为True.   

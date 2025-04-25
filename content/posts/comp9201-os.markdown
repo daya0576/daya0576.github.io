@@ -26,8 +26,8 @@ Write down your experience about this course in this url:
 点开看有近十年来每届学生做的细致到恐怖的调查，   
 重点是professor还认真整理给了各种反馈。   
 截两张图感受一下（点击查看大图）、     
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160225_comp9201/survey2.jpg">
-<img style="max-height:200px" class="lazy" data-original="/images/blog/160225_comp9201/survey1.jpg">   
+<img style="max-height:300px" src="/images/blog/160225_comp9201/survey2.jpg">
+<img style="max-height:200px" src="/images/blog/160225_comp9201/survey1.jpg">   
 真的好佩服这个老师，用学生的反馈来不断的让这门课变得完美，应该是个特别好的老师，期待ing~。   
 2. 之后看到了这个。<font color="#ff0000">Students are also assumed to be competent in
 the C programming language. More specifically, students should
@@ -63,4 +63,4 @@ week3，好难，有时候真的不懂老师上课在说什么，今天讲并发
 week6 now..   
 After struggling for 3 days and nights, I finally solve the q3 of assign1...    
 I should spend more time in understanding the semophore of P and V.    
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160225_comp9201/assign1_quiz3.jpg">
+<img style="max-height:400px" src="/images/blog/160225_comp9201/assign1_quiz3.jpg">

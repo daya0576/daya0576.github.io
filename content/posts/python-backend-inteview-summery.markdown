@@ -15,7 +15,7 @@ ps. 本人渣渣, 文中也都是主观的观点, 看看开心就好, 不喜勿�
 
 # Introduction
 在尴尬的二月份毕业了, 虽然遗憾错过了校招, 但投了投简历, 回国的一周也面了七八个公司.    
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170220_inteview_summary/calendar.png">    
+<img style="max-height:250px" src="/images/blog/170220_inteview_summary/calendar.png">    
 
 有趣的地方是, 面试过的公司各有特色, 例如有
 

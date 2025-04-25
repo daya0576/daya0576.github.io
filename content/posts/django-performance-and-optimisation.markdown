@@ -103,7 +103,7 @@ TODO: 有空看一下 具体的实现原理.
 **研究的结果:**   
 当调用values或values_list的时候, 会生成一个新的queryset with no cache.    
 也就是说, 除了上边说到的七种会产生cache的情况, 其他都会重新去数据库拿数据.    
-<img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/disqus.png">    
+<img style="max-height:350px" src="/images/blog/170503_django_performace/disqus.png">    
 
 
 
@@ -155,7 +155,7 @@ reset_queries()
 **解决办法:** 可以再使用这个库: [django-debug-panel](https://github.com/recamshak/django-debug-panel),    
 再配合链接中最后的chrome插件使用, 就可以查看所有异步请求的详细信息!   
 如图:   
-<img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/IMG_3017.PNG">    
+<img style="max-height:350px" src="/images/blog/170503_django_performace/IMG_3017.PNG">    
 **优点:**   
     1. 统计了总的SQL查询时间.
     2. **重复查询的sql的数量, 在每条sql详细信息中显示重复的次数**.
@@ -195,7 +195,7 @@ if settings.DEBUG:
 ## line profiler:
 其实最好用的还是用line profiler去找程序的瓶颈:    
 效果如图所示, 显示了一个方法内哪行代码运行的时间最久:    
-<img style="max-height:350px" class="lazy" data-original="/images/blog/170503_django_performace/profile_liner.png">    
+<img style="max-height:350px" src="/images/blog/170503_django_performace/profile_liner.png">    
 使用方法(从同事黄俊那偷来的代码):   
 
 ```python

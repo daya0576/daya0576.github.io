@@ -17,7 +17,7 @@ tags: [ele, django, database]
 
 ### orm:
 在django的orm中也是一个道理, 可以用annotate:   
-<img style="max-height:500px" class="lazy" data-original="/images/blog/170515_ele/annotate.png">    
+<img style="max-height:500px" src="/images/blog/170515_ele/annotate.png">    
 
 
 ### 举个栗子:

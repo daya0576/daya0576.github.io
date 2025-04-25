@@ -27,9 +27,9 @@ Course homepage(Semester 1 2016)：
 ----------
 **The first assignment:** building a simple music store.   
 Index:   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160301_comp9321/index.jpg">    
+<img style="max-height:300px" src="/images/blog/160301_comp9321/index.jpg">    
 Checkout.   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160301_comp9321/checkout.jpg">   
+<img style="max-height:300px" src="/images/blog/160301_comp9321/checkout.jpg">   
  
 
 >### 2016/05/12 ###
@@ -50,7 +50,7 @@ It looks he is a little nervious and lack of confidence.
 **Assit2:**   
 I'm a person who don't trust group working and prefer to work alone，    
 but today I did feel the power of a group, good job my teammates.     
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160506_diary/9321_group.jpg"> 
+<img style="max-height:350px" src="/images/blog/160506_diary/9321_group.jpg"> 
  
 
 >### 2016/05/27 ###
@@ -58,7 +58,7 @@ but today I did feel the power of a group, good job my teammates.
 **WEEK13**    
 **Grade:**   
 So generous in giving marks:     
-<img style="max-height:237px" class="lazy" data-original="/images/blog/160301_comp9321/marks.jpg">    
+<img style="max-height:237px" src="/images/blog/160301_comp9321/marks.jpg">    
  
 
 >### 2016/06/20 ###

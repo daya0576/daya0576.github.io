@@ -34,17 +34,17 @@ format_spec       ::=  <described in the next section>
 
 # field_name
 1. **关键字(attribute_name):**   
-<img style="max-height:80px" class="lazy" data-original="/images/blog/170810_python_format/attribute_name.png">     
+<img style="max-height:80px" src="/images/blog/170810_python_format/attribute_name.png">     
 这个地方其实有个小技巧, 就是一开头语法总结中的arg_name和element_index:   
 arg_name: keyword.name → `getattr()`   
 element_index: keyword[index] → `__getitem__`   
 **举个栗子🌰: **   
-<img style="max-height:110px" class="lazy" data-original="/images/blog/170810_python_format/1.1_arg_name.png">     
+<img style="max-height:110px" src="/images/blog/170810_python_format/1.1_arg_name.png">     
 <p></p>
 2. **数字(element_index):**   
 用数字来表示参数的位置, 默认的`{} {} {}..`其实就等同于`{0} {1} {2}..`     
 这样稍微简洁一些, 而且可以重复渲染字符串:    
-<img style="max-height:43px" class="lazy" data-original="/images/blog/170810_python_format/element_index.png">   
+<img style="max-height:43px" src="/images/blog/170810_python_format/element_index.png">   
 
 
 

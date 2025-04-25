@@ -62,4 +62,4 @@ def cal_drinks(n):
 
 
 最后献上一张奶茶图留念:   
-<img style="max-height:330px" class="lazy" data-original="/images/blog/170224_coke/milktea.JPG">   
+<img style="max-height:330px" src="/images/blog/170224_coke/milktea.JPG">   

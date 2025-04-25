@@ -26,7 +26,7 @@ tags: [apistar, werkzeug]
         - **Step 2:** `reloader.run()`:   
         用while循环每隔一秒去检查所有iter_module_files和self.extra_files, 比较每个文件的修改时间, 如果有更新的话 → `sys.exist(3)` → 结束**子进程**, 重新运行入口命令(python app.py run) (回到外边的while loop中.)
         
-<img style="max-height:600px" class="lazy" data-original="/images/blog/180221_run_simple/run_simple.jpg">   
+<img style="max-height:600px" src="/images/blog/180221_run_simple/run_simple.jpg">   
 
 
 ### 总结

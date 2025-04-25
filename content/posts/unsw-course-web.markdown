@@ -19,7 +19,7 @@ tags: [unsw, cse]
 但开始写程序了以后就慢慢明白做计划才是最重要的，     
 就像做菜一样，把所有食材准备好，思路理清，效率就特别高了。    
 引用一门课assignment里老师的一段话：   
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160509_unsw_web/os_design.jpg">    
+<img style="max-height:400px" src="/images/blog/160509_unsw_web/os_design.jpg">    
 
 
 
@@ -37,7 +37,7 @@ tags: [unsw, cse]
 然后按着教程一步步的把网站搭起来，最早是放到github上，后来就移到私人的bitbucket上了。    
 把教程完成后，想到顺便做个课程经历分享的网站把，加了好多东西，最后变成了今天的样子。     
 现在域名也从u.changchen.me --> unsw.co, 显得更正式一点     
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160509_unsw_web/bitbucket.jpg">    
+<img style="max-height:400px" src="/images/blog/160509_unsw_web/bitbucket.jpg">    
 
 
 > ### 目的 ###
@@ -56,9 +56,9 @@ tags: [unsw, cse]
 但。。好像还是并没有什么ruan用。     
 写代码还行，对推广marketing什么的真的是毫无头绪。   
 2. ...     
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160509_unsw_web/analyse.png">    
+<img style="max-height:350px" src="/images/blog/160509_unsw_web/analyse.png">    
 但磕磕绊绊这一年也有超过4000的独立访客, 想到帮助了很多人, 也就满足了吧.    
-<img style="max-height:450px" class="lazy" data-original="/images/blog/160509_unsw_web/area_count.png">    
+<img style="max-height:450px" src="/images/blog/160509_unsw_web/area_count.png">    
 
 
 > ### 原则 ###

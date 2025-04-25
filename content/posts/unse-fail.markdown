@@ -16,7 +16,7 @@ Some courses in UNSW are so hard, and failing a course doesn't mean the end of t
 
 > ** option 1: Enrolling in summer term.**    
 UNSW offers courses in [summer teaching period](http://timetable.unsw.edu.au/2016/KENSUGRDU1.html), however only some courses are opened in this special period. For example, cse even do not offer courses in summer teaching period, but if u r 8543 student, fortunately u have Non-CSE Electives, which means u have an opportunity to enroll in any course(any subject) in UNSW.     
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160729_unsw_fails/elective.png">     
+<img style="max-height:300px" src="/images/blog/160729_unsw_fails/elective.png">     
  
 
 > ** option 2: Overloading.**    
@@ -26,6 +26,6 @@ Overloading means you can do five courses in one term, sounds good, but I think 
 > ** Advises: **    
 1. The first and also most important, be extremely careful in enrolling a course. U have the freedom to enrol and drop a course without financial and academic penalty in week1, so try any more course as possible and find one that perfect for u.     
 2. Seeking help from cse office, the staff there are so kind and patient, and they care you and give you the best advice. I learnt all the things from them.     
-<img style="max-height:500px" class="lazy" data-original="/images/blog/160729_unsw_fails/cseoffice.jpg">     
+<img style="max-height:500px" src="/images/blog/160729_unsw_fails/cseoffice.jpg">     
  
 

@@ -28,9 +28,9 @@ categories:
 ## 机器学习算法分类:
 ### Supervised Learning
 - `regression`: 在连续的数据中预测       
-	<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage.png">      
+	<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage.png">      
 - `classification`: 最大的区别在于预测的结果, 肯定为yes or no, 或者一个集合内, e.g. 红, 黄, 蓝, 绿  
-	<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-1.png">     
+	<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-1.png">     
 
 ### Unsupervised learning
 给定数据, 在不标注的情况下, automatically identify structure
@@ -44,41 +44,41 @@ linear regression:
 - `(x_i, y_i)` → single training example, i: index
 
 **cost function**(squared **error** function) → measure the accuracy
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-2.png).">        
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-2.png).">        
 a fancier version of an average: 个人理解用平方将个别差异放大.    
 (为什么要除以2m而不是m)??(哇, 下一节的笔记就有解释): The mean is halved(1/2) as a convenience for the computation of the gradient descent.    
 (没看懂, 希望之后会提及) → 求导时会多出一个2, 刚好抵消了.   
 
 linear & cost function
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-3.png">        
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-3.png">        
 所以目标就是找到cost function的最小值: 
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-4.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-4.png">     
 
 太帅了..    
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-5.png">     
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-6.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-5.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-6.png">     
 
 ## Gradient decent
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-7.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-7.png">     
 ⚠️注意:
 `a := b`: assignment(overwrite a’s value by b)
 `a = b`: truth assignment
 
 gradient decent + cost function 
 求导(partial derivative)之后:
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-8.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-8.png">     
 为什么θ\_1会多出x\_i?? : 求导时的参数..    
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-9.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-9.png">     
 原因:    
 chain rule:    
 [https://zs.symbolab.com/solver/derivative-calculator/%5Cfrac%7Bd%7D%7Bdx%7D%5Cleft(%5Cleft(3x%2B1%5Cright)%5E%7B2%7D%5Cright)](https://zs.symbolab.com/solver/derivative-calculator/%5Cfrac%7Bd%7D%7Bdx%7D%5Cleft(%5Cleft(3x%2B1%5Cright)%5E%7B2%7D%5Cright))
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-10.png">     
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-11.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-10.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-11.png">     
 
 convex function(bowl shape function) → 永远只有一个最低点
 
 batch gradient descent: 
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage.tiff">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage.tiff">     
 
 ## Linear Algebra Review
 **Matrix**
@@ -134,7 +134,7 @@ add_As = A + s
 
 ### 两个Matrix的相乘
 幸好以前线性代数学的还算认真, 但下边这个相乘还是挺有意思的, 而且会让你的code变得simple and efficient:
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-12.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-12.png">     
 ```matlab
 % Initialize matrix A 
 A = [1, 2, 3; 4, 5, 6;7, 8, 9] 
@@ -146,22 +146,22 @@ v = [1; 1; 1]
 Av = A * v
 ```
 同上:    
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-13.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-13.png">     
 
 Vectorization
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-14.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-14.png">     
 
 
 ### Matrix Multiplication Properties    
 1. A x B  !=  B x A (not commutative)
 2. (AxB)xC = Ax(BxC) (associate)
 3. identity matrix: AxI = IxA  
-	<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-15.png)<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-16.png">     
+	<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-15.png)<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-16.png">     
 
 
 ### Matrix inverse
 如何计算的呢?  很少有人手算了, 直接pinv(A)
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-17.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-17.png">     
 ```matlab
 % Transpose A 
 A_trans = A' 
@@ -169,7 +169,7 @@ A_trans = A'
 
 
 ### Matrix Transpose
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-18.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-18.png">     
 ```matlab
 % Take the inverse of A 
 A_inv = inv(A)
@@ -186,11 +186,11 @@ MATLAB Online: [https://matlab.mathworks.com/](https://matlab.mathworks.com/)
 ## Multiple Features:
 1 feature: size → price
 n features: size, bedrooms, floors, .. → price
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\IMG_9321.JPG">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\IMG_9321.JPG">     
 
 **Multivariate linear regression**:
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-19.png">     
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-20.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-19.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-20.png">     
 
 ## Normalization
 **Feature Scaling:**
@@ -199,27 +199,27 @@ feature 1: -1 \<-\> 3
 feature 2: -1000 \<-\>  1000
 
 **mean normalization + feature scaling**
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-21.png">     
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-22.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-21.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-22.png">     
 
 
 ## alpha的选择: 
 不能自动选择吗?
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-1.tiff">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-1.tiff">     
 
 ## Features and Polynomial Regression
 Polynomial: 二次, 三次, n次方程, 多项式
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\UNADJUSTEDNONRAW_thumb_4ca6.jpg">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\UNADJUSTEDNONRAW_thumb_4ca6.jpg">     
 未来会传授, 如何自动选择适合的function.
 
 ## Normal Equation
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-2.tiff">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-2.tiff">     
 具体的证明: [https://blog.csdn.net/Artprog/article/details/51172025](https://blog.csdn.net/Artprog/article/details/51172025)
 
 
 # 第三周
 这一周主要就是为了解决聚类问题, 如下图:   
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml/classification.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml/classification.png">     
 
 ## Classigication的分类
 1. 只聚类为1或0(binary classification problem): `{0(negative), 1(positive)}`   
@@ -227,12 +227,12 @@ Polynomial: 二次, 三次, n次方程, 多项式
 
 ## Linear regression对于聚类问题的局限性
 比如下图这个例子, 最右边的点就出错了:   
-<img style="max-height:200px" class="lazy" data-original="\images\blog\180707_cousera_ml\limitation.png">     
+<img style="max-height:200px" src="\images\blog\180707_cousera_ml\limitation.png">     
 
 ## Hypothesis Representation
 ### Logistic Function
 所以新推出了Logistic Function(sigmoid function), 目的是为了让hypothesis的值永远在0和1之间:    
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml/sigmoid.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml/sigmoid.png">     
 **具体实现:**   
 ```matlab
 function g = sigmoid(z)
@@ -256,25 +256,25 @@ end
 ```
 
 Logistic Function的值其实还有另外一个含义: 代表输出结果为1的可能性:   
-<img style="max-height:200px" class="lazy" data-original="\images\blog\180707_cousera_ml/logistic_function_poss.png">     
+<img style="max-height:200px" src="\images\blog\180707_cousera_ml/logistic_function_poss.png">     
 
 ### Decision Boundary:    
-<img style="max-height:200px" class="lazy" data-original="\images\blog\180707_cousera_ml/Boundary.png">     
+<img style="max-height:200px" src="\images\blog\180707_cousera_ml/Boundary.png">     
 所以推导出下面👇两个等式:    
-<img style="max-height:200px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-23.png">     
+<img style="max-height:200px" src="\images\blog\180707_cousera_ml\DraggedImage-23.png">     
 
 ### Training Set:
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-24.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-24.png">     
 
 ### Cost function:
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-25.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-25.png">     
 
 ## Simplified Cost Function & distance
 将上面的两个cost function合并为一个, 和第二周的regression类似, 总的distance就等于:
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml/distance.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml/distance.png">     
 
 distance求导(说实话没看懂, 视频中只给了结果, 可能推到比较复杂一些):
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml/distance_gradient.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml/distance_gradient.png">     
 ```matlab
 function [J, grad] = costFunction(theta, X, y)
 %COSTFUNCTION Compute cost and gradient for logistic regression
@@ -307,7 +307,7 @@ end
 
 ## 如何处理multi-dimension classification的问题
 意思就是进行多次的二次聚类:    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180707_cousera_ml/share.jpg">     
+<img style="max-height:300px" src="/images/blog/180707_cousera_ml/share.jpg">     
 
 ## Overfitting, 意思就是说过度的拟合(没看懂, 放弃了)
 
@@ -320,7 +320,7 @@ end
 ## Non-linear Hypothesis:
 100 features instead of two. 
 50\*50 pixel images → n=2500(pixels)
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-26.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-26.png">     
 
 Quadratic features:  
 2500: (x\_1, x\_1), (x\_1, x\_2), (x\_1, x\_2), ....
@@ -335,14 +335,14 @@ Neural Networks → mimic the brain
 Neuron: 神经元
 
 (brain的模拟图)
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-27.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-27.png">     
 
  bias unit: x\_0
 
 计算第二层:
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-11.tiff">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-11.tiff">     
 计算第三层: 
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-28.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-28.png">     
 
 
 # 乱七八糟:
@@ -350,7 +350,7 @@ Neuron: 神经元
 原因: 
 > your coding time is the most valuable resource. 
 
-<img style="max-height:300px" class="lazy" data-original="\images\blog\180707_cousera_ml\DraggedImage-29.png">     
+<img style="max-height:300px" src="\images\blog\180707_cousera_ml\DraggedImage-29.png">     
 
 matrix, vector or scalar: 矩阵, 向量, 数量
 

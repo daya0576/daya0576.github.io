@@ -23,7 +23,7 @@ Write down your experience about this course through this url:
 Home page of this course(Semester 1 2016)：    
 [http://cse.unsw.edu.au/~cs9315](http://cse.unsw.edu.au/~cs9315)     
 Course Outline:    
-<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/outline.png">     
+<img style="max-height:430px" src="/images/blog/160229_comp9315/outline.png">     
 
 
 
@@ -32,7 +32,7 @@ Course Outline:
 **week1**   
 First lecture of this semester, the lecturer is so cool!    
 Talking about introduction of this course and PostgreSQL 9.4.6    
-<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/teacher.JPG">     
+<img style="max-height:430px" src="/images/blog/160229_comp9315/teacher.JPG">     
 
 
 
@@ -48,7 +48,7 @@ The prac designed by jas is awesome，learning cs by practising is the most impo
 开始做第一个assignment咯，要在PostgreSQL里自定义一个email类型，    
 顺便学了一下regular expression，原来regex是两个单词的缩写，现在才发现。    
 匹配 RFC822 standard的邮件格式。    
-<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/email_regex.jpg">    
+<img style="max-height:430px" src="/images/blog/160229_comp9315/email_regex.jpg">    
 
 
 >### 2016/04/05 ###
@@ -57,7 +57,7 @@ The prac designed by jas is awesome，learning cs by practising is the most impo
 Humorous and responsible teacher:)   
 (every week before the lecture,     
 jas will spend few minutes to introduce some famous people in database field.)   
-<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/teacher2.JPG">    
+<img style="max-height:430px" src="/images/blog/160229_comp9315/teacher2.JPG">    
 
 
 >### 2016/04/14 ###
@@ -71,10 +71,10 @@ Talking about something about really boring.
 **week11.**    
 Struggling in assit3, but the lecturer is so nice,    
 have a look at this code blow: the comment tell u all the things u have to do.   
-<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/assit3_code.png">    
+<img style="max-height:430px" src="/images/blog/160229_comp9315/assit3_code.png">    
 Yesterday I saw a blog talking about Jas, saying that he is a crazy guy, but also an admiring person.   
 Haha    
-<img style="max-height:430px" class="lazy" data-original="/images/blog/160229_comp9315/elephant.jpg">    
+<img style="max-height:430px" src="/images/blog/160229_comp9315/elephant.jpg">    
 
 
 >### 2016/06/18 ###

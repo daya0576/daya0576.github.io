@@ -14,7 +14,7 @@ tags: [movie]
 昨晚看了一直期待的"君の名は。", 看完之后,就好像做了一个梦一般的不真实, 第一次默默的听完了电影的尾曲([RADWIMPS – Nandemonaiya](https://www.youtube.com/watch?v=VzBLUBczhXA)). 写下这篇日志分享一下自己的感受.
 很早之前看到这部片的消息就很期待了, 因为是秒速5厘米的同一个作者. 今天偶尔又看到这部电影的消息, 便变迫不及待的看了.
 T\^T 要是在国内上映我一定会去支持的.
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160924_yournameis/yournameis.jpg">
+<img style="max-height:300px" src="/images/blog/160924_yournameis/yournameis.jpg">
 看预告片感觉就像一个普通日本动漫的故事, 两个高中生交换了身体, 相互寻找对方.
 可是真正看电影的时候, 完全猜不到下一秒会发生什么. 紧凑的情节也让人完全融入到电影里.
 日本的动漫, 最擅长的就是**一本正经的胡说八道**, 关于时间, 世界, 总是能编出自己的一套理论.
@@ -42,7 +42,7 @@ T\^T 要是在国内上映我一定会去支持的.
 想起了我之前很喜欢的一句话: Never jump to conclusion.
 还有香港真的是一个神奇的地方, 虽然之前印象不是很好, 但它的文化真的有它很独特和吸引人的地方.
 粤语配上精彩的演技和剧情就像烤的恰到好处的salmon加上一些sea salt, perfect.
-<img style="max-height:300px" class="lazy" data-original="/images/blog/161101_happiness/happiness.png">
+<img style="max-height:300px" src="/images/blog/161101_happiness/happiness.png">
 
 
 
@@ -51,7 +51,7 @@ T\^T 要是在国内上映我一定会去支持的.
 如果说用两个字来形容这部电影, 那我认为用"流畅"和"特别"应该是最恰好不过的了. 这部电影就像缓缓地给你讲个故事, 不紧不慢的,  再加上特别的叙述手法令人毫不生硬的被代入其中.特别是还留了很多悬念, 给你一个又一个的惊喜和感动.
 虽然科技在这100年指数爆炸, 可反而让人要更加珍惜那些几千年以来一直没有改变的爱情和友谊, 还有不管时代怎么变化, 都会在心中默默恪守的一些原则.
 本来心情无比低落的夜晚也慢慢平静, 想好好睡个觉, 希望明天不再乌云弥漫.
-<img style="max-height:300px" class="lazy" data-original="/images/blog/161107_ovn/movie.png">
+<img style="max-height:300px" src="/images/blog/161107_ovn/movie.png">
 
 
 
@@ -59,7 +59,7 @@ T\^T 要是在国内上映我一定会去支持的.
 开头的情节对于我这种脸盲真的是让人昏昏欲睡, 然而故事却慢慢的精彩了起来.
 几个老友(三对夫妻)聚会玩了一个游戏, 把所有人的手机放到桌子上, 然后公开接到的电话和短信.
 然后一个个惨剧就发生了, 感触还是挺震撼的.
-<img style="max-height:300px" class="lazy" data-original="/images/blog/161124_movies/perfect.jpg">
+<img style="max-height:300px" src="/images/blog/161124_movies/perfect.jpg">
 
 
 # <隧道.Tunnel.2016> 观后感
@@ -68,7 +68,7 @@ T\^T 要是在国内上映我一定会去支持的.
 韩国大叔的personality还是很值得学习的, 埋在地下生死未谱的时候给老婆打电话, 第一句话竟然是提醒老婆要按时吃早饭.
 看这部电影的时候, 还有一个最大的感触是男主角被埋在地下的那种无奈, 和最后出来之后, 才发觉两个人只要能待在一起也是一种幸福~
 此情可待成追忆, 只是当时已惘然。
-<img style="max-height:300px" class="lazy" data-original="/images/blog/161124_movies/tunnel.png">
+<img style="max-height:300px" src="/images/blog/161124_movies/tunnel.png">
 
 
 
@@ -85,7 +85,7 @@ T\^T 要是在国内上映我一定会去支持的.
 大的剧情和结局我还是觉得没有问题的，我们看过太多完美的爱情故事，这个不完美的结局虽然让人很不爽， 但却别有一番滋味。
 局部剧情上的硬伤就不多说了，偶尔让人很尴尬。但温馨细腻的细节真的让人挺感动的，勾起起了自己的好多甜蜜回忆。
 总的来说，泰式的小清新还是有它独到的地方，那份不浓不淡的感动还是让人能回味很久。
-<img style="max-height:300px" class="lazy" data-original="/images/blog/161124_movies/oneday.png">
+<img style="max-height:300px" src="/images/blog/161124_movies/oneday.png">
 
 
 

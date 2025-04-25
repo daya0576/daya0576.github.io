@@ -23,12 +23,12 @@ draw a graph of all comments:
 ``` 
 git log --graph --decorate --oneline    
 ```
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160705_git/graph.png">    
+<img style="max-height:400px" src="/images/blog/160705_git/graph.png">    
  
 
 ###git diff###
 - Using "git diff" to compare two commits.   
-<img style="max-height:330px" class="lazy" data-original="/images/blog/160705_git/diff.png">   
+<img style="max-height:330px" src="/images/blog/160705_git/diff.png">   
 
 
 ###Undoing Changes###
@@ -38,7 +38,7 @@ git log --graph --decorate --oneline
 - "git revert <commit>" to generate a new commit that undoes all of the changes introduced in <commit>, then apply it to the current branch.    
 
 "Whereas reverting is designed to safely undo a public commit, git reset is designed to undo local changes."     
-<img style="max-height:430px" class="lazy" data-original="/images/blog/160705_git/redo.svg">   
+<img style="max-height:430px" src="/images/blog/160705_git/redo.svg">   
 
 
 "The `git reset --hard` and `git clean -f` commands are your best friends after you’ve made some embarrassing developments in your local repository and want to burn the evidence."    

@@ -8,7 +8,7 @@ tags: [django, unittest]
 
 新的一年有新的开始, 决定使用TDD进行开发! **但第一个问题就是: 执行一次单元测试需要200多秒**, 快速地测试执行俨然成为了当务之急!(正经脸🤭)   
 用这篇博客记录一些django单元测试提速的实用小技巧:    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test.gif">
+<img style="max-height:300px" src="/images/blog/180203_unittest_speedup/api_v1_test.gif">
 <!--more-->
   
 
@@ -33,7 +33,7 @@ pytest tests/api_v1/ --reuse-db -n 4
 
 ### 4. 其他:
 - 使用`setUpTestData`去初始化数据, 而不是`setUp`. 这样在下图中的测试中, 数据只会初始化一次而不是三次:   
-<img style="max-height:200px" class="lazy" data-original="/images/blog/180203_unittest_speedup/setUpTestData.jpg">
+<img style="max-height:200px" src="/images/blog/180203_unittest_speedup/setUpTestData.jpg">
 - 使用内存型数据库, e.g. sqlite
 - 在`INSTALLED_APPS`中去除不需要的app.
 - ...
@@ -41,9 +41,9 @@ pytest tests/api_v1/ --reuse-db -n 4
 
 
 # 最终效果:
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test.jpg">   
+<img style="max-height:300px" src="/images/blog/180203_unittest_speedup/api_v1_test.jpg">   
 用pycharm执行的话慢了好多.. 愁人呀.   
-<img style="max-height:400px" class="lazy" data-original="/images/blog/180203_unittest_speedup/api_v1_test_pycharm.jpg">   
+<img style="max-height:400px" src="/images/blog/180203_unittest_speedup/api_v1_test_pycharm.jpg">   
 
 
 # 完整的配置: 

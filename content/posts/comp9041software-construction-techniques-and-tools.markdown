@@ -32,7 +32,7 @@ So impressive.
 Teaching the examples of egrep, pip, cut, wc etc to handle text files.     
 Not fun, but the lecturer made these content quite enjoyable to learn.           
 Haha, some teachers do have the talent of making our lives easier.      
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160802_9041/dump.png">       
+<img style="max-height:400px" src="/images/blog/160802_9041/dump.png">       
 ** lab **     
 So many exercises are available in the lab to help us learn the shell easily.     
  
@@ -41,21 +41,21 @@ So many exercises are available in the lab to help us learn the shell easily.
 ----------
 ** week4 **     
 A fun moment in lecture LOL.     
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160802_9041/fun.jpg">    
+<img style="max-height:400px" src="/images/blog/160802_9041/fun.jpg">    
  
 
 >### 03/09/2016 ###
 ----------
 ** week5 **     
 perl & git(only add, commit and push).     
-<img style="max-height:350px" class="lazy" data-original="/images/blog/160802_9041/lg.png">     
+<img style="max-height:350px" src="/images/blog/160802_9041/lg.png">     
  
 
 >### 16/09/2016 ###
 ----------
 ** week8 **     
 The difficulty of assignment1, quite interesting~~     
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160802_9041/ass1.JPG">     
+<img style="max-height:400px" src="/images/blog/160802_9041/ass1.JPG">     
  
 
 >### 18/10/2016 ###
@@ -63,7 +63,7 @@ The difficulty of assignment1, quite interesting~~
 ** assignment2 **     
 The assignment2 is builing a simple social website like facebook.       
 **Flask** is allowed to build the website :)         
-<img style="max-height:400px" class="lazy" data-original="/images/blog/160802_9041/work.png">     
+<img style="max-height:400px" src="/images/blog/160802_9041/work.png">     
  
 
 >### 21/10/2016 ###
@@ -79,7 +79,7 @@ When studying in UNSW, I did learn a lot of knowledge, but the most precious thi
 well concluded by Andrew..     
 A lot to learn in this course, and in the later half part, the lectures were not well organized as the lectures of shell and perl.       
 good(students, haha):     
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160802_9041/good.png">     
+<img style="max-height:300px" src="/images/blog/160802_9041/good.png">     
 bad:     
-<img style="max-height:300px" class="lazy" data-original="/images/blog/160802_9041/bad.png">     
+<img style="max-height:300px" src="/images/blog/160802_9041/bad.png">     
  

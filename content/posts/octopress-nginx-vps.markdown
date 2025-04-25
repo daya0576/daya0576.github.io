@@ -8,7 +8,7 @@ categories:
 ---
 
 昨晚博客搬到香港的vps上了. 在这篇文章把简单的几个步骤, 总结分享一下( 本文主要以Octopress为例子, 但流程其实都是共通的).      
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png">
+<img style="max-height:300px" src="/images/blog/170729_hoster/boost1.png">
 <!--more-->
    
 
@@ -31,7 +31,7 @@ categories:
 [http://www.hostker.com/](http://www.hostker.com/)     
 可以点我的[**推广链接**](https://i.hostker.com/flag/8397)获取优惠:   
 _通过邀请链接注册的新用户完成手机绑定可以获得 0.5K 贝壳(相当于 5 元.)_   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/shell.png">   
+<img style="max-height:300px" src="/images/blog/170729_hoster/shell.png">   
 
 **选择vps的另一个原因:**   
 
@@ -39,7 +39,7 @@ _通过邀请链接注册的新用户完成手机绑定可以获得 0.5K 贝壳(
 2. 选的香港vps, 肯定还可以做别的事情.    
 
 所以在节省别的开销的情况下, 这主机的钱💰个人觉得还是值得的.    
-<img style="max-height:200px" class="lazy" data-original="/images/blog/170729_hoster/server.png">
+<img style="max-height:200px" src="/images/blog/170729_hoster/server.png">
 
 
 
@@ -100,6 +100,6 @@ DNS生效需要一会时间, 刚好可以等待期间为你的博客加上免费
 `changchen.me --> DNS --> VPS IP --> 301 --> blog dir.`
 
 相比以前跨越半个地球去访问网站, 速度刷刷刷的上去了~   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost1.png"><img style="max-height:300px" class="lazy" data-original="/images/blog/170729_hoster/boost2.png">   
+<img style="max-height:300px" src="/images/blog/170729_hoster/boost1.png"><img style="max-height:300px" src="/images/blog/170729_hoster/boost2.png">   
 
 

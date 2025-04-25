@@ -32,4 +32,4 @@ cats = Category.objects.filter(subject=subject).extra(
 
 
 最后的效果：   
-<img class="lazy" data-original="/images/blog/151227_django_subquery/sub.jpg">    
+<img src="/images/blog/151227_django_subquery/sub.jpg">    

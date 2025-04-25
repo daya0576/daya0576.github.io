@@ -37,9 +37,9 @@ TEMPLATES = [
 
 2.总体的思路是登录成功后，跳转到上一个页面：   
 （晕，文档中包含url字段就报错，直接放图片了，点击可以放大）   
-<img class="lazy" data-original="/images/blog/151216_django_next/code_next.jpg">
+<img src="/images/blog/151216_django_next/code_next.jpg">
 
 3.模板中就可以和原来一样不做修改了：    
-<img class="lazy" data-original="/images/blog/151216_django_next/form.jpg">   
+<img src="/images/blog/151216_django_next/form.jpg">   
 **但是有一个问题：**就是我加了一行`<input type="hidden" name="next" value="{{ next }}" />`
 不知道为什么logout成功了，但login的话一定要加这一行代码。   

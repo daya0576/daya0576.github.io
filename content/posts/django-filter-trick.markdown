@@ -37,14 +37,14 @@ class Entry(models.Model):
 
 ### populate的一些数据:  
 Entry:   
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170503_django_filter/1.png">    
+<img style="max-height:250px" src="/images/blog/170503_django_filter/1.png">    
 
 Blog:    
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170503_django_filter/2.png">    
+<img style="max-height:250px" src="/images/blog/170503_django_filter/2.png">    
 
 
 ### 执行结构:   
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170503_django_filter/3.png">    
+<img style="max-height:250px" src="/images/blog/170503_django_filter/3.png">    
 
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170503_django_filter/4.png">    
+<img style="max-height:250px" src="/images/blog/170503_django_filter/4.png">    
 

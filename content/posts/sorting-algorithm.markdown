@@ -16,7 +16,7 @@ tags: [python, algorithm]
 以前大二的时候, 看到这张图的时候真的头晕, 但现在看起来这个表格真的很精华.   
 理解各个算法后就慢慢明白各个算法三种情况(最优, 平均和最坏)的复杂度, 还有空间复杂度都不一样.    
 所以不同不算法都有各自的优势和应用的场景.    
-<img class="lazy" data-original="/images/blog/170610_sorting/time_complexity.png">       
+<img src="/images/blog/170610_sorting/time_complexity.png">       
 
 
 ### 直接把每个算法实现的解释和感想写在代码的注释里了.    
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     print("Quick sort:      {} --> {}".format(a, quick_sort(list(a))))
 
 ```
-<img class="lazy" data-original="/images/blog/170610_sorting/result.png">
+<img src="/images/blog/170610_sorting/result.png">
 
 
 

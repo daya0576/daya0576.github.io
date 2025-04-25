@@ -27,11 +27,11 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 价格: $12.00(值!)   
 亮点:
 1. 模拟ubuntu的workspace布局和快捷键(上下移动桌面 & 移动app到相连的桌面).   
- <img style="max-height:200px" class="lazy" data-original="/images/blog/180507_macos_app/8412F41B-51DF-4A7E-BD95-7A1991BD77E4.png">
+ <img style="max-height:200px" src="/images/blog/180507_macos_app/8412F41B-51DF-4A7E-BD95-7A1991BD77E4.png">
 2. 在app启动时, 自动分配到不同的workspace.    
-<img style="max-height:200px" class="lazy" data-original="/images/blog/180507_macos_app/FAACC69F-E507-4F23-9030-F95EDA0A31CD.png">
+<img style="max-height:200px" src="/images/blog/180507_macos_app/FAACC69F-E507-4F23-9030-F95EDA0A31CD.png">
 3. 切换全屏的app(workspace)的时候, 去除动画!!!!!   
-<img style="max-height:200px" class="lazy" data-original="/images/blog/180507_macos_app/3FF48154-0C3B-428C-A085-A553CE3F9F76.png">
+<img style="max-height:200px" src="/images/blog/180507_macos_app/3FF48154-0C3B-428C-A085-A553CE3F9F76.png">
 
 ![workspace](/images/blog/180507_macos_app/workspace.gif)
 
@@ -72,7 +72,7 @@ macOS为什么那么受欢迎, 个人觉得很大一个原因是它完善的app�
 # Quitter:   
 主页: https://marco.org/2016/05/02/quitter 
 自动关闭长时间不用的应用(看上去很cool, 但没什么ruan用, 很久没用了)   
-<img style="max-height:150px" class="lazy" data-original="/images/blog/180507_macos_app/6503A766-0375-407F-837F-691F851A8F8F.png">
+<img style="max-height:150px" src="/images/blog/180507_macos_app/6503A766-0375-407F-837F-691F851A8F8F.png">
 
 # Evernote (免费):   
 主页: https://evernote.com/
@@ -109,7 +109,7 @@ URL/base64 + encode/decode
 主页: http://www.irradiatedsoftware.com/sizeup/
 
 快捷键快速改变窗口布局, 类似的软件很多(也搞不清是谁抄的谁了), 至少这个看着还算顺眼, 用着也挺稳定的.  
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/4BA18CD1-240B-43D2-8747-66EAEF44CAA8.png">
+<img style="max-height:300px" src="/images/blog/180507_macos_app/4BA18CD1-240B-43D2-8747-66EAEF44CAA8.png">
 ![sizeup.2018-10-06 17_09_26](/images/blog/180507_macos_app/sizeup.2018-10-06%2017_09_26.gif)
 
 
@@ -117,8 +117,8 @@ URL/base64 + encode/decode
 主页: https://github.com/dingmingxin/GhostSKB
 
 根据App自动切换中英文输入法, 有一句说一句还是非常好用.   
-<img style="max-height:200px" class="lazy" data-original="/images/blog/180507_macos_app/E3140163-0B03-4A82-86F7-98A3CC15E2D3.png">
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/D1E00146-18BB-466A-8A44-1DB125D22A9A.png">
+<img style="max-height:200px" src="/images/blog/180507_macos_app/E3140163-0B03-4A82-86F7-98A3CC15E2D3.png">
+<img style="max-height:300px" src="/images/blog/180507_macos_app/D1E00146-18BB-466A-8A44-1DB125D22A9A.png">
 但是不支持搜狗输入法??? 于是.. 我开始使用系统自带的输入法了, 有一句说一句, 也不难用嘛, 可以做一些配置与iPhone同步.
 
 # Better Touch Tool:   
@@ -135,19 +135,19 @@ URL/base64 + encode/decode
 
 用来读取window格式的硬盘设备的
 界面好看, 稳定易用, 唯一的缺点就是有点小贵.    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/D02C2358-5069-4858-AD06-13896D317513.png">
+<img style="max-height:300px" src="/images/blog/180507_macos_app/D02C2358-5069-4858-AD06-13896D317513.png">
 
 # 截图（Jietu）:   
 主页: https://jietu.qq.com/
 
 一个轻量级的可编辑的第三方截图app, 和系统自带的截图相结合, 简直完美.    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/D35005EC-FB42-44D3-BB43-678BD968AC4F.png">
+<img style="max-height:300px" src="/images/blog/180507_macos_app/D35005EC-FB42-44D3-BB43-678BD968AC4F.png">
 
 # 小历(TinyCal):  
 主页: http://ioszen.com/tinycal   
 
 最早是手机上发现的一个app, 在macos上继续支持!   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/180507_macos_app/DEE7E30E-C0F7-43A9-A75C-C906EE891791.png">
+<img style="max-height:300px" src="/images/blog/180507_macos_app/DEE7E30E-C0F7-43A9-A75C-C906EE891791.png">
 
 # MWeb3 
 主页: https://www.mweb.im/

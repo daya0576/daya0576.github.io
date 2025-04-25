@@ -17,7 +17,7 @@ tags: [work, hypers]
 
 # 2018.03.31 - 还是要说再见
 在Hypers HFA的旅程可能就此告一段落了, nice的leader, 热情的同事, 说再见的时候, 还真的有一丝的伤感.    
-<img style="max-height:350px" class="lazy" data-original="/images/blog/170325_hypers_summary/bye.jpg">   
+<img style="max-height:350px" src="/images/blog/170325_hypers_summary/bye.jpg">   
 
 
 # March 2018
@@ -96,16 +96,16 @@ tags: [work, hypers]
 # 第四十四周 / 四十五周 (15 January 2018)
 
 ## 完成的工作总结:
-1. **TDD**: TDD初尝甜头. 先写测试再开发, 确实大大提高了效率, 并保证了代码质量.   <img style="max-height:160px" class="lazy" data-original="/images/blog/170325_hypers_summary/week44_pytest.png">  
-2. **单元测试**: 单元测试的维护一直是个很头疼的问题. 上周终于抽空实现了之前构思的解决方案, 就在测试环境每次构建时执行单元测试并发送邮件, 如果失败就不去重启container.   <img style="max-height:240px" class="lazy" data-original="/images/blog/170325_hypers_summary/week44_unittest.png">    
-3. **VIM**: 很难想象在两次尝试和放弃之后, 我竟然终于慢慢地习惯并开始享受用vim写代码. 个人感觉VIM这么多年保持强大生命力的原因: 一是无与伦比的可定制化, 二是永无止境的学习周期, 上周沉浸在阅读<Learn Vimscript the Hard Way>中, 不断汲取新知识的感觉真的是程序员的*点.    <img style="max-height:200px" class="lazy" data-original="/images/blog/170325_hypers_summary/week44_vim.png">    
+1. **TDD**: TDD初尝甜头. 先写测试再开发, 确实大大提高了效率, 并保证了代码质量.   <img style="max-height:160px" src="/images/blog/170325_hypers_summary/week44_pytest.png">  
+2. **单元测试**: 单元测试的维护一直是个很头疼的问题. 上周终于抽空实现了之前构思的解决方案, 就在测试环境每次构建时执行单元测试并发送邮件, 如果失败就不去重启container.   <img style="max-height:240px" src="/images/blog/170325_hypers_summary/week44_unittest.png">    
+3. **VIM**: 很难想象在两次尝试和放弃之后, 我竟然终于慢慢地习惯并开始享受用vim写代码. 个人感觉VIM这么多年保持强大生命力的原因: 一是无与伦比的可定制化, 二是永无止境的学习周期, 上周沉浸在阅读<Learn Vimscript the Hard Way>中, 不断汲取新知识的感觉真的是程序员的*点.    <img style="max-height:200px" src="/images/blog/170325_hypers_summary/week44_vim.png">    
 4. **<The Clean Coder>**: 不管大学时最令我不屑并觉得无趣的软件工程/项目管理课程, 还是某个下午抽风在图书馆看的<代码简洁之道>, 其实对我的影响其实十分深远. 最近开始在读的<The Clean Coder>也是令人感触颇深. 我们都会遇到让人觉得很不靠谱的程序员和专业有职业素养的程序员, 那到底是哪些因素决定了一个人, 看作者以自己的亲身经历一一道来还是挺有启发的.   # TODO: 写一篇blog记录自己的读后感.   
 
 
 ## 个人感想
 1. **毅力**: 去年定了好多计划, 却被自己的惰性完全打败, 最后陷入自责里无法自拔. 但上周二突发奇想下班后在寒风中一路跑到了北外滩, 第二天竟然罕见的早起了. 突然间感悟到**毅力这种东西是不是也是完全可以自己锻炼并提升**的呢?
 2. **坚持**: 是一直悔恨自责懒惰的自己, 还是尝试用各种方法慢慢的去改变自己. “Be like a postage stamp — stick to one thing until you get there.”
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week44_plan.png">
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week44_plan.png">
 3. **XMind**: 思维导图真的是个好东西, 自己对图形化的展现形式还是更加敏感一点. 下周可以深入一点学习一下这个软件.   
 
 
@@ -121,9 +121,9 @@ tags: [work, hypers]
 1. **fix bugs**: 两周都在陆陆续续修bug.. 这个延期很久的**新版本**在下周, 终于终于要发布了. 希望一切顺利吧.. 但人的天性就是容易犯错误, 所以寻找有效的途径或工具, 帮助避免潜在的问题才是王道.   
 2. **fix 线上的bug..**: 今年刚开始就遇到了一个线上的bug, 批量导入创建XX时, 每个XX和自定义属性的对应关系混乱了. 也不知道是以前的代码写的太晦涩了, 还是因为自己对代码不够熟悉, 看了两三个小时才搞定, 真的是痛苦 :(    
 之后看代码的时候, 还是要整理思路到笔记里, 这样每次需要解决问题时, 才能快速的获取思路. 就像DP一样, never repeat yourself.    
-3. **学习**: 最近上班没事情干时喜欢看看源码, 并画出流程图, 例如看Werkzeug - run_simple的流程:   <img style="max-height:200px" class="lazy" data-original="/images/blog/170325_hypers_summary/week43_Werkzeug.jpg">    
+3. **学习**: 最近上班没事情干时喜欢看看源码, 并画出流程图, 例如看Werkzeug - run_simple的流程:   <img style="max-height:200px" src="/images/blog/170325_hypers_summary/week43_Werkzeug.jpg">    
 感觉未来还是要找一个MacOS上的流程图工具. 虽然创建时会耗费更多的时间, 但是对于未来的修改和维护的好处还是显而易见的.   
-4. **提交PR**: 上周给`pypinyin`库提交了一个PR. 说实话被它**完善的单元测试, 代码规范和文档**震撼到了. 再一对比每天工作的开发, 感觉心里挺不是滋味的..    <img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week43_pypinyin.png">   
+4. **提交PR**: 上周给`pypinyin`库提交了一个PR. 说实话被它**完善的单元测试, 代码规范和文档**震撼到了. 再一对比每天工作的开发, 感觉心里挺不是滋味的..    <img style="max-height:250px" src="/images/blog/170325_hypers_summary/week43_pypinyin.png">   
 
 
 ## 个人感想
@@ -134,7 +134,7 @@ tags: [work, hypers]
     - 上班空闲时看看优秀源码, 最好能给一些项目写写PR, 或参与到开发中.
     - 其余时间在家看看算法, 用app统计了一下, 发现在家的时间真TM多, 还是要好好利用起来.   
     - ...   
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week43_time.jpg">  
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/week43_time.jpg">  
 
 
 ---
@@ -160,7 +160,7 @@ tags: [work, hypers]
     - 为什么会有这样的程序员, 写代码**从来不交流**, 实现了功能便万事大吉? 不管他觉得自己写的再怎么好, 脱离了项目原来的体系, 可读性和可维护性都是灾难级别的, 这样长远看来真的只是帮倒忙.   自己用尽全力, 将房间打扫的干干净净, 却有人随手乱认垃圾, 你说生不生气.    
 要是他一直找不到新工作, 就这么混下去, 可能离开的人就是我了(╯﹏╰).    
 2. **新年快乐**: 连着两年元旦跨年和春节都一个人在异国他乡啃着薯片喝着啤酒度过. 今年独自跨年, 心中竟没有一丝的波澜.    
-3. **碎屏**: iPad不小心调到笔记本的屏幕上了, 小小的失误, 4000大洋就没了. 但当不幸发生时, 除了发出来让大家开心开心, 还能做些什么呢?    <img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week41_screencrash.jpg">
+3. **碎屏**: iPad不小心调到笔记本的屏幕上了, 小小的失误, 4000大洋就没了. 但当不幸发生时, 除了发出来让大家开心开心, 还能做些什么呢?    <img style="max-height:300px" src="/images/blog/170325_hypers_summary/week41_screencrash.jpg">
 
 
 ---
@@ -178,10 +178,10 @@ tags: [work, hypers]
     - 重写了从HWA/HMA批量导入活动(事件).
     - 调用外部API(其他产品)时, 统一用一个方法封装, 并加上详细的log信息.  
     - 艾瑞对外api的整理 & postman的自动化测试.   
-<img style="max-height:200px" class="lazy" data-original="/images/blog/170325_hypers_summary/week39_postman.png">
-<img style="max-height:150px" class="lazy" data-original="/images/blog/170325_hypers_summary/week39_postman2.jpg">
+<img style="max-height:200px" src="/images/blog/170325_hypers_summary/week39_postman.png">
+<img style="max-height:150px" src="/images/blog/170325_hypers_summary/week39_postman2.jpg">
     - Django REST框架的源代码阅读和整理.    
-      <img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week39_rest.jpg">
+      <img style="max-height:300px" src="/images/blog/170325_hypers_summary/week39_rest.jpg">
 2. **我是做什么的?**:    经常被人问起这么一个问题: 你是做什么的? 最开始的时候, 我竟然会一时语噎, 于是我慢慢开始思考, 我到底是干什么的?    
 **第一版: **
 
@@ -193,11 +193,11 @@ tags: [work, hypers]
 ## 给下周的自己一些建议
 1. **试用自家产品**:    
 已经在[http://unsw.co](http://unsw.co)上部了广告监测代码, 下一步准备在modal上添加一个指向自己博客的链接, 尝试做一个转化和归因的测试. 有时候虽然亲手开发了一些功能, 但对业务一窍不通. 所以要尝试去试用自己的产品, 会瞬间豁然开朗.    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week39_modal.jpg">
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week39_modal.jpg">
 2. **提前做计划**: 上两周开始尝试在行动前, 做好完备的计划. 计划好每天, 每个小时做什么. 仅仅将todo list中的事一件件消灭的**成就感**, 让自己事半功倍.   
 3. **意义**: 说实话, 最近工作并不是很开心. 慢慢会陷入思考工作&人生意义的漩涡. 放空的双眼, 连写出的代码都是绝望的.
 4. **🎄Happy Xmas!**   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week39_Xmas.jpeg">
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week39_Xmas.jpeg">
 
 
 ---
@@ -233,7 +233,7 @@ tags: [work, hypers]
 ## 完成的工作总结:
 1. **发呆**: 六个后端一个前端的后果就是: 六个后端老大爷每天无事可做. 然而我自己也是不争气, 除了解决一堆零碎的事情, 也没有什么突破性的进展.      
 2. **分享**: 虽说上两周大部分的时间在发呆, 但也在一直整理项目中写过的代码和逻辑, 于是分享了几篇笔记:    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week35_sharing.png">
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week35_sharing.png">
 
 ## 给下周的自己一些建议
 1. **优势**: 有时候评判一个人重不重要的标准并不是他有多强, 而是他有多么的不可取代. 有时候也要多想想, 自己的核心竞争力是什么, 要往哪方向努力. 高中物理就学过, 力的方向和前进的方向一致时, 才能达到最好的效果. 就和努力一样, 有多少人每天拼了命的努力着, 其实只是感动了自己.    
@@ -257,7 +257,7 @@ tags: [work, hypers]
 ## 完成的工作总结:
 1. **看书**: 最近每天早上都会抽一个小时出来看书, 看的是我第一天来公司就在工位旁边的<计算广告>. 说实话虽然有些枯燥, 有些地方也是一知半解, 但还是有很多收获的~    
 2. **团建**: 周末公司组织了去崇明岛团建(原来tb是team building的意思), 虽然个人没法喜欢这种团体活动, 但还是要多融入集体哦~      
-<img style="max-height:400px" class="lazy" data-original="/images/blog/170325_hypers_summary/week34_tb.png">
+<img style="max-height:400px" src="/images/blog/170325_hypers_summary/week34_tb.png">
 
 ## 给下周的自己一些建议
 1. **迷茫**: 突然像失去了方向的船舶, 有些迷茫🛶🛶🛶   
@@ -329,7 +329,7 @@ tags: [work, hypers]
 
 ## 完成的工作总结:
 1. **继续修bug中**: 修(xie)bug狂魔, 看着都可怕, 反思*3    
-<img style="max-height:500px" class="lazy" data-original="/images/blog/170325_hypers_summary/week29_bug.jpg">
+<img style="max-height:500px" src="/images/blog/170325_hypers_summary/week29_bug.jpg">
 2. **发布 2.1.0**: 周五周六第二次按下了**发布的按钮**🚀, 虽然之后的过程有些曲折..    庆幸的是默默记下了一些需要改进的细节.    
 虽然发布大约一个月一次, 但凡事还是要努力**精益求精**把.    
 
@@ -337,7 +337,7 @@ tags: [work, hypers]
 1. **学习**: 下午去图书馆看了两小时的算法导论:   1) 做了拖了很久的课后题   2) 撸了一个分治法(max sum subarray)的算法.     那种学习数学和写算法的赶脚还是很爽的.    
 **最近总是问自己怎么样才能变强呢?**   
 最近给自己的答案: 不懈地去坚持挑战原来做不到的事情.   
-<img style="max-height:180px" class="lazy" data-original="/images/blog/170325_hypers_summary/week29_super.jpg">
+<img style="max-height:180px" src="/images/blog/170325_hypers_summary/week29_super.jpg">
 
 
 ---
@@ -349,7 +349,7 @@ tags: [work, hypers]
 
 ## 完成的工作总结:
 1. **无限的bug**: 毫不夸张的说, 修了一个星期的bug.   1) 一部分是**以前留下来的锅**, 比如说操作日志无数遗漏了, 都开给我bug让我补上了🤷♀️      2) 另外的是找不到负责人的bug都分给了我了. 其实我也不是很抵触, 多去接触自己不了解的领域才能快速提高(例如修了某个bug就能了解rabbitmq和supervisor).    3) 但罪魁祸首还是自己的双手, 要像上上周一样**反思一下, 如何尽可能地写出robust的代码.** 加油~   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week28_bug.jpg">
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week28_bug.jpg">
 
 ## 给下周的自己一些建议
 1. **工作为了什么?**: 对于我而言, 那一丢丢工资只是上班意义的一小部分. 我真正想搞清楚的是：公司是如何评估员工的？（如何淘汰不合格的员工，嘉奖努力上进作出贡献的员工。）   
@@ -383,12 +383,12 @@ tags: [work, hypers]
 2. **请假**: 请了三天假, 和女朋友出海去寻找one piece, 哈哈😆. 最近常常思考人生存在的意义,  但说实话有些迷惘. 人生短暂, 还是要多出去走走看看. 而不是渐渐安逸于平淡的生活, 沦陷为一只井底之蛙.    
 这两天可以抽空写个游记分享一下~~   
 **链接: ** [/blog/20170914/quantans-of-sea-summary/](/blog/20170914/quantans-of-sea-summary/)   
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week25_bar.png">   
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/week25_bar.png">   
 
 ## 给下周的自己一些建议
 1. **对bug的反思**: 对于测试人员手工测出的bug, 不要机械式地去为了解决而解决, 然后就万事大吉了. `多思考`为什么会出现这个bug, 如何`在未来尽量避免`相似情况的再次发生.    
 晚上看到知乎上一个不错的回答: [https://www.zhihu.com/question/59318151](https://www.zhihu.com/question/59318151)   
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week25_test.png">   
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/week25_test.png">   
 `代码质量`不是写代码时小心一些就能提高的, 是要靠`完善的开发流程, 高效的测试, 等等`慢慢积淀出来的. 路还很长, 慢慢摸索吧, 加油~
 
 
@@ -422,7 +422,7 @@ tags: [work, hypers]
 1. **REST万岁!!!:**    
 这个版本的需求有: 工具菜单的前端框架升级(属性管理, 媒体管理, 第三方平台, 操作日志, 数据导出).   
 这周主要做的工作: 添加了`属性`, `媒体`, `频道`, `广告位`和`第三方平台`的REST接口, i.e. list/create/update/retrieve方法, 以及**对应的单元测试!!!**(转眼都做了四十多个单元测试了)    
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week24_apitest.jpg">   
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/week24_apitest.jpg">   
 **用REST和之前陈旧的写法相比, 有无数的优点: 比如**   
     - 统一的序列化方法   
     - 参数校验并自动生成API文档(提供给前端)
@@ -452,17 +452,17 @@ tags: [work, hypers]
 1. **层级关系的可视化:**    
 周二闲来无事做了一个小功能 **层级关系(user→account→campaign→adgroup→ad**)的可视化.    
 **灵感**来自于很久之前做的**第一个需求: HFA-3168 [推广计划级别的数据共享]页面后台**. 当时为了理清思路, 在纸上画出了各个对象之间的共享关联和权限, 怀念~    
-<img style="max-height:230px" class="lazy" data-original="/images/blog/170325_hypers_summary/week23_hierarchy.jpg">   
+<img style="max-height:230px" src="/images/blog/170325_hypers_summary/week23_hierarchy.jpg">   
 但周一的晚上灵机一动, 想到上边这张图为什么不能**通过程序来自动生成呢?** 于是周二下午午休之后撸起袖子说干就干, 一个小时就把代码写好咯~~    
 来看看效果图, 后端生成多叉树(json)格式, 前端是由d3.js的tree diagram来实现的:      
-<img style="max-height:350px" class="lazy" data-original="/images/blog/170325_hypers_summary/week23_hierarchy1.jpg">   
+<img style="max-height:350px" src="/images/blog/170325_hypers_summary/week23_hierarchy1.jpg">   
 效果个人觉得还是挺很不错的(优点有这么几点):   
     - **功能:**
         1. **权限的显示:**   
         在link上标识了**权限**(0和1分别代表共享的可读和读写, 2表示自身创建,  -10代表因共享campaign而存在的虚拟account). 个人认为**权限的显示是整颗树中最有意义的信息**, 因为account和campaign的共享关系是整个层级关系中, 最易让人困扰的地方.   
         2. **结束层级的控制**:   
         显示层级结构方法的一个**参数是stop**, 用来控制结束的层级, e.g. stop=account的时候, 就只会显示user和user下的所有account.   
-        <img style="max-height:200px" class="lazy" data-original="/images/blog/170325_hypers_summary/week23_hierarchy2.jpg">   
+        <img style="max-height:200px" src="/images/blog/170325_hypers_summary/week23_hierarchy2.jpg">   
         3. **输入可以为任意节点**:    
         该程序**输出**是一棵树所有子节点(一个用户下的所有账号, 推广计划, 等等..), 但**输入**并不限制于根节点(用户的id), 只要输入这棵树中的任意一个节点, 就可以画出整颗树.    
         4. **平日的默默耕耘**:    
@@ -495,7 +495,7 @@ tags: [work, hypers]
 4. **Git Hooks**: 以前上学的时候, 组队做一个小项目. 有次一个来自战斗名族的小哥, 和我们吐槽说他不明白为什么有人, 总会把**连项目跑不起来的代码**提交上来. 最近当群里有人说测试环境502了, 我就知道我们组的小伙伴们可能也做这样的傻事了.    
 于是乎, 我便写了一个git hook, 每个人执行commit命令的时候**(per-commit)**, 会先强制执行我上上周写的单元测试. 以防止他们, 也包括我自己做傻事.   
 5. **被表扬了⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄**: 我自己做开发的时候, 会把所有的接口先放到postman里整理清楚, 自测一遍, 再移交给前端和测试. 没想到被表扬了, 害羞.   
-<img style="max-height:180px" class="lazy" data-original="/images/blog/170325_hypers_summary/week22_red_flower.png">     
+<img style="max-height:180px" src="/images/blog/170325_hypers_summary/week22_red_flower.png">     
 
 ## 给下周的自己一些建议
 1. **行动胜过一切**: 前段日子我总是在沉思 到底该如何去提高自己, 看源码? 看官方文档? 看算法? 自己做些小项目? 但直到最近都无疾而终.    
@@ -506,7 +506,7 @@ tags: [work, hypers]
 3. **业务**: 感觉自己有时候或许把太多的精力放到代码上了, 多去了解了解业务也是很有好处的. 比如这周我就去熟悉了一下HWA, 用它来监测一下自己的网站. 其实这个想法在面试hypers的时候就萌生了, 哈哈. **更重要的原因**其实是HWA和HFA是有很多关联的地方(例如最近重构的转化管理那块, 就有个从HWA批量导入活动的接口), 我是想趁这个机会, 多去了解业务层面的东西, 而不是写代码写到走火入魔.   
 4. **死宅?**: 今天周六, 转眼夜已经深了, 拿起手机看了一眼自己的步数. 尼玛.. 只有二十步?!?! 没想到又在家宅了一天. 感觉这样下去不行, 本来就社交恐惧, 还是要多出去见见阳光吧.   
 突然好怀念在悉尼跑步的日子, 下午黄昏的时候, 从家跑到沙滩, 精疲力尽吹着海风~~ 可惜现在连呼吸一口新鲜空气的权利也没有了...   
-<img style="max-height:180px" class="lazy" data-original="/images/blog/170325_hypers_summary/week22_run.jpg">     
+<img style="max-height:180px" src="/images/blog/170325_hypers_summary/week22_run.jpg">     
 
 
 ---
@@ -525,7 +525,7 @@ tags: [work, hypers]
 4. **转化管理的报表**: 新的我们新的报表的url是这种格式的: `\{\{url\}\}/user/105/actionpara.(json|chart|xlsx)`, 把一些旧的报表的逻辑放到新的报表基类中了, 简化了很多公用的代码.    
 5. **偷偷吐槽同事(反选)**: <a style="color:white">改了同事的一段代码, 看到的时候难受的像吃了一坨大便.   
 因为和黄俊的一起努力下, 我们现在写接口已经变成这个样子, 写的时候真的很享受:   
-<img style="max-height:200px" class="lazy" data-original="/images/blog/170325_hypers_summary/week21_rest.png">   
+<img style="max-height:200px" src="/images/blog/170325_hypers_summary/week21_rest.png">   
 可同事写的代码还是停留在**上个世纪**, 真的是头疼☹️, 这也无所谓努力改正就行了. 可还有个同事写的代码还停留在**远古时代**, 真的是没救了.</a>
 
 ## 给下周的自己一些建议
@@ -543,7 +543,7 @@ tags: [work, hypers]
 
 ## 完成的工作总结:
 1. **单元测试**: 个人觉得单元测试还是个挺重要的东西. 上周提到我把以前大部分的旧接口都整合到新的rest框架中. 这周对rest接口的retrieve/update/list/create写了通用的单元测试: 第一步是测试接口返回的状态码是否200, 第二步是assert返回的数据的准确性.    
-<img style="max-height:240px" class="lazy" data-original="/images/blog/170325_hypers_summary/week20_rest.png">
+<img style="max-height:240px" src="/images/blog/170325_hypers_summary/week20_rest.png">
 2. **VPS**: 周末买了个香港的vps, 把自己的[博客](https://changchen.me/), [小网站unsw.co](https://www.unsw.co/), 和s-s都放上去了. 希望之后可以在上边多学学nginx, docker等等
 
 ## 给下周的自己一些建议
@@ -563,11 +563,11 @@ tags: [work, hypers]
 1. **REST**: 前段升级新框架, 把转化管理那块的接口重写一下. 主要把分散各地的方法整合到REST中去, 再配合检查参数和权限的装饰器, 这代码写起来, 真的是轻松愉悦♂.  
 REST是个好东西, 因为百分之九十的接口都是对一个特定资源做**增删改查**操作, 然后把这些操作都集中起来, 就可以避免写很多重复功能的接口.       
 比如对user的retrieve操作:      
-<img style="max-height:150px" class="lazy" data-original="/images/blog/170325_hypers_summary/week19_rest.png">
-<img style="max-height:150px" class="lazy" data-original="/images/blog/170325_hypers_summary/week19_rest2.jpg">
+<img style="max-height:150px" src="/images/blog/170325_hypers_summary/week19_rest.png">
+<img style="max-height:150px" src="/images/blog/170325_hypers_summary/week19_rest2.jpg">
 2. **生产环境**:第一次去生产环境上修了bug, 感觉现在才接触生产环境晚的有些过分了, 还是应该主动多去接触自己未接触的领域.    
 3. **搬家~**: 公司搬家咯, 感觉瞬间高大上了, 秀一张图:   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week19_new.jpg">   
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week19_new.jpg">   
 
 ## 给下周的自己一些建议
 1. **核心竞争力**: 最近总是在想一个问题, 自己的优势(核心竞争力)到底是什么. 想出了一丝头绪, 希望未来的日子继续努力~~    
@@ -599,7 +599,7 @@ REST是个好东西, 因为百分之九十的接口都是对一个特定资源�
 希望这周能把剩下的工作做完。   
 3. **OAuth2 sdk：** 还不错， 把OAuth2.0 sdk写完了，打包传到PyPI上了: `pip install hypers-oauth2`。    
 从README.md截的图:   
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week17_auth2.png">    
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week17_auth2.png">    
 
 
 ## 给下周的自己一些建议
@@ -615,7 +615,7 @@ REST是个好东西, 因为百分之九十的接口都是对一个特定资源�
 
 # 第十五周 (19 June 2017)   
 **毕业典礼**: 请假了一周零一天回学校, 参加了毕业典礼, 带爸妈去澳洲玩了八天。    
-<img style="max-height:300px" class="lazy" data-original="/images/blog/170325_hypers_summary/week15_g.jpg">    
+<img style="max-height:300px" src="/images/blog/170325_hypers_summary/week15_g.jpg">    
 
 
 ---
@@ -625,10 +625,10 @@ REST是个好东西, 因为百分之九十的接口都是对一个特定资源�
 
 # adtracker v1.15 开发结束:   
 我完成的任务:   
-<img style="max-height:100px" class="lazy" data-original="/images/blog/170325_hypers_summary/v1.15.png">    
+<img style="max-height:100px" src="/images/blog/170325_hypers_summary/v1.15.png">    
 
 这个开发周期做了好多任务, 主要还是熟悉报表的流程, 并参与了设计用pandas做报表的新逻辑:   
-<img style="max-height:220px" class="lazy" data-original="/images/blog/170325_hypers_summary/1.15_run.png">    
+<img style="max-height:220px" src="/images/blog/170325_hypers_summary/1.15_run.png">    
 但感觉慢慢的沦陷为一个增删改查的熟练工, Ahh, 不知道自己的优势到底在哪了.    
 还是要多去学习吧, 不断获取新知识, 追求更好的代码质量。   
 
@@ -714,7 +714,7 @@ REST是个好东西, 因为百分之九十的接口都是对一个特定资源�
 ## 完成的工作总结:
 1. **报表报表**: 主要看了报表那一部分的代码, 昨天晚上整理了一下上周看的成果和下周的计划, 希望下周可以早点把这部分搞定.    
 临时写在注释里...*(点击显示大图, 来自未来的我被自己的努力打动了)*    
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week9_plan.png">    
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/week9_plan.png">    
 
 ## 给下周的自己一些建议
 1. **公司对程序员的核心吸引力?**: 今天在网上看到说什么无限零食, 办公环境对程序员都是很肤浅的吸引. 非常赞同, 因为最核心是吸引力, 个人觉得还是 给力的同事 和 给力的项目.    
@@ -731,7 +731,7 @@ REST是个好东西, 因为百分之九十的接口都是对一个特定资源�
 
 ## 完成的工作总结:
 1. **新版本**: 开始进行下一个版本的迭代了, 了解需求, 慢慢做起来.    
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week8-jira.png">    
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/week8-jira.png">    
 
 ## 给下周的自己一些建议
 1. 在课余时间还是要再努力一些, 例如和黄俊一起看看asyncio, 或者去跑跑步, 出去走走参加活动认识新朋友, 都比在家躺在床上刷微博来的好.   
@@ -775,7 +775,7 @@ REST是个好东西, 因为百分之九十的接口都是对一个特定资源�
 
 # v1.14 开发结束:   
 我完成的任务:   
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/v1.14.png">    
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/v1.14.png">    
 
 
 ---
@@ -830,7 +830,7 @@ REST是个好东西, 因为百分之九十的接口都是对一个特定资源�
 
 ## 完成的工作总结:
 1. 最主要的就是, 在黄俊的手把手下, 完成了公司逻辑比较复杂的一些新需求, 并完成了测试.   
-<img style="max-height:250px" class="lazy" data-original="/images/blog/170325_hypers_summary/week3_sharing.png">    
+<img style="max-height:250px" src="/images/blog/170325_hypers_summary/week3_sharing.png">    
 2. 写了一个自动生产API文档(function的__docstr__)的小程序.
 3. 阅读了一下django的ORM many to many的文档.[笔记](/blog/20170405/many-to-many-relation-with-extra-field-django/)    
 因为在公司的逻辑中, 一个用户有多个账号, 一个账号又可以共享给多个用户. 原先的逻辑是用一张表去关联用户和账号的这两张表.    
