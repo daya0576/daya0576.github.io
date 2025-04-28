@@ -1,5 +1,5 @@
 ---
-title: "Unraid_nas_wifi"
+title: "组装一台通过 WiFi 连接的 NAS"
 date: 2025-04-25T12:19:38+08:00
 draft: true
 ---
