@@ -1,5 +1,5 @@
 ---
-title: SQLAlchemy 与 Pyright 相爱相杀的故事
+title: "[Python] SQLAlchemy 与 Pyright 相爱相杀的故事"
 date: 2023-05-03 21:05:49
 tags:
 categories:

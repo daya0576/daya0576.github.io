@@ -1,8 +1,8 @@
 ---
-title: "分享我的家庭自部署实践"
+title: "[硬件] 分享我的家庭自部署实践"
 date: 2025-02-28T15:57:50+08:00
 categories:
-- 智能家居
+- 硬件
 ---
 
 通过自部署（Self-Hosted），你可以使用 [Bitwarden](https://bitwarden.com/) 取代 1Password 丝滑地管理所有密钥；使用 [Transmission](https://transmissionbt.com/) 随时随地一键下载喜欢的 pt 电影；使用 [Home Assistant](https://www.home-assistant.io/) 管理家中所有智能设备并远程控制...

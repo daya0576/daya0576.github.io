@@ -1,5 +1,5 @@
 ---
-title: "《Atomic Habits｜原子习惯》读后感"
+title: "[读后感]《Atomic Habits｜原子习惯》"
 date: 2025-03-19T07:10:45+08:00
 categories:
 - 独立开发

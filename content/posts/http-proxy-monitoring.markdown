@@ -1,5 +1,5 @@
 ---
-title: 源码分析 PromQL 中的 rate 与 irate 方法
+title: "[源码分析] PromQL 中的 rate 与 irate 方法"
 date: 2024-02-17 16:31:52
 tags:
 categories:

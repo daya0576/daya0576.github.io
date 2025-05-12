@@ -1,5 +1,5 @@
 ---
-title: 如何在 Python 中合理的使用继承
+title: "[Python] 如何在 Python 中合理的使用继承"
 date: 2023-01-22 10:32:24
 tags:
 categories:

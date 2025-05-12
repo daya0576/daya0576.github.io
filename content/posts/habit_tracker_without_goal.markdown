@@ -1,5 +1,5 @@
 ---
-title: "Beaver Habit Tracker 近况更新（v0.3.4）"
+title: "[开源] Beaver Habit Tracker 近况更新（v0.3.4）"
 date: 2025-01-26T20:51:28+08:00
 categories:
 - 独立开发

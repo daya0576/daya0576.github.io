@@ -1,8 +1,8 @@
 ---
-title: "无障碍网页设计（Design Accessible Websites）"
+title: "[开源] 无障碍网页设计（Design Accessible Websites）"
 date: 2025-03-23T09:46:36+08:00
 categories:
-- 独立开发
+- PYTHON
 ---
 
 # 背景

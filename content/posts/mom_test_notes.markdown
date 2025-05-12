@@ -1,5 +1,5 @@
 ---
-title: "《The Mom Test》读后感"
+title: "[读后感]《The Mom Test》"
 date: 2025-04-18T07:33:52+08:00
 categories:
 - 独立开发

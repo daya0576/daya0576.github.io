@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Scala File Descriptor Leaks
+title: "[SRE] Troubleshooting Scala File Descriptor Leaks"
 date: 2024-02-24 15:49:27
 categories:
 - SRE

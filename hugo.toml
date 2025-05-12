@@ -7,7 +7,7 @@ ignoreLogs = ['warning-goldmark-raw-html']
 
 [permalinks]
   [permalinks.page]
-    posts = '/blog/:year:month:day/:slugorfilename/'
+    posts = '/blog/:year:month:day/:slugorcontentbasename/'
   [permalinks.section]
     posts = '/archives/'
 
