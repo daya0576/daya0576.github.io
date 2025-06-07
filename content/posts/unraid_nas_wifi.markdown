@@ -5,7 +5,11 @@ categories:
 - 智能家居
 ---
 
-### 更新（20250515）：
+# 更新（20250518）
+将 CPU 更新为 CC150，舒服了：
+![7C634487-F73F-4B13-B444-E1634A898930](/images/blog/global/7C634487-F73F-4B13-B444-E1634A898930.jpeg)
+
+# 更新（20250515）
 最近将主机搬回了书房，硬盘休眠后轻微的风扇声，倒如同白噪音一般帮助我更好地集中注意力。
 
 <blockquote class="reddit-embed-bq" data-embed-showtitle="true" data-embed-theme="dark" data-embed-created="2025-05-15T01:58:47Z">
