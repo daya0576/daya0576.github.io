@@ -5,6 +5,20 @@ categories:
 - 智能家居
 ---
 
+### 更新（20250515）：
+最近将主机搬回了书房，硬盘休眠后轻微的风扇声，倒如同白噪音一般帮助我更好地集中注意力。
+
+<blockquote class="reddit-embed-bq" data-embed-showtitle="true" data-embed-theme="dark" data-embed-created="2025-05-15T01:58:47Z">
+<a href="https://www.reddit.com/r/homelab/comments/1glafbg/comment/lvstz6d/">Comment</a><br> by
+<a href="https://www.reddit.com/user/tamay-idk/">u/tamay-idk</a> from discussion
+<a href="https://www.reddit.com/r/homelab/comments/1glafbg/does_the_noise_of_your_servers_not_bother_you/"></a><br> in
+<a href="https://www.reddit.com/r/homelab/">homelab</a>
+</blockquote>
+<script async src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+
+
+---
+
 在生活与工作中，我们总是一味地追求“快”，这个 feature 必须要在这周上线，那个 bug 必须在明天天亮前解决。但殊不知解决 bug 最好的办法是慢下来，take a break，甚至说不定睡一觉它自己就消失了。
 
 上一次咱们讨论了如何[组装一台万兆 NAS](/blog/20241228/synology_to_unraid/)，这次俺打算组装一台可以通过 WiFi 接入家庭网络的 NAS，然后把它放在阳台上，彻底不去想它的存在 :p
