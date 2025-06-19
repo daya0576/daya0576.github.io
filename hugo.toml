@@ -11,9 +11,16 @@ ignoreLogs = ['warning-goldmark-raw-html']
   [permalinks.section]
     posts = '/archives/'
 
-[markup.goldmark.renderer]
-unsafe= true
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+  [markup.goldmark.renderer]
+    unsafe= true
 
 [params]
   description = "Henry Z's blog"
   images = ['site-feature-image.jpg']
+
+
