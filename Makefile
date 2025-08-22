@@ -1,4 +1,4 @@
-all: commit push
+all: pull commit push
 
 pull:
 	git pull

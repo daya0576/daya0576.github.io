@@ -9,7 +9,7 @@ GitHub: https://github.com/daya0576/nightwatcher
 
 ## Background
 
-As a first-time dad, to reduce anxiety, I set up two cameras for quick glances:
+As a first-time parent, to reduce anxiety, I set up two cameras for quick glances:
 - A room overview camera (`Tplink IPC45AW`)
 - A dedicated baby monitor (`Aqara G100`)
 
@@ -17,13 +17,12 @@ Both cameras have been integrated into HomeKit and shared with my family (throug
 
 ![](/images/blog/global/17549158473402.jpg)
 
-## Current Limitations & Challenges :(
 
-Thanks to the camera replay, we manually record our newborn's [feeding and sleep patterns](https://changchen.me/blog/20250727/paipai_two_months_old/#full-time-parent), which helps us analyze his long-term routines. 
+## Constraints
 
-However, the user experience was frustrating for several reasons:
+However, the user experience was *frustrating* for several reasons:
 
-1. <u>**Performance Issues**</u>: High latency and frequent freezing, taking 2-3 seconds to load screenshots and stream video. And the stream quality is limited to low resolution.
+1. <u>**Performance Issues**</u>: High latency and frequent freezing, taking 2-3 seconds to load screenshots and stream video. And the image quality is limited to low resolution.
 2. <u>**Cross Platform Support**</u>: HomeKit only works within Apple ecosystem, so it's impossible to view all the cameras at the same time on my Android tablet.
 3. <u>**Privacy & Extensibility**</u>: Both of the montors provide advanced AI detection features, but the streaming must be processed through the cloud with unknown algorithms.
 4. <u>**Simplicity**</u>: Tried several existing open source solutions, but they are a bit too complex and put me off.
