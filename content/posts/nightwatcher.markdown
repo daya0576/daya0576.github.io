@@ -41,28 +41,23 @@ Due to these limitations, I decided to create a micro web-based IP camera viewer
 4. <u>**Simplicity**</u>: Minimal navigations and css styles.
 
 
-## Demo
 ![2025-08-15 00.06.09](/images/blog/global/2025-08-15%2000.06.09.gif)
 
 
 ## Next...
 
-- [ ] PWA web app
+- [x] PWA web app
 - [ ] Dockerlization
 - [ ] User friendly custom detection
-- [ ] Better camera configuration
+- [ ] Refine camera configuration
 - [ ] Train a YOLO11 model on my custom dataset 
 - [ ] ...
 
 
 ## Final words
 
-This project is made with love for families, tested and approved by my wife. Hoping you can enjoy this project and feel free to contribute!
+This project is made with love for families, tested by my wife :p 
+
+Hoping you can enjoy this project and feel free to contribute!
 
 ![4DD287FD-24AB-4564-ADD5-1E4D1D0AD86D_1_102_o](/images/blog/global/4DD287FD-24AB-4564-ADD5-1E4D1D0AD86D_1_102_o.jpeg)
-
-
-## Fun Story
-Before using the latest TOLO11 model, my sweet baby was detected as an apple 🍎😄:
-
-![](/images/blog/global/17551866233785.jpg)
