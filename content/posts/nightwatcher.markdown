@@ -7,6 +7,9 @@ categories:
 
 GitHub: https://github.com/daya0576/nightwatcher
 
+![2025-08-27 19-19-26.2025-08-27 19_24_27](/images/blog/global/2025-08-27%2019-19-26.2025-08-27%2019_24_27.gif)
+
+
 ## Background
 
 As a first-time parent, to reduce anxiety, I set up two cameras for quick glances:
@@ -20,12 +23,14 @@ Both cameras have been integrated into HomeKit and shared with my family (throug
 
 ## Constraints
 
-However, the user experience was *frustrating* for several reasons:
+The user experience was *frustrating* for several reasons:
 
 1. <u>**Performance Issues**</u>: High latency and frequent freezing, taking 2-3 seconds to load screenshots and stream video. And the image quality is limited to low resolution.
 2. <u>**Cross Platform Support**</u>: HomeKit only works within Apple ecosystem, so it's impossible to view all the cameras at the same time on my Android tablet.
 3. <u>**Privacy & Extensibility**</u>: Both of the montors provide advanced AI detection features, but the streaming must be processed through the cloud with unknown algorithms.
 4. <u>**Simplicity**</u>: Tried several existing open source solutions, but they are a bit too complex and put me off.
+
+Fortunately, both cameras support RTSP (Real Time Streaming Protocol) for video stream consuming.
 
 
 ## The Solution: Night Watcher
@@ -39,8 +44,16 @@ Due to these limitations, I decided to create a micro web-based IP camera viewer
 3. <u>**Privacy & Extensibility**</u>: Local models and custom detection support.
 4. <u>**Simplicity**</u>: Minimal navigations and css styles.
 
+### Demo
 
-![2025-08-15 00.06.09](/images/blog/global/2025-08-15%2000.06.09.gif)
+![2025-08-27 19-19-26.2025-08-27 19_24_27](/images/blog/global/2025-08-27%2019-19-26.2025-08-27%2019_24_27.gif)
+
+
+## Interesting story
+
+My sweet got recognized as an apple by YOLO 🤣🤣🤣: 
+
+<img width="150" src="/images/blog/global/IMG_2810.png"></img>
 
 
 ## Next...
