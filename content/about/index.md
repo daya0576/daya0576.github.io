@@ -1,7 +1,6 @@
 ---
 title: "About"
 date: 2025-08-27T09:06:59+08:00
-draft: true
 ---
 
 ### daya0576 
