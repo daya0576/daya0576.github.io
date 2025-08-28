@@ -5,6 +5,7 @@ categories:
 - 个人相关
 ---
 
+> Do not Be Sorry ... Be Better!
 
 ## Glossary
 
