@@ -7,7 +7,7 @@ categories:
 
 GitHub: https://github.com/daya0576/nightwatcher
 
-<img width="350" src="/images/blog/global/2025-08-27%2019-19-26.2025-08-27%2019_24_27.gif"></img>
+<img src="/images/blog/global/2025-08-27%2019-19-26.2025-08-27%2019_24_27.gif"></img>
 
 
 ## Background
