@@ -60,7 +60,7 @@ My sweet got recognized as an apple by YOLO 🤣🤣🤣:
 
 - [x] PWA web app
 - [ ] Dockerlization
-- [ ] User friendly custom detection
+- [ ] User friendly custom detection pipeline
 - [ ] Refine camera configuration
 - [ ] Train a YOLO11 model on my custom dataset 
 - [ ] ...
@@ -68,8 +68,8 @@ My sweet got recognized as an apple by YOLO 🤣🤣🤣:
 
 ## Final words
 
-This project is made with love for families, tested by my wife :p 
+As a full-time parent, I created this small project as a toy during my baby's nap times. It works wonderfully, and my wife quickly took to it :p 
 
-Hoping you can enjoy this project and feel free to contribute!
+I hope you enjoy it and feel free to contribute.
 
 ![4DD287FD-24AB-4564-ADD5-1E4D1D0AD86D_1_102_o](/images/blog/global/4DD287FD-24AB-4564-ADD5-1E4D1D0AD86D_1_102_o.jpeg)
