@@ -3,6 +3,8 @@ title: "[读后感]《The Mom Test》"
 date: 2025-04-18T07:33:52+08:00
 categories:
 - 独立开发
+- 学习
+- 读书
 ---
 
 在阅读[《The Mom Test》](https://book.douban.com/subject/26320572/)之前，原本以为其内容主要是关于如何找家人验证产品的可行性，因为家人是普通的大众受众，也通常不会对我们撒谎。

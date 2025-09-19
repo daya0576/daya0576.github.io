@@ -1,8 +1,9 @@
 ---
-title: "[工作] 除了钱一无所有"
+title: "除了钱一无所有"
 date: 2025-04-25T22:05:54+08:00 
 categories:
-- 个人相关
+- sre 
+- 工作
 ---
 
 想必大家最近都被 PayPal 上海裁员的消息刷屏了。巧合的是， Autodesk 也宣布了[全球范围内裁员 9% 的消息](https://adsknews.autodesk.com/en/news/022725-employee-message/)，更巧的是博主恰巧在受影响之列 :p

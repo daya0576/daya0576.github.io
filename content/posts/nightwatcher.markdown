@@ -3,6 +3,7 @@ title: "Nightwatcher - A Simple IP Camera Viewer 🦇"
 date: 2025-08-11T19:45:19+08:00
 categories:
 - python
+- 开源
 ---
 
 GitHub: https://github.com/daya0576/nightwatcher
