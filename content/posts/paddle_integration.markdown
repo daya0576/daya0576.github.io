@@ -1,5 +1,5 @@
 ---
-title: "[独立开发] Paddle 全球收单攻略"
+title: "独立开发 - Paddle 全球收单攻略"
 date: 2025-04-12T09:54:56+08:00
 categories:
 - PYTHON

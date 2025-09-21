@@ -3,6 +3,8 @@ title: "[读后感]《The Lean Startup｜精益创业》"
 date: 2025-03-28T00:51:00+08:00
 categories:
 - 独立开发
+- 学习
+- 读书
 ---
 
 # Glossary

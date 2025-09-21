@@ -4,6 +4,8 @@ date: 2024-11-16 11:02:16
 tags:
 categories:
 - 独立开发
+- 编程
+- PYTHON
 ---
 
 Hi 好久不见～ 最近几个月沉迷于与游戏《Against The Storm》，与开发一款 web app，叫做：[Beaver Habit Tracker](https://github.com/daya0576/beaverhabits)

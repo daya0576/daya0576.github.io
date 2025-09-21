@@ -1,8 +1,8 @@
 ---
-title: "[硬件] 万兆 nas diy 搭建小记（Synology -> Unraid）"
+title: "万兆 nas diy 搭建小记（Synology -> Unraid）"
 date: 2024-12-28T06:13:48+08:00
 categories:
-- 智能家居
+- 硬件
 ---
 
 自从购买了 Mac Mini M4 PRO, 博主便寝食难安 :(

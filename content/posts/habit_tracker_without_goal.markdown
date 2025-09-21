@@ -3,6 +3,7 @@ title: "[开源] Beaver Habit Tracker 近况更新（v0.3.4）"
 date: 2025-01-26T20:51:28+08:00
 categories:
 - PYTHON
+- 开源
 ---
 
 [Beaver Habit Tracker](https://github.com/daya0576/beaverhabits) 是一款使用 Python 编写的习惯跟踪应用，支持自部署。由于作者希望大家尽可能生活的松弛，所以在应用中没有目标的概念 :)
