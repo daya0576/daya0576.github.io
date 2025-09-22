@@ -9,9 +9,8 @@ categories:
 
 派派近日刚满三个月，终于成功拍睡入眠，分享一下帮助颇多的书籍与笔记。
 
-![56179255-DCFF-4125-9680-17E54E3A3150](/images/blog/global/56179255-DCFF-4125-9680-17E54E3A3150.png)
+![](/images/blog/global/17585214151356.jpg)
 
-p.s. 请忽略床上的枕头，筋疲力尽无法拆“炸药包”了。。
 
 ## 《实用程序育儿法｜The Baby Whisperer》
 
