@@ -1,5 +1,5 @@
 ---
-title: "派派成长日记 #2 - 满两个月啦"
+title: "派派成长日记 #2 - 满两个月啦（30-60天）"
 date: 2025-07-27T22:30:04+08:00
 categories:
 - 派派
@@ -19,7 +19,7 @@ categories:
 不过每当被问起名字的由来，我们常常会选择一个更简单的解释，也就是大力水手"派派"。毕竟程序员的谐音烂梗也不是人人都能懂...
 
 # Octocat One-Piece
-未雨绸缪的我，在大学期间（16年），便网购了一件 GitHub 宝宝连体衣。陪伴了派派前两个月，不仅穿上帅气，同时兼顾实用，成为了每个月嫂的最爱。
+未雨绸缪的我，在大学期间便网购了一件 GitHub 宝宝连体衣。陪伴了派派前两个月，不仅穿上帅气，同时兼顾实用，没想到成为了每个月嫂的最爱。
 ```
 Thank you for placing your order with GitHub!
 
@@ -34,12 +34,15 @@ Date 08/31/2016
 1x Octocat Figurine - 3" Octocat Figurine for $15.00 each
 ```
 
+![](/images/blog/global/17586916285366.jpg)
+
 # Full-Time Parent
 在月子中心呆了十天左右，我们便按捺不住想要回家。尝试过两位住家月嫂，即便服务不错，却都难以相处超过一周，最终选择提前下户。所以从满月开始，便和 CC 便开启了照顾派派的并肩作战。
 
 下图记录了近三十天的喂养与睡眠活动，不难感受到无尽循环的艰辛。
 
 ![](/images/blog/global/17536298009812.jpg)
+
 
 看到喜欢的 YouTuber 分享的视频：[The Terrible Twos! Practical Tips for Parents?](https://www.youtube.com/watch?v=y381d6uytb8)，描述孩子在两岁时出现一系列不可理喻的行为，如同恶魔般令人绝望。
 
