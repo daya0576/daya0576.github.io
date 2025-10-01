@@ -5,10 +5,8 @@ draft: true
 ---
 
 > "We do not suggest that parents be either permissive or punitive. What parents have to learn is how to become a match for their children, wise to their ways and capable of guiding them without letting them run wild or stifling them."
-> 
-> "As the child needs training, so do parents. A training in new responses to the child's provocation may lead to new attitudes and open new avenues for harmonious relationships"
 
-当第一次为人父母，与孩子的关系逐步恶化，甚至面对孩子的“挑衅”时，我们隐隐知道不能再像父辈那样对待他们，却不知道怎么做。希望你和我都能在这本书中寻找到答案。。
+第一次为人父母，却与孩子的关系逐步恶化。面对孩子“挑衅”时，你隐隐知道不能再像父辈那样粗暴的对待他们，却又不知如何做。希望我们都能在这本书中寻找到答案。。
 
 出乎意外，这竟是一本出版在 1964 年的书籍，为表尊重，特地读了英文原版。这篇是个人的简短笔记。
 
@@ -87,8 +85,56 @@ draft: true
 - 避免过度为孩子委屈，例如额头撞了一个小肿块就抱起来大惊小怪，这样只会强化孩子对父母的依赖，弱化勇气和自立（成人的生活就是充满打击和不幸😂）。
 - ...
 
+总而言之，收起对孩子的偏见，也是一种最大的鼓励。
 
 # 4. The Child's Mistaken Goals
+
+> “Can you play now, Mommie?” “Not yet, dear,” Mother answered absently. 
+> “Can you play now?” “In a few minutes, darling.”
+
+想象下面的场景：妈妈在桌子上写信，三岁的宝宝在地上玩玩具，每隔几分钟宝宝便问妈妈可不可以一起玩，妈妈每次都是心不在焉地回答再等几分钟。最终妈妈写完了信并陪宝宝开始玩。
+
+这个故事看上去是耐心的母亲和他孩子构建的温馨关系。但母亲的不断拒绝，可能导致孩子的*归属感*从一开始尝试参与（participation in group）-> 失望并转移为过度关注：依靠他人关注实现自我（undue attention）。也就是说孩子误以为只有成为世界的中心，才显得自己重要有意义。
+
+🤔正确的做法是？识别到儿童需求演化为“过度关注”，尽可能避免满足他的需求？
+
+四种“mistaken goals”：
+1. 过度关注（undue attention）：上述的例子就是这个类型
+    1. <mark>如果通过讨人喜欢的手段获得关注*失败*，就会发展为不端行为，例如哭叫、磨蹭、...</mark> 
+    2. 如何区分过度关注 与 适当关注：家庭需要以场景为中心，而不是以某个成员为中心。如果我们屈服于孩子的过度关注，就在不断强化孩子错误的自我认知。
+2. 权力斗争（struggle for power）：想象孩子在看电视错误过了入睡时间，父母不断的催促他去睡觉，结果两者陷入了无尽权利斗争的游戏。<mark>通过暴力让孩子屈服是一种糟糕的做法，因为父母气急败坏就输了，孩子只会以为你除了身体上的优势，已经没招了并暗爽，即使付出了屈辱和痛苦。</mark>
+3. 极度气馁：权力斗争的进一步恶化（intensification of the power contest），孩子在灰心丧气的时候，可能演化为恶劣的报复行为，来让自己觉得有意义有价值。
+4. 极度证明自己的一无是处，自暴自弃。
+
+# 5. The Fallacy of Punishment and Reward
+
+> urious, Mother yelled, “How many times am I going to have to spank you for this?” She grabbed Alex, took down his pants, and whipped him. 
+
+想象下面的场景：家长发现小朋友很安静必在作妖，例如你发现两岁半的 Alex 不断的将厕纸丢到马桶中，他已经好几次因为这样堵住厕所被打了屁股。。。家长生气的对他大吼，然后脱了 Alex 的裤子，又是暴揍一顿。。。
+
+> Today’s children are willing to take any amount of punishment in order to assert their “rights.”
+
+为什么惩罚毫无用处？第一章中提到民主社会的变迁，儿童与家长不再是独裁统治的权力压制关系，而演化为平等的关系，儿童并非意识不到自己行为的不正确，而是誓死维护自己的“权利”，甚至宁愿接受任何程度的惩罚。
+
+🤔个人理解“惩罚”会导致从事情对错跳出，演变成双方单纯较劲的权力斗争。所以在仗着身体优势动用武力的那一刻，家长其实就已经输了，甚至孩子觉得自己获得胜利。
+
+> They will accept it if they know we respect them as equal human beings with equal rights to decide what they will do.
+
+🤔正确的做法是？家长的角色应该是一个互相尊重和互相体谅的领导（leader）来带领儿童前进。而不是利用“权力”，强迫达成目的。例如：
+- 询问他们的意见
+- 诚实的表达自己的沮丧
+- ...
+
+> The system of rewarding children for good behavior is as detrimental to their outlook as the system of punishment. The same lack of respect is shown. 
+
+“奖励”与“惩罚”类似，对孩子的成长存在负面作用。因为在相互尊重的家庭中，满足感源自家长与孩子一起和谐地完成某件事（理所当然地承担各自应有的责任）。而“奖励”让孩子认为做任何事情都是为了自己的好处，最终形成固定思维某个行动只有获得回报才能获得归属感（belonging）。
+
+🤔记得在另一本书中提到，假如利用奖励引诱孩子吃蔬菜，会让孩子误以为吃蔬菜本身是件不愉快的事，必须通过奖励来补偿。可能会弱化孩子对蔬菜的内在动机和兴趣。
+
+
+
+
+
 
 
 
