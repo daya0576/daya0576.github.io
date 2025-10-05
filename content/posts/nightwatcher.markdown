@@ -24,7 +24,7 @@ Both cameras have been integrated into HomeKit and shared with my family (throug
 
 ## Constraints
 
-The user experience was *frustrating* for several reasons:
+The user experience of HomeKit was *frustrating* for several reasons:
 
 1. <u>**Performance Issues**</u>: High latency and frequent freezing, taking 2-3 seconds to load screenshots and stream video. And the image quality is limited to low resolution.
 2. <u>**Cross Platform Support**</u>: HomeKit only works within Apple ecosystem, so it's impossible to view all the cameras at the same time on my Android tablet.
@@ -44,6 +44,7 @@ Due to these limitations, I decided to create a micro web-based IP camera viewer
 2. <u>**Cross Platform Support**</u>: Works on any device with a browser.
 3. <u>**Privacy & Extensibility**</u>: Local models and custom detection support.
 4. <u>**Simplicity**</u>: Minimal navigations and css styles.
+
 
 ### Demo
 

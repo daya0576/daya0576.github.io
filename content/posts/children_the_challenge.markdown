@@ -114,7 +114,7 @@ draft: true
 
 > Today’s children are willing to take any amount of punishment in order to assert their “rights.”
 
-为什么惩罚毫无用处？第一章中提到民主社会的变迁，儿童与家长不再是独裁统治的权力压制关系，而演化为平等的关系，儿童并非意识不到自己行为的不正确，而是誓死维护自己的“权利”，甚至宁愿接受任何程度的惩罚。
+为什么惩罚毫无用处？第一章中提到民主社会的变迁，儿童与家长不再是独裁的权力压制关系，而演化为平等的关系，<mark>儿童并非意识不到自己行为的不正确，而是在誓死维护自己的“权利”，甚至宁愿接受任何程度的惩罚</mark>。
 
 🤔个人理解“惩罚”会导致从事情对错跳出，演变成双方单纯较劲的权力斗争。所以在仗着身体优势动用武力的那一刻，家长其实就已经输了，甚至孩子觉得自己获得胜利。
 
@@ -125,11 +125,79 @@ draft: true
 - 诚实的表达自己的沮丧
 - ...
 
-> The system of rewarding children for good behavior is as detrimental to their outlook as the system of punishment. The same lack of respect is shown. 
+> The system of rewarding children for good behavior is as detrimental to their outlook as the system of punishment. The same lack of respect is shown.
+> Satisfaction comes from a sense of contribution and participation.
+> In our mistaken efforts to win co-operation through rewards, we are actually denying our children the basic satisfactions of living.
 
-“奖励”与“惩罚”类似，对孩子的成长存在负面作用。因为在相互尊重的家庭中，满足感源自家长与孩子一起和谐地完成某件事（理所当然地承担各自应有的责任）。而“奖励”让孩子认为做任何事情都是为了自己的好处，最终形成固定思维某个行动只有获得回报才能获得归属感（belonging）。
+“奖励”与“惩罚”类似，对孩子的成长存在负面作用。<mark>因为在相互尊重的家庭中，**满足感**源自家长与孩子一起和谐地完成某件事（理所当然地承担各自应有的责任）</mark>。而“奖励”让孩子认为做任何事情都是为了自己的好处，最终形成固定思维：只有获得物质回报才能获得归属感（belonging）。
 
 🤔记得在另一本书中提到，假如利用奖励引诱孩子吃蔬菜，会让孩子误以为吃蔬菜本身是件不愉快的事，必须通过奖励来补偿。可能会弱化孩子对蔬菜的内在动机和兴趣。
+
+> Why should children be paid to do chores? They live in the house, eat the food, are provided with clean clothes, and share in the benefits. If they are the equals they claim to be, they are obliged to share in the toil.
+
+😂我们照顾小朋友，让他在家里白吃白喝，还提供干净的衣服与各种权益，假如寻求平等和谐的关系，凭什么还要付给他做家务的报酬（不难理解同时<mark>不利于责任感的培养</mark>）。
+
+通过玩具贿赂儿童也是糟糕的做法，儿童“缠着”我们是想通过好的表现寻找归属感与合作，而通过玩具贿赂则暗中表示我们其实不信任他，使儿童感到沮丧。并且可能导致未来“筹码”的价格越来越高。
+
+# 6. The Use of Natural and Logical Consequences
+
+既然上一章提到的“惩罚”&“奖励”是错误低效的做法，我们面对儿童的不端行为应该怎么做呢？
+
+> Mother must allow Alice to be hungry because this is the natural consequence of not eating. 
+
+我们只需要让儿童深刻理解，对应**行为**带来的**后果**即可（logical consequences），例如<mark>不好好吃饭就是会挨饿</mark>（一顿挨饿不会对身体造成任何危害XD）。如果每次强行喂饭，然后义正言辞“教育”孩子要好好吃饭，最后只会吃力不讨好甚至收获他们的厌恶和反感。 --- 同时是双向的：好好吃东西会带来满足感。
+
+😂成为贱贱的父母：当孩子中午没好好吃饭，下午一点就饿了时，回复道“很遗憾你感到饥饿了，但晚餐在六点开饭，要再等五个小时确实挺糟糕的 :)”
+
+p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自己行为导致的（或者是存在有逻辑关系的限制？）。当权威被移除后，儿童叛逆的斗争和反抗也自然烟消云散了。
+- ❌不丢垃圾 -> 不让你看电视
+- ✅
+
+🤔会不会有一些理想化，假如儿童淘气将家里的电视打碎了，要如何让他理解后果呢？？
+
+> “Since you do not feel like playing in the yard, you may not be out When you are ready, you may try again.” 
+> she can establish limitations and consequences. 
+
+几个案例：
+- 三岁的小美在院里里玩的时候，总喜欢跑到马路上玩。父母不可能让他承担被车撞的后果，应该怎么做呢？将限制与后果关联，与惩罚的区别：设置规则后，让孩子准备好后多尝试几次（事不过三）。
+- 三岁的小凯总是不刷牙，妈妈表示理解并接受，但前提条件是白天就不能吃糖果和冰淇淋。
+- 四岁的小盖总是喜欢把鞋子反着穿，家长知道他会难受（他在故意吸引你的注意力），只需平静耐心接受，在某天他纠正时不经意地赞美即可。
+- ...
+
+> “I have no right to punish a person with status equal to mine, but I do have the obligation to guide and direct my child. I do not have the right to impose my will—but I do have the obligation not to give in to his undue demands.”
+
+在使用“行为->后果”方法时，很容易陷入使用“惩罚”的陷阱，作为家长，需要时刻记住：我们没有权力惩罚一个人，但有义务引导和指导孩子。我们<mark>没有权力将自己的意愿强加于孩子</mark>，但我们有义务对“过度关注”需求进行拒绝。
+
+
+# 7. Be Firm without Dominating 
+
+> Firmness is our refusal to give in to the undue demands of the child or to indulge him in his every whim. Once we have made a decision in line with order, we must maintain it. The child soon catches on.
+
+坚定地不向孩子的过分要求让步，说“不”后就坚持到底，孩子很快就明白了（有时无声的坚持对小年龄的孩子特别有效）。
+
+
+# 8. Show Respect for the Child
+
+> his requires sensitivity in reaching a balance between expecting too little and expecting too much.
+
+家长需要管理好自己的预期，避免过高或过低的预期。例如鸡娃的行为就是一种对个人的深深不尊重，孩子成为了父母满足自己的工具。
+
+> Gregory’s bodily health and growth depend upon regular rest and food.
+> Irregular feeding schedules show a lack of respect for baby and for order.
+
+规律的休息和喂养，从某种程度也展示了对孩子的尊重，而不是一哭就喂（刚刚一小时前喂过）。
+
+> Respect for the child means that we regard him as a human with the same rights to make decisions as we have. But similar “rights” does not mean that the child may do what the adults do. 
+
+简而言之，尊重就是将孩子当作大人去对待，拥有和我们一样的决策权。但不意味着孩子可以做所有大人可以做的事，因为每个人在家庭中都扮演着不同的角色。
+
+
+# 9. Include Respect for Order
+
+🤔简而言之不要成为孩子的奴隶 - 说起来简单但做起来难，特别是面对哭的撕心裂肺的孩子。
+
+
+
 
 
 
