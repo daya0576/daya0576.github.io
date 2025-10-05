@@ -5,7 +5,7 @@ categories:
   - SRE
 ---
 
-As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy and rollback option! However, YOLO (you only live once), embrace and enjoy the risks.
+As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy and rollback option!😱 However, YOLO (you only live once), just embrace and enjoy the risks.
 
 After joining Autodesk for 1y5m, the whole team was unfortunately impacted by layoff. Currently I have already left the company and became a fulltime parent.
 
