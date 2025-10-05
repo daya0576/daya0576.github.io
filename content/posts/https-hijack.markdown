@@ -8,22 +8,23 @@ categories:
 date: 2023-11-18 07:49:24
 ---
 
-Recently developing an internal tool to support resiliency testing, e.g. performing network delay on dependent redis/db/.., helps validate the service’s ability to handle and recover from unexpected network disruptions or delays in accessing external dependencies.
+Service dependency failures are one of the leading causes of incidents. For example, when the `database` is hanging, most of the traffic should be handled by the `cache`. However, due to unnecessary hard dependency on the `database`, the service is completely down.
 
-TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). 
+To address this, I developed an HTTP(S) proxy tool that enables the team to perform resiliency tests and fire drills (chaos), helping identify and eliminate unnecessary hard dependencies.
 
-<u>**But how can we hijack and manipulate encrypted outbound HTTPS traffic?**</u>
+TCP layer network traffic can easily be classified and shaped using a Linux built-in tool called TC (traffic control). <u>How can we hijack and manipulate encrypted outbound HTTPS traffic?</u>
 
 <!--more-->
 
 ## 1. Traffic Takeover
-Enable traffic through a proxy server via HTTP(S)_PROXY  environment variable, and most standard libraries follow this convention.
+Enable traffic through a proxy server via `HTTP(S)_PROXY` environment variable, and most standard libraries follow this convention.
 
 ```
 export https_proxy=http://127.0.0.1:<port>;export http_proxy=http://127.0.0.1:<port>
 ```
 
 After sending the [CONNECT](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.6) method request, the `https_proxy` can proxy the TCP stream to and from the client by establishing a HTTP tunnel to the destination origin server.
+
 ![http_proxy_original.drawio](/images/blog/2021-09-04-jvm-note/http_proxy_original.drawio.svg)
 
 
@@ -48,6 +49,7 @@ We must hijack HTTPS requests to determine the type of dependency service (such 
     2. Data transmission: session key → data encryption
 
 Appropriate workflow (i.e. MITM attack):
+
 ![rtf MITM1.drawio](/images/blog/2021-09-04-jvm-note/rtf%20MITM1.drawio.svg)
 
 ## Reference 

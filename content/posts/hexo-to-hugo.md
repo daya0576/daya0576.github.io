@@ -1,7 +1,6 @@
 +++
 date = '2024-11-18T15:42:38+08:00'
 title = '博客搬家小记（Hexo → Hugo）'
-categories = ['编程']
 +++
 
 不知是否因为年纪变大，越来越喜欢极简（minimalism）。
