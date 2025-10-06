@@ -29,7 +29,7 @@ To enhance my competitiveness in the job market, I set three professional develo
 - Engineering: Launched an open source project in part time
 - Communication Skills: Enhance English speaking proficiency
 
-P.S. Fun fact - at Autodesk, everyone is also encouraged to set up an Individual Development Plan (IDP), and the goals aren't necessarily closely related to their daily job.
+P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to set up an Individual Development Plan (IDP), and the goals aren't necessarily closely related to their daily job.
 
 # So, how was it?
 
@@ -39,7 +39,7 @@ It turned out that I successfully achieved most of my goals and received positiv
 - ✅ Engineering: Launched an open-source project with user from more than 100 countries
 - ☑️ Communication Skills: Enhanced ability to effectively collaborate in English-speaking environments
 
-*However, this did not completely reduce my anxiety. I realized that, as an "average" person, being competitive isn't about being good and generic, but about being unique—like being the only person who can understand and modify a piece of core code in the company.*
+*However, this did not completely reduce my anxiety. I realized that, as an "average" person, being competitive isn't about being good and generic in the job market, but about being unique—like being the only person who can understand and modify a piece of core code in the company.*
 
 ![IMG_1659](/images/blog/global/IMG_1659.jpeg)
 
