@@ -2,7 +2,8 @@
 title: "Postmortem of My Journey at Autodesk"
 date: 2025-10-05T20:00:00+08:00
 categories:
-  - SRE
+- SRE
+- 编程
 ---
 
 As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy and rollback option!😱 However, YOLO (you only live once), just embrace and enjoy the risks.
@@ -33,13 +34,13 @@ P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to 
 
 # So, how was it?
 
-It turned out that I successfully achieved most of my goals and received positive feedback from both co-workers and manager.
+It turned out that I successfully achieved most of my goals:
 
 - ✅ Site Reliability: Achieved AWS SysOps Administrator certification
 - ✅ Engineering: Launched an open-source project with user from more than 100 countries
 - ☑️ Communication Skills: Enhanced ability to effectively collaborate in English-speaking environments
 
-*However, this did not completely reduce my anxiety. I realized that, as an "average" person, being competitive isn't about being good and generic in the job market, but about being unique—like being the only person who can understand and modify a piece of core code in the company.*
+*However, this did not completely reduce my anxiety :( I eventually realized that, as an "average" person, the easiest way of being competitive isn't about being resilient in the job market, but about being unique—like being the only person who can understand and modify a piece of core code in the company.*
 
 ![IMG_1659](/images/blog/global/IMG_1659.jpeg)
 

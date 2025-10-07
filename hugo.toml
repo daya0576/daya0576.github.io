@@ -23,4 +23,3 @@ ignoreLogs = ['warning-goldmark-raw-html']
   description = "Henry Z's blog"
   images = ['site-feature-image.jpg']
 
-
