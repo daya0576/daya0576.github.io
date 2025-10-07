@@ -53,9 +53,9 @@ The two experiences have helped me gain a **deep and broad understanding** of ac
 
 <img width="450" src="/images/blog/global/17596656935359.jpg">
 
-In Autodesk, as a dedicated SRE being directly responsible for the SLO target, I'm facing more challenges. 
+In Autodesk, as a dedicated SRE being directly responsible for the SLO target with limited resources, I'm facing more challenges. So I had to think globally and prioritize my time smartly. 
 
-With limited resources, I had to think globally and prioritize my time smartly. Personally I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
+Personally I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
 
 ## Incident Prevention (70%)
 
