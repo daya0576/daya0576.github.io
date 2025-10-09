@@ -16,8 +16,10 @@ Nonetheless, Autodesk is an incredible company with excellent benefits and profe
 # Timeline
 I started my career as a Python developer in a startup in Shanghai, the engineering experience became a solid cornerstone for my SRE transition.
 
+Then, I joined Ant Group, a leading chinese fintech company, which was the largest unicorn in the world. Thanks to reliable co-worker and managers, I got promoted quickly for P5 to P7 and well compensated.
+
 - 2017.03 ~ 2018.04: Python Software Engineer (Hypers)
-- 2018.04 ~ 2023.10: Site Reliability Engineer (Ant Group) 
+- 2018.04 ~ 2023.10: Site Reliability Engineer (Ant Group)
 - 2023.10 ~ 2025.04: Site Reliability Engineer (Autodesk)
 
 
@@ -25,7 +27,8 @@ I started my career as a Python developer in a startup in Shanghai, the engineer
 
 > Don’t Be The Best, Be The Only.
 
-To enhance my competitiveness in the job market, I set three professional development goals upon joining the company:
+To seek better work life balance (WLB) and build  a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
+
 - Site Reliability: Explore popular tech stacks
 - Engineering: Launched an open source project in part time
 - Communication Skills: Enhance English speaking proficiency
@@ -56,7 +59,7 @@ The two experiences have helped me gain a **deep and broad understanding** of ac
 
 In Autodesk, as a dedicated SRE being directly responsible for the SLO target with limited resources, I'm facing more challenges. So I had to think globally and prioritize my time smartly. 
 
-Personally I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
+In addition to daily tasks and tiols, I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
 
 ## Incident Prevention (70%)
 
