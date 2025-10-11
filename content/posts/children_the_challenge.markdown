@@ -209,7 +209,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 > Now, do we take you over to Auntie’s tonight,* or will you manage so that you can remain with us in the house?” The decision of the children must be respected. 
 
-类似第一个案例，当小孩摆弄属于大人的物件时，给孩子做决定的空间并尊重，例如“客气”地询问对方，是希望自己离开还是被强行带走 :)
+类似第一个案例，当小孩摆弄属于大人的物件时，<mark>给孩子做选择决定的空间并尊重</mark>，例如“客气”地询问对方，是希望自己离开还是被强行带走 :)
 
 
 # 11. Eliminate Criticism and Minimize Mistakes
@@ -243,7 +243,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 > Allowing Penny the “freedom” to stay up late at night denied her her right to proper rest
 
-例如纵容孩子晚睡，从另一个角度，反而剥夺了他们与家长休息的权利。
+纵容孩子晚睡，从另一个角度，反而剥夺了他们与家长休息的权利。
 
 > It should not be so rigid that there is no room for flexibility. There are always occasions when a routine has to be broken to fit an unexpected need. 
 
@@ -276,6 +276,64 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 > Training should not be attempted when guests are present 
 
-不要在有外人在场的公共场合训练孩子。如果孩子的行为与场合不符，唯一实际的解决办法就是安静地将他带走。
+不要在有外人在场的公共场合训练孩子（过于困难）。如果孩子的行为与场合不符，唯一实际的解决办法就是安静地将他带走。
 
 # 14. Win Co-operation
+
+想象下面的场景：给八个月的 Lisa 换尿不湿时，她总是打滚扭动不配合。妈妈气的轻轻的拍了他一下，孩子瞬间伤心欲绝的大哭。 // 🤭这不就是我的日常吗？
+
+与婴儿相处久了，你就会发现他们小小的脑袋充满智慧，比你想象的聪明的多，而很多人却将婴儿当作小傻瓜抚养，培养成又蠢又笨的成年人。妈妈必须训练 Lisa 和她合作配合，一起承担换尿布的责任：
+1. 首先识别和理解孩子的意图，避免被激怒。
+2. 每次换尿布，留出额外时间进行训练。
+3. 宝宝挣扎时，微笑并轻轻按住宝宝，温柔的夸奖他（即使听不懂，宝宝也能感受到母亲坚定的爱意）。一旦 Lisa 不抗拒，就可以松手，一旦她扭来扭去则重复之前的步骤。如此反复与不断坚持，孩子就会学会合作。
+
+> The “we” puts the responsibility onto the group, where it belongs, takes Mother out of the authoritative role, and puts her into the role of leadership.
+
+合作不应该是上下级的关系，例如命令式地决定孩子应该做什么。最终很可能演变为“权力游戏”，进而触发孩子的叛逆精神。正确的做法是大家坐下，一起决定各自想做什么任务，即使当成员没有完成任务时，也大家一起决定要如何处理（Family Council）。
+
+总而言之，父母需要从权威专治，转为 民主的领导者（authoritative role -> leadership）
+
+> “I don't see why I have to help. I haven’t been down here all week. I didn’t mess it up.” “No, I guess you didn’t, Ward,” said Mother. “But I'll bet Donna and Lorraine would let you help if you asked them.” 
+
+巧妙的通过<mark>共情和同理心（换位思考）</mark>，引导孩子合作，甚至在同龄人中掌握 leadership。
+
+> Politeness alone can go a long way toward winning cooperation from children, and we can phrase our request to indicate that we understand the child’s point of view. “I'm sorry to interrupt you, or “I realize you may not want to, but it would help me out so much if...” or “I'd appreciate it very much if you feel you could...” tend to support harmony, reduce reluctance, and win co-operation.
+
+改变大人思维，展示礼貌和尊重是赢得合作的关键。
+
+> Anyone becomes unreasonable when he feels imposed upon. We cannot win co-operation by trying to impose our will upon someone else.
+
+真诚是必杀技，否则父母和孩子都夸张的误认为对方“固执”，而抗拒合作。
+
+
+# 15. Avoid Giving Undue Attention
+
+> The child who seeks constant attention is, of necessity, an unhappy child. He feels that unless he gets attention he is worthless, has no place. He seeks constant reassurance that he is important. 
+
+过度寻求关注（undue attention）的孩子，往往是一个不快乐的孩子。这种需求是随时随刻永无止境的。
+
+> As things are now, Mother shows a lack of selfrespect when she allows her daughter to enslave her.
+
+妥协被孩子“奴役”，是对家长自己的一种不尊重；同时也是对孩子的不尊重 - 怀疑孩子独立生活的能力。
+
+正确的做法，第一次可以回应，并明确告诉孩子自己在忙，后续干脆直接忽视，并坚定执行到底。家长有权专注于自己的事情，也有义务训练孩子尊重他人和环境。
+
+> The child uses “why” to keep the parent busy. He senses the parent’s desire to “teach” and uses it to get attention, not to learn! 
+
+孩子往往喜欢追着大人问为什么，大部分时候，这并不是学习，而是他们想要寻求关注的“诡计”。
+
+> Children need our attention. But we must become awareof the difference between due and undue attention. 
+
+给予适度必要的关注，而不是过度关注。如果大人常常被孩子搞的过于烦恼与苦恼时，我们往往陷入了过度关注的陷阱。
+
+# 16. Sidestep the Struggle for Power
+
+
+
+
+
+
+
+
+
+
