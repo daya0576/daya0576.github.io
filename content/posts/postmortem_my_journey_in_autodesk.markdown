@@ -61,19 +61,19 @@ In Autodesk, as a dedicated SRE being directly responsible for the SLO target wi
 
 In addition to daily tasks and tiols, I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
 
-## Incident Prevention (70%)
+## Incident prevention (70%)
 
 ### 1. Changes
 Simply focus on changes:
 
-#### 1.1 Code Changes (Application/Config/Infra/...)
+#### 1.1 Code changes (deployment/config/infra/...)
 A key distinction between SRE and Platform Engineer is the requirement of deep domain knowledge. After spending several months documenting business workflows through sequence diagrams, I began actively participate in code reviews to identify and mitigate potential production risks at an early stage.
 
 Here are two examples:
 1. During an application code review, I found a defect that the cache TTL (Time to Live) will be incorrectly reset every time on value update, which may causing the rate limiting not working as expected.
 2. In an terraform code change (traffic cutover), I recommended implementing AWS Route53 weighted routing to enable gradual traffic shifting (starting with 1% of traffic), significantly reducing the risk of service disruption during the cutover.
 
-#### 1.2 Dependency Changes (Resiliency Test)
+#### 1.2 Dependency changes (resiliency test)
 
 Service dependency failures are one of the leading causes of incidents. For example, when the database is hanging, most of the traffic of the service should be handled by the cache. However, due to unnecessary hard dependency on the database, the service is completely down.
 
@@ -81,18 +81,18 @@ To address this, I developed an HTTP(S) proxy tool that enables the team to perf
 
 [Read more..](/blog/20231118/https-hijack/)
 
-#### 1.3 Other Changes
+#### 1.3 Other changes
 
 - Upstream traffic surge: using bi-week service reviews to monitor upstream traffic trend and ensure our rate-limiting and scaling policies are working as expected.
 - ...
 
-### 2. Incident & Issues Management
+### 2. Incident & issues management
 
 I have the habit of tracking all incidents and issues. Interestingly, after collecting and analyzing 40+ cases, it magically helped me identify *key patterns* in service reliability problems and shaped my next year's OKRs. This also significantly impressed my manager during the yearly performance review.
 
-## Incident Detection & Recovery (30%)
+## Incident detection & recovery (30%)
 
-### End-to-End Monitoring
+### End-to-end monitoring
 While our monitoring system (SLO alerts and health checks) can detect incidents within one minute, identifying root causes remains challenging even for experienced engineers, resulting in high Mean Time To Recovery (MTTR).
 
 To address this challenge, I implemented **end-to-end Synthetic Monitoring** with [AWS CloudWatch Canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.html). The synthetic monitoring simulates real user transactions and validates key steps throughout the service workflow. For instance, it even verifies the design file visualization process by checking cache loading status in DynamoDB.
@@ -101,7 +101,14 @@ This solution automatically output the failing step when an alert triggers, sign
 
 
 # Action items
-Incidents are inevitable and not always negative; they provide opportunities to review and enhance our services.
+
+## Avoid single point failure
+When I lost my job, I lost most of my income. So to avoid single poitn failure, in addition to focusing on main career, try starting a side project or exploring non-technical options.
+
+However, others argue that by dedicating 100% effort to your career, you can make your job done excellence and maximize potential benefits.
+
+## Being fulltime parent
+Incidents are inevitable but not always negative; they provide opportunities to review and enhance our services.
 
 Even though I was affected by layoffs, on the other side, this change has offered me the precious opportunity to become a full-time parent 😊
 

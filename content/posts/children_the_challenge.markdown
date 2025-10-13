@@ -73,7 +73,7 @@ draft: true
 > It is not necessary for a “good mother” to give in to all the demands of her child. A baby who is happy only when she is the center of attention is not a truly happy baby.
 > “Mother can stop falling for Barbara’s temper tan-trums, let her cry if she wishes, provide toys for her to play with, and leave Barbara to her own resources. ” 
 
-对于宠坏的孩子，大人似乎竭尽全力给予关注 encourage 哄她开心，实则无意间过度保护（overprotection），discourage 她独立自给自足照顾好自己的能力，例如孩子想哭就让她哭，可以给她提供玩具，然后让她自己去处理问题。因为真正的幸福不是依赖于别人的关注，而是源于自我满足的结果。
+对于宠坏的孩子，大人似乎竭尽全力给予关注哄她开心（encourage），实则无意间过度保护（overprotection），discourage 她独立自给自足照顾好自己的能力，例如孩子想哭就让她哭，可以给她提供玩具，然后让她自己去处理问题。因为真正的幸福不是依赖于别人的关注，而是源于自我满足的结果。
 
 🤔生活中年轻代孩子和长辈的激烈冲突屡见不鲜，这些大人具有一句话就激怒孩子的特异功能，下面是避免成为这类长辈的指南：
 - 避免假设性批判，例如还没有看到成绩单，就预感并猜测孩子成绩不佳进行打压。
@@ -82,7 +82,7 @@ draft: true
 - 避免“坏预期”，例如去朋友家做客时，不断提醒孩子做个好小孩，其实隐含了父母并不看好他。
 - 避免“泼冷水”，例如经典的“你真棒，你一定可以做的更好”，实际不是鼓励，而是暗示当前做的不够好。
 - 避免孩子犯错时责骂，而是让他明白必须负责任并承担对应的后果，并让他在准备好的时候还可以再来（培养自我反省的能力）。
-- 避免过度为孩子委屈，例如额头撞了一个小肿块就抱起来大惊小怪，这样只会强化孩子对父母的依赖，弱化勇气和自立（成人的生活就是充满打击和不幸😂）。
+- 避免过度为孩子委屈，例如额头撞了一个小肿块就抱起来大惊小怪，这样只会强化孩子对父母的依赖，弱化勇气和自立（成人的生活就是充满打击和不幸😂）。- Our adult lives are filled with pain and discomfort. They are part of life. Unless children learn to tolerate pain, bumps, bangs, and discomforts, they will live with a serious handicap. We cannot protect our children from life. Therefore, it is essential to prepare them for it. 
 - ...
 
 总而言之，收起对孩子的偏见，也是一种最大的鼓励。
@@ -328,7 +328,22 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 # 16. Sidestep the Struggle for Power
 
+> If she doesn’t want to clean it up, then she will have to do without it. Mother can only decide what she will do
 
+想象下面的故事：十二岁的 Patty 被妈妈要求放学回家后，立即清洗饭盒和保温壶，但她经常忘记。妈妈发现食物发霉后很生气，她尝试使用「逻辑后果法」，第二天用纸袋打包午饭。Patty 看到后反而对妈妈的小伎俩更加的抵触：“我就是不洗”。最后愤怒的妈妈讲她拉到厨房就是一顿暴打。
+
+「逻辑后果法」的错误使用：妈妈的做法是一种报复和惩罚，反而激起了孩子的叛逆行为。正确的做法：妈妈仍然准备午餐，但没有干净的饭盒就将食物搁在灶台上，让孩子自己处理。妈妈只能决定自己可以做什么，饭盒什么的都是女儿自己的事情自己处理。一种父母永远想不到可能：学校里很少有人带饭盒，孩子不想自己成为特别的那个人。所以坐下来聊聊好好沟通，从源头化解孩子的抵触心理才能解决问题。
+
+总而言之，一旦我们强迫或命令孩子做什么，就掉入了「权利斗争」的陷阱（有时是孩子故意挑起的）。
+
+🤔想起了《婴幼儿及其照护者：基于尊重、回应和关系的心理抚养》中的一句话：“避免与孩子较劲，你赢不了他们”
+
+判断「权利斗争」的技巧：
+1. 看跟家长有没有利害关系。有些家长总是说一切为了孩子，实际为了自己的面子，与孩子服从的满足感。
+2. 看结果 - 训练后是否有所改变 - 家长是否还在生气？孩子是否还在抗拒？
+3. 看说话的口气 - 是否专横愤怒，还是单纯维护秩序的坚定与平静？
+
+# 17. Withdraw from the Conflict
 
 
 
