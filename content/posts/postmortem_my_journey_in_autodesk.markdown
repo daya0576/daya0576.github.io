@@ -27,11 +27,11 @@ Then, I joined Ant Group, a leading chinese fintech company, which was the large
 
 > Don’t Be The Best, Be The Only.
 
-To seek better work life balance (WLB) and build  a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
+To seek better work life balance (WLB) and build a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
 
-- Site Reliability: Explore popular tech stacks
-- Engineering: Launched an open source project in part time
-- Communication Skills: Enhance English speaking proficiency
+- **Site Reliability**: Explore popular tech stacks
+- **Engineering**: Launched an open source project in part time to enhance my engineering skills and avoid single point failure of my main career
+- **Communication Skills**: Enhance English speaking proficiency
 
 P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to set up an Individual Development Plan (IDP), and the goals aren't necessarily closely related to their daily job.
 
@@ -39,9 +39,9 @@ P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to 
 
 It turned out that I successfully achieved most of my goals:
 
-- ☑️ Site Reliability: Achieved AWS SysOps Administrator certification, which do help me  perform better in my daily work.
-- ☑️ Engineering: Launched an open-source project with user from more than 100 countries. In the future, I should also choose popular reposities to learn and contribute (As a maintainer of open source project, I'm delighted to welcome contributions from anyone).
-- ☑️ Communication Skills: Enhanced ability to effectively collaborate in English-speaking environments, but it's far from native speakers...
+- ☑️ **Site Reliability**: Achieved AWS SysOps Administrator certification, which do help me perform better in my daily work.
+- ☑️ **Engineering**: Launched an open-source project with user from more than 100 countries. In the future, I should also choose popular reposities to learn and contribute (As a maintainer of open source project, I'm delighted to welcome contributions from anyone).
+- ☑️ **Communication Skills**: Enhanced ability to effectively collaborate in English-speaking environments, but it's far from native speakers...
 
 *However, this did not completely reduce my anxiety :( I eventually realized that, as an "average" person, the easiest way of being competitive isn't about being resilient in the job market, but about being unique—like being the only person who can understand and modify a piece of core code in the company.*
 
@@ -102,12 +102,6 @@ This solution automatically output the failing step when an alert triggers, sign
 
 # Action items
 
-## Avoid single point failure
-When I lost my job, I lost most of my income. So to avoid single poitn failure, in addition to focusing on main career, try starting a side project or exploring non-technical options.
-
-However, others argue that by dedicating 100% effort to your career, you can make your job done excellence and maximize potential benefits.
-
-## Being fulltime parent
 Incidents are inevitable but not always negative; they provide opportunities to review and enhance our services.
 
 Even though I was affected by layoffs, on the other side, this change has offered me the precious opportunity to become a full-time parent 😊
