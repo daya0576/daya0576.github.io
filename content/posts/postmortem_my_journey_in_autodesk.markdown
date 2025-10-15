@@ -27,7 +27,7 @@ Then, I joined Ant Group, a leading chinese fintech company, which was the large
 
 > Don’t Be The Best, Be The Only.
 
-To seek better work life balance (WLB) and build a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
+To seek better work life balance (WLB) build a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
 
 - **Site Reliability**: Explore popular tech stacks
 - **Engineering**: Launched an open source project in part time to enhance my engineering skills and avoid single point failure of my main career

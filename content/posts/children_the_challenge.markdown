@@ -343,7 +343,53 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 2. 看结果 - 训练后是否有所改变 - 家长是否还在生气？孩子是否还在抗拒？
 3. 看说话的口气 - 是否专横愤怒，还是单纯维护秩序的坚定与平静？
 
+
 # 17. Withdraw from the Conflict
+
+> If the parent removes himself from the battlefield he leaves the child in a vacuum. He no longer has an audience or an opponent 
+> No tantrum is meaningful without an audience.
+
+解决冲突的最好办法：家长将自己从“战场”中撤离，孩子没有了对手也就无处施力。没有观众的发脾气，也就毫无意义。
+
+如果孩子发现随心所欲的这种方式行不通，很快就会转换方向发现「合作」也行得通。最终学会尊重现实和父母 - 现代的社会秩序。
+
+🤔上学期间，同学们总是喜欢传绯闻 - 通过起哄捉弄对方。如果“受害人”反抗的越激动，“施暴人”反而越起劲，捉弄个不停。但如果“受害人”坚定的无视毫不在意，则“施暴人”反而觉得没意思就渐渐放弃。
+
+> There is something we can do. We can refuse to meet a whining demand. But we have to withdraw—and without talking! 
+
+面对孩子的哭闹，总是想妥协熬一熬等他长大并不是有效的做法，我们应该选择“回避”而不是“谈判”，来避免满足他的需求让他尝到甜头，以为我们永远会让步。
+
+“bathroom technique.” - 躲近厕所战术😂，因为这个房间是家庭中唯一代表隐私的地方，是个理想的避难所。但记得准备好杂志和耳塞😂
+
+孩子在公共场合的哭闹和任性更具挑战，一是大人会因怕被旁人认为“不称职”的压力而感到羞耻，二是孩子会发现你的脆弱而愈加任性。我们可以通过精神撤离法面对，例如沉默的快步离开。但要记住，孩子如果在家中越失控，则越难在公共场合守规矩。
+
+> Withdrawal from the conflict situation is a most impressive step. It by no means implies withdrawal from the child. Love, affection, and friendliness continue. 
+
+但记住不要刻意远离孩子，爱、感情、和友谊还是要持续输出。
+
+
+# 18. Action! Not Words
+
+> “How many times do I have to tell you to wash your hands before you come to the table? Now beat it, all three of you. And don’t come back to this table until you're clean!” 
+
+“你还要我说几次...” - 父母嘴里熟悉的口头禅
+
+🤔观察到生活中，孩子对父母的唠叨总是极度抵触，是什么原因呢？父母已经通过语言告诉孩子行为越界，他们为什么一而再再而三地“犯错”呢？
+
+> “At the time of conflict, keep your mouth shut and act.”
+
+❌如果不改变婴幼儿行为背后的出发点，父母的说教很快就很被他们免疫，甚至触发逆反心理。假如孩子行为背后的意图是故意惹毛父母获得关注，父母越是大惊小怪越是达成了他们的目的。
+
+✅语言是无力的，正确的做法是立即行动。出于对孩子们的尊重，母亲不能决定他们做什么，但母亲可以决定自己要做什么，例如因为孩子手脏拒绝和他们一起吃饭 - 把盘子端走不给手脏的人提供食物。
+
+
+
+
+
+
+
+
+
 
 
 
