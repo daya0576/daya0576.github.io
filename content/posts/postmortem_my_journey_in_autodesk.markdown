@@ -6,9 +6,9 @@ categories:
 - 编程
 ---
 
-As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy and rollback option!😱 However, YOLO (you only live once), just embrace and enjoy the risks.
+As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy or rollback option!😱 However, YOLO (you only live once), just embrace and enjoy the risks.
 
-After joining Autodesk for 1y5m, the whole team was unfortunately impacted by layoff. Currently I have already left the company and became a fulltime parent.
+After joining Autodesk for 1y5m, the whole team was unfortunately impacted by layoff. Currently, I have already left the company and became a full-time parent.
 
 Nonetheless, Autodesk is an incredible company with excellent benefits and professional colleagues. This post is a little retrospective in the form of a [postmortem](/blog/20180403/impressions-of-google-sre/#chapter-15---postmortem-culture-learning-from-failure).
 
@@ -16,7 +16,7 @@ Nonetheless, Autodesk is an incredible company with excellent benefits and profe
 # Timeline
 I started my career as a Python developer in a startup in Shanghai, the engineering experience became a solid cornerstone for my SRE transition.
 
-Then, I joined Ant Group, a leading chinese fintech company, which was the largest unicorn in the world. Thanks to reliable co-worker and managers, I got promoted quickly for P5 to P7 and well compensated.
+Then, I joined Ant Group, a leading Chinese fintech company, which was the largest unicorn in the world. Thanks to reliable co-worker and managers, I got promoted quickly from P5 to P7 and well compensated.
 
 - 2017.03 ~ 2018.04: Python Software Engineer (Hypers)
 - 2018.04 ~ 2023.10: Site Reliability Engineer (Ant Group)
@@ -27,11 +27,11 @@ Then, I joined Ant Group, a leading chinese fintech company, which was the large
 
 > Don’t Be The Best, Be The Only.
 
-To seek better work life balance (WLB) build a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
+To seek better work-life balance (WLB) and build a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
 
 - **Site Reliability**: Explore popular tech stacks
-- **Engineering**: Launched an open source project in part time to enhance my engineering skills and avoid single point failure of my main career
-- **Communication Skills**: Enhance English speaking proficiency
+- **Engineering**: Launched an open source project in part-time to enhance my engineering skills and avoid single point failure of my main career
+- **Communication Skills**: Enhance English-speaking proficiency
 
 P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to set up an Individual Development Plan (IDP), and the goals aren't necessarily closely related to their daily job.
 
@@ -40,7 +40,7 @@ P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to 
 It turned out that I successfully achieved most of my goals:
 
 - ☑️ **Site Reliability**: Achieved AWS SysOps Administrator certification, which do help me perform better in my daily work.
-- ☑️ **Engineering**: Launched an open-source project with user from more than 100 countries. In the future, I should also choose popular reposities to learn and contribute (As a maintainer of open source project, I'm delighted to welcome contributions from anyone).
+- ☑️ **Engineering**: Launched an open-source project with user from more than 100 countries. In the future, I should also choose popular repositories to learn and contribute (As a maintainer of open source projects, I'm delighted to welcome contributions from anyone).
 - ☑️ **Communication Skills**: Enhanced ability to effectively collaborate in English-speaking environments, but it's far from native speakers...
 
 *However, this did not completely reduce my anxiety :( I eventually realized that, as an "average" person, the easiest way of being competitive isn't about being resilient in the job market, but about being unique—like being the only person who can understand and modify a piece of core code in the company.*
@@ -51,7 +51,7 @@ It turned out that I successfully achieved most of my goals:
 # Lessons learned
 The definition of SRE varies significantly across companies, including platform engineer, technical support, server reboot engineer, emotional support SRE...
 
-I'v experienced two distinct SRE models: At Ant Group, I was part of a centralized SRE team (~80 people) responsible for the SLOs of global payment services (~3000 people). In contrast, at Autodesk, I work as a dedicated SRE embedded within a specific product team (~15 people).
+I've experienced two distinct SRE models: At Ant Group, I was part of a centralized SRE team (~80 people) responsible for the SLOs of global payment services (~3000 people). In contrast, at Autodesk, I work as a dedicated SRE embedded within a specific product team (~15 people).
 
 The two experiences have helped me gain a **deep and broad understanding** of achieving Service Level Object (SLO).
 
@@ -59,7 +59,7 @@ The two experiences have helped me gain a **deep and broad understanding** of ac
 
 In Autodesk, as a dedicated SRE being directly responsible for the SLO target with limited resources, I'm facing more challenges. So I had to think globally and prioritize my time smartly. 
 
-In addition to daily tasks and tiols, I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
+In addition to daily tasks and toils, I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
 
 ## Incident prevention (70%)
 
@@ -67,11 +67,11 @@ In addition to daily tasks and tiols, I invested 70% of my time on incident prev
 Simply focus on changes:
 
 #### 1.1 Code changes (deployment/config/infra/...)
-A key distinction between SRE and Platform Engineer is the requirement of deep domain knowledge. After spending several months documenting business workflows through sequence diagrams, I began actively participate in code reviews to identify and mitigate potential production risks at an early stage.
+A key distinction between SRE and Platform Engineer is the requirement of deep domain knowledge. After spending several months documenting business workflows through sequence diagrams, I began to actively participate in code reviews to identify and mitigate potential production risks at an early stage.
 
 Here are two examples:
 1. During an application code review, I found a defect that the cache TTL (Time to Live) will be incorrectly reset every time on value update, which may causing the rate limiting not working as expected.
-2. In an terraform code change (traffic cutover), I recommended implementing AWS Route53 weighted routing to enable gradual traffic shifting (starting with 1% of traffic), significantly reducing the risk of service disruption during the cutover.
+2. In a terraform code change (traffic cutover), I recommended implementing AWS Route53 weighted routing to enable gradual traffic shifting (starting with 1% of traffic), significantly reducing the risk of service disruption during the cutover.
 
 #### 1.2 Dependency changes (resiliency test)
 
@@ -102,7 +102,7 @@ This solution automatically output the failing step when an alert triggers, sign
 
 # Action items
 
-Incidents are inevitable but not always negative; they provide opportunities to review and enhance our services.
+Incidents are inevitable, but not always negative; they provide opportunities to review and enhance our services.
 
 Even though I was affected by layoffs, on the other side, this change has offered me the precious opportunity to become a full-time parent 😊
 
