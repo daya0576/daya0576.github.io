@@ -6,7 +6,9 @@ draft: true
 
 > "We do not suggest that parents be either permissive or punitive. What parents have to learn is how to become a match for their children, wise to their ways and capable of guiding them without letting them run wild or stifling them."
 
-第一次为人父母，却与孩子的关系逐步恶化。面对孩子“挑衅”时，你隐隐知道不能再像父辈那样粗暴的对待他们，却又不知如何做。希望我们都能在这本书中寻找到答案。。
+当你第一次为人父母，全身心投入，却反而与孩子的关系逐步恶化。面对孩子“挑衅”时，你隐隐觉得不能再像父辈那样粗暴的对待他们，却又无从下手，不知如何是好。。
+
+上面的场景在生活中再熟悉不过，如果你和我一样都非常好奇导致这种困局的原因和解决办法，希望你我都能在这本书中寻找到答案。
 
 出乎意外，这竟是一本出版在 1964 年的书籍，为表尊重，特地读了英文原版。这篇是个人的简短笔记。
 
@@ -14,14 +16,14 @@ draft: true
 
 # 1. Our Present Dilemma
 
-想象下面的场景：7 岁的小朋友，带着 5 岁的弟弟，兴奋的跑进厨房，熟练地爬到灶台上。作为家长的你生气的对他大吼，你不能这么做，但他们尖叫的大声回应，只是想吃棉花糖了，然后一路小跑离开了厨房。留下在原地心烦意乱却无计可施的你。
+想象下面的场景：7 岁的小朋友，带着 5 岁的弟弟，兴奋的跑进厨房，熟练地爬到灶台上。作为家长的你生气对他大吼：“你不能这么做！！”，但他们尖叫的大声回应想吃棉花糖，然后一路小跑离开了厨房。留下在原地心烦意乱却无计可施的你。
 
 > "children are to be seen and no heard"
 > democracy is not just a political ideal, but a way of life
 
-传统文化中，孩子应该安静地待在一旁，而不发表过多意见或打扰成年人的活动。然而时代在发展，<mark>“民主”</mark>的概念融入生活的每一角，上面的传统观念也早已过时。孩子对环境的变化更为敏感，逐渐意识到人人平等并开始挑战大人的“权威”。传统养育方式失效后（you-do-as- I-say），家长找不到新的教育方法，最终导致了当前的困境。
+传统文化中，孩子应该安静地待在一旁，而不发表过多意见或打扰成年人的活动。然而时代在发展，<mark>“民主”</mark>的概念融入生活的每一角，上面的传统观念也早已过时。孩子对环境的变化更为敏感，逐渐意识到人人平等并开始挑战大人的“权威”。传统养育方式失效后（you-do-as-I-say），家长找不到新的教育方法，最终导致了当前的困境。
 
-🤔非常有趣的观点，层层递进一针见血的指出了，新生代家长育儿的矛盾和困境。这本书第一次在美国出版于 1964 年，但有趣的是，任何社会随着民主化进程的推进，都遇到了与美国当初一模一样的问题。而作为一名 2025 年的新手爸妈，读到这本书可能正是时候，非常享受阅读的过程并期望从中获得洞察和指导。
+🤔非常有趣的观点，层层递进一针见血的指出了新生代家长育儿的矛盾和困境。这本书第一次在美国出版于 1964 年。书中提及任何社会随着民主化进程的推进，都遇到了与美国当初一模一样的问题。而作为一名 2025 年的新手爸妈，读到这本书可能正是时候，非常享受阅读的过程并期望从中获得洞察和指导。
 
 > Freedom is part of democracy; but the subtitle point taht we cannot have freedom unless we respect the freedom of others is seldom recognized.
 > This order is not imposed by an autocratic authority for his benefit but is maintained by each for the benefit of all.
@@ -419,5 +421,35 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 # 21. Avoid That First Impulse: Do the Unexpected
 
-xxx
+> Every time that three-week-old Donna cried, Mother rushed to see if she was all right. She picked her up, checked her all over, held her, and waited for her to fall asleep again. Then she gently put her back in her crib.
+
+三周大的 Donna 每次一哭，妈妈就冲进去抱她安抚她，等她重新入睡后再将她放到小床中。然后陷入无尽「哭-抱」循环。。
+
+因此宝宝快速掌握了一门“武器”：每次只要想大人抱抱，就开始大哭。每次一哭就有人抱的事实，让婴儿进一步不由自主地索取关注和“服务”。虽然将香香糯糯的婴儿抱在手中，是一件无比美妙的事情，但有没有可能反而剥夺了他休息的权利（干扰婴儿正常的睡眠和休息周期），同时不利于他们在这个世界上摆正自己的位置。
+
+理解不是所有需求都能立即被满足，学习适应这个世界的规律和秩序，才能让彼此都过得舒适。
+
+> It is therefore essential to avoid that first impulse. Instead, stop and consider—what does the situation demand?
+
+**不要冲动，三思而行** - 第一时间冲动对孩子做出的回应，往往正中孩子的下怀。
+
+🤔经常看到一个观点：三个月以内的孩子，我们需要无条件满足他的需求。似乎与这章的观点存在出入？与孩子相处数月，对他的哭声基本免疫后，我认为关键点在于"无条件回应"不等于"无条件满足所有要求"，例如无条件的奶睡抱睡无法让孩子养成良好的习惯，不利用双方长远的利益。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
