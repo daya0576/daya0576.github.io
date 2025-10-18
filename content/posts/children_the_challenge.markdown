@@ -200,7 +200,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 # 9. Include Respect for Order
 
-几个例子：
+尊重秩序的几个例子：
 - 孩子房间乱，不好好收拾 -> 引导对方自食其果，不因为自己的强迫症帮助孩子打扫卫生，甚至干脆不进屋，也千万忍住不要唠叨，在他们自己找不到东西时很快就会受不了了。
 - 晚饭不准时回家吃饭 -> 过时不候
 
@@ -437,13 +437,72 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 **避免冲动，三思而行** - 第一时间冲动对孩子做出的回应，往往正中孩子的下怀。
 
-🤔经常看到一个观点：三个月以内的孩子，我们需要无条件满足他的需求。似乎与这章的观点存在出入？与孩子相处数月，对他的哭声基本免疫后，我认为关键点在于"无条件回应"不等于"无条件满足所有要求"，例如无条件的奶睡抱睡无法让孩子养成良好的习惯，不利用双方长远的利益。
+🤔经常看到一个观点：三个月以内的孩子，我们需要无条件满足他的需求。似乎与这章存在出入？与孩子相处数月，对他的哭声基本免疫后，我认为关键点在于"无条件回应"不等于"无条件满足所有要求"，例如无条件的奶睡抱睡无法让孩子养成良好的习惯，同时不利用长远利益。
 
 
+# 22. Refrain From Overprotection
 
+熟悉的一个场景：母亲对在屋外玩耍的 Johnny 说：“今天外面的温度有点低，你是不是要穿上你的毛衣吗？”，即使孩子觉得不冷，但母亲还是强行“帮”他穿上了毛衣。
 
+母亲实际上扮演了一个“暴君”的角色，不再是一个平等的关系。但假如孩子欣然接受，实则因为这样就可以让母亲围着他团团转，而母亲还误以为自己完全掌控了局面（学会利用父母的焦虑来获取关注，形成不健康的互动模式）。
 
+🤔来自妻子的困惑：当孩子万一感冒了，受苦的不还是家长？
 
+> We cannot protect our children from life. Nor should we want to. We are obligated to train our children in courage and strength to face life.
+
+我们无法保护孩子一辈子，放手训练他们的勇气来面对生活：
+1. 过度的保护 让父母习惯用权威来支配孩子，期待他们永远顺从（如今会遭到反抗或出现消极的无助）。
+2. 过度的保护 代表父母对孩子能力的不信任。
+
+> However, evasions and lies seldom serve this purpose.
+>  The best encouragement is an acknowledgement that he can deal
+with it.
+
+另外一个例子：孩子得了糖尿病，但母亲想让他尽可能做一个普通人，所以欺骗他每日口服的胰岛素是维生素。然而善意的谎言往往达不到目睹，六岁的 Joe 已经足够大了，知道他需要药物来帮助他的身体运作。从一开始，越是随意的态度，越能会帮助男孩培养对自己健康负责的态度。
+
+对一个生病的孩子来说，最大的鼓励就是相信他可以独自面对（生活充满了无奈和不可避免）。假如父母故意屏蔽了“问题”，反而剥夺了他学习如何处理“问题”的权利。
+
+> The “spoiled brat” is the child who is in a constant fury because life is not amenable to his wishes. 
+
+过度被保护的孩子，也就是“被宠坏”的孩子（spoiled brat），往往会无能狂怒，因为真实的世界和生活可不会像父母一样总是顺从他（a helpless fury against an outrageous world.）。更加不幸的是，这份任性大概率会伴随孩子一生，并成为一种生活态度。
+
+> “Oh, darling, I'm awfully sorry the book is torn. There is nothing we can do about that. But what could you do so that George doesn’t tear another book?” 
+
+正确的做法：尝试引导孩子主动寻找解决办法。例如下面的故事：
+- 孩子：哭着跑过来，向你抱怨自己的书被弟弟撕坏了
+- 父母：首先表示同理心（非常遗憾你的书被撕坏了），然后尝试引导（我也不知道怎么办，你有没有办法让弟弟不要继续撕你其他的书呢？）
+- 孩子：愤怒地大喊：“我不知道！”
+- 父母：依旧保持平静，说道：“你得想办法阻止他，你努力想想你能做什么”。然后继续平静地离开做自己的事情
+- 父母：继续引导：“你也知道，我们无法让小弟弟停止撕书，但我们还能做什么呢？”
+- 最终通过不断巧妙地提出问题，母亲终于使孩子明白，他可以把书放在小弟弟够不着的地方
+
+从孩子出生开始，父母就要扮演一个“筛子”，让他们尽可能独立面对生活挑战的同时，随时介入过滤过于棘手的问题。
+
+🤔类似[《婴幼儿及其照护者》中的观点](/blog/20250918/infants_toddlers_and_caregivers/#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A9%B4%E5%B9%BC%E5%84%BF%E6%95%99%E8%82%B2%E6%88%90%E4%BA%BA%E5%9C%A8%E5%B8%AE%E5%8A%A9%E5%A9%B4%E5%B9%BC%E5%84%BF%E6%8F%90%E9%AB%98%E8%A7%A3%E5%86%B3%E8%83%BD%E5%8A%9B%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%B5%B7%E5%88%B0%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%BD%9C%E7%94%A8)：准确判断儿童在面对问题时，能承受的**最优压力水平**。
+
+# 23. Simulate Independency
+
+> Never do for a child what he can do for himself.
+
+⚠️ "永远不要替孩子做他自己能做的事" 
+
+> Actually, her love for her daughter is self-love. She sees herself as the utterly loving mother whose life is dedicated to the service of her child.
+
+家长对孩子的爱，实际上是自爱（self-love）：表面上是为了孩子好，实则是在满足自己的情感需求，反而摧毁了孩子面对和解决问题的能力。
+
+> It is so much easier to clean up the baby than to restore his lost courage.
+
+鼓励 BLW（Baby-Led Weaning）：打扫婴儿自主进食的“战场”，比恢复他失去的勇气，要容易的多。
+
+> But children also enjoy their ability if they have a chance to be helpful.
+
+婴儿确实喜欢别人帮助他 - 享受被照顾、被服务的权力感觉。但孩子天生也渴望展示自己的能力，以及帮助他人获得成就感。不要因为过度保护反而打击孩子的积极性。
+
+# 24. Stay Out of Fights!
+
+# THE END
+
+这本书最大的特点在于：每一章都通过一个个生动的案例，令人深受启发。作为新手父母，我深知知易行难，理论与实践相差万里，希望抱着学习的心态耐心修行。
 
 
 
