@@ -3,7 +3,8 @@ title: "Homelab hacking: Grafana on an LED matrix display"
 categories:
   - 智能家居
 date: 2023-08-28 00:21:01
-tags:
+categories:
+- 生活
 ---
 
 周末翻看 GrafanaCON 2023 的视频消磨时间，偶遇一个有趣的“节目”：[《Homelab hacking: Grafana on an LED matrix display》](https://grafana.com/about/events/grafanacon/2023/session/time-series-visualization-on-led-display/?src=ggl-s&mdm=cpc&cnt=99878325494&camp=b-grafana-exac-amer&trm=grafana&plcmt=learn-nav)（将智能家居的 Grafana metric 数据展示到 32x8 的 LED 矩阵显示屏上）。

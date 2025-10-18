@@ -3,7 +3,9 @@ title: 重读 Google SLO 小记 | 智能告警之殇
 categories:
 - SRE
 date: 2022-02-26 22:34:59
-tags:
+categories:
+- SRE
+- 编程
 ---
 
 > the basic foundations of SRE include **SLOs, monitoring, alerting**, toil reduction, and simplicity.

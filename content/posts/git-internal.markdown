@@ -6,6 +6,7 @@ comments: true
 tags: [git]
 categories:
 - SRE
+- 编程
 ---
 
 最近YouTube上看到Gitlab频道的一个视频: [Git Internals - How Git Works - Fear Not The SHA!](https://www.youtube.com/watch?v=P6jD966jzlk)   

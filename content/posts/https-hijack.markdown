@@ -1,10 +1,11 @@
 ---
-title: "[SRE] Resiliency Test - HTTP/HTTPS Hijack"
+title: "Resiliency Test - HTTP/HTTPS Hijack"
 tags:
   - sre
   - chaos
 categories:
   - SRE
+  - 编程
 date: 2023-11-18 07:49:24
 ---
 

@@ -2,6 +2,10 @@
 title: "[读后感]《孩子：挑战｜Children: The Challenge》"
 date: 2025-09-26T11:25:16+08:00
 draft: true
+categories:
+- 读书
+- 学习
+- 生活
 ---
 
 > "We do not suggest that parents be either permissive or punitive. What parents have to learn is how to become a match for their children, wise to their ways and capable of guiding them without letting them run wild or stifling them."
@@ -431,7 +435,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 > It is therefore essential to avoid that first impulse. Instead, stop and consider—what does the situation demand?
 
-**不要冲动，三思而行** - 第一时间冲动对孩子做出的回应，往往正中孩子的下怀。
+**避免冲动，三思而行** - 第一时间冲动对孩子做出的回应，往往正中孩子的下怀。
 
 🤔经常看到一个观点：三个月以内的孩子，我们需要无条件满足他的需求。似乎与这章的观点存在出入？与孩子相处数月，对他的哭声基本免疫后，我认为关键点在于"无条件回应"不等于"无条件满足所有要求"，例如无条件的奶睡抱睡无法让孩子养成良好的习惯，不利用双方长远的利益。
 

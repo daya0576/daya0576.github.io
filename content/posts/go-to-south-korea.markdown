@@ -5,6 +5,7 @@ tags:
 - 个人相关
 categories:
 - 个人相关
+- 生活
 ---
 
 近期看了一部电影：[《首尔之春》](https://movie.douban.com/subject/35712804/)，便萌生了韩国（South Korea）旅行的念头。正好趁五一假期，完成了一场六日五晚的冒险。
