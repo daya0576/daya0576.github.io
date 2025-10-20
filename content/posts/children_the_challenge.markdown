@@ -516,7 +516,23 @@ with it.
 
 # 25. Be Unimpressed by Fears
 
-xxx
+> Betty possesses fear, and she uses it to control her mother.
+
+痛苦是生活的一部分，所有人都没有办法逃避它的存在。
+- 不要对孩子的恐惧反应过度，以免他们**利用这种情感来控制父母**。例如通过对尖叫保持冷静，可以减弱恐惧所带来的影响。
+- 有时候过度的安慰反而不知不觉助长了孩子的恐惧。
+
+> Fear does not increase the ability to cope with problems; it diminishes it. The more afraid one is, the more he courts danger.  
+
+恐惧本身并不会增强你的问题处理能力，反而会削弱它。一个人越是害怕，就越容易招致危险。越是勇敢，受到的折磨越少。
+
+⚠️ 但注意区分谨慎与恐惧。
+
+
+# 26. Mind Your Own Business
+
+
+
 
 
 # THE END
