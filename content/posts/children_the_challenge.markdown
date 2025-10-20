@@ -498,7 +498,26 @@ with it.
 
 婴儿确实喜欢别人帮助他 - 享受被照顾、被服务的权力感觉。但孩子天生也渴望展示自己的能力，以及帮助他人获得成就感。不要因为过度保护反而打击孩子的积极性。
 
+
 # 24. Stay Out of Fights!
+
+> Oh. The house isn’t caving in, the TV didn’t explode, there is no sound except the crying. Well, it must be a fight and Calvin got hurt. Well—it is their fight. I shall just stay out of it.
+
+兄弟姐妹间的无尽“战斗”并非世界末日，家长需要**抑制介入的冲动**，尝试让他们自己去解决。
+
+> Whenever a parent interferes in a fight he is depriving children of the opportunity for learning how to resolve their own conflicts.  
+
+每当父母干涉打架时，他就剥夺了孩子学习如何解决自己冲突的机会。
+
+> When we side with the baby, protect the youngest against the oldest, stand up for the seemingly “abused” one, we reinforce his feeling of inferiority and teach the victim how to use deficiency and weakness to gain special consideration, thus augmenting the very predicament we want to eliminate.
+
+“保护”相对年幼一些孩子的行为也是不可取的，因为可能会加强了他的自卑感，并教会受害者如何利用缺陷和弱点来获得特别的关注。假如我们让他们自生自灭，反而可能建立起平等公正的关系。
+
+
+# 25. Be Unimpressed by Fears
+
+xxx
+
 
 # THE END
 

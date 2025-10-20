@@ -10,7 +10,7 @@ categories:
 
 > Our adult lives are filled with pain and discomfort. They are part of life. Unless children learn to tolerate pain, bumps, bangs, and discomforts, they will live with a serious handicap. We cannot protect our children from life. Therefore, it is essential to prepare them for it.
 
-每当深夜拖着疲倦的身体却又无法入眠时，便会翻相册中派派刚出生时的照片，那时的他身上被羊水泡的皱皱，眼睛还睁不开，小小一只蜷缩襁褓中，看上去楚楚可怜的🥺。脑海中不断冒出一个想法：请丢掉所有的规则枷锁，无条件地奶睡抱睡他。
+很多个安静的深夜，房间里只剩空调运作的丫丫声，拖着疲倦的身体却辗转反侧难以入眠时，我便开始翻小乖（派派）刚出生时的照片。那时的他身上被羊水泡的皱皱，眼睛还睁不开，小小一只蜷缩襁褓中，看上去楚楚可怜的🥺。我的脑海中不断冒出一个想法：请丢掉所有的规则枷锁，无条件地奶睡抱睡他。
 
 有趣的是，第二天我读到了《孩子：挑战｜Children: The Challenge》的第 21 章 xxx…。
 
