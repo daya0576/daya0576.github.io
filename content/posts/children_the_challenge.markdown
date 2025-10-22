@@ -551,6 +551,33 @@ with it.
 
 # 27. Dont Feel Sorry
 
+> Children are extremely sensitive to adult attitudes even if they are not openly expressed. Therefore, if we pity a child, he thinks he has the right to pity himself. His misery becomes more intense if he feels sorry for himself.
+> and in the process he loses more and more of his courage and willingness to accept what is. 
+
+想象下面的故事：孩子的生日野餐计划被极端天气影响，父母不要因为担心孩子的负面情绪而感到抱歉。大人的情绪会直接影响孩子（即使没有直接表达）。<mark>如果我们可怜一个孩子，他便认为自己也有理由可怜自己，这种自怜会加剧他的痛苦</mark>。最终导致孩子长大后，很容易觉得这个世界亏欠他（一辈子自怨自艾），总是期待别人替他做事，而不是自己承担责任（自我与自私？）。
+
+父母可以做的是，与孩子一起制定计划，提前想到各种可能性与对策（打预防针）。
+
+> Our children will learn to take disappointments if we avoid pity.
+> Unfortunately, we cannot protect the child from suffering. This is a part of life. 
+
+如果父母不收起“怜悯”，孩子则永远学不会接受失望的勇气，因为我们无法保护孩子一辈子。
+
+🤔这个世界充满了事与愿违，尊重并相信我们的孩子没有那么的软弱。
+
+> Pity is a negative emotion - it belittles the individual, weakens his self-reliance, and destroys his faith in life.
+
+怜悯是一种负面情绪 - 它会贬低个人，削弱其自立能力，摧毁他对生活的信心。
+
+即使是“死亡”，也是生命中的一部分。在极端困难的情况下，孩子们也有义务勇敢地继续建设自己的生活。
+
+> Feeling sorry about the "it" VS Feeling sorry for the "you"
+
+⚠️同情 vs 怜悯：
+- 同情：我理解你的感受，对此感到很抱歉，我能做什么一你一起克服困难。
+- 怜悯：可怜的小东西，我为你感到抱歉，我能做点什么**弥补**你所遭受的痛苦。
+
+
 
 # THE END
 
