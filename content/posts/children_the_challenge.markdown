@@ -20,7 +20,7 @@ categories:
 
 # 1. Our Present Dilemma
 
-想象下面的场景：7 岁的小朋友，带着 5 岁的弟弟，兴奋的跑进厨房，熟练地爬到灶台上。作为家长的你生气对他大吼：“你不能这么做！！”，但他们尖叫的大声回应想吃棉花糖，然后一路小跑离开了厨房。留下在原地心烦意乱却无计可施的你。
+想象下面的场景：7 岁的小朋友，带着 5 岁的弟弟，兴奋的跑进厨房，熟练地爬到灶台上。作为家长的你生气对他大吼：“你不能这么做！！”，但他们大声尖叫着拿走了棉花糖，然后一路小跑离开了厨房。留下在原地心烦意乱却无计可施的你。
 
 > "children are to be seen and no heard"
 > democracy is not just a political ideal, but a way of life
@@ -531,8 +531,25 @@ with it.
 
 # 26. Mind Your Own Business
 
+> “I’m sorry, Arthur. If you don't like Daddy to slap you, perhaps you can figure out a way to prevent it.”
 
+当孩子父亲生气地打了他一巴掌，孩子委屈地找母亲求助，母亲可以给孩子提供建议，但母亲无权试图控制或介入他们的关系：
+- 避免孩子学会通过挑拨他父母之间的矛盾获利（孩子不喜欢挨揍，但他愿意忍受这一切，来获得母亲的支持打压父亲）
+- 避免孩子在逆境中只会寻求保护，而不是寻求处理逆境的技巧。
 
+> Mother should mind her own business and stop trying to control everything. She has the right to follow her own convictions by not slapping her son, but she has no right to tell her husband how to treat him. It is not her business to control the relationship between Arthur and his father: that belongs to them.  
+
+**少管闲事**：母亲应该管好自己的事，不要试图控制一切。她有权利坚持自己的信念，不打孩子，但她没有权利告诉丈夫如何对待他（这是他们父子的事情）。越是控制越是说明对孩子的能力不自信。
+
+这个观点大多数人难以理解，难道我们不该善待孩子吗？但是**什么是"正确"呢**？在传统社会，通过绝对的权威可以裁定对错。但在现代民主的家庭中，我们不再有这样的权威。假如我们认同孩子的创造力和自己做决定的权利。孩子最终受到任何对待都是他们咎由自取。
+
+家庭中父母是两个独立的个体，自然对许多事情有不同的看法（如果能达成一致当然更好）。孩子会自行决定在所处的环境中接受和拒绝什么。
+
+> Any energy spent in trying to “correct” the grandparents is misdirected, futile, and only adds to the tension and strife.
+
+即使面对长辈对于孩子的过度溺爱，我们无法也无需改变他们的相处方式，但应该引导孩子如何应对的正确态度。
+
+# 27. Dont Feel Sorry
 
 
 # THE END
