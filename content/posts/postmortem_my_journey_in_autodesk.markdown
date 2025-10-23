@@ -16,7 +16,7 @@ Nonetheless, Autodesk is an incredible company with excellent benefits and profe
 # Timeline
 I started my career as a Python developer in a startup in Shanghai, the engineering experience became a solid cornerstone for my SRE transition.
 
-Then, I joined Ant Group, a leading Chinese fintech company, which was the largest unicorn in the world. Thanks to reliable co-worker and managers, I got promoted quickly from P5 to P7 and well compensated.
+Then, I joined Ant Group, a leading Chinese fintech company, which was the largest unicorn in the world. Thanks to reliable co-worker and managers, I got promoted twice in 4 years and well compensated.
 
 - 2017.03 ~ 2018.04: Python Software Engineer (Hypers)
 - 2018.04 ~ 2023.10: Site Reliability Engineer (Ant Group)
@@ -29,21 +29,19 @@ Then, I joined Ant Group, a leading Chinese fintech company, which was the large
 
 To seek better work-life balance (WLB) and build a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
 
-- **Site Reliability**: Explore popular tech stacks
+- **Site Reliability**: Explore popular tech stacks, e.g. public cloud platforms
 - **Engineering**: Launched an open source project in part-time to enhance my engineering skills and avoid single point failure of my main career
 - **Communication Skills**: Enhance English-speaking proficiency
 
-P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to set up an Individual Development Plan (IDP), and the goals aren't necessarily closely related to their daily job.
+*P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to set up an Individual Development Plan (IDP), and the goals aren't necessarily closely related to their daily job.*
 
 # So, how was it?
 
 It turned out that I successfully achieved most of my goals:
 
 - ☑️ **Site Reliability**: Achieved AWS SysOps Administrator certification, which do help me perform better in my daily work.
-- ☑️ **Engineering**: Launched an open-source project with user from more than 100 countries. In the future, I should also choose popular repositories to learn and contribute (As a maintainer of open source projects, I'm delighted to welcome contributions from anyone).
-- ☑️ **Communication Skills**: Enhanced ability to effectively collaborate in English-speaking environments, but it's far from native speakers...
-
-*However, this did not completely reduce my anxiety :( I eventually realized that, as an "average" person, the easiest way of being competitive isn't about being resilient in the job market, but about being unique—like being the only person who can understand and modify a piece of core code in the company.*
+- ☑️ **Engineering**: Launched an opensource project with users from 90+ countries.
+- ☑️ **Communication Skills**: Enhanced ability to effectively collaborate in English-speaking environments
 
 ![IMG_1659](/images/blog/global/IMG_1659.jpeg)
 
