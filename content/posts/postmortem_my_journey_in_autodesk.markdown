@@ -30,7 +30,7 @@ Then, I joined Ant Group, a leading Chinese fintech company, which was the large
 To seek better work-life balance (WLB) and build a more resilient career, I joined Autodesk in Shanghai and set three professional development goals:
 
 - **Site Reliability**: Explore popular tech stacks, e.g. public cloud platforms
-- **Engineering**: Launched an open source project in part-time to enhance my engineering skills and avoid single point failure of my main career
+- **Engineering**: Launched an opensource project in part-time to enhance my engineering skills and avoid single point failure of my main career
 - **Communication Skills**: Enhance English-speaking proficiency
 
 *P.S. Fun fact - at Autodesk, in addition to ORK, everyone is also encouraged to set up an Individual Development Plan (IDP), and the goals aren't necessarily closely related to their daily job.*
@@ -40,7 +40,7 @@ To seek better work-life balance (WLB) and build a more resilient career, I join
 It turned out that I successfully achieved most of my goals:
 
 - ☑️ **Site Reliability**: Achieved AWS SysOps Administrator certification, which do help me perform better in my daily work.
-- ☑️ **Engineering**: Launched an opensource project with users from 90+ countries.
+- ☑️ **Engineering**: Launched an [opensource project](https://github.com/daya0576/beaverhabits) with users from 90+ countries.
 - ☑️ **Communication Skills**: Enhanced ability to effectively collaborate in English-speaking environments
 
 ![IMG_1659](/images/blog/global/IMG_1659.jpeg)
@@ -84,9 +84,9 @@ To address this, I developed an HTTP(S) proxy tool that enables the team to perf
 - Upstream traffic surge: using bi-week service reviews to monitor upstream traffic trend and ensure our rate-limiting and scaling policies are working as expected.
 - ...
 
-### 2. Incident & issues management
+### 2. Incident & issues
 
-I have the habit of tracking all incidents and issues. Interestingly, after collecting and analyzing 40+ cases, it magically helped me identify *key patterns* in service reliability problems and shaped my next year's OKRs. This also significantly impressed my manager during the yearly performance review.
+I have the habit of tracking all incidents and issues. Interestingly, after collecting and analyzing 40+ cases in the past year, it magically helped me identify *key patterns* in service reliability problems and shaped my next year's OKRs. This also significantly impressed my manager during the yearly performance review.
 
 ## Incident detection & recovery (30%)
 
