@@ -10,7 +10,7 @@ categories:
 
 > "We do not suggest that parents be either permissive or punitive. What parents have to learn is how to become a match for their children, wise to their ways and capable of guiding them without letting them run wild or stifling them."
 
-当你第一次为人父母，全身心投入，却反而与孩子的关系逐步恶化。面对孩子“挑衅”时，你隐隐觉得不能再像父辈那样粗暴的对待他们，却又无从下手，不知如何是好。。
+当你第一次为人父母 100% 全身心投入，反而与孩子的关系逐步恶化。面对孩子“挑衅”时，你隐隐觉得不能再像父辈那样粗暴的对待他们，却又无从下手，不知如何是好。。
 
 上面的场景在生活中再熟悉不过，如果你和我一样都非常好奇导致这种困局的原因和解决办法，希望你我都能在这本书中寻找到答案。
 
@@ -578,10 +578,44 @@ with it.
 - 怜悯：可怜的小东西，我为你感到抱歉，我能做点什么**弥补**你所遭受的痛苦。
 
 
+# 28. Make Requests Reasonable and Sparse
+
+> Tommy showed complete lack of respect for Mother's wishes. In this situation, Mother got what she de- served. She had made an unreasonable request. Tommy responded with open defiance to her "order."
+
+孩子公然违抗大人的“命令”，有没有可能是大人咎由自取。由于大人提出不合理的要求，最终导致了无止境没有意义的“权力竞赛”。
+
+- ❌不要问为什么，按我说的做（do as I say）-> 父母把自己放在一种权威的位置 -> 孩子故意违抗命令
+- ✅提早与孩子讨论今日计划并达成一致（agreement） -> 然后利用责任感驱动孩子（responsibility）
+
+# 29. Follow Through - Be Consistent
+
+避免言行不一，例如明明给了孩子选择，却早已在心中标好了答案 :> 
+既然想教孩子们如何做出明智的选择，我们就必须给他们选择的机会，如果有必要，即使犯错也是可贵的教育。
+
+前后不一致：一开始口头上拒绝，但是过了一会妥协。
+
+
+# 30. Put Them All In The Same Boat
+
+家中有多个子女时，一人犯错相互“包庇”时，难免会惩罚所有人逼迫“凶手”就范，或引诱其中一人进行“告密”。然而，这种行为存在负面影响，不利于团结并暗中加剧了孩子之间的竞争。
+
+正确的做法：不去责怪或追究责任，而是通过让所有孩子一起清理被涂鸦的墙壁，来促进合作与责任感。这样不仅防止了“好”孩子通过贬低他人来证明自己，也避免了“坏”孩子为了权力或报复而引发的冲突。另一个例子：因为最小的孩子玩弄食物，母亲让所有孩子离开餐桌。
+
+但是，让无辜的人也一起清洗现场*公平*吗？会不会遭到孩子的反对？然而孩子是一张白纸，公平是否是父母决定的，只要父母能改变传统的观念，不再认为这种做法不公平，孩子可能会发现这种方法的合理性
+
+> If Mother can see this and treat all of her children as a group, she may get dramatic results, and they will see their interdependence and take care of each other.  
+
+关于“公平”，广义地看，如果放任他们竞争会破坏家庭的和谐与合作，反而对每个孩子都是不公平。假如将他们视为整体，承担集体责任时，他们会意识到彼此的相互影响和责任感，进而改善他们的行为。
+
+🤔我们家庭里暂时不会有这么多宝宝👶👶👶👶，还用不上这章的知识。
+
+# 31. Listen!
+
+
 
 # THE END
 
-这本书最大的特点在于：每一章都通过一个个生动的案例，令人深受启发。作为新手父母，我深知知易行难，理论与实践相差万里，希望抱着学习的心态耐心修行。
+这本书最大的特点在于：每一章都通过一个个生动的案例，令人深受启发。作为新手父母，然而知易行难，理论与实践相差万里，抱着学习的心态耐心修行。
 
 
 
