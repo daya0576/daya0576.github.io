@@ -611,7 +611,40 @@ with it.
 
 # 31. Listen!
 
+> “Mother, Roy comes from Chicago and Pete comes from Miami. Where do I come from?”
 
+一个经典的笑话：孩子问父母他是从哪里来的，父母费劲地解释了十分钟，结果孩子困惑地说，Roy 来自上海，Pete 是从北京来的，我是从哪里来的呢？
+
+这个故事说明了大人的一种普遍<mark>偏见</mark>：我们认为听懂了孩子的问题，而实际上并没有用心仔细*聆听*。特别是嘴巴一直忙于输出时，更听不到孩子的心声。
+
+背后实际是没有平等地对待孩子，大人的傲慢与偏见。
+
+> They even have a different perspective which we could use to our advantage.  
+
+孩子比我们想象的聪明的多，他们已经具备足够的智力并且经常可以提供不同视角的思路，我们需要特别充分利用。
+
+> When he asks a series of “whys” he is saying, “Pay attention to me.”  
+
+尝试理解孩子言语背后的含义，例如当他问一系列为什么时，他可能不仅仅是在寻求答案，而是在寻求关注。
+
+> She also learned something of the meaning of equality among children.
+
+孩子之间的对话非常坦诚，是因为他们之间的关系是**平等**的（大人需要借鉴学习）。
+
+# 32. Watch Your Tone of Voice
+
+> We ourselves so many times instigate misbehavior on the
+part of the child because of the tone we use.
+
+很多时候，父母的**语气**煽动孩子的不当行为。例如：
+1. 强硬的独裁（dictatorial firmness）：例如这不是小孩子应该做的！
+2. 消极的轻蔑（discouragement）：反讽的语气
+3. 居高临下（“baby talk”）：把孩子当作婴儿，也是一种不尊重，因为你永远不会和你的朋友这么说话。
+4. ...
+
+> If we speak to our children as friends on equal foot- ing with us, we keep the doors of communication open.  
+
+总而言之，如果我们像对待朋友一样对待我们的孩子，沟通的大门就永远不会闭上。
 
 # THE END
 
