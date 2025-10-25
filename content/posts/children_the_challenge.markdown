@@ -646,6 +646,25 @@ part of the child because of the tone we use.
 
 总而言之，如果我们像对待朋友一样对待我们的孩子，沟通的大门就永远不会闭上。
 
+
+# 33. Take It Easy
+
+> But who can always be completely fair? 
+
+想象下面的故事：母亲和孩子为了追求「公平」，在分巧克力时，必须克数完全一致才行。为什么这种行为不可取呢？
+
+因为它会加深孩子之间的竞争观念，同时可能让他们过分关注使人们更重视索取而不是贡献。并且世界上哪有绝对的公平呢？父母也不可能永远完美的安排好一切。
+
+🤔套用妻子经常说的一句话：家是讲爱不是讲理的地方。
+
+> If she has decided that the girls may each have two chocolates, give them each two and let it go at that.
+
+如果孩子一定要争吵，那就撤离现场，躲进厕所里随他们去吧 :)
+
+
+
+
+
 # THE END
 
 这本书最大的特点在于：每一章都通过一个个生动的案例，令人深受启发。作为新手父母，然而知易行难，理论与实践相差万里，抱着学习的心态耐心修行。
