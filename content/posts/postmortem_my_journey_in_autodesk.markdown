@@ -102,7 +102,7 @@ This solution automatically output the failing step when an alert triggers, sign
 
 Incidents are inevitable, but not always negative; they provide opportunities to review and enhance our services.
 
-Even though I was affected by layoffs, on the other side, this change has offered me the precious opportunity to become a full-time parent 😊
+Even though I was affected by layoffs, on the other side, this change has offered me the precious opportunity to become a full-time parent and give them a chance to live for myself 😊
 
 The next thing for me is taking care of my newborn at least 12 months, I will be writing more on the topic so stay tuned!
 
