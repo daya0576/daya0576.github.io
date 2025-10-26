@@ -10,9 +10,9 @@ categories:
 
 > "We do not suggest that parents be either permissive or punitive. What parents have to learn is how to become a match for their children, wise to their ways and capable of guiding them without letting them run wild or stifling them."
 
-当你第一次为人父母 100% 全身心投入，反而与孩子的关系逐步恶化。面对孩子“挑衅”时，你隐隐觉得不能再像父辈那样粗暴的对待他们，却又无从下手，不知如何是好。。
+想象你第一次为人父母，100% 投入，全心全意照顾天使般的孩子👶。孩子在精心的呵护下茁壮成长，但亲子关系却没有想象中的和谐🥲。面对孩子的不断“挑衅”时，你隐隐觉得不能再像父辈那样粗暴地对待他们，却又无从下手，不知如何是好。。
 
-上面的场景在生活中再熟悉不过，如果你和我一样都非常好奇导致这种困局的原因和解决办法，希望你我都能在这本书中寻找到答案。
+上面的场景在生活中再熟悉不过，如果你和我一样，都非常好奇导致这种困局的原因和解决办法，希望可以一起在这本书中寻找到答案。
 
 出乎意外，这竟是一本出版在 1964 年的书籍，为表尊重，特地读了英文原版。这篇是个人的简短笔记。
 
@@ -662,6 +662,7 @@ part of the child because of the tone we use.
 如果孩子一定要争吵，那就撤离现场，躲进厕所里随他们去吧 :)
 
 
+# 34. Downgrade "Bad" Habits
 
 
 
