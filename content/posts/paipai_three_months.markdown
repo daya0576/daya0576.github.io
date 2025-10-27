@@ -5,6 +5,8 @@ categories:
 - 派派
 - 育儿
 - 生活
+series: 
+- paipai
 ---
 
 > Do not Be Sorry ... Be Better!
@@ -87,5 +89,3 @@ categories:
 
 ![](/images/blog/global/17585233591940.jpg)
 
-
-{{< paipai_series >}}

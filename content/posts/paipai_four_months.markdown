@@ -5,6 +5,8 @@ categories:
 - 派派
 - 育儿
 - 生活
+series: 
+- paipai
 ---
 
 > 每个孩子都是独特的，其发展速度不尽相同。
@@ -120,6 +122,3 @@ p.s. 下面是派派一天的作息（3m old）供参考：
 有一天宝宝的脚上出现一道划痕，猜测大概率是洗 PP 时蹭到了水龙头。于是第二天看到水龙头上出现了一个奇怪的东西 😂😂😂
 
 <img src="/images/blog/global/DB8C73A9-F97B-473A-A61E-FDE5F1779010_1_105_c.jpeg" width="350">
-
-
-{{< paipai_series >}}

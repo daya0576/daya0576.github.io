@@ -10,9 +10,9 @@ categories:
 
 > "We do not suggest that parents be either permissive or punitive. What parents have to learn is how to become a match for their children, wise to their ways and capable of guiding them without letting them run wild or stifling them."
 
-想象你第一次为人父母，全身心投入照顾天使般的孩子👶。孩子在精心的呵护下茁壮成长，但亲子关系却没有想象中的和谐🥲。在面对孩子的不断“挑衅”时，你隐隐觉得不能再像父辈那样粗暴地对待他们，却又陷入迷茫无从下手。。
+想象你第一次为人父母，全身心投入照顾天使般的孩子👶。孩子在你精心的呵护下茁壮成长，但亲子关系却没有你想象中的和谐🥲。面对孩子的不断“挑衅”时，你隐隐觉得不能再像父辈那样粗暴地对待他们，却又陷入无尽的迷茫。。
 
-上面的场景在日常生活中再熟悉不过，如果你和我一样，都非常好奇导致这种困局的原因和解决办法，希望可以一起在这本书中寻找到答案。
+上述场景在日常生活中再熟悉不过。如果你和我一样，都非常好奇导致这种困局的原因和解决办法，希望可以一起在这本书中寻找到答案。
 
 出乎意外，这竟是一本出版在 1964 年的书籍，为表尊重，特地读了英文原版。本篇文章是个人的简短笔记。
 

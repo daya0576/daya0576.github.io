@@ -23,3 +23,7 @@ ignoreLogs = ['warning-goldmark-raw-html']
   description = "Henry Z's blog"
   images = ['site-feature-image.jpg']
 
+[taxonomies]
+  category = 'categories'
+  series = 'series'
+  tag = 'tags'
