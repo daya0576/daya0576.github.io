@@ -9,7 +9,8 @@ categories:
 - 生活
 ---
 
-> "Our adult lives are filled with pain and discomfort. They are part of life. " — Children the Challenge
+> "Our adult lives are filled with pain and discomfort. They are part of life. "    
+> — Children the Challenge
 
 很多个安静的深夜，房间里只剩空调运作的嗡嗡声，老父亲拖着疲倦的身体却辗转反侧难以入眠时，便开始翻小乖（派派）刚出生时的照片。那时的他被羊水泡的褶皱，眼睛还睁不太开，小小一只蜷缩襁褓中，看上去楚楚可怜。脑海中便不断冒出一个想法：请丢掉所有的规则枷锁，无条件地奶睡抱睡他，满足他的一切需求。
 
@@ -29,7 +30,10 @@ categories:
 - 第一次开始认人，通过摸下巴，判断是妈妈还是爸爸
 - 第一次吃到了自己的小脚丫
 - 第一次一起吃西贝 ;)
+- 第一次拿起乒乓球拍
 - ...
+
+![963B7D0E-D6C0-4F9C-9ECE-578F24FDB2E5_1_102_a](/images/blog/global/963B7D0E-D6C0-4F9C-9ECE-578F24FDB2E5_1_102_a.jpeg)
 
 
 ## 可怕的四月睡眠倒退
