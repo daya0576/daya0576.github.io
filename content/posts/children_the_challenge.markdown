@@ -680,7 +680,22 @@ part of the child because of the tone we use.
 > We know he will stop
 > Above all, if we don’t mind too much, if we take it easy, if we are willing to let a few things go along imperfectly, we will find that the tension disolves and the bad habit becomes less paramount in importance, for the child as well as for us.  
 
-放轻松，多一点耐心和信心，一些“坏习惯”总有一天，会在不经意间自动消失。
+放轻松，多一点耐心和信心，一些“坏习惯”总会一天在不经意间自动消失。
+
+
+# 35. Have Fun Together
+
+在没有电视手机的年代，孩子们通过玩耍获得乐趣。而进入现代社会，家长总想着为孩子提供最好的东西，却忽略了陪伴带来的快乐。在许多家庭里，孩子们也不想让父母和他们一起玩，因为没有*共同的兴趣点*（孩子排斥成人世界，父母也难以平等地进入孩子的世界）。
+
+> The enthusiasm of the parents is contagious, and the children so many times display marked ingenuity.  
+> Through games and projects in which all enjoy the fun, a feeling of group solidarity develops. Solidarity is essential for the equality it promotes and for the relaxed and harmonious atmosphere that can become a part of family living.  
+
+父母有责任主动创造和维护这种游戏互动的氛围（兴趣与热情是可以“传染”的）-> 构建团队团结 -> <mark>和谐平等的家庭氛围</mark>。
+
+
+# 36. Meet the Challenge of TV
+
+[wip]
 
 ## THE END
 
