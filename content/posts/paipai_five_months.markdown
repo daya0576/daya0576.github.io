@@ -12,7 +12,7 @@ categories:
 > "Our adult lives are filled with pain and discomfort. They are part of life. "    
 > — Children the Challenge
 
-很多个安静的深夜，房间里只剩空调运作的嗡嗡声，老父亲拖着疲倦的身体却辗转反侧难以入眠时，便开始翻小乖（派派）刚出生时的照片。那时的他被羊水泡的褶皱，眼睛还睁不太开，小小一只蜷缩襁褓中，看上去楚楚可怜。脑海中便不断冒出一个想法：请丢掉所有的规则枷锁，无条件地奶睡抱睡他，满足他的一切需求。
+很多个安静的深夜，房间里只剩空调运作的嗡嗡声，老父亲拖着疲倦的身体却辗转反侧难以入眠时，便开始翻小乖（派派）刚出生时的照片。那时的他被羊水泡的褶皱，眼睛还睁不太开，小小一只蜷缩襁褓中，看上去楚楚可怜。于是脑海中便不断冒出一个想法：请丢掉所有的规则枷锁，无条件地奶睡抱睡他，满足他的一切需求。
 
 有趣的是，第二天我读到了[《孩子：挑战｜Children: The Challenge》](/blog/20250926/children_the_challenge/) 这本书的第 21 章 Avoid That First Impulse: Do the Unexpected，刚好回答了我的困惑和犹豫。
 
