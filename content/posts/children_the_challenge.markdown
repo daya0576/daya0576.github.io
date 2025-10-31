@@ -683,7 +683,7 @@ part of the child because of the tone we use.
 放轻松，多一点耐心和信心，一些“坏习惯”总会一天在不经意间自动消失。
 
 
-# 35. Have Fun Together
+## 35. Have Fun Together
 
 在没有电视手机的年代，孩子们通过玩耍获得乐趣。而进入现代社会，家长总想着为孩子提供最好的东西，却忽略了陪伴带来的快乐。在许多家庭里，孩子们也不想让父母和他们一起玩，因为没有*共同的兴趣点*（孩子排斥成人世界，父母也难以平等地进入孩子的世界）。
 
@@ -693,7 +693,7 @@ part of the child because of the tone we use.
 父母有责任主动创造和维护这种游戏互动的氛围（兴趣与热情是可以“传染”的）-> 构建团队团结 -> <mark>和谐平等的家庭氛围</mark>。
 
 
-# 36. Meet the Challenge of TV
+## 36. Meet the Challenge of TV
 
 几乎每个家庭中都会因电视引起争端，例如看什么节目，内容的不良影响，等等。
 
@@ -728,13 +728,51 @@ part of the child because of the tone we use.
 我们不能夺走孩子的东西 - 父母强加意志的一种形式。我们能做的是提供一些更感兴趣的东西来刺激和影响孩子，让他自愿离开不太想要的东西。
 
 
-# 37. Use Religion Wisely 
+## 37. Use Religion Wisely 
 
-xxx
+如何避免宗教信仰的滥用。
+
+> "Don’t you know that God will punish you if you don’t learn to he good? He doesn’t like bad boys."
+
+通过“上帝会惩罚你”来尝试管教孩子，是一种完全无效的方式：
+- 父母实际上是在承认自己的失败，试图将问题推给更高的权威（上帝）来解决。
+- 孩子敏感的感觉到了父母的无力。抽象的、延迟的惩罚对孩子没有实际约束力。
+
+🤔与“你要是再不乖就叫警察叔叔了”如出一辙。
+
+## 38. Talk With Them, Not To Them
+
+> In the course of our work we have discovered that very few parents know how to talk with children. 
+
+很少有父母知道如何与孩子沟通，导致变为左耳朵进右耳朵出。
+
+> He has a mind of his own! 
+
+缺乏沟通是绝大部分青少年与父母充斥矛盾的罪魁祸首。每个孩子有自己独特的个性，独立的主见，惊人的创造力，我们却轻蔑地归结为不听话，并且将自己的思想强加在孩子身上，希望去改变他，“塑造”他（需要指引，而不是强迫）。
+
+> Since our job as parents is to guide our children, it might be wise for us to discover what and how we are guiding.  
+
+学习如何引导孩子：仔细观察孩子的日常行为，并尝试理解背后的意图。只要我们想并不难做到，因为小孩子的天性就是无所顾虑地表达自己。然而不过我们批评，告诫，或总是打压他们的错误，这些糟糕的经历让他们很快就学会避免表达。最终关上相互沟通的大门。
+
+> Explore with him the possible out- come, ask constant questions such as “Then what may hap- pen?” “How will you feel then?” “How will the other person feel?”  
+
+相反的，我们需要开放接纳孩子的想法（每个人都有看待事物的不同看法），同时通过启发式的引导式追问，传达自己的想法。
+
+举个例子：
+- ❌：恨你妹妹是不对的。为你感到羞耻。你必须爱她，因为你是她的哥哥。
+- ✅：父母：你想知道为什么一个男孩会恨他的妹妹吗？你有什么主意吗？ -》推进为 discussion
+
+> The children have been led to see for themselves what may be the problem and what the possible solutions are.  
+
+引导孩子自己去发现问题所在和可能的解决方案（每个人都不喜欢面对自己的错误与指责）。所以尝试假装讨论与纠正别人的问题，会容易的多（小技巧）。
+
+# 39. The Family Council
+
+
 
 ## THE END
 
-这本书最大的特点在于：每一章都通过一个个生动的案例，令人深受启发。作为新手父母，然而知易行难，理论与实践相差万里，抱着学习的心态耐心修行。
+知易行难，理论与实践相差万里，抱着学习的心态耐心修行。
 
 
 
