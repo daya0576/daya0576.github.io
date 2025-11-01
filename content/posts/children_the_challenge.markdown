@@ -766,9 +766,32 @@ part of the child because of the tone we use.
 
 引导孩子自己去发现问题所在和可能的解决方案（每个人都不喜欢面对自己的错误与指责）。所以尝试假装讨论与纠正别人的问题，会容易的多（小技巧）。
 
+
 # 39. The Family Council
 
+每周务必留出一个*固定*的一个小时，进行家庭会议（Family Council）。
 
+基本原则：
+- 时间固定，如果修改需要所有家庭成员的同意
+- 每个成员都有权提出议题，并被倾听
+- 共同寻求解决问题的办法，少数服从多数（人人平等，孩子的票与父母权重一致）
+- 会议得出结论后，立即执行维持一周，任何人不得推翻（直到下一次会议）
+- 即使非常小的孩子，也可以参加家庭会议
+- 主持人轮流担任，避免某个人 “bosses” 会议 - 即使过程有点糟心，父母也需要耐心，孩子从真实经历中学到的，远比父母口头上说教的多得多
+
+> At a Family Council meeting, a mother of eight children, ranging in ages from sixteen to four, brought up the problem of the distressing situation of the dinner hour. 
+
+😧八个孩子。。。
+
+> We may be able to reduce our feeling of being stumped by such problems if we use our imagination and consider what we would do if the children were adult friends who presented such ideas.
+
+两个小技巧：
+- 困惑的时候，想象你的孩子是你同龄的朋友，你会怎么做
+- 提出困难，并将问题丢回给孩子，引导他们思考
+
+> This approach develops mutual respect, mutual responsibility, and promotes equality. Democratic family living rests upon a foundation of equality.  
+
+相互尊重、共同责任、人人平等。
 
 ## THE END
 

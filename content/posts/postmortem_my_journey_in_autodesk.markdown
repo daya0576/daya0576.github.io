@@ -12,6 +12,7 @@ After joining Autodesk for 1y5m, the whole team was unfortunately impacted by la
 
 Nonetheless, Autodesk is an incredible company with excellent benefits and professional colleagues. This post is a little retrospective in the form of a [postmortem](/blog/20180403/impressions-of-google-sre/#chapter-15---postmortem-culture-learning-from-failure).
 
+![IMG_1659](/images/blog/global/IMG_1659.jpeg)
 
 # Timeline
 I started my career as a Python developer in a startup in Shanghai, the engineering experience became a solid cornerstone for my SRE transition.
@@ -42,8 +43,6 @@ It turned out that I successfully achieved most of my goals:
 - ☑️ **Site Reliability**: Achieved AWS SysOps Administrator certification, which do help me perform better in my daily work.
 - ☑️ **Engineering**: Launched an [opensource project](https://github.com/daya0576/beaverhabits) with users from 90+ countries.
 - ☑️ **Communication Skills**: Enhanced ability to effectively collaborate in English-speaking environments
-
-![IMG_1659](/images/blog/global/IMG_1659.jpeg)
 
 
 # Lessons learned
