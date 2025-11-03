@@ -1,7 +1,13 @@
 ---
-title: "Paipai_six_months"
+title: "派派成长日记 #8 - 熬出了头（150-180天）"
 date: 2025-10-29T23:38:28+08:00
 draft: true
+series: 
+- paipai
+categories:
+- 派派
+- 育儿
+- 生活
 ---
 
 
