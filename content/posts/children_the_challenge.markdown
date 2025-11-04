@@ -17,7 +17,7 @@ categories:
 
 ![B9075F8F-BECD-4A9B-90A8-055AB68CBED9_1_105_c](/images/blog/global/B9075F8F-BECD-4A9B-90A8-055AB68CBED9_1_105_c.jpeg)
 
-## 1. Our Present Dilemma
+# 1. Our Present Dilemma
 
 想象下面的场景：7 岁的小朋友，带着 5 岁的弟弟，兴奋的跑进厨房，熟练地爬到灶台上。作为家长的你生气对他大吼：“你不能这么做！！”，但他们大声尖叫着拿走了棉花糖，然后一路小跑离开了厨房。留下在原地心烦意乱却无计可施的你。
 
@@ -39,7 +39,7 @@ categories:
 🤔我承认无论是传统权威型父母，还是过于自由放纵都不可取，但真正民主和谐的关系是什么样的呢（同时包含自由和责任）？孩子如何被引导主动承担他对应的责任？
 
 
-## 2. Understand The Child
+# 2. Understand The Child
 
 > "Cut it out, Bobby", Mother said crossly
 > Bobby doesn't know why he keeps tapping his foot. He can't prossibly answer the Mother. But there is a reason.
@@ -57,7 +57,7 @@ categories:
 - “羡慕”母亲的权利，形成错觉，模仿大人，通过生气愤怒作为获得权力的途径（屡试不爽）
 
 
-## 3. Encouragement
+# 3. Encouragement
 
 > A misbehaving child is a discouraged child.
 > "No Penny!" cried Mother. "You will break them. I'd better do it dear. Wait until you are bigger."
@@ -92,7 +92,7 @@ categories:
 
 总而言之，收起对孩子的偏见，也是一种最大的鼓励。
 
-## 4. The Child's Mistaken Goals
+# 4. The Child's Mistaken Goals
 
 > “Can you play now, Mommie?” “Not yet, dear,” Mother answered absently. 
 > “Can you play now?” “In a few minutes, darling.”
@@ -111,7 +111,7 @@ categories:
 3. 极度气馁：权力斗争的进一步恶化（intensification of the power contest），孩子在灰心丧气的时候，可能演化为恶劣的报复行为，来让自己觉得有意义有价值。
 4. 极度证明自己的一无是处，自暴自弃。
 
-## 5. The Fallacy of Punishment and Reward
+# 5. The Fallacy of Punishment and Reward
 
 > urious, Mother yelled, “How many times am I going to have to spank you for this?” She grabbed Alex, took down his pants, and whipped him. 
 
@@ -144,7 +144,7 @@ categories:
 
 通过玩具贿赂儿童也是糟糕的做法，儿童“缠着”我们是想通过好的表现寻找归属感与合作，而通过玩具贿赂则暗中表示我们其实不信任他，使儿童感到沮丧。并且可能导致未来“筹码”的价格越来越高。
 
-## 6. The Use of Natural and Logical Consequences
+# 6. The Use of Natural and Logical Consequences
 
 既然上一章提到的“惩罚”&“奖励”是错误低效的做法，我们面对儿童的不端行为应该怎么做呢？
 
@@ -174,14 +174,14 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 在使用“行为->后果”方法时，很容易陷入使用“惩罚”的陷阱，作为家长，需要时刻记住：我们没有权力惩罚一个人，但有义务引导和指导孩子。我们<mark>没有权力将自己的意愿强加于孩子</mark>，但我们有义务对“过度关注”需求进行拒绝。
 
 
-## 7. Be Firm without Dominating 
+# 7. Be Firm without Dominating 
 
 > Firmness is our refusal to give in to the undue demands of the child or to indulge him in his every whim. Once we have made a decision in line with order, we must maintain it. The child soon catches on.
 
 坚定地不向孩子的过分要求让步，说“不”后就坚持到底，孩子很快就明白了（有时无声的坚持对小年龄的孩子特别有效）。
 
 
-## 8. Show Respect for the Child
+# 8. Show Respect for the Child
 
 > his requires sensitivity in reaching a balance between expecting too little and expecting too much.
 
@@ -197,7 +197,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 简而言之，尊重就是将孩子当作大人去对待，拥有和我们一样的决策权。但不意味着孩子可以做所有大人可以做的事，因为每个人在家庭中都扮演着不同的角色。
 
 
-## 9. Include Respect for Order
+# 9. Include Respect for Order
 
 尊重秩序的几个例子：
 - 孩子房间乱，不好好收拾 -> 引导对方自食其果，不因为自己的强迫症帮助孩子打扫卫生，甚至干脆不进屋，也千万忍住不要唠叨，在他们自己找不到东西时很快就会受不了了。
@@ -206,7 +206,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 🤔简而言之不要成为孩子的奴隶 - 说起来简单但做起来难，特别是面对哭的撕心裂肺的孩子时。
 
 
-## 10. Include Respect for the Rights of Others
+# 10. Include Respect for the Rights of Others
 
 想象六岁的小卡在使用妈妈的黑胶唱片放音乐，但由于操作不当导致唱片被划伤。妈妈应该坚决的告诉孩子：“这是我的唱片，只有我自己可以播放”
 
@@ -217,7 +217,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 类似第一个案例，当小孩摆弄属于大人的物件时，<mark>给孩子做选择决定的空间并尊重</mark>，例如“客气”地询问对方，是希望自己离开还是被强行带走 :)
 
 
-## 11. Eliminate Criticism and Minimize Mistakes
+# 11. Eliminate Criticism and Minimize Mistakes
 
 想象下面的场景：孩子写给奶奶。
 
@@ -240,7 +240,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 如何区分犯错误（mistake）和过错（fault）呢？通过出发点判断，如果行为的目标是做坏事，就不再是犯错误，而是一种需要纠正的过错。
 
 
-## 12. Maintain Routine
+# 12. Maintain Routine
 
 保持规律的作息 -> 给予孩子秩序感安全感 & 维持家庭舒适运转♥️
 
@@ -255,7 +255,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 同时也要记得灵活变通，但仅针对预期外的需求，而不是家长为了自身便利或孩子的突发奇想。
 
 
-## 13. Take Time for Training
+# 13. Take Time for Training
 
 孩子虽然通过观察可以学到很多事情，但我们还是需要训练他们日常技能，例如如何穿衣，穿鞋，。。。
 
@@ -283,7 +283,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 不要在有外人在场的公共场合训练孩子（因为过于困难）。如果孩子的行为与场合不符，唯一实际的解决办法就是安静地将他带走。
 
-## 14. Win Co-operation
+# 14. Win Co-operation
 
 想象下面的场景：给八个月的 Lisa 换尿不湿时，她总是打滚扭动不配合。妈妈气的轻轻的拍了他一下，孩子瞬间伤心欲绝的大哭。 // 🤭这不就是我的日常吗？
 
@@ -311,7 +311,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 真诚是必杀技，否则父母和孩子都夸张的误认为对方“固执”，而抗拒合作。
 
 
-## 15. Avoid Giving Undue Attention
+# 15. Avoid Giving Undue Attention
 
 > The child who seeks constant attention is, of necessity, an unhappy child. He feels that unless he gets attention he is worthless, has no place. He seeks constant reassurance that he is important. 
 
@@ -331,7 +331,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 给予适度必要的关注，而不是过度关注。如果大人常常被孩子搞的过于烦恼与苦恼时，我们往往陷入了过度关注的陷阱。
 
-## 16. Sidestep the Struggle for Power
+# 16. Sidestep the Struggle for Power
 
 > If she doesn’t want to clean it up, then she will have to do without it. Mother can only decide what she will do
 
@@ -349,7 +349,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 3. 看说话的口气 - 是否专横愤怒，还是单纯维护秩序的坚定与平静？
 
 
-## 17. Withdraw from the Conflict
+# 17. Withdraw from the Conflict
 
 > If the parent removes himself from the battlefield he leaves the child in a vacuum. He no longer has an audience or an opponent 
 > No tantrum is meaningful without an audience.
@@ -373,7 +373,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 但记住不要刻意远离孩子，爱、感情、和友谊还是要持续输出。
 
 
-## 18. Action! Not Words
+# 18. Action! Not Words
 
 > “How many times do I have to tell you to wash your hands before you come to the table? Now beat it, all three of you. And don’t come back to this table until you're clean!” 
 
@@ -388,7 +388,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 ✅语言苍白无力，立即行动才是正确做法。出于对孩子们的尊重，母亲不能决定他们做什么，但母亲可以决定自己要做什么，例如因为孩子手脏直接拒绝和他们一起吃饭 - 把盘子端走不给手脏的人提供食物。
 
 
-## 19. Don't Shoo Files
+# 19. Don't Shoo Files
 
 “shooing flies.” - 孩子很多时候就像苍蝇一样“讨厌”，最终激怒父母使用暴力。
 
@@ -397,7 +397,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 🤔想到绝命毒师中拍蚊子的一场戏。对上面方法存疑，苍蝇可不会因为你停下来盯着他，他就不到处乱飞了。
 
 
-## 20. Use Care in Pleasing: Have the Courage to Say "No"
+# 20. Use Care in Pleasing: Have the Courage to Say "No"
 
 > There is no need for Steve to learn how to cope with frustration as long as Mother can guarantee that she will be there to prevent frustration forever. 
 > Children need to learn how to manage frustrations. Adult life is full of them. 
@@ -420,7 +420,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 
 孩子对大人的服从性测试。
 
-## 21. Avoid That First Impulse: Do the Unexpected
+# 21. Avoid That First Impulse: Do the Unexpected
 
 > Every time that three-week-old Donna cried, Mother rushed to see if she was all right. She picked her up, checked her all over, held her, and waited for her to fall asleep again. Then she gently put her back in her crib.
 
@@ -437,7 +437,7 @@ p.s. 惩罚 vs 逻辑后果：惩罚是父母强加的，而后果是儿童自�
 🤔经常看到一个观点：三个月以内的孩子，我们需要无条件满足他的需求。似乎与这章存在出入？与孩子相处数月，对他的哭声基本免疫后，我认为关键点在于"无条件回应"不等于"无条件满足所有要求"，例如无条件的奶睡抱睡无法让孩子养成良好的习惯，同时不利用长远利益。
 
 
-## 22. Refrain From Overprotection
+# 22. Refrain From Overprotection
 
 熟悉的一个场景：母亲对在屋外玩耍的 Johnny 说：“今天外面的温度有点低，你是不是要穿上你的毛衣吗？”，即使孩子觉得不冷，但母亲还是强行“帮”他穿上了毛衣。
 
@@ -477,7 +477,7 @@ with it.
 
 🤔类似[《婴幼儿及其照护者》中的观点](/blog/20250918/infants_toddlers_and_caregivers/#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A9%B4%E5%B9%BC%E5%84%BF%E6%95%99%E8%82%B2%E6%88%90%E4%BA%BA%E5%9C%A8%E5%B8%AE%E5%8A%A9%E5%A9%B4%E5%B9%BC%E5%84%BF%E6%8F%90%E9%AB%98%E8%A7%A3%E5%86%B3%E8%83%BD%E5%8A%9B%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%B5%B7%E5%88%B0%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%BD%9C%E7%94%A8)：准确判断儿童在面对问题时，能承受的**最优压力水平**。
 
-## 23. Simulate Independency
+# 23. Simulate Independency
 
 > Never do for a child what he can do for himself.
 
@@ -496,7 +496,7 @@ with it.
 婴儿确实喜欢别人帮助他 - 享受被照顾、被服务的权力感觉。但孩子天生也渴望展示自己的能力，以及帮助他人获得成就感。不要因为过度保护反而打击孩子的积极性。
 
 
-## 24. Stay Out of Fights!
+# 24. Stay Out of Fights!
 
 > Oh. The house isn’t caving in, the TV didn’t explode, there is no sound except the crying. Well, it must be a fight and Calvin got hurt. Well—it is their fight. I shall just stay out of it.
 
@@ -511,7 +511,7 @@ with it.
 “保护”相对年幼一些孩子的行为也是不可取的，因为可能会加强了他的自卑感，并教会受害者如何利用缺陷和弱点来获得特别的关注。假如我们让他们自生自灭，反而可能建立起平等公正的关系。
 
 
-## 25. Be Unimpressed by Fears
+# 25. Be Unimpressed by Fears
 
 > Betty possesses fear, and she uses it to control her mother.
 
@@ -526,7 +526,7 @@ with it.
 ⚠️ 但注意区分谨慎与恐惧。
 
 
-## 26. Mind Your Own Business
+# 26. Mind Your Own Business
 
 > “I’m sorry, Arthur. If you don't like Daddy to slap you, perhaps you can figure out a way to prevent it.”
 
@@ -546,7 +546,7 @@ with it.
 
 即使面对长辈对于孩子的过度溺爱，我们无法也无需改变他们的相处方式，但应该引导孩子如何应对的正确态度。
 
-## 27. Dont Feel Sorry
+# 27. Dont Feel Sorry
 
 > Children are extremely sensitive to adult attitudes even if they are not openly expressed. Therefore, if we pity a child, he thinks he has the right to pity himself. His misery becomes more intense if he feels sorry for himself.
 > and in the process he loses more and more of his courage and willingness to accept what is. 
@@ -575,7 +575,7 @@ with it.
 - 怜悯：可怜的小东西，我为你感到抱歉，我能做点什么**弥补**你所遭受的痛苦。
 
 
-## 28. Make Requests Reasonable and Sparse
+# 28. Make Requests Reasonable and Sparse
 
 > Tommy showed complete lack of respect for Mother's wishes. In this situation, Mother got what she de- served. She had made an unreasonable request. Tommy responded with open defiance to her "order."
 
@@ -584,7 +584,7 @@ with it.
 - ❌不要问为什么，按我说的做（do as I say）-> 父母把自己放在一种权威的位置 -> 孩子故意违抗命令
 - ✅提早与孩子讨论今日计划并达成一致（agreement） -> 然后利用责任感驱动孩子（responsibility）
 
-## 29. Follow Through - Be Consistent
+# 29. Follow Through - Be Consistent
 
 避免言行不一，例如明明给了孩子选择，却早已在心中标好了答案 :> 
 既然想教孩子们如何做出明智的选择，我们就必须给他们选择的机会，如果有必要，即使犯错也是可贵的教育。
@@ -592,7 +592,7 @@ with it.
 前后不一致：一开始口头上拒绝，但是过了一会妥协。
 
 
-## 30. Put Them All In The Same Boat
+# 30. Put Them All In The Same Boat
 
 家中有多个子女时，一人犯错相互“包庇”时，难免会尝试引诱其中一人进行“告密”。然而，这种行为存在负面影响，不利于团结并暗中加剧了孩子之间的竞争。
 
@@ -606,7 +606,7 @@ with it.
 
 🤔我们家庭里暂时不会有这么多宝宝👶👶👶👶，还用不上这章的知识。
 
-## 31. Listen!
+# 31. Listen!
 
 > “Mother, Roy comes from Chicago and Pete comes from Miami. Where do I come from?”
 
@@ -628,7 +628,7 @@ with it.
 
 孩子之间的对话非常坦诚，是因为他们之间的关系是**平等**的（大人需要借鉴学习）。
 
-## 32. Watch Your Tone of Voice
+# 32. Watch Your Tone of Voice
 
 > We ourselves so many times instigate misbehavior on the
 part of the child because of the tone we use.
@@ -644,7 +644,7 @@ part of the child because of the tone we use.
 总而言之，如果我们像对待朋友一样对待我们的孩子，沟通的大门就永远不会闭上。
 
 
-## 33. Take It Easy
+# 33. Take It Easy
 
 > But who can always be completely fair? 
 
@@ -659,7 +659,7 @@ part of the child because of the tone we use.
 如果孩子一定要争吵，那就撤离现场，躲进厕所里随他们去吧！ :)
 
 
-## 34. Downgrade "Bad" Habits
+# 34. Downgrade "Bad" Habits
 
 想象孩子在外随地大小便，家长发现后一顿责骂，并威胁提升惩罚等级。然而可预见的收效甚微，甚至相反的，让孩子觉得不被抓到的刺激和趣味。
 
@@ -683,7 +683,7 @@ part of the child because of the tone we use.
 放轻松，多一点耐心和信心，一些“坏习惯”总会一天在不经意间自动消失。
 
 
-## 35. Have Fun Together
+# 35. Have Fun Together
 
 在没有电视手机的年代，孩子们通过玩耍获得乐趣。而进入现代社会，家长总想着为孩子提供最好的东西，却忽略了陪伴带来的快乐。在许多家庭里，孩子们也不想让父母和他们一起玩，因为没有*共同的兴趣点*（孩子排斥成人世界，父母也难以平等地进入孩子的世界）。
 
@@ -693,7 +693,7 @@ part of the child because of the tone we use.
 父母有责任主动创造和维护这种游戏互动的氛围（兴趣与热情是可以“传染”的）-> 构建团队团结 -> <mark>和谐平等的家庭氛围</mark>。
 
 
-## 36. Meet the Challenge of TV
+# 36. Meet the Challenge of TV
 
 几乎每个家庭中都会因电视引起争端，例如看什么节目，内容的不良影响，等等。
 
@@ -728,7 +728,7 @@ part of the child because of the tone we use.
 我们不能夺走孩子的东西 - 父母强加意志的一种形式。我们能做的是提供一些更感兴趣的东西来刺激和影响孩子，让他自愿离开不太想要的东西。
 
 
-## 37. Use Religion Wisely 
+# 37. Use Religion Wisely 
 
 如何避免宗教信仰的滥用。
 
@@ -740,7 +740,7 @@ part of the child because of the tone we use.
 
 🤔与“你要是再不乖就叫警察叔叔了”如出一辙。
 
-## 38. Talk With Them, Not To Them
+# 38. Talk With Them, Not To Them
 
 > In the course of our work we have discovered that very few parents know how to talk with children. 
 
@@ -772,7 +772,7 @@ part of the child because of the tone we use.
 每周务必留出一个*固定*的一个小时，进行家庭会议（Family Council）。
 
 基本原则：
-- 时间固定，如果修改需要所有家庭成员的同意
+- 会议时间固定，如果修改需要所有家庭成员的同意
 - 每个成员都有权提出议题，并被倾听
 - 共同寻求解决问题的办法，少数服从多数（人人平等，孩子的票与父母权重一致）
 - 会议得出结论后，立即执行维持一周，任何人不得推翻（直到下一次会议）
@@ -793,7 +793,7 @@ part of the child because of the tone we use.
 
 相互尊重、共同责任、人人平等。
 
-## THE END
+# THE END
 
 知易行难，理论与实践相差万里，抱着学习的心态耐心修行。
 
