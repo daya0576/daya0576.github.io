@@ -1,7 +1,5 @@
 ---
 title: 重读 Google SLO 小记 | 智能告警之殇
-categories:
-- SRE
 date: 2022-02-26 22:34:59
 categories:
 - SRE
