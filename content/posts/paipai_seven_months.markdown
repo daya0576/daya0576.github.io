@@ -53,7 +53,9 @@ categories:
 
 某日中午外出就餐时，派宝一直盯着隔壁桌的陌生叔叔阿姨笑，尴尬之余，没料道到对方将小朋友画了下来并送给了我们。
 
-<img height="350" src="/images/blog/global/17668077987973.jpg" />
+<img height="350" src="/images/blog/global/43E5DA7F-C986-4F49-BC4B-51A5C5F4B108_1_105_c.jpeg" />
+
+
 
 
 # 碎碎叨
