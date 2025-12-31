@@ -18,6 +18,10 @@ ignoreLogs = ['warning-goldmark-raw-html']
     startLevel = 1
   [markup.goldmark.renderer]
     unsafe= true
+  [markup.goldmark.extensions]
+    [markup.goldmark.extensions.extras]
+      [markup.goldmark.extensions.extras.mark]
+        enable = true
 
 [params]
   description = "Henry Z's blog"
