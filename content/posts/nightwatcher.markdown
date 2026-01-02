@@ -5,6 +5,8 @@ categories:
 - python
 - 开源
 - 编程
+series: 
+- python
 ---
 
 GitHub: https://github.com/daya0576/nightwatcher
