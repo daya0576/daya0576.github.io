@@ -107,7 +107,9 @@ Even though I was affected by layoffs, on the other side, this change has offere
 
 The next thing for me is taking care of my newborn at least 12 months, I will be writing more on the topic so stay tuned!
 
-![](/images/blog/global/17596686979017.jpg)
+![43E5DA7F-C986-4F49-BC4B-51A5C5F4B108_1_105_c](/images/blog/global/43E5DA7F-C986-4F49-BC4B-51A5C5F4B108_1_105_c.jpeg)
+
+
 
 # References
 - https://www.tinystruggles.com/posts/google_postmortem/
