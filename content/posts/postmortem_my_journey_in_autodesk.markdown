@@ -50,7 +50,9 @@ It turned out that I successfully achieved most of my goals:
 # Lessons learned
 The definition of SRE varies significantly across companies, including platform engineer, technical support, server reboot engineer, emotional support SRE...
 
-I've experienced two distinct SRE models: At Ant Group, I was part of a centralized SRE team (~80 people) responsible for the SLOs of global payment services (~3000 people). In contrast, at Autodesk, I work as a dedicated SRE embedded within a specific product team (~15 people).
+I've experienced two distinct SRE models: 
+- At Ant Group, I was part of a centralized SRE team (~80 people) responsible for the SLOs of global payment services (~3000 people)
+- At Autodesk, I work as a dedicated SRE embedded within a specific product team (~20 people).
 
 The two experiences have helped me gain a **deep and broad understanding** of achieving Service Level Object (SLO).
 
