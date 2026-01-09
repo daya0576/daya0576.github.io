@@ -31,7 +31,7 @@ exec('x = 1', None, namespace)
 print(namespace)  # Output: {'x': 1}
 ```
 
-## 简易版 `__init__`
+# 简易版 __init__
 
 1. 首先依赖 cls 的 annotations 获取所有变量
 2. 通过变量名称，组装 init 方法*字符串*
