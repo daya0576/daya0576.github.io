@@ -3,9 +3,10 @@ name: Deploy Hugo site to Pages
 
 on:
   # Runs on pushes targeting the default branch
-  push:
-    branches:
-      - main
+  # ⚠️ 2026-01-06 Migrated to cloudflare pages, so disabled this action
+  # push:
+  #   branches:
+  #     - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
