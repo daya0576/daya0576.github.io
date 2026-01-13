@@ -33,6 +33,7 @@ print(namespace)  # Output: {'x': 1}
 
 # 简易版 `__init__`
 
+竟然动态手动组装代码并塞入 cls 中。下面是一个简易版的 `__init__` 方法实现：
 1. 首先依赖 cls 的 annotations 获取所有变量
 2. 通过变量名称，组装 init 方法*字符串*
 3. 通过 exec 方法，将上一步字符串生成方法，并最终塞入 cls 中
