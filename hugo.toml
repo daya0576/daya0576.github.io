@@ -5,6 +5,16 @@ theme = 'nostyleplease'
 
 ignoreLogs = ['warning-goldmark-raw-html']
 
+# Enable emoji support
+enableEmoji = true
+# Enable robots.txt generation
+enableRobotsTXT = true
+# Enable sitemap generation
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
 [permalinks]
   [permalinks.page]
     posts = '/blog/:year:month:day/:slugorcontentbasename/'
@@ -24,8 +34,30 @@ ignoreLogs = ['warning-goldmark-raw-html']
         enable = true
 
 [params]
-  description = "Henry Z's blog"
+  description = "SRE 工程师的技术博客，分享 Python、系统可靠性工程、育儿经验和乒乓球心得"
+  keywords = ["SRE", "Python", "DevOps", "系统可靠性", "Site Reliability Engineering", "技术博客", "育儿", "乒乓球"]
   images = ['site-feature-image.jpg']
+  
+  # SEO and Social Media
+  [params.author]
+    name = "Henry Zhu"
+    email = "daya0576@gmail.com"
+    github = "daya0576"
+    youtube = "@daya0576"
+    instagram = "daya0576"
+  
+  [params.social]
+    twitter = ""
+    github = "daya0576"
+    youtube = "@daya0576"
+    instagram = "daya0576"
+  
+  # SEO settings
+  [params.seo]
+    type = "Person"
+    name = "Henry Z"
+    jobTitle = "Site Reliability Engineer"
+    location = "Shanghai, China"
 
 [taxonomies]
   category = 'categories'

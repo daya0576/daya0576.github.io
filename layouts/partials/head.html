@@ -1,0 +1,113 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {{- /* Page Title */ -}}
+  <title>
+    {{- if not .IsHome -}}
+      {{ .Title }} - {{ $.Site.Title }}
+    {{- else -}}
+      {{ $.Site.Title }} - {{ $.Site.Params.description }}
+    {{- end -}}
+  </title>
+
+  {{- /* Meta Description */ -}}
+  {{- if .Description -}}
+    <meta name="description" content="{{ .Description }}" />
+  {{- else if .IsPage -}}
+    <meta name="description" content="{{ .Summary | truncate 160 }}" />
+  {{- else -}}
+    <meta name="description" content="{{ $.Site.Params.description }}" />
+  {{- end -}}
+
+  {{- /* Keywords */ -}}
+  {{- if .Params.tags -}}
+    <meta name="keywords" content="{{ delimit .Params.tags ", " }}" />
+  {{- else if $.Site.Params.keywords -}}
+    <meta name="keywords" content="{{ delimit $.Site.Params.keywords ", " }}" />
+  {{- end -}}
+
+  {{- /* Author */ -}}
+  <meta name="author" content="{{ $.Site.Params.author.name }}" />
+
+  {{- /* Canonical URL */ -}}
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  {{- /* RSS/Atom Feed */ -}}
+  <link rel="alternate" type="application/atom+xml" title="{{ $.Site.Title }}" href="{{ "atom.xml" | absURL }}" />
+  
+  {{- /* Language */ -}}
+  <meta property="og:locale" content="{{ $.Site.LanguageCode }}" />
+  <meta http-equiv="content-language" content="{{ $.Site.LanguageCode }}" />
+
+  {{- /* Open Graph Tags */ -}}
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }}{{ else }}{{ $.Site.Title }}{{ end }}" />
+  {{- if .Description -}}
+    <meta property="og:description" content="{{ .Description }}" />
+  {{- else if .IsPage -}}
+    <meta property="og:description" content="{{ .Summary | truncate 160 }}" />
+  {{- else -}}
+    <meta property="og:description" content="{{ $.Site.Params.description }}" />
+  {{- end -}}
+  <meta property="og:site_name" content="{{ $.Site.Title }}" />
+  <meta property="og:locale" content="{{ $.Site.LanguageCode }}" />
+  
+  {{- /* Open Graph Images */ -}}
+  {{- with .Params.images -}}
+    {{- range first 6 . -}}
+      <meta property="og:image" content="{{ . | absURL }}" />
+    {{- end -}}
+  {{- else -}}
+    {{- with $.Site.Params.images -}}
+      {{- range first 6 . -}}
+        <meta property="og:image" content="{{ . | absURL }}" />
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Article specific tags */ -}}
+  {{- if .IsPage -}}
+    {{- if not .PublishDate.IsZero -}}
+      <meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}" />
+    {{- else if not .Date.IsZero -}}
+      <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+    {{- end -}}
+    {{- if not .Lastmod.IsZero -}}
+      <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
+    {{- end -}}
+    {{- with .Params.author -}}
+      <meta property="article:author" content="{{ . }}" />
+    {{- else -}}
+      <meta property="article:author" content="{{ $.Site.Params.author.name }}" />
+    {{- end -}}
+    {{- with .Params.tags -}}
+      {{- range . -}}
+        <meta property="article:tag" content="{{ . }}" />
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Twitter Cards */ -}}
+  {{ partial "twitter_cards.html" . }}
+
+  {{- /* Favicon */ -}}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon | relURL }}" />
+  
+  {{- /* Styles */ -}}
+  {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+  {{ $sass := resources.Get "css/main.scss" }}
+  {{ $style := $sass | css.Sass $options | resources.Fingerprint "sha512" }}
+  <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}" />
+  
+  {{- /* Math Support */ -}}
+  {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
+
+  {{- /* Structured Data */ -}}
+  {{ partial "structured-data.html" . }}
+
+  {{- /* Analytics */ -}}
+  {{ partial "umami.html" . }}
+</head>

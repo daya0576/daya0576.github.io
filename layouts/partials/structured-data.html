@@ -1,0 +1,178 @@
+{{- /* JSON-LD Structured Data for SEO */ -}}
+
+{{- if .IsHome -}}
+  {{- /* WebSite Schema for Homepage */ -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ $.Site.Title }}",
+    "url": "{{ .Permalink }}",
+    "description": "{{ $.Site.Params.description }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ $.Site.Params.author.name }}",
+      "jobTitle": "{{ $.Site.Params.seo.jobTitle }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ $.Site.Params.seo.location }}"
+      },
+      "sameAs": [
+        "https://github.com/{{ $.Site.Params.social.github }}",
+        "https://youtube.com/{{ $.Site.Params.social.youtube }}",
+        "https://instagram.com/{{ $.Site.Params.social.instagram }}"
+      ]
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ .Permalink }}search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  {{- /* Person Schema */ -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ $.Site.Params.author.name }}",
+    "url": "{{ .Permalink }}",
+    "jobTitle": "{{ $.Site.Params.seo.jobTitle }}",
+    "description": "{{ $.Site.Params.description }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ $.Site.Params.seo.location }}"
+    },
+    "sameAs": [
+      "https://github.com/{{ $.Site.Params.social.github }}",
+      "https://youtube.com/{{ $.Site.Params.social.youtube }}",
+      "https://instagram.com/{{ $.Site.Params.social.instagram }}"
+    ],
+    "knowsAbout": [
+      "SRE",
+      "Site Reliability Engineering",
+      "Python Programming",
+      "Table Tennis",
+      "Parenting"
+    ]
+  }
+  </script>
+{{- end -}}
+
+{{- if .IsPage -}}
+  {{- /* BlogPosting Schema for Blog Posts */ -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ .Title }}",
+    "name": "{{ .Title }}",
+    "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}",
+    "url": "{{ .Permalink }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ $.Site.Params.author.name }}{{ end }}"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "{{ $.Site.Params.author.name }}",
+      "url": "{{ $.Site.BaseURL }}"
+    },
+    "datePublished": "{{ if .PublishDate }}{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}{{ else }}{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}{{ end }}",
+    "dateModified": "{{ if .Lastmod }}{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}{{ else }}{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}{{ end }}",
+    {{- with .Params.images -}}
+    "image": [
+      {{- range $i, $img := . -}}
+        {{- if $i }}, {{ end }}"{{ $img | absURL }}"
+      {{- end -}}
+    ],
+    {{- else -}}
+    {{- with $.Site.Params.images -}}
+    "image": [
+      {{- range $i, $img := . -}}
+        {{- if $i }}, {{ end }}"{{ $img | absURL }}"
+      {{- end -}}
+    ],
+    {{- end -}}
+    {{- end -}}
+    {{- with .Params.tags -}}
+    "keywords": [
+      {{- range $i, $tag := . -}}
+        {{- if $i }}, {{ end }}"{{ $tag }}"
+      {{- end -}}
+    ],
+    {{- end -}}
+    "wordCount": "{{ .WordCount }}",
+    "inLanguage": "{{ $.Site.LanguageCode }}"
+  }
+  </script>
+{{- end -}}
+
+{{- if eq .Section "about" -}}
+  {{- /* AboutPage Schema */ -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "{{ .Title }}",
+    "url": "{{ .Permalink }}",
+    "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "{{ $.Site.Params.author.name }}",
+      "jobTitle": "{{ $.Site.Params.seo.jobTitle }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ $.Site.Params.seo.location }}"
+      },
+      "sameAs": [
+        "https://github.com/{{ $.Site.Params.social.github }}",
+        "https://youtube.com/{{ $.Site.Params.social.youtube }}",
+        "https://instagram.com/{{ $.Site.Params.social.instagram }}"
+      ]
+    }
+  }
+  </script>
+{{- end -}}
+
+{{- /* Breadcrumb Schema */ -}}
+{{- if not .IsHome -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ $.Site.Title }}",
+        "item": "{{ $.Site.BaseURL }}"
+      }
+      {{- if .Section -}}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ .Section | humanize }}",
+        "item": "{{ $.Site.BaseURL }}{{ .Section }}/"
+      }
+      {{- end -}}
+      {{- if .IsPage -}}
+      ,{
+        "@type": "ListItem",
+        "position": {{ if .Section }}3{{ else }}2{{ end }},
+        "name": "{{ .Title }}",
+        "item": "{{ .Permalink }}"
+      }
+      {{- end -}}
+    ]
+  }
+  </script>
+{{- end -}}
