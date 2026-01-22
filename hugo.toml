@@ -37,6 +37,7 @@ enableRobotsTXT = true
   description = "SRE 工程师的技术博客"
   keywords = ["SRE", "Python", "DevOps", "系统可靠性", "Site Reliability Engineering", "技术博客", "育儿", "乒乓球"]
   images = ['site-feature-image.jpg']
+  logo = "favicon.ico"
   
   # SEO and Social Media
   [params.author]
