@@ -34,7 +34,7 @@ enableRobotsTXT = true
         enable = true
 
 [params]
-  description = "SRE 工程师的技术博客，分享 Python、系统可靠性工程、育儿经验和乒乓球心得"
+  description = "SRE 工程师的技术博客"
   keywords = ["SRE", "Python", "DevOps", "系统可靠性", "Site Reliability Engineering", "技术博客", "育儿", "乒乓球"]
   images = ['site-feature-image.jpg']
   
