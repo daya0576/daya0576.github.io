@@ -1,12 +1,14 @@
 ---
-title: "《How to Talk So Little Kids Will Listen》"
+title: "[读书笔记]《How to Talk So Little Kids Will Listen》第一章"
 date: 2026-01-23T15:04:32+08:00
 draft: true
 ---
 
 > Children need us to validate their feelings so they can become grown-ups who know who they are and what they feel.
 
-某日在楼下推车散步，孩子撕心裂肺，歇斯底里。。虽然孩子看上去被宠溺，
+某日在小区楼下推车散步，路过游乐场时，遇见一个小男孩哭的撕心裂肺，歇斯底里。。派派好奇地伸出他的小脑袋，半探出身子看戏，我也驻足停下看看究竟。原来是两个小男生为了争滑滑梯而出现了“冲突”，哭着的小男孩看上去被宠坏，不停哭泣
+
+虽然孩子看上去被宠溺，
 
 虽然两岁以上-- | 蹒跚学步的孩子，还是30多岁的大人，都适用。
 
@@ -14,11 +16,11 @@ draft: true
 
 毕竟绝大部分大人（包括我自己），都是未完全成熟的小孩。
 
-## 第一章：处理孩子情绪的 x 种工具
+## 第一章：处理孩子情绪的 5 种工具
 
 > When kids don’t feel right, they can’t behave right
 
-面对婴幼儿的负面情绪，例如我讨厌某个小朋友、我厌倦了早餐的煎饼，大人总是忍不住尽快纠正或责骂他们。但想象如果你没睡好，上班时向同事抱怨不想上班，对方会尝试理解你而不是立即否定，==负面情绪的被接纳会让人感到大大的宽慰==。
+面对婴幼儿的负面情绪，例如我讨厌某个小朋友、我厌倦了早餐的煎饼，大人总是忍不住尽快纠正或责骂他们。但想象如果你没睡好，上班时向同事抱怨不想上班，对方大概率会尝试理解你而不是立即反驳，==负面情绪的被接纳会让人感到大大的宽慰==。
 
 ### TOOL #1: Acknowledge Feelings with Words
 用语言接纳孩子的情绪：
@@ -26,29 +28,24 @@ draft: true
 2. 想象孩子的感受（或提前教孩子与情感相关的一些词汇，以便于他可以在需要的时候求助）
 3. 用一个陈述句描述说出这种情绪。
 
-真实案例解释：
-```markdown
-当孩子说 “我讨厌吉米。我再也不跟他玩了！”
-❌ 吉米是你最好的朋友！我们不能说恨这个词！
-✅ 听起来你现在真的很生吉米的气！或 吉米做的一件事让你很生气！
+真实案例解释：当孩子在搭积木，另一个婴儿快速爬过来
 
-当孩子在搭积木，另一个婴儿快速爬过来
 ❌ 第一次：
 - 我：丹，让孩子吃几块积木。他只是想和你一起玩。
 - 丹：不，不，我在做东西。
 - 我：别这样，丹，他只会和他们玩一会儿。你知道婴儿是什么样的
 - （丹推了他一下，他哭着摔倒了。）
 - 我：丹，你在干什么？现在你把孩子弄哭了！！
+
 ✅ 第二次：
 - 丹：不!不!不!
 - 我（承认并识别他的感受）：哦，不，你在这里做一些特别的事情，婴儿过来抢它。多么令人沮丧!
 - 丹：这里，这里，这里！（他迅速地把一把积木扔到地板上，以分散婴儿的注意力，然后把他的创作搬到咖啡桌上。）
 - 我：哇，你知道怎么让宝宝开心了
-```
 
 > “But” takes away the gift you’ve just given. It’s like saying, “I hear how you feel and now I am going to explain to you why that feeling is wrong.” Imagine hearing someone say, “I am so sorry your mother passed away. But hey, she’s dead, you’re alive, tears won’t change it; let’s move on!”
 
-⚠️ 划重点：千万不要用“但是”，它会让所有的努力前功尽弃，例如“我理解你很生气，*但是*你不能这么做！”
+⚠️ 划重点：==千万不要用“但是”==，它会让所有的努力前功尽弃，例如“我理解你很生气，*但是*你不能这么做！”
 
 
 ### TOOL #2: Acknowledge Feelings with Writing
@@ -84,5 +81,13 @@ draft: true
 > Resist the urge to ask questions of a distressed child.
 
 ⚠️ 注意不要通过提问的方式与孩子，例如“你是不是很伤心？什么让你生气了？你为什么要哭呢？”
+
+### TOOL #5: Acknowledge Feelings with (Almost) Silent Attention
+
+> Don’t just say something. Sit there!
+
+试试耐心坐在孩子身边，什么也不做，收起大人的说教，只是认真聆听他的抱怨，回应“嗯”、“哦”，就完全足够了 ------ 给予对方充分的关注与理解，相信孩子可以自己从情绪中走出来。
+
+
 
 
