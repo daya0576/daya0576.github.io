@@ -61,6 +61,35 @@
     ]
   }
   </script>
+
+  {{- /* Blog Schema */ -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "{{ $.Site.Title }}",
+    "url": "{{ .Permalink }}",
+    "description": "{{ $.Site.Params.description }}",
+    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ $.Site.Params.author.name }}"
+    },
+    "blogPost": [
+      {{- $pages := where .Site.RegularPages "Section" "posts" -}}
+      {{- range $index, $page := first 10 $pages -}}
+        {{- if $index }},{{ end }}
+        {
+          "@type": "BlogPosting",
+          "headline": "{{ $page.Title }}",
+          "url": "{{ $page.Permalink }}",
+          "datePublished": "{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}",
+          "dateModified": "{{ if $page.Lastmod }}{{ $page.Lastmod.Format "2006-01-02T15:04:05Z07:00" }}{{ else }}{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}{{ end }}"
+        }
+      {{- end -}}
+    ]
+  }
+  </script>
 {{- end -}}
 
 {{- if .IsPage -}}
@@ -68,7 +97,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": "{{ .Title }}",
     "name": "{{ .Title }}",
     "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
@@ -79,7 +108,8 @@
     },
     "author": {
       "@type": "Person",
-      "name": "{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ $.Site.Params.author.name }}{{ end }}"
+      "name": "{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ $.Site.Params.author.name }}{{ end }}",
+      "url": "{{ $.Site.BaseURL }}"
     },
     "publisher": {
       "@type": "Organization",
@@ -87,7 +117,9 @@
       "url": "{{ $.Site.BaseURL }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ $.Site.BaseURL }}{{ $.Site.Params.logo | default "images/logo.png" }}"
+        "url": "{{ $.Site.BaseURL }}{{ $.Site.Params.logo | default "images/logo.png" }}",
+        "width": 600,
+        "height": 60
       }
     },
     "datePublished": "{{ if .PublishDate }}{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}{{ else }}{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}{{ end }}",
@@ -115,7 +147,35 @@
     ],
     {{- end -}}
     "wordCount": "{{ .WordCount }}",
-    "inLanguage": "{{ $.Site.LanguageCode }}"
+    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "{{ $.Site.Title }}",
+      "url": "{{ $.Site.BaseURL }}"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{{ $.Site.Title }}",
+          "item": "{{ $.Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ .Section | humanize }}",
+          "item": "{{ $.Site.BaseURL }}{{ .Section }}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ .Title }}",
+          "item": "{{ .Permalink }}"
+        }
+      ]
+    }
   }
   </script>
 {{- end -}}
@@ -128,11 +188,18 @@
     "@type": "AboutPage",
     "name": "{{ .Title }}",
     "url": "{{ .Permalink }}",
-    "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}",
+    "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify }}{{ end }}",
+    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "{{ $.Site.Title }}",
+      "url": "{{ $.Site.BaseURL }}"
+    },
     "mainEntity": {
       "@type": "Person",
       "name": "{{ $.Site.Params.author.name }}",
       "jobTitle": "{{ $.Site.Params.seo.jobTitle }}",
+      "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify }}{{ end }}",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "{{ $.Site.Params.seo.location }}"
@@ -141,6 +208,59 @@
         "https://github.com/{{ $.Site.Params.social.github }}",
         "https://youtube.com/{{ $.Site.Params.social.youtube }}",
         "https://instagram.com/{{ $.Site.Params.social.instagram }}"
+      ]
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{{ $.Site.Title }}",
+          "item": "{{ $.Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ .Title }}",
+          "item": "{{ .Permalink }}"
+        }
+      ]
+    }
+  }
+  </script>
+{{- end -}}
+
+{{- /* CollectionPage Schema for Archives and Lists */ -}}
+{{- if or (eq .RelPermalink "/archives/") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "{{ .Title }}",
+    "url": "{{ .Permalink }}",
+    "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify }}{{ end }}",
+    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "{{ $.Site.Title }}",
+      "url": "{{ $.Site.BaseURL }}"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{{ $.Site.Title }}",
+          "item": "{{ $.Site.BaseURL }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ .Title }}",
+          "item": "{{ .Permalink }}"
+        }
       ]
     }
   }

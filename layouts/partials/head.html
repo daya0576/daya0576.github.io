@@ -93,6 +93,23 @@
   {{- /* Twitter Cards */ -}}
   {{ partial "twitter_cards.html" . }}
 
+  {{- /* Verify site ownership for search engines */ -}}
+  {{- if $.Site.Params.googleSiteVerification -}}
+    <meta name="google-site-verification" content="{{ $.Site.Params.googleSiteVerification }}" />
+  {{- end -}}
+  {{- if $.Site.Params.bingSiteVerification -}}
+    <meta name="msvalidate.01" content="{{ $.Site.Params.bingSiteVerification }}" />
+  {{- end -}}
+
+  {{- /* Additional SEO meta tags */ -}}
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  {{- /* Mobile Web App Capable */ -}}
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
   {{- /* Favicon */ -}}
   <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon | relURL }}" />
   
