@@ -1,6 +1,7 @@
 ---
 title: "派派成长日记 #9 - 无齿之徒"
 date: 2025-12-29T18:45:42+08:00
+weight: 9
 series: 
 - paipai
 categories:

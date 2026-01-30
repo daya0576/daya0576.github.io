@@ -1,6 +1,7 @@
 ---
 title: "派派成长日记 #8 - 憔悴的妈，崩溃的爸，兴奋的娃"
 date: 2025-11-27T09:38:28+08:00
+weight: 8
 series: 
 - paipai
 categories:

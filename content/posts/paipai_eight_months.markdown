@@ -1,6 +1,7 @@
 ---
 title: "派派成长日记 #10 - 坐稳江山"
 date: 2026-01-27T20:17:46+08:00
+weight: 10
 series: 
 - paipai
 categories:

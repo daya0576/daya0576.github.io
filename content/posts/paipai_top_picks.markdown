@@ -1,6 +1,7 @@
 ---
 title: "派派成长日记 #3 - 小月龄好物推荐"
 date: 2026-01-19T20:38:55+08:00
+weight: 3
 series: 
 - paipai
 categories:
