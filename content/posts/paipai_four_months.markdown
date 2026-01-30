@@ -14,9 +14,7 @@ series:
 
 
 # 派派 120 天啦 🐣
-不知不觉派派已经出生 120 天。小伙子每日肉眼可见的长大，特别是在弯腰将他抱起的那一刻感受最深.. 
-
-最近一个月的里程碑：
+不知不觉派派已经出生 120 天。小伙子每日肉眼可见的长大，特别是在弯腰将他抱起的那一刻感受最深。。。最近一个月的里程碑：
 - 第一次自己学会了翻身（但翻不回去..）
 - 第一次尝试了游泳
 - 第一次在自己的小床上自主入睡
@@ -104,12 +102,6 @@ p.s. 下面是派派一天的作息（3m old）供参考：
 - 夜间睡眠仍需一至两次的进食，需进一步研究如何帮助宝宝睡整觉。
 - 白天的小睡尝试辅助接觉
 
-|  | 30-60 Days | 60-90 Days | 90-120 Days |
-|---|---|---|---|
-| Feeding | <img src="/images/blog/global/1C66CEB6-831C-4F5D-B424-84790FE55701_1_105_c.jpeg"> | <img src="/images/blog/global/BF9530D7-ABC1-45F4-AFC7-C555F4ED1E8E_1_105_c.jpeg"> | <img src="/images/blog/global/975F9041-94F2-414A-93DB-6C738D9A6F54_1_102_o.jpeg"> |
-| Sleeping | <img src="/images/blog/global/C38B3F44-FDD9-45BC-B9EF-74E4C7CFF373_1_105_c.jpeg"> | <img src="/images/blog/global/B35229A1-6603-430F-AAD9-57977689B124_1_105_c.jpeg"> | <img src="/images/blog/global/BE170A24-273E-4D3B-A638-AAA67366B64C_1_102_o.jpeg"> |
-| ALL | <img src="/images/blog/global/12B7C60C-E84D-4F04-85E6-6E8CAF76644F_1_105_c.jpeg"> | <img src="/images/blog/global/2ADF3DE5-B463-4E4C-9964-13562DA2D941_1_105_c.jpeg"> | <img src="/images/blog/global/E3AEE8C7-A462-4081-AF08-0E070E01861D_1_102_o.jpeg"> |
-
 
 
 # 照顾好自己
@@ -120,6 +112,6 @@ p.s. 下面是派派一天的作息（3m old）供参考：
 
 
 # 轻松一刻 
-有一天宝宝的脚上出现一道划痕，猜测大概率是洗 PP 时蹭到了水龙头。于是第二天看到水龙头上出现了一个奇怪的东西 😂😂😂
+有一天宝宝的脚上出现一道划痕，CC 猜测大概率是洗 PP 时蹭到了水龙头。于是第二天看到水龙头上出现了一个奇怪的东西 😂😂😂
 
-<img src="/images/blog/global/DB8C73A9-F97B-473A-A61E-FDE5F1779010_1_105_c.jpeg" width="350">
+![](/images/blog/global/DB8C73A9-F97B-473A-A61E-FDE5F1779010_1_105_c.jpeg)
