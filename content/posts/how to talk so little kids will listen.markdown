@@ -1,5 +1,5 @@
 ---
-title: "《How to Talk So Little Kids Will Listen》- 第一章：处理孩子的情绪"
+title: "《How to Talk So Little Kids Will Listen》- part1"
 date: 2026-01-28T15:04:32+08:00
 categories:
 - 读书
@@ -17,7 +17,7 @@ categories:
 读完这本书的第一章后，我突然明白了问题的根源。虽然这本书适用于两岁以上的儿童，但对于其中包含的沟通技巧，不管是针对蹒跚学步的孩子，还是 30 多岁的大人，都十分适用 ------ 毕竟绝大部分大人（包括我自己），都是未完全成熟的小孩。
 
 
-## 第一章：处理孩子情绪的 5 种工具
+## 第一章：处理孩子负面情绪的 5 种工具
 
 > When kids don’t feel right, they can’t behave right
 
