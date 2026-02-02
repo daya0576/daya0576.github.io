@@ -1,6 +1,7 @@
 ---
-title: "[读后感]《孩子：挑战｜Children: The Challenge》"
+title: "[读后感]《Children: The Challenge｜孩子：挑战》"
 date: 2025-09-26T11:25:16+08:00
+toc: true
 categories:
 - 读书
 - 学习

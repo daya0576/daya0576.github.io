@@ -1,20 +1,20 @@
 ---
-title: "《How to Talk So Little Kids Will Listen》- part2"
-date: 2026-01-29T14:31:31+08:00
-draft: true
+title: "《How to Talk So Little Kids Will Listen》- #2 如何促进合作"
+date: 2026-02-01T14:31:31+08:00
+series: kids-listen
 categories:
 - 读书
 - 生活
-toc: true
 ---
 
 > Tools for Engaging Cooperation . . . Feelings Schmeelings, She Has to Brush Her Teeth   
 > — Getting kids to do what they have to do
 
+阅读《婴幼儿及其照护者》时了解到：即使给婴儿换尿布，也是培养“合作精神”的宝贵机会。然而，在派派学会独立坐后，这份和谐的合作关系彻底破裂。宝宝再也不愿意乖乖躺着任我宰割，即使坐在我的腿上，也拼命地挣扎，甚至有一次还尿了我一身并淘气地对我坏笑（婴儿的尿原来是滚烫的）。
 
-去年阅读《婴幼儿及其照护者》时学习到：即使给小不点婴儿换尿布，也是培养“合作精神”的宝贵机会。然而，最近派派学会独立坐后，原本良好的合作关系彻底破裂，他再也不愿意乖乖躺着任我宰割。即使坐在我的腿上，感受到一丝束缚，便开始拼命地挣扎。甚至有一次还尿了我一身，然后淘气地对我坏笑（婴儿的尿原来是滚烫的）。
+逆子刚满 8 个月，浑身便充满小想法与“逆鳞”。一想到未来他不愿意按时刷牙，不愿意好好吃饭，不愿意在公共场合保持安静... 便令人头疼万分，再加上代沟@@
 
-宝宝刚满 8 个月，浑身变充满小想法与“叛逆”。想到未来他不愿意按时刷牙，不愿意好好吃饭，不愿意在公共场合保持安静... 再加上“代沟”，便令人头疼万分。父母们该如何巧妙地获得他们的配合？
+所以父母们该如何巧妙地获得孩子的配合呢？希望我们都能在这个章节中找到答案。
 
 
 # 第二章：让孩子做他们必须做的事
@@ -68,6 +68,8 @@ toc: true
 
 例如：当孩子拒绝穿外套出门时，试试与孩子一起制作一个温度计，并在不同的温度上标识出对应的穿衣搭配指南。
 
+例如：找孩子帮一些小忙 ------ 可以帮忙设个闹钟，时间到了提醒我们出发吗？
+
 ## TOOL #4: Give Information - 提供信息
 
 > Often it’s enough to give her simple information instead of an order.
@@ -91,7 +93,7 @@ toc: true
 
 > Appreciate progress before describing what’s left to do.
 
-⚠️ 先抑后扬，在描述时，记得尽量强调积极的当前有进展的一面（想起昨日将视频发给我的乒乓球教练，对方先称赞有进步，然后洋洋洒洒罗列了七八条需要改进的地方。。。）。
+⚠️ 先抑后扬，在描述时，记得尽量强调当前积极有进展的一面（想起昨日将视频发给我的乒乓球教练，对方先称赞有进步，然后洋洋洒洒罗列了七八条需要改进的地方。。。）。
 
 ## TOOL #7: Describe How You Feel
 
@@ -139,11 +141,10 @@ toc: true
 
 从上面的例子不难看出，家长需要做的是：不冷暴力，不威胁，不指责，不贿赂，仅仅陈述自己的感受与行动。
 
-
 # 总结
 
 > The older they get, the more they can be in charge of themselves, especially if they’ve had the practice of making choices and being in charge of their own behavior when they’re younger.”
 > Self-control can only be developed by practice, not by force!
 
-用三个字概括本章的内容，就是“骗小孩”～～ hah。但个人理解背后的本质在于让孩子不断“练习”做选择与对自己的行为负责，只有这样在他们长大后才能更加容易控制自己。
+用三个字概括本章的内容，就是“骗小孩”～～ hah。但个人理解背后的本质在于：孩子不断“练习”做选择并为自己的行为负责，只有这样在他们长大后才能更加容易控制自己。
 
