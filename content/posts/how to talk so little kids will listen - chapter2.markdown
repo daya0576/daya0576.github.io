@@ -24,10 +24,10 @@ categories:
 
 ## TOOL  #1: Be Playful - 游戏化
 
-### 1）对物体赋予生命（类似玩具总动员）
+### 1）对物体赋予生命
 > One technique, sure to be a hit with the seven and under set, is to make an inanimate object talk.
 
-举几个例子：
+类似玩具总动员，对物体赋予生动的生命。举几个正面例子：
 - 鞋子：现在又冷又空虚。谁能把温暖的脚伸进来。
 - 饥饿的玩具盒：喂我积木！我想要绿色的松脆的积木。
 - 牙刷：我刚刚看到一个细菌藏在你的牙齿后面（试试模仿硬汉的声音，进行角色扮演）。
@@ -45,19 +45,19 @@ categories:
 > The second tool for engaging cooperation is to substitute a choice for a command. 
 
 技巧二：将命令转化为一系列选项。例如：
-- 快上车，现在，马上！ -> 你要不要带个零食或玩具，你想像兔子一样跳过去，还是像螃蟹一样走到车上呢？
+- 快上车，现在，马上！ -> 你要不要带个零食或玩具？你想像兔子一样跳过去，还是像螃蟹一样走到车上呢？
 - 感觉开始做作业吧。不要再找借口了！ -> 你想现在马上做完作业，还是先吃点零食呢？你想在你安静的房间里做作业，还是想在我做饭的时候在厨房做？
 
 > Each of these statements says to your child, “I see you as a person who can make decisions about your own life.” And every time your child makes a small decision, she’s getting valuable practice for some of the bigger decisions she’ll be making down the road.
 
-孩子做出的每一个小决定，都是在未来面对重大决策时，积累的宝贵经验。
+孩子做出的每一个小决定，都是为未来面对重大决策时，积累的宝贵经验。
 
 > Don’t turn a choice into a threat.
 
 ⚠️ 注意：避免“威胁”式的虚假选择，例如你想跟我走还是永远留在这里！
 
 
-## TOOL #3: Put the Child in Charge  - 让孩子自己当家作主
+## TOOL #3: Put the Child in Charge  - 让孩子当家作主
 
 > A common complaint among parents of toddlers is, “He won’t do what he’s told because he just wants to be in control!”
 > My response is, “Then let’s put him in control.” 
@@ -66,15 +66,15 @@ categories:
 
 例如：当孩子拒绝穿外套出门时，试试与孩子一起制作一个温度计，并在不同的温度上标识出对应的穿衣搭配指南。
 
-例如：找孩子帮一些小忙 ------ 可以帮忙设个闹钟，时间到了提醒我们出发吗？
+例如：找孩子帮一些小忙 ------ 帮忙设个闹钟，时间到了提醒我们出发吗？
 
 ## TOOL #4: Give Information - 提供信息
 
 > Often it’s enough to give her simple information instead of an order.
 
 试试提供信息而不是发松指令：
-- 系好安全带，否则我不会开车送你去朋友家 -> 法律规定每个人都必须系好安全带才能开车
-- 别敲键盘了。你会把它弄坏的！ -> 键盘非常的脆弱，它只需要轻轻一碰就可以了 
+- 系好安全带，否则我不会开车送你去朋友家 -> 法律规定每个人都必须系好安全带才能开车。
+- 别敲键盘了。你会把它弄坏的！ -> 键盘非常的脆弱，它只需要轻轻一碰就可以了。
 
 ## TOOL #5: Say It with a Word (or a Gesture)
 
@@ -129,7 +129,7 @@ categories:
 > None of these tools will work for every child in every situation.
 > The final tool of this chapter is to take action without insult.
 
-上面提到的工具并不是万能的，如果还出现问题，最后的选择是在不伤害孩子的前提下采取适当的行动。
+上面提到的工具并不是万能的，如果还出现问题，最后一项选择是在不伤害孩子的前提下采取适当的行动。
 
 例子1：如果孩子不愿意带着安全帽骑车，你可以选择将自行车直接收起，并告诉孩子准备好了再来。
 
@@ -144,5 +144,5 @@ categories:
 > The older they get, the more they can be in charge of themselves, especially if they’ve had the practice of making choices and being in charge of their own behavior when they’re younger.”
 > Self-control can only be developed by practice, not by force!
 
-用三个字概括本章的内容，就是“骗小孩”～～ hah。但个人理解背后的本质在于：孩子不断“练习”做选择并为自己的行为负责，只有这样在他们长大后才能更加容易控制自己。
+用三个字概括本章的内容，就是“骗小孩”～～ hah。但个人理解背后的逻辑在于：孩子不断“练习”做选择并为自己的行为负责，只有这样在他们长大后才能更加容易控制自己。
 
