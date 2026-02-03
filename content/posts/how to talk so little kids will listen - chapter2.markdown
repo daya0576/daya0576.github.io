@@ -145,5 +145,4 @@ categories:
 > The older they get, the more they can be in charge of themselves, especially if they’ve had the practice of making choices and being in charge of their own behavior when they’re younger.”
 > Self-control can only be developed by practice, not by force!
 
-用三个字概括本章的内容，就是“骗小孩”～～ hah。但个人理解背后的逻辑在于：孩子不断“练习”做选择并为自己的行为负责，只有这样在他们长大后才能更加容易控制自己。
-
+用三个字概括本章的内容，就是“骗小孩”～～ 但个人理解背后的逻辑在于：让孩子不断“练习”做选择并为自己的行为负责，只有这样在他们长大后才能更加容易控制自己。
