@@ -1,7 +1,9 @@
 ---
-title: "《How to Talk So Little Kids Will Listen》- #1 如何处理情绪"
+title: "《How to Talk So Little Kids Will Listen》- #1 如何处理孩子的负面情绪"
 date: 2026-01-28T15:04:32+08:00
-series: kids-listen
+toc: true
+series: 
+- kids-listen
 categories:
 - 读书
 - 生活
@@ -97,11 +99,13 @@ categories:
 
 ---
 
-🤔 如果你是开头提到的父亲，你应该怎么做呢？
+# 总结
+正如开头所说的：孩子的情绪直接反映在他的行为上（When kids don’t feel right, they can’t behave right）。如果你是开头提到的父亲，应该怎么做呢？🤔
 
 <details>
   <summary>点击展开/折叠</summary>
-  <p><img src="/images/blog/global/17695900734650.jpg"></img>
+  <p>试试让 AI 根据本文的笔记回答：</p>
+  <img src="/images/blog/global/17695900734650.jpg"></img>
 </details>
 
 
