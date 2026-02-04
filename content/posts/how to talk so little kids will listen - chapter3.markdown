@@ -39,6 +39,12 @@ categories:
 
 P.S. 然而现实很骨感，因为孩子很多时候不理解潜在的危险，这种方式可能还不足以阻止你的野孩子。
 
+>  This time I yelled as loud as I could, “I see a boy on a fence and I’m afraid he’ll get hurt!” Benjamin jumped down and ran over to me. I hugged him and said, “That made me very, very scared!” He said, “Sorry, Mommy!”
+
+另一个案例（与之前章节的工具结合）：孩子在院子里玩，淘气的他想要攀爬围栏“越狱”。相比于打屁股惩罚，不如大喊：“我看到一个男孩站在栅栏上，我担心他会受伤！”，当孩子跑回来时，抱着他说：“这让我非常非常害怕”。
+
+个人感受：不知是否受东方含蓄文化的影响，在亲密关系中，我们也往往选择沉默生闷气，用冷暴力“惩罚”对方，又希望于对方能通过“读心术”来理解自己的委屈。但有时候“勇敢”清晰地表达自己的感受与情绪，也是一种难得可贵的品质与沟通技巧。
+
 ## TOOL #2: Show Your Child How to Make Amends
 
 > The quickest way to change a child’s behavior and attitude is to get him involved in fixing his mistake.
@@ -67,18 +73,24 @@ P.S. 然而现实很骨感，因为孩子很多时候不理解潜在的危险，
 
 > One of the keys to successful problem solving is to wait for a time when the mood is right. It can’t be done in the midst of frustration and anger. After the storm has passed, invite your child to sit down with you.
 
-与夫妻吵架一个道理，给一首歌的时间，等双方情绪稳定后坐下来通过下面的步骤一起解决问题：
+与夫妻吵架一个道理，给一点缓冲时间，等双方情绪稳定后坐下来通过下面的步骤一起解决问题：
 1. 第一步：承认孩子的感受（参考第一章）
 2. 第二步：描述问题 --- 讨论自己和他人的感受，注意尽可能保持简短，否则容易搞砸
 3. 第三步：征询想法 --- 让孩子使用笔和纸写下所有的想法（无论有多么的离奇与荒谬）。
 4. 第四步：讨论都喜欢的想法，然后划掉那些你们都不喜欢的
 5. 第五步：尝试解决方案。将达成一致的想法贴在冰箱上，每次出发前拿出来与孩子再确认一次。
 
-与《美国儿科学会实用喂养指南》中给的一个建议异曲同工：让孩子一起参与到准备食材的过程中，即使帮不上太大的忙，却极大地提高了他吃饭的积极性。也类似工作中的 miro 看板。
+与《美国儿科学会实用喂养指南》中给的一个建议异曲同工：让孩子一起参与到准备食材的过程中，即使帮不上太大的忙，却极大地提高了他吃饭的积极性。也类似工作中做 planning 时的 miro 看板。
 
 避免惩罚的另一个好处：如果惩罚失败，只有更严厉惩罚一个选项，而选择合作即使暂时失败，也存在无限的可能性，相信当你和孩子一起集思广益的时候，一定会想出一个对你们俩都有用的办法。
 
 > If nothing is working, you may have to reconsider your basic expectations.
 
-⚠️ 假如尝试合作一直不起作用，可以试试调整预期改变环境。
+⚠️ 假如尝试合作失败，可以试试调整预期或改变环境。例如当无法抑制孩子好奇心去触碰插座时，可以选择购买保护塞，暂时封上无用的插座。
+
+个人问题：为什么孩子犯了错误不建议惩罚，反而尽可能让他将功补过弥补过错，培养他面对错误的勇气？而大人犯了错就要进监狱？
+https://gemini.google.com/share/dc1df7134a78
+
+
+
 
