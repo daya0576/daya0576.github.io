@@ -1,5 +1,5 @@
 ---
-title: "《How to Talk So Little Kids Will Listen》- #3 如何处理亲子冲突"
+title: "《How to Talk So Little Kids Will Listen》- #3 如何处理孩子的冲突"
 date: 2026-02-05T15:08:57+08:00
 toc: true
 series: 

@@ -1,5 +1,5 @@
 ---
-title: "《How to Talk So Little Kids Will Listen》- #2 如何促进亲子合作"
+title: "《How to Talk So Little Kids Will Listen》- #2 如何促进孩子的合作"
 date: 2026-02-01T14:31:31+08:00
 series: 
 - kids-listen
