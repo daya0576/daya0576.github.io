@@ -11,7 +11,7 @@ Ask me anything below 👇:
 
 <iframe
  src="https://second-me.changchen.me/chatbot/pfIa7OQLb4LsDlgU"
- style="width: 100%; height: 50%; min-height: 550px"
+ style="width: 100%; height: 100%; min-height: 700px"
  frameborder="0"
  allow="microphone">
 </iframe>
