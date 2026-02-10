@@ -9,10 +9,9 @@ keywords: ["SRE", "Python", "Site Reliability Engineer", "奶爸", "乒乓球", 
 
 Ask me anything below 👇:
 
-
 <iframe
  src="https://second-me.changchen.me/chatbot/pfIa7OQLb4LsDlgU"
- style="width: 100%; height: 100%; min-height: 700px"
+ style="width: 100%; height: 50%; min-height: 550px"
  frameborder="0"
  allow="microphone">
 </iframe>
