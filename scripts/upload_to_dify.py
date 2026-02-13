@@ -66,20 +66,40 @@ class DifyKnowledgeClient:
             "Content-Type": "application/json",
         })
 
-    def _request(self, method: str, endpoint: str, **kwargs) -> dict:
-        """Make a request to the Dify API."""
+    def _request(self, method: str, endpoint: str, max_retries: int = 3, **kwargs) -> dict:
+        """Make a request to the Dify API with retry logic."""
         url = f"{self.config.api_base}{endpoint}"
-        try:
-            response = self.session.request(method, url, **kwargs)
-            response.raise_for_status()
-            return response.json() if response.text else {}
-        except requests.exceptions.HTTPError as e:
-            logger.error(f"HTTP error: {e}")
-            logger.error(f"Response: {response.text}")
-            raise
-        except requests.exceptions.RequestException as e:
-            logger.error(f"Request error: {e}")
-            raise
+        
+        for attempt in range(max_retries):
+            try:
+                response = self.session.request(method, url, **kwargs)
+                response.raise_for_status()
+                return response.json() if response.text else {}
+                
+            except requests.exceptions.HTTPError as e:
+                status_code = e.response.status_code
+                
+                # Check if it's a rate limit error (403 or 429)
+                if status_code in (403, 429):
+                    if attempt < max_retries - 1:
+                        # Wait 60 seconds before retry
+                        wait_time = 60
+                        logger.warning(f"Rate limit hit (attempt {attempt + 1}/{max_retries})")
+                        logger.warning(f"Waiting {wait_time}s before retry...")
+                        time.sleep(wait_time)
+                        continue
+                
+                # For other errors or last attempt, log and raise
+                logger.error(f"HTTP error: {e}")
+                logger.error(f"Response: {e.response.text}")
+                raise
+                
+            except requests.exceptions.RequestException as e:
+                logger.error(f"Request error: {e}")
+                raise
+        
+        # Should not reach here, but just in case
+        raise Exception(f"Failed after {max_retries} attempts")
 
     def list_datasets(self, page: int = 1, limit: int = 20) -> dict:
         """List all datasets."""
