@@ -10,7 +10,7 @@ categories:
 
 As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy or rollback option! However, YOLO (you only live once), just embrace and enjoy the risks.
 
-After joining Autodesk for 1y5m, the whole team was recently impacted by a reduction in force. My time at Autodesk has been really rewarding, I learned more than I ever expected, worked with talented and professional teams and built friendships I’ll carry for life <3
+After joining Autodesk for 1y5m, the whole product team in Shanghai site was impacted by a reduction in force. My time at Autodesk has been really rewarding, I learned more than I ever expected, worked with truely talented and professional teams and built friendships I’ll carry for life <3
 
 This post is a little retrospective in the form of a [postmortem](/blog/20180403/impressions-of-google-sre/#chapter-15---postmortem-culture-learning-from-failure).
 
@@ -19,7 +19,7 @@ This post is a little retrospective in the form of a [postmortem](/blog/20180403
 # Timeline
 I started my career as a Python developer in a startup in Shanghai, the engineering experience became a solid cornerstone for my SRE transition.
 
-Then, I joined Ant Group, a leading global fintech company, which was the largest unicorn in the world. Luckily, I got promoted twice in 4 years and well compensated.
+Then, I moved to Ant Group, a leading global fintech company, which was the largest unicorn in the world. Luckily, I got promoted twice in 4 years and well compensated.
 
 - 2017.03 ~ 2018.04: Python Software Engineer (Hypers)
 - 2018.04 ~ 2023.10: Site Reliability Engineer (Ant Group)
@@ -52,15 +52,15 @@ The definition of SRE varies significantly across companies, including platform 
 
 I've experienced two distinct SRE models: 
 - At Ant Group, I was part of a centralized SRE team (~80 people) responsible for the SLOs of global payment services (~3000 people)
-- At Autodesk, I work as a dedicated SRE embedded within a specific product team (~20 people).
+- At Autodesk, I work as a dedicated SRE embedded within a specific product team (~20 people located in Canada, US, India and Shanghai).
 
 The two experiences have helped me gain a **deep** and **broad** understanding of delivering high availability for globally distributed services.
 
 <img width="450" src="/images/blog/global/17596656935359.jpg">
 
-In Autodesk, as a dedicated SRE being directly responsible for the SLO target with limited resources. With more challenges, I had to think globally and prioritize my time smartly. 
+In Autodesk, as a dedicated SRE being directly responsible for the Service Level Objective (SLO) with limited resources. Facing increasing challenges, I had to think globally and prioritize my time smartly. 
 
-In addition to daily tasks and toils, I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
+Beyond handling daily tasks and operational toil, I invested 70% of my time on incident prevention, and 30% on incident detection and recovery.
 
 ## Incident prevention (70%)
 
