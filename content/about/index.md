@@ -7,11 +7,20 @@ comments: false
 keywords: ["SRE", "Python", "Site Reliability Engineer", "奶爸", "乒乓球", "Table Tennis", "技术博客"]
 ---
 
-Ask me anything below 👇:
+### daya0576
 
-<iframe
- src="https://second-me.changchen.me/chatbot/pfIa7OQLb4LsDlgU"
- style="width: 100%; height: 100%; min-height: 700px"
- frameborder="0"
- allow="microphone">
-</iframe># Test workflow trigger
+- 📍 Shanghai
+- 🧑‍💻 [SRE](/blog/20180403/impressions-of-google-sre/) (~~Server Reboot Engineer~~)   
+- 🐍 Python 开发者
+- 👶 [奶爸](/series/paipai/)
+
+
+### 关注我
+
+- [GitHub](https://github.com/daya0576) - 开源项目和代码
+- [Instagram](https://instagram.com/daya0576) - 生活记录
+- [YouTube](https://www.youtube.com/@daya0576) - 乒乓球视频
+
+### 联系我
+
+- Email: daya0576[AT]gmail.com
