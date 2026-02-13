@@ -18,3 +18,14 @@ hugo.linux
 .idea
 .MWebMetaData/
 
+
+# Environment variables
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+__pycache__/
+*.pyc
