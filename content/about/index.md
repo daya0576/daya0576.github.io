@@ -7,14 +7,6 @@ comments: false
 keywords: ["SRE", "Python", "Site Reliability Engineer", "奶爸", "乒乓球", "Table Tennis", "技术博客"]
 ---
 
-Ask me anything below 👇:
-<iframe
- src="https://second-me.changchen.me/chatbot/pfIa7OQLb4LsDlgU"
- style="width: 100%; height: 100%; min-height: 700px"
- frameborder="0"
- allow="microphone">
-</iframe>
-
 ### daya0576
 
 - 📍 Shanghai
