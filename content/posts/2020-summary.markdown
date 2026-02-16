@@ -1,6 +1,8 @@
 ---
 title: "2020 年终总结 \U0001F973"
 date: 2021-02-28 15:11:38
+series:
+- yearly
 categories:
 - 个人相关
 - 生活

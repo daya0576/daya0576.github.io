@@ -1,6 +1,8 @@
 ---
 title: 2021 年终总结 ✨
 date: 2022-01-01 06:31:03
+series:
+- yearly
 categories:
 - 个人相关
 - 生活

@@ -1,69 +1,63 @@
 ---
-title: "Effective_harnesses_for_long Running_agents"
+title: "读 Effective harnesses for long-running agents - Anthropic"
 date: 2026-02-15T21:03:36+08:00
 draft: true
 ---
 
-> Agents still face challenges working across many context windows. We looked to human engineers for inspiration in creating a more effective harness for long-running agents.
 
-从 VIM 里通过 Copilot 自动补全，到 VSCode 中对话式的 vibe coding，最近在想 --- 有没有可能更进一步：只提供需求背景和明确的期望结果，剩下的让 agent 长时间运行直到搞定呢？（while loop 运行若干小时，甚至几天）
+在家带娃快十个月，孩子叫出了第一声“mama”，世界似乎也发生了天翻地覆的变化。为了在新时代重新学习“编程”，尝试漫无目的地阅读感兴趣的文章并记录。
 
-尝试了 Spec Driven Development ([spec-kit](https://github.com/github/spec-kit))，一言难尽，有种在 2026 年开**手动挡**汽车的别扭感。。想要人工掌控细节，却反而导致了频繁的熄火。// 可能因为人是最大的瓶颈。
+相比于一问一答的 vibe coding，最近在想 --- 有没有可能更进一步：只提供需求背景和明确的期望结果，剩下的让 agent 长时间运行直到搞定？尝试了 Spec Driven Development (参考 [spec-kit](https://github.com/github/spec-kit))，一言难尽，有种在 2026 年开手动挡汽车的别扭感。。越想要人工介入获得掌控感，反而越容易熄火。// 除非你就是特别喜欢手动挡的操作乐趣。
 
-阅读了一篇文章：[Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)，来了解背后的问题、和解决办法。
-
-# 名词解释 - Glossary
-
-- 员工：claude agent
-- 新员工：
-- feature：用户需求
+最近阅读了一篇来自 Anthropic 的文章：[Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)，解释了背后的问题与一些看上去可行的尝试。
 
 # 问题分析
 
 > The core challenge of long-running agents is that they must work in discrete sessions, and each new session begins with no memory of what came before.
 
-为了实现 agent **自主地**超长时间运行，最大的问题在于：**每次开启新的 session 后，之前的上下文完全丢失**。想象你每隔一天都招聘一个新员工来帮你编程干活： 1） 模型喜欢一口吃成胖子，倾向于一次性做很多，却往往干到一半留了个烂摊子，下个人只能靠“猜”来继续完成工作。2）假如在已有项目上开发新需求：虽然代码没有 bug 并且注释清晰明确，但理解已有代码的成本也特别高。
+文中指出，为了实现 agent 自主地超长时间运行，最大的问题在于：
+1. **项目初始化**：模型天生倾向于一口吃成胖子 --- 一次性实现所有功能。但干到一半留了个烂摊子时，下个“人”只能靠“猜”来继续完成工作。
+2. **项目迭代**：每次开启新 session 后，之前的上下文会完全丢失。想象你每隔一天都招聘一个新员工来帮你编程干活。
 
-应对策略相对应地分为两个部分：
-1. **Initializer agent**：帮助模型初始化环境，包含 `init.sh` 脚本，`claude-progress.txt` 文件，以及一个初始化的 git commit。
-2. **Coding agent**：每次增量改动完成后，记录新完成的工作与进度，提交代码并关闭 session --- 保持一个“干净”的状态（确保下个全新的 session 开启时，可以通过持久化的文件中，快速理解当前状态与进度）。
+# 解决办法
 
-// TODO：例子
+基于上面两个问题，文章分别提出了 `Initializer agent` & `Coding agent`。尝试使用一段小代码进行解释对应的职责与逻辑：
 
-# 环境管理
+```python
+# Glossary:
+# 功能列表 - 本地文件 `feature_list.json` 管理每个需求的优先级、是否已完成等信息
+# 进度 - 本地文件 `claude-progress.txt` 管理每次 session 的总结
 
-## 需求拆解
-将用户最初的需求，拆解为一系列小需求。例如用户想构建一个一模一样的 claude.ai，自动分解为 200+ 需求。
+---
 
-为什么 json 而不是 markdown？
-因为 json 文件不容易被模型 乱改或 overwrite 
+# Initializer agent：
+# 1. 人工定义需求：阅读基于用户定义的 `app_spec.txt` 自动生成子功能 `feature_list.json`（优先级、是否已完成等..）
+# 2. 创建 `init.sh` 用于快速初始化开发环境
+# 3. 实现需求 -> 测试验证 -> 提交代码 -> 更新需求状态/总结进度 -> 关闭 session
 
-## Incremental progress
-
-为了避免上文提到的“一口气吃成胖子”的问题，限制 agent 一次只做一个小需求。并且每次完成后，需要保持一个 clean state：提交代码，并在 process 文件中进行总结 -》 同时方便 revert code 与“新员工”快速接收。
-
-## Testing
-
-为了避免 agent 没有测试就偷偷将 feature 标识为完成，通过明确的指令让 agent 通过自动化游览器工具，模拟人完成端到端的测试。
-
-## Getting up to speed
-
-新员工接手时，简单却提升效率的小技巧（节省了大量 token，因为不需要从头重新理解整个 codebase）：
-1. 查看当前目录文件
-2. 阅读 git log 历史记录
-3. 选择未完成的并优先级最高的需求
-
-```
-1. Run pwd to see the directory you’re working in. You’ll only be able to edit files in this directory.
-2. Read the git logs and progress files to get up to speed on what was recently worked on.
-3. Read the features list file and choose the highest-priority feature that’s not yet done to work on.
+while True:
+    # Coding agent：
+    # 1. 恢复上下文：
+    #   - 查看当前目录文件
+    #   - 阅读提交记录 & 需求 & 进度
+    #   - 执行 `init.sh` 初始化环境
+    #   - ...
+    # 2. 运行测试验证标识为「已完成」的需求，确保没有 regression
+    # 3. 实现需求 -> 测试验证 -> 提交代码 -> 更新需求状态/总结进度 -> 关闭 session
 ```
 
-# 挑战
+有趣的是：
+1. 需求文件使用的 json 而不是 markdown：因为结构化的 json 文件更不不容易被模型改乱。 
+2. 为了避免 agent 没有测试就偷偷将 feature 标识为完成，通过明确的指令让 agent 通过自动化游览器工具，模拟人完成端到端的测试。
 
-1. 假如将单个专职 agent 拆解为专职的多个 agent 协同作业，例如测试 agent，质量保证 agent。会不会做的更好。
-2. 这篇文章的实践仅限于前后端 web 项目的开发，其他领域？
 
+# 个人感受
+
+通过官方的 demo 运行一个小时，烧掉大几十刀 token 后，个人的感受和问题：
+
+- 
+- 假如将单个专职 agent 拆解为专职的多个 agent 协同作业，例如测试 agent，质量保证 agent。会不会做的更好？
+- 关于测试验收：Claude 提供了模拟游览器的端到端测试，和 unittest 相比，它有可能是多余的吗？ 
 
 # References
 1. https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents

@@ -2,6 +2,8 @@
 title: "2022 年终小结 🐯"
 date: 2023-01-22 10:32:12
 tags:
+series:
+- yearly
 categories:
 - 个人相关
 - 生活
