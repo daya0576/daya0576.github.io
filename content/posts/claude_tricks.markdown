@@ -4,8 +4,6 @@ date: 2026-02-17T11:00:31+08:00
 draft: true
 ---
 
-
-
 # how I use Claude Code - [@bcherny](https://x.com/bcherny/status/2007179832300581177)
 
 > There is no one correct way to use Claude Code: we intentionally build it in a way that you can use it, customize it, and hack it however you like. Each person on the Claude Code team uses it *very* differently.
