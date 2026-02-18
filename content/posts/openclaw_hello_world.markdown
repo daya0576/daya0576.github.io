@@ -1,7 +1,6 @@
 ---
 title: "在新时代重新学习“编程” - #2 OpenClaw 辩论赛"
 date: 2026-02-18T13:45:40+08:00
-draft: true
 categories:
 - AI
 - 编程
