@@ -5,7 +5,7 @@ categories:
 - AI
 - 编程
 series:
-- 在新时代重新学习“编程”
+- ai_freshman
 ---
 
 ![](/images/blog/global/17712932866150.jpg)

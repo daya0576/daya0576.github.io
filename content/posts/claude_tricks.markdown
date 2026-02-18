@@ -20,8 +20,15 @@ draft: true
 9. 使用 MCP 集成第三方工具，例如在 Slack 中查看与发送消息，调用 Sentry 检查错误日志等。同上配置在 repo 中同步共享。
 10. 重点关注“验收”，构建一个良性的 feedback look 会事半功倍交付 2-3 倍质量的软件，例如让 Agent 自己打开游览器模拟验证，并不断重复改进。特别是长时间运行的复杂任务（例如超过一天），参考插件 [Ralph Loop](https://github.com/anthropics/claude-plugins-official/tree/2cd88e7947b7382e045666abee790c7f55f669f3/plugins/ralph-loop)
 
+# Claude Code 101 - The complete claude code tutorial 
+
+> 10 out of 10 times, the output I've gotten with plan mode did significantly better than when I just started talking and spewing everything into Claude Code. It's not even close.
+
+类似上面 Boris 的建议，每次都从 plan mode 开始。
+
 
 
 参考：
 1. https://x.com/bcherny/status/2007179832300581177
 2. https://code.claude.com/docs/en/best-practices
+3. https://x.com/eyad_khrais/status/2010076957938188661?s=20
