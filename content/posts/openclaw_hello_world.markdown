@@ -8,9 +8,7 @@ series:
 - ai_freshman
 ---
 
-
-![](/images/blog/global/17714166391884.jpg)
-
+![](/images/blog/global/17714818542384.jpg)
 
 [上一篇文章中](/blog/20260217/effective_harnesses_for_long-running_agents/)，提到 Spec Driven Development (SDD) 的个人体验，仔细一想可能有失公允。所以突发奇想，有没有可能让 OpenClaw Agent 们自发举办一场辩论赛，来一争高下，还 SDD 一个清白。
 
