@@ -1,6 +1,7 @@
 ---
 title: "在新时代重新学习“编程” - #4 分享我的 OpenClaw 使用场景"
 date: 2026-02-20T21:20:21+08:00
+draft: true
 TOC: true
 categories:
 - AI

@@ -1,0 +1,58 @@
+{
+  "feature": "rain-animation",
+  "description": "页面顶部下雨动画 + 底部雨滴涟漪效果，营造雨天氛围",
+  "version": "1.0",
+  "lastUpdated": "2026-02-21",
+  "files": [
+    "layouts/partials/rain.html",
+    "layouts/partials/ripple.html"
+  ],
+  "integration": {
+    "location": "themes/nostyleplease/layouts/posts/baseof.html",
+    "method": "Hugo partial include"
+  },
+  "design": {
+    "topRain": {
+      "description": "Canvas 绘制的雨丝动画，位于页面顶部，向下渐隐",
+      "position": "absolute, top of page (scrolls with content)",
+      "height": "30vh",
+      "dropCount": 90,
+      "speedRange": [4, 9],
+      "lengthRange": [12, 55],
+      "windAngle": -0.12,
+      "alphaRange": [0.2, 0.55],
+      "thickness": 1,
+      "color": "rgba(200, 210, 220, alpha)",
+      "canvasOpacity": 0.45,
+      "blur": "0.5px",
+      "fadeOut": "CSS mask-image gradient, solid at 40% → transparent at 100%"
+    },
+    "bottomRipple": {
+      "description": "Canvas 绘制的涟漪效果，模拟雨滴落入湖面荡开的圆环",
+      "position": "fixed, bottom of viewport",
+      "height": "15vh",
+      "rippleCount": "随机生成，同时在屏约 8-12 个",
+      "maxRadius": 25,
+      "expandSpeed": "0.3-0.6 px/frame",
+      "color": "rgba(200, 210, 220, alpha)",
+      "fadeIn": "CSS mask-image gradient, transparent at top → solid at bottom"
+    }
+  },
+  "performance": {
+    "rendering": "Canvas 2D, single canvas per effect",
+    "dpr": "capped at 2x for Retina",
+    "objectPooling": "recycle drops/ripples, zero allocation in render loop",
+    "reducedMotion": "respects prefers-reduced-motion, skips init entirely",
+    "pointerEvents": "none on both canvases"
+  },
+  "changelog": [
+    { "date": "2026-02-21", "change": "Initial rain animation: 90 drops, diagonal streaks" },
+    { "date": "2026-02-21", "change": "Wind angle changed to left tilt (-0.12 rad)" },
+    { "date": "2026-02-21", "change": "Increased visibility: alpha 0.2-0.55, opacity 0.45" },
+    { "date": "2026-02-21", "change": "Added blur(0.5px) for softer streaks" },
+    { "date": "2026-02-21", "change": "Limited to top 30vh with CSS mask fade-out" },
+    { "date": "2026-02-21", "change": "Changed to position:absolute so it scrolls away" },
+    { "date": "2026-02-21", "change": "Expanded length range to 12-55 for varied streaks" },
+    { "date": "2026-02-21", "change": "Added bottom ripple effect (rain on lake surface)" }
+  ]
+}

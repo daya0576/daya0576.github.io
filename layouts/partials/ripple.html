@@ -1,0 +1,110 @@
+<canvas id="ripple-canvas"></canvas>
+<style>
+  #ripple-canvas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%);
+  }
+</style>
+<script>
+(function () {
+  const canvas = document.getElementById('ripple-canvas');
+  const ctx = canvas.getContext('2d');
+
+  /* ---------- tuning knobs ---------- */
+  const MAX_RIPPLES    = 12;
+  const SPAWN_INTERVAL = 300;   // ms between new ripples
+  const RADIUS_MAX     = 25;    // max radius before fade
+  const EXPAND_MIN     = 0.25;  // expand speed min
+  const EXPAND_MAX     = 0.55;  // expand speed max
+  const RING_COUNT     = 2;     // concentric rings per ripple
+  const LINE_WIDTH     = 0.8;
+
+  /* ---------- state ---------- */
+  let W, H, dpr;
+  const ripples = [];
+  let lastSpawn = 0;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight * 0.15;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function spawnRipple() {
+    ripples.push({
+      x: Math.random() * W,
+      y: H * 0.3 + Math.random() * H * 0.65,
+      radius: 0,
+      maxRadius: 10 + Math.random() * (RADIUS_MAX - 10),
+      speed: EXPAND_MIN + Math.random() * (EXPAND_MAX - EXPAND_MIN),
+      life: 0,
+    });
+  }
+
+  /* ---------- render loop ---------- */
+  function frame(now) {
+    ctx.clearRect(0, 0, W, H);
+
+    // spawn new ripples at interval
+    if (now - lastSpawn > SPAWN_INTERVAL && ripples.length < MAX_RIPPLES) {
+      // spawn 1-2 at a time for randomness
+      const count = Math.random() < 0.3 ? 2 : 1;
+      for (let c = 0; c < count; c++) spawnRipple();
+      lastSpawn = now;
+    }
+
+    ctx.lineWidth = LINE_WIDTH;
+
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      const r = ripples[i];
+      r.radius += r.speed;
+      r.life = r.radius / r.maxRadius; // 0 → 1
+
+      if (r.life >= 1) {
+        ripples.splice(i, 1);
+        continue;
+      }
+
+      // fade out as ripple expands
+      const alpha = (1 - r.life) * 0.5;
+
+      // draw concentric ellipses (perspective: squash vertically)
+      for (let ring = 0; ring < RING_COUNT; ring++) {
+        const offset = ring * 4;
+        const rx = r.radius + offset;
+        const ry = (r.radius + offset) * 0.35; // squash for perspective
+
+        if (rx < 1) continue;
+
+        const ringAlpha = alpha * (1 - ring * 0.4);
+        if (ringAlpha <= 0) continue;
+
+        ctx.strokeStyle = 'rgba(200,210,220,' + ringAlpha + ')';
+        ctx.beginPath();
+        ctx.ellipse(r.x, r.y, rx, ry, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- kick off ---------- */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  resize();
+  requestAnimationFrame(frame);
+  window.addEventListener('resize', resize);
+})();
+</script>
