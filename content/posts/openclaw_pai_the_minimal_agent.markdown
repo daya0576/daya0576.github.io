@@ -1,5 +1,5 @@
 ---
-title: "在新时代重新学习“编程” - #4 读 Pi: The Minimal Agent Within OpenClaw"
+title: "在新时代重新学习“编程” - #5 读 Pi: The Minimal Agent Within OpenClaw"
 date: 2026-02-21T13:49:18+08:00
 draft: true
 ---
