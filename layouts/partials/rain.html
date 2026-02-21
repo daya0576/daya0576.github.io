@@ -1,0 +1,103 @@
+<canvas id="rain-canvas"></canvas>
+<style>
+  #rain-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.45;
+    filter: blur(0.5px);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+  }
+</style>
+<script>
+(function () {
+  const canvas = document.getElementById('rain-canvas');
+  const ctx = canvas.getContext('2d');
+
+  /* ---------- tuning knobs ---------- */
+  const DROP_COUNT  = 90;       // number of drops on screen
+  const SPEED_MIN   = 4;        // px per frame (min)
+  const SPEED_MAX   = 9;        // px per frame (max)
+  const LEN_MIN     = 18;       // streak length min
+  const LEN_MAX     = 38;       // streak length max
+  const WIND_ANGLE  = -0.12;    // radians (~-7°) — slight left diagonal
+  const ALPHA_MIN   = 0.2;
+  const ALPHA_MAX   = 0.55;
+  const THICKNESS   = 1;        // line width in px
+
+  /* ---------- state ---------- */
+  let W, H;
+  const drops = [];
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight * 0.4;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function makeDrop(startAtTop) {
+    const speed = SPEED_MIN + Math.random() * (SPEED_MAX - SPEED_MIN);
+    return {
+      x: Math.random() * (W + 60) - 30,
+      y: startAtTop ? -(Math.random() * 40) : Math.random() * H,
+      len: LEN_MIN + Math.random() * (LEN_MAX - LEN_MIN),
+      speed: speed,
+      alpha: ALPHA_MIN + Math.random() * (ALPHA_MAX - ALPHA_MIN),
+    };
+  }
+
+  function init() {
+    resize();
+    drops.length = 0;
+    for (let i = 0; i < DROP_COUNT; i++) drops.push(makeDrop(false));
+  }
+
+  /* ---------- render loop ---------- */
+  const dx = Math.sin(WIND_ANGLE);
+  const dy = Math.cos(WIND_ANGLE);
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineWidth = THICKNESS;
+    ctx.lineCap = 'round';
+
+    for (let i = 0; i < drops.length; i++) {
+      const d = drops[i];
+
+      ctx.strokeStyle = 'rgba(200,210,220,' + d.alpha + ')';
+      ctx.beginPath();
+      ctx.moveTo(d.x, d.y);
+      ctx.lineTo(d.x + dx * d.len, d.y + dy * d.len);
+      ctx.stroke();
+
+      d.x += dx * d.speed;
+      d.y += dy * d.speed;
+
+      // recycle when drop falls off screen
+      if (d.y > H + d.len) {
+        const nd = makeDrop(true);
+        nd.y = -(nd.len + Math.random() * 40);
+        drops[i] = nd;
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- kick off ---------- */
+  // Respect reduced-motion preference
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  init();
+  frame();
+  window.addEventListener('resize', resize);
+})();
+</script>

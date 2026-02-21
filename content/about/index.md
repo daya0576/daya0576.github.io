@@ -11,7 +11,7 @@ keywords: ["SRE", "Python", "Site Reliability Engineer", "奶爸", "乒乓球", 
 
 - 📍 Shanghai
 - 🧑‍💻 [SRE](/blog/20180403/impressions-of-google-sre/) (~~Server Reboot Engineer~~)   
-- 🐍 Python 开发者
+- 🐍 [Python](https://changchen.me/categories/python/) 开发者
 - 👶 [奶爸](/series/paipai/)
 
 
