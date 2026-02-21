@@ -21,11 +21,12 @@
 
   /* ---------- tuning knobs ---------- */
   const DROP_COUNT  = 90;       // number of drops on screen
-  const SPEED_MIN   = 4;        // px per frame (min)
+  const SPEED_MIN   = 5;        // px per frame (min)
   const SPEED_MAX   = 9;        // px per frame (max)
   const LEN_MIN     = 12;       // streak length min
   const LEN_MAX     = 55;       // streak length max
   const WIND_ANGLE  = -0.12;    // radians (~-7°) — slight left diagonal
+  const ANGLE_JITTER = 0.01;    // ±jitter per drop for natural variation
   const ALPHA_MIN   = 0.2;
   const ALPHA_MAX   = 0.55;
   const THICKNESS   = 1;        // line width in px
@@ -45,12 +46,15 @@
 
   function makeDrop(startAtTop) {
     const speed = SPEED_MIN + Math.random() * (SPEED_MAX - SPEED_MIN);
+    const angle = WIND_ANGLE + (Math.random() * 2 - 1) * ANGLE_JITTER;
     return {
       x: Math.random() * (W + 60) - 30,
       y: startAtTop ? -(Math.random() * 40) : Math.random() * H,
       len: LEN_MIN + Math.random() * (LEN_MAX - LEN_MIN),
       speed: speed,
       alpha: ALPHA_MIN + Math.random() * (ALPHA_MAX - ALPHA_MIN),
+      dx: Math.sin(angle),
+      dy: Math.cos(angle),
     };
   }
 
@@ -61,8 +65,6 @@
   }
 
   /* ---------- render loop ---------- */
-  const dx = Math.sin(WIND_ANGLE);
-  const dy = Math.cos(WIND_ANGLE);
 
   function frame() {
     ctx.clearRect(0, 0, W, H);
@@ -75,11 +77,11 @@
       ctx.strokeStyle = 'rgba(200,210,220,' + d.alpha + ')';
       ctx.beginPath();
       ctx.moveTo(d.x, d.y);
-      ctx.lineTo(d.x + dx * d.len, d.y + dy * d.len);
+      ctx.lineTo(d.x + d.dx * d.len, d.y + d.dy * d.len);
       ctx.stroke();
 
-      d.x += dx * d.speed;
-      d.y += dy * d.speed;
+      d.x += d.dx * d.speed;
+      d.y += d.dy * d.speed;
 
       // recycle when drop falls off screen
       if (d.y > H + d.len) {
