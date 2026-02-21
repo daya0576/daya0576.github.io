@@ -2,13 +2,13 @@
 <html lang="{{ $.Site.LanguageCode }}">
     {{- partial "head.html" . -}}
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
-        {{- partial "rain.html" . -}}
+        {{- if eq .RelPermalink "/about/" }}{{- partial "rain.html" . -}}{{ end -}}
         <main class="page-content" aria-label="Content" style="position:relative;">
             <div class="w">
                 {{- block "main" . }}{{- end }}
                 {{ partial "footer.html" }}
             </div>
-            {{- partial "ripple.html" . -}}
+            {{- if eq .RelPermalink "/about/" }}{{- partial "ripple.html" . -}}{{ end -}}
         </main>
     </body>
 </html>
