@@ -1,125 +1,127 @@
+{{- /* Ripple effect – expanding rings at document bottom, scroll to see */ -}}
 <canvas id="ripple-canvas"></canvas>
 <style>
-  #ripple-canvas {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 15vh;
-    margin-top: -15vh;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.55;
-    filter: blur(0.6px);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%);
-  }
+#ripple-canvas{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:200px;
+  pointer-events:none;
+  filter:blur(0.4px);
+}
 </style>
 <script>
-(function () {
+(function(){
+  const MAX_RIPPLES    = 20;
+  const SPAWN_INTERVAL = 200;
+  const MAX_RADIUS     = 70;
+  const RIPPLE_LIFE    = 2800;
+  const FADE_TOP       = 0.3;
+
+  function isDark(){
+    const a = document.body.getAttribute('a');
+    if(a === 'dark') return true;
+    if(a === 'light') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function ringColor(a){ return isDark() ? 'rgba(180,220,250,' + a + ')' : 'rgba(50,95,145,' + a + ')'; }
+
   const canvas = document.getElementById('ripple-canvas');
-  const ctx = canvas.getContext('2d');
+  if(!canvas) return;
 
-  /* ---------- tuning knobs ---------- */
-  const MAX_RIPPLES    = 15;
-  const SPAWN_INTERVAL = 500;   // ms between new ripples
-  const RADIUS_MAX     = 50;    // max radius before fade
-  const EXPAND_MIN     = 0.08;  // expand speed min
-  const EXPAND_MAX     = 0.18;  // expand speed max
-  const RING_COUNT     = 4;     // concentric rings per ripple
-  const LINE_WIDTH     = 0.6;
-
-  /* ---------- state ---------- */
-  let W, H, dpr;
+  let ctx, W, H, dpr;
+  let inited = false, isVisible = false;
+  let spawnTimer = null, rafId = null;
   const ripples = [];
-  let lastSpawn = 0;
 
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = window.innerWidth;
-    H = window.innerHeight * 0.15;
+  function initCanvas(){
+    ctx = canvas.getContext('2d');
+    resize();
+    window.addEventListener('resize', resize);
+  }
+
+  function resize(){
+    dpr = window.devicePixelRatio || 1;
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
     canvas.width  = W * dpr;
     canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  function spawnRipple() {
+  function seed(){
+    const now = performance.now();
+    for(let i = 0; i < 15; i++){
+      ripples.push({
+        x: Math.random() * W,
+        y: H * 0.2 + Math.random() * H * 0.7,
+        born: now - Math.random() * RIPPLE_LIFE * 0.7,
+        maxR: 25 + Math.random() * (MAX_RADIUS - 25),
+        baseAlpha: 0.25 + Math.random() * 0.35
+      });
+    }
+  }
+
+  function spawnRipple(){
+    if(ripples.length >= MAX_RIPPLES) return;
     ripples.push({
       x: Math.random() * W,
-      y: H * 0.3 + Math.random() * H * 0.65,
-      radius: 0,
-      maxRadius: 10 + Math.random() * (RADIUS_MAX - 10),
-      speed: EXPAND_MIN + Math.random() * (EXPAND_MAX - EXPAND_MIN),
-      life: 0,
+      y: H * 0.2 + Math.random() * H * 0.7,
+      born: performance.now(),
+      maxR: 25 + Math.random() * (MAX_RADIUS - 25),
+      baseAlpha: 0.25 + Math.random() * 0.35
     });
   }
 
-  /* ---------- render loop ---------- */
-  function frame(now) {
+  function easeOut(t){ return 1 - (1 - t) * (1 - t); }
+
+  function frame(now){
+    if(!isVisible){ rafId = null; return; }
     ctx.clearRect(0, 0, W, H);
-
-    // spawn new ripples at interval
-    if (now - lastSpawn > SPAWN_INTERVAL && ripples.length < MAX_RIPPLES) {
-      // spawn 1-2 at a time for randomness
-      const count = Math.random() < 0.3 ? 2 : 1;
-      for (let c = 0; c < count; c++) spawnRipple();
-      lastSpawn = now;
-    }
-
-    ctx.lineWidth = LINE_WIDTH;
-
-    for (let i = ripples.length - 1; i >= 0; i--) {
+    for(let i = ripples.length - 1; i >= 0; i--){
       const r = ripples[i];
-      r.radius += r.speed;
-      r.life = r.radius / r.maxRadius; // 0 → 1
-
-      if (r.life >= 1) {
-        ripples.splice(i, 1);
-        continue;
-      }
-
-      // fade out as ripple expands
-      const alpha = (1 - r.life) * 0.65;
-
-      // center splash dot (visible early in life)
-      if (r.life < 0.3) {
-        const dotAlpha = (1 - r.life / 0.3) * 0.6;
-        ctx.fillStyle = 'rgba(210,220,230,' + dotAlpha + ')';
-        ctx.beginPath();
-        ctx.ellipse(r.x, r.y, 1.2, 0.5, 0, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // draw concentric ellipses (perspective: squash vertically)
-      for (let ring = 0; ring < RING_COUNT; ring++) {
-        // rings spread with increasing gaps (like real waves)
-        const ringProgress = ring / RING_COUNT;
-        const offset = ring * (3 + ring * 1.5);
-        const rx = r.radius + offset;
-        const ry = (r.radius + offset) * 0.35; // squash for perspective
-
-        if (rx < 1) continue;
-
-        // each ring fades more, outer rings are much fainter
-        const ringAlpha = alpha * Math.pow(1 - ringProgress, 1.5) * (1 - r.life * 0.5);
-        if (ringAlpha <= 0.01) continue;
-
-        // rings get thinner as they expand
-        ctx.lineWidth = Math.max(0.3, LINE_WIDTH * (1 - ringProgress * 0.5));
-        ctx.strokeStyle = 'rgba(200,210,220,' + ringAlpha + ')';
-        ctx.beginPath();
-        ctx.ellipse(r.x, r.y, rx, ry, 0, 0, Math.PI * 2);
-        ctx.stroke();
-      }
+      const age = now - r.born;
+      if(age > RIPPLE_LIFE){ ripples.splice(i, 1); continue; }
+      const t = age / RIPPLE_LIFE;
+      const fade = Math.pow(1 - t, 1.5);
+      const rx = Math.max(0, easeOut(t) * r.maxR);
+      const ry = Math.max(0, rx * 0.35);
+      if(rx < 0.5) continue;
+      const normY = r.y / H;
+      const posFade = normY < FADE_TOP ? normY / FADE_TOP : 1.0;
+      const alpha = r.baseAlpha * fade * posFade;
+      if(alpha <= 0.01) continue;
+      ctx.beginPath();
+      ctx.ellipse(r.x, r.y, rx, ry, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = ringColor(alpha.toFixed(3));
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
     }
-
-    requestAnimationFrame(frame);
+    rafId = requestAnimationFrame(frame);
   }
 
-  /* ---------- kick off ---------- */
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function start(){
+    if(!inited){ initCanvas(); seed(); inited = true; }
+    if(!spawnTimer) spawnTimer = setInterval(spawnRipple, SPAWN_INTERVAL);
+    if(!rafId) rafId = requestAnimationFrame(frame);
+  }
 
-  resize();
-  requestAnimationFrame(frame);
-  window.addEventListener('resize', resize);
+  function stop(){
+    if(spawnTimer){ clearInterval(spawnTimer); spawnTimer = null; }
+    if(rafId){ cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  /* lazy init: only start when canvas enters viewport */
+  const observer = new IntersectionObserver(function(entries){
+    isVisible = entries[0].isIntersecting;
+    if(isVisible) start(); else stop();
+  }, { threshold: 0.05 });
+  observer.observe(canvas);
+
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden) stop();
+    else if(isVisible) start();
+  });
 })();
 </script>
