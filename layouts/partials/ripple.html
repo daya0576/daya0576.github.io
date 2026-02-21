@@ -13,7 +13,7 @@
 </style>
 <script>
 (function(){
-  const MAX_RIPPLES    = 20;
+  function getMaxRipples(){ return window.innerWidth < 768 ? 8 : 20; }
   const SPAWN_INTERVAL = 200;
   const MAX_RADIUS     = 70;
   const RIPPLE_LIFE    = 2800;
@@ -52,7 +52,8 @@
 
   function seed(){
     const now = performance.now();
-    for(let i = 0; i < 15; i++){
+    const seedCount = Math.round(getMaxRipples() * 0.75);
+    for(let i = 0; i < seedCount; i++){
       ripples.push({
         x: Math.random() * W,
         y: H * 0.2 + Math.random() * H * 0.7,
@@ -64,7 +65,7 @@
   }
 
   function spawnRipple(){
-    if(ripples.length >= MAX_RIPPLES) return;
+    if(ripples.length >= getMaxRipples()) return;
     ripples.push({
       x: Math.random() * W,
       y: H * 0.2 + Math.random() * H * 0.7,

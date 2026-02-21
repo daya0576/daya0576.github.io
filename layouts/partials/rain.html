@@ -3,7 +3,7 @@
 <script>
 (function(){
   /* ── tunables ─────────────────────────────────────── */
-  const DROP_COUNT    = 120;
+  function getDropCount(){ return window.innerWidth < 768 ? 40 : 120; }
   const WIND_ANGLE    = 0.15;    // slight rightward slant
   const MIN_LEN       = 16;
   const MAX_LEN       = 42;
@@ -45,7 +45,8 @@
   /* ── static drop pool ────────────────────────────── */
   function makeDrops(){
     const arr = [];
-    for(let i = 0; i < DROP_COUNT; i++){
+    const count = getDropCount();
+    for(let i = 0; i < count; i++){
       const len = MIN_LEN + Math.random() * (MAX_LEN - MIN_LEN);
       const x   = Math.random() * (W + 60) - 30;
       const y   = Math.random() * H * 1.1;       // spread across canvas
