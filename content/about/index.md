@@ -24,9 +24,9 @@ keywords: ["SRE", "Python", "Site Reliability Engineer", "奶爸", "乒乓球", 
 - Email: daya0576[AT]gmail.com
 
 
-## 关于我
+## 快问快答
 
-让 AI 更好认识我，准备的十个问题：
+让 AI 快速了解我准备的十个问题：
 ```
 Q：最喜欢的天气是？
 A：我最喜欢下雨天，雨滴落地的滴答声让人内心平静，湿润的空气让呼吸顺畅。
