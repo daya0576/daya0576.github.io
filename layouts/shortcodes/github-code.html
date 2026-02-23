@@ -1,0 +1,19 @@
+{{- $url := .Get "url" -}}
+{{- $path := "" -}}
+{{- $fragment := "" -}}
+{{- /* Split off the #fragment */ -}}
+{{- if strings.Contains $url "#" -}}
+  {{- $parts := split $url "#" -}}
+  {{- $url = index $parts 0 -}}
+  {{- $fragment = printf "#%s" (index $parts 1) -}}
+{{- end -}}
+{{- /* Extract path after /blob/{ref}/ */ -}}
+{{- if strings.Contains $url "/blob/" -}}
+  {{- $after := index (split $url "/blob/") 1 -}}
+  {{- /* Remove the commit hash (first path segment) */ -}}
+  {{- $segments := split $after "/" -}}
+  {{- $path = strings.TrimPrefix (printf "%s/" (index $segments 0)) $after -}}
+{{- end -}}
+<div class="github-code-header">
+  <a href="{{ .Get "url" }}" target="_blank" rel="noopener">{{ $path }}{{ $fragment }}</a>
+</div>
