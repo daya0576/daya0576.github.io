@@ -1,7 +1,6 @@
 ---
 title: "在新时代重新学习“编程” - #5 读 Pi: The Minimal Agent Within OpenClaw"
-date: 2026-02-21T13:49:18+08:00
-draft: true
+date: 2026-02-24T13:49:18+08:00
 TOC: true
 categories:
 - AI
@@ -12,43 +11,34 @@ series:
 
 > OpenClaw runs a single embedded agent runtime derived from pi-mono.
 
-从 OpenClaw 文档中无意读到其 [Agent Runtime](https://docs.openclaw.ai/concepts/agent) 基于 Pi 开发的（[badlogic/pi-mono](https://github.com/badlogic/pi-mono/) ）。
+在翻阅 OpenClaw 文档时，无意发现其 [Agent Runtime](https://docs.openclaw.ai/concepts/agent) 是基于 [badlogic/pi-mono](https://github.com/badlogic/pi-mono/) 构建。恰好又看到 Armin 写的一篇文章：[Pi: The Minimal Agent Within OpenClaw](https://lucumr.pocoo.org/2026/1/31/pi/)，于是顺着好奇心读了下去。
 
-凑巧又阅读到 Armin 的一篇文章：[Pi: The Minimal Agent Within OpenClaw](https://lucumr.pocoo.org/2026/1/31/pi/)。
+## 什么是 Pi
 
-本文好奇学习一下 pi-mono 到底是什么？与 OpenClaw 的关系是？
+pi-mono 是一个模块化的 AI agent 工具包，包含 coding agent CLI、统一 LLM API、TUI & Web UI 组件库、Slack bot 以及 vLLM pod 支持。本文主要关注其中 **coding agent**（原作者最初的目的为替换 Claude Code）。
 
+值得一提的是，项目本身的分层设计相当清晰，下面是各子模块之间的依赖关系：
 
-## 什么是 Pi?
-
-Pi 是一个 coding agent（简单理解为一个 claude code 替代品）：
-
-项目本身具备优秀的分层设计，下图为多个子模块之间的依赖关系：
 ```
-pi-mom                  # Slack bot，
-└── pi-coding-agent     # 完整的终端编码 agent（pi CLI），含 session/tools/extensions/skills
-    ├── pi-agent-core   # 通用 agent 引擎：状态机、tool 执行循环、事件流
-    │   └── pi-ai       # 底层 LLM 统一接口：多 Provider、流式输出、工具调用
-    └── pi-tui          # 终端 UI 组件库：Editor/Markdown/SelectList/差分渲染
+pi-mom
+└── pi-coding-agent
+    ├── pi-agent-core
+    │   └── pi-ai
+    └── pi-tui
 ```
 
 
 ## 设计理念
 
-> Despite the differences in approach, both OpenClaw and Pi follow the same idea: LLMs are really good at writing and running code, so embrace this.
-
-OpenClaw 与 Pi 遵循同样的设计理念：既然大模型那么擅长输出文字与代码，不如放手全权交给它们。
+OpenClaw 背后与 Pi 遵循同样的设计理念：既然大模型那么擅长输出文字与代码，不如放手，全权交给它们。
 
 
 ## 大道至简
 
-> Pi is interesting to me because of two main reasons:
-> First of all, it has a tiny core. It has the shortest system prompt of any agent that I’m aware of and it only has four tools: Read, Write, Edit, Bash.
+项目 Pi 吸引原文作者的两个原因 ♥️：minimal & extensible
 
-项目 Pi 吸引原文作者的两个原因 ♥️：
-
-### 1）极简 - minimal agent
-Pi 的 system prompt 是所有 agent 中最短的：
+### 1）极简
+想起一句名言：“less is more”。举个例子，Pi 的 system prompt 是所有 agent 中最短的：
 
 {{< github-code url="https://github.com/badlogic/pi-mono/blob/380236a003ec7f0e69f54463b0f00b3118d78f3c/packages/coding-agent/src/core/system-prompt.ts#L147-L164" >}}
 
@@ -89,49 +79,43 @@ export const allTools = {
 };
 ```
 
-其中工具 `Write` 的逻辑：
+每个工具对应一段独立的 TypeScript 代码。以 `Write` 工具为例，逻辑非常清晰：
 - 输入：path（文件路径）+ content（完整文件内容）
 - 输出：`{ type: "text", text: "Successfully wrote N bytes to <path>" }`
 
 ### 2）强大的插件系统
 
-> The second thing is that it makes up for its tiny core by providing an extension system that also allows extensions to persist state into sessions, which is incredibly powerful.
-
-精简内核之上，提供了强大的[插件系统](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#extensions) --- 自由生长，实现无限可能 ∞（待下文将详细介绍）
+极简内核之上，是一套强大的[插件系统](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#extensions)：假如将内核比做阳光和光合作用，插件系统便是肥沃广阔的土壤，各种特性由此生根发芽，自由生长，无限延伸（详见下文）。
 
 
 ## Pi 没有什么
 
-在理解 Pi 中有什么前，先通过 Pi 中没有什么来理解边界。
+在理解 Pi 中有什么前，先通过下面的问题来理解项目的取舍。
 
 <u>Pi 为什么不支持 MCP（Model Context Protocol）？</u>   
-Pi 的核心理念是 **代码生代码** --- 假如用户想扩展 agent 的能力时，不是去人工下载安装 skill，而是让 agent 自我生长（直接生成需要的代码）。所有很自然的，MCP 并不在 Pi 自身的实现中。
-
-换句话说：
-- 传统思路 → 人类去找插件、装插件
-- Pi 的思路 → 让 agent 自己写代码解决问题（*Agents Built for Agents Building Agents*）
+Pi 的核心理念是**代码生代码**：当用户想扩展 agent 能力时，不是去找插件、装插件，而是如上所说直接让 agent 自己写代码来解决问题（*Agents Built for Agents Building Agents*）。所以很自然地，MCP 压根不在 Pi 自身的实现中。
 
 
 ## Pi 有什么
 
-Pi 中的几个重要特性：
+Pi 包含的其他若干重要特性：
 1. **session 与模型解耦**：中途可切换任意模型提供商，不依赖某个模型独有的特性。
 2. **session 持久化与热加载**：session 不只存储对话，还维护插件状态（持久化到磁盘） -> 支持热重载 -> 最终实现 agent 的不断自我进化：写代码、验证、热加载测试，循环迭代，直到符合预期。
 3. **session 树**：Session 以树形结构组织，处理复杂主任务时，可随时开启"干净"的子 Session 处理子任务，避免主 context 爆炸。
 
 ## 实际例子
 
-通过两个例子说明上面的特性：
+通过几个具体的例子来说明上面的特性：
 
 ### 1）Hello World（持久化与热重载）
 
 在 Pi 中输入一句话需求：*"create a hello world extension and give me a demo of persist state"*
 
-Pi “瞬间”完成一个插件的编写，热加载后新增 `hello` & `hello-stats` 两个命令。从下图中可以看到调用记录被持久化保存在 session 中：
+Pi 几乎瞬间写好了一个插件，热加载后新增 `hello` 和 `hello-stats` 两个命令。从下图可以看到，调用记录已被持久化保存在 session 中：
 
 ![Xnip2026-02-23_17-13-15](/images/blog/global/Xnip2026-02-23_17-13-15.png)
 
-说明：「持久化」信息保存于每个回话对应的 session 文件中，类型为 `custom`：
+P.S. 持久化信息保存在本地文件（消息类型为 `custom`）：
 
 ```
 # ~/.pi/agent/sessions/xxx/<timestamp>_<uuid>.jsonl
@@ -144,36 +128,28 @@ Pi “瞬间”完成一个插件的编写，热加载后新增 `hello` & `hello
 {"type":"message","id":"dbeaec50","parentId":"6cfd7dea","timestamp":"2026-02-23T07:39:18.764Z","message":{"role":"user","content":[{"type":"text","text":"> Hello, lisa! 👋  This is visit #3 across ALL sessions.\n\nwhere do you save this stats? --- which file"}],"timestamp":1771832358749}}
 ```
 
-### 2）代码 review
+### 2）代码 review（树形结构）
 
-人类 review 代码的速度已远远赶不上 agent 生成代码的速度，这个例子中，通过一个中立 agent review agent 生成的代码。
+随着 agent 大量地生出代码，但人类 review 代码的速度已经远远追不上，所以何不直接让 agent 先帮忙 review 一遍代码。
 
-```
-# 普通 session（线性）：
-消息1 → 消息2 → 消息3 → 消息4 → ...
+举一个简单的例子：调用 agent 编写 Python 程序后，单独切出分支，利用一个“中立” agent 进行代码 review，然后切回主分支进行改进。
 
-# Pi session（树形）：
-消息1 → 消息2 → 消息3
-                    ├── 分支A：写代码
-                    │       ↓
-                    │   分支B：review代码（全新视角）
-                    │       ↓
-                    └── 回到消息3，带着修复继续
-```
+![Xnip2026-02-24_17-27-37](/images/blog/global/Xnip2026-02-24_17-27-37.png)
 
-### [/control](https://github.com/mitsuhiko/agent-stuff/blob/main/pi-extensions/control.ts)
-
-Multi-agent 的情况下，通过该命令在 agent 中直接控制另外的 agent
+这种设计的好处：1）节省 token ------ 两条线互不干扰，review 的对话不会污染主线的上下文，coding 思考的上下文也不会干扰 review 的过程 2）Review 记录永久保留 ------ 随时可以用 /tree 回去查看当时的完整 findings，或者在不同时间点对同一份代码开多个 review 分支做对比。
 
 
-## Software Building Software
+## 个人感受
 
-上面几个有趣的例子，都是 agent 自己从零开始自己编写用户的想法，没有 MCP，也没有 SKILL --- 软件生软件。
-
-而 OpenClaw 则将这一理念做到极致：没有独立界面，也没有 APP，直接接入日常聊天工具。
+1. **代码生代码**：上面这些例子，都是 agent 从零开始，根据用户的一句话自己写出想要的东西。当模型的能力快速变强，编程的模式也在快速发展，而 Pi 代码生代码（Software Building Software）的设计哲学，似乎更符合未来。
+2. **学习模式改变**：编程之外，学习新知识的模式也发生了变化。从依赖搜索引擎、人工筛选整理、反复消化吸收，变为纯 AI 对话。
+3. **AI 时代的 VIM**：Pi 于我而言，有点像是 AI 时代的 VIM 替代品，用着用着，便有了人机合一的感觉。
 
 
 # 参考
 1. https://lucumr.pocoo.org/2026/1/31/pi/
 2. https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md
 3. https://github.com/mitsuhiko/agent-stuff/tree/main/pi-extensions
+4. https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/
+5. https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#philosophy
+
