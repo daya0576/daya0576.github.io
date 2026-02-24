@@ -15,7 +15,7 @@ categories:
 
 > 这就好似一艘一直在一条固定航线上前行的船，突然有一天偏离了原来的方向，如果舵手还没想好往哪里去时，这艘船可能会随波逐流一阵子。
 
-2025 年中，所在的上海团队受到公司全球调整影响而“解散”😅（详见 [Postmortem of My Journey at Autodesk](/blog/20251005/postmortem_my_journey_in_autodesk/)）。
+2025 年中，加入外企一年半后，所在的上海团队受到公司全球调整影响而“解散”😅（详见 [Postmortem of My Journey at Autodesk](/blog/20251005/postmortem_my_journey_in_autodesk/)）。
 
 差不多同一时间，家庭迎来了新成员👶♥️，小生命呱呱落地带来的强烈责任感，让我开启了全职奶爸的全新旅途（[派派成长日记](/series/paipai/)）。
 
