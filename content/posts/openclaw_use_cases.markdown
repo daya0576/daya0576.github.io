@@ -9,13 +9,13 @@ series:
 - ai_freshman
 ---
 
-短短使用 [OpenClaw](https://openclaw.ai/) 几天，已逐渐加速改变生活的工作流，甚至已经成为家庭中的一员。
+短短使用 [OpenClaw](https://openclaw.ai/) 几天，工作流已被悄悄改变，甚至慢慢成了家里的一员。
 
-本文简单分享若几个简单有趣的小例子。
+记录几个有趣的使用场景。
 
 # 1. Stand-up Meeting
 
-在刚开始使用 [multi-agent](https://docs.openclaw.ai/tools/multi-agent-sandbox-tools) 的过程中，时常出现上下文错乱，甚至添加新成员导致老成员全部下线的情况。排查后严格设置了 [per-channel-peer](https://docs.openclaw.ai/concepts/session#session-management) 模式，但为了避免后续的混乱或失效，设立了每日的“早会” ------ 管理员依次请求每个 agent 在群中发言，简单描述各自的状态：
+刚上手 [multi-agent](https://docs.openclaw.ai/tools/multi-agent-sandbox-tools) 时，时常遇到上下文错乱，甚至加入新成员后老成员会集体「失忆」。排查后改成了严格的 [per-channel-peer](https://docs.openclaw.ai/concepts/session#session-management) 模式，但为了防止状态悄悄失效，又顺手设立了每日「早会」——管理员依次请求每个 agent，让它们在群里简单报个到：
 
 <img src="/images/blog/global/17715948380017.jpg" width="500px" />
 
@@ -47,7 +47,7 @@ series:
 
 伴随算力成本的不断降低，不难想象在未来的一年，不仅是个性化开箱即用的个人助手如春笋般涌出，还将不断渗透并重新洗牌每个行业。
 
-其他个人感受：目前 AI 唯一还未真正成熟的领域，或许是人的五感（视觉、触觉、味觉、听觉、...），正是这些感官体验，让人相比于机器多了一丝“**人情味**”。但如果有一天，机器也能轻松感知这一切，碳基生物或许真的可以“下线”了。
+另一个感受：目前 AI 还没真正触达的，或许只剩人的五感（视觉、触觉、味觉、听觉……）——正是这些具身体验，让人比机器多了一点"**人情味**"。但哪天机器也能感知这些，碳基生物大概真的可以"下线"了。
 
 ## AI Native
 
@@ -55,4 +55,4 @@ series:
 > 
 > --- @yetone
 
-在使用 OpenClaw 的过程中，更加理解了这句话，当模型足够强大超越人类后。用户不再需要查看日志，debug 配置，只需要提高短板（学会提问），从而尽可能最大发挥 AI 的主观能动性与能力。
+在使用 OpenClaw 的过程中，对这句话理解更深了。模型足够强大之后，用户不再需要去看日志、debug 配置，只需要学会提问（人类成为了木桶的短板），把问题描述清楚，剩下的交给 AI 就好。
