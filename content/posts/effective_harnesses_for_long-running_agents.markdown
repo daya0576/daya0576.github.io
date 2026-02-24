@@ -11,13 +11,14 @@ series:
 
 ![](/images/blog/global/17712932866150.jpg)
 
-
 在家带娃快十个月，孩子叫出了第一声“mama”，世界似乎也发生了天翻地覆的变化。为了在新时代重新学习“编程”，尝试漫无目的地阅读感兴趣的文章并记录“编程小白”学习的过程。
 
 
 # 1. Spec-Driven Development（SDD）
 
-相比于一问一答的 vibe coding，最近在想 --- 有没有可能更进一步：只提供需求背景和明确的期望结果，剩下的让 agent 长时间运行直到搞定？尝试了 Spec Driven Development (spec-kit)，一言难尽，有种在 2026 年驾驶“手动挡”汽车的别扭感。。越想要人工介入获得掌控感，反而越容易熄火。// 除非你就是特别喜欢手动挡的操作乐趣。
+相比于一问一答的 vibe coding，最近在想 --- 有没有可能更进一步：只提供需求背景和明确的期望结果，剩下的让 agent 长时间运行直到搞定？
+
+首先尝试了 Spec Driven Development (spec-kit)，一言难尽，有种在 2026 年驾驶“手动挡”汽车的别扭感。。越想要人工介入获得掌控感，反而越容易熄火。// 除非你就是特别喜欢手动挡的操作乐趣。
 
 
 # 2. Effective harnesses for long-running agents
