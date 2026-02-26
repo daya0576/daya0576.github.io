@@ -1,5 +1,5 @@
 {{- /* Anime-style rain effect – click to toggle between shimmer & falling rain */ -}}
-<canvas id="rain-canvas" style="position:absolute;top:0;left:0;width:100%;height:33.4vh;pointer-events:auto;z-index:9999;filter:blur(0.5px);cursor:pointer;"></canvas>
+<canvas id="rain-canvas" style="position:absolute;top:0;left:0;width:100%;height:33.4vh;pointer-events:none;z-index:2;filter:blur(0.5px);"></canvas>
 <script>
 (function(){
   function getDropCount(){ return window.innerWidth < 768 ? 40 : 120; }
@@ -78,8 +78,16 @@
   window.addEventListener('resize', resize);
   resize();
 
-  /* click to toggle */
-  canvas.addEventListener('click', function(){
+  /* cursor & click on rain zone (top 33.4vh), skip interactive elements */
+  function inRainZone(e){ return e.clientY < canvas.clientHeight; }
+  function isInteractive(e){ return !!e.target.closest('a,button,input,label,select,textarea,[role="button"]'); }
+
+  document.addEventListener('mousemove', function(e){
+    document.body.style.cursor = (inRainZone(e) && !isInteractive(e)) ? 'pointer' : '';
+  });
+
+  document.addEventListener('click', function(e){
+    if(!inRainZone(e) || isInteractive(e)) return;
     if(state === 'idle'){
       state = 'raining';
       window.dispatchEvent(new CustomEvent('rain-activate'));

@@ -2,13 +2,14 @@
 <html lang="{{ $.Site.LanguageCode }}">
     {{- partial "head.html" . -}}
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if eq .RelPermalink "/about/" }} class="about-page"{{ end }}>
-        {{- if eq .RelPermalink "/about/" }}{{- partial "rain.html" . -}}{{ end -}}
-        <main class="page-content" aria-label="Content" style="position:relative;">
+        {{- if or (eq .RelPermalink "/about/") (eq .RelPermalink "/") (eq .Section "posts") }}{{- partial "rain.html" . -}}{{ end -}}
+        <main class="page-content" aria-label="Content" style="position:relative;z-index:3;">
             <div class="w">
                 {{- block "main" . }}{{- end }}
                 {{ partial "footer.html" }}
             </div>
-            {{- if eq .RelPermalink "/about/" }}{{- partial "ripple.html" . -}}{{ end -}}
+            {{- if or (eq .RelPermalink "/about/") (eq .RelPermalink "/") (eq .Section "posts") }}{{- partial "ripple.html" . -}}{{ end -}}
+            {{- if or (eq .RelPermalink "/about/") (eq .RelPermalink "/") (eq .Section "posts") }}{{- partial "rain-sound.html" . -}}{{ end -}}
         </main>
     </body>
 </html>
