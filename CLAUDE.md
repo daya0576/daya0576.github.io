@@ -28,4 +28,6 @@ hugo.toml            # 站点配置
 - 自定义 shortcodes：`layouts/shortcodes/`
 - 主题 partials：`themes/nostyleplease/layouts/partials/`
 
+## 进行中的功能
 
+- **Rain Effect（About 页面）**：详见 `docs/features/rain-effect.md`
