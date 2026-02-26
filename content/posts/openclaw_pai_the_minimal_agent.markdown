@@ -146,7 +146,7 @@ P.S. 持久化信息保存在本地文件（消息类型为 `custom`）：
 3. **AI 时代的 VIM**：Pi 于我而言，有点像是 AI 时代的 VIM 替代品，用着用着，便有了人机合一的感觉。
 
 
-# 参考
+## 参考
 1. https://lucumr.pocoo.org/2026/1/31/pi/
 2. https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/extensions.md
 3. https://github.com/mitsuhiko/agent-stuff/tree/main/pi-extensions

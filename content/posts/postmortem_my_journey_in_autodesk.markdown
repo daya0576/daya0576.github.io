@@ -10,7 +10,7 @@ categories:
 
 As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy or rollback option! However, YOLO (you only live once), just embrace and enjoy the risks.
 
-After joining Autodesk for 1y5m, the whole product team in Shanghai site was impacted by a reduction in force. My time at Autodesk has been really rewarding, I learned more than I ever expected, worked with truely talented and professional teams and built friendships I’ll carry for life <3
+After joining Autodesk for 1y5m, the whole product team in Shanghai site was impacted by a global reduction in force. My time at Autodesk has been really rewarding, I learned more than I ever expected, worked with truely talented and professional teams and built friendships I’ll carry for life <3
 
 This post is a little retrospective in the form of a [postmortem](/blog/20180403/impressions-of-google-sre/#chapter-15---postmortem-culture-learning-from-failure).
 
