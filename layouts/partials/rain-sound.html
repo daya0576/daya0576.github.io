@@ -1,0 +1,75 @@
+{{- /* Rain sound: autoplay with fade in/out, mute toggle, 7-day cookie preference */ -}}
+<audio id="rain-audio" loop>
+  <source src="/rain.m4a" type="audio/mp4">
+</audio>
+
+<div class="rain-toggle-wrap">
+  <button id="rain-toggle" aria-label="Toggle rain sound">🔇</button>
+</div>
+
+<script>
+(function () {
+  var audio = document.getElementById('rain-audio');
+  var btn = document.getElementById('rain-toggle');
+  var KEY = 'rain-sound-pref';
+  var FADE_MS = 1000;
+  var playing = false;
+  var fadeTimer = null;
+
+  function setPlaying(state) {
+    playing = state;
+    btn.textContent = playing ? '🌧️' : '🔇';
+    var expires = new Date(Date.now() + 7 * 86400000).toUTCString();
+    document.cookie = KEY + '=' + (state ? '1' : '0') + ';expires=' + expires + ';path=/';
+  }
+
+  function getCookie() {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + KEY + '=([^;]*)'));
+    return m ? m[1] : null;
+  }
+
+  function fadeIn(cb) {
+    audio.volume = 0;
+    audio.play().then(function () {
+      var start = Date.now();
+      clearInterval(fadeTimer);
+      fadeTimer = setInterval(function () {
+        var elapsed = Date.now() - start;
+        if (elapsed >= FADE_MS) {
+          audio.volume = 1;
+          clearInterval(fadeTimer);
+          if (cb) cb();
+        } else {
+          audio.volume = elapsed / FADE_MS;
+        }
+      }, 30);
+      setPlaying(true);
+    }).catch(function () { if (cb) cb(); });
+  }
+
+  function fadeOut() {
+    var startVol = audio.volume;
+    var start = Date.now();
+    clearInterval(fadeTimer);
+    fadeTimer = setInterval(function () {
+      var elapsed = Date.now() - start;
+      if (elapsed >= FADE_MS) {
+        audio.volume = 0;
+        audio.pause();
+        clearInterval(fadeTimer);
+        setPlaying(false);
+      } else {
+        audio.volume = startVol * (1 - elapsed / FADE_MS);
+      }
+    }, 30);
+  }
+
+  btn.addEventListener('click', function () {
+    if (playing) { fadeOut(); } else { fadeIn(); }
+  });
+
+  var pref = getCookie();
+  if (pref === '0') return;
+  fadeIn();
+})();
+</script>

@@ -18,54 +18,6 @@
 {{ partial "comments.html" }} 
 {{- end }}
 
-<!-- Rain sound effect -->
-<audio id="rain-audio" loop>
-  <source src="/rain.mp3" type="audio/mpeg">
-</audio>
-
-<div class="rain-toggle-wrap">
-  <button id="rain-toggle" aria-label="Toggle rain sound">🔇</button>
-</div>
-
-<script>
-(function () {
-  var audio = document.getElementById('rain-audio');
-  var btn = document.getElementById('rain-toggle');
-  var playing = false;
-
-  function setPlaying(state) {
-    playing = state;
-    btn.textContent = playing ? '🌧️' : '🔇';
-  }
-
-  btn.addEventListener('click', function () {
-    if (playing) {
-      audio.pause();
-      setPlaying(false);
-    } else {
-      audio.play().then(function () { setPlaying(true); }).catch(function () {});
-    }
-  });
-
-  // Auto-play on page load (browsers may block, falls back to manual click)
-  document.addEventListener('DOMContentLoaded', function () {
-    audio.volume = 1;
-    audio.play().then(function () {
-      setPlaying(true);
-    }).catch(function () {
-      // Autoplay blocked — wait for first user interaction
-      var resume = function () {
-        audio.play().then(function () {
-          setPlaying(true);
-          document.removeEventListener('click', resume);
-          document.removeEventListener('keydown', resume);
-        }).catch(function () {});
-      };
-      document.addEventListener('click', resume);
-      document.addEventListener('keydown', resume);
-    });
-  });
-})();
-</script>
+{{ partial "rain-sound.html" . }}
 
 {{ end }}
