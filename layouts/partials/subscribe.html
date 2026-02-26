@@ -1,0 +1,46 @@
+<form
+  action="https://buttondown.com/api/emails/embed-subscribe/daya0576"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/daya0576', 'popupwindow')"
+  class="subscribe-form"
+>
+  <input type="email" name="email" placeholder="email for new posts" required />
+  <button type="submit">subscribe</button>
+</form>
+
+<style>
+.subscribe-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  opacity: 0.75;
+}
+
+.subscribe-form input[type="email"],
+.subscribe-form button {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: transparent;
+  border: thin solid currentColor;
+  color: inherit;
+  outline: none;
+}
+
+.subscribe-form input[type="email"] {
+  flex: 1;
+  min-width: 180px;
+}
+
+.subscribe-form button {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.subscribe-form button:hover,
+.subscribe-form input[type="email"]:focus {
+  opacity: 0.65;
+}
+</style>
