@@ -1,75 +1,100 @@
-{{- /* Rain sound: autoplay with fade in/out, mute toggle, 7-day cookie preference */ -}}
-<audio id="rain-audio" loop>
+{{- /* Rain sound: autoplay with 1s fade, 1-day cookie preference */ -}}
+<audio id="rain-audio" loop preload="auto">
   <source src="/rain.m4a" type="audio/mp4">
 </audio>
-
-<div class="rain-toggle-wrap">
-  <button id="rain-toggle" aria-label="Toggle rain sound">🔇</button>
-</div>
 
 <script>
 (function () {
   var audio = document.getElementById('rain-audio');
-  var btn = document.getElementById('rain-toggle');
   var KEY = 'rain-sound-pref';
-  var FADE_MS = 1000;
+  var FADE = 1;
   var playing = false;
-  var fadeTimer = null;
+  var ctx, gain;
 
-  function setPlaying(state) {
-    playing = state;
-    btn.textContent = playing ? '🌧️' : '🔇';
-    var expires = new Date(Date.now() + 7 * 86400000).toUTCString();
-    document.cookie = KEY + '=' + (state ? '1' : '0') + ';expires=' + expires + ';path=/';
-  }
+  // Toggle button
+  var btn = document.createElement('span');
+  btn.id = 'rain-toggle';
+  btn.textContent = '▶';
+  document.body.appendChild(btn);
 
-  function getCookie() {
-    var m = document.cookie.match(new RegExp('(?:^|; )' + KEY + '=([^;]*)'));
+  function cookie(k) {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + k + '=([^;]*)'));
     return m ? m[1] : null;
   }
 
-  function fadeIn(cb) {
-    audio.volume = 0;
-    audio.play().then(function () {
-      var start = Date.now();
-      clearInterval(fadeTimer);
-      fadeTimer = setInterval(function () {
-        var elapsed = Date.now() - start;
-        if (elapsed >= FADE_MS) {
-          audio.volume = 1;
-          clearInterval(fadeTimer);
-          if (cb) cb();
-        } else {
-          audio.volume = elapsed / FADE_MS;
-        }
-      }, 30);
-      setPlaying(true);
-    }).catch(function () { if (cb) cb(); });
+  function save(v) {
+    document.cookie = KEY + '=' + v + ';max-age=86400;path=/';
   }
 
-  function fadeOut() {
-    var startVol = audio.volume;
-    var start = Date.now();
-    clearInterval(fadeTimer);
-    fadeTimer = setInterval(function () {
-      var elapsed = Date.now() - start;
-      if (elapsed >= FADE_MS) {
-        audio.volume = 0;
-        audio.pause();
-        clearInterval(fadeTimer);
-        setPlaying(false);
-      } else {
-        audio.volume = startVol * (1 - elapsed / FADE_MS);
-      }
-    }, 30);
+  function initAudio() {
+    if (ctx) return;
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    gain = ctx.createGain();
+    gain.gain.value = 0;
+    ctx.createMediaElementSource(audio).connect(gain);
+    gain.connect(ctx.destination);
   }
 
-  btn.addEventListener('click', function () {
-    if (playing) { fadeOut(); } else { fadeIn(); }
+  function fade(to) {
+    gain.gain.cancelScheduledValues(ctx.currentTime);
+    gain.gain.setValueAtTime(gain.gain.value, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(to, ctx.currentTime + FADE);
+  }
+
+  function play(persist) {
+    if (playing) return;
+    initAudio();
+    if (ctx.state === 'suspended') ctx.resume();
+    playing = true;
+    btn.textContent = '⏸';
+    if (persist) save('1');
+    audio.play().then(function () { fade(1); }).catch(function () {
+      playing = false;
+      btn.textContent = '▶';
+    });
+  }
+
+  function stop(persist) {
+    if (!playing) return;
+    playing = false;
+    btn.textContent = '▶';
+    if (persist) save('0');
+    if (!gain) { audio.pause(); return; }
+    fade(0);
+    setTimeout(function () { if (!playing) audio.pause(); }, FADE * 1000);
+  }
+
+  // Toggle
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    unbind();
+    playing ? stop(true) : play(true);
   });
 
-  var pref = getCookie();
-  if (pref === '0') return;
-  fadeIn();
+  // Resume listeners for autoplay-blocked browsers (Safari, iOS, Firefox)
+  function onInteract() { if (!playing) { unbind(); play(false); } }
+  function bind() {
+    ['click', 'keydown', 'touchstart'].forEach(function (e) {
+      document.addEventListener(e, onInteract, { capture: true, once: true });
+    });
+  }
+  function unbind() {
+    ['click', 'keydown', 'touchstart'].forEach(function (e) {
+      document.removeEventListener(e, onInteract, true);
+    });
+  }
+
+  // --- Init ---
+  if (cookie(KEY) === '0') return;
+
+  initAudio();
+  audio.play().then(function () {
+    if (ctx.state === 'suspended') ctx.resume();
+    playing = true;
+    btn.textContent = '⏸';
+    fade(1);
+  }).catch(function () {
+    bind();
+  });
 })();
 </script>
