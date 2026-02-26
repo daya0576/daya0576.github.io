@@ -14,9 +14,9 @@
   const SHIMMER_SPEED_MAX = 1.8;
 
   /* falling rain tunables */
-  const FALL_SPEED    = 900;   // base px/sec per drop
-  const FALL_VAR      = 300;   // random extra speed per drop
-  const SPAWN_RATE    = 0.4;   // new drops per px width per sec
+  const FALL_SPEED_MIN = 400;   // slowest drops
+  const FALL_SPEED_MAX = 1400;  // fastest drops
+  const SPAWN_RATE     = 0.4;   // new drops per px width per sec
 
   function isDark(){
     const a = document.body.getAttribute('a');
@@ -49,7 +49,7 @@
       speed: SHIMMER_SPEED_MIN + Math.random() * (SHIMMER_SPEED_MAX - SHIMMER_SPEED_MIN),
       baseAlpha: SHIMMER_MIN + Math.random() * (SHIMMER_MAX - SHIMMER_MIN),
       posFade: 1.0,
-      fallSpeed: FALL_SPEED + Math.random() * FALL_VAR
+      fallSpeed: FALL_SPEED_MIN + Math.random() * (FALL_SPEED_MAX - FALL_SPEED_MIN)
     };
     const fadeY = Math.max(d.y1, 0) / H;
     d.posFade = fadeY < FADE_START ? 1.0
@@ -119,9 +119,12 @@
 
     if(state === 'raining'){
       /* move drops down */
+      /* move drops along wind angle (same direction as streak slant) */
       for(let i = drops.length - 1; i >= 0; i--){
         const d = drops[i];
-        d.y1 += d.fallSpeed * dt;
+        const dist = d.fallSpeed * dt;
+        d.y1 += cosA * dist;
+        d.x1 += sinA * dist;
         if(d.y1 > H + 60){
           drops.splice(i, 1);
           continue;
