@@ -31,3 +31,8 @@ hugo.toml            # 站点配置
 ## 进行中的功能
 
 - **Rain Effect（About 页面）**：详见 `docs/features/rain-effect.md`
+
+
+## 记住：
+
+- 如果指令不清晰或有矛盾，**及时提问或挑战**，不要猜测后直接实现
