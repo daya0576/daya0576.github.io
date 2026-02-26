@@ -15,9 +15,9 @@ series:
 
 ## 什么是 Pi
 
-pi-mono 是一个模块化的 AI agent 工具包，包含 coding agent CLI、统一 LLM API、TUI & Web UI 组件库、Slack bot 以及 vLLM pod 支持。本文主要关注其中 **coding agent**（原作者最初的目的为替换 Claude Code）。
+pi-mono 是一个模块化的 AI agent 工具包，涵盖 coding agent CLI、统一 LLM API、TUI & Web UI、Slack bot 等组件。本文聚焦其中的 **coding agent** —— 原作者最初将其定位为 Claude Code 的替代品。
 
-值得一提的是，项目本身的分层设计相当清晰，下面是各子模块之间的依赖关系：
+值得一提的是，项目本身的分层设计相当清晰，下面是各子模块之间的大致依赖关系：
 
 ```
 pi-mom
