@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode }}">
     {{- partial "head.html" . -}}
-    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
+    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if eq .RelPermalink "/about/" }} class="about-page"{{ end }}>
         {{- if eq .RelPermalink "/about/" }}{{- partial "rain.html" . -}}{{ end -}}
         <main class="page-content" aria-label="Content" style="position:relative;">
             <div class="w">

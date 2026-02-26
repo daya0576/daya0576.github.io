@@ -22,7 +22,7 @@ hugo.toml            # 站点配置
 
 `nostyleplease` 以 git submodule 形式挂载于 `themes/nostyleplease`，对主题的修改直接在 submodule 内进行。
 
-- CSS：`themes/nostyleplease/assets/css/main.scss`
+- CSS：`themes/nostyleplease/assets/css/main.scss`（**所有 CSS 统一维护于此文件，禁止在模板中写 inline style；新增样式时须检查并消除重复，保持 DRY**）
 - Heading render hook：`layouts/_default/_markup/render-heading.html`
 - 自定义 partials（覆盖主题）：`layouts/partials/`
 - 自定义 shortcodes：`layouts/shortcodes/`
