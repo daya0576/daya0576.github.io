@@ -1,4 +1,4 @@
-{{- /* Rain sound: autoplay with 1s fade, 1-day cookie preference */ -}}
+{{- /* Rain sound: triggered by rain-activate / rain-deactivate events */ -}}
 <audio id="rain-audio" loop preload="auto">
   <source src="/rain.m4a" type="audio/mp4">
 </audio>
@@ -6,25 +6,9 @@
 <script>
 (function () {
   var audio = document.getElementById('rain-audio');
-  var KEY = 'rain-sound-pref';
   var FADE = 1;
   var playing = false;
   var ctx, gain;
-
-  // Toggle button
-  var btn = document.createElement('span');
-  btn.id = 'rain-toggle';
-  btn.textContent = '▶';
-  document.body.appendChild(btn);
-
-  function cookie(k) {
-    var m = document.cookie.match(new RegExp('(?:^|; )' + k + '=([^;]*)'));
-    return m ? m[1] : null;
-  }
-
-  function save(v) {
-    document.cookie = KEY + '=' + v + ';max-age=86400;path=/';
-  }
 
   function initAudio() {
     if (ctx) return;
@@ -35,66 +19,29 @@
     gain.connect(ctx.destination);
   }
 
-  function fade(to) {
+  function fadeTo(v) {
     gain.gain.cancelScheduledValues(ctx.currentTime);
     gain.gain.setValueAtTime(gain.gain.value, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(to, ctx.currentTime + FADE);
+    gain.gain.linearRampToValueAtTime(v, ctx.currentTime + FADE);
   }
 
-  function play(persist) {
+  function play() {
     if (playing) return;
     initAudio();
     if (ctx.state === 'suspended') ctx.resume();
     playing = true;
-    btn.textContent = '⏸';
-    if (persist) save('1');
-    audio.play().then(function () { fade(1); }).catch(function () {
-      playing = false;
-      btn.textContent = '▶';
-    });
+    audio.play().then(function () { fadeTo(1); }).catch(function () { playing = false; });
   }
 
-  function stop(persist) {
+  function stop() {
     if (!playing) return;
     playing = false;
-    btn.textContent = '▶';
-    if (persist) save('0');
     if (!gain) { audio.pause(); return; }
-    fade(0);
+    fadeTo(0);
     setTimeout(function () { if (!playing) audio.pause(); }, FADE * 1000);
   }
 
-  // Toggle
-  btn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    unbind();
-    playing ? stop(true) : play(true);
-  });
-
-  // Resume listeners for autoplay-blocked browsers (Safari, iOS, Firefox)
-  function onInteract() { if (!playing) { unbind(); play(false); } }
-  function bind() {
-    ['click', 'keydown', 'touchstart'].forEach(function (e) {
-      document.addEventListener(e, onInteract, { capture: true, once: true });
-    });
-  }
-  function unbind() {
-    ['click', 'keydown', 'touchstart'].forEach(function (e) {
-      document.removeEventListener(e, onInteract, true);
-    });
-  }
-
-  // --- Init ---
-  if (cookie(KEY) === '0') return;
-
-  initAudio();
-  audio.play().then(function () {
-    if (ctx.state === 'suspended') ctx.resume();
-    playing = true;
-    btn.textContent = '⏸';
-    fade(1);
-  }).catch(function () {
-    bind();
-  });
+  window.addEventListener('rain-activate', play);
+  window.addEventListener('rain-deactivate', stop);
 })();
 </script>

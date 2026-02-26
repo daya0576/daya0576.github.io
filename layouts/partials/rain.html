@@ -1,20 +1,23 @@
-{{- /* Anime-style rain effect – static streaks with shimmer & blur for dreamy motion feel */ -}}
-<canvas id="rain-canvas" style="position:absolute;top:0;left:0;width:100%;height:33.4vh;pointer-events:none;z-index:9999;filter:blur(0.5px);"></canvas>
+{{- /* Anime-style rain effect – click to toggle between shimmer & falling rain */ -}}
+<canvas id="rain-canvas" style="position:absolute;top:0;left:0;width:100%;height:33.4vh;pointer-events:auto;z-index:9999;filter:blur(0.5px);cursor:pointer;"></canvas>
 <script>
 (function(){
-  /* ── tunables ─────────────────────────────────────── */
   function getDropCount(){ return window.innerWidth < 768 ? 40 : 120; }
-  const WIND_ANGLE    = 0.15;    // slight rightward slant
+  const WIND_ANGLE    = 0.15;
   const MIN_LEN       = 16;
   const MAX_LEN       = 42;
   const LINE_WIDTH    = 1.6;
-  const FADE_START    = 0.3;     // fade begins at 30% of canvas
-  /* shimmer – each drop pulses alpha with its own phase & speed */
+  const FADE_START    = 0.3;
   const SHIMMER_MIN   = 0.08;
   const SHIMMER_MAX   = 0.48;
-  const SHIMMER_SPEED_MIN = 0.4; // radians/sec
+  const SHIMMER_SPEED_MIN = 0.4;
   const SHIMMER_SPEED_MAX = 1.8;
-  /* colour – adaptive to light/dark mode */
+
+  /* falling rain tunables */
+  const FALL_SPEED    = 900;   // base px/sec per drop
+  const FALL_VAR      = 300;   // random extra speed per drop
+  const SPAWN_RATE    = 0.4;   // new drops per px width per sec
+
   function isDark(){
     const a = document.body.getAttribute('a');
     if(a === 'dark') return true;
@@ -28,6 +31,41 @@
   const ctx = canvas.getContext('2d');
 
   let W, H, dpr;
+  const cosA = Math.cos(WIND_ANGLE), sinA = Math.sin(WIND_ANGLE);
+
+  /* state: 'idle' = shimmering, 'raining' = drops falling continuously */
+  let state = 'idle';
+  let lastTs = 0;
+
+  function makeDrop(yOverride){
+    const len = MIN_LEN + Math.random() * (MAX_LEN - MIN_LEN);
+    const x   = Math.random() * (W + 60) - 30;
+    const y   = yOverride !== undefined ? yOverride : Math.random() * H * 1.1;
+    const d = {
+      x1: x, y1: y,
+      len: len,
+      width: 0.6 + Math.random() * (LINE_WIDTH - 0.6),
+      phase: Math.random() * Math.PI * 2,
+      speed: SHIMMER_SPEED_MIN + Math.random() * (SHIMMER_SPEED_MAX - SHIMMER_SPEED_MIN),
+      baseAlpha: SHIMMER_MIN + Math.random() * (SHIMMER_MAX - SHIMMER_MIN),
+      posFade: 1.0,
+      fallSpeed: FALL_SPEED + Math.random() * FALL_VAR
+    };
+    const fadeY = Math.max(d.y1, 0) / H;
+    d.posFade = fadeY < FADE_START ? 1.0
+              : Math.max(0, 1.0 - (fadeY - FADE_START) / (1.0 - FADE_START));
+    return d;
+  }
+
+  function makeDrops(){
+    const arr = [];
+    const count = getDropCount();
+    for(let i = 0; i < count; i++) arr.push(makeDrop());
+    return arr;
+  }
+
+  let drops = [];
+
   function resize(){
     dpr = window.devicePixelRatio || 1;
     W = canvas.clientWidth;
@@ -35,66 +73,72 @@
     canvas.width  = W * dpr;
     canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    // regenerate drops on resize
     drops = makeDrops();
   }
   window.addEventListener('resize', resize);
-
-  const cosA = Math.cos(WIND_ANGLE), sinA = Math.sin(WIND_ANGLE);
-
-  /* ── static drop pool ────────────────────────────── */
-  function makeDrops(){
-    const arr = [];
-    const count = getDropCount();
-    for(let i = 0; i < count; i++){
-      const len = MIN_LEN + Math.random() * (MAX_LEN - MIN_LEN);
-      const x   = Math.random() * (W + 60) - 30;
-      const y   = Math.random() * H * 1.1;       // spread across canvas
-      arr.push({
-        x1: x,
-        y1: y,
-        x2: x - sinA * len,
-        y2: y - cosA * len,
-        width: 0.6 + Math.random() * (LINE_WIDTH - 0.6),
-        /* shimmer params */
-        phase: Math.random() * Math.PI * 2,
-        speed: SHIMMER_SPEED_MIN + Math.random() * (SHIMMER_SPEED_MAX - SHIMMER_SPEED_MIN),
-        baseAlpha: SHIMMER_MIN + Math.random() * (SHIMMER_MAX - SHIMMER_MIN),
-        /* positional fade */
-        posFade: 1.0
-      });
-      // pre-compute positional fade
-      const d = arr[arr.length - 1];
-      const fadeY = Math.max(d.y1, 0) / H;
-      d.posFade = fadeY < FADE_START ? 1.0
-                : Math.max(0, 1.0 - (fadeY - FADE_START) / (1.0 - FADE_START));
-    }
-    return arr;
-  }
-
-  let drops = [];
   resize();
 
-  /* ── animation: only alpha shimmer, positions stay fixed ── */
+  /* click to toggle */
+  canvas.addEventListener('click', function(){
+    if(state === 'idle'){
+      state = 'raining';
+      window.dispatchEvent(new CustomEvent('rain-activate'));
+    } else {
+      state = 'idle';
+      drops = makeDrops(); // reset to static positions
+      window.dispatchEvent(new CustomEvent('rain-deactivate'));
+    }
+  });
+
+  function drawDrop(d, sec){
+    const x1 = d.x1, y1 = d.y1;
+    const x2 = x1 - sinA * d.len, y2 = y1 - cosA * d.len;
+
+    const fadeY = Math.max(y1, 0) / H;
+    const pf = fadeY < FADE_START ? 1.0
+             : Math.max(0, 1.0 - (fadeY - FADE_START) / (1.0 - FADE_START));
+    if(pf <= 0.01) return;
+
+    const shimmer = 0.5 + 0.5 * Math.sin(sec * d.speed + d.phase);
+    const alpha = (SHIMMER_MIN + shimmer * (d.baseAlpha - SHIMMER_MIN)) * pf;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = dropColor() + alpha.toFixed(3) + ')';
+    ctx.lineWidth = d.width;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+  }
+
   function frame(ts){
     const sec = ts / 1000;
+    const dt = lastTs ? (ts - lastTs) / 1000 : 0.016;
+    lastTs = ts;
     ctx.clearRect(0, 0, W, H);
 
-    for(let i = 0; i < drops.length; i++){
-      const d = drops[i];
-      if(d.posFade <= 0.01) continue;
-
-      /* sine shimmer: smoothly oscillate alpha */
-      const shimmer = 0.5 + 0.5 * Math.sin(sec * d.speed + d.phase);
-      const alpha   = (SHIMMER_MIN + shimmer * (d.baseAlpha - SHIMMER_MIN)) * d.posFade;
-
-      ctx.beginPath();
-      ctx.moveTo(d.x1, d.y1);
-      ctx.lineTo(d.x2, d.y2);
-      ctx.strokeStyle = dropColor() + alpha.toFixed(3) + ')';
-      ctx.lineWidth   = d.width;
-      ctx.lineCap     = 'round';
-      ctx.stroke();
+    if(state === 'raining'){
+      /* move drops down */
+      for(let i = drops.length - 1; i >= 0; i--){
+        const d = drops[i];
+        d.y1 += d.fallSpeed * dt;
+        if(d.y1 > H + 60){
+          drops.splice(i, 1);
+          continue;
+        }
+        drawDrop(d, sec);
+      }
+      /* spawn new drops at top */
+      const toSpawn = SPAWN_RATE * W * dt;
+      const count = Math.floor(toSpawn) + (Math.random() < (toSpawn % 1) ? 1 : 0);
+      for(let i = 0; i < count; i++){
+        drops.push(makeDrop(-MAX_LEN - Math.random() * 30));
+      }
+    } else {
+      /* idle shimmer */
+      for(let i = 0; i < drops.length; i++){
+        drawDrop(drops[i], sec);
+      }
     }
     requestAnimationFrame(frame);
   }
