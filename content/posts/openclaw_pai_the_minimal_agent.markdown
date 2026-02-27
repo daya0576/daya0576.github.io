@@ -93,7 +93,7 @@ export const allTools = {
 在理解 Pi 中有什么前，先通过下面的问题来理解项目的取舍。
 
 <u>Pi 为什么不支持 MCP（Model Context Protocol）？</u>   
-Pi 的核心理念是**代码生代码**：当用户想扩展 agent 能力时，不是去找插件、装插件，而是如上所说直接让 agent 自己写代码来解决问题（*Agents Built for Agents Building Agents*）。所以很自然地，MCP 压根不在 Pi 自身的实现中。
+Pi 的核心理念是**代码生代码**：当用户想扩展 agent 能力时，不是去找插件、装插件，而是如上所说直接让 agent 自己写代码来解决问题（*Agents Built for Agents Building Agents*）。所以很自然地，MCP 不在 Pi 自身的实现中。
 
 
 ## Pi 有什么
@@ -136,7 +136,7 @@ P.S. 持久化信息保存在本地文件（消息类型为 `custom`）：
 
 ![Xnip2026-02-24_17-27-37](/images/blog/global/Xnip2026-02-24_17-27-37.png)
 
-这种设计的好处：1）节省 token ------ 两条线互不干扰，review 的对话不会污染主线的上下文，coding 思考的上下文也不会干扰 review 的过程 2）Review 记录永久保留 ------ 随时可以用 /tree 回去查看当时的完整 findings，或者在不同时间点对同一份代码开多个 review 分支做对比。
+这种设计的好处：1）节省 token：两条线互不干扰，review 的对话不会污染主线的上下文，coding 思考的上下文也不会干扰 review 的过程 2）Review 记录永久保留：随时可以用 /tree 回去查看当时的完整 findings，或者在不同时间点对同一份代码开多个 review 分支做对比。
 
 
 ## 个人感受
