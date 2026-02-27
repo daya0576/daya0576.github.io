@@ -104,7 +104,10 @@
   resize();
 
   /* cursor & click on rain zone (top 33.4vh), skip interactive elements */
-  function inRainZone(e){ return e.clientY < canvas.clientHeight; }
+  function inRainZone(e){
+    var r = canvas.getBoundingClientRect();
+    return e.clientY >= r.top && e.clientY <= r.bottom && e.clientX >= r.left && e.clientX <= r.right;
+  }
   function isInteractive(e){ return !!e.target.closest('a,button,input,label,select,textarea,[role="button"]'); }
 
   document.addEventListener('mousemove', function(e){
