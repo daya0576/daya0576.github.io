@@ -89,6 +89,7 @@
   }
 
   let drops = [];
+  let paused = false;
 
   function resize(){
     dpr = window.devicePixelRatio || 1;
@@ -146,9 +147,20 @@
     ctx.stroke();
   }
 
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){
+      paused = true;
+    } else {
+      paused = false;
+      lastTs = 0;
+      requestAnimationFrame(frame);
+    }
+  });
+
   function frame(ts){
+    if(paused) return;
     const sec = ts / 1000;
-    const dt = lastTs ? (ts - lastTs) / 1000 : 0.016;
+    const dt = lastTs ? Math.min((ts - lastTs) / 1000, 0.1) : 0.016;
     lastTs = ts;
     ctx.clearRect(0, 0, W, H);
 
