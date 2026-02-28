@@ -90,7 +90,7 @@ export const allTools = {
 
 ## Pi 没有什么
 
-在理解 Pi 中有什么前，先通过下面的问题来理解项目的取舍。
+在理解 Pi 中有什么前，先通过 Pi 中没有什么来理解边界。
 
 <u>Pi 为什么不支持 MCP（Model Context Protocol）？</u>   
 Pi 的核心理念是**代码生代码**：当用户想扩展 agent 能力时，不是去找插件、装插件，而是如上所说直接让 agent 自己写代码来解决问题（*Agents Built for Agents Building Agents*）。所以很自然地，MCP 不在 Pi 自身的实现中。
@@ -132,11 +132,24 @@ P.S. 持久化信息保存在本地文件（消息类型为 `custom`）：
 
 随着 agent 大量地生出代码，但人类 review 代码的速度已经远远追不上，所以何不直接让 agent 先帮忙 review 一遍代码。
 
-举一个简单的例子：调用 agent 编写 Python 程序后，单独切出分支，利用一个“中立” agent 进行代码 review，然后切回主分支进行改进。
+举个简单例子：调用 agent 编写 Python 程序后，单独切出分支，利用一个“中立” agent 进行代码 review，然后切回主分支进行改进。
 
 ![Xnip2026-02-24_17-27-37](/images/blog/global/Xnip2026-02-24_17-27-37.png)
 
 这种设计的好处：1）节省 token：两条线互不干扰，review 的对话不会污染主线的上下文，coding 思考的上下文也不会干扰 review 的过程 2）Review 记录永久保留：随时可以用 /tree 回去查看当时的完整 findings，或者在不同时间点对同一份代码开多个 review 分支做对比。
+
+```
+# 普通 session（线性）：
+消息1 → 消息2 → 消息3 → 消息4 → ...
+
+# Pi session（树形）：
+消息1 → 消息2 → 消息3
+                    ├── 分支A：写代码
+                    │       ↓
+                    │   分支B：review代码（全新视角）
+                    │       ↓
+                    └── 总结并回到消息3，带着修复继续
+```
 
 
 ## 个人感受
