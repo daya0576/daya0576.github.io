@@ -1,8 +1,10 @@
-{{- /* Anime-style rain effect – click to toggle between shimmer & falling rain */ -}}
+{{- /* Anime-style rain effect – click to toggle between shimmer & falling rain (about page only) */ -}}
 <canvas id="rain-canvas" style="position:absolute;top:0;left:0;width:100%;height:33.4vh;pointer-events:none;z-index:-1;filter:blur(0.5px);"></canvas>
 <button id="rain-toggle" class="rain-toggle" aria-label="Toggle rain">⏸</button>
 <script>
 (function(){
+  const isAbout = document.body.dataset.rainInteractive === 'true';
+
   function getDropCount(){ return window.innerWidth < 768 ? 40 : 120; }
   const WIND_ANGLE    = 0.15;
   const MIN_LEN       = 16;
@@ -38,9 +40,10 @@
   let state = 'idle';
   let lastTs = 0;
 
-  /* toggle button */
+  /* toggle button – only shown on about page */
   const toggleBtn = document.getElementById('rain-toggle');
-  let activated = false;
+  if(!isAbout) toggleBtn.style.display = 'none';
+
   function showBtn(playing){
     toggleBtn.innerHTML = playing
       ? '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="1" width="4" height="14"/><rect x="10" y="1" width="4" height="14"/></svg>'
@@ -50,7 +53,6 @@
 
   function startRain(){
     state = 'raining';
-    activated = true;
     window.dispatchEvent(new CustomEvent('rain-activate'));
     showBtn(true);
   }
@@ -103,31 +105,28 @@
   window.addEventListener('resize', resize);
   resize();
 
-  /* cursor & click on rain zone (top 33.4vh), skip interactive elements */
-  function inRainZone(e){
-    var r = canvas.getBoundingClientRect();
-    return e.clientY >= r.top && e.clientY <= r.top + r.height * 2 / 3 && e.clientX >= r.left && e.clientX <= r.right;
-  }
-  function isInteractive(e){ return !!e.target.closest('a,button,input,label,select,textarea,[role="button"]'); }
-
-  document.addEventListener('mousemove', function(e){
-    document.body.style.cursor = (inRainZone(e) && !isInteractive(e)) ? 'pointer' : '';
-  });
-
-  document.addEventListener('click', function(e){
-    if(!inRainZone(e) || isInteractive(e)) return;
-    if(state === 'idle'){
-      startRain();
-    } else {
-      stopRain();
+  /* click interaction – about page only */
+  if(isAbout){
+    function inRainZone(e){
+      var r = canvas.getBoundingClientRect();
+      return e.clientY >= r.top && e.clientY <= r.top + r.height * 2 / 3 && e.clientX >= r.left && e.clientX <= r.right;
     }
-  });
+    function isInteractive(e){ return !!e.target.closest('a,button,input,label,select,textarea,[role="button"]'); }
 
-  /* toggle button */
-  toggleBtn.addEventListener('click', function(e){
-    e.stopPropagation();
-    if(state === 'raining') stopRain(); else startRain();
-  });
+    document.addEventListener('mousemove', function(e){
+      document.body.style.cursor = (inRainZone(e) && !isInteractive(e)) ? 'pointer' : '';
+    });
+
+    document.addEventListener('click', function(e){
+      if(!inRainZone(e) || isInteractive(e)) return;
+      if(state === 'idle') startRain(); else stopRain();
+    });
+
+    toggleBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(state === 'raining') stopRain(); else startRain();
+    });
+  }
 
   function drawDrop(d, sec){
     const x1 = d.x1, y1 = d.y1;
@@ -168,8 +167,6 @@
     ctx.clearRect(0, 0, W, H);
 
     if(state === 'raining'){
-      /* move drops down */
-      /* move drops along wind angle (same direction as streak slant) */
       for(let i = drops.length - 1; i >= 0; i--){
         const d = drops[i];
         const dist = d.fallSpeed * dt;

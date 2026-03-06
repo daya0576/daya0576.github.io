@@ -4,6 +4,7 @@ description: "Henry Z - SRE 工程师，Python 开发者，奶爸，乒乓球爱
 date: 2025-08-27T09:06:59+08:00
 toc: false
 comments: false
+rain_interactive: true
 keywords: ["SRE", "Python", "Site Reliability Engineer", "奶爸", "乒乓球", "Table Tennis", "技术博客"]
 ---
 

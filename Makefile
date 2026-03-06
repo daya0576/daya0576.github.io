@@ -14,3 +14,7 @@ push:
 	git submodule foreach "echo 'push..'; git push"
 	git push 
 
+reset:
+	echo 'reset..'
+	git reset --hard HEAD
+	git submodule foreach "echo 'reset..'; git reset --hard HEAD"

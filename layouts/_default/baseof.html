@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode }}">
     {{- partial "head.html" . -}}
-    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if eq .RelPermalink "/about/" }} class="about-page"{{ end }}>
-        {{- if or (eq .RelPermalink "/about/") (eq .RelPermalink "/") (eq .Section "posts") }}{{- partial "rain.html" . -}}{{ end -}}
+    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if .Params.rain_interactive }} data-rain-interactive="true"{{ end }}>
+        {{- partial "rain.html" . -}}
         <main class="page-content" aria-label="Content" style="position:relative;z-index:3;">
             <div class="w">
                 {{- block "main" . }}{{- end }}
                 {{ partial "footer.html" }}
             </div>
-            {{- if or (eq .RelPermalink "/about/") (eq .RelPermalink "/") (eq .Section "posts") }}{{- partial "ripple.html" . -}}{{ end -}}
-            {{- if or (eq .RelPermalink "/about/") (eq .RelPermalink "/") (eq .Section "posts") }}{{- partial "rain-sound.html" . -}}{{ end -}}
+            {{- if .Params.rain_interactive }}{{- partial "ripple.html" . -}}{{ end -}}
+            {{- if .Params.rain_interactive }}{{- partial "rain-sound.html" . -}}{{ end -}}
         </main>
     </body>
 </html>
