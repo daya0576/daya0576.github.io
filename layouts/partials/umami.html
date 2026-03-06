@@ -1,0 +1,11 @@
+{{- /* Umami Analytics - only load in production */ -}}
+{{- if hugo.IsProduction -}}
+<!-- Privacy-friendly analytics by Umami -->
+<script
+  defer
+  src="https://cloud.umami.is/script.js"
+  data-website-id="4897b887-cb78-4d7b-bd99-cc2c648825c7"
+  data-domains="changchen.me"
+  data-do-not-track="true"
+></script>
+{{- end -}}
