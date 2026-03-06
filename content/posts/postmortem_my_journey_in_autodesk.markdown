@@ -6,18 +6,16 @@ categories:
 - 编程
 ---
 
-> Sometimes when you lose, you win.
-
 As an SRE (Site Reliability Engineer), switching jobs is extremely risky - comparing it to a production change without any canary strategy or rollback option! However, YOLO (you only live once), just embrace and enjoy the risks.
 
-After joining Autodesk for 1y5m, the whole product team in Shanghai site was impacted by a global reduction in force. My time at Autodesk has been really rewarding, I learned more than I ever expected, worked with truely talented and professional teams and built friendships I’ll carry for life <3
+After joining Autodesk for 1y5m, our entire product team at the Shanghai site was impacted by a global reduction in force. My biggest disappointment is that I had just built solid domain knowledge and picked up new technical skills to start making a real impact. However, my time at Autodesk has been really rewarding, I learned more than I ever expected, worked with truly talented and professional teams and built friendships I’ll carry for life <3
 
 This post is a little retrospective in the form of a [postmortem](/blog/20180403/impressions-of-google-sre/#chapter-15---postmortem-culture-learning-from-failure).
 
 ![IMG_1659](/images/blog/global/IMG_1659.jpeg)
 
 # Timeline
-I started my career as a Python developer in a startup in Shanghai, the engineering experience became a solid cornerstone for my SRE transition.
+I started my career as a Python developer in a startup in Shanghai, the strong engineering culture and experience became a solid cornerstone for my SRE transition.
 
 Then, I moved to Ant Group, a leading global fintech company, which was the largest unicorn in the world. Luckily, I got promoted twice in 4 years and well compensated.
 
@@ -107,7 +105,7 @@ This solution automatically output the failing node (step) in the request workfl
 
 Incidents are inevitable, and not always negative; they provide valuable opportunities to review and enhance our services.
 
-Even though I was affected by layoffs, on the other side, this change has offered me a precious opportunity to become a full-time parent and give a chance to live for myself 😊
+Even though I was affected by the layoff, on the other side, this change offered me a precious opportunity to become a full-time parent and give a chance to live for myself 😊
 
 The next thing for me is taking care of my newborn. I will be writing more on the topic so stay tuned!
 

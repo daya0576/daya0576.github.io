@@ -36,7 +36,7 @@ series:
 # 1. 用户需求 - 本地文件 `app_spec.txt` 人工输入项目目标、技术栈、页面布局、验收标准等细节要求
 # 2. 环境管理 - 本地文件 `init.sh` 用于快速初始化开发环境，例如创建并激活 python 虚拟环境
 # 3. 功能列表 - 本地文件 `feature_list.json` 包含上百个子功能的优先级、是否已完成等信息
-# p.s. 使用的 json 而不是 markdown：因为结构化的 json 文件更不不容易被模型改乱
+#    p.s. 使用的 json 而不是 markdown：因为结构化的 json 文件更不不容易被模型改乱
 # 4. 项目进度 - 本地文件 `claude-progress.txt` 管理每次 session 的总结
 # 5. 提交记录 - 利用 git 一个 commit 对应一个子功能，方便快速回滚。
 
@@ -67,11 +67,11 @@ while True:
 - 假如将单个专职 agent 拆解为专职的多个 agent 协同作业，例如测试 agent，质量保证 agent。会不会做的更好？效率会更高吗？
 - 关于测试验收：Claude 提供了模拟游览器的端到端测试（Puppeteer MCP），和 unittest 的互补关系？ 
 
-
 # References
 1. https://github.com/github/spec-kit
 2. https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
 3. https://github.com/anthropics/claude-quickstarts/tree/main/autonomous-coding
+4. 
 
 
 
