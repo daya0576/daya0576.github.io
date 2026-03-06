@@ -8,7 +8,7 @@
                 {{- block "main" . }}{{- end }}
                 {{ partial "footer.html" }}
             </div>
-            {{- if .Params.rain_interactive }}{{- partial "ripple.html" . -}}{{ end -}}
+            {{- partial "ripple.html" . -}}
             {{- if .Params.rain_interactive }}{{- partial "rain-sound.html" . -}}{{ end -}}
         </main>
     </body>
