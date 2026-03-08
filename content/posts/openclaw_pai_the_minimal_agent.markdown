@@ -11,7 +11,7 @@ series:
 
 > OpenClaw runs a single embedded agent runtime derived from pi-mono.
 
-在翻阅 OpenClaw 文档时，无意发现其 [Agent Runtime](https://docs.openclaw.ai/concepts/agent) 是基于 [badlogic/pi-mono](https://github.com/badlogic/pi-mono/) 构建。恰好又看到 Armin 写的一篇文章：[Pi: The Minimal Agent Within OpenClaw](https://lucumr.pocoo.org/2026/1/31/pi/)，于是顺着好奇心读了下去。
+在翻阅 OpenClaw 文档时，无意发现其 [Agent Runtime](https://docs.openclaw.ai/concepts/agent) 是基于 [pi-mono](https://github.com/badlogic/pi-mono/) 构建。恰好又看到 Armin 写的一篇文章：[Pi: The Minimal Agent Within OpenClaw](https://lucumr.pocoo.org/2026/1/31/pi/)，于是顺着好奇心读了下去。
 
 ## 什么是 Pi
 

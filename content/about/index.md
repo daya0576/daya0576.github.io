@@ -8,7 +8,6 @@ rain_interactive: true
 keywords: ["SRE", "Python", "Site Reliability Engineer", "奶爸", "乒乓球", "Table Tennis", "技术博客"]
 ---
 
-
 ## 快问快答
 ```
 Q：最喜欢的天气是？
