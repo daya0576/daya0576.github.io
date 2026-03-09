@@ -1,8 +1,7 @@
 ---
-title: "派派成长日记 #6 - “摆烂”（120-150天）"
+title: "派派成长日记 #06 - “摆烂”（120-150天）"
 date: 2025-10-26T11:31:38+08:00
-weight: 6
-series: 
+series:
 - paipai
 categories:
 - 派派

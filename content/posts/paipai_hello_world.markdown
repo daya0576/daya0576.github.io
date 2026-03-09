@@ -1,7 +1,6 @@
 ---
-title: "派派成长日记 #1 - Hello World 🐣"
+title: "派派成长日记 #01 - Hello World 🐣"
 date: 2025-11-03T19:29:58+08:00
-weight: 1
 series: 
 - paipai
 categories:
