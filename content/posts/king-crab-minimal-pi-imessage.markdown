@@ -6,17 +6,23 @@ categories:
 - 编程
 ---
 
+Hi folks, I'd like to share a tiny project I’ve been working on over the past few weeks: a minimal and self-managing iMessage bot: https://github.com/daya0576/pi-imessage
+
+I added this bot to my family group chat and kindly introduced him to everyone. We've been asking questions, sharing cheerful moments, making jokes, and of course, asking him to do us "favors".
+
+Currently, with grwoing memories and custom tools, he's basically a sweet family member :P
+
+
 ![Xnip2026-03-13_16-13-22](/images/blog/global/Xnip2026-03-13_16-13-22.png)
 
 P.S. [Paipai](/blog/20250727/paipai_two_months_old/#%E5%90%8D%E5%AD%97%E7%94%B1%E6%9D%A5) is the name of my little boy :p
 
 
 # Background
-> Pi also is a collection of little components that you can build your own agent on top. That's how OpenClaw is built, and that's also how I built my own little Telegram bot and how Mario built his mom. If you want to build your own agent, connected to something, Pi when pointed to itself and mom, will conjure one up for you. - Pi: The Minimal Agent Within OpenClaw
 
-When using OpenClaw, the complexity of the software makes me overwhelmed and the debugging process is painful.. 
+when using OpenClaw, the complexity of the software makes me overwhelmed and the debugging process is painful.. 
 
-So I decided to build a minimal and self-managing iMessage bot without extra dependencies.
+I want something simple, so I decided to build a minimal and self-managing iMessage bot — powered by [pi](https://github.com/badlogic/pi-mono).
 
 
 # Features
@@ -27,11 +33,11 @@ So I decided to build a minimal and self-managing iMessage bot without extra dep
 - **iMessage Integration**: Responds to DMs, SMS, and group chats; identifies who sent each message
 - **Web UI**: browse chat history, toggle replies on/off per chat, live updates — disable with WEB_ENABLED=false and let the agent build your own web UI
 
-
 # Getting Started
 
-Simply install and go
-```
+Prerequisites: macOS with Messages.app, Full Disk Access for the terminal, [Pi Coding Agent](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#quick-start) authenticated
+
+```bash
 npm install -g @kingcrab/pi-imessage
 
 pi-imessage             # run in foreground
@@ -86,3 +92,7 @@ pi-imessage install     # install as launchd service (auto-start on boot, restar
         ▼
   iMessage (user receives reply via Messages.app)
 ```
+
+---
+
+⚠️ This project is still in early stage, feel free to create issue or pull request. Thanks.
