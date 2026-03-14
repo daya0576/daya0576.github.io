@@ -1,25 +1,46 @@
-{{- /* Rain sound: triggered by rain-activate / rain-deactivate events */ -}}
-<audio id="rain-audio" loop preload="metadata">
-  <source src="/rain-long.m4a" type="audio/mp4">
-</audio>
+{{- /*
+  Rain sound – requirements:
+  1. 页面加载时异步预加载音频文件（fetch + decode 延迟到首次交互）
+  2. 使用 Web Audio API AudioBuffer 实现无缝循环（<audio loop> 有间隙）
+  3. 播放/停止带 1s 淡入淡出
+  4. 监听 rain-activate / rain-deactivate 自定义事件
+*/ -}}
 
 <script>
 (function () {
-  var audio = document.getElementById('rain-audio');
   var FADE = 1;
   var playing = false;
-  var ctx, gain;
+  var ctx, gain, source;
+  var buffer = null;
+  var rawData = null;
+  var pendingPlay = false;
 
-  function initAudio() {
-    if (ctx) return;
+  /* Fetch raw audio data immediately on page load */
+  fetch('/rain_origin.m4a')
+    .then(function (r) { return r.arrayBuffer(); })
+    .then(function (ab) { rawData = ab; decodeIfReady(); })
+    .catch(function () {});
+
+  function getCtx() {
+    if (ctx) return ctx;
     ctx = new (window.AudioContext || window.webkitAudioContext)();
     gain = ctx.createGain();
     gain.gain.value = 0;
-    ctx.createMediaElementSource(audio).connect(gain);
     gain.connect(ctx.destination);
+    return ctx;
   }
 
-  function fadeTo(v) {
+  function decodeIfReady() {
+    if (!rawData || !ctx) return;
+    var data = rawData;
+    rawData = null;
+    ctx.decodeAudioData(data).then(function (decoded) {
+      buffer = decoded;
+      if (pendingPlay) { pendingPlay = false; play(); }
+    }).catch(function () {});
+  }
+
+  function ramp(v) {
     gain.gain.cancelScheduledValues(ctx.currentTime);
     gain.gain.setValueAtTime(gain.gain.value, ctx.currentTime);
     gain.gain.linearRampToValueAtTime(v, ctx.currentTime + FADE);
@@ -27,18 +48,34 @@
 
   function play() {
     if (playing) return;
-    initAudio();
-    if (ctx.state === 'suspended') ctx.resume();
+    var c = getCtx();
+    if (c.state === 'suspended') c.resume();
+
+    /* If raw data fetched but not yet decoded, decode now */
+    if (!buffer && rawData) {
+      pendingPlay = true;
+      decodeIfReady();
+      return;
+    }
+    if (!buffer) { pendingPlay = true; return; }
+
     playing = true;
-    audio.play().then(function () { fadeTo(1); }).catch(function () { playing = false; });
+    gain.gain.setValueAtTime(0, c.currentTime);
+    source = c.createBufferSource();
+    source.buffer = buffer;
+    source.loop = true;
+    source.connect(gain);
+    source.start(0);
+    ramp(1);
   }
 
   function stop() {
-    if (!playing) return;
+    if (!playing) { pendingPlay = false; return; }
     playing = false;
-    if (!gain) { audio.pause(); return; }
-    fadeTo(0);
-    setTimeout(function () { if (!playing) audio.pause(); }, FADE * 1000);
+    ramp(0);
+    var s = source;
+    setTimeout(function () { if (!playing && s) try { s.stop(); } catch (e) {} }, FADE * 1000);
+    source = null;
   }
 
   window.addEventListener('rain-activate', play);
