@@ -1,81 +1,46 @@
 {{- /*
-  Rain sound – requirements:
-  1. 页面加载时异步预加载音频文件（fetch + decode 延迟到首次交互）
-  2. 使用 Web Audio API AudioBuffer 实现无缝循环（<audio loop> 有间隙）
-  3. 播放/停止带 1s 淡入淡出
-  4. 监听 rain-activate / rain-deactivate 自定义事件
+  Rain Sound
+
+  Plays rain ambience in a seamless loop, controlled by custom events.
+
+  - Preloads audio on page load (async, non-blocking)
+  - Uses howler.js with html5:false to force Web Audio API (AudioBufferSourceNode.loop)
+    for gapless looping (<audio loop> has inherent gaps between iterations)
+  - OGG Opus format: no encoder delay/padding (unlike AAC/MP3), ensuring seamless loops
+  - 1s fade in/out on play/stop
+  - Listens for 'rain-activate' / 'rain-deactivate' window events
 */ -}}
 
+<script src="/js/howler.min.js"></script>
 <script>
 (function () {
-  var FADE = 1;
+  var FADE = 1000;
+  var sound = new Howl({
+    src: ['/rain.ogg', '/rain_origin.m4a'],
+    loop: true,
+    preload: true,
+    html5: false,
+    volume: 0
+  });
+
   var playing = false;
-  var ctx, gain, source;
-  var buffer = null;
-  var rawData = null;
-  var pendingPlay = false;
-
-  /* Fetch raw audio data immediately on page load */
-  fetch('/rain_origin.m4a')
-    .then(function (r) { return r.arrayBuffer(); })
-    .then(function (ab) { rawData = ab; decodeIfReady(); })
-    .catch(function () {});
-
-  function getCtx() {
-    if (ctx) return ctx;
-    ctx = new (window.AudioContext || window.webkitAudioContext)();
-    gain = ctx.createGain();
-    gain.gain.value = 0;
-    gain.connect(ctx.destination);
-    return ctx;
-  }
-
-  function decodeIfReady() {
-    if (!rawData || !ctx) return;
-    var data = rawData;
-    rawData = null;
-    ctx.decodeAudioData(data).then(function (decoded) {
-      buffer = decoded;
-      if (pendingPlay) { pendingPlay = false; play(); }
-    }).catch(function () {});
-  }
-
-  function ramp(v) {
-    gain.gain.cancelScheduledValues(ctx.currentTime);
-    gain.gain.setValueAtTime(gain.gain.value, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(v, ctx.currentTime + FADE);
-  }
 
   function play() {
     if (playing) return;
-    var c = getCtx();
-    if (c.state === 'suspended') c.resume();
-
-    /* If raw data fetched but not yet decoded, decode now */
-    if (!buffer && rawData) {
-      pendingPlay = true;
-      decodeIfReady();
-      return;
-    }
-    if (!buffer) { pendingPlay = true; return; }
-
     playing = true;
-    gain.gain.setValueAtTime(0, c.currentTime);
-    source = c.createBufferSource();
-    source.buffer = buffer;
-    source.loop = true;
-    source.connect(gain);
-    source.start(0);
-    ramp(1);
+    if (!sound.playing()) {
+      sound.play();
+    }
+    sound.fade(0, 1, FADE);
   }
 
   function stop() {
-    if (!playing) { pendingPlay = false; return; }
+    if (!playing) return;
     playing = false;
-    ramp(0);
-    var s = source;
-    setTimeout(function () { if (!playing && s) try { s.stop(); } catch (e) {} }, FADE * 1000);
-    source = null;
+    sound.fade(sound.volume(), 0, FADE);
+    sound.once('fade', function () {
+      if (!playing) sound.pause();
+    });
   }
 
   window.addEventListener('rain-activate', play);
