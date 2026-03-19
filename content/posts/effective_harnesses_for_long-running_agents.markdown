@@ -71,7 +71,6 @@ while True:
 1. https://github.com/github/spec-kit
 2. https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
 3. https://github.com/anthropics/claude-quickstarts/tree/main/autonomous-coding
-4. 
 
 
 
