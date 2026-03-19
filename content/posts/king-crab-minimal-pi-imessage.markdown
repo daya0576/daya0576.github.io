@@ -1,5 +1,5 @@
 ---
-title: "Introducing `@kingcrab/pi-imessage` - 🦀 A minimal and self-managing iMessage bot"
+title: "Introducing a Minimal and Self-managing iMessage Bot"
 date: 2026-03-13T15:41:08+08:00
 categories:
 - AI
@@ -9,9 +9,6 @@ categories:
 Hi folks, I'd like to share a tiny project I’ve been working on over the past few weeks: [https://github.com/daya0576/pi-imessage](https://github.com/daya0576/pi-imessage)
 
 ![Xnip2026-03-13_16-13-22](/images/blog/global/Xnip2026-03-13_16-13-22.png)
-
-P.S. [Paipai](/blog/20250727/paipai_two_months_old/#%E5%90%8D%E5%AD%97%E7%94%B1%E6%9D%A5) is the name of my little boy :p
-
 
 # Background
 
