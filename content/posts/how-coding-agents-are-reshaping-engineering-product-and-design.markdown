@@ -12,8 +12,7 @@ series:
 
 ## EPD 
 
-名词：
-- 作者发明的一个单词：EPD (Engineering, Product, and Design)
+作者发明的一个单词：EPD (Engineering, Product, and Design)
 
 ## PRDs 已死
 

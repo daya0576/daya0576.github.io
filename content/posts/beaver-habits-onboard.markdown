@@ -5,7 +5,7 @@ tags:
 categories:
 - 独立开发
 - python
-- 编程
+- Dev
 ---
 
 When switching from Android to iOS, I was unable to find a light-weighted but handy habit tracking app, so I decided to make one by myself :)
