@@ -1,6 +1,7 @@
 ---
 title: "读《数据密集型应用系统设计》"
 date: 2026-03-19T11:16:31+08:00
+TOC: true
 categories:
 - SRE
 - 编程
