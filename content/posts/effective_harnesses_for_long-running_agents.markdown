@@ -1,5 +1,5 @@
 ---
-title: "在新时代重新学习“编程” - #1 Long-running Agents"
+title: "读 Effective harnesses for long-running agents"
 date: 2026-02-17T21:03:36+08:00
 TOC: true
 categories:

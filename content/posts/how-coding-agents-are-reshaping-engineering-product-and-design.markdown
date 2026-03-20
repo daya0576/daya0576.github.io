@@ -1,5 +1,5 @@
 ---
-title: "在新时代重新学习“编程” - #7：读 How Coding Agents Are Reshaping Engineering, Product and Design"
+title: "读 How Coding Agents Are Reshaping Engineering, Product and Design"
 date: 2026-03-11T20:34:19+08:00
 categories:
 - AI

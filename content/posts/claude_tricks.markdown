@@ -1,5 +1,5 @@
 ---
-title: "在新时代重新学习“编程” - #3 Claude Code 工作流学习"
+title: "Claude Code 工作流学习"
 date: 2026-02-19T11:00:31+08:00
 TOC: true
 categories:
