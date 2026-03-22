@@ -73,4 +73,4 @@ For most single-leader databases, multiple followers can significantly improve g
 
 Coming back to my original question, `now()` is a **nondeterministic function**. If a database uses statement-based replication executing `INSERT ... now()` on the leader and followers will result in different timestamps and breaks data consistency.
 
-Although modern databases have already use binlog replication to avoid this inconsistency, **explicit is better than implicit**, managing time in application layer ensures overall consistency and less coupled to underlaying infratructure.
+Although modern databases have already use binlog replication to avoid this inconsistency, **explicit is better than implicit**, managing time in application layer ensures overall consistency and less coupled to underlaying infrastructure.
