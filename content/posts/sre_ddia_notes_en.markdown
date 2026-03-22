@@ -12,12 +12,12 @@ Over the past few weeks, to prepare for a system design interview, I read a book
 This post shares my takeaways and initial thoughts of two incidents from an SRE's perspective.
 
 
-# Incident1
+## Incident1
 
-## Problem
+### Problem
 During a regular code deployment, I received an alert that the payment error rate had become abnormal, and the error count kept going up. After inspecting the timeline, I highly suspected that the rising error rate was caused by this release, so I rolled back the change immediately. Fortunately, the errors disappeared.
 
-## Root cause
+### Root cause
 After further investigation, I noticed `serialization error` in the RPC logs and eventually found out that the root cause was a newly added enum value with inappropriate release order.
 
 ```
@@ -32,34 +32,34 @@ Service A (Old)          Service B (New)
           X                        │
 ```
 
-## What I learned
+### What I learned
 
 After reading DDIA, I gained a better understanding of RPC encoding and its trade-offs compared with approaches such as JSON and pickle. More importantly, when versioning is involved, we must carefully consider *backward and forward compatibility*.
 
 Although this incident could have been avoided by releasing `Service A` first, a more robust solution is to fall back to an `UNKNOWN` value instead of letting middleware raise a critical system error and fail the payment. Another option is to use strings in RPC payloads and convert them to internal enums inside each service.
 
 
-# Incident2
+## Incident2
 
-## Problem
+### Problem
 
 It was a Friday morning and I was paged by a P1 alert showing that a key merchant's payment success request count had dropped by 20%. Fortunately, as soon as I opened the dashboard, the service recovered automatically within one minute.
 
 The incident was caused by an internal bug in OceanBase: the database hung for about 30 seconds while merging data from memory to disk.
 
-## Root cause
+### Root cause
 During the postmortem meeting, everyone focused on this bug and discussed the fix.
 
 However, as a professional SRE, I noticed a deeper issue. The bug occurred in a customer-profile-related service's database, which means even if the database were totally down, it should not significantly impact payments because 99% of traffic was expected to be served from cache.
 
 After reading the application's Java code for several days, I finally found out that although the `get_or_create_user` service had a proper cache strategy, the implementation queried database time at the beginning when preparing thread-local context. This unnecessary hard dependency was the true root cause of the incident.
 
-## Solution
+### Solution
 Then I created a pull request, using a "lazy load" strategy to fix this issue, preventing similar incidents from happening again for all related services in the application.
 
 However, at that time, I still had a small question: __why didn't we simply use `now()` in the database when creating new users?__
 
-## What I learned
+### What I learned
 
 After reading DDIA, I realized the answer is related to the complexity of distributed databases and data replication.
 
