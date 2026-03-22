@@ -7,7 +7,7 @@ categories:
 - TECH
 ---
 
-Over the past few weeks, to prepare for the system design interview, I read a book called DDIA (Designing Data-Intensive Applications), which had sat on my shelf for years. Not sure how much it would help my interview performance, but I truly enjoy it and have a brand new understanding of two past incidents.
+Over the past few weeks, to prepare for a system design interview, I read a book called DDIA (Designing Data-Intensive Applications), which had sat on my shelf for years. Not sure how much it would help my interview performance, but I truly enjoy it and have a brand new understanding of two past incidents.
 
 This post shares my takeaways and initial thoughts of two incidents from an SRE's perspective.
 
