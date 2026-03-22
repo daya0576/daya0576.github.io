@@ -12,10 +12,10 @@ Over the past few weeks, to prepare for a system design interview, I read a book
 This post shares my takeaways and initial thoughts of two incidents from an SRE's perspective.
 
 
-## Incident1
+## Incident1 - RPC Serialization Error
 
 ### Problem
-During a regular code deployment, I received an alert that the payment error rate had become abnormal, and the error count kept going up. After inspecting the timeline, I highly suspected that the rising error rate was caused by this release, so I rolled back the change immediately. Fortunately, the errors disappeared.
+During a regular code deployment, I received an alert of abnormal payment error rate, and the error count kept going up. After inspecting the timeline, I highly suspected that the rising error rate was caused by this release, so I rolled back the change immediately. Fortunately, the errors disappeared.
 
 ### Root cause
 After further investigation, I noticed `serialization error` in the RPC logs and eventually found out that the root cause was a newly added enum value with inappropriate release order.
@@ -39,7 +39,7 @@ After reading DDIA, I gained a better understanding of RPC encoding and its trad
 Although this incident could have been avoided by releasing `Service A` first, a more robust solution is to fall back to an `UNKNOWN` value instead of letting middleware raise a critical system error and fail the payment. Another option is to use strings in RPC payloads and convert them to internal enums inside each service.
 
 
-## Incident2
+## Incident2 - The Hidden Hard Dependency
 
 ### Problem
 
