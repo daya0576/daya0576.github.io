@@ -6,6 +6,7 @@ categories:
 - 读书
 - 学习
 - 生活
+- 育儿
 ---
 
 > "We do not suggest that parents be either permissive or punitive. What parents have to learn is how to become a match for their children, wise to their ways and capable of guiding them without letting them run wild or stifling them."
