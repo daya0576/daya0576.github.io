@@ -48,10 +48,11 @@ enableRobotsTXT = true
     instagram = "daya0576"
   
   [params.social]
-    twitter = ""
+    twitter = "daya0576"
     github = "daya0576"
     youtube = "@daya0576"
     instagram = "daya0576"
+    linkedin = "henry-zhu-181191182"
   
   # SEO settings
   [params.seo]
