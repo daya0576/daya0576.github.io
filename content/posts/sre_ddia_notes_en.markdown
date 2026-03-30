@@ -45,8 +45,6 @@ Then I created a pull request, using a "lazy load" strategy to fix this issue, p
 
 However, at that time, I still had a small question: <u>why didn't we simply use `now()` in the database when creating new users?</u>
 
-<br>
-
 ## What I learned
 
 After reading DDIA, I realized the answer is related to the complexity of distributed databases and data replication.

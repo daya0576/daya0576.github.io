@@ -10,7 +10,7 @@ draft: true
 
 ⚠️ 声明：科学在快速发展，这份指南推出的时间超过十年，仅供参考，如果遇到问题请即使就医。
 
-# 6 个月开始引入辅食
+## 6 个月开始引入辅食
 
 > The recommendation to offer food at around 6 months of age is based on research about how a baby grows and develops, as well as what we know about the best thing for digestive health and babies’ kidneys
 

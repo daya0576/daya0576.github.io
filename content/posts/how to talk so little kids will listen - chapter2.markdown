@@ -16,16 +16,16 @@ categories:
 想到逆子长大后，不愿意按时刷牙，不愿意好好吃饭，不愿意在公共场合保持安静... 便令人头疼万分。所以作为父母，应该如何巧妙地获得孩子的合作？
 
 
-# 第二章：让孩子做他们必须做的事
+## 第二章：让孩子做他们必须做的事
 > "Even if I want to do something, as soon as somebody tells me to do it, I don’t want to do it anymore."
 
 想象小时候：即使是原本愿意做的事情，当父母一边唠叨一边命令你做时，你也会产生==抗拒心理==，不想再去做了（人之常情，婴儿也不例外）。举个例子：当你行走在图书馆中，遇到一堆凌乱尚未整理的书籍。你本来想快步走开，但无意间注意到墙上的小牌子：“请不要碰！”。突然一股孩子般的叛逆感从心中油然而生，你故意触碰了那堆书，然后开心并心满意足地离开（“犯贱”）。
 
 下面将介绍巧妙规避孩子“逆鳞”的若干技巧。
 
-## TOOL  #1: Be Playful - 游戏化
+### TOOL  #1: Be Playful - 游戏化
 
-### 1）对物体赋予生命
+#### 1）对物体赋予生命
 > One technique, sure to be a hit with the seven and under set, is to make an inanimate object talk.
 
 类似玩具总动员，对没有生命的物体夸张的说话。举几个正面例子：
@@ -34,7 +34,7 @@ categories:
 - 牙刷：我刚刚看到一个细菌藏在你的牙齿后面（试试模仿硬汉的声音，进行角色扮演）。
 - ...
 
-### 2）将日常中的琐事，转化为任务或挑战
+#### 2）将日常中的琐事，转化为任务或挑战
 > Another playful technique is to turn a boring task into a challenge or a game
 
 任何乏味的任务，只要转化为游戏，就会变得有趣且容易完成。例如：
@@ -42,7 +42,7 @@ categories:
 - 现在，马上，到车上去。我不想再说第二遍！ -> 我们从家门口一直双脚跳到车上，你觉得有可能吗？听起来不太容易呢。
 
 
-## TOOL #2: Offer a Choice - 提供自由的选项
+### TOOL #2: Offer a Choice - 提供自由的选项
 > The second tool for engaging cooperation is to substitute a choice for a command. 
 
 技巧二：将命令转化为一系列选项。例如：
@@ -58,7 +58,7 @@ categories:
 ⚠️ 注意：避免“威胁”式的虚假选择，例如你想跟我走还是永远留在这里！
 
 
-## TOOL #3: Put the Child in Charge  - 让孩子当家作主
+### TOOL #3: Put the Child in Charge  - 让孩子当家作主
 
 > A common complaint among parents of toddlers is, “He won’t do what he’s told because he just wants to be in control!”
 > My response is, “Then let’s put him in control.” 
@@ -69,7 +69,7 @@ categories:
 
 例如：找孩子帮一些小忙 ------ 帮忙设个闹钟，时间到了提醒我们出发吗？
 
-## TOOL #4: Give Information - 提供信息
+### TOOL #4: Give Information - 提供信息
 
 > Often it’s enough to give her simple information instead of an order.
 
@@ -77,7 +77,7 @@ categories:
 - 系好安全带，否则我不会开车送你去朋友家 -> 法律规定每个人都必须系好安全带才能开车。
 - 别敲键盘了。你会把它弄坏的！ -> 键盘非常的脆弱，它只需要轻轻一碰就可以了。
 
-## TOOL #5: Say It with a Word (or a Gesture)
+### TOOL #5: Say It with a Word (or a Gesture)
 
 使用**单个名词**或**一个手势**（作者解释背后一种态度上的转变，从恼火的指责转为友善的提醒，相信孩子有能力自己想到该做什么。但个人怎么感觉有一点点冷暴力）：
 - 现在马上系好安全带 -> 安全带
@@ -86,7 +86,7 @@ categories:
 
 文中提到这个方法的另一个好处：当你被孩子的行为惹的生气到极点时，通过提高声调大喊单个名词，即给自己发泄了情绪，同时也对孩子幼小心灵造成伤害。
 
-## TOOL #6: Describe What You See
+### TOOL #6: Describe What You See
 
 有时候单个词不够时，添加一点描述：我看到地板上有一件夹克（暗示孩子捡起挂在衣架上，不要乱扔）。
 
@@ -94,7 +94,7 @@ categories:
 
 ⚠️ 先抑后扬，在描述时，记得尽量强调当前积极有进展的一面（想起昨日将视频发给我的乒乓球教练，对方先称赞有进步，然后洋洋洒洒罗列了七八条需要改进的地方。。。）。
 
-## TOOL #7: Describe How You Feel
+### TOOL #7: Describe How You Feel
 
 > We’re humans, not robots. It’s not a good idea to pretend to be calm until we explode (and most of us will explode eventually).
 
@@ -114,7 +114,7 @@ categories:
 
 ⚠️ 注意小孩子很难处理来自大人强烈的负面情绪，收起“愤怒”和“愤怒”这样的词，多使用“难过”、“沮丧”、“我不喜欢”。
 
-## TOOL #8: Write a Note
+### TOOL #8: Write a Note
 
 > The written word has a mysterious power that spoken words do not. A note can be more effective than a nagging voice.
 
@@ -125,7 +125,7 @@ categories:
 ![](/images/blog/global/17699298097596.jpg)
 
 
-## TOOL #9: Take Action Without Insult
+### TOOL #9: Take Action Without Insult
 
 > None of these tools will work for every child in every situation.
 > The final tool of this chapter is to take action without insult.
@@ -140,7 +140,7 @@ categories:
 
 从上面的例子不难看出，家长需要做的是：不冷暴力，不威胁，不指责，不贿赂，仅仅陈述自己的感受与行动。
 
-# 总结
+## 总结
 
 > The older they get, the more they can be in charge of themselves, especially if they’ve had the practice of making choices and being in charge of their own behavior when they’re younger.”
 > Self-control can only be developed by practice, not by force!

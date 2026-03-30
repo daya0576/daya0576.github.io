@@ -14,14 +14,14 @@ series:
 在家带娃快十个月，孩子叫出了第一声“mama”，世界似乎也发生了天翻地覆的变化。为了在新时代重新学习“编程”，尝试漫无目的地阅读感兴趣的文章并记录“编程小白”学习的过程。
 
 
-# 1. Spec-Driven Development（SDD）
+## 1. Spec-Driven Development（SDD）
 
 相比于一问一答的 vibe coding，最近在想 --- 有没有可能更进一步：只提供需求背景和明确的期望结果，剩下的让 agent 长时间运行直到搞定？
 
 首先尝试了 Spec Driven Development (spec-kit)，一言难尽，有种在 2026 年驾驶“手动挡”汽车的别扭感。。越想要人工介入获得掌控感，反而越容易熄火。// 除非你就是特别喜欢手动挡的操作乐趣。
 
 
-# 2. Effective harnesses for long-running agents
+## 2. Effective harnesses for long-running agents
 
 > The core challenge of long-running agents is that they must work in discrete sessions, and each new session begins with no memory of what came before.   
 
@@ -67,7 +67,7 @@ while True:
 - 假如将单个专职 agent 拆解为专职的多个 agent 协同作业，例如测试 agent，质量保证 agent。会不会做的更好？效率会更高吗？
 - 关于测试验收：Claude 提供了模拟游览器的端到端测试（Puppeteer MCP），和 unittest 的互补关系？ 
 
-# References
+## References
 1. https://github.com/github/spec-kit
 2. https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
 3. https://github.com/anthropics/claude-quickstarts/tree/main/autonomous-coding

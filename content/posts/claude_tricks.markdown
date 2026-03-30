@@ -14,7 +14,7 @@ series:
 
 尽管本文的最佳实践都是针对 [Claude Code](https://code.claude.com/docs/en/best-practices)，但触类旁通，真正学习的是与 AI 打交道的沟通技巧。
 
-# “how I use Claude Code” - [@bcherny](https://x.com/bcherny/status/2007179832300581177)
+## “how I use Claude Code” - [@bcherny](https://x.com/bcherny/status/2007179832300581177)
 
 > There is no one correct way to use Claude Code: we intentionally build it in a way that you can use it, customize it, and hack it however you like. Each person on the Claude Code team uses it *very* differently.
 
@@ -30,7 +30,7 @@ series:
 9. 使用 [MCP](https://code.claude.com/docs/en/mcp) 集成第三方工具，例如让 Agent 在 Slack 中查看与发送消息，调用 Sentry 检查错误日志等。同上配置在 repo 中同步共享。
 10. 强调“验收”的重要性 - 构建一个良性的 feedback look 会事半功倍交付 2-3 倍质量的软件，例如让 Agent 自己打开游览器模拟验证，并不断重复改进。特别是长时间运行的复杂任务（例如超过一天），参考插件 [Ralph Loop](https://github.com/anthropics/claude-plugins-official/tree/2cd88e7947b7382e045666abee790c7f55f669f3/plugins/ralph-loop)
 
-# “Claude Code 101 - The complete claude code tutorial” - [@eyad_khrais](https://x.com/eyad_khrais/status/2010076957938188661?s=20)
+## “Claude Code 101 - The complete claude code tutorial” - [@eyad_khrais](https://x.com/eyad_khrais/status/2010076957938188661?s=20)
 
 > 10 out of 10 times, the output I've gotten with plan mode did significantly better than when I just started talking and spewing everything into Claude Code. It's not even close.
 
@@ -44,10 +44,10 @@ series:
 8. **Build Systems**：使用 `-p` 进入 “headless mode”，例如 `git diff --staged | claude -p "用中文写一个简洁的 commit message"`。进而无缝嵌入至操作系统，构建丝滑的自动化流程。
 
 
-# 其他
+## 其他
 突然想起了快十年前的一篇博客：[《PyCharm 收藏多年快捷键分享 WOW》](/blog/20170607/pycharm-shortcut/)。感叹世界在快速迭代变化，不变的是人 --- 不知为何大脑中突然循环起一首歌：“社会很单纯 坏的是人～”。
 
-# 参考
+## 参考
 1. https://x.com/bcherny/status/2007179832300581177
 2. https://code.claude.com/docs/en/best-practices
 3. https://x.com/eyad_khrais/status/2010076957938188661?s=20

@@ -8,7 +8,7 @@ categories:
 
 近日 [PyCoder's Weekly](https://pycoders.com/issues/715) newsletter 中看到的一篇好文章，简单分享一下阅读的笔记。
 
-# 基本概念
+## 基本概念
 从下面的代码不难看出，dataclass 作为一个装饰器，接受用户自定义的类 cls 作为参数，进行一顿改动后返回。
 ```python
 def dataclass(cls):
@@ -31,7 +31,7 @@ exec('x = 1', None, namespace)
 print(namespace)  # Output: {'x': 1}
 ```
 
-# 简易版 `__init__`
+## 简易版 `__init__`
 
 竟然动态手动组装代码并塞入 cls 中。下面是一个简易版的 `__init__` 方法实现：
 1. 首先依赖 cls 的 annotations 获取所有变量
@@ -60,9 +60,9 @@ def _init_fn(cls, fields): # cls.__annotations__.keys()
     _create_fn(cls, '__init__', txt)
 ```
 
-# 总结
+## 总结
 文中还提供了其他方法实现的例子（例如 Frozen Argument 与 `__repr__` 等），但由于大同小异便不再赘述，如果读者感兴趣，可以继续阅读[参考](#参考)中的链接。
 
-# 参考
+## 参考
 1. https://jacobpadilla.com/articles/python-dataclass-internals 
 2. https://github.com/python/cpython/blob/6b9a6c6ec3bbc9795df67b87340e2ea58f42b3d4/Lib/dataclasses.py#L720-L725

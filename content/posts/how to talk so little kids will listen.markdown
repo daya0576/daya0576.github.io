@@ -22,13 +22,13 @@ categories:
 读完这本书的第一章后，我突然明白了问题的根源。虽然这本书适用于两岁以上的儿童，但对于其中包含的沟通技巧，不管是针对蹒跚学步的孩子，还是 30 多岁的大人，都十分适用 ------ 毕竟绝大部分大人（包括我自己），都是未完全成熟的小孩。
 
 
-## 第一章：处理孩子负面情绪的 5 种工具
+### 第一章：处理孩子负面情绪的 5 种工具
 
 > When kids don’t feel right, they can’t behave right
 
 面对婴幼儿的负面情绪，例如我讨厌某个小朋友、我厌倦了早餐的煎饼，大人总是忍不住尽快纠正或责骂他们。但想象如果你没睡好，上班时向同事抱怨不想上班，对方大概率会尝试理解你而不是立即反驳（==负面情绪的被接纳会让人感到大大的宽慰==）。
 
-### TOOL #1: Acknowledge Feelings with Words
+#### TOOL #1: Acknowledge Feelings with Words
 技巧一：使用语言接纳孩子的情绪，具体的步骤：
 1. 咬紧牙关，克制住马上反驳他的冲动（不要钻牛角尖，不要与孩子讲逻辑讲道理）
 2. 想象孩子的感受（或提前教孩子与情感相关的一些词汇，以便于他可以在需要的时候求助）
@@ -56,7 +56,7 @@ categories:
 ⚠️ 划重点：==千万不要用“但是”==，它会让所有的努力前功尽弃，例如“我理解你很生气，**但是**你不能这么做！”
 
 
-### TOOL #2: Acknowledge Feelings with Writing
+#### TOOL #2: Acknowledge Feelings with Writing
 > Seeing their feelings and desires written down in black and white can be very powerful, even for prereaders.
 
 技巧二：即使面对尚未识字的孩子，==通过纸和笔将他的情绪与愿望写下来==也是一种神奇有效的工具。例如在外出购物时，与孩子一起维护愿望清单，并在生日过节时进行参考。通过承认孩子的实际感受，可以帮忙他们控制无限制地索取，并接受不可能总是得到想要的东西。父母通过尊重与倾听，帮助孩子培养延迟满足的重要生活技能。
@@ -64,7 +64,7 @@ categories:
 真实案例1：两岁的女儿卡拉想要巧克力曲奇饼干。我在一张纸上写下“COOKIE”这个词，并画了一个圈，试图让它看起来像一个饼干。她为饼干添加了巧克力豆的点。她非常满足地把那张纸带在身边，就好像这个词是一个神奇的护身符。通常情况下，无论我们告诉她家里没有她想要的东西多少次，她都不会轻易放弃。
 
 
-### TOOL #3: Acknowledge Feelings with Art
+#### TOOL #3: Acknowledge Feelings with Art
 
 > Sometimes words, written or spoken, are not enough to express a strong feeling. If you are feeling creative, try art. You don’t have to be Rembrandt—stick figures will do.
 
@@ -80,7 +80,7 @@ categories:
 
 真实案例1：每天早上起床穿衣服都像是“打仗”。虽然孩子只有两岁，已经学会了强烈的反抗（孩子喜欢不穿衣服）。家长温柔地描述承认他的感受，并解释为什么她必须穿好衣服去幼儿园，但可惜并没有帮助。气急败坏的家长大吼：“你喜欢裸奔！！在晚上裸奔！在白天裸奔！在家里裸奔，在车里裸奔，在学校裸奔！在月亮上裸奔！”。孩子兴奋地回应：“裸奔！裸奔！裸奔！”。自此之后，再也没有出现穿衣服困的情况了。
 
-### TOOL #4: Give in Fantasy What You Cannot Give in Reality
+#### TOOL #4: Give in Fantasy What You Cannot Give in Reality
 
 > A terrific tool for moments like these is to give a child in fantasy what you can’t give in reality.
 
@@ -90,7 +90,7 @@ categories:
 
 ⚠️ 注意==不要通过问问题来回应孩子的痛苦==，例如“你是不是很伤心？什么让你生气了？你为什么要哭呢？”。因为当孩子陷入崩溃与痛苦时，即使是温和的问题也会让人感觉像是在“审问”（即使成年人被这样询问时也会感到威胁）。进而导致一种错觉，需要为自己情绪找到合理理由进行辩护，反而增加了痛苦与压力。大多数情况下，孩子可能都不知道自己为什么难过，也无法用语言清楚地表达出来，所以不必找出情感的原因，用陈述句表示理解即可。
 
-### TOOL #5: Acknowledge Feelings with (Almost) Silent Attention
+#### TOOL #5: Acknowledge Feelings with (Almost) Silent Attention
 
 > Don’t just say something. Sit there!
 
@@ -100,7 +100,7 @@ categories:
 
 ---
 
-# 总结
+## 总结
 正如开头所说的：孩子的情绪直接反映在他的行为上（When kids don’t feel right, they can’t behave right）。如果你是开头提到的父亲，应该怎么做呢？🤔
 
 <details>

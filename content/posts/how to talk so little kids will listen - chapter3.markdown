@@ -16,9 +16,9 @@ categories:
 
 在传统的中式家庭中，不难看到对孩子的威胁、打骂与惩罚，甚至如同传统一般一代代“传承”下去。时代在变迁，过去阅读的每一本育儿书中都明确反对**打骂与惩罚**孩子。但作为父母，我们应该如何正确处理亲子“冲突”呢？
 
-# 第三章：解决冲突的百宝箱
+## 第三章：解决冲突的百宝箱
 
-## 关于 Natural consequence
+### 关于 Natural consequence
 
 > From the point of view of the child, getting a consequence and getting a punishment are two different names for the same thing.
 
@@ -32,7 +32,7 @@ categories:
 
 以下是一些规避惩罚的具体可行方法：
 
-## TOOL #1: Express Your Feelings . . . Strongly!
+### TOOL #1: Express Your Feelings . . . Strongly!
 
 > “HEY, I don’t like to see people being pushed!”
 
@@ -46,20 +46,20 @@ P.S. 然而现实很骨感，因为孩子很多时候无法理解潜在的巨大
 
 个人感受：不知是否受东方含蓄文化的影响，在亲密关系中，我们也往往选择沉默生闷气，用冷暴力“惩罚”对方，又希望于对方能通过“读心术”来理解自己的委屈。但有时候“勇敢”清晰地表达自己的感受与情绪，也是一种难得可贵的品质与沟通技巧。
 
-## TOOL #2: Show Your Child How to Make Amends
+### TOOL #2: Show Your Child How to Make Amends
 
 > Your sister got scared on the top of the slide. Let’s do something to make her feel better. Do you want to offer her some pretzels? Do you think she’d like to play with your sand bucket?
 > The quickest way to change a child’s behavior and attitude is to get him involved in fixing his mistake.
 
 给孩子一个弥补的机会 ------ 惩罚只会让孩子感到自卑，而弥补错误帮助让他们实现自我价值，从而意识到自己其实也是能够做好的。
 
-## TOOL #3: Offer a Choice
+### TOOL #3: Offer a Choice
 
 > I can see you’re in no mood to wait for a turn. You can swing on the swings or you can dig a big hole in the sand. You decide.
 
 试试提供选择，例如当孩子实在无法集中注意力学习时，让他自己决定接下来放电的活动。这种方式会更容易令孩子接受。
 
-## TOOL #4: Take Action Without Insult
+### TOOL #4: Take Action Without Insult
 
 > “We’re heading home. We’ll try the playground another day. I’m too worried about children getting hurt right now.”
 
@@ -73,7 +73,7 @@ P.S. 然而现实很骨感，因为孩子很多时候无法理解潜在的巨大
 
 避免惩罚的长远好处：为孩子树立榜样，当他长大成人后再遇到冲突时，不会首先想着去"惩罚"对方（比如威胁打对方一个巴掌让他记住教训），而是学会坚定地保护自己，设定清晰界限和坚持原则赢得尊重。比如不再借东西给失约或经常弄坏东西的朋友，并要求对方承担责任。
 
-## TOOL #5: Try Problem-Solving
+### TOOL #5: Try Problem-Solving
 
 > One of the keys to successful problem solving is to wait for a time when the mood is right. It can’t be done in the midst of frustration and anger. After the storm has passed, invite your child to sit down with you.
 
@@ -121,7 +121,7 @@ https://gemini.google.com/share/dc1df7134a78
 
 ⚠️ 注意在问题发生之前就*预防性*地解决问题。真实案例1：准备带孩子们经历五个半小时的长途飞行旅行（想想就头疼）。这位家长提前在餐厅把椅子排成一排，给了孩子每人一个背包，模拟练习走在狭窄的过道上并落座。然后模拟坐在椅子上，强调避免把脚踩在前排的椅子上，并让孩子自己准备游戏清单。在飞行前的三天里，每天都重复整个流程。通过提前充分的准备与练习，最终飞行旅行进行得非常顺利。
 
-# 总结
+## 总结
 
 当我在西西弗书店的咖啡厅完成这个章节的阅读时，右手边坐着一位低年级小学生与她的母亲一起写寒假作业，她的身上充满着一股超越这个年纪的成熟与稳重。
 
