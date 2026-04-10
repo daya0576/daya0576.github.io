@@ -6,6 +6,7 @@ series:
 categories:
 - 读书
 - 生活
+- 育儿
 ---
 
 > Tools for Engaging Cooperation . . . Feelings Schmeelings, She Has to Brush Her Teeth   

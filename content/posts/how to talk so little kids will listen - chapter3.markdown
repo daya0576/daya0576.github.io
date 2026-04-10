@@ -7,6 +7,7 @@ series:
 categories:
 - 读书
 - 生活
+- 育儿
 ---
 
 > Tools for Resolving Conflict . . . Avoiding Combat on the Home Front
