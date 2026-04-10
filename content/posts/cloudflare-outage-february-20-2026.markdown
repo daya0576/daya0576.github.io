@@ -57,14 +57,15 @@ series:
 ## 故障根因
 本次 6 个小时的故障由于一个“简单”的穿参问题导致。
 
-
-查询“待删除列表”的 GET 接口（自动化任务使用）：
+自动化任务依赖的两个接口：
+1. 查询“待删除列表”的 GET 接口
+2. 执行删除
 
 ```go
 resp, err := d.doRequest(ctx, http.MethodGet, `/v1/prefixes?pending_delete`, nil)
 ```
 
-一个参数引发的血案：
+查询接口一个参数引发的血案：
 - ✅ `?pending_delete=true`：API 返回待删除的前缀，正常执行删除动作。   
 - ❌ `?pending_delete`（无值）：API 返回全量前缀，客户端误以为全部删除，触发了故障。
 

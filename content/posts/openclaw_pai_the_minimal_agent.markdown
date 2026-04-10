@@ -5,6 +5,7 @@ TOC: true
 categories:
 - AI
 - 编程
+- Pi
 series:
 - ai_freshman
 ---
