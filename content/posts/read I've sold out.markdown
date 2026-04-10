@@ -1,5 +1,5 @@
 ---
-title: "读 I've Sold Out - Maria（Pi 的作者）"
+title: "Flask, OpenClaw & Pi - 时光交错的宿命"
 date: 2026-04-10T07:35:49+08:00
 categories:
 - AI
@@ -8,6 +8,8 @@ categories:
 ---
 
 ![](/images/blog/global/17757783359245.jpg)
+
+> https://mariozechner.at/posts/2026-04-08-ive-sold-out/
 
 Pi 作者选择加入 [Earendil](https://earendil.com/) 后分享的文章，其中包含 **开源项目商业化** 的经历和思考，令人感触颇深，忍不住分享给大家。
 
