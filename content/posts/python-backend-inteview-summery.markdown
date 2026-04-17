@@ -3,6 +3,8 @@ layout: post
 title: "2017 上海(python后端)面试经历分享"
 date: 2017-02-23 08:04:32
 tags: [python, inteview, shanghai]
+categories:
+- CAREER
 ---
 
 这篇文章主要有两个目的:    

@@ -4,6 +4,8 @@ title: "面试算法题 - 出栈次序问题 (Catalan Number)"
 date: 2017-03-09 18:38:32
 comments: true
 tags: [interview, algorithm]
+categories:
+- CAREER
 ---
 
 之前去方付通面试的时候的时候, 问了我`N个数依次入栈，出栈顺序有多少种？`的算法题, 其实是卡特兰数(Catalan)的应用.    

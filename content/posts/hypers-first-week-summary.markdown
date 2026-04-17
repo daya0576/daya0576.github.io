@@ -4,6 +4,8 @@ title: "上海 Hypers(Python后台开发) 每周总结"
 date: 2017-03-21 3:44:06
 comments: true
 tags: [work, hypers]
+categories:
+- CAREER
 ---
 
 在Hypers宏路数据 HFA组(HyperS For Advertising)开始人生第一份工作, 职场小菜鸟的磕绊前行~~.    
