@@ -55,4 +55,17 @@ A：旅居的生活，做自己感兴趣的事，顺便养活自己。
 ## 联系我
 - Email: daya0576[AT]gmail.com
 
+## 博客更新
+- 20140404 基于 Octopress 建站，写下第一篇博客
+- 20180731 从 Octopress 迁移到 Hexo（Next 主题）
+- 20190915 CI/CD 切换到 GitHub Actions
+- 20210910 评论系统从 Disqus 迁移到 utterances
+- 20220201 静态资源 jsdelivr 切换到 Cloudflare
+- 20241117 从 Hexo 迁移到 Hugo，主题切换为 nostyleplease
+- 20250328 新增 Buy Me a Coffee 赞助链接
+- 20250607 开启「Paipai」奶爸育儿系列
+- 20250827 About 页面重构，新增「快问快答」
+- 20260129 补充 SEO structured data
+- 20260221 About 页面新增雨天交互特效
+
 

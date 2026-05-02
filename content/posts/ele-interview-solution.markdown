@@ -4,6 +4,8 @@ title: "饿了吗 一道面试题分享和思考~"
 date: 2017-05-15 12:46:27
 comments: true
 tags: [ele, django, database]
+categories:
+- CAREER
 ---
 
 之前在上海面试后端开发的时候, 面试官问了一个数据库相关的问题:   
