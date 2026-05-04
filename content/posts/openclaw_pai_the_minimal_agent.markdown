@@ -7,7 +7,7 @@ categories:
 - 编程
 - Pi
 series:
-- ai_freshman
+- Pi
 ---
 
 > OpenClaw runs a single embedded agent runtime derived from pi-mono.

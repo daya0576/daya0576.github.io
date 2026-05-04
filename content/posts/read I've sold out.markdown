@@ -5,6 +5,8 @@ categories:
 - AI
 - 编程
 - Pi
+series:
+- Pi
 ---
 
 ![](/images/blog/global/17757783359245.jpg)
