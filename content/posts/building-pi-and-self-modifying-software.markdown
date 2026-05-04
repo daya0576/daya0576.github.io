@@ -9,7 +9,9 @@ series:
 - Pi
 ---
 
-<iframe width="720" height="405" src="https://www.youtube.com/embed/n5f51gtuGHE?si=04jzhHHoCdoHk5-a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="video-wrapper">
+<iframe src="https://www.youtube.com/embed/n5f51gtuGHE?si=04jzhHHoCdoHk5-a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 Mario 和 Armen 的专访，简单记录观看的几点笔记。
 
