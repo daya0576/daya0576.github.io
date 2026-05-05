@@ -1,0 +1,64 @@
+{{ define "main" }}
+{{ partial "back_link.html" .}}
+
+<article>
+  <header>
+    <h1>{{ .Title }}</h1>
+    <div class="post-header-date">
+      {{- .Date.Format "Monday, January 2, 2006" | upper -}}
+      {{- with .Params.categories }}
+        · {{ range $i, $c := . }}<a href="{{ "/categories/" | relURL }}{{ $c | urlize }}/">#{{ $c }}</a> {{ end }}
+      {{- end }}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{- partial "toc.html" . -}}
+    {{ .Content }}
+  </div>
+
+  {{ partial "series.html" . }}
+
+  {{ with .Params.categories }}
+  <footer class="post-tagged">
+    This entry was tagged
+    {{- $sep := " " -}}
+    {{- range . -}}
+      {{- printf "%s" $sep -}}
+      <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+      {{- $sep = ", " -}}
+    {{- end -}}
+  </footer>
+  {{ end }}
+
+  {{ with .OutputFormats.Get "markdown" }}
+  <footer class="post-md-actions">
+    <button type="button" class="copy-md" data-md-url="{{ .RelPermalink }}">copy as</button>
+    /
+    <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">view</a>
+    markdown
+  </footer>
+  <script>
+  (function () {
+    const btn = document.currentScript.previousElementSibling.querySelector('.copy-md');
+    if (!btn) return;
+    btn.addEventListener('click', async () => {
+      try {
+        const res = await fetch(btn.dataset.mdUrl);
+        const text = await res.text();
+        await navigator.clipboard.writeText(text);
+        const old = btn.textContent;
+        btn.textContent = 'copied!';
+        setTimeout(() => { btn.textContent = old; }, 1500);
+      } catch (e) {
+        btn.textContent = 'failed';
+      }
+    });
+  })();
+  </script>
+  {{ end }}
+</article>
+
+{{ partial "comments.html" }}
+
+{{ end }}

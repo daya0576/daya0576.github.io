@@ -61,6 +61,17 @@ enableRobotsTXT = true
     jobTitle = "Site Reliability Engineer"
     location = "Shanghai, China"
 
+[outputFormats]
+  [outputFormats.Markdown]
+    mediaType = "text/markdown"
+    baseName = "index"
+    isPlainText = true
+    isHTML = false
+    notAlternative = true
+
+[outputs]
+  page = ["HTML", "Markdown"]
+
 [taxonomies]
   category = 'categories'
   series = 'series'
