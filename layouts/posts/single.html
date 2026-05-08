@@ -47,11 +47,9 @@
         const res = await fetch(btn.dataset.mdUrl);
         const text = await res.text();
         await navigator.clipboard.writeText(text);
-        const old = btn.textContent;
-        btn.textContent = 'copied!';
-        setTimeout(() => { btn.textContent = old; }, 1500);
+        alert('Copied!');
       } catch (e) {
-        btn.textContent = 'failed';
+        alert('Copy failed');
       }
     });
   })();
