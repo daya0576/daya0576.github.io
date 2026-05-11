@@ -61,8 +61,7 @@ A：旅居的生活，做自己感兴趣的事，顺便养活自己。
 - 20180731 主题迁移到 Hexo（Next 主题）
 - 20190915 CI/CD 切换到 GitHub Actions
 - 20210910 评论系统从 Disqus 迁移到 utterances
-- 20241117 主题切换为 Hugo（nostyleplease）
-- 20250328 新增 Buy Me a Coffee 赞助链接
+- 20241117 从 Hexo 迁移到 Hugo，主题切换为 nostyleplease
 - 20260129 补充 SEO structured data
 - 20260221 About 页面新增雨天交互特效
 
