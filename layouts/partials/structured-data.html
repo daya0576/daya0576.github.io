@@ -70,7 +70,7 @@
     "name": "{{ $.Site.Title }}",
     "url": "{{ .Permalink }}",
     "description": "{{ $.Site.Params.description }}",
-    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "inLanguage": "{{ $.Site.Language.Locale }}",
     "author": {
       "@type": "Person",
       "name": "{{ $.Site.Params.author.name }}"
@@ -147,7 +147,7 @@
     ],
     {{- end -}}
     "wordCount": "{{ .WordCount }}",
-    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "inLanguage": "{{ $.Site.Language.Locale }}",
     "isPartOf": {
       "@type": "Blog",
       "name": "{{ $.Site.Title }}",
@@ -189,7 +189,7 @@
     "name": "{{ .Title }}",
     "url": "{{ .Permalink }}",
     "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify }}{{ end }}",
-    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "inLanguage": "{{ $.Site.Language.Locale }}",
     "isPartOf": {
       "@type": "WebSite",
       "name": "{{ $.Site.Title }}",
@@ -240,7 +240,7 @@
     "name": "{{ .Title }}",
     "url": "{{ .Permalink }}",
     "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify }}{{ end }}",
-    "inLanguage": "{{ $.Site.LanguageCode }}",
+    "inLanguage": "{{ $.Site.Language.Locale }}",
     "isPartOf": {
       "@type": "WebSite",
       "name": "{{ $.Site.Title }}",

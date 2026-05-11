@@ -36,6 +36,13 @@ The `nostyleplease` theme is mounted as a Git submodule at `themes/nostyleplease
 
 - Rain Effect on the About page: see `docs/features/rain-effect.md`.
 
+## API Catalog
+
+- This site currently has no public API.
+- Keep `static/.well-known/api-catalog` as an RFC 9727 linkset JSON document with an empty `linkset` array unless real APIs are added.
+- Serve `/.well-known/api-catalog` as `application/linkset+json` via `static/_headers`.
+- Do not invent `service-desc`, `service-doc`, or `status` links unless the corresponding API, documentation, and health endpoint exist.
+
 ## Important Guidance
 
 - If an instruction is unclear or contradictory, ask a clarifying question or challenge it before implementing.

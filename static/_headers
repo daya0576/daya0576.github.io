@@ -1,2 +1,5 @@
 /
-  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/json"
+  Link: </atom.xml>; rel="alternate"; type="application/atom+xml"; title="Henry Z's blog feed", </about/>; rel="author", </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json

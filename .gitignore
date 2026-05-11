@@ -4,6 +4,9 @@
 /assets/jsconfig.json
 hugo_stats.json
 
+# Wrangler local development state
+.wrangler/
+
 # Executable may be added to repository
 hugo.exe
 hugo.darwin

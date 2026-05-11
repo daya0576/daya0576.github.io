@@ -1,5 +1,5 @@
 baseURL = 'https://changchen.me'
-languageCode = 'zh-hans'
+locale = 'zh-hans'
 title = "Henry Z's blog"
 theme = 'nostyleplease'
 

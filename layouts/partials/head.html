@@ -38,8 +38,8 @@
   <link rel="alternate" type="application/atom+xml" title="{{ $.Site.Title }}" href="{{ "atom.xml" | absURL }}" />
   
   {{- /* Language */ -}}
-  <meta property="og:locale" content="{{ $.Site.LanguageCode }}" />
-  <meta http-equiv="content-language" content="{{ $.Site.LanguageCode }}" />
+  <meta property="og:locale" content="{{ $.Site.Language.Locale }}" />
+  <meta http-equiv="content-language" content="{{ $.Site.Language.Locale }}" />
 
   {{- /* Open Graph Tags */ -}}
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
@@ -53,7 +53,7 @@
     <meta property="og:description" content="{{ $.Site.Params.description }}" />
   {{- end -}}
   <meta property="og:site_name" content="{{ $.Site.Title }}" />
-  <meta property="og:locale" content="{{ $.Site.LanguageCode }}" />
+  <meta property="og:locale" content="{{ $.Site.Language.Locale }}" />
   
   {{- /* Open Graph Images */ -}}
   {{- with .Params.images -}}
