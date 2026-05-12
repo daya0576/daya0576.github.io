@@ -39,6 +39,7 @@
       <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">view</a>
       markdown
     </div>
+    <button type="button" class="post-share-action">share</button>
     {{ end }}
 
   </footer>
@@ -80,6 +81,27 @@
           alert('Copied!');
         } catch (e) {
           alert('Copy failed');
+        }
+      });
+    }
+
+    const shareBtn = footer.querySelector('.post-share-action');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const shareData = {
+          title: document.title,
+          url: window.location.href
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else {
+            await copyText(shareData.url);
+            alert('Link copied!');
+          }
+        } catch (e) {
+          if (e.name !== 'AbortError') alert('Share failed');
         }
       });
     }
