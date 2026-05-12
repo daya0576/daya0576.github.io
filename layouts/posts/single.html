@@ -38,8 +38,9 @@
       /
       <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">view</a>
       markdown
+      /
+      <button type="button" class="share-post">share</button>
     </div>
-    <button type="button" class="post-share-action">share</button>
     {{ end }}
 
   </footer>
@@ -85,7 +86,7 @@
       });
     }
 
-    const shareBtn = footer.querySelector('.post-share-action');
+    const shareBtn = footer.querySelector('.share-post');
     if (shareBtn) {
       shareBtn.addEventListener('click', async () => {
         const shareData = {
