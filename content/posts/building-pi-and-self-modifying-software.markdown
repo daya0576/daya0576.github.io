@@ -1,5 +1,5 @@
 ---
-title: "Building Pi and Self Modifying Software"
+title: "读 Building Pi and Self Modifying Software"
 date: 2026-05-04T15:09:41+08:00
 categories:
 - AI
