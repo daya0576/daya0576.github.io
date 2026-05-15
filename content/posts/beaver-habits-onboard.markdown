@@ -4,7 +4,7 @@ date: 2024-04-06 12:27:50
 tags:
 categories:
 - 独立开发
-- python
+- PYTHON
 - Dev
 ---
 

@@ -2,7 +2,7 @@
 title: "Python Dataclass 工作原理"
 date: 2026-01-02T10:05:17+08:00
 categories:
-- Python
+- PYTHON
 - 编程
 ---
 
