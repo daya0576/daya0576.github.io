@@ -1,9 +1,6 @@
 ---
 title: "造轮子"
 date: 2026-03-09T09:00:30+08:00
-categories:
-- AI
-- 编程
 series:
 - ai_freshman
 ---

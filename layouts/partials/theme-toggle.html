@@ -1,32 +1,41 @@
-<button class="theme-toggle" type="button" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">[dark]</button>
+<div class="color-scheme" aria-label="Color scheme">
+  Color scheme:
+  <button type="button" data-theme="auto">auto</button>,
+  <button type="button" data-theme="light">light</button>,
+  <button type="button" data-theme="dark">dark</button>.
+</div>
 <script>
 (function () {
   var key = 'theme';
-  var button = document.querySelector('.theme-toggle');
+  var root = document.querySelector('.color-scheme');
   var body = document.body;
+  var modes = { auto: true, light: true, dark: true };
 
-  function preferredTheme() {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  if (!root) return;
+
+  function normalize(theme) {
+    return modes[theme] ? theme : 'auto';
   }
 
-  function currentTheme() {
-    return body.getAttribute('a') === 'auto' ? preferredTheme() : body.getAttribute('a');
+  function apply(theme) {
+    theme = normalize(theme);
+    body.setAttribute('a', theme);
+    localStorage.setItem(key, theme);
+
+    root.querySelectorAll('button[data-theme]').forEach(function (button) {
+      var active = button.dataset.theme === theme;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-current', active ? 'true' : 'false');
+    });
   }
 
-  function render() {
-    var theme = currentTheme();
-    button.textContent = theme === 'dark' ? '[light]' : '[dark]';
-    button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-    button.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-  }
+  apply(localStorage.getItem(key) || body.getAttribute('a') || 'auto');
 
-  render();
-
-  button.addEventListener('click', function () {
-    var next = currentTheme() === 'dark' ? 'light' : 'dark';
-    body.setAttribute('a', next);
-    localStorage.setItem(key, next);
-    render();
+  root.addEventListener('click', function (event) {
+    var button = event.target.closest('button[data-theme]');
+    if (!button) return;
+    apply(button.dataset.theme);
+    button.blur();
   });
 })();
 </script>

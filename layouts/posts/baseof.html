@@ -4,11 +4,11 @@
     {{- partial "head.html" . -}}
 
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
-        <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.body.setAttribute('a',t);}}catch(e){}})();</script>
+        <script>(function(){try{var t=localStorage.getItem('theme');if(t==='auto'||t==='dark'||t==='light'){document.body.setAttribute('a',t);}}catch(e){}})();</script>
         <main class="page-content" aria-label="Content">
             <div class="w">
-                {{- partial "theme-toggle.html" . -}}
                 {{- block "main" . }}{{- end }}
+                {{ partial "page-actions.html" . }}
             </div>
         </main>
     </body>

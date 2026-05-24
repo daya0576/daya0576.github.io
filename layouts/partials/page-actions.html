@@ -1,0 +1,62 @@
+<footer class="post-meta-bottom">
+  {{ $footerContent := readFile "layouts/footer.md" }}
+  <div class="site-footer">
+    {{ $footerContent | markdownify }}
+  </div>
+
+  {{/* Markdown actions hidden for now.
+  {{ with .OutputFormats.Get "markdown" }}
+  <div class="post-md-actions">
+    <button type="button" class="copy-md" data-md-url="{{ .RelPermalink }}">copy as</button>
+    /
+    <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">view</a>
+    markdown
+  </div>
+  {{ end }}
+  */}}
+
+  {{ partial "theme-toggle.html" . }}
+</footer>
+
+<script>
+(function () {
+  const actions = document.currentScript.previousElementSibling;
+  if (!actions) return;
+
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    textArea.style.top = '0';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      if (!document.execCommand('copy')) throw new Error('copy failed');
+    } finally {
+      document.body.removeChild(textArea);
+    }
+  }
+
+  const copyBtn = actions.querySelector('.copy-md');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        const res = await fetch(copyBtn.dataset.mdUrl);
+        const text = await res.text();
+        await copyText(text);
+        alert('Copied!');
+      } catch (e) {
+        alert('Copy failed');
+      }
+    });
+  }
+})();
+</script>

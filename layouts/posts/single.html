@@ -19,75 +19,9 @@
 
   {{ partial "series.html" . }}
 
-  <footer class="post-meta-bottom">
-    {{ with .Params.categories }}
-    <div class="post-tagged">
-      This entry was tagged
-      {{- $sep := " " -}}
-      {{- range . -}}
-        {{- printf "%s" $sep -}}
-        <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
-        {{- $sep = ", " -}}
-      {{- end -}}
-    </div>
-    {{ end }}
-
-    {{ with .OutputFormats.Get "markdown" }}
-    <div class="post-md-actions">
-      <button type="button" class="copy-md" data-md-url="{{ .RelPermalink }}">copy as</button>
-      /
-      <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">view</a>
-      markdown
-    </div>
-    {{ end }}
-
-  </footer>
-  <script>
-  (function () {
-    const article = document.currentScript.closest('article');
-    const footer = article.querySelector('.post-meta-bottom');
-
-    async function copyText(text) {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text);
-        return;
-      }
-
-      const textArea = document.createElement('textarea');
-      textArea.value = text;
-      textArea.style.position = 'fixed';
-      textArea.style.left = '-9999px';
-      textArea.style.top = '0';
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-
-      try {
-        if (!document.execCommand('copy')) throw new Error('copy failed');
-      } finally {
-        document.body.removeChild(textArea);
-      }
-    }
-
-
-    const copyBtn = footer.querySelector('.copy-md');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', async () => {
-        try {
-          const res = await fetch(copyBtn.dataset.mdUrl);
-          const text = await res.text();
-          await copyText(text);
-          alert('Copied!');
-        } catch (e) {
-          alert('Copy failed');
-        }
-      });
-    }
-  })();
-  </script>
 
 </article>
 
-{{ partial "comments.html" }}
+{{/* comments temporarily hidden */}}
 
 {{ end }}

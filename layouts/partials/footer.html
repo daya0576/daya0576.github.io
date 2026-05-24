@@ -1,0 +1,4 @@
+{{ $footerContent := readFile "layouts/footer.md" }}
+<footer class="site-footer">
+  {{ $footerContent | markdownify }}
+</footer>
