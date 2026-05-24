@@ -47,17 +47,6 @@ A：旅居的生活，做自己感兴趣的事，顺便养活自己。
 - 🐍 [Python](https://changchen.me/categories/python/) 开发者
 - 👶 [奶爸](/series/paipai/)
 
-## 关注我
-- [GitHub](https://github.com/daya0576) - 开源项目和代码
-- [Instagram](https://instagram.com/daya0576) - 生活记录
-- [YouTube](https://www.youtube.com/@daya0576) - 乒乓视频
-
-## 支持我
-<div class="support-buttons">
-  <a class="support-button" href="https://buymeacoffee.com/henryzhu" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
-  <a class="support-button" href="https://github.com/sponsors/daya0576" target="_blank" rel="noopener noreferrer">💖 GitHub Sponsor</a>
-</div>
-
 ## 联系我
 - Email: daya0576[AT]gmail.com
 
