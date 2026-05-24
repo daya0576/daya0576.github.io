@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.Language.Locale }}">
+
+    {{- partial "head.html" . -}}
+
+    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
+        <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.body.setAttribute('a',t);}}catch(e){}})();</script>
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                {{- partial "theme-toggle.html" . -}}
+                {{- block "main" . }}{{- end }}
+            </div>
+        </main>
+    </body>
+
+    {{- if .Params.custom_js -}}
+        {{- range .Params.custom_js -}}
+            {{ $js := resources.Get (print "js/" . ".js") }}
+            <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
+        {{- end -}}
+    {{- end -}}
+
+</html>

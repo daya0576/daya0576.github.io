@@ -1,0 +1,32 @@
+<button class="theme-toggle" type="button" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">[dark]</button>
+<script>
+(function () {
+  var key = 'theme';
+  var button = document.querySelector('.theme-toggle');
+  var body = document.body;
+
+  function preferredTheme() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function currentTheme() {
+    return body.getAttribute('a') === 'auto' ? preferredTheme() : body.getAttribute('a');
+  }
+
+  function render() {
+    var theme = currentTheme();
+    button.textContent = theme === 'dark' ? '[light]' : '[dark]';
+    button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    button.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  render();
+
+  button.addEventListener('click', function () {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    body.setAttribute('a', next);
+    localStorage.setItem(key, next);
+    render();
+  });
+})();
+</script>

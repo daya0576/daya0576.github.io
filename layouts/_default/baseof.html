@@ -2,9 +2,11 @@
 <html lang="{{ $.Site.Language.Locale }}">
     {{- partial "head.html" . -}}
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if .Params.rain_interactive }} data-rain-interactive="true"{{ end }}>
+        <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.body.setAttribute('a',t);}}catch(e){}})();</script>
         {{- partial "rain.html" . -}}
         <main class="page-content" aria-label="Content" style="position:relative;z-index:3;">
             <div class="w">
+                {{- partial "theme-toggle.html" . -}}
                 {{- block "main" . }}{{- end }}
                 {{ partial "footer.html" }}
             </div>
