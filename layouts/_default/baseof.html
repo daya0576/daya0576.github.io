@@ -9,7 +9,7 @@
                 {{- block "main" . }}{{- end }}
                 {{ partial "page-actions.html" . }}
             </div>
-            {{- partial "ripple.html" . -}}
+            {{- if not .IsHome }}{{- partial "ripple.html" . -}}{{ end -}}
             {{- if .Params.rain_interactive }}{{- partial "rain-sound.html" . -}}{{ end -}}
         </main>
     </body>
