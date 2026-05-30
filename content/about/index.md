@@ -44,13 +44,8 @@ A：旅居的生活，做自己感兴趣的事，顺便养活自己。
 ## daya0576
 - 📍 Shanghai
 - 🚒 [SRE](/blog/20180403/impressions-of-google-sre/) (~~Server Reboot Engineer~~)   
-- 🐍 [Python](https://changchen.me/categories/python/) 开发者
+- 🐍 [Python](https://changchen.me/categories/python/) 爱好者
 - 👶 [奶爸](/series/paipai/)
-
-## 关注我
-- [GitHub](https://github.com/daya0576) - 开源项目和代码
-- [Instagram](https://instagram.com/daya0576) - 生活记录
-- [YouTube](https://www.youtube.com/@daya0576) - 乒乓视频
 
 ## 支持我
 <div class="support-buttons">
@@ -58,17 +53,10 @@ A：旅居的生活，做自己感兴趣的事，顺便养活自己。
   <a class="support-button" href="https://github.com/sponsors/daya0576" target="_blank" rel="noopener noreferrer">💖 GitHub Sponsor</a>
 </div>
 
-## 联系我
-- Email: daya0576[AT]gmail.com
 
 ## 博客更新
 - 20140404 基于 Octopress 建站，写下第一篇博客
 - 20180731 主题迁移到 Hexo（Next 主题）
-- 20190915 CI/CD 切换到 GitHub Actions
-- 20210910 评论系统从 Disqus 迁移到 utterances
 - 20241117 从 Hexo 迁移到 Hugo，主题切换为 nostyleplease
-- 20260129 补充 SEO structured data
-- 20260221 About 页面新增雨天交互特效
-- 20260510 新增「支持我」赞助按钮
 
 
