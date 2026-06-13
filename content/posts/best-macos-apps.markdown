@@ -5,6 +5,7 @@ date: 2018-05-07 12:04:19
 comments: true
 tags: [macos, apple, app]
 categories:
+- APPLE
 - 奇技淫巧
 ---
 

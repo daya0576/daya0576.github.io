@@ -36,6 +36,10 @@ The `nostyleplease` theme is mounted as a Git submodule at `themes/nostyleplease
 
 - Rain Effect on the About page: see `docs/features/rain-effect.md`.
 
+## Content Conventions
+
+- For YouTube embeds, wrap the iframe in `<div class="video-wrapper">...</div>` and omit inline `width`/`height`; the responsive CSS lives in `themes/nostyleplease/assets/css/main.scss`.
+
 ## API Catalog
 
 - This site currently has no public API.

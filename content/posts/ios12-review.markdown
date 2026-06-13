@@ -4,6 +4,9 @@ date: 2018-08-29 15:35:26
 tags:
   - iOS
   - review
+categories:
+- APPLE
+- 生活
 ---
 
 # 和女朋友的日常:

@@ -6,8 +6,28 @@
     <h1>{{ .Title }}</h1>
     <div class="post-header-date">
       {{- .Date.Format "Monday, January 2, 2006" | upper -}}
+      {{- $terms := slice -}}
+      {{- $slugs := slice -}}
       {{- with .Params.categories }}
-        · {{ range $i, $c := . }}<a href="{{ "/categories/" | relURL }}{{ $c | urlize }}/">#{{ $c | upper }}</a> {{ end }}
+        {{- range . }}
+          {{- $slug := . | urlize -}}
+          {{- if not (in $slugs $slug) -}}
+            {{- $terms = $terms | append (dict "name" . "url" (printf "%s%s/" ("/categories/" | relURL) $slug)) -}}
+            {{- $slugs = $slugs | append $slug -}}
+          {{- end -}}
+        {{- end }}
+      {{- end }}
+      {{- with .Params.series }}
+        {{- range . }}
+          {{- $slug := . | urlize -}}
+          {{- if not (in $slugs $slug) -}}
+            {{- $terms = $terms | append (dict "name" . "url" (printf "%s%s/" ("/series/" | relURL) $slug)) -}}
+            {{- $slugs = $slugs | append $slug -}}
+          {{- end -}}
+        {{- end }}
+      {{- end }}
+      {{- if $terms }}
+        · {{ range $terms }}<a href="{{ .url }}">#{{ .name | upper }}</a> {{ end }}
       {{- end }}
     </div>
   </header>
