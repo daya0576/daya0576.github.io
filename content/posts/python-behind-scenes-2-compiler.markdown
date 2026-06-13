@@ -4,9 +4,8 @@ date: 2026-06-07T15:06:31+08:00
 draft: true
 categories:
 - Python
-- CPython
 series:
-- Python behind the scenes
+- CPython
 ---
 
 

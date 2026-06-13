@@ -2,24 +2,18 @@
 title: "读 Python behind the scenes #1: how the CPython VM works"
 date: 2026-05-30T15:51:33+08:00
 categories:
-- Python behind the scenes
 - Python
-- CPython
 series:
-- cpython
+- CPython
 ---
 
 ![](/images/blog/global/17802122035248.jpg)
 
-> https://tenthousandmeters.com/blog/python-behind-the-scenes-1-how-the-cpython-vm-works/
+
 
 重返职场一周，除了不用带娃、免费的早午餐，最令人舒心的，是多了不少接触 Python 代码的机会。就像一位老朋友，不管多久未见，总是像第一次见面一样“舒服”。
 
-虽然随着 AI 模型不断进化，代码生成的门槛越来越低，但我反而觉得，作为一名程序员，对 CPython 底层理解的能力变得越来越重要。如果你也和我一样，好奇下面 Python 代码执行后，背后到底发生了什么，那么可以跟着我一起阅读学习这个系列文章：[Python behind the scenes](https://tenthousandmeters.com/tag/python-behind-the-scenes/)。
-
-```
-$ python script.py 
-```
+虽然随着 AI 模型不断进化，代码生成的门槛越来越低，但我反而觉得，作为一名程序员，对 CPython 底层理解的能力变得越来越重要。如果你也和我一样，好奇下面 `python script.py` 执行后，背后到底发生了什么，那么可以跟着我一起阅读学习这个系列文章：[Python behind the scenes](https://tenthousandmeters.com/tag/python-behind-the-scenes/)。
 
 ## 学习路径
 
@@ -307,6 +301,7 @@ process
    └─ interpreter state B  <-->  VM B
       └─ ...
 
+# 一段 code object 可以被多个 function object 引用
 function object
 └─ __code__ ─────────────> code object
    + defaults / globals / closure / name / ...
