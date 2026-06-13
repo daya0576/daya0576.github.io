@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" viewBox="-84.58844 22.961538 1027.7005 688.709" width="1027.7005" height="688.709">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas_1" stroke="none" stroke-opacity="1" fill-opacity="1" stroke-dasharray="none" fill="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="-84.58844" y="22.961538" width="1027.7005" height="688.709"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_71">
+        <rect x="535.9265" y="78.45827" width="378.1299" height="262.54173" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_29">
+        <rect x="-69.08844" y="520.2553" width="378.1299" height="141.4364" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_25">
+        <rect x="-69.08844" y="78.45827" width="378.1299" height="262.54173" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_2">
+        <rect x=".4063303" y="99.83433" width="239.14035" height="30.2385" fill="white"/>
+        <rect x=".4063303" y="99.83433" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(5.40633 105.72959)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="97.39418" y="15" xml:space="preserve">lexer</tspan>
+        </text>
+      </g>
+      <g id="Group_40">
+        <g id="Graphic_26">
+          <rect x="-69.08844" y="405.51717" width="378.1299" height="62.82338" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_3">
+          <rect x=".4063303" y="421.8096" width="239.14035" height="30.2385" fill="white"/>
+          <rect x=".4063303" y="421.8096" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(5.40633 427.70486)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="71.762175" y="15" xml:space="preserve">IR optimizer</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_7">
+        <line x1="119.9765" y1="38.46154" x2="119.9765" y2="89.93433" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_9">
+        <text transform="translate(141.91297 51.458273)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">源代码</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <text transform="translate(141.91297 362.2586)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">中间表示（</tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" y="17" xml:space="preserve">IR</tspan>
+          <tspan font-family="PingFang SC" font-size="16" fill="black" y="17" xml:space="preserve">）</tspan>
+        </text>
+      </g>
+      <g id="Graphic_13">
+        <text transform="translate(141.91297 669.6705)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">机器码（优化后）</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <rect x=".4063303" y="166.1708" width="239.14035" height="30.2385" fill="white"/>
+        <rect x=".4063303" y="166.1708" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(5.40633 172.06605)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="91.90618" y="15" xml:space="preserve">parser</tspan>
+        </text>
+      </g>
+      <g id="Line_17">
+        <line x1="119.9765" y1="130.07284" x2="119.9765" y2="156.2708" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_18">
+        <text transform="translate(141.91297 138.89782)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="0" y="15" xml:space="preserve">tokens</tspan>
+        </text>
+      </g>
+      <g id="Graphic_19">
+        <rect x=".4063303" y="232.50725" width="239.14035" height="30.2385" fill="white"/>
+        <rect x=".4063303" y="232.50725" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(5.40633 238.4025)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="50.274175" y="15" xml:space="preserve">semantic analyzer</tspan>
+        </text>
+      </g>
+      <g id="Line_20">
+        <line x1="119.9765" y1="196.4093" x2="119.9765" y2="222.60725" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_21">
+        <text transform="translate(141.91297 205.23427)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="0" y="15" xml:space="preserve">parse tree</tspan>
+        </text>
+      </g>
+      <g id="Graphic_22">
+        <rect x=".4063303" y="298.8437" width="239.14035" height="30.2385" fill="white"/>
+        <rect x=".4063303" y="298.8437" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(5.40633 304.73896)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="70.426175" y="15" xml:space="preserve">IR generator</tspan>
+        </text>
+      </g>
+      <g id="Line_23">
+        <line x1="119.9765" y1="262.74575" x2="119.9765" y2="288.9437" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_24">
+        <text transform="translate(141.91297 271.57073)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="0" y="15" xml:space="preserve">syntax tree</tspan>
+        </text>
+      </g>
+      <g id="Line_27">
+        <line x1="119.9765" y1="329.0822" x2="119.9765" y2="411.9096" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_33">
+        <rect x=".4063303" y="544.7755" width="239.14035" height="30.2385" fill="white"/>
+        <rect x=".4063303" y="544.7755" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(5.40633 550.67076)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="60.050175" y="15" xml:space="preserve">code generator</tspan>
+        </text>
+      </g>
+      <g id="Graphic_32">
+        <rect x=".4063303" y="611.112" width="239.14035" height="30.2385" fill="white"/>
+        <rect x=".4063303" y="611.112" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(5.40633 617.0072)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="61.386175" y="15" xml:space="preserve">code optimizer</tspan>
+        </text>
+      </g>
+      <g id="Line_31">
+        <line x1="119.9765" y1="575.014" x2="119.9765" y2="601.212" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_30">
+        <text transform="translate(141.91297 582.063)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">机器码</tspan>
+        </text>
+      </g>
+      <g id="Line_34">
+        <line x1="119.9765" y1="452.0481" x2="119.9765" y2="534.8755" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_35">
+        <text transform="translate(141.91297 483.29793)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">中间表示（优化后）</tspan>
+        </text>
+      </g>
+      <g id="Line_36">
+        <line x1="119.9765" y1="641.3505" x2="119.9765" y2="684.6137" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_37">
+        <text transform="translate(389.385 198.72914)" fill="black">
+          <tspan font-family="PingFang SC" font-weight="bold" font-size="16" fill="black" x="8100187e-19" y="17" xml:space="preserve">frontend</tspan>
+        </text>
+      </g>
+      <g id="Graphic_38">
+        <text transform="translate(386.1898 425.92886)" fill="black">
+          <tspan font-family="PingFang SC" font-weight="bold" font-size="16" fill="black" x="14210855e-21" y="17" xml:space="preserve">optimizer</tspan>
+        </text>
+      </g>
+      <g id="Graphic_39">
+        <text transform="translate(389.513 582.063)" fill="black">
+          <tspan font-family="PingFang SC" font-weight="bold" font-size="16" fill="black" x="30553338e-20" y="17" xml:space="preserve">backend</tspan>
+        </text>
+      </g>
+      <g id="Graphic_69">
+        <rect x="535.9265" y="520.2553" width="378.1299" height="141.4364" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_67">
+        <rect x="605.4213" y="99.83433" width="239.14035" height="30.2385" fill="white"/>
+        <rect x="605.4213" y="99.83433" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(610.4213 105.72959)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="97.39418" y="15" xml:space="preserve">lexer</tspan>
+        </text>
+      </g>
+      <g id="Group_64">
+        <g id="Graphic_66">
+          <rect x="535.9265" y="405.51717" width="378.1299" height="62.82338" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_65">
+          <rect x="605.4213" y="421.8096" width="239.14035" height="30.2385" fill="#ffffc0"/>
+          <rect x="605.4213" y="421.8096" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          <text transform="translate(610.4213 427.70486)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="65.090175" y="15" xml:space="preserve">ATS optimizer</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Line_63">
+        <line x1="724.99144" y1="38.46154" x2="724.99144" y2="89.93433" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_62">
+        <text transform="translate(746.9279 51.458273)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">源代码</tspan>
+        </text>
+      </g>
+      <g id="Graphic_61">
+        <text transform="translate(746.9279 362.2586)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">AST</tspan>
+        </text>
+      </g>
+      <g id="Graphic_60">
+        <text transform="translate(746.9279 669.6705)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">code object (optimized)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_59">
+        <rect x="605.4213" y="166.1708" width="239.14035" height="30.2385" fill="white"/>
+        <rect x="605.4213" y="166.1708" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(610.4213 172.06605)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="91.90618" y="15" xml:space="preserve">parser</tspan>
+        </text>
+      </g>
+      <g id="Line_58">
+        <line x1="724.99144" y1="130.07284" x2="724.99144" y2="156.2708" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_57">
+        <text transform="translate(746.9279 138.89782)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="0" y="15" xml:space="preserve">tokens</tspan>
+        </text>
+      </g>
+      <g id="Graphic_54">
+        <text transform="translate(746.9279 205.23427)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="0" y="15" xml:space="preserve">parse tree</tspan>
+        </text>
+      </g>
+      <g id="Graphic_53">
+        <rect x="605.4213" y="232.50725" width="239.14035" height="30.2385" fill="#ffffc0"/>
+        <rect x="605.4213" y="232.50725" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(610.4213 238.4025)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="63.754175" y="15" xml:space="preserve">ATS generator</tspan>
+        </text>
+      </g>
+      <g id="Line_50">
+        <line x1="724.99144" y1="262.74575" x2="724.99144" y2="411.9096" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_49">
+        <rect x="605.4213" y="544.7755" width="239.14035" height="30.2385" fill="#c0ffc0"/>
+        <rect x="605.4213" y="544.7755" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(610.4213 550.67076)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="83.60218" y="15" xml:space="preserve">compiler</tspan>
+        </text>
+      </g>
+      <g id="Graphic_48">
+        <rect x="605.4213" y="611.112" width="239.14035" height="30.2385" fill="#c0ffc0"/>
+        <rect x="605.4213" y="611.112" width="239.14035" height="30.2385" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(610.4213 617.0072)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" fill="black" x="46.122175" y="15" xml:space="preserve">peephole optimizer</tspan>
+        </text>
+      </g>
+      <g id="Line_47">
+        <line x1="724.99144" y1="575.014" x2="724.99144" y2="601.212" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_46">
+        <text transform="translate(746.9279 582.063)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">code object</tspan>
+        </text>
+      </g>
+      <g id="Line_45">
+        <line x1="724.99144" y1="452.0481" x2="724.99144" y2="534.8755" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_44">
+        <text transform="translate(746.9279 483.29793)" fill="black">
+          <tspan font-family="PingFang SC" font-size="16" fill="black" x="0" y="17" xml:space="preserve">AST (optimized)</tspan>
+        </text>
+      </g>
+      <g id="Line_43">
+        <line x1="724.99144" y1="641.3505" x2="724.99144" y2="684.6137" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_72">
+        <line x1="724.99144" y1="196.4093" x2="724.99144" y2="222.60725" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -2,12 +2,16 @@
 title: "读 Python behind the scenes #1: how the CPython VM works"
 date: 2026-05-30T15:51:33+08:00
 categories:
-- PYTHON
+- Python behind the scenes
+- Python
+- CPython
 series:
 - cpython
 ---
 
 ![](/images/blog/global/17802122035248.jpg)
+
+> https://tenthousandmeters.com/blog/python-behind-the-scenes-1-how-the-cpython-vm-works/
 
 重返职场一周，除了不用带娃、免费的早午餐，最令人舒心的，是多了不少接触 Python 代码的机会。就像一位老朋友，不管多久未见，总是像第一次见面一样“舒服”。
 
