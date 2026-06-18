@@ -3,8 +3,9 @@ title: "读 Python behind the scenes #1: how the CPython VM works"
 date: 2026-05-30T15:51:33+08:00
 categories:
 - Python
-series:
 - CPython
+series:
+- Python behind the scenes
 ---
 
 ![](/images/blog/global/17802122035248.jpg)

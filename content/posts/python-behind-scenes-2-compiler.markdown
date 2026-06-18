@@ -4,8 +4,9 @@ date: 2026-06-07T15:06:31+08:00
 toc: true
 categories:
 - Python
-series:
 - CPython
+series:
+- Python behind the scenes
 ---
 
 ![](/images/blog/global/IMG_6543-pixel.jpg)
@@ -505,7 +506,7 @@ def foo():
 
 ## 总结
 
-简单总结一下这一章的逻辑：
+流水线小结：
 ```
 # 阶段1：
 source code  ->  tokenizer -> tokens
@@ -520,6 +521,14 @@ AST -> symbol table
      basic blocks  -> assembler -> code object [bytecode + meta]
         (graph)                      (linear)
 ```
+
+时间有限，浅浅的带过 CPython 编译的流水线，如果你感兴趣可以进一步深入了解以下话题：
+
+
+- [ ] **前端（源代码 → AST）**：`@memoize` vs `@memoize_left_rec`：packrat parser 如何用 memoization 把指数级回溯变成线性？Guido 的「seed parsing / grow the seed」算法又是怎么让 PEG 直接支持左递归的？
+- [ ] **前端（源代码 → AST）**：PEG grammar 中的 `{ ... }` action 在 CPython 里是如何串起 AST 节点构造的？参考 [`Grammar/python.gram`](https://github.com/python/cpython/blob/main/Grammar/python.gram)。
+- [ ] **后端（AST → bytecode）**：frame block 是怎么实现 `break` / `continue` / `return` 在 `try/finally` / `with` 中的正确语义（unwind 顺序、cleanup）？
+
 
 ## 参考
 1. https://tenthousandmeters.com/blog/python-behind-the-scenes-2-how-the-cpython-compiler-works/
