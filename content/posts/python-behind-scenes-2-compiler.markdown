@@ -9,7 +9,7 @@ series:
 - CPython
 ---
 
-![](/images/blog/global/IMG_6543-pixel.jpg)
+![](/images/blog/global/17817940256769.jpg)
 
 [上一章](/blog/20260530/read-python-behind-the-scenes-1-cpython-vm/)中，我们讨论了 Python 代码运行的三部曲；这一章我们将进一步深入理解 python 编译器是如何生产出最终执行所需的 code object（bytecode）。
 
