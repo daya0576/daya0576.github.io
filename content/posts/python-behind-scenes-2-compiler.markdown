@@ -3,10 +3,10 @@ title: "读 Python behind the scenes #2: how the CPython compiler works"
 date: 2026-06-07T15:06:31+08:00
 toc: true
 categories:
-- Python
-- CPython
-series:
 - Python behind the scenes
+- Python
+series:
+- CPython
 ---
 
 ![](/images/blog/global/IMG_6543-pixel.jpg)
