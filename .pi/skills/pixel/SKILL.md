@@ -18,6 +18,12 @@ Create a progressive JPEG with:
 
 ## Workflow
 
+> **Important:** All shell commands and relative paths assume the project root
+> (`/Users/henry/repo/private/hugo/zblog`). The bash tool defaults to the home
+> directory (`~`), so always pass `cwd` set to the project root (or `cd` there
+> first). Otherwise `static/...` paths resolve under `~` and files appear
+> "missing".
+
 1. Resolve the source image.
    - For a site URL like `/images/blog/global/foo.jpeg`, use `static/images/blog/global/foo.jpeg`.
    - For a bare filename, check the current directory, then `~/Downloads/`.

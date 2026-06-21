@@ -59,12 +59,17 @@ def process(args: argparse.Namespace) -> None:
         new_height = int(img.height * args.max_width / img.width)
         img = img.resize((args.max_width, new_height), Image.LANCZOS)
 
-    gray = ImageOps.grayscale(img)
-    gray = ImageOps.autocontrast(gray, cutoff=args.autocontrast_cutoff)
-    gray = ImageEnhance.Contrast(gray).enhance(args.contrast)
-    gray = ImageEnhance.Brightness(gray).enhance(args.brightness)
-
-    img = tone_grayscale(gray, args.shadow, args.highlight)
+    if args.keep_color:
+        img = ImageOps.autocontrast(img, cutoff=args.autocontrast_cutoff)
+        img = ImageEnhance.Contrast(img).enhance(args.contrast)
+        img = ImageEnhance.Brightness(img).enhance(args.brightness)
+        img = ImageEnhance.Color(img).enhance(args.saturation)
+    else:
+        gray = ImageOps.grayscale(img)
+        gray = ImageOps.autocontrast(gray, cutoff=args.autocontrast_cutoff)
+        gray = ImageEnhance.Contrast(gray).enhance(args.contrast)
+        gray = ImageEnhance.Brightness(gray).enhance(args.brightness)
+        img = tone_grayscale(gray, args.shadow, args.highlight)
     img = add_grain(img, amount=args.grain, blend=args.grain_blend)
     img = add_vignette(img, strength=args.vignette)
     img = pixelate(img, scale=args.pixel_scale)
@@ -95,6 +100,8 @@ def main() -> None:
     parser.add_argument("--grain-blend", type=float, default=0.35)
     parser.add_argument("--vignette", type=float, default=0.7)
     parser.add_argument("--pixel-scale", type=float, default=0.5)
+    parser.add_argument("--keep-color", action="store_true", help="preserve original colors (skip sepia tone)")
+    parser.add_argument("--saturation", type=float, default=0.9, help="color saturation when --keep-color")
     parser.add_argument("--quality", type=int, default=92)
     process(parser.parse_args())
 
