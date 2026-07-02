@@ -4,7 +4,6 @@ date: 2024-02-17 16:31:46
 tags:
 categories:
 - SRE
-- 编程
 - CAREER
 ---
 

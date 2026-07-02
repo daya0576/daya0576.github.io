@@ -6,7 +6,6 @@ series:
 categories:
 - 派派
 - 育儿
-- 生活
 ---
 
 ![](/images/blog/global/17801217037882.jpg)

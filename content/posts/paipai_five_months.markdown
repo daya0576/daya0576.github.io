@@ -6,7 +6,6 @@ series:
 categories:
 - 派派
 - 育儿
-- 生活
 ---
 
 > "Our adult lives are filled with pain and discomfort. They are part of life. "    

@@ -3,7 +3,6 @@ title: "Reading DDIA as an SRE"
 date: 2026-03-22T12:55:56+08:00
 categories:
 - SRE
-- TECH
 ---
 
 ## Henry's DDIA Notes

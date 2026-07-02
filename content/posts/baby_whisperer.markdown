@@ -3,7 +3,6 @@ title: "[读后感]《实用程序育儿法｜The Baby Whisperer》"
 date: 2025-08-29T13:30:32+08:00
 categories: 
 - 读书
-- 生活
 - 育儿
 ---
 

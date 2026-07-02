@@ -8,9 +8,7 @@ series:
 - CPython
 ---
 
-![](/images/blog/global/17802122035248.jpg)
-
-
+{{< figure src="/images/blog/global/17802122035248.jpg" alt="公司周五下午啤酒畅饮" caption="公司周五下午啤酒畅饮" >}}
 
 重返职场一周，除了不用带娃、免费的早午餐，最令人舒心的，是多了不少接触 Python 代码的机会。就像一位老朋友，不管多久未见，总是像第一次见面一样“舒服”。
 

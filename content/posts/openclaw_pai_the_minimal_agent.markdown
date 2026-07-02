@@ -4,7 +4,6 @@ date: 2026-02-24T13:49:18+08:00
 TOC: true
 categories:
 - AI
-- 编程
 - Pi
 series:
 - Pi

@@ -20,6 +20,7 @@ Use Hugo's built-in `figure` shortcode for images that need a visible caption/fo
 - Always provide meaningful `alt` text unless the image is purely decorative.
 - Use `caption` for the text shown below the image.
 - Do not add inline HTML or inline styles for normal captioned images.
+- To find which post an image belongs in, grep `content/posts/` for the image filename instead of asking the user.
 - For an uncaptained image, Markdown is acceptable:
 
 ```markdown

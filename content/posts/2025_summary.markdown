@@ -5,7 +5,6 @@ series:
 - yearly
 categories:
 - 个人相关
-- 生活
 ---
 
 ![](/images/blog/global/17712516041859.jpg)

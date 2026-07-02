@@ -6,7 +6,6 @@ series:
 categories:
 - 派派
 - 育儿
-- 生活
 ---
 
 # 派派半岁啦

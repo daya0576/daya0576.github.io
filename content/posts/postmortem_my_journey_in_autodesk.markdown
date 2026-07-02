@@ -3,7 +3,6 @@ title: "Postmortem of My Journey at Autodesk"
 date: 2025-10-05T20:00:00+08:00
 categories:
 - SRE
-- Dev
 - CAREER
 ---
 

@@ -5,7 +5,6 @@ date: 2018-04-03 12:04:19
 comments: true
 categories:
 - SRE
-- 编程
 - CAREER
 ---
 

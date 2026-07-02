@@ -2,7 +2,6 @@
 title: git clone 大提速
 categories:
 - SRE
-- 编程
 date: 2022-02-04 10:40:35
 ---
 

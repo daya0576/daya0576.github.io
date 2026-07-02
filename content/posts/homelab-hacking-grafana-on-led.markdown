@@ -2,7 +2,6 @@
 title: "Homelab hacking: Grafana on an LED matrix display"
 categories:
 - 智能家居
-- 生活
 date: 2023-08-28 00:21:01
 ---
 

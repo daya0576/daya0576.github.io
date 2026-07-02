@@ -2,7 +2,6 @@
 title: "2023 年终小结 🎄"
 categories:
 - 个人相关
-- 生活
 series:
 - yearly
 date: 2023-12-26 01:34:10

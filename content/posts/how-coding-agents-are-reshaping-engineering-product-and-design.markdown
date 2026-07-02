@@ -3,7 +3,6 @@ title: "读 How Coding Agents Are Reshaping Engineering, Product and Design"
 date: 2026-03-11T20:34:19+08:00
 categories:
 - AI
-- 编程
 series:
 - ai_freshman
 ---

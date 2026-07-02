@@ -3,7 +3,6 @@ title: "Python Dataclass 工作原理"
 date: 2026-01-02T10:05:17+08:00
 categories:
 - PYTHON
-- 编程
 ---
 
 近日 [PyCoder's Weekly](https://pycoders.com/issues/715) newsletter 中看到的一篇好文章，简单分享一下阅读的笔记。

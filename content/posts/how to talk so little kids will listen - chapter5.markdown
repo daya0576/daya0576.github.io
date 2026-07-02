@@ -5,7 +5,6 @@ series:
 - kids-listen
 categories:
 - 读书
-- 生活
 - 育儿
 ---
 

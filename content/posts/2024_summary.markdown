@@ -5,7 +5,6 @@ series:
 - yearly
 categories:
 - 个人相关
-- 生活
 ---
 
 # 目标回顾

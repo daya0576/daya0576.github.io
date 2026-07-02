@@ -4,7 +4,6 @@ date: 2026-02-17T21:03:36+08:00
 TOC: true
 categories:
 - AI
-- 编程
 series:
 - ai_freshman
 ---
