@@ -10,13 +10,17 @@ series:
 
 > https://tenthousandmeters.com/blog/python-behind-the-scenes-4-how-python-bytecode-is-executed/
 
-上一章我们从源码中了解到：如果 `pyc` 文件存在，CPython 会跳过编译，加载文件中 code object，创建 frame object 作为参数，最后丢给 `_PyEval_EvalFrameDefault()` 运行（[Python/ceval.c](https://github.com/python/cpython/blob/0bbaf5de9744ae1acea3e2c9ad2257d1cc68e847/Python/ceval.c#L920)）。这个函数是整个 CPython VM 的核心，负责 bytecode 的具体执行，也是这篇需要学习的重点。
+上一章我们从源码中了解到：如果 `pyc` 文件存在，CPython 会跳过编译，直接加载文件中 code object，创建 frame object 丢给 `_PyEval_EvalFrameDefault()` 运行（[Python/ceval.c](https://github.com/python/cpython/blob/0bbaf5de9744ae1acea3e2c9ad2257d1cc68e847/Python/ceval.c#L920)）。这个函数是整个 CPython VM 的核心，负责 bytecode 的具体执行，也是这篇需要学习的重点。
 
 ```c
 PyObject* _Py_HOT_FUNCTION
 _PyEval_EvalFrameDefault(PyThreadState *tstate, PyFrameObject *f, int throwflag)
 {
 ```
+
+> runtime state -> interpreter state -> thread state -> call stack   
+> &nbsp;&nbsp;&nbsp;&nbsp;-> frame object -> code object -> bytecode
+
 
 在开始前，先看一眼 frame object 的数据结构（变量 `PyCodeObject *f_code`）：
 
@@ -153,8 +157,6 @@ _PyEval_EvalFrameDefault(PyThreadState *tstate, PyFrameObject *f, int throwflag)
 2. pending calls：通过 C API [Py_AddPendingCall()](https://docs.python.org/3.9/c-api/init.html#c.Py_AddPendingCall) 方法，插入一个 c 函数执行
 3. 异步异常：例如从主线程向其他线程，通过 PyThreadState_SetAsyncExc() 方法，向其他线程注入 SystemExit 异常。
 4. GIL 释放
-
-> runtime state -> interpreter state -> thread state -> frame (call stack)
 
 上面每种事件都有各自的标志位，例如下面是所有 interpreter 共享的 signals_pending 和 GIL 状态（runtime state）：
 
