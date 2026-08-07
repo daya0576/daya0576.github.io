@@ -10,7 +10,9 @@ series:
 
 > https://tenthousandmeters.com/blog/python-behind-the-scenes-4-how-python-bytecode-is-executed/
 
-上一章我们从源码中了解到：如果 `pyc` 文件存在，CPython 会跳过编译，直接加载文件中 code object，创建 frame object 丢给 `_PyEval_EvalFrameDefault()` 运行（[Python/ceval.c](https://github.com/python/cpython/blob/0bbaf5de9744ae1acea3e2c9ad2257d1cc68e847/Python/ceval.c#L920)）。这个函数是整个 CPython VM 的核心，负责 bytecode 的具体执行，也是这篇需要学习的重点。
+上一章我们从源码中了解到：如果 `pyc` 文件存在，CPython 会跳过编译，直接加载文件中 code object，丢给 `_PyEval_EvalFrameDefault()` 运行（[Python/ceval.c](https://github.com/python/cpython/blob/0bbaf5de9744ae1acea3e2c9ad2257d1cc68e847/Python/ceval.c#L920)）。
+
+这个函数是整个 CPython VM 的核心，也是这篇需要学习的重点：
 
 ```c
 PyObject* _Py_HOT_FUNCTION
