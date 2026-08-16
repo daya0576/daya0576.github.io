@@ -20,10 +20,6 @@ _PyEval_EvalFrameDefault(PyThreadState *tstate, PyFrameObject *f, int throwflag)
 {
 ```
 
-> runtime state -> interpreter state -> thread state -> call stack   
-> &nbsp;&nbsp;&nbsp;&nbsp;-> frame object -> code object -> bytecode
-
-
 在开始前，先看一眼 frame object 的数据结构（变量 `PyCodeObject *f_code`）：
 
 ```c
@@ -373,45 +369,12 @@ $ python -m dis try-finally.py
 30 RERAISE
 ```
 
-### 异常套异常
-
-还有一种有趣的情况：在处理异常的时候，假如又抛出了异常呢？
-
-```shell
-$ python -q
->>> try:
-...     1 + '41'
-... except:
-...     1/0
-... 
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "<stdin>", line 4, in <module>
-ZeroDivisionError: division by zero
-```
-
-fun fact：`try..catch` 的嵌套，最多不能超过 20 层（P.S. 新版 python 已修改异常处理机制，并放开该限制）：
-
-```text
-Traceback (most recent call last):
- ...
- File "<nested-blocks>", line 21
-SyntaxError: too many statically nested blocks
-```
-
 ## 总结
 
-本章的核心：
-- evaluation loop 执行 bytecode 的流程，以及跳出循环的几种条件
-- computed GOTOs 的工作原理，为什么可以让 CPython 代码执行快 15-20%
-- value stack & block stack 的作用，分别如何帮助计算，以及如何处理异常
+作者最后表示，如果你想深入学习 CPython 源码，第一选择就是 evaluation loop，例如：
+- `x + y` -> `BINARY_ADD`
+- `with` 语句 -> `SETUP_WITH`
+- function call -> `CALL_FUNCTION`
 - ...
 
-作者最后表示，如果你想深入学习 CPython 源码，第一选择就是 evaluation loop。因为例如你想学习 `x + y` 背后发生了什么，就直接看 `BINARY_ADD` 的代码。`with` 语句 -> `SETUP_WITH`，function call -> `CALL_FUNCTION`。
-
-下一章就将用这个方法，学习 Python 变量的实现原理。
+下一章，我们将尝试用这个方法，学习 Python 变量的实现原理。
