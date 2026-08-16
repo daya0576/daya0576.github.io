@@ -1,7 +1,6 @@
 ---
 title: "读 Python behind the scenes #5: how variables are implemented in CPython"
 date: 2026-07-19T11:17:11+08:00
-draft: true
 categories:
 - Python behind the scenes
 - Python
