@@ -4,6 +4,8 @@ description: "Optiver 上海校招/社招内推：公司与岗位介绍、期货
 date: 2026-08-23T12:25:45+08:00
 categories:
 - career
+images:
+- /images/blog/global/optiver-collage-interleaved.jpg
 ---
 
 > 本页为个人内推介绍，正式申请与公司隐私政策以官网为准。
