@@ -55,7 +55,11 @@ consistent:
 
 ## Steps
 
-1. If the user has not provided a title, ask: "文章标题是什么？" and wait for the answer before proceeding.
+1. Never ask for a title. If the user did not give one explicitly, derive it from
+   whatever they provided (a URL, topic, pasted text) — fetch the page title if
+   needed — and follow the naming style of the closest sibling post. Only if the
+   input is truly ambiguous, proceed with the best guess and mention 1-2
+   alternative titles in the final reply so the user can rename cheaply.
 2. Check similar posts (see above) to infer `series` / `categories`, the slug
    naming pattern, and any title numbering.
 3. Derive a slug from the title, matching the sibling naming pattern when the
