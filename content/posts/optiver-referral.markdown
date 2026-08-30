@@ -14,6 +14,22 @@ images:
 
 或直接通过我的 [内推链接](https://grnh.se/zdifj3as2us) 查看上海职位并申请。
 
+
+## 大致方向
+
+上海办公室的招聘方向主要包括：
+
+- 交易 / 量化交易
+- 量化研究
+- 软件研发 / 低延迟交易系统
+- SRE / 系统可靠性工程
+- Linux 系统工程
+- AI / 机器学习研究与工程
+- 机构销售与交易
+- 校招 / 实习生项目
+- ...
+
+
 ## 什么是 Optiver
 
 Optiver 是一家外资自营量化交易公司，在全球多个市场做市与交易（[Market Maker](https://en.wikipedia.org/wiki/Market_maker)）。举个不恰当的例子，当你着急买入或卖出房子时，相比于等待数月买家出现，中间商可以先买下你的房子，然后卖给有需要的人，通过中间差价获取利润 ------ Optiver 扮演类似的角色，但交易的是 Options 与 Futures 等金融产品。核心价值在于通过纳秒级低延迟技术，持续提供双边报价，为市场提供流动性，最终增加整体效率。
@@ -73,7 +89,6 @@ Optiver 是一家外资自营量化交易公司，在全球多个市场做市与
 
 ![optiver-collage-interleaved](/images/blog/global/optiver-collage-interleaved.jpg)
 
-p.s. 具体福利以 offer / 官方为准
 
 ## 内推（Talent Maker）
 
