@@ -1,5 +1,5 @@
 ---
-title: [2h] Get Started with Databricks for Data Engineering
+title: "[2h] Get Started with Databricks for Data Engineering"
 date: 2026-08-16T15:59:41+08:00
 draft: true
 tags:
@@ -28,7 +28,7 @@ categories:
 
 ### databricks walkthrough
 结构：
-<catalog>.<schema>.<table|volumn>
+`<catalog>.<schema>.<table|volumn>`
 
 ```sql
 SELECT current_catalog(), current_schema()
