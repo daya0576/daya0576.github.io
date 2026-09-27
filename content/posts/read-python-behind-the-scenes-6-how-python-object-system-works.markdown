@@ -8,13 +8,13 @@ series:
 - CPython
 ---
 
-> https://tenthousandmeters.com/blog/python-behind-the-scenes-6-how-python-object-system-works/
-
 ![A7B8DA89-597C-4297-BC23-E4CC882BA89C_1_105_c](/images/blog/global/A7B8DA89-597C-4297-BC23-E4CC882BA89C_1_105_c.jpeg)
 
 碎碎念：上周六参加了 pycon 2026，令人印象深刻的是：语言特性的分会场有两位高中生嘉宾；最火热的话题是 free threading。但相比 Agent 分会场的座无虚席，这边显得过分冷清，倒是令人嘘唏。
 
 ---
+
+> https://tenthousandmeters.com/blog/python-behind-the-scenes-6-how-python-object-system-works/
 
 从第一天学习 Python 开始，我们便知道 Python 中万物皆对象，这篇文章将介绍 Python 对象的实现原理（cpython3.9）。
 
