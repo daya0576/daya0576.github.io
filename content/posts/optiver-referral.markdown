@@ -19,14 +19,15 @@ images:
 
 上海办公室的招聘方向主要包括：
 
-- 交易 / 量化交易
-- 量化研究
-- 软件研发 / 低延迟交易系统
-- SRE / 系统可靠性工程
-- Linux 系统工程
-- AI / 机器学习研究与工程
-- 机构销售与交易
-- 校招 / 实习生项目
+- Trading: Quantitative Trader
+- Quantitative Researcher, Performance Researcher
+- Technology:
+  - Software Engineer (incl. AI Lab, Research Platform)
+  - AI Engineer / Machine Learning Engineer
+  - FPGA Developer
+  - Production Operations Engineer (Trading Systems / SRE / Application Support)
+  - Network Engineer, Data Center Engineer
+- Internships (Summer 2027)
 - ...
 
 
