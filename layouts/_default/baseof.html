@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language.Locale }}">
     {{- partial "head.html" . -}}
-    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if .Params.rain_interactive }} data-rain-interactive="true"{{ end }}>
+    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if .IsHome }} class="home-page"{{ end }}{{ if .Params.rain_interactive }} data-rain-interactive="true"{{ end }}>
 
         {{- partial "rain.html" . -}}
         <main class="page-content" aria-label="Content" style="position:relative;z-index:3;">
