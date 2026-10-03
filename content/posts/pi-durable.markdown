@@ -1,7 +1,6 @@
 ---
 title: "读 Pi Durable"
 date: 2026-10-03T06:47:56+08:00
-draft: true
 categories:
 - AI
 - Pi

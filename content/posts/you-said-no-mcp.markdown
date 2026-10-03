@@ -1,5 +1,6 @@
 ---
 title: "读 You Said No MCP"
+toc: true
 date: 2026-10-01T05:00:00+08:00
 categories:
 - AI

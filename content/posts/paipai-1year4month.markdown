@@ -9,7 +9,7 @@ categories:
 ---
 
 
-![F1ABEE59-0705-499C-B7C7-06D5FBDE478D_1_201_a](/images/blog/global/F1ABEE59-0705-499C-B7C7-06D5FBDE478D_1_201_a.jpeg)
+{{< figure src="/images/blog/global/F1ABEE59-0705-499C-B7C7-06D5FBDE478D_1_201_a.jpeg" alt="派派坐在推车里，伸手触碰红色苹果雕塑" >}}
 
 
 ## 派派一岁四个月啦
