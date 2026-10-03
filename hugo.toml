@@ -22,6 +22,9 @@ enableRobotsTXT = true
     posts = '/archives/'
 
 [markup]
+  [markup.highlight]
+    # GitHub light/dark palettes live in the theme SCSS and follow page appearance.
+    noClasses = false
   [markup.tableOfContents]
     endLevel = 3
     ordered = false

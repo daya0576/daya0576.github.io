@@ -27,7 +27,7 @@ def f(x):
     return x + 7
 ```
 
-然而，实际情况会稍微复杂一点，因为 `x` 可能是一个类，也可能是一个 builtin type int ------ 不会调用任何魔术方法（special methods）。
+然而，实际情况会稍微复杂一点，因为 `x` 可能是一个类，也可能是一个 builtin type int ------ 也就是说不会调用任何魔术方法（special methods）。
 
 ## Python 对象与类型
 在追踪源码前，先了解 ==Python 对象== 与 ==Python 类型== 在 cpython 中的定义：

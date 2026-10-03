@@ -38,6 +38,11 @@ series:
 
 新增 Tool exposure 后，插件确实同样可以做到一样的效果。但作者表示相比于袖手旁观，更希望直接拥抱 MCP 来影响它，让它在不断变好的路上持续前行。
 
+P.S. 改变世界的一个例子（联动 MCP 的作者）
+
+<blockquote class="twitter-tweet" data-lang="en" data-theme="dark"><p lang="en" dir="ltr"><a href="https://x.com/figma?ref_src=twsrc%5Etfw">@figma</a> please fix this <a href="https://t.co/8F4ZJSiLoM">https://t.co/8F4ZJSiLoM</a></p>&mdash; David Soria Parra (@dsp_) <a href="https://x.com/dsp_/status/2105241259887444440?ref_src=twsrc%5Etfw">September 30, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
+
 ## 什么是 Code Mode
 
 当 harness 执行 tools 时，一般分为两类：
