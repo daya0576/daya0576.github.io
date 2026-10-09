@@ -9,6 +9,7 @@ series:
 ---
 
 
+
 Cloudflare 在七月二日发生了一次全球性的宕机，个人托管在上面的两个小网站难以幸免，502 超过半个小时；甚至上班的时候，还收到了一些业务告警（某些渠道通过 cloudflare 做路由）。可见这次故障的影响范围之大，互联网的一些基础服务已经成为了 21 世纪的水电煤..
 
 而作为一名 SRE，明白在故障的整个生命周期中，最关键的一环就是故障复盘(postmortem)，以防止同样愚蠢的错误不再发生(通常大故障都是由很多小错误连锁造成的)。前天在千岛湖 outing 半夜四点睡不着的时候，起床偶遇这篇文章[《Details of the Cloudflare outage on July 2, 2019》](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/), 一口气读完了，写的很精彩（很会讲故事），当然总觉得还缺了什么。
