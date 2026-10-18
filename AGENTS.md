@@ -7,6 +7,7 @@ This is a Hugo static blog published at https://changchen.me.
 - Theme: `nostyleplease` as a Git submodule
 - Hugo version: v0.154+
 - Style direction: minimal
+- Design decisions: `docs/adr/` — read before changing styles
 
 ## Project Structure
 
