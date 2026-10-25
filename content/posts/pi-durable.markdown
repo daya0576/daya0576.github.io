@@ -6,7 +6,6 @@ categories:
 - Pi
 series:
 - Pi
-toc: true
 ---
 
 > https://earendil.com/posts/pi-durable/
@@ -101,7 +100,7 @@ const root = await harness.root(context, {
 
 ### 故障自动恢复
 
-在 Pi Durable 中，一次运行被分为多个步骤，分别对应持久化的 checkpoint，所以在进程中断重启后，可以“断点续传”：
+在 Pi Durable 中，一次运行被分为多个步骤，分别对应持久化的 checkpoint（每个 task 自定义的 phases），所以在进程中断重启后，可以“断点续传”：
 
 ```ts
 const job = {
@@ -175,7 +174,7 @@ defineExtension({
 
 #### System prompt sections
 
-每次请求发出前，都会动态获取最新的 system prompt（注意对应的变化也记录在历史 session 中，所以即使进程重启后，模型看到上下文的和重启前一模一样）：
+每次请求发出前，都会动态获取最新的 system prompt（注意对应的变化也记录在历史 conversation 中，所以即使进程重启后，模型看到上下文的和重启前一模一样）：
 
 ```ts
 import { defineExtension, section } from "@earendil-works/pi-durable";
@@ -233,9 +232,9 @@ registry.install(defineExtension({ name: "ops", tools: [searchIssues, deploy] })
 await thread.configure({ tools: { remove: [deploy] } }, context);
 ```
 
-tool 在执行时，可以直接调用 harness 的接口，例如用自定义模型开始新的任务，甚至==一个新的 session==，甚至可以与其他 session 进行交互。这种灵活的设计，让 subagent 的实现变得非常简单和自然。
+tool 在执行时，可以直接调用 harness 的接口，例如用自定义模型开始新的任务，甚至==一个新的 conversation==，甚至可以与其他 conversation 进行交互。这种灵活的设计，让 subagent 的实现变得非常简单和自然。
 
-p.s. 由 tool 创建的 session 本质上与主 session 没有区别，都在存储中持久化，所以也可以从故障中自动恢复继续。
+p.s. 由 tool 创建的 conversation 本质上与主 conversation 没有区别，都在存储中持久化，所以也可以从故障中自动恢复继续。
 
 ```ts
 import type { AssistantMessage } from "@earendil-works/pi-ai";
