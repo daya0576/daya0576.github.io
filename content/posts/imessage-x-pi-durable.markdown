@@ -16,8 +16,6 @@ series:
 
 ![](/images/blog/global/file-3bb69f273ae7daaf073bedb9a1061e4a.png)
 
-![](/images/blog/global/17928990251922.jpg)
-
 ## Session
 
 > A Session owns one mutation line, **conversations**, **entries**, **tasks**, **submissions**, and **documents**.
@@ -200,6 +198,8 @@ Conversation 36522（私聊）
 │
 └─ Document  pi.usage（token 消耗）每轮更新
 ```
+
+![](/images/blog/global/17928990251922.jpg)
 
 ## THE END
 
