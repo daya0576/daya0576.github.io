@@ -59,4 +59,5 @@ A：旅居的生活，做自己感兴趣的事，顺便养活自己。
 - 20180731 主题迁移到 Hexo（Next 主题）
 - 20241117 从 Hexo 迁移到 Hugo，主题切换为 nostyleplease
 
-
+## 自用好物推荐
+- [搬瓦工 BandwagonHost](https://bandwagonhost.com/aff.php?aff=85482)：稳定的 VPS（referral 链接）
