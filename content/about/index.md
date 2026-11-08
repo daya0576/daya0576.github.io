@@ -61,3 +61,4 @@ A：旅居的生活，做自己感兴趣的事，顺便养活自己。
 
 ## 自用好物推荐
 - [搬瓦工 BandwagonHost](https://bandwagonhost.com/aff.php?aff=85482)：稳定的 VPS（referral 链接）
+- [Cambly](https://www.camb.ly/s/DR7CK)：和英语母语者一对一练口语，用邀请码 `yaqzdfgq` 注册多送 10 分钟课（referral 链接）
